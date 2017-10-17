@@ -1,0 +1,35 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "tile",
+          "width" : 5,
+          "height" : 15
+        },
+        "cap-insets" : {
+          "bottom" : 27,
+          "top" : 13,
+          "right" : 8,
+          "left" : 24
+        }
+      },
+      "idiom" : "universal",
+      "filename" : "fts_gray_btn_HL_30x30@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

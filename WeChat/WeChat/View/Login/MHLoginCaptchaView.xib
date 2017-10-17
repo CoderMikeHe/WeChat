@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MHLoginCaptchaView">
+            <rect key="frame" x="0.0" y="0.0" width="450" height="92"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="验证码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upM-f1-oke" userLabel="captchaLabel">
+                    <rect key="frame" x="20" y="35.5" width="52" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="p4v-YQ-2uw" userLabel="captchaTextField">
+                    <rect key="frame" x="117" y="0.0" width="178" height="91"/>
+                    <color key="tintColor" red="0.039215686270000001" green="0.75686274509999996" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMS-qB-206" userLabel="dividerView">
+                    <rect key="frame" x="20" y="91.5" width="410" height="0.5"/>
+                    <color key="backgroundColor" red="0.78823529410000004" green="0.78823529410000004" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="gyJ-qe-tlg"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ncj-Gy-fmG" userLabel="captchaBtn">
+                    <rect key="frame" x="335" y="33" width="95" height="26"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="95" id="a1t-fZ-9SX"/>
+                        <constraint firstAttribute="height" constant="26" id="jUF-dl-HvB"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="获取验证码">
+                        <color key="titleColor" red="0.20784313725490194" green="0.20784313725490194" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="disabled">
+                        <color key="titleColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="0.20784313725490194" green="0.20784313725490194" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="zMS-qB-206" secondAttribute="bottom" id="2Iq-Zi-Hxx"/>
+                <constraint firstItem="p4v-YQ-2uw" firstAttribute="leading" secondItem="upM-f1-oke" secondAttribute="trailing" constant="45" id="7kh-Ua-rGL"/>
+                <constraint firstItem="upM-f1-oke" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="8Fc-Xf-n21"/>
+                <constraint firstItem="ncj-Gy-fmG" firstAttribute="trailing" secondItem="zMS-qB-206" secondAttribute="trailing" id="DG4-DW-LRk"/>
+                <constraint firstItem="ncj-Gy-fmG" firstAttribute="leading" secondItem="p4v-YQ-2uw" secondAttribute="trailing" constant="40" id="F3C-cu-Xqf"/>
+                <constraint firstAttribute="trailing" secondItem="zMS-qB-206" secondAttribute="trailing" constant="20" id="KyN-Tg-aHz"/>
+                <constraint firstItem="zMS-qB-206" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="WAE-26-k42"/>
+                <constraint firstItem="p4v-YQ-2uw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ZnW-Ms-bn9"/>
+                <constraint firstItem="ncj-Gy-fmG" firstAttribute="centerY" secondItem="upM-f1-oke" secondAttribute="centerY" id="bA9-BP-Dpf"/>
+                <constraint firstItem="zMS-qB-206" firstAttribute="top" secondItem="p4v-YQ-2uw" secondAttribute="bottom" id="g34-Yj-eDR"/>
+                <constraint firstItem="upM-f1-oke" firstAttribute="leading" secondItem="zMS-qB-206" secondAttribute="leading" id="mVH-ER-eu4"/>
+                <constraint firstItem="zMS-qB-206" firstAttribute="top" secondItem="p4v-YQ-2uw" secondAttribute="bottom" id="t7G-d3-sNK"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="captchaBtn" destination="ncj-Gy-fmG" id="psL-cf-xkW"/>
+                <outlet property="captchaTextField" destination="p4v-YQ-2uw" id="D3J-zU-ud4"/>
+                <outlet property="captchaTextFieldLeftCons" destination="7kh-Ua-rGL" id="G2i-Rw-dDJ"/>
+            </connections>
+            <point key="canvasLocation" x="-270" y="-91"/>
+        </view>
+    </objects>
+</document>

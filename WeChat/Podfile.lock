@@ -1,0 +1,317 @@
+PODS:
+  - ActionSheetPicker-3.0 (2.2.0)
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - AMapFoundation (1.4.2)
+  - AMapLocation (2.4.0):
+    - AMapFoundation (~> 1.4)
+  - BlocksKit (2.2.5):
+    - BlocksKit/All (= 2.2.5)
+  - BlocksKit/All (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - BlocksKit/MessageUI
+    - BlocksKit/UIKit
+  - BlocksKit/Core (2.2.5)
+  - BlocksKit/DynamicDelegate (2.2.5)
+  - BlocksKit/MessageUI (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BlocksKit/UIKit (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - Bugly (2.4.8)
+  - CHTCollectionViewWaterfallLayout (0.9.6):
+    - CHTCollectionViewWaterfallLayout/ObjC (= 0.9.6)
+  - CHTCollectionViewWaterfallLayout/ObjC (0.9.6)
+  - CocoaSecurity (1.2.4)
+  - Colours (5.13.0):
+    - Colours/ObjC (= 5.13.0)
+  - Colours/ObjC (5.13.0)
+  - DACircularProgress (2.3.1)
+  - DZNEmptyDataSet (1.8.1)
+  - FBAllocationTracker (0.1.5)
+  - FBMemoryProfiler (0.1.3):
+    - FBAllocationTracker (~> 0.1)
+    - FBRetainCycleDetector (~> 0.1)
+  - FBRetainCycleDetector (0.1.3)
+  - FDFullscreenPopGesture (1.1)
+  - FLEX (2.4.0)
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
+  - FXBlurView (1.6.4)
+  - HJCornerRadius (0.0.1)
+  - HYBImageCliped (2.2.4)
+  - IQKeyboardManager (5.0.2)
+  - JCore (1.1.5)
+  - JDStatusBarNotification (1.5.5)
+  - JPFPSStatus (0.1)
+  - JPush (3.0.6):
+    - JCore (~> 1.1.1)
+  - JSBadgeView (1.4.1)
+  - KVOController (1.2.0)
+  - LBXScan/LBXNative (2.0)
+  - LBXScan/LBXZBar (2.0):
+    - ZBarSDK (~> 1.3.1)
+  - LBXScan/LBXZXing (2.0)
+  - LBXScan/UI (2.0)
+  - libextobjc (0.4.1):
+    - libextobjc/EXTADT (= 0.4.1)
+    - libextobjc/EXTConcreteProtocol (= 0.4.1)
+    - libextobjc/EXTKeyPathCoding (= 0.4.1)
+    - libextobjc/EXTNil (= 0.4.1)
+    - libextobjc/EXTSafeCategory (= 0.4.1)
+    - libextobjc/EXTScope (= 0.4.1)
+    - libextobjc/EXTSelectorChecking (= 0.4.1)
+    - libextobjc/EXTSynthesize (= 0.4.1)
+    - libextobjc/NSInvocation+EXT (= 0.4.1)
+    - libextobjc/NSMethodSignature+EXT (= 0.4.1)
+    - libextobjc/RuntimeExtensions (= 0.4.1)
+    - libextobjc/UmbrellaHeader (= 0.4.1)
+  - libextobjc/EXTADT (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTConcreteProtocol (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTKeyPathCoding (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTNil (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSafeCategory (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTScope (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSelectorChecking (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSynthesize (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/NSInvocation+EXT (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/NSMethodSignature+EXT (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/RuntimeExtensions (0.4.1)
+  - libextobjc/UmbrellaHeader (0.4.1)
+  - LxDBAnything (1.1.0)
+  - Masonry (1.0.2)
+  - MBProgressHUD (1.0.0)
+  - MJExtension (3.0.13)
+  - MJRefresh (3.1.12)
+  - MMMaterialDesignSpinner (0.2.3)
+  - pop (1.0.10)
+  - ReactiveCocoa (2.5.2):
+    - ReactiveCocoa/UI (= 2.5.2)
+  - ReactiveCocoa/Core (2.5.2):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.5.2)
+  - ReactiveCocoa/UI (2.5.2):
+    - ReactiveCocoa/Core
+  - SAMKeychain (1.5.2)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
+  - SocketRocket (0.5.1)
+  - SSZipArchive (1.8.1)
+  - SVProgressHUD (2.1.2)
+  - TTTAttributedLabel (2.0.0)
+  - TXScrollLabelView (1.3.1)
+  - UICollectionViewLeftAlignedLayout (1.0.2)
+  - UIImage+ImageWithColor (1.4.0)
+  - UITableView+FDTemplateLayoutCell (1.6)
+  - UIView+FDCollapsibleConstraints (1.1)
+  - UMengAnalytics-NO-IDFA (4.2.5)
+  - UMengUShare/Core (6.4.5):
+    - UMengUShare/Network
+  - UMengUShare/Network (6.4.5)
+  - UMengUShare/Social/ReducedQQ (6.4.5):
+    - UMengUShare/Core
+  - UMengUShare/Social/ReducedSina (6.4.5):
+    - UMengUShare/Core
+  - UMengUShare/Social/ReducedWeChat (6.4.5):
+    - UMengUShare/Core
+  - UMengUShare/Social/WeChat (6.4.5):
+    - UMengUShare/Core
+    - UMengUShare/Social/ReducedWeChat
+  - UMengUShare/UI (6.4.5):
+    - UMengUShare/Core
+  - WZLBadge (1.2.6)
+  - YYAsyncLayer (1.0)
+  - YYCache (1.0.4)
+  - YYCategories (1.0.4):
+    - YYCategories/no-arc (= 1.0.4)
+  - YYCategories/no-arc (1.0.4)
+  - YYDispatchQueuePool (1.0)
+  - YYImage (1.0.4):
+    - YYImage/Core (= 1.0.4)
+  - YYImage/Core (1.0.4)
+  - YYImage/WebP (1.0.4):
+    - YYImage/Core
+  - YYKeyboardManager (1.0.1)
+  - YYModel (1.0.4)
+  - YYText (1.0.7)
+  - YYWebImage (1.0.5):
+    - YYCache
+    - YYImage
+  - ZBarSDK (1.3.1)
+  - ZYCornerRadius (1.0.2)
+
+DEPENDENCIES:
+  - ActionSheetPicker-3.0 (= 2.2.0)
+  - AFNetworking (= 3.1.0)
+  - AMapLocation (= 2.4.0)
+  - BlocksKit (= 2.2.5)
+  - Bugly (= 2.4.8)
+  - CHTCollectionViewWaterfallLayout (= 0.9.6)
+  - CocoaSecurity (= 1.2.4)
+  - Colours (= 5.13.0)
+  - DACircularProgress (= 2.3.1)
+  - DZNEmptyDataSet (= 1.8.1)
+  - FBMemoryProfiler (= 0.1.3)
+  - FDFullscreenPopGesture (= 1.1)
+  - FLEX (= 2.4.0)
+  - FMDB (= 2.6.2)
+  - FXBlurView (= 1.6.4)
+  - HJCornerRadius (from `https://github.com/panghaijiao/HJCornerRadius.git`)
+  - HYBImageCliped (= 2.2.4)
+  - IQKeyboardManager (= 5.0.2)
+  - JDStatusBarNotification (= 1.5.5)
+  - JPFPSStatus (= 0.1)
+  - JPush (= 3.0.6)
+  - JSBadgeView (= 1.4.1)
+  - KVOController (= 1.2.0)
+  - LBXScan/LBXNative (= 2.0)
+  - LBXScan/LBXZBar (= 2.0)
+  - LBXScan/LBXZXing (= 2.0)
+  - LBXScan/UI (= 2.0)
+  - libextobjc (= 0.4.1)
+  - LxDBAnything (= 1.1.0)
+  - Masonry (= 1.0.2)
+  - MBProgressHUD (= 1.0.0)
+  - MJExtension (= 3.0.13)
+  - MJRefresh (= 3.1.12)
+  - MMMaterialDesignSpinner (= 0.2.3)
+  - pop (= 1.0.10)
+  - ReactiveCocoa (from `https://github.com/zhao0/ReactiveCocoa.git`, tag `2.5.2`)
+  - SAMKeychain (= 1.5.2)
+  - SDWebImage (= 4.0.0)
+  - SocketRocket (= 0.5.1)
+  - SSZipArchive (= 1.8.1)
+  - SVProgressHUD (= 2.1.2)
+  - TTTAttributedLabel (= 2.0.0)
+  - TXScrollLabelView (= 1.3.1)
+  - UICollectionViewLeftAlignedLayout (= 1.0.2)
+  - UIImage+ImageWithColor (= 1.4.0)
+  - UITableView+FDTemplateLayoutCell (= 1.6)
+  - UIView+FDCollapsibleConstraints (= 1.1)
+  - UMengAnalytics-NO-IDFA (= 4.2.5)
+  - UMengUShare/Social/ReducedQQ (= 6.4.5)
+  - UMengUShare/Social/ReducedSina (= 6.4.5)
+  - UMengUShare/Social/WeChat (= 6.4.5)
+  - UMengUShare/UI (= 6.4.5)
+  - WZLBadge (= 1.2.6)
+  - YYAsyncLayer (= 1.0)
+  - YYCache (= 1.0.4)
+  - YYCategories (= 1.0.4)
+  - YYDispatchQueuePool (= 1.0)
+  - YYImage (= 1.0.4)
+  - YYImage/WebP
+  - YYKeyboardManager (= 1.0.1)
+  - YYModel (= 1.0.4)
+  - YYText (= 1.0.7)
+  - YYWebImage (= 1.0.5)
+  - ZYCornerRadius (= 1.0.2)
+
+EXTERNAL SOURCES:
+  HJCornerRadius:
+    :git: https://github.com/panghaijiao/HJCornerRadius.git
+  ReactiveCocoa:
+    :git: https://github.com/zhao0/ReactiveCocoa.git
+    :tag: 2.5.2
+
+CHECKOUT OPTIONS:
+  HJCornerRadius:
+    :commit: fd82fdef4407b898dd055ceeb5a5337953206914
+    :git: https://github.com/panghaijiao/HJCornerRadius.git
+  ReactiveCocoa:
+    :git: https://github.com/zhao0/ReactiveCocoa.git
+    :tag: 2.5.2
+
+SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: d11a4c12c6aaf704b8a3f56d179198c99f3e41e6
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  AMapFoundation: 6c0471c9a6a0ad17dad46e3d800ad56ca170f82a
+  AMapLocation: 47b62b5381a66e4d0c2931b70ffde72682427896
+  BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
+  Bugly: da3c02408c14838d498429320545a8e439392978
+  CHTCollectionViewWaterfallLayout: f4dab06db57b36dcf29e802594175acc76c56615
+  CocoaSecurity: d288a6f87e0f363823d2cb83e753814a6944f71a
+  Colours: f24220c38f13deac88612667e9b4a7fb96b871d4
+  DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  FBAllocationTracker: dfdca3f71aceca6a85e95e3c6ec76a9785eba0f1
+  FBMemoryProfiler: 623fc5f8a61f7d02ec75c87e3b97c90f621d8b02
+  FBRetainCycleDetector: f0c7b290bf48ae77f6ae060843ce34ae341781eb
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
+  FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  FXBlurView: db786c2561cb49a09ae98407f52460096ab8a44f
+  HJCornerRadius: 0af191386b5f2e9c4465739b5db22c0acc52923b
+  HYBImageCliped: 22d14431324bc9d056353d6f1490a3bd03fc7dff
+  IQKeyboardManager: 5ab84749f20f682f784160c2c63bef4f19d10d26
+  JCore: 9bd9c770c877c583d98b90a68792b8361974c231
+  JDStatusBarNotification: 2b4f29bd68a60d7aa2f190b5265f1ce59c18aaf8
+  JPFPSStatus: 4467a17488382e4c1700bd9d18c92ae581fd6305
+  JPush: c41be50eb1a574a66aeb68d237f00a4ec6ec3a82
+  JSBadgeView: 3861ddee41094284d9468e6d0af5107f703aaac5
+  KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
+  LBXScan: 458f4b7a6688504a1415dc4a0f9822100e099f66
+  libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
+  LxDBAnything: 154a2ad1ae32e70355d886b5443260543bb60c71
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  MJExtension: 5932755f451458eefa24239358817f8d291240c7
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  MMMaterialDesignSpinner: 55c80b454f7928d0ed789cc3c456fa06bd6a2f16
+  pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
+  ReactiveCocoa: 3ff25b1bd992ac79c5c79b26b6c0c1713b715bb2
+  SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
+  SSZipArchive: 04547dfa448be5ed7ecbaf7eaf8a6e9eb9b42997
+  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
+  TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
+  TXScrollLabelView: 0c46b8ad58f85df9d0c923ac58cd43c6c715c580
+  UICollectionViewLeftAlignedLayout: 830bf6fa5bab9f9b464f62e3384f9d2e00b3c0f6
+  UIImage+ImageWithColor: 891401f732f2f332fefe68c2332c6c955c2a879c
+  UITableView+FDTemplateLayoutCell: 5c949b4a5059c404b442926c0e80f81d10a2d66f
+  UIView+FDCollapsibleConstraints: 9357eaf03b4e088263ab74a3b86a382a64ce38dd
+  UMengAnalytics-NO-IDFA: 16666e32edce5be44ae5b14aaaa7f3582e09d6ab
+  UMengUShare: a5711c54e640b04e3048e931d2b88d50f9cfa55c
+  WZLBadge: 9ec779dcfd94c825518b395e8315fccaabff1bfa
+  YYAsyncLayer: df6b01ebc695c5f6b4c15dd5c23fa3e081eb25c0
+  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
+  YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
+  YYDispatchQueuePool: 3dfb2274bcc74207688dde8ac6f7bdd46871dd7b
+  YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
+  YYKeyboardManager: ff53d2e80d1808567a7f004028bd200d9469a89f
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
+  YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
+  YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
+  ZBarSDK: 4c1b5daeb7d6cc67dc9355e690af0230a661f6ec
+  ZYCornerRadius: f0af817be7805b5c63d793042ca7a03f81e14069
+
+PODFILE CHECKSUM: 687a66dd6d729d39228c97018e83763fefa7d586
+
+COCOAPODS: 1.2.1

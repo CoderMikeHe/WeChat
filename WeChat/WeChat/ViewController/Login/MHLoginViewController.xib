@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MHLoginViewController">
+            <connections>
+                <outlet property="accountBaseView" destination="b5F-2s-9uw" id="U0v-Ju-RCG"/>
+                <outlet property="changeLoginBtn" destination="LQf-U1-9Cl" id="LGK-8I-2cx"/>
+                <outlet property="containerView" destination="gTO-FW-Rjy" id="mzt-hM-yBH"/>
+                <outlet property="loginBtn" destination="KjI-GM-dte" id="3er-UD-vc2"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="UIScrollView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gTO-FW-Rjy" userLabel="containerView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5F-2s-9uw" userLabel="accountBaseView">
+                            <rect key="frame" x="0.0" y="142" width="375" height="158"/>
+                            <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="158" id="7Ro-VM-JEp"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQf-U1-9Cl" userLabel="changeBtn">
+                            <rect key="frame" x="20" y="334" width="335" height="34"/>
+                            <state key="normal" title="用微信号/QQ号/邮箱登录">
+                                <color key="titleColor" red="0.3411764705882353" green="0.41960784313725491" blue="0.58431372549019611" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="selected" title="用手机号登录"/>
+                            <connections>
+                                <action selector="_changeLoginBtnDidClicked:" destination="-1" eventType="touchUpInside" id="xZ9-g6-Gf6"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KjI-GM-dte" userLabel="loginBtn">
+                            <rect key="frame" x="20" y="436" width="335" height="47"/>
+                            <color key="backgroundColor" red="0.28627450980000002" green="0.59999999999999998" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="47" id="JJ3-E4-3b7"/>
+                            </constraints>
+                            <state key="normal" title="登录">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="disabled">
+                                <color key="titleColor" red="0.85882352941176465" green="0.95294117647058818" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="6"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="0.28627450980392155" green="0.59999999999999998" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="_loginBtnDidClicked:" destination="-1" eventType="touchUpInside" id="DJz-pg-HUg"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="KjI-GM-dte" firstAttribute="leading" secondItem="gTO-FW-Rjy" secondAttribute="leading" constant="20" id="7q3-jg-MDH"/>
+                        <constraint firstAttribute="trailing" secondItem="b5F-2s-9uw" secondAttribute="trailing" id="GLE-Mg-wQf"/>
+                        <constraint firstItem="KjI-GM-dte" firstAttribute="top" secondItem="LQf-U1-9Cl" secondAttribute="bottom" constant="68" id="K4D-C7-iAe"/>
+                        <constraint firstItem="LQf-U1-9Cl" firstAttribute="leading" secondItem="gTO-FW-Rjy" secondAttribute="leading" constant="20" id="TXD-QX-fbh"/>
+                        <constraint firstAttribute="trailing" secondItem="KjI-GM-dte" secondAttribute="trailing" constant="20" id="Tq6-MJ-VyA"/>
+                        <constraint firstItem="LQf-U1-9Cl" firstAttribute="top" secondItem="b5F-2s-9uw" secondAttribute="bottom" constant="34" id="Vun-Si-pJ6"/>
+                        <constraint firstAttribute="trailing" secondItem="LQf-U1-9Cl" secondAttribute="trailing" constant="20" id="mom-zU-vCv"/>
+                        <constraint firstItem="b5F-2s-9uw" firstAttribute="leading" secondItem="gTO-FW-Rjy" secondAttribute="leading" id="qcr-Hj-dCr"/>
+                        <constraint firstItem="b5F-2s-9uw" firstAttribute="top" secondItem="gTO-FW-Rjy" secondAttribute="top" constant="142" id="vit-c1-MX1"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="gTO-FW-Rjy" secondAttribute="trailing" id="7T4-nz-0Qj"/>
+                <constraint firstItem="gTO-FW-Rjy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="G2R-7U-GoZ"/>
+                <constraint firstItem="gTO-FW-Rjy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="hKx-I9-mbN"/>
+                <constraint firstAttribute="bottom" secondItem="gTO-FW-Rjy" secondAttribute="bottom" id="xoE-tj-AiM"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <point key="canvasLocation" x="32.5" y="101.5"/>
+        </view>
+    </objects>
+</document>

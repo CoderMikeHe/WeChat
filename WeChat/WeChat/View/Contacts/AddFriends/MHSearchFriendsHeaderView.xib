@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MHSearchFriendsHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ov1-ZF-jso">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="NuI-lL-h8U"/>
+                    </constraints>
+                    <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="微信号/手机号" image="add_friend_searchicon_36x30">
+                        <color key="titleColor" red="0.7803921568627451" green="0.7803921568627451" blue="0.79607843137254897" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="_searchBtnDidClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="NFO-6s-s67"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我的微信号：Mr.Right" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGo-ZL-nOk" userLabel="weChatIdLabel">
+                    <rect key="frame" x="40" y="46" width="158" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oX7-as-rbl" userLabel="qrCodeBtn">
+                    <rect key="frame" x="192" y="46" width="20" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="add_friend_myQR_20x20"/>
+                    <connections>
+                        <action selector="_qrCodeBtnDidClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="0x3-K5-ddN"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Ov1-ZF-jso" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="d4D-5B-DVS"/>
+                <constraint firstItem="Ov1-ZF-jso" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hfQ-Gy-km6"/>
+                <constraint firstAttribute="trailing" secondItem="Ov1-ZF-jso" secondAttribute="trailing" id="pDT-Ro-LhD"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="qrCodeBtn" destination="oX7-as-rbl" id="J6n-rh-vMv"/>
+                <outlet property="weChatIdLabel" destination="JGo-ZL-nOk" id="6fU-vM-I4X"/>
+            </connections>
+            <point key="canvasLocation" x="107.5" y="-28"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="add_friend_myQR_20x20" width="20" height="20"/>
+        <image name="add_friend_searchicon_36x30" width="36" height="30"/>
+    </resources>
+</document>

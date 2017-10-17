@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MHRegisterViewController">
+            <connections>
+                <outlet property="accountBaseView" destination="380-s9-xkv" id="2BK-1V-c07"/>
+                <outlet property="containerView" destination="NT5-4d-1tO" id="fha-tP-WOC"/>
+                <outlet property="registerBtn" destination="9er-A8-c5f" id="Suc-yZ-dc9"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="UIScrollView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NT5-4d-1tO" userLabel="containerView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="380-s9-xkv" userLabel="accountBaseView">
+                            <rect key="frame" x="0.0" y="81" width="375" height="158"/>
+                            <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="158" id="gE0-gK-Xpo"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9er-A8-c5f" userLabel="registerBtn">
+                            <rect key="frame" x="20" y="269" width="335" height="47"/>
+                            <color key="backgroundColor" red="0.28627450980000002" green="0.59999999999999998" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="47" id="6kF-HF-Swe"/>
+                            </constraints>
+                            <state key="normal" title="注册">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="disabled">
+                                <color key="titleColor" red="0.85882352939999995" green="0.95294117649999999" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="6"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="0.28627450980000002" green="0.59999999999999998" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="_registerBtnDidClicked:" destination="-1" eventType="touchUpInside" id="ah8-Vp-bm1"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="9er-A8-c5f" firstAttribute="top" secondItem="380-s9-xkv" secondAttribute="bottom" constant="30" id="DTI-Tu-FFw"/>
+                        <constraint firstAttribute="trailing" secondItem="380-s9-xkv" secondAttribute="trailing" id="Lx0-nL-kab"/>
+                        <constraint firstItem="380-s9-xkv" firstAttribute="top" secondItem="NT5-4d-1tO" secondAttribute="top" constant="81" id="UpT-Cx-Xmc"/>
+                        <constraint firstAttribute="trailing" secondItem="9er-A8-c5f" secondAttribute="trailing" constant="20" id="jGc-lR-aRO"/>
+                        <constraint firstItem="9er-A8-c5f" firstAttribute="leading" secondItem="NT5-4d-1tO" secondAttribute="leading" constant="20" id="rey-cN-TOg"/>
+                        <constraint firstItem="380-s9-xkv" firstAttribute="leading" secondItem="NT5-4d-1tO" secondAttribute="leading" id="vT2-le-AZa"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.43946291570000001" green="1" blue="0.48411045819999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="NT5-4d-1tO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="5hM-iG-Hp9"/>
+                <constraint firstItem="NT5-4d-1tO" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="ef1-yZ-C76"/>
+                <constraint firstItem="NT5-4d-1tO" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="gC6-wU-HdQ"/>
+                <constraint firstItem="NT5-4d-1tO" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" id="tKg-i4-0Df"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+        </view>
+    </objects>
+</document>

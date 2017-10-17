@@ -1,0 +1,35 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "tile",
+          "width" : 4,
+          "height" : 5
+        },
+        "cap-insets" : {
+          "bottom" : 26,
+          "top" : 28,
+          "right" : 24,
+          "left" : 29
+        }
+      },
+      "idiom" : "universal",
+      "filename" : "common_gray_btn_30x30@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

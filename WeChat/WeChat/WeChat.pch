@@ -1,0 +1,61 @@
+//
+//  WeChat.pch
+//  WeChat
+//
+//  Created by senba on 2017/9/10.
+//  Copyright © 2017年 CoderMikeHe. All rights reserved.
+//
+//  前期参与编译的头文件，切记：这里只能放置轻量常用的的头文件，比较大的头文件切勿放置于此，否则会导致debug模式下 编译时间过长。
+
+#if __OBJC__
+
+#ifndef WeChat_pch
+#define WeChat_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+/// 系统or第三方框架
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <YYCategories/YYCategories.h>
+#import <Colours/Colours.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
+#import <Masonry/Masonry.h>
+#import <FDFullscreenPopGesture/UINavigationController+FDFullscreenPopGesture.h>
+#import <BlocksKit/BlocksKit.h>
+#import <BlocksKit/BlocksKit+UIKit.h>
+#import <UMMobClick/MobClick.h>  /// < 友盟统计
+#import <YYText/YYText.h>
+#import <YYWebImage/YYWebImage.h>
+#import <IQKeyboardManager/IQKeyboardManager.h>
+#import <ZYCornerRadius/UIImageView+CornerRadius.h>
+
+
+/// User Custom File
+#import "MHMacros.h"
+#import "MHFileManager.h"
+#import "LCActionSheet+MHExtension.h"
+#import "UIFont+MHExtension.h"
+#import "NSError+MHModelException.h"
+#import "UIView+MH.h"
+#import "FBKVOController+MHExtension.h"
+#import "MBProgressHUD+MHExtension.h"
+#import "UIAlertController+MHColor.h"
+#import "UIBarButtonItem+MHExtension.h"
+#import "UIImage+MHExtension.h"
+#import "NSObject+MH.h"
+#import "NSString+MH.h"
+#import "UITextField+MHExtension.h"
+#import "UITextView+MHExtension.h"
+#import "UILabel+MHExtension.h"
+#import "UISearchBar+MHExtension.h"
+#import "SAMKeychain+MHUtil.h"
+#import "MHSearchBar.h"
+#import "AppDelegate.h"
+#import "MHTextField.h"
+#import "MHPreferenceSettingHelper.h"
+
+#endif /* WeChat_pch */
+
+#endif
