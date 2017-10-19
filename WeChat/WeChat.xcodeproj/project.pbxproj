@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26003FF31F988B81000621B0 /* MHButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 26003FF21F988B81000621B0 /* MHButton.m */; };
+		26003FF61F988BA1000621B0 /* MHImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26003FF51F988BA1000621B0 /* MHImageView.m */; };
 		2605C5B51F66241D00B1F66E /* MHHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2605C5B41F66241D00B1F66E /* MHHomePageViewController.m */; };
 		2605C5B81F66249F00B1F66E /* MHHomePageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2605C5B71F66249F00B1F66E /* MHHomePageViewModel.m */; };
 		2605C5BB1F662EA300B1F66E /* MHMainFrameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2605C5BA1F662EA300B1F66E /* MHMainFrameViewController.m */; };
@@ -23,10 +25,7 @@
 		2605C5DC1F6633F500B1F66E /* MHNewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2605C5DB1F6633F500B1F66E /* MHNewFeatureViewController.m */; };
 		26064AB81F5D9A1400566B95 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 26064AB71F5D9A1400566B95 /* main.m */; };
 		26064ABB1F5D9A1400566B95 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 26064ABA1F5D9A1400566B95 /* AppDelegate.m */; };
-		26064ABE1F5D9A1400566B95 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26064ABD1F5D9A1400566B95 /* ViewController.m */; };
-		26064AC11F5D9A1400566B95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26064ABF1F5D9A1400566B95 /* Main.storyboard */; };
 		26064AC31F5D9A1400566B95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26064AC21F5D9A1400566B95 /* Assets.xcassets */; };
-		26064AC61F5D9A1400566B95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26064AC41F5D9A1400566B95 /* LaunchScreen.storyboard */; };
 		26064AD11F5D9A1400566B95 /* WeChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 26064AD01F5D9A1400566B95 /* WeChatTests.m */; };
 		26064ADC1F5D9A1400566B95 /* WeChatUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 26064ADB1F5D9A1400566B95 /* WeChatUITests.m */; };
 		26064AFC1F5DB52900566B95 /* MHNavigationControllerStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 26064AFB1F5DB52900566B95 /* MHNavigationControllerStack.m */; };
@@ -124,7 +123,6 @@
 		264F2D1A1F94A84900B244AD /* MHPlugDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 264F2D191F94A84900B244AD /* MHPlugDetailViewModel.m */; };
 		2658C68E1F74FD3100C70840 /* MHAddFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2658C68D1F74FD3100C70840 /* MHAddFriendsViewController.m */; };
 		2658C6921F74FFDE00C70840 /* MHAddFriendsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2658C6911F74FFDE00C70840 /* MHAddFriendsViewModel.m */; };
-		265B4EBE1F8DCB42004AEE5F /* MHButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 265B4EBD1F8DCB42004AEE5F /* MHButton.m */; };
 		265B4EC61F8DEF54004AEE5F /* MHSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 265B4EC51F8DEF54004AEE5F /* MHSettingViewController.m */; };
 		265B4EC91F8DEF7F004AEE5F /* MHSettingViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 265B4EC81F8DEF7F004AEE5F /* MHSettingViewModel.m */; };
 		2667A3E31F7B75BB00A3D7A2 /* MHAccountLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2667A3E21F7B75BB00A3D7A2 /* MHAccountLoginView.m */; };
@@ -225,6 +223,10 @@
 
 /* Begin PBXFileReference section */
 		1155F086797DBAE6A4893338 /* Pods-WeChat-WeChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChat-WeChatTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeChat-WeChatTests/Pods-WeChat-WeChatTests.release.xcconfig"; sourceTree = "<group>"; };
+		26003FF11F988B81000621B0 /* MHButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHButton.h; sourceTree = "<group>"; };
+		26003FF21F988B81000621B0 /* MHButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHButton.m; sourceTree = "<group>"; };
+		26003FF41F988BA1000621B0 /* MHImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHImageView.h; sourceTree = "<group>"; };
+		26003FF51F988BA1000621B0 /* MHImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHImageView.m; sourceTree = "<group>"; };
 		2605C5B31F66241D00B1F66E /* MHHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHHomePageViewController.h; sourceTree = "<group>"; };
 		2605C5B41F66241D00B1F66E /* MHHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHHomePageViewController.m; sourceTree = "<group>"; };
 		2605C5B61F66249F00B1F66E /* MHHomePageViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHHomePageViewModel.h; sourceTree = "<group>"; };
@@ -257,11 +259,7 @@
 		26064AB71F5D9A1400566B95 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		26064AB91F5D9A1400566B95 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		26064ABA1F5D9A1400566B95 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		26064ABC1F5D9A1400566B95 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		26064ABD1F5D9A1400566B95 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		26064AC01F5D9A1400566B95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		26064AC21F5D9A1400566B95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		26064AC51F5D9A1400566B95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26064AC71F5D9A1400566B95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26064ACC1F5D9A1400566B95 /* WeChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26064AD01F5D9A1400566B95 /* WeChatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeChatTests.m; sourceTree = "<group>"; };
@@ -462,8 +460,6 @@
 		2658C68D1F74FD3100C70840 /* MHAddFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHAddFriendsViewController.m; sourceTree = "<group>"; };
 		2658C6901F74FFDE00C70840 /* MHAddFriendsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHAddFriendsViewModel.h; sourceTree = "<group>"; };
 		2658C6911F74FFDE00C70840 /* MHAddFriendsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHAddFriendsViewModel.m; sourceTree = "<group>"; };
-		265B4EBC1F8DCB42004AEE5F /* MHButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHButton.h; sourceTree = "<group>"; };
-		265B4EBD1F8DCB42004AEE5F /* MHButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHButton.m; sourceTree = "<group>"; };
 		265B4EC41F8DEF54004AEE5F /* MHSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSettingViewController.h; sourceTree = "<group>"; };
 		265B4EC51F8DEF54004AEE5F /* MHSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSettingViewController.m; sourceTree = "<group>"; };
 		265B4EC71F8DEF7F004AEE5F /* MHSettingViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSettingViewModel.h; sourceTree = "<group>"; };
@@ -683,11 +679,7 @@
 				26064AF01F5DA21000566B95 /* Vendor */,
 				26064AED1F5DA21000566B95 /* Macros */,
 				26064AEE1F5DA21000566B95 /* Resource */,
-				26064ABC1F5D9A1400566B95 /* ViewController.h */,
-				26064ABD1F5D9A1400566B95 /* ViewController.m */,
-				26064ABF1F5D9A1400566B95 /* Main.storyboard */,
 				26064AC21F5D9A1400566B95 /* Assets.xcassets */,
-				26064AC41F5D9A1400566B95 /* LaunchScreen.storyboard */,
 				26064AC71F5D9A1400566B95 /* Info.plist */,
 				26064AB61F5D9A1400566B95 /* Supporting Files */,
 			);
@@ -734,14 +726,14 @@
 			isa = PBXGroup;
 			children = (
 				263C896C1F6A305100F7A0AE /* BaseClass */,
+				263C89711F6A305100F7A0AE /* MainFrame */,
 				263C896D1F6A305100F7A0AE /* Contacts */,
 				263C896E1F6A305100F7A0AE /* Discover */,
+				263C89751F6A305100F7A0AE /* Profile */,
 				263C896F1F6A305100F7A0AE /* HomePage */,
 				263C89701F6A305100F7A0AE /* Login */,
-				263C89711F6A305100F7A0AE /* MainFrame */,
 				263C89721F6A305100F7A0AE /* NewFeature */,
 				263C89731F6A305100F7A0AE /* Other */,
-				263C89751F6A305100F7A0AE /* Profile */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -754,8 +746,8 @@
 				26064AF21F5DB46500566B95 /* Contacts */,
 				26064AF31F5DB46500566B95 /* Discover */,
 				26064AF91F5DB46500566B95 /* Profile */,
-				26064AF51F5DB46500566B95 /* Login */,
 				26064AF41F5DB46500566B95 /* HomePage */,
+				26064AF51F5DB46500566B95 /* Login */,
 				26064AF71F5DB46500566B95 /* NewFeature */,
 				26064AF81F5DB46500566B95 /* Other */,
 			);
@@ -1208,6 +1200,10 @@
 		263C896C1F6A305100F7A0AE /* BaseClass */ = {
 			isa = PBXGroup;
 			children = (
+				26003FF11F988B81000621B0 /* MHButton.h */,
+				26003FF21F988B81000621B0 /* MHButton.m */,
+				26003FF41F988BA1000621B0 /* MHImageView.h */,
+				26003FF51F988BA1000621B0 /* MHImageView.m */,
 			);
 			path = BaseClass;
 			sourceTree = "<group>";
@@ -1275,8 +1271,6 @@
 				2615266A1F6AE17400400BA0 /* MHTabBar.m */,
 				26AEEE0B1F7D16F600A270EE /* MHSearchBar.h */,
 				26AEEE0C1F7D16F600A270EE /* MHSearchBar.m */,
-				265B4EBC1F8DCB42004AEE5F /* MHButton.h */,
-				265B4EBD1F8DCB42004AEE5F /* MHButton.m */,
 				266E15CE1F8F2086000E31C5 /* MHTextField.h */,
 				266E15CF1F8F2086000E31C5 /* MHTextField.m */,
 			);
@@ -2023,7 +2017,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26064AC61F5D9A1400566B95 /* LaunchScreen.storyboard in Resources */,
 				26FE8E471F95143D00EC8BE0 /* IDMPBLocalizations.bundle in Resources */,
 				26FE8E491F95143D00EC8BE0 /* IDMPhotoBrowser.bundle in Resources */,
 				263D36DD1F666438007267C3 /* MBProgressHUD.bundle in Resources */,
@@ -2034,7 +2027,6 @@
 				26064AC31F5D9A1400566B95 /* Assets.xcassets in Resources */,
 				2609ED541F790B07002D31CE /* MHLoginCaptchaView.xib in Resources */,
 				266E15DA1F8F7E7E000E31C5 /* MHCommitViewController.xib in Resources */,
-				26064AC11F5D9A1400566B95 /* Main.storyboard in Resources */,
 				264F2D171F94A80F00B244AD /* MHPlugDetailViewController.xib in Resources */,
 				2667A3E51F7B768C00A3D7A2 /* MHAccountLoginView.xib in Resources */,
 				26A7E74F1F7A32500015CA71 /* MHLoginViewController.xib in Resources */,
@@ -2271,7 +2263,6 @@
 				2629840B1F909D1400AA9131 /* MHLanguageViewController.m in Sources */,
 				263D36DE1F666438007267C3 /* NSDate+Extension.m in Sources */,
 				26225D971F6557290074BFC3 /* MHViewModelServicesImpl.m in Sources */,
-				265B4EBE1F8DCB42004AEE5F /* MHButton.m in Sources */,
 				2667A3E31F7B75BB00A3D7A2 /* MHAccountLoginView.m in Sources */,
 				26FE8E911F9514D100EC8BE0 /* TZProgressView.m in Sources */,
 				26FE8E901F9514D100EC8BE0 /* TZPhotoPreviewController.m in Sources */,
@@ -2300,7 +2291,6 @@
 				263D37151F666569007267C3 /* YYKeychain.m in Sources */,
 				26A7E7411F79FE550015CA71 /* MHBootLoginViewController.m in Sources */,
 				2618AFD11F91A5D900F82A46 /* MHPreferenceSettingHelper.m in Sources */,
-				26064ABE1F5D9A1400566B95 /* ViewController.m in Sources */,
 				2609ED521F790AF8002D31CE /* MHLoginCaptchaView.m in Sources */,
 				26FE8E461F95143D00EC8BE0 /* IDMCaptionView.m in Sources */,
 				26064ABB1F5D9A1400566B95 /* AppDelegate.m in Sources */,
@@ -2313,6 +2303,7 @@
 				2605C5DC1F6633F500B1F66E /* MHNewFeatureViewController.m in Sources */,
 				2605C5D01F66326000B1F66E /* MHDiscoverViewController.m in Sources */,
 				263D36DC1F666438007267C3 /* MBProgressHUD+MHExtension.m in Sources */,
+				26003FF31F988B81000621B0 /* MHButton.m in Sources */,
 				26064AB81F5D9A1400566B95 /* main.m in Sources */,
 				266E15D41F8F7E43000E31C5 /* MHRegisterViewController.m in Sources */,
 				263C89781F6A30E600F7A0AE /* MHCommonItemViewModel.m in Sources */,
@@ -2361,6 +2352,7 @@
 				26225D9B1F65589E0074BFC3 /* MHConstant.m in Sources */,
 				263D371A1F66656A007267C3 /* YYWeakProxy.m in Sources */,
 				263C89871F6A549800F7A0AE /* MHCommonHeaderView.m in Sources */,
+				26003FF61F988BA1000621B0 /* MHImageView.m in Sources */,
 				263D371F1F667DF2007267C3 /* MHControllerHelper.m in Sources */,
 				263D36E01F666438007267C3 /* NSError+MHExtension.m in Sources */,
 				2617533A1F73C5A700812E1B /* MHFeatureSignatureTextView.m in Sources */,
@@ -2410,25 +2402,6 @@
 			targetProxy = 26064AD81F5D9A1400566B95 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		26064ABF1F5D9A1400566B95 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				26064AC01F5D9A1400566B95 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		26064AC41F5D9A1400566B95 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				26064AC51F5D9A1400566B95 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		26064ADE1F5D9A1400566B95 /* Debug */ = {

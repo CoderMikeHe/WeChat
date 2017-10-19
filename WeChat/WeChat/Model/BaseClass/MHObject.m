@@ -151,7 +151,6 @@ static BOOL SBValidateAndSetValue(id obj, NSString *key, id value, BOOL forceUpd
 }
 
 #pragma mark Merging
-
 - (void)mergeValueForKey:(NSString *)key fromModel:(MHObject *)model {
     NSParameterAssert(key != nil);
     
@@ -160,7 +159,6 @@ static BOOL SBValidateAndSetValue(id obj, NSString *key, id value, BOOL forceUpd
         if (model != nil) {
             [self setValue:[model valueForKey:key] forKey:key];
         }
-        
         return;
     }
     
