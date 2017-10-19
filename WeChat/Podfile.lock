@@ -15,9 +15,6 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - AMapFoundation (1.4.2)
-  - AMapLocation (2.4.0):
-    - AMapFoundation (~> 1.4)
   - BlocksKit (2.2.5):
     - BlocksKit/All (= 2.2.5)
   - BlocksKit/All (2.2.5):
@@ -33,7 +30,6 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
-  - Bugly (2.4.8)
   - CHTCollectionViewWaterfallLayout (0.9.6):
     - CHTCollectionViewWaterfallLayout/ObjC (= 0.9.6)
   - CHTCollectionViewWaterfallLayout/ObjC (0.9.6)
@@ -57,11 +53,8 @@ PODS:
   - HJCornerRadius (0.0.1)
   - HYBImageCliped (2.2.4)
   - IQKeyboardManager (5.0.2)
-  - JCore (1.1.5)
   - JDStatusBarNotification (1.5.5)
   - JPFPSStatus (0.1)
-  - JPush (3.0.6):
-    - JCore (~> 1.1.1)
   - JSBadgeView (1.4.1)
   - KVOController (1.2.0)
   - LBXScan/LBXNative (2.0)
@@ -130,22 +123,6 @@ PODS:
   - UICollectionViewLeftAlignedLayout (1.0.2)
   - UIImage+ImageWithColor (1.4.0)
   - UITableView+FDTemplateLayoutCell (1.6)
-  - UIView+FDCollapsibleConstraints (1.1)
-  - UMengAnalytics-NO-IDFA (4.2.5)
-  - UMengUShare/Core (6.4.5):
-    - UMengUShare/Network
-  - UMengUShare/Network (6.4.5)
-  - UMengUShare/Social/ReducedQQ (6.4.5):
-    - UMengUShare/Core
-  - UMengUShare/Social/ReducedSina (6.4.5):
-    - UMengUShare/Core
-  - UMengUShare/Social/ReducedWeChat (6.4.5):
-    - UMengUShare/Core
-  - UMengUShare/Social/WeChat (6.4.5):
-    - UMengUShare/Core
-    - UMengUShare/Social/ReducedWeChat
-  - UMengUShare/UI (6.4.5):
-    - UMengUShare/Core
   - WZLBadge (1.2.6)
   - YYAsyncLayer (1.0)
   - YYCache (1.0.4)
@@ -170,9 +147,7 @@ PODS:
 DEPENDENCIES:
   - ActionSheetPicker-3.0 (= 2.2.0)
   - AFNetworking (= 3.1.0)
-  - AMapLocation (= 2.4.0)
   - BlocksKit (= 2.2.5)
-  - Bugly (= 2.4.8)
   - CHTCollectionViewWaterfallLayout (= 0.9.6)
   - CocoaSecurity (= 1.2.4)
   - Colours (= 5.13.0)
@@ -188,7 +163,6 @@ DEPENDENCIES:
   - IQKeyboardManager (= 5.0.2)
   - JDStatusBarNotification (= 1.5.5)
   - JPFPSStatus (= 0.1)
-  - JPush (= 3.0.6)
   - JSBadgeView (= 1.4.1)
   - KVOController (= 1.2.0)
   - LBXScan/LBXNative (= 2.0)
@@ -214,12 +188,6 @@ DEPENDENCIES:
   - UICollectionViewLeftAlignedLayout (= 1.0.2)
   - UIImage+ImageWithColor (= 1.4.0)
   - UITableView+FDTemplateLayoutCell (= 1.6)
-  - UIView+FDCollapsibleConstraints (= 1.1)
-  - UMengAnalytics-NO-IDFA (= 4.2.5)
-  - UMengUShare/Social/ReducedQQ (= 6.4.5)
-  - UMengUShare/Social/ReducedSina (= 6.4.5)
-  - UMengUShare/Social/WeChat (= 6.4.5)
-  - UMengUShare/UI (= 6.4.5)
   - WZLBadge (= 1.2.6)
   - YYAsyncLayer (= 1.0)
   - YYCache (= 1.0.4)
@@ -251,10 +219,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   ActionSheetPicker-3.0: d11a4c12c6aaf704b8a3f56d179198c99f3e41e6
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  AMapFoundation: 6c0471c9a6a0ad17dad46e3d800ad56ca170f82a
-  AMapLocation: 47b62b5381a66e4d0c2931b70ffde72682427896
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
-  Bugly: da3c02408c14838d498429320545a8e439392978
   CHTCollectionViewWaterfallLayout: f4dab06db57b36dcf29e802594175acc76c56615
   CocoaSecurity: d288a6f87e0f363823d2cb83e753814a6944f71a
   Colours: f24220c38f13deac88612667e9b4a7fb96b871d4
@@ -270,10 +235,8 @@ SPEC CHECKSUMS:
   HJCornerRadius: 0af191386b5f2e9c4465739b5db22c0acc52923b
   HYBImageCliped: 22d14431324bc9d056353d6f1490a3bd03fc7dff
   IQKeyboardManager: 5ab84749f20f682f784160c2c63bef4f19d10d26
-  JCore: 9bd9c770c877c583d98b90a68792b8361974c231
   JDStatusBarNotification: 2b4f29bd68a60d7aa2f190b5265f1ce59c18aaf8
   JPFPSStatus: 4467a17488382e4c1700bd9d18c92ae581fd6305
-  JPush: c41be50eb1a574a66aeb68d237f00a4ec6ec3a82
   JSBadgeView: 3861ddee41094284d9468e6d0af5107f703aaac5
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
   LBXScan: 458f4b7a6688504a1415dc4a0f9822100e099f66
@@ -296,9 +259,6 @@ SPEC CHECKSUMS:
   UICollectionViewLeftAlignedLayout: 830bf6fa5bab9f9b464f62e3384f9d2e00b3c0f6
   UIImage+ImageWithColor: 891401f732f2f332fefe68c2332c6c955c2a879c
   UITableView+FDTemplateLayoutCell: 5c949b4a5059c404b442926c0e80f81d10a2d66f
-  UIView+FDCollapsibleConstraints: 9357eaf03b4e088263ab74a3b86a382a64ce38dd
-  UMengAnalytics-NO-IDFA: 16666e32edce5be44ae5b14aaaa7f3582e09d6ab
-  UMengUShare: a5711c54e640b04e3048e931d2b88d50f9cfa55c
   WZLBadge: 9ec779dcfd94c825518b395e8315fccaabff1bfa
   YYAsyncLayer: df6b01ebc695c5f6b4c15dd5c23fa3e081eb25c0
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
@@ -312,6 +272,6 @@ SPEC CHECKSUMS:
   ZBarSDK: 4c1b5daeb7d6cc67dc9355e690af0230a661f6ec
   ZYCornerRadius: f0af817be7805b5c63d793042ca7a03f81e14069
 
-PODFILE CHECKSUM: 687a66dd6d729d39228c97018e83763fefa7d586
+PODFILE CHECKSUM: 9c23feebd11e3741019467fcf0871df4b8f9aa1c
 
 COCOAPODS: 1.2.1
