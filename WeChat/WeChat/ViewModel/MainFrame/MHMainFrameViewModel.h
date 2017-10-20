@@ -7,8 +7,11 @@
 //
 
 #import "MHTableViewModel.h"
+#import "MHMainFrameItemViewModel.h"
 
 @interface MHMainFrameViewModel : MHTableViewModel
 
+/// 商品数组 <MHLiveRoom *>
+@property (nonatomic, readonly, copy) NSArray *liveRooms;
 
 @end

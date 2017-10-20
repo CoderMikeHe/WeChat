@@ -1,6 +1,6 @@
 //
 //  NSAttributedString+MHSize.h
-//  SenbaUsed
+//  WeChat
 //
 //  Created by senba on 2017/5/29.
 //  Copyright © 2017年 CoderMikeHe. All rights reserved.

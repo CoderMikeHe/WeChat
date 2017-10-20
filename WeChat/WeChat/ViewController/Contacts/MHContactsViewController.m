@@ -39,18 +39,13 @@
 
 #pragma mark - 设置导航栏
 - (void)_setupNavigationItem{
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem mh_systemItemWithTitle:nil titleColor:nil imageName:@"barbuttonicon_addfriends_30x30" target:self selector:@selector(_mmm) textType:NO];
-//    self.navigationItem.rightBarButtonItem.rac_command = self.viewModel.addFriendsCommand;
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem mh_systemItemWithTitle:nil titleColor:nil imageName:@"barbuttonicon_addfriends_30x30" target:nil selector:nil textType:NO];
+    self.navigationItem.rightBarButtonItem.rac_command = self.viewModel.addFriendsCommand;
 }
-- (void)_mmm{
-    self.searchController.active = YES;
-}
+
 #pragma mark - 设置子控件
 - (void)_setupSubViews{
-    
-    
-    
-    
+
     MHAddFriendsViewModel *viewModel = [[MHAddFriendsViewModel alloc] initWithServices:self.viewModel.services params:nil];
     MHAddFriendsViewController *add = [[MHAddFriendsViewController alloc] initWithViewModel:viewModel];
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:add];

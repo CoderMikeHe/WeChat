@@ -1,6 +1,6 @@
 //
 //  SDCycleScrollView_MH.h
-//  SenbaEmpty
+//  WeChat
 //
 //  Created by senba on 2017/9/12.
 //  Copyright © 2017年 Senba. All rights reserved.

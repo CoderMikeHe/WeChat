@@ -121,7 +121,7 @@
             /// 假设请求到数据模型是  MHUser模型
             MHUser *user = [[MHUser alloc] init];
             user.screenName = @"Mike-乱港三千-Mr_元先森";
-            user.idstr = @"666666";
+            user.idstr = @"61856069";
             user.profileImageUrl = [NSURL URLWithString:@"http://tva3.sinaimg.cn/crop.0.6.264.264.180/93276e1fjw8f5c6ob1pmpj207g07jaa5.jpg"];
             /// 用户的封面
             user.coverImageUrl = [NSURL URLWithString:@"http://p1.gexing.com/G1/M00/7A/83/rBACE1TW-cjDb2yHAAGORXsJM6w706.jpg"];

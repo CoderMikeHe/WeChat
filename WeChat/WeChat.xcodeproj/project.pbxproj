@@ -64,6 +64,15 @@
 		26225D8F1F65545E0074BFC3 /* MHTabBarViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26225D8E1F65545E0074BFC3 /* MHTabBarViewModel.m */; };
 		26225D971F6557290074BFC3 /* MHViewModelServicesImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 26225D961F6557290074BFC3 /* MHViewModelServicesImpl.m */; };
 		26225D9B1F65589E0074BFC3 /* MHConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 26225D9A1F65589E0074BFC3 /* MHConstant.m */; };
+		2624CADB1F98DCAD0083923F /* MHHTTPResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2624CADA1F98DCAD0083923F /* MHHTTPResponse.m */; };
+		2624CAE31F98DF9B0083923F /* RACSubscriber+AFProgressCallbacks.m in Sources */ = {isa = PBXBuildFile; fileRef = 2624CADF1F98DF9B0083923F /* RACSubscriber+AFProgressCallbacks.m */; };
+		2624CAE41F98DF9B0083923F /* AFHTTPSessionManager+RACSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 2624CAE01F98DF9B0083923F /* AFHTTPSessionManager+RACSupport.m */; };
+		2624CAE51F98DF9B0083923F /* RACSignal+MHHTTPServiceAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2624CAE21F98DF9B0083923F /* RACSignal+MHHTTPServiceAdditions.m */; };
+		2624CAEC1F98DFC80083923F /* MHURLParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 2624CAE61F98DFC70083923F /* MHURLParameters.m */; };
+		2624CAED1F98DFC80083923F /* MHHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2624CAE81F98DFC70083923F /* MHHTTPRequest.m */; };
+		2624CAEE1F98DFC80083923F /* MHKeyedSubscript.m in Sources */ = {isa = PBXBuildFile; fileRef = 2624CAEA1F98DFC80083923F /* MHKeyedSubscript.m */; };
+		2624CAF21F98E97B0083923F /* MHLiveRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 2624CAF11F98E97B0083923F /* MHLiveRoom.m */; };
+		2624CAF51F98E9ED0083923F /* MHHTTPService+Live.m in Sources */ = {isa = PBXBuildFile; fileRef = 2624CAF41F98E9ED0083923F /* MHHTTPService+Live.m */; };
 		2629840B1F909D1400AA9131 /* MHLanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2629840A1F909D1400AA9131 /* MHLanguageViewController.m */; };
 		2629840E1F909D4400AA9131 /* MHLanguageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2629840D1F909D4400AA9131 /* MHLanguageViewModel.m */; };
 		262984131F90B7B900AA9131 /* MHLanguageItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 262984121F90B7B900AA9131 /* MHLanguageItemViewModel.m */; };
@@ -121,6 +130,11 @@
 		264F2D161F94A80F00B244AD /* MHPlugDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 264F2D141F94A80F00B244AD /* MHPlugDetailViewController.m */; };
 		264F2D171F94A80F00B244AD /* MHPlugDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264F2D151F94A80F00B244AD /* MHPlugDetailViewController.xib */; };
 		264F2D1A1F94A84900B244AD /* MHPlugDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 264F2D191F94A84900B244AD /* MHPlugDetailViewModel.m */; };
+		2654904C1F99AF6F003AEED1 /* MHMainFrameTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2654904A1F99AF6F003AEED1 /* MHMainFrameTableViewCell.m */; };
+		2654904D1F99AF6F003AEED1 /* MHMainFrameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2654904B1F99AF6F003AEED1 /* MHMainFrameTableViewCell.xib */; };
+		265490511F99D6A0003AEED1 /* MHMainFrameItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 265490501F99D6A0003AEED1 /* MHMainFrameItemViewModel.m */; };
+		265490541F99E905003AEED1 /* MHTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 265490531F99E905003AEED1 /* MHTestViewController.m */; };
+		265490571F99E921003AEED1 /* MHTestViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 265490561F99E921003AEED1 /* MHTestViewModel.m */; };
 		2658C68E1F74FD3100C70840 /* MHAddFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2658C68D1F74FD3100C70840 /* MHAddFriendsViewController.m */; };
 		2658C6921F74FFDE00C70840 /* MHAddFriendsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2658C6911F74FFDE00C70840 /* MHAddFriendsViewModel.m */; };
 		265B4EC61F8DEF54004AEE5F /* MHSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 265B4EC51F8DEF54004AEE5F /* MHSettingViewController.m */; };
@@ -341,6 +355,26 @@
 		26225D991F65589E0074BFC3 /* MHConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHConstant.h; sourceTree = "<group>"; };
 		26225D9A1F65589E0074BFC3 /* MHConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHConstant.m; sourceTree = "<group>"; };
 		26225D9C1F65594D0074BFC3 /* MHMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHMacros.h; sourceTree = "<group>"; };
+		2624CAD91F98DCAD0083923F /* MHHTTPResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHHTTPResponse.h; sourceTree = "<group>"; };
+		2624CADA1F98DCAD0083923F /* MHHTTPResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHHTTPResponse.m; sourceTree = "<group>"; };
+		2624CADC1F98DEE70083923F /* MHHTTPServiceConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHHTTPServiceConstant.h; sourceTree = "<group>"; };
+		2624CADD1F98DF9B0083923F /* RACSignal+MHHTTPServiceAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RACSignal+MHHTTPServiceAdditions.h"; sourceTree = "<group>"; };
+		2624CADE1F98DF9B0083923F /* RACSubscriber+AFProgressCallbacks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RACSubscriber+AFProgressCallbacks.h"; sourceTree = "<group>"; };
+		2624CADF1F98DF9B0083923F /* RACSubscriber+AFProgressCallbacks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RACSubscriber+AFProgressCallbacks.m"; sourceTree = "<group>"; };
+		2624CAE01F98DF9B0083923F /* AFHTTPSessionManager+RACSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AFHTTPSessionManager+RACSupport.m"; sourceTree = "<group>"; };
+		2624CAE11F98DF9B0083923F /* AFHTTPSessionManager+RACSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AFHTTPSessionManager+RACSupport.h"; sourceTree = "<group>"; };
+		2624CAE21F98DF9B0083923F /* RACSignal+MHHTTPServiceAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RACSignal+MHHTTPServiceAdditions.m"; sourceTree = "<group>"; };
+		2624CAE61F98DFC70083923F /* MHURLParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHURLParameters.m; sourceTree = "<group>"; };
+		2624CAE71F98DFC70083923F /* MHKeyedSubscript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHKeyedSubscript.h; sourceTree = "<group>"; };
+		2624CAE81F98DFC70083923F /* MHHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHHTTPRequest.m; sourceTree = "<group>"; };
+		2624CAE91F98DFC70083923F /* MHHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHHTTPRequest.h; sourceTree = "<group>"; };
+		2624CAEA1F98DFC80083923F /* MHKeyedSubscript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHKeyedSubscript.m; sourceTree = "<group>"; };
+		2624CAEB1F98DFC80083923F /* MHURLParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHURLParameters.h; sourceTree = "<group>"; };
+		2624CAF01F98E97B0083923F /* MHLiveRoom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHLiveRoom.h; sourceTree = "<group>"; };
+		2624CAF11F98E97B0083923F /* MHLiveRoom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHLiveRoom.m; sourceTree = "<group>"; };
+		2624CAF31F98E9ED0083923F /* MHHTTPService+Live.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MHHTTPService+Live.h"; sourceTree = "<group>"; };
+		2624CAF41F98E9ED0083923F /* MHHTTPService+Live.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MHHTTPService+Live.m"; sourceTree = "<group>"; };
+		2624CAFB1F98F0420083923F /* MHURLConfigure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHURLConfigure.h; sourceTree = "<group>"; };
 		262984091F909D1300AA9131 /* MHLanguageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHLanguageViewController.h; sourceTree = "<group>"; };
 		2629840A1F909D1400AA9131 /* MHLanguageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHLanguageViewController.m; sourceTree = "<group>"; };
 		2629840C1F909D4400AA9131 /* MHLanguageViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHLanguageViewModel.h; sourceTree = "<group>"; };
@@ -456,6 +490,15 @@
 		264F2D151F94A80F00B244AD /* MHPlugDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHPlugDetailViewController.xib; sourceTree = "<group>"; };
 		264F2D181F94A84900B244AD /* MHPlugDetailViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHPlugDetailViewModel.h; sourceTree = "<group>"; };
 		264F2D191F94A84900B244AD /* MHPlugDetailViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHPlugDetailViewModel.m; sourceTree = "<group>"; };
+		265490491F99AF6F003AEED1 /* MHMainFrameTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHMainFrameTableViewCell.h; sourceTree = "<group>"; };
+		2654904A1F99AF6F003AEED1 /* MHMainFrameTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHMainFrameTableViewCell.m; sourceTree = "<group>"; };
+		2654904B1F99AF6F003AEED1 /* MHMainFrameTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHMainFrameTableViewCell.xib; sourceTree = "<group>"; };
+		2654904F1F99D6A0003AEED1 /* MHMainFrameItemViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHMainFrameItemViewModel.h; sourceTree = "<group>"; };
+		265490501F99D6A0003AEED1 /* MHMainFrameItemViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHMainFrameItemViewModel.m; sourceTree = "<group>"; };
+		265490521F99E905003AEED1 /* MHTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHTestViewController.h; sourceTree = "<group>"; };
+		265490531F99E905003AEED1 /* MHTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHTestViewController.m; sourceTree = "<group>"; };
+		265490551F99E921003AEED1 /* MHTestViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHTestViewModel.h; sourceTree = "<group>"; };
+		265490561F99E921003AEED1 /* MHTestViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHTestViewModel.m; sourceTree = "<group>"; };
 		2658C68C1F74FD3100C70840 /* MHAddFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHAddFriendsViewController.h; sourceTree = "<group>"; };
 		2658C68D1F74FD3100C70840 /* MHAddFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHAddFriendsViewController.m; sourceTree = "<group>"; };
 		2658C6901F74FFDE00C70840 /* MHAddFriendsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHAddFriendsViewModel.h; sourceTree = "<group>"; };
@@ -716,6 +759,7 @@
 		26064AE91F5DA1F800566B95 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2624CAEF1F98E96B0083923F /* Live */,
 				26BEBC761F8B78B1004D502F /* BaseClass */,
 				26BEBC6B1F8B76D6004D502F /* User */,
 			);
@@ -778,6 +822,7 @@
 				26225D9C1F65594D0074BFC3 /* MHMacros.h */,
 				263D371B1F666CD4007267C3 /* MHConstEnum.h */,
 				2617530F1F736A9C00812E1B /* MHConstInline.h */,
+				2624CAFB1F98F0420083923F /* MHURLConfigure.h */,
 			);
 			path = Macros;
 			sourceTree = "<group>";
@@ -918,6 +963,8 @@
 		26064AF81F5DB46500566B95 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				265490521F99E905003AEED1 /* MHTestViewController.h */,
+				265490531F99E905003AEED1 /* MHTestViewController.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -1117,6 +1164,7 @@
 		26225D801F65506E0074BFC3 /* MainFrame */ = {
 			isa = PBXGroup;
 			children = (
+				2654904E1F99D59D003AEED1 /* ItemViewModel */,
 				2605C5BC1F662EE400B1F66E /* MHMainFrameViewModel.h */,
 				2605C5BD1F662EE400B1F66E /* MHMainFrameViewModel.m */,
 			);
@@ -1136,6 +1184,8 @@
 			isa = PBXGroup;
 			children = (
 				263C896B1F6A302300F7A0AE /* Common */,
+				265490551F99E921003AEED1 /* MHTestViewModel.h */,
+				265490561F99E921003AEED1 /* MHTestViewModel.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -1155,6 +1205,60 @@
 				2605C5C91F6631D300B1F66E /* MHProfileViewModel.m */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		2624CAD51F98DC890083923F /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				2624CADC1F98DEE70083923F /* MHHTTPServiceConstant.h */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		2624CAD61F98DC8A0083923F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2624CAE11F98DF9B0083923F /* AFHTTPSessionManager+RACSupport.h */,
+				2624CAE01F98DF9B0083923F /* AFHTTPSessionManager+RACSupport.m */,
+				2624CADD1F98DF9B0083923F /* RACSignal+MHHTTPServiceAdditions.h */,
+				2624CAE21F98DF9B0083923F /* RACSignal+MHHTTPServiceAdditions.m */,
+				2624CADE1F98DF9B0083923F /* RACSubscriber+AFProgressCallbacks.h */,
+				2624CADF1F98DF9B0083923F /* RACSubscriber+AFProgressCallbacks.m */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		2624CAD71F98DC8A0083923F /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				2624CAE91F98DFC70083923F /* MHHTTPRequest.h */,
+				2624CAE81F98DFC70083923F /* MHHTTPRequest.m */,
+				2624CAE71F98DFC70083923F /* MHKeyedSubscript.h */,
+				2624CAEA1F98DFC80083923F /* MHKeyedSubscript.m */,
+				2624CAEB1F98DFC80083923F /* MHURLParameters.h */,
+				2624CAE61F98DFC70083923F /* MHURLParameters.m */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		2624CAD81F98DC8A0083923F /* BaseModel */ = {
+			isa = PBXGroup;
+			children = (
+				2624CAD91F98DCAD0083923F /* MHHTTPResponse.h */,
+				2624CADA1F98DCAD0083923F /* MHHTTPResponse.m */,
+			);
+			path = BaseModel;
+			sourceTree = "<group>";
+		};
+		2624CAEF1F98E96B0083923F /* Live */ = {
+			isa = PBXGroup;
+			children = (
+				2624CAF01F98E97B0083923F /* MHLiveRoom.h */,
+				2624CAF11F98E97B0083923F /* MHLiveRoom.m */,
+				2624CAF31F98E9ED0083923F /* MHHTTPService+Live.h */,
+				2624CAF41F98E9ED0083923F /* MHHTTPService+Live.m */,
+			);
+			path = Live;
 			sourceTree = "<group>";
 		};
 		262984101F90B79500AA9131 /* ItemViewModel */ = {
@@ -1252,6 +1356,9 @@
 		263C89711F6A305100F7A0AE /* MainFrame */ = {
 			isa = PBXGroup;
 			children = (
+				265490491F99AF6F003AEED1 /* MHMainFrameTableViewCell.h */,
+				2654904A1F99AF6F003AEED1 /* MHMainFrameTableViewCell.m */,
+				2654904B1F99AF6F003AEED1 /* MHMainFrameTableViewCell.xib */,
 			);
 			path = MainFrame;
 			sourceTree = "<group>";
@@ -1566,6 +1673,15 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		2654904E1F99D59D003AEED1 /* ItemViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2654904F1F99D6A0003AEED1 /* MHMainFrameItemViewModel.h */,
+				265490501F99D6A0003AEED1 /* MHMainFrameItemViewModel.m */,
+			);
+			path = ItemViewModel;
+			sourceTree = "<group>";
+		};
 		2658C68B1F74FC3600C70840 /* AddFriends */ = {
 			isa = PBXGroup;
 			children = (
@@ -1651,10 +1767,10 @@
 		26BEBC761F8B78B1004D502F /* BaseClass */ = {
 			isa = PBXGroup;
 			children = (
-				26BEBC771F8B78B1004D502F /* MHEXTRuntimeExtensions.h */,
-				26BEBC781F8B78B1004D502F /* MHEXTRuntimeExtensions.m */,
 				26BEBC791F8B78B1004D502F /* MHObject.h */,
 				26BEBC7A1F8B78B1004D502F /* MHObject.m */,
+				26BEBC771F8B78B1004D502F /* MHEXTRuntimeExtensions.h */,
+				26BEBC781F8B78B1004D502F /* MHEXTRuntimeExtensions.m */,
 				26BEBC7B1F8B78B1004D502F /* MHReflection.h */,
 				26BEBC7C1F8B78B1004D502F /* MHReflection.m */,
 			);
@@ -1681,6 +1797,10 @@
 		26C7BEE81F8CC97F00525126 /* HTTP */ = {
 			isa = PBXGroup;
 			children = (
+				2624CAD81F98DC8A0083923F /* BaseModel */,
+				2624CAD51F98DC890083923F /* Constant */,
+				2624CAD61F98DC8A0083923F /* Extension */,
+				2624CAD71F98DC8A0083923F /* Request */,
 				26C7BEEC1F8CCA2C00525126 /* MHHTTPService.h */,
 				26C7BEED1F8CCA2C00525126 /* MHHTTPService.m */,
 			);
@@ -2033,6 +2153,7 @@
 				26FE8E8B1F9514D100EC8BE0 /* TZImagePickerController.bundle in Resources */,
 				266E15D51F8F7E43000E31C5 /* MHRegisterViewController.xib in Resources */,
 				26FE65731F93142400642615 /* MHPlugViewController.xib in Resources */,
+				2654904D1F99AF6F003AEED1 /* MHMainFrameTableViewCell.xib in Resources */,
 				2618AFE01F91BDA300F82A46 /* MHModifyNicknameViewController.xib in Resources */,
 				264D36D81F70AEBD003BB8CE /* MHProfileHeaderCell.xib in Resources */,
 				2609ED4F1F790AD3002D31CE /* MHLoginPasswordView.xib in Resources */,
@@ -2208,6 +2329,7 @@
 				26FE65721F93142400642615 /* MHPlugViewController.m in Sources */,
 				2605C5CD1F66323800B1F66E /* MHDiscoverViewModel.m in Sources */,
 				26FE8E931F9514D100EC8BE0 /* UIView+Layout.m in Sources */,
+				265490541F99E905003AEED1 /* MHTestViewController.m in Sources */,
 				26FE8E841F9514D100EC8BE0 /* UIView+SDExtension.m in Sources */,
 				2605C5C41F662F4B00B1F66E /* MHAccountLoginViewModel.m in Sources */,
 				26BEBC7D1F8B78B1004D502F /* MHEXTRuntimeExtensions.m in Sources */,
@@ -2226,6 +2348,7 @@
 				26FE65591F92EE5900642615 /* MHLocationViewModel.m in Sources */,
 				260A60921F77503300F05120 /* MHSearchFriendsHeaderViewModel.m in Sources */,
 				26A7E7521F7A39110015CA71 /* MHLoginViewModel.m in Sources */,
+				2624CAE31F98DF9B0083923F /* RACSubscriber+AFProgressCallbacks.m in Sources */,
 				263C89921F6A74F400F7A0AE /* MHCommonArrowItemViewModel.m in Sources */,
 				266E15D01F8F2086000E31C5 /* MHTextField.m in Sources */,
 				263D36E91F666438007267C3 /* UIFont+MHExtension.m in Sources */,
@@ -2239,12 +2362,14 @@
 				26FE8E7E1F9514D100EC8BE0 /* TAAbstractDotView.m in Sources */,
 				26225D711F654C9F0074BFC3 /* MHViewController.m in Sources */,
 				263D36F01F666438007267C3 /* UIView+MHFrame.m in Sources */,
+				2654904C1F99AF6F003AEED1 /* MHMainFrameTableViewCell.m in Sources */,
 				263D36E51F666438007267C3 /* NSString+MHValid.m in Sources */,
 				2667A3E81F7B7AFB00A3D7A2 /* MHMobileLoginView.m in Sources */,
 				26FE8E8F1F9514D100EC8BE0 /* TZPhotoPreviewCell.m in Sources */,
 				263D37141F666569007267C3 /* YYGestureRecognizer.m in Sources */,
 				26A7E7451F79FEB00015CA71 /* MHBootLoginViewModel.m in Sources */,
 				26BEBC821F8B7B1D004D502F /* NSError+MHModelException.m in Sources */,
+				2624CAF51F98E9ED0083923F /* MHHTTPService+Live.m in Sources */,
 				2605C5D31F6632AA00B1F66E /* MHContactsViewController.m in Sources */,
 				2658C6921F74FFDE00C70840 /* MHAddFriendsViewModel.m in Sources */,
 				2629840E1F909D4400AA9131 /* MHLanguageViewModel.m in Sources */,
@@ -2267,6 +2392,7 @@
 				26FE8E911F9514D100EC8BE0 /* TZProgressView.m in Sources */,
 				26FE8E901F9514D100EC8BE0 /* TZPhotoPreviewController.m in Sources */,
 				263D37231F668408007267C3 /* MHRouter.m in Sources */,
+				2624CAEE1F98DFC80083923F /* MHKeyedSubscript.m in Sources */,
 				263D370F1F666569007267C3 /* LCActionSheetCell.m in Sources */,
 				261753361F73C41D00812E1B /* MHFeatureSignatureViewController.m in Sources */,
 				263D37191F66656A007267C3 /* YYTimer.m in Sources */,
@@ -2285,6 +2411,7 @@
 				263D36E11F666438007267C3 /* NSObject+MHAlert.m in Sources */,
 				263D36EB1F666438007267C3 /* UIScrollView+MHRefresh.m in Sources */,
 				263D37101F666569007267C3 /* LCActionSheetConfig.m in Sources */,
+				265490571F99E921003AEED1 /* MHTestViewModel.m in Sources */,
 				26FE8E4C1F95143D00EC8BE0 /* IDMTapDetectingView.m in Sources */,
 				26C7BEE51F8CBED800525126 /* SAMKeychain+MHUtil.m in Sources */,
 				2605C5CA1F6631D300B1F66E /* MHProfileViewModel.m in Sources */,
@@ -2292,6 +2419,7 @@
 				26A7E7411F79FE550015CA71 /* MHBootLoginViewController.m in Sources */,
 				2618AFD11F91A5D900F82A46 /* MHPreferenceSettingHelper.m in Sources */,
 				2609ED521F790AF8002D31CE /* MHLoginCaptchaView.m in Sources */,
+				265490511F99D6A0003AEED1 /* MHMainFrameItemViewModel.m in Sources */,
 				26FE8E461F95143D00EC8BE0 /* IDMCaptionView.m in Sources */,
 				26064ABB1F5D9A1400566B95 /* AppDelegate.m in Sources */,
 				26FE8E851F9514D100EC8BE0 /* NSBundle+TZImagePicker.m in Sources */,
@@ -2327,7 +2455,9 @@
 				26A7E74E1F7A32500015CA71 /* MHLoginViewController.m in Sources */,
 				26FE656D1F9313E800642615 /* MHPlugViewModel.m in Sources */,
 				266E15D91F8F7E7E000E31C5 /* MHCommitViewController.m in Sources */,
+				2624CAE51F98DF9B0083923F /* RACSignal+MHHTTPServiceAdditions.m in Sources */,
 				26A7E7581F7A44010015CA71 /* MHLoginBaseViewModel.m in Sources */,
+				2624CAEC1F98DFC80083923F /* MHURLParameters.m in Sources */,
 				263D36DB1F666438007267C3 /* LCActionSheet+MHExtension.m in Sources */,
 				2605C5BE1F662EE400B1F66E /* MHMainFrameViewModel.m in Sources */,
 				265B4EC61F8DEF54004AEE5F /* MHSettingViewController.m in Sources */,
@@ -2335,7 +2465,9 @@
 				26FE8E4B1F95143D00EC8BE0 /* IDMTapDetectingImageView.m in Sources */,
 				26FE8E821F9514D100EC8BE0 /* SDCollectionViewCell.m in Sources */,
 				261753241F73ADB800812E1B /* MHMoreInfoViewModel.m in Sources */,
+				2624CAF21F98E97B0083923F /* MHLiveRoom.m in Sources */,
 				261753281F73ADFB00812E1B /* MHMoreInfoViewController.m in Sources */,
+				2624CAE41F98DF9B0083923F /* AFHTTPSessionManager+RACSupport.m in Sources */,
 				2609ED4D1F790AC6002D31CE /* MHLoginPasswordView.m in Sources */,
 				26FE8E891F9514D100EC8BE0 /* TZImageCropManager.m in Sources */,
 				26FE8E8E1F9514D100EC8BE0 /* TZPhotoPickerController.m in Sources */,
@@ -2355,6 +2487,7 @@
 				26003FF61F988BA1000621B0 /* MHImageView.m in Sources */,
 				263D371F1F667DF2007267C3 /* MHControllerHelper.m in Sources */,
 				263D36E01F666438007267C3 /* NSError+MHExtension.m in Sources */,
+				2624CADB1F98DCAD0083923F /* MHHTTPResponse.m in Sources */,
 				2617533A1F73C5A700812E1B /* MHFeatureSignatureTextView.m in Sources */,
 				26FE8E4D1F95143D00EC8BE0 /* IDMZoomingScrollView.m in Sources */,
 				263004D31F751F9F00247F3D /* MHSearchFriendsHeaderView.m in Sources */,
@@ -2362,6 +2495,7 @@
 				263D36DF1F666438007267C3 /* NSDateFormatter+Extension.m in Sources */,
 				2667A3F51F7B9FB100A3D7A2 /* MHMobileLoginViewController.m in Sources */,
 				263D36E71F666438007267C3 /* UIAlertController+MHColor.m in Sources */,
+				2624CAED1F98DFC80083923F /* MHHTTPRequest.m in Sources */,
 				26C7BEEE1F8CCA2C00525126 /* MHHTTPService.m in Sources */,
 				26FE655D1F92EEA100642615 /* MHLocationViewController.m in Sources */,
 				264F2D1A1F94A84900B244AD /* MHPlugDetailViewModel.m in Sources */,

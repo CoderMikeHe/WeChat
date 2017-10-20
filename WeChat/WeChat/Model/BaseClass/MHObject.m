@@ -1,6 +1,6 @@
 //
 //  MHObject.m
-//  SenbaEmpty
+//  WeChat
 //
 //  Created by senba on 2017/7/19.
 //  Copyright © 2017年 Senba. All rights reserved.
@@ -188,7 +188,6 @@ static BOOL SBValidateAndSetValue(id obj, NSString *key, id value, BOOL forceUpd
         BOOL success = SBValidateAndSetValue(self, key, value, NO, error);
         if (!success) return NO;
     }
-    
     return YES;
 }
 

@@ -133,7 +133,7 @@
 #define MHStringIsNotEmpty(__string)  (!MHStringIsEmpty(__string))
 
 // 数组为空
-#define MHArrayIsEmpty(__array) ((SBObjectIsNil(__array)) || (__array.count==0))
+#define MHArrayIsEmpty(__array) ((MHObjectIsNil(__array)) || (__array.count==0))
 
 /// 适配iPhone X + iOS 11
 #define  MHAdjustsScrollViewInsets_Never(__scrollView)\

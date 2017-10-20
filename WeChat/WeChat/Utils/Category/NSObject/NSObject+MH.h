@@ -1,6 +1,6 @@
 //
 //  NSObject+MH.h
-//  SenbaEmpty
+//  WeChat
 //
 //  Created by senba on 2017/8/4.
 //  Copyright © 2017年 Senba. All rights reserved.

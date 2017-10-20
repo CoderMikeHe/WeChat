@@ -25,7 +25,6 @@
 #import <FDFullscreenPopGesture/UINavigationController+FDFullscreenPopGesture.h>
 #import <BlocksKit/BlocksKit.h>
 #import <BlocksKit/BlocksKit+UIKit.h>
-#import <UMMobClick/MobClick.h>  /// < 友盟统计
 #import <YYText/YYText.h>
 #import <YYWebImage/YYWebImage.h>
 #import <IQKeyboardManager/IQKeyboardManager.h>

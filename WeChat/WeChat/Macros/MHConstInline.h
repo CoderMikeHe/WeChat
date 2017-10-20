@@ -25,8 +25,6 @@ static inline CGFloat MHPxConvertToPt(CGFloat px){
 }
 
 
-
-
 /// 辅助方法 创建一个文件夹
 static inline void MHCreateDirectoryAtPath(NSString *path){
     BOOL isDir = NO;
