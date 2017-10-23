@@ -10,18 +10,19 @@
 #import <YYModel/YYModel.h>
 
 @interface MHObject : NSObject <YYModel,NSCopying,NSCoding>
-/// 将 JSON (NSData,NSString,NSDictionary) 转换为 Model
-+ (instancetype)modelWithJSON:(id)json;
-- (BOOL)modelSetWithJSON:(id)json;
 
-/// 数组类包含该对象
+/// YYModel - API
+/// 将 Json (NSData，NSString，NSDictionary) 转换为 Model
++ (instancetype)modelWithJSON:(id)json;
+/// 字典转模型
++ (instancetype)modelWithDictionary:(NSDictionary *)dictionary;
+/// json-array 转换为 模型数组
 + (NSArray *)modelArrayWithJSON:(id)json;
-/// Creates and returns a dictionary from a json.
-+ (NSDictionary *)modelDictionaryWithJSON:(id)json;
+
 
 /// 将 Model 转换为 JSON 对象
 - (id)toJSONObject;
-/// 将 Model 转换为 JSONData
+/// 将 Model 转换为 NSData
 - (NSData *)toJSONData;
 /// 将 Model 转换为 JSONString
 - (NSString *)toJSONString;
@@ -30,13 +31,13 @@
 
 // Returns the keys for all @property declarations, except for `readonly`
 // properties without ivars, or properties on MHObject itself.
+/// 返回所有@property声明的属性，除了只读属性，以及属性列表不包括成员变量
 + (NSSet *)propertyKeys;
 
 // A dictionary representing the properties of the receiver.
 //
 // The default implementation combines the values corresponding to all
 // +propertyKeys into a dictionary, with any nil values represented by NSNull.
-//
 // This property must never be nil.
 @property (nonatomic, copy, readonly) NSDictionary *dictionaryValue;
 

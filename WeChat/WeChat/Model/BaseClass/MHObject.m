@@ -62,16 +62,15 @@ static BOOL SBValidateAndSetValue(id obj, NSString *key, id value, BOOL forceUpd
 @implementation MHObject
 /// 将 JSON (NSData,NSString,NSDictionary) 转换为 Model
 + (instancetype)modelWithJSON:(id)json { return [self yy_modelWithJSON:json]; }
-- (BOOL)modelSetWithJSON:(id)json { return [self yy_modelSetWithJSON:json]; }
 
-
-/// 数组类包含该对象
+/// json-array 转 模型-数组
 + (NSArray *)modelArrayWithJSON:(id)json {
     return [NSArray yy_modelArrayWithClass:[self class] json:json];
 }
-/// Creates and returns a dictionary from a json.
-+ (NSDictionary *)modelDictionaryWithJSON:(id)json {
-    return [NSDictionary yy_modelDictionaryWithClass:[self class] json:json];
+
+/// 字典转模型
++ (instancetype)modelWithDictionary:(NSDictionary *)dictionary{
+    return [self yy_modelWithDictionary:dictionary];
 }
 
 - (id)toJSONObject { return [self yy_modelToJSONObject]; }
