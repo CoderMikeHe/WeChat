@@ -45,20 +45,16 @@
     return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
     /// 隐藏导航栏细线
     self.viewModel.prefersNavigationBarBottomLineHidden?[(MHNavigationController *)self.navigationController hideNavigationBottomLine]:[(MHNavigationController *)self.navigationController showNavigationBottomLine];
-    
     /// 配置键盘
     IQKeyboardManager.sharedManager.enable = self.viewModel.keyboardEnable;
     IQKeyboardManager.sharedManager.shouldResignOnTouchOutside = self.viewModel.shouldResignOnTouchOutside;
     
     /// 这里做友盟统计
     //    [MobClick beginLogPageView:SBPageName(self)];
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -107,13 +103,10 @@
 
 
 // bind the viewModel
-- (void)bindViewModel
-{
+- (void)bindViewModel{
     /// set navgation title
-    RAC(self , title) = RACObserve(self, viewModel.title);
-    
-    NSLog(@"title is  %@",self.viewModel.title);
-    
+    /// CoderMikeHe Fixed: 这里只是单纯设置导航栏的title。 不然以免self.title同时设置了navigatiItem.title, 同时又设置了tabBarItem.title
+    RAC(self.navigationItem , title) = RACObserve(self, viewModel.title);
     /// 绑定错误信息
     [self.viewModel.errors subscribeNext:^(NSError *error) {
         /// 这里可以统一处理某个错误，例如用户授权失效的的操作
@@ -129,9 +122,7 @@
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {return UIInterfaceOrientationPortrait;}
 
 #pragma mark - Status bar
-- (BOOL)prefersStatusBarHidden {
-    return NO;
-}
+- (BOOL)prefersStatusBarHidden { return NO; }
 - (UIStatusBarStyle)preferredStatusBarStyle { return UIStatusBarStyleLightContent; }
 - (UIStatusBarAnimation)preferredStatusBarUpdateAnimation { return UIStatusBarAnimationFade; }
 

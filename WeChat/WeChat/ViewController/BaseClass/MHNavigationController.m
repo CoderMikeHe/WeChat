@@ -16,14 +16,12 @@
 @implementation MHNavigationController
 
 // 第一次使用这个类调用一次
-+ (void)initialize
-{
-    // 2.设置UINavigationBarTheme的主
++ (void)initialize{
+    // 2.设置UINavigationBar的主题
     [self _setupNavigationBarTheme];
     
     // 3.设置UIBarButtonItem的主题
     [self _setupBarButtonItemTheme];
-    
 }
 
 - (void)viewDidLoad
@@ -40,44 +38,35 @@
 }
 
 // 查询最后一条数据
-- (UIImageView *)_findHairlineImageViewUnder:(UIView *)view
-{
+- (UIImageView *)_findHairlineImageViewUnder:(UIView *)view{
     if ([view isKindOfClass:UIImageView.class] && view.bounds.size.height <= 1.0) {
         return (UIImageView *)view;
     }
-    for (UIView *subview in view.subviews)
-    {
+    for (UIView *subview in view.subviews){
         UIImageView *imageView = [self _findHairlineImageViewUnder:subview];
-        if (imageView)
-        {
-            return imageView;
-        }
+        if (imageView){ return imageView; }
     }
     return nil;
 }
 
 #pragma mark - 设置导航栏的分割线
-- (void)_setupNavigationBarBottomLine
-{
+- (void)_setupNavigationBarBottomLine{
     //!!!:这里之前设置系统的 navigationBarBottomLine.image = xxx;无效 Why？ 隐藏了系统的 自己添加了一个分割线
     // 隐藏系统的导航栏分割线
     UIImageView *navigationBarBottomLine = [self _findHairlineImageViewUnder:self.navigationBar];
     navigationBarBottomLine.hidden = YES;
-    
     // 添加自己的分割线
     CGFloat navSystemLineH = .5f;
     UIImageView *navSystemLine = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.navigationBar.mh_height - navSystemLineH, MH_SCREEN_WIDTH, navSystemLineH)];
     navSystemLine.backgroundColor = MHColor(223.0f, 223.0f, 221.0f);
     [self.navigationBar addSubview:navSystemLine];
-    
     self.navigationBottomLine = navSystemLine;
 }
 
 /**
  *  设置UINavigationBarTheme的主题
  */
-+ (void) _setupNavigationBarTheme
-{
++ (void) _setupNavigationBarTheme{
     UINavigationBar *appearance = [UINavigationBar appearance];
     
     /// 设置背景
@@ -109,8 +98,7 @@
 /**
  *  设置UIBarButtonItem的主题
  */
-+ (void)_setupBarButtonItemTheme
-{
++ (void)_setupBarButtonItemTheme{
     // 通过appearance对象能修改整个项目中所有UIBarButtonItem的样式
     UIBarButtonItem *appearance = [UIBarButtonItem appearance];
     
@@ -146,13 +134,11 @@
 - (void)hideNavigationBottomLine{ self.navigationBottomLine.hidden = YES; }
 
 
-/**
- *  能拦截所有push进来的子控制器
- */
-- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
-{
+/// 能拦截所有push进来的子控制器
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated{
     // 如果现在push的不是栈底控制器(最先push进来的那个控制器)
     if (self.viewControllers.count > 0){
+        /// 隐藏底部tabbar
         viewController.hidesBottomBarWhenPushed = YES;
         
         NSString *title = @"返回";
@@ -174,10 +160,8 @@
     }
     // push
     [super pushViewController:viewController animated:animated];
-
 }
-
-#pragma mark - 事件处理
+/// 事件处理
 - (void)_back{
     [self popViewControllerAnimated:YES];
 }

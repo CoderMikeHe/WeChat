@@ -68,7 +68,6 @@
       deliverOnMainThread]
      subscribeNext:^(id x) {
          @strongify(self)
-         NSLog(@"++++");
          // 刷新数据
          [self reloadData];
      }];
@@ -239,14 +238,12 @@
 
 
 #pragma mark - sub class can override it
-- (UIEdgeInsets)contentInset
-{
+- (UIEdgeInsets)contentInset{
     return UIEdgeInsetsMake(64, 0, 0, 0);
 }
 
 /// reload tableView data
-- (void)reloadData
-{
+- (void)reloadData{
     [self.tableView reloadData];
 }
 
@@ -286,7 +283,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.viewModel.shouldMultiSections) return [self.viewModel.dataSource[section] count];
-    
     return self.viewModel.dataSource.count;
 }
 

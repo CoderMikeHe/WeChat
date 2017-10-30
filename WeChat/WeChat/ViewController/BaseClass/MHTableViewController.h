@@ -21,12 +21,9 @@
 /// reload tableView data , sub class can override
 - (void)reloadData;
 
-/// duqueueReusavleCell
+/// dequeueReusableCell
 - (UITableViewCell *)tableView:(UITableView *)tableView dequeueReusableCellWithIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath;
 
-/// configure cell data
+/// configure cell data 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath withObject:(id)object;
-
-/// 申请寄售（全部申请）sub class can override
-- (void)applyConsign;
 @end

@@ -11,10 +11,10 @@
 
 /// Block
 ///------
-typedef void (^VoidBlock)();
-typedef BOOL (^BoolBlock)();
-typedef int  (^IntBlock) ();
-typedef id   (^IDBlock)  ();
+typedef void (^VoidBlock)(void);
+typedef BOOL (^BoolBlock)(void);
+typedef int  (^IntBlock) (void);
+typedef id   (^IDBlock)  (void);
 
 typedef void (^VoidBlock_int)(int);
 typedef BOOL (^BoolBlock_int)(int);
