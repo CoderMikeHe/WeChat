@@ -35,7 +35,7 @@ FOUNDATION_EXTERN NSString *const MHViewModelRequestKey;
 - (instancetype)initWithServices:(id<MHViewModelServices>)services params:(NSDictionary *)params;
 
 /// The `services` parameter in `-initWithServices:params:` method.
-@property (nonatomic, strong, readonly) id<MHViewModelServices> services;
+@property (nonatomic, readonly, strong) id<MHViewModelServices> services;
 
 /// The `params` parameter in `-initWithParams:` method.
 /// The `params` Key's `kBaseViewModelParamsKey`
@@ -44,27 +44,27 @@ FOUNDATION_EXTERN NSString *const MHViewModelRequestKey;
 /// navItem.title
 @property (nonatomic, readwrite, copy) NSString *title;
 /// 返回按钮的title，default is nil 。
-/// 如果设置了该值，那么当Push到一个新的控制器,则导航栏左侧按钮的title为backTitle
+/// 如果设置了该值，那么当Push到一个新的控制器,则导航栏左侧返回按钮的title为backTitle
 @property (nonatomic, readwrite, copy) NSString *backTitle;
 
-/// The callback block.
+/// The callback block. 当Push/Present时，通过block反向传值
 @property (nonatomic, readwrite, copy) VoidBlock_id callback;
 
 /// A RACSubject object, which representing all errors occurred in view model.
 @property (nonatomic, readonly, strong) RACSubject *errors;
 
-/** should fetch local data when viewModel init . default is YES */
+/** should fetch local data when viewModel init  . default is YES */
 @property (nonatomic, readwrite, assign) BOOL shouldFetchLocalDataOnViewModelInitialize;
 /** should request data when viewController videwDidLoad . default is YES*/
+/** 是否需要在控制器viewDidLoad */
 @property (nonatomic, readwrite, assign) BOOL shouldRequestRemoteDataOnViewDidLoad;
 /// will disappear signal
 @property (nonatomic, strong, readonly) RACSubject *willDisappearSignal;
 
-
+/// FDFullscreenPopGesture
 /// Whether the interactive pop gesture is disabled when contained in a navigation
-/// stack. (是否取消掉左滑pop的功能（栈底控制器无效），默认为NO，不取消)
+/// stack. (是否取消掉左滑pop到上一层的功能（栈底控制器无效），默认为NO，不取消)
 @property (nonatomic, readwrite, assign) BOOL interactivePopDisabled;
-
 /// Indicate this view controller prefers its navigation bar hidden or not,
 /// checked when view controller based navigation bar's appearance is enabled.
 /// Default to NO, bars are more likely to show.
@@ -74,9 +74,9 @@ FOUNDATION_EXTERN NSString *const MHViewModelRequestKey;
 /// 是否隐藏该控制器的导航栏底部的分割线 默认不隐藏 （NO）
 @property (nonatomic, readwrite, assign) BOOL prefersNavigationBarBottomLineHidden;
 
-/// 是否让IQKeyboardManager的管理键盘的事件 默认是YES（管理）
+/// IQKeyboardManager
+/// 是否让IQKeyboardManager的管理键盘的事件 默认是YES（键盘管理）
 @property (nonatomic, readwrite, assign) BOOL keyboardEnable;
-
 /// 是否键盘弹起的时候，点击其他局域键盘弹起 默认是 YES
 @property (nonatomic, readwrite, assign) BOOL shouldResignOnTouchOutside;
 

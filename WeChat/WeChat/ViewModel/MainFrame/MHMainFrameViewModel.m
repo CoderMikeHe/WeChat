@@ -50,10 +50,12 @@
         [self.services pushViewModel:viewModel animated:YES];
         return [RACSignal empty];
     }];
+
 }
 
 /// 请求数据
 - (RACSignal *)requestRemoteDataSignalWithPage:(NSUInteger)page{
+
     NSArray * (^mapLiveRooms)(NSArray *) = ^(NSArray *products) {
         if (page == 1) {
             /// 下拉刷新

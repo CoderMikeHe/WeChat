@@ -79,7 +79,7 @@ static NSString * const MHWebViewKVOEstimatedProgress = @"estimatedProgress";
     /// 这里可以注册JS的处理 涉及公司私有方法 这里笔者不作处理
 
     WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
-    // CoderMikeHe 自适应屏幕宽度js
+    // CoderMikeHe Fixed : 自适应屏幕宽度js
     NSString *jsString = @"var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);";
     WKUserScript *userScript = [[WKUserScript alloc] initWithSource:jsString injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
     // 添加自适应屏幕宽度js调用的方法
@@ -143,11 +143,12 @@ static NSString * const MHWebViewKVOEstimatedProgress = @"estimatedProgress";
 }
 
 #pragma mark - 事件处理
-- (void)_backItemDidClicked{
+- (void)_backItemDidClicked{ /// 返回按钮事件处理
+    /// 可以返回到上一个网页，就返回到上一个网页
     if (self.webView.canGoBack) {
         [self.webView goBack];
-    }else{
-        /// 判断 是Push还是Present进来的
+    }else{/// 不能返回上一个网页，就返回到上一个界面
+        /// 判断 是Push还是Present进来的，
         if (self.presentingViewController) {
             [self.viewModel.services dismissViewModelAnimated:YES completion:NULL];
         } else {
@@ -183,7 +184,7 @@ static NSString * const MHWebViewKVOEstimatedProgress = @"estimatedProgress";
 - (void)webView:(WKWebView *)webView didCommitNavigation:(null_unspecified WKNavigation *)navigation {
     /// 不显示关闭按钮
     if(self.viewModel.shouldDisableWebViewClose) return;
-    
+
     UIBarButtonItem *backItem = self.navigationItem.leftBarButtonItems.firstObject;
     if (backItem) {
         if ([self.webView canGoBack]) {

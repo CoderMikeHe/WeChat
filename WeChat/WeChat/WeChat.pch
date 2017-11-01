@@ -49,6 +49,7 @@
 #import "UITextView+MHExtension.h"
 #import "UILabel+MHExtension.h"
 #import "UISearchBar+MHExtension.h"
+#import "UITableView+MHExtension.h"
 #import "SAMKeychain+MHUtil.h"
 #import "MHSearchBar.h"
 #import "AppDelegate.h"

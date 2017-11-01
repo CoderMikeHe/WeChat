@@ -43,7 +43,7 @@
 /** fetch the local data */
 - (id)fetchLocalData;
 
-/// 请求错误
+/// 请求错误信息过滤
 - (BOOL (^)(NSError *error))requestRemoteDataErrorsFilter;
 
 /// 当前页之前的所有数据
@@ -53,6 +53,4 @@
  *  page - 请求第几页的数据
  */
 - (RACSignal *)requestRemoteDataSignalWithPage:(NSUInteger)page;
-
-
 @end

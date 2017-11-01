@@ -10,14 +10,9 @@
 #import "MHWebViewModel.h"
 #import <WebKit/WebKit.h>
 
-@interface MHWebViewController : MHViewController<
-WKNavigationDelegate,
-WKUIDelegate,
-WKScriptMessageHandler
->
+@interface MHWebViewController : MHViewController<WKNavigationDelegate,WKUIDelegate,WKScriptMessageHandler>
 /// webView
 @property (nonatomic, weak, readonly) WKWebView *webView;
 /// 内容缩进 (64,0,0,0)
 @property (nonatomic, readonly, assign) UIEdgeInsets contentInset;
-
 @end

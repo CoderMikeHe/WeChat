@@ -20,7 +20,6 @@
     [super viewDidLoad];
     
     self.tabBarController = [[UITabBarController alloc] init];
-    
     /// 添加子控制器
     [self.view addSubview:self.tabBarController.view];
     [self addChildViewController:self.tabBarController];

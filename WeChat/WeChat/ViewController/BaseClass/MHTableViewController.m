@@ -100,22 +100,21 @@
 - (void)_su_setupSubViews
 {
     // set up tableView
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero style:self.viewModel.style];
+    /// CoderMikeHe FIXED: 纯代码布局，子类如果重新布局，建议用Masonry重新设置约束
+    UITableView *tableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds style:self.viewModel.style];
     tableView.backgroundColor = self.view.backgroundColor;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     // set delegate and dataSource
     tableView.delegate = self;
     tableView.dataSource = self;
     [self.view addSubview:tableView];
-    /// CoderMikeHe FIXED: 纯代码布局，子类如果重新布局，建议用Masonry重新设置约束
-    tableView.frame = MH_SCREEN_BOUNDS;
     
     /// 占位符
 //    tableView.emptyDataSetDelegate = self;
 //    tableView.emptyDataSetSource = self;
-    //    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-    //        make.edges.mas_equalTo(UIEdgeInsetsZero);
-    //    }];
+    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsZero);
+    }];
     
     
     self.tableView = tableView;
@@ -124,11 +123,11 @@
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     
     /// CoderMikeHe FIXED: 这里需要强制布局一下界面，解决由于设置了tableView的contentInset，然而contentOffset始终是（0，0）的bug 但是这样会导致 tableView 刷新一次，从而导致子类在 viewDidLoad 无法及时注册的cell，从而会有Crash的隐患
-    //    [self.tableView layoutIfNeeded];
-    //    [self.tableView setNeedsLayout];
-    //    [self.tableView updateConstraintsIfNeeded];
-    //    [self.tableView setNeedsUpdateConstraints];
-    //    [self.view layoutIfNeeded];
+//        [self.tableView layoutIfNeeded];
+//        [self.tableView setNeedsLayout];
+//        [self.tableView updateConstraintsIfNeeded];
+//        [self.tableView setNeedsUpdateConstraints];
+//        [self.view layoutIfNeeded];
     
     /// 添加加载和刷新控件
     if (self.viewModel.shouldPullDownToRefresh) {
