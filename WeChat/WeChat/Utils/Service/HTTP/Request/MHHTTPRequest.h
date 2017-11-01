@@ -12,8 +12,7 @@
 
 @interface MHHTTPRequest : NSObject
 /// 请求参数
-@property (nonatomic, readwrite, strong) MHURLParameters *urlParameters;
-
+@property (nonatomic, readonly, strong) MHURLParameters *urlParameters;
 /**
  获取请求类
  @param params  参数模型
@@ -22,8 +21,6 @@
 +(instancetype)requestWithParameters:(MHURLParameters *)parameters;
 
 @end
-
-
 
 @interface MHHTTPRequest (MHHTTPService)
 /// 入队

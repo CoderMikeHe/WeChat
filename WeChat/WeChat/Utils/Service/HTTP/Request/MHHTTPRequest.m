@@ -9,11 +9,15 @@
 #import "MHHTTPRequest.h"
 #import "MHHTTPService.h"
 
+@interface MHHTTPRequest ()
+/// 请求参数
+@property (nonatomic, readwrite, strong) MHURLParameters *urlParameters;
+
+@end
+
 @implementation MHHTTPRequest
 
-
 +(instancetype)requestWithParameters:(MHURLParameters *)parameters{
-    
     return [[self alloc] initRequestWithParameters:parameters];
 }
 

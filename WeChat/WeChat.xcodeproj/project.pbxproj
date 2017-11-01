@@ -1218,10 +1218,10 @@
 		2624CAD61F98DC8A0083923F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				2624CAE11F98DF9B0083923F /* AFHTTPSessionManager+RACSupport.h */,
-				2624CAE01F98DF9B0083923F /* AFHTTPSessionManager+RACSupport.m */,
 				2624CADD1F98DF9B0083923F /* RACSignal+MHHTTPServiceAdditions.h */,
 				2624CAE21F98DF9B0083923F /* RACSignal+MHHTTPServiceAdditions.m */,
+				2624CAE11F98DF9B0083923F /* AFHTTPSessionManager+RACSupport.h */,
+				2624CAE01F98DF9B0083923F /* AFHTTPSessionManager+RACSupport.m */,
 				2624CADE1F98DF9B0083923F /* RACSubscriber+AFProgressCallbacks.h */,
 				2624CADF1F98DF9B0083923F /* RACSubscriber+AFProgressCallbacks.m */,
 			);
@@ -1231,10 +1231,10 @@
 		2624CAD71F98DC8A0083923F /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				2624CAE91F98DFC70083923F /* MHHTTPRequest.h */,
-				2624CAE81F98DFC70083923F /* MHHTTPRequest.m */,
 				2624CAE71F98DFC70083923F /* MHKeyedSubscript.h */,
 				2624CAEA1F98DFC80083923F /* MHKeyedSubscript.m */,
+				2624CAE91F98DFC70083923F /* MHHTTPRequest.h */,
+				2624CAE81F98DFC70083923F /* MHHTTPRequest.m */,
 				2624CAEB1F98DFC80083923F /* MHURLParameters.h */,
 				2624CAE61F98DFC70083923F /* MHURLParameters.m */,
 			);
