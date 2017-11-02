@@ -21,7 +21,7 @@
 +(instancetype)requestWithParameters:(MHURLParameters *)parameters;
 
 @end
-
+/// MHHTTPService的分类
 @interface MHHTTPRequest (MHHTTPService)
 /// 入队
 - (RACSignal *) enqueueResultClass:(Class /*subclass of MHObject*/) resultClass;

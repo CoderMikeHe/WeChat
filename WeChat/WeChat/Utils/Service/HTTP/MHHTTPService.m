@@ -747,7 +747,6 @@ static id service_ = nil;
         value = [value sb_URLEncoding];
         [kvs addObject:[NSString stringWithFormat:@"%@=%@",key,value]];
     }
-    
     /// 拼接私钥
     NSString *paramString = [kvs componentsJoinedByString:@"&"];
     NSString *keyValue = MHHTTPServiceKeyValue;

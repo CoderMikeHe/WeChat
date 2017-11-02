@@ -25,11 +25,6 @@
     return self;
 }
 
-- (NSString *)uid{
-    NSString *t_uid = MHStringIsNotEmpty([MHHTTPService sharedInstance].currentUserId)?[MHHTTPService sharedInstance].currentUserId:@"";
-    return t_uid;
-}
-
 - (NSString *)ver{
     static NSString *version = nil;
     if (version == nil) version = [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];

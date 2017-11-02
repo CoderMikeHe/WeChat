@@ -21,3 +21,5 @@
 - 如果通过该工程的使用和说明文档的阅读，对您在开发中有一点帮助，码字不易，还请点击右上角`star`按钮，谢谢；
 - 简书地址：<http://www.jianshu.com/u/126498da7523>
 
+### 文档
+- [iOS 基于MVVM + RAC + ViewModel-Based Navigation的微信开发](http://www.jianshu.com/p/fd407a4ecb8e)

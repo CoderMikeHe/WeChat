@@ -25,8 +25,6 @@ typedef NS_ENUM(NSUInteger, MHHTTPResponseCode) {
 @property (nonatomic, readonly, copy) NSString *msg;
 
 
-
-
 // Initializes the receiver with the headers from the given response, and given the origin data and the
 // given parsed model object(s).
 - (instancetype)initWithResponseObject:(id)responseObject parsedResult:(id)parsedResult;
