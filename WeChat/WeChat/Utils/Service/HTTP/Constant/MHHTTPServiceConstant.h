@@ -15,7 +15,7 @@
 /// 私钥key
 #define MHHTTPServiceKey  @"privatekey"
 /// 私钥Value
-#define MHHTTPServiceKeyValue @"5f558dac2aaa27b716e1bdbf3da7dcd0"
+#define MHHTTPServiceKeyValue @"/** 你的私钥 **/"
 
 /// 签名key
 #define MHHTTPServiceSignKey @"sign"

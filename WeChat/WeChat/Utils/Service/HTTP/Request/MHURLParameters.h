@@ -44,7 +44,7 @@
 + (instancetype)extendsParameters;
 
 /// uid
-//@property (nonatomic, readonly, copy) NSString *uid;
+@property (nonatomic, readonly, copy) NSString *uid;
 
 /// 用户token，默认空字符串
 @property (nonatomic, readonly, copy) NSString *token;
