@@ -23,4 +23,4 @@
 
 ### 文档
 - [iOS 基于MVVM + RAC + ViewModel-Based Navigation的微信开发（一）](http://www.jianshu.com/p/fd407a4ecb8e)
-- - [iOS 基于MVVM + RAC + ViewModel-Based Navigation的微信开发（二）](http://www.jianshu.com/p/8c35fc02f47b)
+- [iOS 基于MVVM + RAC + ViewModel-Based Navigation的微信开发（二）](http://www.jianshu.com/p/8c35fc02f47b)
