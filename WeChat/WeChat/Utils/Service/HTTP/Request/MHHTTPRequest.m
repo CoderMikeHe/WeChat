@@ -35,12 +35,9 @@
 
 /// 网络服务层分类 方便MHHTTPRequest 主动发起请求
 @implementation MHHTTPRequest (MHHTTPService)
-
-
 /// 请求数据
 -(RACSignal *) enqueueResultClass:(Class /*subclass of MHObject*/) resultClass {
     return [[MHHTTPService sharedInstance] enqueueRequest:self resultClass:resultClass];
 }
-
 @end
 

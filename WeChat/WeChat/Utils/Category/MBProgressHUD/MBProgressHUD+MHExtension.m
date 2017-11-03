@@ -7,7 +7,7 @@
 //
 
 #import "MBProgressHUD+MHExtension.h"
-
+#import "NSError+MHExtension.h"
 @implementation MBProgressHUD (MHExtension)
 
 #pragma mark - Added To  window
@@ -98,20 +98,7 @@
 
 
 #pragma mark - 辅助属性
-+ (NSString *)mh_tipsFromError:(NSError *)error
-{
-    if (error)
-    {
-        NSString *tipStr = nil;
-        if (error.userInfo[@"msg"]) {
-            tipStr = [error.userInfo objectForKey:@"msg"];
-        } else if (error.domain) {
-            tipStr = error.domain;
-        } else {
-            tipStr = error.localizedDescription;
-        }
-        return tipStr;
-    }
-    return nil;
++ (NSString *)mh_tipsFromError:(NSError *)error{
+    return [NSError mh_tipsFromError:error];
 }
 @end

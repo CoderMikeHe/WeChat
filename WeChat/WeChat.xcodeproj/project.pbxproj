@@ -54,6 +54,7 @@
 		2618AFDA1F91BD5B00F82A46 /* MHModifyNicknameViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2618AFD91F91BD5B00F82A46 /* MHModifyNicknameViewModel.m */; };
 		2618AFDF1F91BDA300F82A46 /* MHModifyNicknameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2618AFDD1F91BDA300F82A46 /* MHModifyNicknameViewController.m */; };
 		2618AFE01F91BDA300F82A46 /* MHModifyNicknameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2618AFDE1F91BDA300F82A46 /* MHModifyNicknameViewController.xib */; };
+		261CB6311FAC18110080B7C1 /* MHLiveInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 261CB6301FAC18110080B7C1 /* MHLiveInfo.m */; };
 		26225D711F654C9F0074BFC3 /* MHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26225D701F654C9F0074BFC3 /* MHViewController.m */; };
 		26225D741F654D330074BFC3 /* MHTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26225D731F654D330074BFC3 /* MHTableViewController.m */; };
 		26225D771F654DEE0074BFC3 /* MHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26225D761F654DEE0074BFC3 /* MHWebViewController.m */; };
@@ -331,6 +332,8 @@
 		2618AFDC1F91BDA300F82A46 /* MHModifyNicknameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHModifyNicknameViewController.h; sourceTree = "<group>"; };
 		2618AFDD1F91BDA300F82A46 /* MHModifyNicknameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHModifyNicknameViewController.m; sourceTree = "<group>"; };
 		2618AFDE1F91BDA300F82A46 /* MHModifyNicknameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHModifyNicknameViewController.xib; sourceTree = "<group>"; };
+		261CB62F1FAC18110080B7C1 /* MHLiveInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHLiveInfo.h; sourceTree = "<group>"; };
+		261CB6301FAC18110080B7C1 /* MHLiveInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHLiveInfo.m; sourceTree = "<group>"; };
 		26225D6F1F654C9F0074BFC3 /* MHViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHViewController.h; sourceTree = "<group>"; };
 		26225D701F654C9F0074BFC3 /* MHViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHViewController.m; sourceTree = "<group>"; };
 		26225D721F654D330074BFC3 /* MHTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHTableViewController.h; sourceTree = "<group>"; };
@@ -1255,6 +1258,8 @@
 			children = (
 				2624CAF01F98E97B0083923F /* MHLiveRoom.h */,
 				2624CAF11F98E97B0083923F /* MHLiveRoom.m */,
+				261CB62F1FAC18110080B7C1 /* MHLiveInfo.h */,
+				261CB6301FAC18110080B7C1 /* MHLiveInfo.m */,
 				2624CAF31F98E9ED0083923F /* MHHTTPService+Live.h */,
 				2624CAF41F98E9ED0083923F /* MHHTTPService+Live.m */,
 			);
@@ -2456,6 +2461,7 @@
 				26FE656D1F9313E800642615 /* MHPlugViewModel.m in Sources */,
 				266E15D91F8F7E7E000E31C5 /* MHCommitViewController.m in Sources */,
 				2624CAE51F98DF9B0083923F /* RACSignal+MHHTTPServiceAdditions.m in Sources */,
+				261CB6311FAC18110080B7C1 /* MHLiveInfo.m in Sources */,
 				26A7E7581F7A44010015CA71 /* MHLoginBaseViewModel.m in Sources */,
 				2624CAEC1F98DFC80083923F /* MHURLParameters.m in Sources */,
 				263D36DB1F666438007267C3 /* LCActionSheet+MHExtension.m in Sources */,

@@ -215,7 +215,7 @@ static id service_ = nil;
     
     @weakify(self);
     
-//    /// 覆盖manager请求序列化
+   /// 覆盖manager请求序列化
 //    self.requestSerializer = [self _requestSerializerWithRequest:request];
     
     /// 发起请求
@@ -591,7 +591,6 @@ static id service_ = nil;
     /// 不一定有值，则HttpCode = 0;
     NSInteger HTTPCode = httpResponse.statusCode;
     NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
-    
     /// default errorCode is MHHTTPServiceErrorConnectionFailed，意味着连接不上服务器
     NSInteger errorCode = MHHTTPServiceErrorConnectionFailed;
     NSString *errorDesc = @"服务器出错了，请稍后重试~";

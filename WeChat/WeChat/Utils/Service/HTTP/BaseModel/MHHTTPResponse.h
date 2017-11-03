@@ -17,11 +17,11 @@ typedef NS_ENUM(NSUInteger, MHHTTPResponseCode) {
 
 @interface MHHTTPResponse : MHObject
 /// The parsed MHObject object corresponding to the API response.
-/// The developer need care this data 切记：若没有数据是NSNull 而不是nil
+/// The developer need care this data 切记：若没有数据是NSNull 而不是nil .对应于服务器json数据的 data
 @property (nonatomic, readonly, strong) id parsedResult;
-/// 自己服务器返回的状态码
+/// 自己服务器返回的状态码 对应于服务器json数据的 code
 @property (nonatomic, readonly, assign) MHHTTPResponseCode code;
-/// 自己服务器返回的信息
+/// 自己服务器返回的信息 对应于服务器json数据的 code
 @property (nonatomic, readonly, copy) NSString *msg;
 
 

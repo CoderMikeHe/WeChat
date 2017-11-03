@@ -20,13 +20,20 @@
     if (lon == nil) subscript[@"lon"] = @(113.96939828211362);
     if (province == nil) subscript[@"province"] = @"广东省";
     
-    /// 2. 配置参数模型
+    /// 2. 配置参数模型 #define MH_GET_LIVE_ROOM_LIST  @"Room/GetHotLive_v2"
     MHURLParameters *paramters = [MHURLParameters urlParametersWithMethod:MH_HTTTP_METHOD_GET path:MH_GET_LIVE_ROOM_LIST parameters:subscript.dictionary];
     
     /// 3.发起请求
     return [[[MHHTTPRequest requestWithParameters:paramters]
              enqueueResultClass:[MHLiveRoom class]]
             mh_parsedResults];
+    
+    /** 复杂的方式
+    /// 配置请求模型
+    MHHTTPRequest *request = [MHHTTPRequest requestWithParameters:paramters];
+    /// 发起请求
+    return [[MHHTTPService sharedInstance] enqueueRequest:request resultClass:[MHLiveRoom class]];
+     */
 }
 
 
