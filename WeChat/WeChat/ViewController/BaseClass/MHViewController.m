@@ -52,6 +52,7 @@
     /// 配置键盘
     IQKeyboardManager.sharedManager.enable = self.viewModel.keyboardEnable;
     IQKeyboardManager.sharedManager.shouldResignOnTouchOutside = self.viewModel.shouldResignOnTouchOutside;
+    IQKeyboardManager.sharedManager.keyboardDistanceFromTextField = self.viewModel.keyboardDistanceFromTextField;
     
     /// 这里做友盟统计
     //    [MobClick beginLogPageView:SBPageName(self)];

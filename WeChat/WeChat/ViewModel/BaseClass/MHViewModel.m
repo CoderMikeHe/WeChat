@@ -57,6 +57,8 @@ NSString *const MHViewModelRequestKey = @"MHViewModelRequestKey";
         /// 允许IQKeyboardMananger接管键盘弹出事件
         self.keyboardEnable = YES;
         self.shouldResignOnTouchOutside = YES;
+        self.keyboardDistanceFromTextField = 10.0f;
+        
         self.title = params[MHViewModelTitleKey];
         /// 赋值
         self.services = services;

@@ -15,7 +15,7 @@
 
 #if defined(DEBUG)||defined(_DEBUG)
 #import <JPFPSStatus/JPFPSStatus.h>
-//#import "SBDebugTouchView.h"
+#import "MHDebugTouchView.h"
 //#import <FBMemoryProfiler/FBMemoryProfiler.h>
 //#import <FBRetainCycleDetector/FBRetainCycleDetector.h>
 //#import "CacheCleanerPlugin.h"
@@ -147,8 +147,8 @@
     /// 显示FPS
     [[JPFPSStatus sharedInstance] open];
     
-    /// 打开调试按钮，每次重启就会开启
-//    [[SBDebugTouchView sharedInstance] open];
+    /// 打开调试按钮
+    [MHDebugTouchView sharedInstance];
 }
 
 
@@ -162,7 +162,8 @@
         return [[MHNewFeatureViewModel alloc] initWithServices:self.services params:nil];
     }else{
         /// 这里判断一下
-        if ([SAMKeychain rawLogin] && self.services.client.currentUser) { /// 有账号+有用户数据
+        if ([SAMKeychain rawLogin] && self.services.client.currentUser) { 
+            /// 有账号+有用户数据
             /// 已经登录，跳转到主页
             return [[MHHomePageViewModel alloc] initWithServices:self.services params:nil];
         }else if(self.services.client.currentUser){ /// 没账号+有用户数据
@@ -173,6 +174,11 @@
             return [[MHBootLoginViewModel alloc] initWithServices:self.services params:nil];
         }
     }
+    
+    /// 切换了根控制器，切记需要将指示器 移到window的最前面
+#if defined(DEBUG)||defined(_DEBUG)
+    [self.window bringSubviewToFront:[MHDebugTouchView sharedInstance]];
+#endif
 }
 
 #pragma mark- 获取appDelegate

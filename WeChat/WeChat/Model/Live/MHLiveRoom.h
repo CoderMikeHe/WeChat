@@ -52,31 +52,3 @@
 @property (nonatomic, readwrite, assign) NSInteger gameid;
 @end
 
-
-/**
- 
- {
- "pos":1,
- "useridx":69536162,
- "userId":"WeiXin41293563",
- "gender":0,
- "myname":"YOYO💋",
- "smallpic":"http://liveimg.9158.com/pic/avator/2017-09/30/15/20170930152956_69536162_250.png",
- "bigpic":"http://liveimg.9158.com/pic/avator/2017-09/30/15/20170930152956_69536162_640.png",
- "allnum":2055,
- "roomid":65545089,
- "serverid":9,
- "gps":"上海市",
- "flv":"http://hdl.9158.com/live/88541f307e30ea37e9eba34b28e8bbbf.flv",
- "anchorlevel":18,
- "starlevel":2,
- "familyName":"红唇",
- "isSign":1,
- "nation":"",
- "nationFlag":"",
- "distance":0,
- "gameid":0
- }
- 
- 
- */

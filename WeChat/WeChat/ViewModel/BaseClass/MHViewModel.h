@@ -79,6 +79,9 @@ FOUNDATION_EXTERN NSString *const MHViewModelRequestKey;
 @property (nonatomic, readwrite, assign) BOOL keyboardEnable;
 /// 是否键盘弹起的时候，点击其他局域键盘弹起 默认是 YES
 @property (nonatomic, readwrite, assign) BOOL shouldResignOnTouchOutside;
+/// To set keyboard distance from textField. can't be less than zero. Default is 10.0.
+/// keyboardDistanceFromTextField
+@property (nonatomic, readwrite, assign) CGFloat keyboardDistanceFromTextField;
 
 /// An additional method, in which you can initialize data, RACCommand etc.
 ///

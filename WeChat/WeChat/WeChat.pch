@@ -34,6 +34,12 @@
 /// User Custom File
 #import "MHMacros.h"
 #import "MHFileManager.h"
+#import "MHSearchBar.h"
+#import "AppDelegate.h"
+#import "MHTextField.h"
+#import "MHPreferenceSettingHelper.h"
+#import "MHSingleton.h"
+
 #import "LCActionSheet+MHExtension.h"
 #import "UIFont+MHExtension.h"
 #import "NSError+MHModelException.h"
@@ -51,10 +57,7 @@
 #import "UISearchBar+MHExtension.h"
 #import "UITableView+MHExtension.h"
 #import "SAMKeychain+MHUtil.h"
-#import "MHSearchBar.h"
-#import "AppDelegate.h"
-#import "MHTextField.h"
-#import "MHPreferenceSettingHelper.h"
+
 
 #endif /* WeChat_pch */
 

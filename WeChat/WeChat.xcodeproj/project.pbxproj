@@ -77,6 +77,8 @@
 		2629840B1F909D1400AA9131 /* MHLanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2629840A1F909D1400AA9131 /* MHLanguageViewController.m */; };
 		2629840E1F909D4400AA9131 /* MHLanguageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2629840D1F909D4400AA9131 /* MHLanguageViewModel.m */; };
 		262984131F90B7B900AA9131 /* MHLanguageItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 262984121F90B7B900AA9131 /* MHLanguageItemViewModel.m */; };
+		262ADA491FCA741800B0F4FD /* MHDebugTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 262ADA481FCA741800B0F4FD /* MHDebugTouchView.m */; };
+		262ADA4D1FCA75C700B0F4FD /* MHConfigureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 262ADA4C1FCA75C700B0F4FD /* MHConfigureManager.m */; };
 		263004D31F751F9F00247F3D /* MHSearchFriendsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 263004D21F751F9F00247F3D /* MHSearchFriendsHeaderView.m */; };
 		263004D51F751FB800247F3D /* MHSearchFriendsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263004D41F751FB800247F3D /* MHSearchFriendsHeaderView.xib */; };
 		263C89781F6A30E600F7A0AE /* MHCommonItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 263C89771F6A30E600F7A0AE /* MHCommonItemViewModel.m */; };
@@ -384,6 +386,11 @@
 		2629840D1F909D4400AA9131 /* MHLanguageViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHLanguageViewModel.m; sourceTree = "<group>"; };
 		262984111F90B7B900AA9131 /* MHLanguageItemViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHLanguageItemViewModel.h; sourceTree = "<group>"; };
 		262984121F90B7B900AA9131 /* MHLanguageItemViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHLanguageItemViewModel.m; sourceTree = "<group>"; };
+		262ADA471FCA741800B0F4FD /* MHDebugTouchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHDebugTouchView.h; sourceTree = "<group>"; };
+		262ADA481FCA741800B0F4FD /* MHDebugTouchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHDebugTouchView.m; sourceTree = "<group>"; };
+		262ADA4B1FCA75C700B0F4FD /* MHConfigureManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHConfigureManager.h; sourceTree = "<group>"; };
+		262ADA4C1FCA75C700B0F4FD /* MHConfigureManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHConfigureManager.m; sourceTree = "<group>"; };
+		262ADA4F1FCA795300B0F4FD /* MHSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHSingleton.h; sourceTree = "<group>"; };
 		263004D11F751F9F00247F3D /* MHSearchFriendsHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHSearchFriendsHeaderView.h; sourceTree = "<group>"; };
 		263004D21F751F9F00247F3D /* MHSearchFriendsHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHSearchFriendsHeaderView.m; sourceTree = "<group>"; };
 		263004D41F751FB800247F3D /* MHSearchFriendsHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MHSearchFriendsHeaderView.xib; sourceTree = "<group>"; };
@@ -843,6 +850,7 @@
 		26064AEF1F5DA21000566B95 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				262ADA4E1FCA795300B0F4FD /* Singleton */,
 				26C7BEEF1F8CD2BF00525126 /* Manager */,
 				26C7BEE71F8CC97F00525126 /* Service */,
 				26C7BEE21F8CBEB400525126 /* Util */,
@@ -1275,6 +1283,23 @@
 			path = ItemViewModel;
 			sourceTree = "<group>";
 		};
+		262ADA4A1FCA75B800B0F4FD /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				262ADA4B1FCA75C700B0F4FD /* MHConfigureManager.h */,
+				262ADA4C1FCA75C700B0F4FD /* MHConfigureManager.m */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		262ADA4E1FCA795300B0F4FD /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				262ADA4F1FCA795300B0F4FD /* MHSingleton.h */,
+			);
+			path = Singleton;
+			sourceTree = "<group>";
+		};
 		263004D01F751F7000247F3D /* AddFriends */ = {
 			isa = PBXGroup;
 			children = (
@@ -1385,6 +1410,8 @@
 				26AEEE0C1F7D16F600A270EE /* MHSearchBar.m */,
 				266E15CE1F8F2086000E31C5 /* MHTextField.h */,
 				266E15CF1F8F2086000E31C5 /* MHTextField.m */,
+				262ADA471FCA741800B0F4FD /* MHDebugTouchView.h */,
+				262ADA481FCA741800B0F4FD /* MHDebugTouchView.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -1815,6 +1842,7 @@
 		26C7BEEF1F8CD2BF00525126 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				262ADA4A1FCA75B800B0F4FD /* Config */,
 				26FE8E301F95119F00EC8BE0 /* Photo */,
 				26C7BEF01F8CD2BF00525126 /* File */,
 			);
@@ -2332,6 +2360,7 @@
 				261753141F73710000812E1B /* MHUserInfoViewController.m in Sources */,
 				2615266B1F6AE17400400BA0 /* MHTabBar.m in Sources */,
 				26FE65721F93142400642615 /* MHPlugViewController.m in Sources */,
+				262ADA491FCA741800B0F4FD /* MHDebugTouchView.m in Sources */,
 				2605C5CD1F66323800B1F66E /* MHDiscoverViewModel.m in Sources */,
 				26FE8E931F9514D100EC8BE0 /* UIView+Layout.m in Sources */,
 				265490541F99E905003AEED1 /* MHTestViewController.m in Sources */,
@@ -2447,6 +2476,7 @@
 				26FE8E331F95119F00EC8BE0 /* MHPhotoManager.m in Sources */,
 				26225D8C1F6554140074BFC3 /* MHWebViewModel.m in Sources */,
 				263D36EE1F666438007267C3 /* UITextView+MHExtension.m in Sources */,
+				262ADA4D1FCA75C700B0F4FD /* MHConfigureManager.m in Sources */,
 				2605C5B81F66249F00B1F66E /* MHHomePageViewModel.m in Sources */,
 				264F2D161F94A80F00B244AD /* MHPlugDetailViewController.m in Sources */,
 				263D36E21F666438007267C3 /* NSObject+SBExtension.m in Sources */,
