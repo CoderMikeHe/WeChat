@@ -96,8 +96,7 @@ static NSString * const MHApplicationUseHttpsKey = @"MHApplicationUseHttpsKey";
 
 /// 请求的baseUrl
 + (NSString *)requestBaseUrl{
-    if ([self applicationFormalSetting])
-    {
+    if ([self applicationFormalSetting]){
         /// 注意：这里针对你项目中请求baseUrl来处理....
         if ([self applicationAppStoreFormalSetting]) {
             /// AppStore正式环境

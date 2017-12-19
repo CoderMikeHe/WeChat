@@ -155,6 +155,11 @@
 
 #pragma mark - 创建根控制器
 - (MHViewModel *)_createInitialViewModel {
+    /// 切换了根控制器，切记需要将指示器 移到window的最前面
+#if defined(DEBUG)||defined(_DEBUG)
+    [self.window bringSubviewToFront:[MHDebugTouchView sharedInstance]];
+#endif
+    
     // The user has logged-in.
     NSString *version = [[NSUserDefaults standardUserDefaults] valueForKey:MHApplicationVersionKey];
     /// 版本不一样就先走 新特性界面
@@ -174,11 +179,6 @@
             return [[MHBootLoginViewModel alloc] initWithServices:self.services params:nil];
         }
     }
-    
-    /// 切换了根控制器，切记需要将指示器 移到window的最前面
-#if defined(DEBUG)||defined(_DEBUG)
-    [self.window bringSubviewToFront:[MHDebugTouchView sharedInstance]];
-#endif
 }
 
 #pragma mark- 获取appDelegate

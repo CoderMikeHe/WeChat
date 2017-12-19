@@ -107,6 +107,9 @@
 - (void)bindViewModel{
     /// set navgation title
     /// CoderMikeHe Fixed: 这里只是单纯设置导航栏的title。 不然以免self.title同时设置了navigatiItem.title, 同时又设置了tabBarItem.title
+    
+    NSLog(@"--- %@" , self.viewModel.title);
+    
     RAC(self.navigationItem , title) = RACObserve(self, viewModel.title);
     /// 绑定错误信息
     [self.viewModel.errors subscribeNext:^(NSError *error) {

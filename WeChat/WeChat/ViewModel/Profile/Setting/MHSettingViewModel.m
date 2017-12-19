@@ -9,6 +9,12 @@
 #import "MHSettingViewModel.h"
 #import "MHCommonArrowItemViewModel.h"
 #import "MHPlugViewModel.h"
+#import "MHAccountSecurityViewModel.h"
+#import "MHNotificationViewModel.h"
+#import "MHWebViewModel.h"
+#import "MHAboutUsViewModel.h"
+#import "MHPrivacyViewModel.h"
+#import "MHGeneralViewModel.h"
 @interface MHSettingViewModel ()
 /// 登出的命令
 @property (nonatomic, readwrite, strong) RACCommand *logoutCommand;
@@ -23,24 +29,40 @@
     MHCommonGroupViewModel *group0 = [MHCommonGroupViewModel groupViewModel];
     ///账号与安全
     MHCommonArrowItemViewModel *accountSecurity = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"账号与安全"];
+    accountSecurity.destViewModelClass = [MHAccountSecurityViewModel class];
     group0.itemViewModels = @[ accountSecurity ];
     
     /// 第二组
     MHCommonGroupViewModel *group1 = [MHCommonGroupViewModel groupViewModel];
     /// 新消息通知
     MHCommonArrowItemViewModel *messageNote = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"新消息通知"];
+    messageNote.destViewModelClass = [MHNotificationViewModel class];
     /// 隐私
     MHCommonArrowItemViewModel *private = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"隐私"];
+    private.destViewModelClass = [MHPrivacyViewModel class];
+    
     /// 通用
     MHCommonArrowItemViewModel *general = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"通用"];
+    general.destViewModelClass = [MHGeneralViewModel class];
     group1.itemViewModels = @[ messageNote , private , general];
     
     /// 第三组
     MHCommonGroupViewModel *group2 = [MHCommonGroupViewModel groupViewModel];
     /// 帮助与反馈
     MHCommonArrowItemViewModel *help = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"帮助与反馈"];
+    help.operation = ^{
+        @strongify(self);
+        NSURL *url = [NSURL URLWithString:MHMyBlogHomepageUrl];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        MHWebViewModel * viewModel = [[MHWebViewModel alloc] initWithServices:self.services params:@{MHViewModelRequestKey:request}];
+        /// 去掉关闭按钮
+        viewModel.shouldDisableWebViewClose = YES;
+        [self.services pushViewModel:viewModel animated:YES];
+    };
+    
     /// 关于微信
     MHCommonArrowItemViewModel *aboutUs = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"关于微信"];
+    aboutUs.destViewModelClass = [MHAboutUsViewModel class];
     group2.itemViewModels = @[ help , aboutUs];
     
     /// 第四组

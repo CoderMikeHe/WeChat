@@ -102,7 +102,7 @@
     // set up tableView
     /// CoderMikeHe FIXED: 纯代码布局，子类如果重新布局，建议用Masonry重新设置约束
     UITableView *tableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds style:self.viewModel.style];
-    tableView.backgroundColor = self.view.backgroundColor;
+    tableView.backgroundColor = MH_MAIN_BACKGROUNDCOLOR;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     // set delegate and dataSource
     tableView.delegate = self;

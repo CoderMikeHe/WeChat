@@ -16,6 +16,7 @@
 /// 子标题
 @property (nonatomic, readwrite, copy) NSString *subtitle;
 
+
 /// rowHeight , default is 44.0f
 @property (nonatomic, readwrite, assign) CGFloat rowHeight;
 // default is UITableViewCellSelectionStyleGray.
@@ -26,7 +27,8 @@
 
 /// 中间偏左icon的图片名字
 @property (nonatomic, readwrite, copy) NSString *centerLeftViewName;
-
+/// 中间偏右icon的图片名字
+@property (nonatomic, readwrite, copy) NSString *centerRightViewName;
 /// 点击这行cell，需要调转到哪个控制器的视图模型 destViewModelClass：必须是SBViewModel的子类
 @property (nonatomic, readwrite, assign) Class destViewModelClass;
 /// 封装点击这行cell想做的事情

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		26003FF31F988B81000621B0 /* MHButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 26003FF21F988B81000621B0 /* MHButton.m */; };
 		26003FF61F988BA1000621B0 /* MHImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26003FF51F988BA1000621B0 /* MHImageView.m */; };
+		260175821FE904BE000F6A25 /* MHGeneralViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 260175811FE904BE000F6A25 /* MHGeneralViewModel.m */; };
+		260175851FE904D1000F6A25 /* MHGeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 260175841FE904D1000F6A25 /* MHGeneralViewController.m */; };
 		2605C5B51F66241D00B1F66E /* MHHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2605C5B41F66241D00B1F66E /* MHHomePageViewController.m */; };
 		2605C5B81F66249F00B1F66E /* MHHomePageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2605C5B71F66249F00B1F66E /* MHHomePageViewModel.m */; };
 		2605C5BB1F662EA300B1F66E /* MHMainFrameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2605C5BA1F662EA300B1F66E /* MHMainFrameViewController.m */; };
@@ -23,6 +25,8 @@
 		2605C5D61F6633AC00B1F66E /* MHContactsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2605C5D51F6633AC00B1F66E /* MHContactsViewModel.m */; };
 		2605C5D91F6633DE00B1F66E /* MHNewFeatureViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2605C5D81F6633DE00B1F66E /* MHNewFeatureViewModel.m */; };
 		2605C5DC1F6633F500B1F66E /* MHNewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2605C5DB1F6633F500B1F66E /* MHNewFeatureViewController.m */; };
+		2605E1061FE7924900F514B0 /* MHPrivacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2605E1051FE7924900F514B0 /* MHPrivacyViewController.m */; };
+		2605E10A1FE7929300F514B0 /* MHPrivacyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2605E1091FE7929300F514B0 /* MHPrivacyViewModel.m */; };
 		26064AB81F5D9A1400566B95 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 26064AB71F5D9A1400566B95 /* main.m */; };
 		26064ABB1F5D9A1400566B95 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 26064ABA1F5D9A1400566B95 /* AppDelegate.m */; };
 		26064AC31F5D9A1400566B95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26064AC21F5D9A1400566B95 /* Assets.xcassets */; };
@@ -55,6 +59,13 @@
 		2618AFDF1F91BDA300F82A46 /* MHModifyNicknameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2618AFDD1F91BDA300F82A46 /* MHModifyNicknameViewController.m */; };
 		2618AFE01F91BDA300F82A46 /* MHModifyNicknameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2618AFDE1F91BDA300F82A46 /* MHModifyNicknameViewController.xib */; };
 		261CB6311FAC18110080B7C1 /* MHLiveInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 261CB6301FAC18110080B7C1 /* MHLiveInfo.m */; };
+		261E014F1FDE2A400041E989 /* MHCommonValueItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 261E014E1FDE2A400041E989 /* MHCommonValueItemViewModel.m */; };
+		261E01561FDE2CF50041E989 /* MHNotificationViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 261E01551FDE2CF50041E989 /* MHNotificationViewModel.m */; };
+		261E015A1FDE2D200041E989 /* MHNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 261E01591FDE2D200041E989 /* MHNotificationViewController.m */; };
+		261E015D1FDE2E010041E989 /* MHCommonSwitchItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 261E015C1FDE2E010041E989 /* MHCommonSwitchItemViewModel.m */; };
+		261E01621FDE69C50041E989 /* MHFreeInterruptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 261E01611FDE69C50041E989 /* MHFreeInterruptionViewController.m */; };
+		261E01651FDE69DD0041E989 /* MHFreeInterruptionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 261E01641FDE69DD0041E989 /* MHFreeInterruptionViewModel.m */; };
+		261E01691FDE6A130041E989 /* MHFreeInterruptionItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 261E01681FDE6A130041E989 /* MHFreeInterruptionItemViewModel.m */; };
 		26225D711F654C9F0074BFC3 /* MHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26225D701F654C9F0074BFC3 /* MHViewController.m */; };
 		26225D741F654D330074BFC3 /* MHTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26225D731F654D330074BFC3 /* MHTableViewController.m */; };
 		26225D771F654DEE0074BFC3 /* MHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26225D761F654DEE0074BFC3 /* MHWebViewController.m */; };
@@ -65,6 +76,8 @@
 		26225D8F1F65545E0074BFC3 /* MHTabBarViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26225D8E1F65545E0074BFC3 /* MHTabBarViewModel.m */; };
 		26225D971F6557290074BFC3 /* MHViewModelServicesImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 26225D961F6557290074BFC3 /* MHViewModelServicesImpl.m */; };
 		26225D9B1F65589E0074BFC3 /* MHConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 26225D9A1F65589E0074BFC3 /* MHConstant.m */; };
+		262300171FD91682007D1616 /* MHAccountSecurityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 262300161FD91682007D1616 /* MHAccountSecurityViewController.m */; };
+		2623001A1FD916CD007D1616 /* MHAccountSecurityViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 262300191FD916CD007D1616 /* MHAccountSecurityViewModel.m */; };
 		2624CADB1F98DCAD0083923F /* MHHTTPResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2624CADA1F98DCAD0083923F /* MHHTTPResponse.m */; };
 		2624CAE31F98DF9B0083923F /* RACSubscriber+AFProgressCallbacks.m in Sources */ = {isa = PBXBuildFile; fileRef = 2624CADF1F98DF9B0083923F /* RACSubscriber+AFProgressCallbacks.m */; };
 		2624CAE41F98DF9B0083923F /* AFHTTPSessionManager+RACSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 2624CAE01F98DF9B0083923F /* AFHTTPSessionManager+RACSupport.m */; };
@@ -142,6 +155,10 @@
 		2658C6921F74FFDE00C70840 /* MHAddFriendsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2658C6911F74FFDE00C70840 /* MHAddFriendsViewModel.m */; };
 		265B4EC61F8DEF54004AEE5F /* MHSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 265B4EC51F8DEF54004AEE5F /* MHSettingViewController.m */; };
 		265B4EC91F8DEF7F004AEE5F /* MHSettingViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 265B4EC81F8DEF7F004AEE5F /* MHSettingViewModel.m */; };
+		265DBFE41FE0C76700A5FCC8 /* MHAboutUsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 265DBFE31FE0C76700A5FCC8 /* MHAboutUsViewModel.m */; };
+		265DBFE81FE0C78F00A5FCC8 /* MHAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 265DBFE71FE0C78F00A5FCC8 /* MHAboutUsViewController.m */; };
+		265DBFEC1FE0C8D900A5FCC8 /* MHAboutUsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 265DBFEB1FE0C8D900A5FCC8 /* MHAboutUsHeaderView.m */; };
+		265DBFEE1FE0C8E400A5FCC8 /* MHAboutUsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 265DBFED1FE0C8E400A5FCC8 /* MHAboutUsHeaderView.xib */; };
 		2667A3E31F7B75BB00A3D7A2 /* MHAccountLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2667A3E21F7B75BB00A3D7A2 /* MHAccountLoginView.m */; };
 		2667A3E51F7B768C00A3D7A2 /* MHAccountLoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2667A3E41F7B768C00A3D7A2 /* MHAccountLoginView.xib */; };
 		2667A3E81F7B7AFB00A3D7A2 /* MHMobileLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2667A3E71F7B7AFB00A3D7A2 /* MHMobileLoginView.m */; };
@@ -244,6 +261,10 @@
 		26003FF21F988B81000621B0 /* MHButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHButton.m; sourceTree = "<group>"; };
 		26003FF41F988BA1000621B0 /* MHImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHImageView.h; sourceTree = "<group>"; };
 		26003FF51F988BA1000621B0 /* MHImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHImageView.m; sourceTree = "<group>"; };
+		260175801FE904BE000F6A25 /* MHGeneralViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHGeneralViewModel.h; sourceTree = "<group>"; };
+		260175811FE904BE000F6A25 /* MHGeneralViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHGeneralViewModel.m; sourceTree = "<group>"; };
+		260175831FE904D1000F6A25 /* MHGeneralViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHGeneralViewController.h; sourceTree = "<group>"; };
+		260175841FE904D1000F6A25 /* MHGeneralViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHGeneralViewController.m; sourceTree = "<group>"; };
 		2605C5B31F66241D00B1F66E /* MHHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHHomePageViewController.h; sourceTree = "<group>"; };
 		2605C5B41F66241D00B1F66E /* MHHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHHomePageViewController.m; sourceTree = "<group>"; };
 		2605C5B61F66249F00B1F66E /* MHHomePageViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHHomePageViewModel.h; sourceTree = "<group>"; };
@@ -272,6 +293,10 @@
 		2605C5D81F6633DE00B1F66E /* MHNewFeatureViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHNewFeatureViewModel.m; sourceTree = "<group>"; };
 		2605C5DA1F6633F500B1F66E /* MHNewFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHNewFeatureViewController.h; sourceTree = "<group>"; };
 		2605C5DB1F6633F500B1F66E /* MHNewFeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHNewFeatureViewController.m; sourceTree = "<group>"; };
+		2605E1041FE7924900F514B0 /* MHPrivacyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHPrivacyViewController.h; sourceTree = "<group>"; };
+		2605E1051FE7924900F514B0 /* MHPrivacyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHPrivacyViewController.m; sourceTree = "<group>"; };
+		2605E1081FE7929300F514B0 /* MHPrivacyViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHPrivacyViewModel.h; sourceTree = "<group>"; };
+		2605E1091FE7929300F514B0 /* MHPrivacyViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHPrivacyViewModel.m; sourceTree = "<group>"; };
 		26064AB31F5D9A1400566B95 /* WeChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26064AB71F5D9A1400566B95 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		26064AB91F5D9A1400566B95 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -336,6 +361,20 @@
 		2618AFDE1F91BDA300F82A46 /* MHModifyNicknameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHModifyNicknameViewController.xib; sourceTree = "<group>"; };
 		261CB62F1FAC18110080B7C1 /* MHLiveInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHLiveInfo.h; sourceTree = "<group>"; };
 		261CB6301FAC18110080B7C1 /* MHLiveInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHLiveInfo.m; sourceTree = "<group>"; };
+		261E014D1FDE2A400041E989 /* MHCommonValueItemViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHCommonValueItemViewModel.h; sourceTree = "<group>"; };
+		261E014E1FDE2A400041E989 /* MHCommonValueItemViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHCommonValueItemViewModel.m; sourceTree = "<group>"; };
+		261E01541FDE2CF50041E989 /* MHNotificationViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHNotificationViewModel.h; sourceTree = "<group>"; };
+		261E01551FDE2CF50041E989 /* MHNotificationViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHNotificationViewModel.m; sourceTree = "<group>"; };
+		261E01581FDE2D200041E989 /* MHNotificationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHNotificationViewController.h; sourceTree = "<group>"; };
+		261E01591FDE2D200041E989 /* MHNotificationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHNotificationViewController.m; sourceTree = "<group>"; };
+		261E015B1FDE2E010041E989 /* MHCommonSwitchItemViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHCommonSwitchItemViewModel.h; sourceTree = "<group>"; };
+		261E015C1FDE2E010041E989 /* MHCommonSwitchItemViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHCommonSwitchItemViewModel.m; sourceTree = "<group>"; };
+		261E01601FDE69C50041E989 /* MHFreeInterruptionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHFreeInterruptionViewController.h; sourceTree = "<group>"; };
+		261E01611FDE69C50041E989 /* MHFreeInterruptionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHFreeInterruptionViewController.m; sourceTree = "<group>"; };
+		261E01631FDE69DD0041E989 /* MHFreeInterruptionViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHFreeInterruptionViewModel.h; sourceTree = "<group>"; };
+		261E01641FDE69DD0041E989 /* MHFreeInterruptionViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHFreeInterruptionViewModel.m; sourceTree = "<group>"; };
+		261E01671FDE6A130041E989 /* MHFreeInterruptionItemViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHFreeInterruptionItemViewModel.h; sourceTree = "<group>"; };
+		261E01681FDE6A130041E989 /* MHFreeInterruptionItemViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHFreeInterruptionItemViewModel.m; sourceTree = "<group>"; };
 		26225D6F1F654C9F0074BFC3 /* MHViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHViewController.h; sourceTree = "<group>"; };
 		26225D701F654C9F0074BFC3 /* MHViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHViewController.m; sourceTree = "<group>"; };
 		26225D721F654D330074BFC3 /* MHTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHTableViewController.h; sourceTree = "<group>"; };
@@ -360,6 +399,10 @@
 		26225D991F65589E0074BFC3 /* MHConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHConstant.h; sourceTree = "<group>"; };
 		26225D9A1F65589E0074BFC3 /* MHConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHConstant.m; sourceTree = "<group>"; };
 		26225D9C1F65594D0074BFC3 /* MHMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHMacros.h; sourceTree = "<group>"; };
+		262300151FD91682007D1616 /* MHAccountSecurityViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHAccountSecurityViewController.h; sourceTree = "<group>"; };
+		262300161FD91682007D1616 /* MHAccountSecurityViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHAccountSecurityViewController.m; sourceTree = "<group>"; };
+		262300181FD916CD007D1616 /* MHAccountSecurityViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHAccountSecurityViewModel.h; sourceTree = "<group>"; };
+		262300191FD916CD007D1616 /* MHAccountSecurityViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHAccountSecurityViewModel.m; sourceTree = "<group>"; };
 		2624CAD91F98DCAD0083923F /* MHHTTPResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHHTTPResponse.h; sourceTree = "<group>"; };
 		2624CADA1F98DCAD0083923F /* MHHTTPResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHHTTPResponse.m; sourceTree = "<group>"; };
 		2624CADC1F98DEE70083923F /* MHHTTPServiceConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHHTTPServiceConstant.h; sourceTree = "<group>"; };
@@ -517,6 +560,13 @@
 		265B4EC51F8DEF54004AEE5F /* MHSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSettingViewController.m; sourceTree = "<group>"; };
 		265B4EC71F8DEF7F004AEE5F /* MHSettingViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSettingViewModel.h; sourceTree = "<group>"; };
 		265B4EC81F8DEF7F004AEE5F /* MHSettingViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSettingViewModel.m; sourceTree = "<group>"; };
+		265DBFE21FE0C76700A5FCC8 /* MHAboutUsViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHAboutUsViewModel.h; sourceTree = "<group>"; };
+		265DBFE31FE0C76700A5FCC8 /* MHAboutUsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHAboutUsViewModel.m; sourceTree = "<group>"; };
+		265DBFE61FE0C78F00A5FCC8 /* MHAboutUsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHAboutUsViewController.h; sourceTree = "<group>"; };
+		265DBFE71FE0C78F00A5FCC8 /* MHAboutUsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHAboutUsViewController.m; sourceTree = "<group>"; };
+		265DBFEA1FE0C8D900A5FCC8 /* MHAboutUsHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHAboutUsHeaderView.h; sourceTree = "<group>"; };
+		265DBFEB1FE0C8D900A5FCC8 /* MHAboutUsHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHAboutUsHeaderView.m; sourceTree = "<group>"; };
+		265DBFED1FE0C8E400A5FCC8 /* MHAboutUsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHAboutUsHeaderView.xib; sourceTree = "<group>"; };
 		2667A3E11F7B75BB00A3D7A2 /* MHAccountLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHAccountLoginView.h; sourceTree = "<group>"; };
 		2667A3E21F7B75BB00A3D7A2 /* MHAccountLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHAccountLoginView.m; sourceTree = "<group>"; };
 		2667A3E41F7B768C00A3D7A2 /* MHAccountLoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MHAccountLoginView.xib; sourceTree = "<group>"; };
@@ -697,6 +747,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2601757E1FE90492000F6A25 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				260175831FE904D1000F6A25 /* MHGeneralViewController.h */,
+				260175841FE904D1000F6A25 /* MHGeneralViewController.m */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		2601757F1FE904AF000F6A25 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				260175801FE904BE000F6A25 /* MHGeneralViewModel.h */,
+				260175811FE904BE000F6A25 /* MHGeneralViewModel.m */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		2605E1031FE7922700F514B0 /* Privacy */ = {
+			isa = PBXGroup;
+			children = (
+				2605E1041FE7924900F514B0 /* MHPrivacyViewController.h */,
+				2605E1051FE7924900F514B0 /* MHPrivacyViewController.m */,
+			);
+			path = Privacy;
+			sourceTree = "<group>";
+		};
+		2605E1071FE7927300F514B0 /* Privacy */ = {
+			isa = PBXGroup;
+			children = (
+				2605E1081FE7929300F514B0 /* MHPrivacyViewModel.h */,
+				2605E1091FE7929300F514B0 /* MHPrivacyViewModel.m */,
+			);
+			path = Privacy;
+			sourceTree = "<group>";
+		};
 		26064AAA1F5D9A1400566B95 = {
 			isa = PBXGroup;
 			children = (
@@ -983,6 +1069,12 @@
 		26064AF91F5DB46500566B95 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				2601757E1FE90492000F6A25 /* General */,
+				2605E1031FE7922700F514B0 /* Privacy */,
+				265DBFE51FE0C77E00A5FCC8 /* AboutUs */,
+				261E015F1FDE69B30041E989 /* FreeInterruption */,
+				261E01571FDE2D110041E989 /* Notification */,
+				262300141FD915DB007D1616 /* AccountSecurity */,
 				261753251F73ADEB00812E1B /* MoreInfo */,
 				261753101F7370CA00812E1B /* UserInfo */,
 				26FE656E1F93141300642615 /* Plug */,
@@ -1097,6 +1189,52 @@
 			path = ModifyNickname;
 			sourceTree = "<group>";
 		};
+		261E01501FDE2CBD0041E989 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				261E01541FDE2CF50041E989 /* MHNotificationViewModel.h */,
+				261E01551FDE2CF50041E989 /* MHNotificationViewModel.m */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		261E01571FDE2D110041E989 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				261E01581FDE2D200041E989 /* MHNotificationViewController.h */,
+				261E01591FDE2D200041E989 /* MHNotificationViewController.m */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		261E015E1FDE68040041E989 /* FreeInterruption */ = {
+			isa = PBXGroup;
+			children = (
+				261E01661FDE6A000041E989 /* ItemViewModel */,
+				261E01631FDE69DD0041E989 /* MHFreeInterruptionViewModel.h */,
+				261E01641FDE69DD0041E989 /* MHFreeInterruptionViewModel.m */,
+			);
+			path = FreeInterruption;
+			sourceTree = "<group>";
+		};
+		261E015F1FDE69B30041E989 /* FreeInterruption */ = {
+			isa = PBXGroup;
+			children = (
+				261E01601FDE69C50041E989 /* MHFreeInterruptionViewController.h */,
+				261E01611FDE69C50041E989 /* MHFreeInterruptionViewController.m */,
+			);
+			path = FreeInterruption;
+			sourceTree = "<group>";
+		};
+		261E01661FDE6A000041E989 /* ItemViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				261E01671FDE6A130041E989 /* MHFreeInterruptionItemViewModel.h */,
+				261E01681FDE6A130041E989 /* MHFreeInterruptionItemViewModel.m */,
+			);
+			path = ItemViewModel;
+			sourceTree = "<group>";
+		};
 		26225D7B1F65506E0074BFC3 /* BaseClass */ = {
 			isa = PBXGroup;
 			children = (
@@ -1204,6 +1342,12 @@
 		26225D831F65506E0074BFC3 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				2601757F1FE904AF000F6A25 /* General */,
+				2605E1071FE7927300F514B0 /* Privacy */,
+				265DBFE11FE0C68F00A5FCC8 /* AboutUs */,
+				261E015E1FDE68040041E989 /* FreeInterruption */,
+				261E01501FDE2CBD0041E989 /* Notification */,
+				262300131FD915C6007D1616 /* AccountSecurity */,
 				26FE656A1F9313AF00642615 /* Plug */,
 				26FE65621F92F8E600642615 /* Gender */,
 				26FE65561F92EE1F00642615 /* Location */,
@@ -1216,6 +1360,24 @@
 				2605C5C91F6631D300B1F66E /* MHProfileViewModel.m */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		262300131FD915C6007D1616 /* AccountSecurity */ = {
+			isa = PBXGroup;
+			children = (
+				262300181FD916CD007D1616 /* MHAccountSecurityViewModel.h */,
+				262300191FD916CD007D1616 /* MHAccountSecurityViewModel.m */,
+			);
+			path = AccountSecurity;
+			sourceTree = "<group>";
+		};
+		262300141FD915DB007D1616 /* AccountSecurity */ = {
+			isa = PBXGroup;
+			children = (
+				262300151FD91682007D1616 /* MHAccountSecurityViewController.h */,
+				262300161FD91682007D1616 /* MHAccountSecurityViewController.m */,
+			);
+			path = AccountSecurity;
 			sourceTree = "<group>";
 		};
 		2624CAD51F98DC890083923F /* Constant */ = {
@@ -1327,6 +1489,10 @@
 				2617531C1F739C1900812E1B /* MHCommonLabelItemViewModel.m */,
 				2617531E1F739DDC00812E1B /* MHCommonQRCodeItemViewModel.h */,
 				2617531F1F739DDC00812E1B /* MHCommonQRCodeItemViewModel.m */,
+				261E014D1FDE2A400041E989 /* MHCommonValueItemViewModel.h */,
+				261E014E1FDE2A400041E989 /* MHCommonValueItemViewModel.m */,
+				261E015B1FDE2E010041E989 /* MHCommonSwitchItemViewModel.h */,
+				261E015C1FDE2E010041E989 /* MHCommonSwitchItemViewModel.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1432,6 +1598,7 @@
 		263C89751F6A305100F7A0AE /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				265DBFE91FE0C8BF00A5FCC8 /* AboutUs */,
 				261753371F73C58B00812E1B /* FeatureSignature */,
 				264D36D41F70AEBD003BB8CE /* MHProfileHeaderCell.h */,
 				264D36D51F70AEBD003BB8CE /* MHProfileHeaderCell.m */,
@@ -1753,6 +1920,34 @@
 				265B4EC51F8DEF54004AEE5F /* MHSettingViewController.m */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		265DBFE11FE0C68F00A5FCC8 /* AboutUs */ = {
+			isa = PBXGroup;
+			children = (
+				265DBFE21FE0C76700A5FCC8 /* MHAboutUsViewModel.h */,
+				265DBFE31FE0C76700A5FCC8 /* MHAboutUsViewModel.m */,
+			);
+			path = AboutUs;
+			sourceTree = "<group>";
+		};
+		265DBFE51FE0C77E00A5FCC8 /* AboutUs */ = {
+			isa = PBXGroup;
+			children = (
+				265DBFE61FE0C78F00A5FCC8 /* MHAboutUsViewController.h */,
+				265DBFE71FE0C78F00A5FCC8 /* MHAboutUsViewController.m */,
+			);
+			path = AboutUs;
+			sourceTree = "<group>";
+		};
+		265DBFE91FE0C8BF00A5FCC8 /* AboutUs */ = {
+			isa = PBXGroup;
+			children = (
+				265DBFEA1FE0C8D900A5FCC8 /* MHAboutUsHeaderView.h */,
+				265DBFEB1FE0C8D900A5FCC8 /* MHAboutUsHeaderView.m */,
+				265DBFED1FE0C8E400A5FCC8 /* MHAboutUsHeaderView.xib */,
+			);
+			path = AboutUs;
 			sourceTree = "<group>";
 		};
 		2667A3ED1F7B987600A3D7A2 /* Data */ = {
@@ -2190,6 +2385,7 @@
 				2618AFE01F91BDA300F82A46 /* MHModifyNicknameViewController.xib in Resources */,
 				264D36D81F70AEBD003BB8CE /* MHProfileHeaderCell.xib in Resources */,
 				2609ED4F1F790AD3002D31CE /* MHLoginPasswordView.xib in Resources */,
+				265DBFEE1FE0C8E400A5FCC8 /* MHAboutUsHeaderView.xib in Resources */,
 				2667A3EA1F7B7B0A00A3D7A2 /* MHMobileLoginView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2354,8 +2550,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				26FE8E861F9514D100EC8BE0 /* TZAssetCell.m in Sources */,
+				261E01691FDE6A130041E989 /* MHFreeInterruptionItemViewModel.m in Sources */,
 				2617530E1F7360D300812E1B /* MHCommonProfileHeaderItemViewModel.m in Sources */,
 				263D37171F66656A007267C3 /* YYThreadSafeArray.m in Sources */,
+				261E015D1FDE2E010041E989 /* MHCommonSwitchItemViewModel.m in Sources */,
 				263D370E1F666569007267C3 /* LCActionSheet.m in Sources */,
 				261753141F73710000812E1B /* MHUserInfoViewController.m in Sources */,
 				2615266B1F6AE17400400BA0 /* MHTabBar.m in Sources */,
@@ -2366,6 +2564,7 @@
 				265490541F99E905003AEED1 /* MHTestViewController.m in Sources */,
 				26FE8E841F9514D100EC8BE0 /* UIView+SDExtension.m in Sources */,
 				2605C5C41F662F4B00B1F66E /* MHAccountLoginViewModel.m in Sources */,
+				265DBFE41FE0C76700A5FCC8 /* MHAboutUsViewModel.m in Sources */,
 				26BEBC7D1F8B78B1004D502F /* MHEXTRuntimeExtensions.m in Sources */,
 				263D36EC1F666438007267C3 /* UITableView+MHExtension.m in Sources */,
 				26FE8E881F9514D100EC8BE0 /* TZGifPhotoPreviewController.m in Sources */,
@@ -2404,8 +2603,10 @@
 				26A7E7451F79FEB00015CA71 /* MHBootLoginViewModel.m in Sources */,
 				26BEBC821F8B7B1D004D502F /* NSError+MHModelException.m in Sources */,
 				2624CAF51F98E9ED0083923F /* MHHTTPService+Live.m in Sources */,
+				261E014F1FDE2A400041E989 /* MHCommonValueItemViewModel.m in Sources */,
 				2605C5D31F6632AA00B1F66E /* MHContactsViewController.m in Sources */,
 				2658C6921F74FFDE00C70840 /* MHAddFriendsViewModel.m in Sources */,
+				261E01561FDE2CF50041E989 /* MHNotificationViewModel.m in Sources */,
 				2629840E1F909D4400AA9131 /* MHLanguageViewModel.m in Sources */,
 				26BEBC7F1F8B78B1004D502F /* MHReflection.m in Sources */,
 				263D37181F66656A007267C3 /* YYThreadSafeDictionary.m in Sources */,
@@ -2428,12 +2629,14 @@
 				263D37231F668408007267C3 /* MHRouter.m in Sources */,
 				2624CAEE1F98DFC80083923F /* MHKeyedSubscript.m in Sources */,
 				263D370F1F666569007267C3 /* LCActionSheetCell.m in Sources */,
+				260175851FE904D1000F6A25 /* MHGeneralViewController.m in Sources */,
 				261753361F73C41D00812E1B /* MHFeatureSignatureViewController.m in Sources */,
 				263D37191F66656A007267C3 /* YYTimer.m in Sources */,
 				26FE8E811F9514D100EC8BE0 /* TAPageControl.m in Sources */,
 				26FE8E8A1F9514D100EC8BE0 /* TZImageManager.m in Sources */,
 				263D36D91F666438007267C3 /* Foundation+Log.m in Sources */,
 				263D36E81F666438007267C3 /* UIBarButtonItem+MHExtension.m in Sources */,
+				265DBFEC1FE0C8D900A5FCC8 /* MHAboutUsHeaderView.m in Sources */,
 				26FE8E4A1F95143D00EC8BE0 /* IDMPhotoBrowser.m in Sources */,
 				263D37111F666569007267C3 /* LCActionSheetViewController.m in Sources */,
 				262984131F90B7B900AA9131 /* MHLanguageItemViewModel.m in Sources */,
@@ -2442,6 +2645,7 @@
 				263D37131F666569007267C3 /* YYFileHash.m in Sources */,
 				263C897E1F6A324700F7A0AE /* MHCommonCell.m in Sources */,
 				26FE65651F92F90600642615 /* MHGenderViewModel.m in Sources */,
+				260175821FE904BE000F6A25 /* MHGeneralViewModel.m in Sources */,
 				263D36E11F666438007267C3 /* NSObject+MHAlert.m in Sources */,
 				263D36EB1F666438007267C3 /* UIScrollView+MHRefresh.m in Sources */,
 				263D37101F666569007267C3 /* LCActionSheetConfig.m in Sources */,
@@ -2470,6 +2674,7 @@
 				266E15D41F8F7E43000E31C5 /* MHRegisterViewController.m in Sources */,
 				263C89781F6A30E600F7A0AE /* MHCommonItemViewModel.m in Sources */,
 				26064AFC1F5DB52900566B95 /* MHNavigationControllerStack.m in Sources */,
+				2605E1061FE7924900F514B0 /* MHPrivacyViewController.m in Sources */,
 				264D36D71F70AEBD003BB8CE /* MHProfileHeaderCell.m in Sources */,
 				266E15DD1F8F7ED0000E31C5 /* MHRegisterViewModel.m in Sources */,
 				263D37121F666569007267C3 /* UIImage+LCActionSheet.m in Sources */,
@@ -2498,12 +2703,15 @@
 				2605C5BE1F662EE400B1F66E /* MHMainFrameViewModel.m in Sources */,
 				265B4EC61F8DEF54004AEE5F /* MHSettingViewController.m in Sources */,
 				26BEBC751F8B7844004D502F /* MHUser.m in Sources */,
+				2623001A1FD916CD007D1616 /* MHAccountSecurityViewModel.m in Sources */,
 				26FE8E4B1F95143D00EC8BE0 /* IDMTapDetectingImageView.m in Sources */,
 				26FE8E821F9514D100EC8BE0 /* SDCollectionViewCell.m in Sources */,
 				261753241F73ADB800812E1B /* MHMoreInfoViewModel.m in Sources */,
 				2624CAF21F98E97B0083923F /* MHLiveRoom.m in Sources */,
+				261E015A1FDE2D200041E989 /* MHNotificationViewController.m in Sources */,
 				261753281F73ADFB00812E1B /* MHMoreInfoViewController.m in Sources */,
 				2624CAE41F98DF9B0083923F /* AFHTTPSessionManager+RACSupport.m in Sources */,
+				261E01651FDE69DD0041E989 /* MHFreeInterruptionViewModel.m in Sources */,
 				2609ED4D1F790AC6002D31CE /* MHLoginPasswordView.m in Sources */,
 				26FE8E891F9514D100EC8BE0 /* TZImageCropManager.m in Sources */,
 				26FE8E8E1F9514D100EC8BE0 /* TZPhotoPickerController.m in Sources */,
@@ -2518,7 +2726,9 @@
 				263D36EA1F666438007267C3 /* UIImage+MHExtension.m in Sources */,
 				2605C5D61F6633AC00B1F66E /* MHContactsViewModel.m in Sources */,
 				26225D9B1F65589E0074BFC3 /* MHConstant.m in Sources */,
+				261E01621FDE69C50041E989 /* MHFreeInterruptionViewController.m in Sources */,
 				263D371A1F66656A007267C3 /* YYWeakProxy.m in Sources */,
+				265DBFE81FE0C78F00A5FCC8 /* MHAboutUsViewController.m in Sources */,
 				263C89871F6A549800F7A0AE /* MHCommonHeaderView.m in Sources */,
 				26003FF61F988BA1000621B0 /* MHImageView.m in Sources */,
 				263D371F1F667DF2007267C3 /* MHControllerHelper.m in Sources */,
@@ -2526,6 +2736,7 @@
 				2624CADB1F98DCAD0083923F /* MHHTTPResponse.m in Sources */,
 				2617533A1F73C5A700812E1B /* MHFeatureSignatureTextView.m in Sources */,
 				26FE8E4D1F95143D00EC8BE0 /* IDMZoomingScrollView.m in Sources */,
+				262300171FD91682007D1616 /* MHAccountSecurityViewController.m in Sources */,
 				263004D31F751F9F00247F3D /* MHSearchFriendsHeaderView.m in Sources */,
 				266E15E01F8F7F05000E31C5 /* MHCommitViewModel.m in Sources */,
 				263D36DF1F666438007267C3 /* NSDateFormatter+Extension.m in Sources */,
@@ -2538,6 +2749,7 @@
 				260A609D1F77A57100F05120 /* MHSearchFriendsViewModel.m in Sources */,
 				263D36DA1F666438007267C3 /* FBKVOController+MHExtension.m in Sources */,
 				2605C5B51F66241D00B1F66E /* MHHomePageViewController.m in Sources */,
+				2605E10A1FE7929300F514B0 /* MHPrivacyViewModel.m in Sources */,
 				26FE8E7F1F9514D100EC8BE0 /* TAAnimatedDotView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

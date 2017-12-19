@@ -142,9 +142,11 @@
         viewController.hidesBottomBarWhenPushed = YES;
         
         NSString *title = @"返回";
+        
         /// eg: [A push B]
         /// 1.取出当前的控制器的title ， 也就是取出 A.title
-        title = [[self topViewController] title]?:@"返回";
+        /// CoderMikeHe Fixed: [[self topViewController] navigationItem].title 这样来获取title 而不是[[self topViewController] title]
+        title = [[self topViewController] navigationItem].title?:@"返回";
         
         /// 2.判断要被Push的控制器（B）是否是 MHViewController ，
         if ([viewController isKindOfClass:[MHViewController class]]) {
@@ -153,6 +155,8 @@
             
             /// 3. 查看backTitle 是否有值
             title = viewModel.backTitle?:title;
+            
+            
         }
         
         // 4.这里可以设置导航栏的左右按钮 统一管理方法

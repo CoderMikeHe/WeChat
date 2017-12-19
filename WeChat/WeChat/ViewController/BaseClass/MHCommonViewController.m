@@ -22,6 +22,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    
+    
 }
 
 #pragma mark - Override
@@ -30,7 +34,7 @@
 }
 
 - (UIEdgeInsets)contentInset{
-    return UIEdgeInsetsMake(MH_APPLICATION_TOP_BAR_HEIGHT+16, 0, MH_APPLICATION_TAB_BAR_HEIGHT, 0);
+    return UIEdgeInsetsMake(MH_APPLICATION_TOP_BAR_HEIGHT+16, 0, 0, 0);
 }
 
 - (void)configureCell:(MHCommonCell *)cell atIndexPath:(NSIndexPath *)indexPath withObject:(id)object{

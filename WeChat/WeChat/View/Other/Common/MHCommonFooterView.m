@@ -7,6 +7,14 @@
 //
 
 #import "MHCommonFooterView.h"
+#import "MHCommonGroupViewModel.h"
+@interface MHCommonFooterView ()
+/// viewModel
+@property (nonatomic, readwrite, strong) MHCommonGroupViewModel *viewModel;
+/// contentLabel
+@property (nonatomic, readwrite, weak) UILabel *contentLabel;
+
+@end
 
 @implementation MHCommonFooterView
 #pragma mark - 公共方法
@@ -20,8 +28,10 @@
     return footer;
 }
 
-- (void)bindViewModel:(id)viewModel{
+- (void)bindViewModel:(MHCommonGroupViewModel *)viewModel{
+    self.viewModel = viewModel;
     
+    self.contentLabel.text = viewModel.footer;
 }
 
 #pragma mark - 私有方法
@@ -42,29 +52,32 @@
 
 
 #pragma mark - 初始化
-- (void)_setup
-{
-    /// 
+- (void)_setup{
+    ///
     self.contentView.backgroundColor = MH_MAIN_BACKGROUNDCOLOR;
+    
 }
 
 #pragma mark - 创建自控制器
 - (void)_setupSubViews{
-    // 分割线
-    //    UIImageView *divider = [[UIImageView alloc] initWithImage:MHImageNamed(@"wx_albumCommentHorizontalLine_33x1")];
-    //    divider.backgroundColor = WXGlobalBottomLineColor;
-    //    self.divider = divider;
-    //    [self.contentView addSubview:divider];
+    // label
+    UILabel *contentLabel = [[UILabel alloc] init];
+    contentLabel.textColor = MHColorFromHexString(@"#888888");
+    contentLabel.font = MHRegularFont_14;
+    contentLabel.numberOfLines = 0;
+    contentLabel.textAlignment = NSTextAlignmentLeft;
+    [self.contentView addSubview:contentLabel];
+    self.contentLabel = contentLabel;
 }
 
 
 
 #pragma mark - 布局子控件
-- (void)_makeSubViewsConstraints
-{
-    //    [self.divider mas_makeConstraints:^(MASConstraintMaker *make) {
-    //        make.left.bottom.and.right.equalTo(self.contentView);
-    //        make.height.mas_equalTo(WXGlobalBottomLineHeight);
-    //    }];
+- (void)_makeSubViewsConstraints{
+    [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contentView).with.offset(20);
+        make.top.equalTo(self.contentView).with.offset(5);
+        make.right.equalTo(self.contentView).with.offset(-20);
+    }];
 }
 @end

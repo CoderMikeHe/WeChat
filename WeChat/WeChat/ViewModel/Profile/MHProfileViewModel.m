@@ -39,6 +39,7 @@
     [super initialize];
     @weakify(self);
     self.title = @"我";
+    
     /// 获取网络数据+本地数据
     RACSignal *fetchLocalDataSignal = [RACSignal return:[self fetchLocalData]];
     RACSignal *requestRemoteDataSignal = self.requestRemoteDataCommand.executionSignals.switchToLatest;

@@ -11,7 +11,7 @@
 #import "MHCommonAvatarItemViewModel.h"
 #import "MHCommonQRCodeItemViewModel.h"
 #import "MHCommonLabelItemViewModel.h"
-
+#import "MHCommonSwitchItemViewModel.h"
 @interface MHCommonCell ()
 /// viewModel
 @property (nonatomic, readwrite, strong) MHCommonItemViewModel *viewModel;
@@ -32,8 +32,10 @@
 @property (nonatomic, readwrite, weak) UIImageView *divider1;
 @property (nonatomic, readwrite, weak) UIImageView *divider2;
 
-/// QrCode
+/// 中间偏左 view
 @property (nonatomic, readwrite, weak) UIImageView *centerLeftView;
+/// 中间偏右 view
+@property (nonatomic, readwrite, weak) UIImageView *centerRightView;
 @end
 
 
@@ -91,6 +93,15 @@
         self.centerLeftView.hidden = YES;;
     }
     
+    /// 设置锁
+    if (MHStringIsNotEmpty(viewModel.centerRightViewName)) {
+        self.centerRightView.hidden = NO;
+        self.centerRightView.image = MHImageNamed(viewModel.centerRightViewName);
+        self.centerRightView.mh_size = self.centerRightView.image.size;
+    }else{
+        self.centerRightView.hidden = YES;;
+    }
+
     if ([viewModel isKindOfClass:[MHCommonArrowItemViewModel class]]) {  /// 纯带箭头
         self.accessoryView = self.rightArrow;
         if ([viewModel isKindOfClass:[MHCommonAvatarItemViewModel class]]) { // 头像
@@ -100,11 +111,14 @@
         }else if ([viewModel isKindOfClass:[MHCommonQRCodeItemViewModel class]]){ // 二维码
             self.qrCodeView.hidden = NO;
         }
+    }else if([viewModel isKindOfClass:[MHCommonSwitchItemViewModel class]]){ /// 开关
+        // 右边显示开关
+        MHCommonSwitchItemViewModel *switchViewModel = (MHCommonSwitchItemViewModel *)viewModel;
+        self.accessoryView = self.rightSwitch;
+        self.rightSwitch.on = !switchViewModel.off;
     }else{
         self.accessoryView = nil;
     }
-    
-    
 }
 #pragma mark - 私有方法
 - (void)awakeFromNib {
@@ -175,6 +189,12 @@
     centerLeftView.hidden = YES;
     self.centerLeftView = centerLeftView;
     [self.contentView addSubview:centerLeftView];
+    
+    /// 中间偏左的图片
+    UIImageView *centerRightView = [[UIImageView alloc] init];
+    centerRightView.hidden = YES;
+    self.centerRightView = centerRightView;
+    [self.contentView addSubview:centerRightView];
 }
 
 
@@ -214,15 +234,33 @@
     self.centerLeftView.mh_left = self.textLabel.mh_right + 14;
     self.centerLeftView.mh_centerY = self.mh_height * .5f;
     
+    /// 配置
+    self.centerRightView.mh_right = self.detailTextLabel.mh_left - 5;
+    self.centerRightView.mh_centerY = self.mh_height * .5f;
 }
 
+#pragma mark - 事件处理
+- (void)_switchValueDidiChanged:(UISwitch *)sender{
+    MHCommonSwitchItemViewModel *switchViewModel = (MHCommonSwitchItemViewModel *)self.viewModel;
+    switchViewModel.off = !sender.isOn;
+}
+
+
+
 #pragma mark - Setter Or Getter
-- (UIImageView *)rightArrow
-{
+- (UIImageView *)rightArrow{
     if (_rightArrow == nil) {
-        self.rightArrow = [[UIImageView alloc] initWithImage:MHImageNamed(@"tableview_arrow_8x13")];
+        _rightArrow = [[UIImageView alloc] initWithImage:MHImageNamed(@"tableview_arrow_8x13")];
     }
     return _rightArrow;
+}
+
+- (UISwitch *)rightSwitch{
+    if (_rightSwitch == nil) {
+        _rightSwitch = [[UISwitch alloc] init];
+        [_rightSwitch addTarget:self action:@selector(_switchValueDidiChanged:) forControlEvents:UIControlEventValueChanged];
+    }
+    return _rightSwitch;
 }
 
 @end
