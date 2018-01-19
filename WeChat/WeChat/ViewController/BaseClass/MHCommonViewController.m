@@ -22,10 +22,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    
-    
 }
 
 #pragma mark - Override
@@ -39,7 +35,6 @@
 
 - (void)configureCell:(MHCommonCell *)cell atIndexPath:(NSIndexPath *)indexPath withObject:(id)object{
     [cell bindViewModel:object];
-    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView dequeueReusableCellWithIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath{

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MHDebugTouchView : UIView
+@interface MHDebugTouchView : UIImageView
 /// init
 MHSingletonH(Instance);
 

@@ -32,17 +32,9 @@ MHSingletonM(Instance)
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor greenColor];
+        self.image = MHImageNamed(@"assistivetouch");
         self.userInteractionEnabled = YES;
-        self.layer.cornerRadius = 10;
-        self.layer.masksToBounds = YES;
-        
-        /// 关闭按钮
-        UIButton *closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [closeBtn setImage:[UIImage imageNamed:@"mh_debug_close_icon"] forState:UIControlStateNormal];
-        [closeBtn addTarget:self action:@selector(_closeBtnDidClicked) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:closeBtn];
-        self.closeBtn = closeBtn;
+    
         /// 添加tap手势
         [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_tapAction:)]];
         UIWindow *window = [UIApplication sharedApplication].keyWindow;
@@ -55,9 +47,6 @@ MHSingletonM(Instance)
     return self;
 }
 
-- (void)_closeBtnDidClicked{
-    [self setHide:YES];
-}
 
 
 - (void)setHide:(BOOL)hide{
@@ -72,7 +61,9 @@ MHSingletonM(Instance)
 
 
 - (BOOL)isHide{
-    return [[NSUserDefaults standardUserDefaults] boolForKey:MHDebugTouchViewStatusKey];
+    BOOL temp = [[NSUserDefaults standardUserDefaults] boolForKey:MHDebugTouchViewStatusKey];
+    NSLog(@"++++ Touch View Is Hide %zd ++++" , temp);
+    return temp;
 }
 
 

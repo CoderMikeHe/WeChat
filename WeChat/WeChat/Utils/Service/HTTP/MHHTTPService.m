@@ -547,6 +547,7 @@ static id service_ = nil;
         };
         
         if ([responseObject isKindOfClass:NSArray.class]) {
+            
             if (resultClass == nil) {
                 [subscriber sendNext:responseObject];
             }else{
@@ -557,17 +558,17 @@ static id service_ = nil;
                         [subscriber sendError:[self parsingErrorWithFailureReason:failureReason]];
                         return nil;
                     }
-                    
-                    /// 字典数组 转对应的模型
-                    NSArray *parsedObjects = [NSArray yy_modelArrayWithClass:resultClass.class json:responseObject];
-                    
-                    /// 这里还需要解析是否是MHObject的子类
-                    for (id parsedObject in parsedObjects) {
-                        /// 确保解析出来的类 也是 BaseModel
-                        NSAssert([parsedObject isKindOfClass:MHObject.class], @"Parsed model object is not an BaseModel: %@", parsedObject);
-                    }
-                    [subscriber sendNext:parsedObjects];
                 }
+                    
+                /// 字典数组 转对应的模型
+                NSArray *parsedObjects = [NSArray yy_modelArrayWithClass:resultClass.class json:responseObject];
+                
+                /// 这里还需要解析是否是MHObject的子类
+                for (id parsedObject in parsedObjects) {
+                    /// 确保解析出来的类 也是 BaseModel
+                    NSAssert([parsedObject isKindOfClass:MHObject.class], @"Parsed model object is not an BaseModel: %@", parsedObject);
+                }
+                [subscriber sendNext:parsedObjects];
             }
             [subscriber sendCompleted];
         } else if ([responseObject isKindOfClass:NSDictionary.class]) {

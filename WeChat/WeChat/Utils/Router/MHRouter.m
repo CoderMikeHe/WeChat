@@ -83,7 +83,9 @@ static MHRouter *sharedInstance_ = nil;
              @"MHFreeInterruptionViewModel":@"MHFreeInterruptionViewController",
              @"MHAboutUsViewModel":@"MHAboutUsViewController",
              @"MHPrivacyViewModel":@"MHPrivacyViewController",
-             @"MHGeneralViewModel":@"MHGeneralViewController"
+             @"MHGeneralViewModel":@"MHGeneralViewController",
+             @"MHEmotionViewModel":@"MHEmotionViewController",
+             @"MHMomentViewModel":@"MHMomentViewController"
              };
 }
 

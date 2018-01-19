@@ -125,7 +125,6 @@
             user.profileImageUrl = [NSURL URLWithString:@"http://tva3.sinaimg.cn/crop.0.6.264.264.180/93276e1fjw8f5c6ob1pmpj207g07jaa5.jpg"];
             /// 用户的封面
             user.coverImageUrl = [NSURL URLWithString:@"http://p1.gexing.com/G1/M00/7A/83/rBACE1TW-cjDb2yHAAGORXsJM6w706.jpg"];
-            user.coverImage = MHImageNamed(@"Kris.jpeg");
             
             /// 假设是这里统一都是qq号码登录
             user.qq = self.account;

@@ -8,6 +8,7 @@
 
 #import "MHDiscoverViewModel.h"
 #import "MHWebViewModel.h"
+#import "MHMomentViewModel.h"
 @implementation MHDiscoverViewModel
 
 - (instancetype)initWithServices:(id<MHViewModelServices>)services params:(NSDictionary *)params
@@ -40,6 +41,7 @@
     MHCommonGroupViewModel *group0 = [MHCommonGroupViewModel groupViewModel];
     /// 盆友圈
     MHCommonArrowItemViewModel *moment = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"朋友圈" icon:@"ff_IconShowAlbum_25x25"];
+    moment.destViewModelClass = [MHMomentViewModel class];
     group0.itemViewModels = @[moment];
     
     /// 第二组

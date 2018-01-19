@@ -15,7 +15,8 @@
 @property (nonatomic, readwrite, copy) NSString *idstr;
 /// avatar 头像 50x50
 @property (nonatomic, readwrite, strong) NSURL *profileImageUrl;
-
+/// avatar large 180 x 180
+@property (nonatomic, readwrite, strong) NSURL *avatarLarge;
 /// 封面URL
 @property (nonatomic, readwrite, strong) NSURL *coverImageUrl;
 /// UIImage (PS:这里就假设我们已经通过coverImageUrl将图片下载到本地了)

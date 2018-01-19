@@ -8,12 +8,12 @@
 
 #import "MHViewController.h"
 #import "MHTableViewModel.h"
-//#import "SBTableView.h"
+#import "MHTableView.h"
 @interface MHTableViewController : MHViewController<UITableViewDelegate , UITableViewDataSource>
 
 /// The table view for tableView controller.
 /// tableView
-@property (nonatomic, readonly, weak) UITableView *tableView;
+@property (nonatomic, readonly, weak) MHTableView *tableView;
 
 /// `tableView` 的内容缩进，default is UIEdgeInsetsMake(64,0,0,0)，you can override it
 @property (nonatomic, readonly, assign) UIEdgeInsets contentInset;

@@ -11,7 +11,7 @@
 
 @interface MHTableViewController ()
 /// tableView
-@property (nonatomic, readwrite, weak)   UITableView *tableView;
+@property (nonatomic, readwrite, weak)   MHTableView *tableView;
 /// contentInset defaul is (64 , 0 , 0 , 0)
 @property (nonatomic, readwrite, assign) UIEdgeInsets contentInset;
 /// 视图模型
@@ -45,9 +45,6 @@
     return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-}
 
 - (void)viewDidLoad
 {
@@ -97,11 +94,10 @@
 
 #pragma mark - 设置子控件
 /// setup add `_su_` avoid sub class override it
-- (void)_su_setupSubViews
-{
+- (void)_su_setupSubViews{
     // set up tableView
     /// CoderMikeHe FIXED: 纯代码布局，子类如果重新布局，建议用Masonry重新设置约束
-    UITableView *tableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds style:self.viewModel.style];
+    MHTableView *tableView = [[MHTableView alloc] initWithFrame:[UIScreen mainScreen].bounds style:self.viewModel.style];
     tableView.backgroundColor = MH_MAIN_BACKGROUNDCOLOR;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     // set delegate and dataSource
@@ -155,24 +151,14 @@
                                                   deliverOnMainThread]
                                                  map:^(NSArray *dataSource) {
                                                      @strongify(self)
-                                                     NSUInteger count = 0;
-                                                     if(self.viewModel.shouldMultiSections){
-                                                         /// 多段
-                                                         for (NSArray *array in dataSource) {
-                                                             count += array.count;
-                                                         }
-                                                     }else{
-                                                         /// 一段
-                                                         count = dataSource.count;
-                                                     }
-                                                     
+                                                     NSUInteger count = dataSource.count;
                                                      /// 无数据，默认隐藏mj_footer
                                                      if (count == 0) return @1;
                                                      
                                                      if (self.viewModel.shouldEndRefreshingWithNoMoreData) return @(0);
                                                      
                                                      /// because of
-                                                     return count % self.viewModel.perPage?@1:@0;
+                                                     return (count % self.viewModel.perPage)?@1:@0;
                                                  }];
         
     }
@@ -190,8 +176,7 @@
 
 #pragma mark - 上下拉刷新事件
 /// 下拉事件
-- (void)tableViewDidTriggerHeaderRefresh
-{
+- (void)tableViewDidTriggerHeaderRefresh{
     @weakify(self)
     [[[self.viewModel.requestRemoteDataCommand
        execute:@1]
@@ -215,8 +200,7 @@
 }
 
 /// 上拉事件
-- (void)tableViewDidTriggerFooterRefresh
-{
+- (void)tableViewDidTriggerFooterRefresh{
     @weakify(self);
     [[[self.viewModel.requestRemoteDataCommand
        execute:@(self.viewModel.page + 1)]
@@ -238,7 +222,7 @@
 
 #pragma mark - sub class can override it
 - (UIEdgeInsets)contentInset{
-    return UIEdgeInsetsMake(64, 0, 0, 0);
+    return UIEdgeInsetsMake(MH_APPLICATION_TOP_BAR_HEIGHT, 0, 0, 0);
 }
 
 /// reload tableView data
@@ -254,20 +238,10 @@
 /// configure cell data
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath withObject:(id)object {}
 
-/// 申请寄售
-- (void)applyConsign{};
 
 #pragma mark - 辅助方法
-- (void)_requestDataCompleted
-{
-    NSUInteger count = 0;
-    if(self.viewModel.shouldMultiSections){
-        /// 多段
-        for (NSArray *array in self.viewModel.dataSource) { count += array.count; }
-    }else{
-        /// 一段
-        count = self.viewModel.dataSource.count;
-    }
+- (void)_requestDataCompleted{
+    NSUInteger count = self.viewModel.dataSource.count;
     /// CoderMikeHe Fixed: 这里必须要等到，底部控件结束刷新后，再来设置无更多数据，否则被叠加无效
     if (self.viewModel.shouldEndRefreshingWithNoMoreData && count%self.viewModel.perPage) [self.tableView.mj_footer endRefreshingWithNoMoreData];
 }

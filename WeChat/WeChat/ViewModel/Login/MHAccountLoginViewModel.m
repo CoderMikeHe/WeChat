@@ -78,7 +78,6 @@
     }];
   
     /// 按钮的有效性
-    
     self.validLoginSignal = [[RACSignal
                               combineLatest:@[RACObserve(self, account), RACObserve(self, password),RACObserve(self, phone),RACObserve(self, captcha), RACObserve(self, selected)]
                               reduce:^(NSString *account, NSString *password , NSString *phone , NSString * captcha, NSNumber *selected) {

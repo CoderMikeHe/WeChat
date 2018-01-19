@@ -66,7 +66,7 @@
         return products;
     };
     /// 请求网络数据 61856069 是我的喵播id type = 0 为热门，其他type 自行测试
-    return [[self.services.client fetchLivesWithUseridx:@"61856069" type:0 page:page lat:nil lon:nil province:nil] map:mapLiveRooms];
+    return [[self.services.client fetchLivesWithUseridx:@"61856069" type:1 page:page lat:nil lon:nil province:nil] map:mapLiveRooms];
 }
 
 #pragma mark - 辅助方法

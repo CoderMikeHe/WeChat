@@ -9,7 +9,7 @@
 #import "MHProfileViewModel.h"
 #import "MHUserInfoViewModel.h"
 #import "MHSettingViewModel.h"
-
+#import "MHEmotionViewModel.h"
 
 #if defined(DEBUG)||defined(_DEBUG)
 /// PS：调试模式，这里在ViewModel中引用了UIKite的东西， 但是release模式下无效，这里只是用作测试而已
@@ -106,6 +106,7 @@
     MHCommonArrowItemViewModel *cardPackage = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"卡包" icon:@"MyCardPackageIcon_25x25"];
     /// 表情
     MHCommonArrowItemViewModel *expression = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"表情" icon:@"MoreExpressionShops_25x25"];
+    expression.destViewModelClass = [MHEmotionViewModel class];
     group2.itemViewModels = @[collect, album, cardPackage,expression];
     
     /// 第三组
