@@ -133,7 +133,8 @@ NSTimeInterval const MHMommentAnimatedDuration = .25f;
 
 /// 链接key
 NSString * const MHMomentLinkUrlKey = @"MHMomentLinkUrlKey";
-
+/// 电话号码key
+NSString * const MHMomentPhoneNumberKey = @"MHMomentPhoneNumberKey";
 /// 位置key
 NSString * const MHMomentLocationNameKey = @"MHMomentLocationNameKey";
 

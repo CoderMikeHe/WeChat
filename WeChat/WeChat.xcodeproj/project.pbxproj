@@ -118,6 +118,7 @@
 		262ADA4D1FCA75C700B0F4FD /* MHConfigureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 262ADA4C1FCA75C700B0F4FD /* MHConfigureManager.m */; };
 		263004D31F751F9F00247F3D /* MHSearchFriendsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 263004D21F751F9F00247F3D /* MHSearchFriendsHeaderView.m */; };
 		263004D51F751FB800247F3D /* MHSearchFriendsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263004D41F751FB800247F3D /* MHSearchFriendsHeaderView.xib */; };
+		263119EE2015E4E600D589D8 /* NSMutableAttributedString+MHMoment.m in Sources */ = {isa = PBXBuildFile; fileRef = 263119ED2015E4E600D589D8 /* NSMutableAttributedString+MHMoment.m */; };
 		2633E01A1FEA076600D0E187 /* MHSegmentedControlController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2633E0191FEA076600D0E187 /* MHSegmentedControlController.m */; };
 		2633E01D1FEA07E300D0E187 /* MHSegmentedControlViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2633E01C1FEA07E300D0E187 /* MHSegmentedControlViewModel.m */; };
 		2633E0201FEA089E00D0E187 /* MHEmotionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2633E01F1FEA089E00D0E187 /* MHEmotionViewModel.m */; };
@@ -127,6 +128,10 @@
 		2633E02D1FEA0A7E00D0E187 /* MHUsefulEmotionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2633E02C1FEA0A7E00D0E187 /* MHUsefulEmotionViewModel.m */; };
 		2633E0301FEA0A9800D0E187 /* MHMoreEmotionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2633E02F1FEA0A9700D0E187 /* MHMoreEmotionViewModel.m */; };
 		2634C7221FF0A33A00B1F639 /* MHTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2634C7211FF0A33A00B1F639 /* MHTableView.m */; };
+		26363AC920134258000061EF /* MHEmoticonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26363AC820134258000061EF /* MHEmoticonManager.m */; };
+		26363ACB20134298000061EF /* Emoticons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 26363ACA20134297000061EF /* Emoticons.bundle */; };
+		26363ACF201346E6000061EF /* MHEmoticonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 26363ACE201346E6000061EF /* MHEmoticonGroup.m */; };
+		26363AD2201346FC000061EF /* MHEmoticon.m in Sources */ = {isa = PBXBuildFile; fileRef = 26363AD1201346FC000061EF /* MHEmoticon.m */; };
 		263C89781F6A30E600F7A0AE /* MHCommonItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 263C89771F6A30E600F7A0AE /* MHCommonItemViewModel.m */; };
 		263C897E1F6A324700F7A0AE /* MHCommonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 263C897D1F6A324700F7A0AE /* MHCommonCell.m */; };
 		263C89811F6A34D300F7A0AE /* MHCommonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 263C89801F6A34D300F7A0AE /* MHCommonViewController.m */; };
@@ -528,6 +533,8 @@
 		263004D11F751F9F00247F3D /* MHSearchFriendsHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHSearchFriendsHeaderView.h; sourceTree = "<group>"; };
 		263004D21F751F9F00247F3D /* MHSearchFriendsHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHSearchFriendsHeaderView.m; sourceTree = "<group>"; };
 		263004D41F751FB800247F3D /* MHSearchFriendsHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MHSearchFriendsHeaderView.xib; sourceTree = "<group>"; };
+		263119EC2015E4E600D589D8 /* NSMutableAttributedString+MHMoment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+MHMoment.h"; sourceTree = "<group>"; };
+		263119ED2015E4E600D589D8 /* NSMutableAttributedString+MHMoment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+MHMoment.m"; sourceTree = "<group>"; };
 		2633E0181FEA076600D0E187 /* MHSegmentedControlController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSegmentedControlController.h; sourceTree = "<group>"; };
 		2633E0191FEA076600D0E187 /* MHSegmentedControlController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSegmentedControlController.m; sourceTree = "<group>"; };
 		2633E01B1FEA07E300D0E187 /* MHSegmentedControlViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSegmentedControlViewModel.h; sourceTree = "<group>"; };
@@ -546,6 +553,13 @@
 		2633E02F1FEA0A9700D0E187 /* MHMoreEmotionViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHMoreEmotionViewModel.m; sourceTree = "<group>"; };
 		2634C7201FF0A33A00B1F639 /* MHTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHTableView.h; sourceTree = "<group>"; };
 		2634C7211FF0A33A00B1F639 /* MHTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHTableView.m; sourceTree = "<group>"; };
+		26363AC720134258000061EF /* MHEmoticonManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHEmoticonManager.h; sourceTree = "<group>"; };
+		26363AC820134258000061EF /* MHEmoticonManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHEmoticonManager.m; sourceTree = "<group>"; };
+		26363ACA20134297000061EF /* Emoticons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Emoticons.bundle; sourceTree = "<group>"; };
+		26363ACD201346E6000061EF /* MHEmoticonGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHEmoticonGroup.h; sourceTree = "<group>"; };
+		26363ACE201346E6000061EF /* MHEmoticonGroup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHEmoticonGroup.m; sourceTree = "<group>"; };
+		26363AD0201346FC000061EF /* MHEmoticon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHEmoticon.h; sourceTree = "<group>"; };
+		26363AD1201346FC000061EF /* MHEmoticon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHEmoticon.m; sourceTree = "<group>"; };
 		263C89761F6A30E600F7A0AE /* MHCommonItemViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHCommonItemViewModel.h; sourceTree = "<group>"; };
 		263C89771F6A30E600F7A0AE /* MHCommonItemViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHCommonItemViewModel.m; sourceTree = "<group>"; };
 		263C897C1F6A324700F7A0AE /* MHCommonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHCommonCell.h; sourceTree = "<group>"; };
@@ -979,6 +993,7 @@
 		26064AE91F5DA1F800566B95 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				26363ACC20134651000061EF /* Emoticon */,
 				261597001FEA525E00C6FD80 /* Moment */,
 				26BEBC761F8B78B1004D502F /* BaseClass */,
 				2624CAEF1F98E96B0083923F /* Live */,
@@ -1269,6 +1284,8 @@
 				26FA404C1FEB5C5B00B4AD2B /* MHPictureMetadata.m */,
 				26FA404E1FEB5C9D00B4AD2B /* MHComment.h */,
 				26FA404F1FEB5C9D00B4AD2B /* MHComment.m */,
+				263119EC2015E4E600D589D8 /* NSMutableAttributedString+MHMoment.h */,
+				263119ED2015E4E600D589D8 /* NSMutableAttributedString+MHMoment.m */,
 			);
 			path = Moment;
 			sourceTree = "<group>";
@@ -1727,6 +1744,26 @@
 				2633E0291FEA097900D0E187 /* MHMoreEmotionViewController.m */,
 			);
 			path = Emotion;
+			sourceTree = "<group>";
+		};
+		26363AC620134243000061EF /* Emoticon */ = {
+			isa = PBXGroup;
+			children = (
+				26363AC720134258000061EF /* MHEmoticonManager.h */,
+				26363AC820134258000061EF /* MHEmoticonManager.m */,
+			);
+			path = Emoticon;
+			sourceTree = "<group>";
+		};
+		26363ACC20134651000061EF /* Emoticon */ = {
+			isa = PBXGroup;
+			children = (
+				26363ACD201346E6000061EF /* MHEmoticonGroup.h */,
+				26363ACE201346E6000061EF /* MHEmoticonGroup.m */,
+				26363AD0201346FC000061EF /* MHEmoticon.h */,
+				26363AD1201346FC000061EF /* MHEmoticon.m */,
+			);
+			path = Emoticon;
 			sourceTree = "<group>";
 		};
 		263C896B1F6A302300F7A0AE /* Common */ = {
@@ -2231,6 +2268,7 @@
 		2667A3EF1F7B987600A3D7A2 /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
+				26363ACA20134297000061EF /* Emoticons.bundle */,
 			);
 			path = Pictures;
 			sourceTree = "<group>";
@@ -2306,6 +2344,7 @@
 		26C7BEEF1F8CD2BF00525126 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				26363AC620134243000061EF /* Emoticon */,
 				262ADA4A1FCA75B800B0F4FD /* Config */,
 				26FE8E301F95119F00EC8BE0 /* Photo */,
 				26C7BEF01F8CD2BF00525126 /* File */,
@@ -2635,6 +2674,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26FE8E471F95143D00EC8BE0 /* IDMPBLocalizations.bundle in Resources */,
+				26363ACB20134298000061EF /* Emoticons.bundle in Resources */,
 				26FE8E491F95143D00EC8BE0 /* IDMPhotoBrowser.bundle in Resources */,
 				263D36DD1F666438007267C3 /* MBProgressHUD.bundle in Resources */,
 				26452BF32012001C0042B2FE /* WeChat_Moments_3.json in Resources */,
@@ -2830,6 +2870,7 @@
 				263D37171F66656A007267C3 /* YYThreadSafeArray.m in Sources */,
 				261E015D1FDE2E010041E989 /* MHCommonSwitchItemViewModel.m in Sources */,
 				2615972C1FEA5AEE00C6FD80 /* MHMomentContentViewModel.m in Sources */,
+				263119EE2015E4E600D589D8 /* NSMutableAttributedString+MHMoment.m in Sources */,
 				263D370E1F666569007267C3 /* LCActionSheet.m in Sources */,
 				261753141F73710000812E1B /* MHUserInfoViewController.m in Sources */,
 				2615266B1F6AE17400400BA0 /* MHTabBar.m in Sources */,
@@ -2852,6 +2893,7 @@
 				26225D741F654D330074BFC3 /* MHTableViewController.m in Sources */,
 				26C7BEF31F8CD2DA00525126 /* MHFileManager.m in Sources */,
 				2667A3F91F7BA05700A3D7A2 /* MHMobileLoginViewModel.m in Sources */,
+				26363AC920134258000061EF /* MHEmoticonManager.m in Sources */,
 				260A609A1F77A53300F05120 /* MHSearchFriendsViewController.m in Sources */,
 				2615974C1FEA5DD300C6FD80 /* MHMomentFooterView.m in Sources */,
 				26BE2B522010C02C00F28AA0 /* MHMomentBackgroundView.m in Sources */,
@@ -2871,6 +2913,7 @@
 				26FE8E801F9514D100EC8BE0 /* TADotView.m in Sources */,
 				26AEEE111F7D1CEC00A270EE /* UISearchBar+MHExtension.m in Sources */,
 				263D36E41F666438007267C3 /* NSString+MHSize.m in Sources */,
+				26363AD2201346FC000061EF /* MHEmoticon.m in Sources */,
 				26FE8E7E1F9514D100EC8BE0 /* TAAbstractDotView.m in Sources */,
 				26225D711F654C9F0074BFC3 /* MHViewController.m in Sources */,
 				263D36F01F666438007267C3 /* UIView+MHFrame.m in Sources */,
@@ -2969,6 +3012,7 @@
 				26064AFC1F5DB52900566B95 /* MHNavigationControllerStack.m in Sources */,
 				2605E1061FE7924900F514B0 /* MHPrivacyViewController.m in Sources */,
 				2615975B1FEA5F5700C6FD80 /* MHControl.m in Sources */,
+				26363ACF201346E6000061EF /* MHEmoticonGroup.m in Sources */,
 				264D36D71F70AEBD003BB8CE /* MHProfileHeaderCell.m in Sources */,
 				266E15DD1F8F7ED0000E31C5 /* MHRegisterViewModel.m in Sources */,
 				263D37121F666569007267C3 /* UIImage+LCActionSheet.m in Sources */,

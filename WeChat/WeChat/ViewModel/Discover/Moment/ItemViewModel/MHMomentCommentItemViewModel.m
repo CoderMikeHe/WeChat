@@ -7,7 +7,7 @@
 //
 
 #import "MHMomentCommentItemViewModel.h"
-
+#import "NSMutableAttributedString+MHMoment.h"
 @interface MHMomentCommentItemViewModel ()
 
 /// 评论模型
@@ -80,6 +80,11 @@
         /// 统一配置
         contentAttr.yy_lineBreakMode = NSLineBreakByCharWrapping;
         contentAttr.yy_alignment = NSTextAlignmentLeft;
+        
+        
+        /// 匹配正则
+        [contentAttr mh_regexContentWithWithEmojiImageFontSize:14];
+        
         
         /// 文本布局
         CGFloat limitWidth = MHMomentCommentViewWidth()-2*MHMomentCommentViewContentLeftOrRightInset;

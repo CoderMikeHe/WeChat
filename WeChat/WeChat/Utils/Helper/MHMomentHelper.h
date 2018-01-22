@@ -13,4 +13,12 @@
 /// 时间转化 
 + (NSString *)createdAtTimeWithSourceDate:(NSDate *)sourceDate;
 
+
+/// 电话号码正则
++ (NSRegularExpression *)regexPhoneNumber;
+/// 链接正则
++ (NSRegularExpression *)regexLinkUrl;
+
+
+
 @end

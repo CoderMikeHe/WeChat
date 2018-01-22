@@ -8,7 +8,9 @@
 
 #import "MHMomentItemViewModel.h"
 #import "MHMomentHelper.h"
+#import "MHEmoticonManager.h"
 #import "MHHTTPService.h"
+#import "NSMutableAttributedString+MHMoment.h"
 @interface MHMomentItemViewModel ()
 /// 赞cmd
 @property (nonatomic, readwrite, strong) RACCommand *attitudeOperationCmd;
@@ -24,6 +26,7 @@
 #if 1
         /// 内容宽度
         CGFloat limitWidth = MHMomentCommentViewWidth();
+        
         /// 单行文字公有一个container
         YYTextContainer *singleRowContainer = [YYTextContainer containerWithSize:YYTextContainerMaxSize];
         singleRowContainer.maximumNumberOfRows = 1;
@@ -66,13 +69,15 @@
             textAttr.yy_lineBreakMode = NSLineBreakByCharWrapping;
             textAttr.yy_alignment = NSTextAlignmentLeft;
             
+            /// 去正则匹配
+            [textAttr mh_regexContentWithWithEmojiImageFontSize:15];
+            
             /// 实现布局好宽高 以及属性
             /// PS:用这个方法计算尺寸 要比 [self.textAttr mh_sizeWithLimitWidth:limitWidth]这个计算的值要准确的多
             YYTextContainer *contentLableContainer = [YYTextContainer containerWithSize:CGSizeMake(limitWidth, MAXFLOAT)];
             contentLableContainer.maximumNumberOfRows = 0;
             YYTextLayout *contentLableLayout = [YYTextLayout layoutWithContainer:contentLableContainer text:textAttr.copy];
             self.contentLableLayout = contentLableLayout;
-            
         }
         
         /// 配图

@@ -14,6 +14,8 @@
 #import "MHMomentProfileView.h"
 #import "MHMomentOperationMoreView.h"
 #import "LCActionSheet.h"
+#import "MHEmoticonManager.h"
+#import "MHMomentHelper.h"
 @interface MHMomentViewController ()
 /// viewModel
 @property (nonatomic, readonly, strong) MHMomentViewModel *viewModel;
@@ -38,6 +40,9 @@
     
     /// 初始化导航栏Item
     [self _setupNavigationItem];
+    
+    NSDictionary * dict = [MHEmoticonManager emoticonDic];
+    
 }
 
 #pragma mark - Override
@@ -125,7 +130,7 @@
         @strongify(self);
         LCActionSheet *sheet = [LCActionSheet sheetWithTitle:nil cancelButtonTitle:@"取消" clicked:^(LCActionSheet * _Nonnull actionSheet, NSInteger buttonIndex) {
             if (buttonIndex == 0) return ;
-          
+            ///
         } otherButtonTitles:@"拍摄",@"从手机相册选择", nil];
         [sheet show];
         

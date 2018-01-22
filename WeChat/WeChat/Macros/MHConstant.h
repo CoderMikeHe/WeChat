@@ -196,6 +196,8 @@ FOUNDATION_EXTERN NSUInteger const MHMomentPhotosMaxCount ;
 
 /// 微信昵称字体颜色
 #define MHMomentScreenNameTextColor [UIColor colorFromHexString:@"#5B6A92"]
+/// 微信正文（链接、电话）的颜色
+#define MHMomentContentUrlTextColor [UIColor colorFromHexString:@"#4380D1"]
 /// 微信正文字体颜色
 #define MHMomentContentTextColor WXGlobalBlackTextColor
 /// 微信时间颜色
@@ -243,19 +245,19 @@ FOUNDATION_EXTERN CGFloat const MHMomentOperationMoreViewHeight ;
 
 /// 微信动画时间 .25f
 FOUNDATION_EXTERN NSTimeInterval const MHMommentAnimatedDuration;
+
+
 /**
  YYTextHighlight *highlight = [YYTextHighlight new];
  highlight.userInfo = @{kWBLinkHrefName : href};
  */
 //// 这里是点击文本链接（or其他）跳转，通过该key从userInfo中取出对应的数据
-
 /// 点击链接
 FOUNDATION_EXTERN NSString * const MHMomentLinkUrlKey ;
-
-
+/// 电话号码key
+FOUNDATION_EXTERN NSString * const MHMomentPhoneNumberKey ;
 /// 点击位置
 FOUNDATION_EXTERN NSString * const MHMomentLocationNameKey;
-
 /// 点击用户昵称
 FOUNDATION_EXTERN NSString * const MHMomentUserInfoKey;
 
