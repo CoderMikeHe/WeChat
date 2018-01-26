@@ -82,7 +82,7 @@
         contentAttr.yy_alignment = NSTextAlignmentLeft;
         
         
-        /// 匹配正则
+        /// 匹配正则 表情+电话+url...
         [contentAttr mh_regexContentWithWithEmojiImageFontSize:14];
         
         

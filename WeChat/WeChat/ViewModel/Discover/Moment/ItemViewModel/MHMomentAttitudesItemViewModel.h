@@ -1,14 +1,14 @@
 //
-//  MHMomentAttitudesViewModel.h
+//  MHMomentAttitudesItemViewModel.h
 //  MHDevelopExample
 //
 //  Created by senba on 2017/7/16.
 //  Copyright © 2017年 CoderMikeHe. All rights reserved.
-//  点赞
+//  点赞列表 视图模型
 
-#import "MHMomentContentViewModel.h"
+#import "MHMomentContentItemViewModel.h"
 #import "MHMoments.h"
-@interface MHMomentAttitudesViewModel : MHMomentContentViewModel
+@interface MHMomentAttitudesItemViewModel : MHMomentContentItemViewModel
 
 /// 单条说说
 @property (nonatomic, readonly, strong) MHMoment *moment;

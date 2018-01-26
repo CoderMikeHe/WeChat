@@ -1,14 +1,14 @@
 //
-//  MHMomentAttitudesViewModel.m
+//  MHMomentAttitudesItemViewModel.m
 //  MHDevelopExample
 //
 //  Created by senba on 2017/7/16.
 //  Copyright © 2017年 CoderMikeHe. All rights reserved.
 //
 
-#import "MHMomentAttitudesViewModel.h"
+#import "MHMomentAttitudesItemViewModel.h"
 #import "MHHTTPService.h"
-@interface MHMomentAttitudesViewModel ()
+@interface MHMomentAttitudesItemViewModel ()
 /// 单条说说
 @property (nonatomic, readwrite, strong) MHMoment *moment;
 
@@ -23,7 +23,7 @@
 
 @end
 
-@implementation MHMomentAttitudesViewModel
+@implementation MHMomentAttitudesItemViewModel
 
 - (instancetype)initWithMoment:(MHMoment *)moment
 {

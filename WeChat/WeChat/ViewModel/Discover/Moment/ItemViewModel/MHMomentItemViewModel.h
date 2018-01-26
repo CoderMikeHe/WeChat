@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MHMomentPhotoItemViewModel.h"
 #import "MHMomentCommentItemViewModel.h"
-#import "MHMomentAttitudesViewModel.h"
+#import "MHMomentAttitudesItemViewModel.h"
 
 @interface MHMomentItemViewModel : NSObject
 
@@ -18,6 +18,7 @@
 
 /// 说说模型
 @property (nonatomic, readwrite, strong) MHMoment *moment;
+
 /// 昵称布局
 @property (nonatomic, readwrite, strong) YYTextLayout *screenNameLableLayout;
 /// 正文布局
@@ -32,8 +33,8 @@
 @property (nonatomic, readwrite, copy) NSArray <MHMomentPhotoItemViewModel *> *picInfos;
 
 
-/// 点赞+评论列表
-@property (nonatomic, readwrite, copy) NSArray *operationMores;
+/// 点赞+评论列表 （设计为 可变数组 后期需要添加东西）
+@property (nonatomic, readonly, strong) NSMutableArray *dataSource;
 
 /// 辅助属性
 /// 是否展开全文
@@ -92,6 +93,8 @@
 @property (nonatomic, readwrite, strong) RACSubject *commentSubject;
 
 
+/// 更新 (点赞+评论)
+- (void)updateUpArrow;
 /// init
 - (instancetype)initWithMoment:(MHMoment *)moment;
 

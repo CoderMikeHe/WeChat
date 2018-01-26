@@ -7,12 +7,10 @@
 //  
 
 #import "MHMomentHelper.h"
+#import "MHMomentOperationMoreView.h"
 
 @implementation MHMomentHelper
-/// 时间转化
-+ (NSString *)createdAtTimeWithSourceDate:(NSDate *)sourceDate{
-    if (MHObjectIsNil(sourceDate)) return @"";
-    
++ (NSDateFormatter *)dateFormatter{
     static NSDateFormatter *fmt = nil;
     /// 由于NSDateFormatter 有一定的性能问题 故全局共享一个
     static dispatch_once_t onceToken;
@@ -22,6 +20,12 @@
         ///  真机调试的时候，必须加上这句
         fmt.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
     });
+    return fmt;
+}
+
+/// 时间转化
++ (NSString *)createdAtTimeWithSourceDate:(NSDate *)sourceDate{
+    if (MHObjectIsNil(sourceDate)) return @"";
     // 判断是否为今年
     if (sourceDate.mh_isThisYear) {
         if (sourceDate.mh_isToday) { // 今天
@@ -34,15 +38,15 @@
                 return @"刚刚";
             }
         } else if (sourceDate.mh_isYesterday) { // 昨天
-            fmt.dateFormat = @"昨天 HH:mm";
-            return [fmt stringFromDate:sourceDate];
+            self.dateFormatter.dateFormat = @"昨天 HH:mm";
+            return [self.dateFormatter stringFromDate:sourceDate];
         } else { // 至少是前天
-            fmt.dateFormat = @"MM-dd HH:mm";
-            return [fmt stringFromDate:sourceDate];
+            [self dateFormatter].dateFormat = @"MM-dd HH:mm";
+            return [self.dateFormatter stringFromDate:sourceDate];
         }
     } else { // 非今年
-        fmt.dateFormat = @"yyyy-MM-dd";
-        return [fmt stringFromDate:sourceDate];
+        self.dateFormatter.dateFormat = @"yyyy-MM-dd";
+        return [self.dateFormatter stringFromDate:sourceDate];
     }
 }
 
@@ -65,5 +69,13 @@
         regex = [NSRegularExpression regularExpressionWithPattern:@"((http[s]{0,1}|ftp)://[a-zA-Z0-9\\.\\-]+\\.([a-zA-Z]{2,4})(:\\d+)?(/[a-zA-Z0-9\\.\\-~!@#$%^&*+?:_/=<>]*)?)|(www.[a-zA-Z0-9\\.\\-]+\\.([a-zA-Z]{2,4})(:\\d+)?(/[a-zA-Z0-9\\.\\-~!@#$%^&*+?:_/=<>]*)?)" options:kNilOptions error:NULL];
     });
     return regex;
+}
+
+
++ (void)hideAllPopViewWithAnimated:(BOOL)animated{
+    /// 关掉更多View
+    [MHMomentOperationMoreView hideAllOperationMoreViewWithAnimated:animated];
+    /// 关闭键盘
+    if(MHSharedAppDelegate.isShowKeyboard){ [[UIApplication sharedApplication].keyWindow endEditing:YES]; }
 }
 @end

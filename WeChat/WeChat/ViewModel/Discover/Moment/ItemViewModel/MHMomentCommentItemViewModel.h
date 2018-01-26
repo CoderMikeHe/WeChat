@@ -6,10 +6,10 @@
 //  Copyright © 2017年 CoderMikeHe. All rights reserved.
 //
 
-#import "MHMomentContentViewModel.h"
+#import "MHMomentContentItemViewModel.h"
 #import "MHMoments.h"
 
-@interface MHMomentCommentItemViewModel : MHMomentContentViewModel
+@interface MHMomentCommentItemViewModel : MHMomentContentItemViewModel
 
 /// ==== Model Properties ====
 /// 评论模型

@@ -39,6 +39,7 @@
 #import "MHTextField.h"
 #import "MHPreferenceSettingHelper.h"
 #import "MHSingleton.h"
+#import "MHMomentHelper.h"
 
 #import "LCActionSheet+MHExtension.h"
 #import "UIFont+MHExtension.h"

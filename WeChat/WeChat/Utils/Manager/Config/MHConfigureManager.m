@@ -37,7 +37,7 @@ static NSString * const MHApplicationUseHttpsKey = @"MHApplicationUseHttpsKey";
 #if DEBUG
     if (!is_formal_setting) {
         is_formal_setting = [[NSUserDefaults standardUserDefaults] objectForKey:MHApplicationFormalSettingKey];
-        is_formal_setting = [is_formal_setting sb_stringValueExtension];
+        is_formal_setting = [is_formal_setting mh_stringValueExtension];
     }
     return (is_formal_setting.integerValue == 1);
 #else
@@ -57,7 +57,7 @@ static NSString * const MHApplicationUseHttpsKey = @"MHApplicationUseHttpsKey";
 #if DEBUG
     if (!is_appStore_formal_setting) {
         is_appStore_formal_setting = [[NSUserDefaults standardUserDefaults] objectForKey:MHApplicationAppStoreFormalSettingKey];
-        is_appStore_formal_setting = [is_appStore_formal_setting sb_stringValueExtension];
+        is_appStore_formal_setting = [is_appStore_formal_setting mh_stringValueExtension];
     }
     return (is_appStore_formal_setting.integerValue == 1);
 #else
@@ -83,7 +83,7 @@ static NSString * const MHApplicationUseHttpsKey = @"MHApplicationUseHttpsKey";
                 is_use_https = @"1";
             }
         }
-        is_use_https = [is_use_https sb_stringValueExtension];
+        is_use_https = [is_use_https mh_stringValueExtension];
     }
     return (is_use_https.integerValue == 1);
 #else

@@ -90,8 +90,13 @@ static NSString * const MHMomentOperationMoreViewHideUserInfoKey = @"MHMomentOpe
         [[commentBtn rac_signalForControlEvents:UIControlEventTouchUpInside]
          subscribeNext:^(UIButton *sender) {
              @strongify(self);
-             !self.commentClickedCallback?:self.commentClickedCallback(self);
-             [self hideAnimated:YES afterDelay:MHMommentAnimatedDuration];
+             /// 这里实现判断 键盘是否已经抬起
+             if (MHSharedAppDelegate.isShowKeyboard) {
+                 [MHSharedAppDelegate.window endEditing:YES]; /// 关掉键盘
+             }else{
+                 !self.commentClickedCallback?:self.commentClickedCallback(self);
+                 [self hideAnimated:YES afterDelay:0.1];
+             }
          }];
         
         
@@ -150,8 +155,7 @@ static NSString * const MHMomentOperationMoreViewHideUserInfoKey = @"MHMomentOpe
             self.isShow = NO;
             return ;
         }
-        
-        /// 动画
+
         /// 动画
         [UIView animateWithDuration:MHMommentAnimatedDuration delay:0 usingSpringWithDamping:1.0f initialSpringVelocity:0 options:UIViewAnimationOptionCurveLinear animations:^{
             self.mh_x = self.mh_x + self.mh_width;
@@ -173,24 +177,21 @@ static NSString * const MHMomentOperationMoreViewHideUserInfoKey = @"MHMomentOpe
 
 
 #pragma mark - BinderData
-- (void)bindViewModel:(MHMomentItemViewModel *)viewModel
-{
+- (void)bindViewModel:(MHMomentItemViewModel *)viewModel{
     self.viewModel = viewModel;
     /// 直接设置 normal 状态下文字即可
     [self.attitudesBtn setTitle:viewModel.moment.attitudesStatus==0?@"赞":@"取消" forState:UIControlStateNormal];
 }
 
 
-- (void)setFrame:(CGRect)frame
-{
+- (void)setFrame:(CGRect)frame{
     /// 固定高度
     frame.size.height = MHMomentOperationMoreViewHeight;
     [super setFrame:frame];
 }
 
 
-- (void)layoutSubviews
-{
+- (void)layoutSubviews{
     [super layoutSubviews];
     
     /// 布局赞

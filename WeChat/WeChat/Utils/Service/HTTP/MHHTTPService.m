@@ -271,7 +271,7 @@ static id service_ = nil;
                     
 //                    NSHTTPURLResponse *httpUrlResponse = (NSHTTPURLResponse *)response;
 //                    /// 存储token
-//                    NSString *token = [[[httpUrlResponse allHeaderFields] valueForKey:MHHTTPRequestTokenKey] sb_stringValueExtension];
+//                    NSString *token = [[[httpUrlResponse allHeaderFields] valueForKey:MHHTTPRequestTokenKey] mh_stringValueExtension];
 //                    [self saveToken:token];
 
                     [self HTTPRequestLog:task body:parameters error:nil];
@@ -741,7 +741,7 @@ static id service_ = nil;
     for (id key in sortedKeys) {
         /// value 为 empty 跳过
         if(MHObjectIsNil(parameters[key])) continue;
-        NSString * value = [parameters[key] sb_stringValueExtension];
+        NSString * value = [parameters[key] mh_stringValueExtension];
         if (MHObjectIsNil(value)||!MHStringIsNotEmpty(value)) continue;
         value = [value sb_removeBothEndsWhitespaceAndNewline];
         value = [value sb_URLEncoding];
@@ -768,7 +768,7 @@ static id service_ = nil;
     AFHTTPRequestSerializer *requestSerializer = [AFHTTPRequestSerializer serializer];
     /// 配置请求头
     for (NSString *key in parameters) {
-        NSString *value = [[parameters[key] sb_stringValueExtension] copy];
+        NSString *value = [[parameters[key] mh_stringValueExtension] copy];
         if (value.length==0) continue;
         /// value只能是字符串，否则崩溃
         [requestSerializer setValue:value forHTTPHeaderField:key];

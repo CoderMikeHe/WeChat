@@ -142,10 +142,16 @@
     [[self.operationMoreBtn rac_signalForControlEvents:UIControlEventTouchUpInside]
      subscribeNext:^(UIButton *sender) {
          @strongify(self);
-         /// 固定位置
-         self.operationMoreView.right = self.operationMoreBtn.mh_x - MHMomentContentInnerMargin;
-         self.operationMoreView.isShow?[self.operationMoreView hideWithAnimated:YES]:[self.operationMoreView showWithAnimated:YES];
-         [self layoutIfNeeded];
+         /// 这里实现判断 键盘是否已经抬起
+         if (MHSharedAppDelegate.isShowKeyboard) {
+             [MHSharedAppDelegate.window endEditing:YES]; /// 关掉键盘
+         }else{
+             /// 固定位置
+             self.operationMoreView.right = self.operationMoreBtn.mh_x - MHMomentContentInnerMargin;
+             self.operationMoreView.isShow?[self.operationMoreView hideWithAnimated:YES]:[self.operationMoreView showWithAnimated:YES];
+             [self layoutIfNeeded];
+         }
+         
      }];
     
     /// 更多View的各项操作
@@ -171,8 +177,7 @@
 
 /// 以下UI部分 不必过多关注
 #pragma mark - 初始化
-- (void)_setup
-{
+- (void)_setup{
     self.contentView.backgroundColor = [UIColor whiteColor];
 }
 
@@ -306,6 +311,11 @@
     [self.contentView addSubview:operationMoreView];
     self.operationMoreView = operationMoreView;
 
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    MHLogFunc;
+    [super touchesBegan:touches withEvent:event];
 }
 
 @end

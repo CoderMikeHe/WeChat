@@ -128,7 +128,7 @@ CGFloat const MHMomentOperationMoreViewWidth = 181.0f;
 CGFloat const MHMomentOperationMoreViewHeight = 39.0f;
 
 /// 微信动画时间 .25f
-NSTimeInterval const MHMommentAnimatedDuration = .25f;
+NSTimeInterval const MHMommentAnimatedDuration = .2f;
 
 
 /// 链接key
@@ -140,3 +140,12 @@ NSString * const MHMomentLocationNameKey = @"MHMomentLocationNameKey";
 
 /// 用户信息key
 NSString * const MHMomentUserInfoKey = @"MHMomentUserInfoKey";
+
+
+/// 评论View
+/** 弹出评论框View最小高度 */
+CGFloat const MHMomentCommentToolViewMinHeight = 60;
+/** 弹出评论框View最大高度 */
+CGFloat const MHMomentCommentToolViewMaxHeight = 130;
+/** 弹出评论框View的除了编辑框的高度 */
+CGFloat const MHMomentCommentToolViewWithNoTextViewHeight = 20;

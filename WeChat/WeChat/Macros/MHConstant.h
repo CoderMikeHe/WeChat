@@ -262,6 +262,15 @@ FOUNDATION_EXTERN NSString * const MHMomentLocationNameKey;
 FOUNDATION_EXTERN NSString * const MHMomentUserInfoKey;
 
 
+/// 评论View
+/** 弹出评论框View最小高度 */
+FOUNDATION_EXTERN CGFloat const MHMomentCommentToolViewMinHeight;
+/** 弹出评论框View最大高度 */
+FOUNDATION_EXTERN CGFloat const MHMomentCommentToolViewMaxHeight ;
+/** 弹出评论框View的除了编辑框的高度 */
+FOUNDATION_EXTERN CGFloat const MHMomentCommentToolViewWithNoTextViewHeight;
+
+
 
 //// ---------------- inline ----------------
 

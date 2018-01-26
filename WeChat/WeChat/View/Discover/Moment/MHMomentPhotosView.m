@@ -91,8 +91,7 @@
 }
 
 #pragma mark - 事件处理
-- (void)_tapPhoto:(UITapGestureRecognizer *)sender
-{
+- (void)_tapPhoto:(UITapGestureRecognizer *)sender{
     /// 图片浏览
     NSMutableArray *items = [NSMutableArray new];
     
@@ -107,10 +106,11 @@
         item.largeImageSize = CGSizeMake(meta.width, meta.height);
         [items addObject:item];
     }
+    /// 关闭popView
+    [MHMomentHelper hideAllPopViewWithAnimated:YES];
     
     YYPhotoGroupView *photoBrowser = [[YYPhotoGroupView alloc] initWithGroupItems:items];
-    [photoBrowser presentFromImageView:sender.view toContainer:self.window animated:YES completion:nil];
-    
+    [photoBrowser presentFromImageView:sender.view toContainer:self.window animated:YES completion:NULL];
 }
 
 

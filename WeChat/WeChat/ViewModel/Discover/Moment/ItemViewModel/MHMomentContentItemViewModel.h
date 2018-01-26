@@ -1,5 +1,5 @@
 //
-//  MHMomentContentViewModel.h
+//  MHMomentContentItemViewModel.h
 //  MHDevelopExample
 //
 //  Created by senba on 2017/7/16.
@@ -8,7 +8,7 @@
 
 #import "MHObject.h"
 
-@interface MHMomentContentViewModel : MHObject
+@interface MHMomentContentItemViewModel : MHObject
 /// 正文布局
 @property (nonatomic, readwrite, strong) YYTextLayout *contentLableLayout;
 /// 正文尺寸

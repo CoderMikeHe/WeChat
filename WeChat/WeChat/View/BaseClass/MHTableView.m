@@ -7,11 +7,15 @@
 //
 
 #import "MHTableView.h"
-#import "MHMomentOperationMoreView.h"
+
 @implementation MHTableView
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [MHMomentOperationMoreView hideAllOperationMoreViewWithAnimated:YES];
+    
+    /// 处理popView
+    [MHMomentHelper hideAllPopViewWithAnimated:YES];
+    
+    /// 全局
     [super touchesBegan:touches withEvent:event];
 }
 

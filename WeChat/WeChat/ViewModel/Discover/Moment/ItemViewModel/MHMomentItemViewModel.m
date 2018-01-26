@@ -16,12 +16,13 @@
 @property (nonatomic, readwrite, strong) RACCommand *attitudeOperationCmd;
 /// 展开全文cmd
 @property (nonatomic, readwrite, strong) RACCommand *expandOperationCmd;
+/// 点赞+评论列表 （设计为 可变数组 后期需要添加东西）
+@property (nonatomic, readwrite, strong) NSMutableArray *dataSource;
 @end
 
 
 @implementation MHMomentItemViewModel
-- (instancetype)initWithMoment:(MHMoment *)moment
-{
+- (instancetype)initWithMoment:(MHMoment *)moment{
     if (self = [super init]) {
 #if 1
         /// 内容宽度
@@ -126,23 +127,19 @@
         /// 评论列表
         NSMutableArray *ops = [NSMutableArray array];
         //// 点赞列表
-        if(self.moment.attitudesList.count>0)
-        {
+        if(self.moment.attitudesList.count>0){
             /// 需要
-            MHMomentAttitudesViewModel *attitudes = [[MHMomentAttitudesViewModel alloc] initWithMoment:moment];
+            MHMomentAttitudesItemViewModel *attitudes = [[MHMomentAttitudesItemViewModel alloc] initWithMoment:moment];
             [ops addObject:attitudes];
             
         }
         if (self.moment.commentsList.count>0) {
-            
             [ops addObjectsFromArray:[self.moment.commentsList.rac_sequence map:^MHMomentCommentItemViewModel *(MHComment * comment) {
                 MHMomentCommentItemViewModel *viewModel = [[MHMomentCommentItemViewModel alloc] initWithComment:comment];
                 return viewModel;
             }].array];
         }
-        
-        
-        self.operationMores = ops.copy;
+        self.dataSource = ops.mutableCopy;
         
         
         /// ----------- 尺寸属性 -----------
@@ -207,34 +204,35 @@
             [self.moment.attitudesList removeObject:[MHHTTPService sharedInstance].currentUser];
         }
         
-        /// 0. 还需要判断 self.moment.attitudesList.count > 0 则self.operationMores = nil
-        /// 1. 取出operationMores的第一条数据(有可能是nil ，点赞模型，评论模型)
+        /// 0. 还需要判断 self.moment.attitudesList.count > 0 则self.dataSource = nil
+        /// 1. 取出dataSource的第一条数据(有可能是nil ，点赞模型，评论模型)
         if (self.moment.attitudesList.count>0) {
             /// 有数据
-            MHMomentAttitudesViewModel * attitudes = self.operationMores.firstObject;
-            if ([attitudes isKindOfClass:[MHMomentAttitudesViewModel class]]) {
+            MHMomentAttitudesItemViewModel * attitudes = self.dataSource.firstObject;
+            if ([attitudes isKindOfClass:[MHMomentAttitudesItemViewModel class]]) {
                 /// 修改数据 （移除/拼接）
                 [attitudes.operationCmd execute:self.moment];
             }else{
                 /// 插入数据到 index = 0 （创建数据）
-                MHMomentAttitudesViewModel *atti = [[MHMomentAttitudesViewModel alloc] initWithMoment:self.moment];
+                MHMomentAttitudesItemViewModel *atti = [[MHMomentAttitudesItemViewModel alloc] initWithMoment:self.moment];
                 NSMutableArray *ops = [NSMutableArray array];
-                if (self.operationMores) {
+                if (self.dataSource) {
                     [ops addObject:atti];
-                    [ops addObjectsFromArray:self.operationMores];
-                    self.operationMores = ops.copy;
+                    [ops addObjectsFromArray:self.dataSource];
+                    self.dataSource = ops.copy;
                     
                 }else{
-                    self.operationMores = @[atti];
+                    self.dataSource = @[atti];
                 }
             }
         }else{
-            self.operationMores = nil;
+            self.dataSource = nil;
         }
         /// 更新布局 向上的箭头
         [self _updateUpArrowViewFrameForOperationMoreChanged];
         /// 回调到视图控制器，刷新表格的section，这里特别注意的是：微信这里不论有网，没网，你点赞Or取消点赞都是可以操作的，所以以上都是前端处理
         [self.reloadSectionSubject sendNext:input];
+        
         return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
             /// 这里发起请求 (无非不是把moment的attitudesStatus，提交到服务器罢了)
             /// 开启网络菊花
@@ -369,11 +367,15 @@
     [self _updateUpArrowViewFrameForOperationMoreChanged];
 }
 
+- (void)updateUpArrow{
+    [self _updateUpArrowViewFrameForOperationMoreChanged];
+}
 
 /// 由于更多按钮的事件生效（PS：点赞成功/失败 Or 评论成功/失败）都会导致headerView的高度changeed
 - (void)_updateUpArrowViewFrameForOperationMoreChanged
 {
     BOOL isAllowShowUpArrowView = (self.moment.commentsList.count>0||self.moment.attitudesList.count>0);
+    
     CGFloat upArrowViewX = self.screenNameLableFrame.origin.x;
     /// -5是为了适配
     CGFloat upArrowViewTopMargin = isAllowShowUpArrowView?(MHMomentContentInnerMargin-5):0;

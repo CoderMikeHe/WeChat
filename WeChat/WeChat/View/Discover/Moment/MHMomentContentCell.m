@@ -12,7 +12,7 @@
 /// 正文
 @property (nonatomic, readwrite, weak) YYLabel *contentLable;
 
-@property (nonatomic , readwrite , strong) MHMomentContentViewModel *viewModel;
+@property (nonatomic , readwrite , strong) MHMomentContentItemViewModel *viewModel;
 @end
 
 @implementation MHMomentContentCell
@@ -51,7 +51,7 @@
 }
 
 #pragma mark - BindViewModel 子类重写
-- (void)bindViewModel:(MHMomentContentViewModel *)viewModel
+- (void)bindViewModel:(MHMomentContentItemViewModel *)viewModel
 {
     self.viewModel = viewModel;
     /// 文本
@@ -112,40 +112,30 @@
     };
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    /// 这里的点击事件 由自己处理
+    /// 先记录
+    BOOL showKeyboard = MHSharedAppDelegate.isShowKeyboard;
+    /// 然后设置
+    MHSharedAppDelegate.showKeyboard = NO;
     [super touchesBegan:touches withEvent:event];
-    
-//    MHLogFunc;
+    MHSharedAppDelegate.showKeyboard = showKeyboard;
 }
 
 #pragma mark - Override
 /// PS:重写cell的尺寸 这是评论View关键
-- (void)setFrame:(CGRect)frame
-{
+- (void)setFrame:(CGRect)frame{
     frame.origin.x = MHMomentContentLeftOrRightInset+MHMomentAvatarWH+MHMomentContentInnerMargin;
     frame.size.width = MHMomentCommentViewWidth();
     [super setFrame:frame];
 }
 
 #pragma mark - 布局
-- (void)layoutSubviews
-{
+- (void)layoutSubviews{
     [super layoutSubviews];
-    
     self.divider.frame =CGRectMake(0, self.mh_height-WXGlobalBottomLineHeight, self.mh_width, WXGlobalBottomLineHeight);
 }
 
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-    
-    MHLogFunc;
-}
 
-- (void)setSelected:(BOOL)selected{
-    [super setSelected:selected];
-    MHLogFunc;
-}
 @end

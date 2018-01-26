@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MHReactiveView.h"
-#import "MHMomentContentViewModel.h"
+#import "MHMomentContentItemViewModel.h"
 
 
 @interface MHMomentContentCell : UITableViewCell<MHReactiveView>
@@ -18,7 +18,7 @@
 /// divider
 @property (nonatomic, readwrite, weak) UIImageView *divider;
 /// viewModel
-@property (nonatomic , readonly , strong) MHMomentContentViewModel *viewModel;
+@property (nonatomic , readonly , strong) MHMomentContentItemViewModel *viewModel;
 
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 

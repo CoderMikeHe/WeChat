@@ -7,11 +7,11 @@
 //
 
 #import "MHMomentAttitudesCell.h"
-#import "MHMomentAttitudesViewModel.h"
+#import "MHMomentAttitudesItemViewModel.h"
 
 @interface MHMomentAttitudesCell ()
 /// viewModel
-@property (nonatomic, readwrite, strong) MHMomentAttitudesViewModel *viewModel;
+@property (nonatomic, readwrite, strong) MHMomentAttitudesItemViewModel *viewModel;
 
 @end
 

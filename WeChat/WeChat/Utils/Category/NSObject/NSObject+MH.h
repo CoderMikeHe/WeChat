@@ -9,7 +9,7 @@
 #ifndef NSObject_MH_h
 #define NSObject_MH_h
 
-#import "NSObject+SBExtension.h"
+#import "NSObject+MHExtension.h"
 #import "NSObject+MHAlert.h"
 
 #endif /* NSObject_MH_h */

@@ -16,16 +16,21 @@
 #import "LCActionSheet.h"
 #import "MHEmoticonManager.h"
 #import "MHMomentHelper.h"
+#import "MHMomentCommentToolView.h"
 @interface MHMomentViewController ()
 /// viewModel
 @property (nonatomic, readonly, strong) MHMomentViewModel *viewModel;
 /// tableHeaderView
 @property (nonatomic, readwrite, weak) MHMomentProfileView *tableHeaderView;
-/// 点赞
+/// commentToolView
+@property (nonatomic, readwrite, weak) MHMomentCommentToolView *commentToolView;
+/// 选中的索引 selectedIndexPath
+@property (nonatomic, readwrite, strong) NSIndexPath * selectedIndexPath;
+/// 记录键盘高度
+@property (nonatomic, readwrite, assign) CGFloat keyboardHeight;
 @end
 
 @implementation MHMomentViewController
-
 @dynamic viewModel;
 
 - (void)dealloc{
@@ -40,9 +45,6 @@
     
     /// 初始化导航栏Item
     [self _setupNavigationItem];
-    
-    NSDictionary * dict = [MHEmoticonManager emoticonDic];
-    
 }
 
 #pragma mark - Override
@@ -56,7 +58,7 @@
     /// ... 事件处理...
     /// 全文/收起
     @weakify(self);
-    [self.viewModel.reloadSectionSubject subscribeNext:^(NSNumber * section) {
+    [[self.viewModel.reloadSectionSubject deliverOnMainThread] subscribeNext:^(NSNumber * section) {
         @strongify(self);
         /// 局部刷新 (内部已更新子控件的尺寸，这里只做刷新)
         /// 这个刷新会有个奇怪的动画
@@ -68,15 +70,60 @@
     }];
     
     /// 评论
-    [self.viewModel.commentSubject subscribeNext:^(NSNumber * section) {
+    [[self.viewModel.commentSubject deliverOnMainThread] subscribeNext:^(NSNumber * section) {
         @strongify(self);
-        /// 获取整个section对应的尺寸 获取的rect是相当于tableView的尺寸
-        CGRect rect = [self.tableView rectForFooterInSection:section.integerValue];
-        /// 将尺寸转化到window的坐标系
-        CGRect rect1 = [self.tableView convertRect:rect toViewOrWindow:nil];
-        NSLog(@"rect --- %@    rect1 --- %@" , NSStringFromCGRect(rect) , NSStringFromCGRect(rect1));
+        /// 记录选中的Section 这里设置Row为-1 以此来做判断
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:-1 inSection:section.integerValue];
+        /// 显示评论
+        [self _commentOrReplyWithItemViewModel:self.viewModel.dataSource[section.integerValue] indexPath:indexPath];
     }];
     
+    
+    /// 监听键盘 高度
+    /// 监听按钮
+    [[[[[NSNotificationCenter defaultCenter] rac_addObserverForName:UIKeyboardWillChangeFrameNotification object:nil] takeUntil:self.rac_willDeallocSignal ]
+      deliverOnMainThread]
+     subscribeNext:^(NSNotification * notification) {
+         @strongify(self);
+         @weakify(self);
+         [self mh_convertNotification:notification completion:^(CGFloat duration, UIViewAnimationOptions options, CGFloat keyboardH) {
+             @strongify(self);
+             if (keyboardH <= 0) {
+                 keyboardH = -1 * self.commentToolView.mh_height;
+             }
+             self.keyboardHeight = keyboardH;
+             /// 全局记录keyboardH
+             AppDelegate.sharedDelegate.showKeyboard = (keyboardH > 0);
+             // bottomToolBar距离底部的高
+             [self.commentToolView mas_updateConstraints:^(MASConstraintMaker *make) {
+                 make.bottom.equalTo(self.view).with.offset(-1 *keyboardH);
+             }];
+             // 执行动画
+             [UIView animateWithDuration:duration delay:0.0f options:options animations:^{
+                 // 如果是Masonry或者autoLayout UITextField或者UITextView 布局 必须layoutSubviews，否则文字会跳动
+                 [self.view layoutSubviews];
+                 /// 滚动表格
+                 [self _scrollTheTableViewForComment];
+             } completion:nil];
+         }];
+     }];
+    
+    
+    //// 监听commentToolView的高度变化
+    [[RACObserve(self.commentToolView, toHeight) distinctUntilChanged] subscribeNext:^(NSNumber * toHeight) {
+        @strongify(self);
+        if (toHeight.floatValue < MHMomentCommentToolViewMinHeight) return ;
+        /// 更新CommentView的高度
+        [self.commentToolView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(toHeight);
+        }];
+        [UIView animateWithDuration:.25f animations:^{
+            // 适当时候更新布局
+            [self.view layoutSubviews];
+            /// 滚动表格
+            [self _scrollTheTableViewForComment];
+        }];
+    }];
     
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView dequeueReusableCellWithIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath{
@@ -85,7 +132,7 @@
 
 - (void)configureCell:(MHMomentContentCell *)cell atIndexPath:(NSIndexPath *)indexPath withObject:(id)object{
     MHMomentItemViewModel *itemViewModel =  self.viewModel.dataSource[indexPath.section];
-    id model = itemViewModel.operationMores[indexPath.row];
+    id model = itemViewModel.dataSource[indexPath.row];
     [cell bindViewModel:model];
 }
 
@@ -120,6 +167,17 @@
     backgroundView.image = MHImageNamed(@"wx_around-friends_bg_320x568");
     backgroundView.mh_y = -backgroundView.mh_height;
     [self.tableView addSubview:backgroundView];
+    
+    
+    /// 添加评论View
+    MHMomentCommentToolView *commentToolView = [[MHMomentCommentToolView alloc] init];
+    self.commentToolView = commentToolView;
+    [self.view addSubview:commentToolView];
+    [commentToolView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.and.right.equalTo(self.view);
+        make.height.mas_equalTo(60);
+        make.bottom.equalTo(self.view).with.offset(60);
+    }];
 }
 
 #pragma mark - 初始化道导航栏
@@ -133,7 +191,6 @@
             ///
         } otherButtonTitles:@"拍摄",@"从手机相册选择", nil];
         [sheet show];
-        
         return [RACSignal empty];
     }];
 }
@@ -147,7 +204,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     MHMomentItemViewModel *itemViewModel =  self.viewModel.dataSource[section];
-    return itemViewModel.operationMores.count;
+    return itemViewModel.dataSource.count;
 }
 
 // custom view for header. will be adjusted to default or specified header height
@@ -163,17 +220,61 @@
     return [MHMomentFooterView footerViewWithTableView:tableView];
 }
 
+/// 点击Cell的事件
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    NSInteger section = indexPath.section;
+    NSInteger row = indexPath.row;
+    /// 先取出该section的说说
+    MHMomentItemViewModel *itemViweModel = self.viewModel.dataSource[section];
+    /// 然后取出该 row 的评论Or点赞
+    MHMomentContentItemViewModel *contentItemViewModel = itemViweModel.dataSource[row];
+    /// 去掉点赞
+    if ([contentItemViewModel isKindOfClass:MHMomentAttitudesItemViewModel.class]) {
+        [self.commentToolView mh_resignFirstResponder];
+        return;
+    }
+
+    /// 判断是否是自己的评论  或者 回复
+    MHMomentCommentItemViewModel *commentItemViewModel = (MHMomentCommentItemViewModel *)contentItemViewModel;
+    if ([commentItemViewModel.comment.fromUser.idstr isEqualToString: self.viewModel.services.client.currentUser.idstr]) {
+        /// 关掉键盘
+        [self.commentToolView  mh_resignFirstResponder];
+        
+        /// 自己评论的活回复他人
+        @weakify(self);
+        LCActionSheet *sheet = [LCActionSheet sheetWithTitle:nil cancelButtonTitle:@"取消" clicked:^(LCActionSheet * _Nonnull actionSheet, NSInteger buttonIndex) {
+            if (buttonIndex == 0) return ;
+            @strongify(self);
+            /// 删除数据源
+            [self.viewModel.delCommentCommand execute:indexPath];
+    
+        } otherButtonTitles:@"删除", nil];
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:1];
+        sheet.destructiveButtonIndexSet = indexSet;
+        [sheet show];
+        return;
+    }
+    
+    MHLogFunc;
+    /// 键盘已经显示 你就先关掉键盘
+    if (MHSharedAppDelegate.isShowKeyboard) {
+        [self.commentToolView mh_resignFirstResponder];
+        return;
+    }
+    /// 评论
+    [self _commentOrReplyWithItemViewModel:contentItemViewModel indexPath:indexPath];
+}
+
+
 // custom view for cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     UITableViewCell *cell = [self tableView:tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
-    
     // fetch object
-    id object  = [self.viewModel.dataSource[indexPath.section] operationMores][indexPath.row];;
-    
+    id object  = [self.viewModel.dataSource[indexPath.section] dataSource][indexPath.row];;
     /// bind model
     [self configureCell:cell atIndexPath:indexPath withObject:(id)object];
-    
     return cell;
 }
 
@@ -187,7 +288,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     MHMomentItemViewModel *itemViewModel =  self.viewModel.dataSource[indexPath.section];
     /// 这里用 id 去指向（但是一定要确保取出来的模型有 `cellHeight` 属性 ，否则crash）
-    id model = itemViewModel.operationMores[indexPath.row];
+    id model = itemViewModel.dataSource[indexPath.row];
     return [model cellHeight];
 }
 
@@ -197,7 +298,44 @@
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    /// 回收评论和点赞的
-    [MHMomentOperationMoreView hideAllOperationMoreViewWithAnimated:NO];
+    /// 处理popView
+    [MHMomentHelper hideAllPopViewWithAnimated:NO];
 }
+
+#pragma mark - 辅助方法
+- (void)_commentOrReplyWithItemViewModel:(id)itemViewModel indexPath:(NSIndexPath *)indexPath{
+    /// 传递数据 (生成 replyItemViewModel)
+    MHMomentReplyItemViewModel *viewModel = [[MHMomentReplyItemViewModel alloc] initWithItemViewModel:itemViewModel];
+    viewModel.section = indexPath.section;
+    viewModel.commentCommand = self.viewModel.commentCommand;
+    self.selectedIndexPath = indexPath; /// 记录indexPath
+    [self.commentToolView bindViewModel:viewModel];
+    /// 键盘弹起
+    [self.commentToolView  mh_becomeFirstResponder];
+}
+
+/// 评论的时候 滚动tableView
+- (void)_scrollTheTableViewForComment{
+    CGRect rect = CGRectZero;
+    CGRect rect1 = CGRectZero;
+    if (self.selectedIndexPath.row == -1) {
+        /// 获取整个尾部section对应的尺寸 获取的rect是相当于tableView的尺寸
+        rect = [self.tableView rectForFooterInSection:self.selectedIndexPath.section];
+        /// 将尺寸转化到window的坐标系 （关键点）
+        rect1 = [self.tableView convertRect:rect toViewOrWindow:nil];
+    }else{
+        /// 回复
+        /// 获取整个尾部section对应的尺寸 获取的rect是相当于tableView的尺寸
+        rect = [self.tableView rectForRowAtIndexPath:self.selectedIndexPath];
+        /// 将尺寸转化到window的坐标系 （关键点）
+        rect1 = [self.tableView convertRect:rect toViewOrWindow:nil];
+    }
+    if (self.keyboardHeight > 0) { /// 键盘抬起 才允许滚动
+        /// 这个就是你需要滚动差值
+        CGFloat delta = self.commentToolView.mh_top - rect1.origin.y - rect1.size.height;
+        [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentOffset.y-delta) animated:NO];
+    }
+}
+
+
 @end
