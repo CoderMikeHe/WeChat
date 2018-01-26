@@ -501,6 +501,7 @@
 		262300161FD91682007D1616 /* MHAccountSecurityViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHAccountSecurityViewController.m; sourceTree = "<group>"; };
 		262300181FD916CD007D1616 /* MHAccountSecurityViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHAccountSecurityViewModel.h; sourceTree = "<group>"; };
 		262300191FD916CD007D1616 /* MHAccountSecurityViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHAccountSecurityViewModel.m; sourceTree = "<group>"; };
+		26234FAE201B2E5F00B944ED /* MHSegmentedControlController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHSegmentedControlController.h; sourceTree = "<group>"; };
 		2624CAD91F98DCAD0083923F /* MHHTTPResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHHTTPResponse.h; sourceTree = "<group>"; };
 		2624CADA1F98DCAD0083923F /* MHHTTPResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHHTTPResponse.m; sourceTree = "<group>"; };
 		2624CADC1F98DEE70083923F /* MHHTTPServiceConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHHTTPServiceConstant.h; sourceTree = "<group>"; };
@@ -721,7 +722,6 @@
 		266E15DC1F8F7ED0000E31C5 /* MHRegisterViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHRegisterViewModel.m; sourceTree = "<group>"; };
 		266E15DE1F8F7F05000E31C5 /* MHCommitViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHCommitViewModel.h; sourceTree = "<group>"; };
 		266E15DF1F8F7F05000E31C5 /* MHCommitViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHCommitViewModel.m; sourceTree = "<group>"; };
-		268B6A91201ACC39004FE2FD /* MHSegmentedControlController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHSegmentedControlController.h; sourceTree = "<group>"; };
 		269754AA20170ACB005DE59C /* MHMomentCommentToolView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHMomentCommentToolView.h; sourceTree = "<group>"; };
 		269754AB20170ACB005DE59C /* MHMomentCommentToolView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHMomentCommentToolView.m; sourceTree = "<group>"; };
 		269754AD2018650E005DE59C /* MHMomentReplyItemViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHMomentReplyItemViewModel.h; sourceTree = "<group>"; };
@@ -1124,8 +1124,8 @@
 				26225D791F654E410074BFC3 /* MHTabBarController.m */,
 				263C897F1F6A34D300F7A0AE /* MHCommonViewController.h */,
 				263C89801F6A34D300F7A0AE /* MHCommonViewController.m */,
+				26234FAE201B2E5F00B944ED /* MHSegmentedControlController.h */,
 				2633E0191FEA076600D0E187 /* MHSegmentedControlController.m */,
-				268B6A91201ACC39004FE2FD /* MHSegmentedControlController.h */,
 			);
 			path = BaseClass;
 			sourceTree = "<group>";
