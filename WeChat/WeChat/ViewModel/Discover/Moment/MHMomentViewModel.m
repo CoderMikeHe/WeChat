@@ -59,7 +59,6 @@
     /// 评论
     self.commentCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(MHMomentReplyItemViewModel * itemViewModel) {
         @strongify(self);
-        
         /// 配置评论内容
         MHComment *comment = [[MHComment alloc] init];
         comment.text = itemViewModel.text;
@@ -69,7 +68,6 @@
         comment.createdAt = [NSDate date];
         comment.fromUser = self.services.client.currentUser;
         comment.toUser = itemViewModel.toUser;
-        
         /// 根据 comment 获取到 commentItemViewModel
         MHMomentCommentItemViewModel *commentItemViewModel = [[MHMomentCommentItemViewModel alloc] initWithComment:comment];
         
@@ -79,15 +77,13 @@
         /// 插入数据
         [momentItemViewModel.dataSource addObject:commentItemViewModel];
         [momentItemViewModel.moment.commentsList addObject:comment];
-        momentItemViewModel.moment.commentsCount +=1;
+        momentItemViewModel.moment.commentsCount += 1;
         
         /// 更新headerView的upArrow
         [momentItemViewModel updateUpArrow];
         
         /// 刷新数据源
         [self.reloadSectionSubject sendNext:@(itemViewModel.section)];
-        
-        
         return [RACSignal empty];
     }];
     

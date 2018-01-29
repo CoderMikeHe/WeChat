@@ -123,23 +123,20 @@
             YYTextLayout *sourceLableLayout = [YYTextLayout layoutWithContainer:singleRowContainer text:source.copy];
             self.sourceLableLayout = sourceLableLayout;
         }
-        
-        /// 评论列表
-        NSMutableArray *ops = [NSMutableArray array];
+
         //// 点赞列表
         if(self.moment.attitudesList.count>0){
             /// 需要
             MHMomentAttitudesItemViewModel *attitudes = [[MHMomentAttitudesItemViewModel alloc] initWithMoment:moment];
-            [ops addObject:attitudes];
+            [self.dataSource addObject:attitudes];
             
         }
         if (self.moment.commentsList.count>0) {
-            [ops addObjectsFromArray:[self.moment.commentsList.rac_sequence map:^MHMomentCommentItemViewModel *(MHComment * comment) {
+            [self.dataSource addObjectsFromArray:[self.moment.commentsList.rac_sequence map:^MHMomentCommentItemViewModel *(MHComment * comment) {
                 MHMomentCommentItemViewModel *viewModel = [[MHMomentCommentItemViewModel alloc] initWithComment:comment];
                 return viewModel;
             }].array];
         }
-        self.dataSource = ops.mutableCopy;
         
         
         /// ----------- 尺寸属性 -----------
@@ -181,7 +178,6 @@
             /// 未点赞，则点赞 >0即可
             self.moment.attitudesStatus = 1;
             self.moment.attitudesCount = self.moment.attitudesCount+1;
-            
             [self.moment.attitudesList addObject:[MHHTTPService sharedInstance].currentUser];
         }else{
             /// 已点赞，则取消点赞
@@ -215,24 +211,16 @@
             }else{
                 /// 插入数据到 index = 0 （创建数据）
                 MHMomentAttitudesItemViewModel *atti = [[MHMomentAttitudesItemViewModel alloc] initWithMoment:self.moment];
-                NSMutableArray *ops = [NSMutableArray array];
-                if (self.dataSource) {
-                    [ops addObject:atti];
-                    [ops addObjectsFromArray:self.dataSource];
-                    self.dataSource = ops.copy;
-                    
-                }else{
-                    self.dataSource = @[atti];
-                }
+                [self.dataSource insertObject:atti atIndex:0];
             }
         }else{
-            self.dataSource = nil;
+            /// 这里没有点赞用户，删除掉第一个，
+            [self.dataSource removeFirstObject];
         }
         /// 更新布局 向上的箭头
         [self _updateUpArrowViewFrameForOperationMoreChanged];
         /// 回调到视图控制器，刷新表格的section，这里特别注意的是：微信这里不论有网，没网，你点赞Or取消点赞都是可以操作的，所以以上都是前端处理
         [self.reloadSectionSubject sendNext:input];
-        
         return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
             /// 这里发起请求 (无非不是把moment的attitudesStatus，提交到服务器罢了)
             /// 开启网络菊花
@@ -456,8 +444,7 @@
         }
         return picSize;
     }
-    
-    
+
     /// 大于1的情况 统统显示 九宫格样式
     NSUInteger maxCols = MHMomentMaxCols(photosCount);
     
@@ -473,4 +460,13 @@
     return CGSizeMake(photosW, photosH);
 }
 
+
+#pragma mark - Getter & Setter
+
+- (NSMutableArray *)dataSource{
+    if (_dataSource == nil) {
+        _dataSource = [[NSMutableArray alloc] init];
+    }
+    return _dataSource;
+}
 @end
