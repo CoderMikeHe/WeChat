@@ -11,7 +11,6 @@
 #import "MHMomentShareInfoView.h"
 #import "MHMomentItemViewModel.h"
 #import "MHMomentOperationMoreView.h"
-#import "MHMenuController.h"
 @interface MHMomentHeaderView ()
 /// 头像
 @property (nonatomic, readwrite, weak) UIImageView *avatarView;
@@ -39,19 +38,12 @@
 @property (nonatomic, readwrite, weak) MHMomentOperationMoreView *operationMoreView;
 /// viewModel
 @property (nonatomic, readwrite, strong) MHMomentItemViewModel *viewModel;
-
-/*!
- @property
- @brief 菜单
- */
-@property (nonatomic , readwrite , strong) MHMenuController *menuController;
 @end
 
 
 @implementation MHMomentHeaderView
 /// init
-+ (instancetype)headerViewWithTableView:(UITableView *)tableView
-{
++ (instancetype)headerViewWithTableView:(UITableView *)tableView{
     static NSString *ID = @"MomentHeader";
     MHMomentHeaderView *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:ID];
     if (header == nil) {
@@ -129,8 +121,51 @@
 #pragma mark - 私有方法
 - (void)_dealWithAction{
     /// 该界面的所有事件监听
-    /// 全文/收起 事件监听
     @weakify(self);
+    /// 用户头像 （点击、长按）事件
+    UITapGestureRecognizer *tapGr = [[UITapGestureRecognizer alloc] init];
+    UILongPressGestureRecognizer *longGr = [[UILongPressGestureRecognizer alloc] init];
+    [self.avatarView addGestureRecognizer:longGr];
+    [self.avatarView addGestureRecognizer:tapGr];
+    [tapGr.rac_gestureSignal subscribeNext:^(UIGestureRecognizer * gr) {
+        /// 点击事件
+        @strongify(self);
+        [self.viewModel.profileInfoCommand execute:self.viewModel.moment.user];
+    }];
+    [longGr.rac_gestureSignal subscribeNext:^(UIGestureRecognizer * gr) {
+        /// 长按事件
+        if(gr.state == UIGestureRecognizerStateBegan){
+            /// 弹出LCActionSheet
+            LCActionSheet *sheet = [LCActionSheet sheetWithTitle:nil cancelButtonTitle:@"取消" clicked:^(LCActionSheet * _Nonnull actionSheet, NSInteger buttonIndex) {
+                if (buttonIndex == 0) return ;
+                /// 处理点击事件...
+                
+            } otherButtonTitles:@"设置朋友圈权限",@"投诉", nil];
+            [sheet show];
+        }
+    }];
+    
+    /// 昵称点击事件
+    [self.screenNameLable setHighlightTapAction:^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
+        /// 点击事件
+        @strongify(self);
+        [self.viewModel.profileInfoCommand execute:self.viewModel.moment.user];
+    }];
+    
+    /// 正文点击事件
+    [self.contentLable setHighlightTapAction:^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
+        /// 点击事件
+        @strongify(self);
+        if (range.location >= text.length) return;
+        YYTextHighlight *highlight = [text yy_attribute:YYTextHighlightAttributeName atIndex:range.location];
+        NSDictionary *userInfo = highlight.userInfo;
+        if (userInfo.count == 0) return;
+        /// 回调数据
+        [self.viewModel.attributedTapCommand execute:userInfo];
+    }];
+    
+    
+    /// 全文/收起 事件监听
     [[self.expandBtn rac_signalForControlEvents:UIControlEventTouchUpInside]
      subscribeNext:^(UIButton *sender) {
          @strongify(self);
@@ -194,7 +229,7 @@
     self.avatarView = avatarView;
     [self.contentView addSubview:avatarView];
     
-    
+
     /// 昵称
     YYLabel *screenNameLable = [[YYLabel alloc] init];
     screenNameLable.backgroundColor = self.contentView.backgroundColor;
@@ -208,7 +243,6 @@
     screenNameLable.fadeOnHighlight = NO;
     [self.contentView addSubview:screenNameLable];
     self.screenNameLable = screenNameLable;
-    
     
     /// 正文
     YYLabel *contentLable = [[YYLabel alloc] init];

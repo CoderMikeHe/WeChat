@@ -45,14 +45,12 @@
         
         // 创建自控制器
         [self _setupSubViews];
-
     }
     return self;
 }
 
 #pragma mark - BindViewModel 子类重写
-- (void)bindViewModel:(MHMomentContentItemViewModel *)viewModel
-{
+- (void)bindViewModel:(MHMomentContentItemViewModel *)viewModel{
     self.viewModel = viewModel;
     /// 文本
     self.contentLable.textLayout = viewModel.contentLableLayout;
@@ -70,8 +68,7 @@
 }
 
 #pragma mark - 创建自控制器
-- (void)_setupSubViews
-{
+- (void)_setupSubViews{
     /// 点击选中的颜色
     UIView *selectedView = [[UIView alloc] init];
     selectedView.backgroundColor = MHMomentCommentViewSelectedBackgroundColor;
@@ -100,9 +97,16 @@
     [self.contentView addSubview:divider];
     
     
-
+    /// 事件处理
+    @weakify(self);
     contentLable.highlightTapAction = ^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
-        NSLog(@"高亮点击label事件");
+        @strongify(self);
+        if (range.location >= text.length) return;
+        YYTextHighlight *highlight = [text yy_attribute:YYTextHighlightAttributeName atIndex:range.location];
+        NSDictionary *userInfo = highlight.userInfo;
+        if (userInfo.count == 0) return;
+        /// 回调数据
+        [self.viewModel.attributedTapCommand execute:userInfo];
         
     };
     

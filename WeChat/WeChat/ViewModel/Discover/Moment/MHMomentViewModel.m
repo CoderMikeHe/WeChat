@@ -7,12 +7,18 @@
 //
 
 #import "MHMomentViewModel.h"
+#import "MHProfileInfoViewModel.h"
+#import "MHWebViewModel.h"
+#import "MHTestViewModel.h"
 @interface MHMomentViewModel ()
 /// 个人信息头部视图模型
 @property (nonatomic, readwrite, strong) MHMomentProfileViewModel *profileViewModel;
 
 /// 刷新某一个section的 事件回调
 @property (nonatomic, readwrite, strong) RACSubject *reloadSectionSubject;
+
+/// 电话号码回调
+@property (nonatomic, readwrite, strong) RACSubject *phoneSubject;
 
 /// 评论回调
 @property (nonatomic, readwrite, strong) RACSubject *commentSubject;
@@ -22,6 +28,12 @@
 @property (nonatomic, readwrite, strong) RACCommand *delCommentCommand;
 /// 删除当前用户的发的说说
 @property (nonatomic, readwrite, strong) RACCommand *delMomentCommand;
+
+//// 跳转用户信息的命令
+@property (nonatomic, readwrite, strong) RACCommand *profileInfoCommand;
+
+/// 富文本文字上的事件处理
+@property (nonatomic, readwrite, strong) RACCommand *attributedTapCommand;
 @end
 
 
@@ -55,6 +67,7 @@
     //// 初始化一系列subject
     self.reloadSectionSubject = [RACSubject subject];
     self.commentSubject = [RACSubject subject];
+    self.phoneSubject = [RACSubject subject];
     
     /// 评论
     self.commentCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(MHMomentReplyItemViewModel * itemViewModel) {
@@ -68,8 +81,10 @@
         comment.createdAt = [NSDate date];
         comment.fromUser = self.services.client.currentUser;
         comment.toUser = itemViewModel.toUser;
+        
         /// 根据 comment 获取到 commentItemViewModel
         MHMomentCommentItemViewModel *commentItemViewModel = [[MHMomentCommentItemViewModel alloc] initWithComment:comment];
+        commentItemViewModel.attributedTapCommand = self.attributedTapCommand;
         
         /// 根据section 获取到 momentItemViewModel
         MHMomentItemViewModel *momentItemViewModel = self.dataSource[itemViewModel.section];
@@ -106,6 +121,47 @@
         
         return [RACSignal empty];
     }];
+    
+    /// 跳转到用户信息
+    self.profileInfoCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(MHUser * user) {
+        @strongify(self);
+        MHProfileInfoViewModel *viewModel = [[MHProfileInfoViewModel alloc] initWithServices:self.services params:@{MHViewModelUtilKey:user}];
+        [self.services pushViewModel:viewModel animated:YES];
+        return [RACSignal empty];
+    }];
+    
+    /// 内容文本上高亮点击事件
+    self.attributedTapCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSDictionary * userInfo) {
+        @strongify(self);
+        if (userInfo[MHMomentUserInfoKey]) { /// 用户
+            [self.profileInfoCommand execute:userInfo[MHMomentUserInfoKey]];
+            return [RACSignal empty];
+        }
+        
+        if (userInfo[MHMomentLinkUrlKey]) { /// 链接
+            NSURL *url = [NSURL URLWithString:userInfo[MHMomentLinkUrlKey]];
+            NSURLRequest *request = [NSURLRequest requestWithURL:url];
+            MHWebViewModel *viewModel = [[MHWebViewModel alloc] initWithServices:self.services params:@{MHViewModelRequestKey:request}];
+            [self.services pushViewModel:viewModel animated:YES];
+            return [RACSignal empty];
+        }
+        
+        if (userInfo[MHMomentLocationNameKey]) { /// 地理位置
+            /// 这里仅做测试
+            MHTestViewModel *viewModel = [[MHTestViewModel alloc] initWithServices:self.services params:@{MHViewModelTitleKey:userInfo[MHMomentLocationNameKey]}];
+            /// 执行push or present
+            [self.services pushViewModel:viewModel animated:YES];
+            return [RACSignal empty];
+        }
+        
+        if (userInfo[MHMomentPhoneNumberKey]) { /// 电话号码
+            /// 由于这个 需要弹出 ActionSheet
+            [self.phoneSubject sendNext:userInfo[MHMomentPhoneNumberKey]];
+            return [RACSignal empty];
+        }
+        
+        return [RACSignal empty];
+    }];
 }
 
 /// 请求指定页的网络数据
@@ -133,8 +189,11 @@
                 viewModels = [momentsData.moments.rac_sequence map:^MHMomentItemViewModel *(MHMoment * momment) {
                     @strongify(self);
                     MHMomentItemViewModel *itemViewModel = [[MHMomentItemViewModel alloc] initWithMoment:momment];
+                    /// 传递命令
                     itemViewModel.reloadSectionSubject = self.reloadSectionSubject;
                     itemViewModel.commentSubject = self.commentSubject;
+                    itemViewModel.profileInfoCommand = self.profileInfoCommand;
+                    itemViewModel.attributedTapCommand = self.attributedTapCommand;
                     return itemViewModel;
                 }].array;
             }

@@ -11,7 +11,6 @@
 @interface MHTabBarController ()
 /// tabBarController
 @property (nonatomic, strong, readwrite) UITabBarController *tabBarController;
-
 @end
 
 @implementation MHTabBarController

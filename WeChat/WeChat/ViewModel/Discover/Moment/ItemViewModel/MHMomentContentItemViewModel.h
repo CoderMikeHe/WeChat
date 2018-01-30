@@ -17,4 +17,8 @@
 @property (nonatomic, readwrite, assign) CGFloat cellHeight;
 /// 类型 （评论、点赞）
 @property (nonatomic, readwrite, assign) MHMomentContentType type;
+
+
+/// 富文本文字上的事件处理
+@property (nonatomic, readwrite, strong) RACCommand *attributedTapCommand;
 @end

@@ -166,7 +166,6 @@
 
 
 
-
 #pragma mark - 初始化所有后面事件将要执行的命令
 - (void)initialize{
     /// 用户点赞执行的cmd
@@ -211,6 +210,7 @@
             }else{
                 /// 插入数据到 index = 0 （创建数据）
                 MHMomentAttitudesItemViewModel *atti = [[MHMomentAttitudesItemViewModel alloc] initWithMoment:self.moment];
+                atti.attributedTapCommand = self.attributedTapCommand;
                 [self.dataSource insertObject:atti atIndex:0];
             }
         }else{
@@ -462,11 +462,19 @@
 
 
 #pragma mark - Getter & Setter
-
 - (NSMutableArray *)dataSource{
     if (_dataSource == nil) {
         _dataSource = [[NSMutableArray alloc] init];
     }
     return _dataSource;
+}
+
+- (void)setAttributedTapCommand:(RACCommand *)attributedTapCommand{
+    _attributedTapCommand = attributedTapCommand;
+    
+    /// 遍历数据源 dataSource
+    for (MHMomentContentItemViewModel *itemViewModel in self.dataSource) {
+        itemViewModel.attributedTapCommand = attributedTapCommand;
+    }
 }
 @end

@@ -19,6 +19,9 @@
 @property (nonatomic, readonly, strong) RACSubject *reloadSectionSubject;
 /// 评论回调
 @property (nonatomic, readonly, strong) RACSubject *commentSubject;
+/// 电话号码回调
+@property (nonatomic, readonly, strong) RACSubject *phoneSubject;
+
 
 /// 发送评论内容
 @property (nonatomic, readonly, strong) RACCommand *commentCommand;
@@ -26,4 +29,7 @@
 @property (nonatomic, readonly, strong) RACCommand *delCommentCommand;
 /// 删除当前用户的发的说说
 @property (nonatomic, readonly, strong) RACCommand *delMomentCommand;
+
+/// 富文本文字上的事件处理
+@property (nonatomic, readonly, strong) RACCommand *attributedTapCommand;
 @end

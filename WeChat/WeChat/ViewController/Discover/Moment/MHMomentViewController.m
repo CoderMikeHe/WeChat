@@ -78,6 +78,17 @@
         [self _commentOrReplyWithItemViewModel:self.viewModel.dataSource[section.integerValue] indexPath:indexPath];
     }];
     
+    /// 点击手机号码
+    [[self.viewModel.phoneSubject deliverOnMainThread] subscribeNext:^(NSString * phoneNum) {
+        @strongify(self);
+        LCActionSheet *sheet = [LCActionSheet sheetWithTitle:[NSString stringWithFormat:@"%@可能是一个电话号码，你可以",phoneNum] cancelButtonTitle:@"取消" clicked:^(LCActionSheet * _Nonnull actionSheet, NSInteger buttonIndex) {
+            if (buttonIndex == 0) return ;
+        } otherButtonTitles:@"呼叫",@"复制号码",@"添加到手机通讯录", nil];
+        [sheet show];
+        
+    }];
+    
+    
     
     /// 监听键盘 高度
     /// 监听按钮

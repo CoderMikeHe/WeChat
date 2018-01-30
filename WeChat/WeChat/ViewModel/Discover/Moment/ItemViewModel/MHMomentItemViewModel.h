@@ -46,8 +46,10 @@
 @property (nonatomic, readonly, strong) RACCommand *attitudeOperationCmd;
 /// 展开全文/收起
 @property (nonatomic, readonly, strong) RACCommand *expandOperationCmd;
-
-
+//// 跳转用户信息的命令
+@property (nonatomic, readwrite, strong) RACCommand *profileInfoCommand;
+/// 富文本文字上的事件处理
+@property (nonatomic, readwrite, strong) RACCommand *attributedTapCommand;
 
 
 
