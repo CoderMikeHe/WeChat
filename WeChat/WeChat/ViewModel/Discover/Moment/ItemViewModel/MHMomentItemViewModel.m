@@ -377,30 +377,6 @@
 }
 
 
-
-#pragma mark - Getter & Setter
-/// 滚动过程 时间会一直改变 所以是Getter方法 并且（其尺寸和来源的尺寸也得随着时间的变化而变化）
-- (CGRect)createAtLableFrame{
-    /// 时间
-    CGFloat createAtLableX = self.screenNameLableFrame.origin.x;
-    CGFloat createAtLableY = self.operationMoreBtnFrame.origin.y;
-    return (CGRect){{createAtLableX , createAtLableY},{self.createAtLableLayout.textBoundingSize.width , self.operationMoreBtnFrame.size.height}};
-}
-- (YYTextLayout *)createAtLableLayout{
-    if (!self.createdAt) return nil;
-    /// 布局
-    YYTextLayout *createAtLableLayout = [YYTextLayout layoutWithContainerSize:CGSizeMake(MAXFLOAT, MAXFLOAT) text:self.createdAt];
-    return createAtLableLayout;
-}
-
-- (CGRect)sourceLableFrame{
-    if (!MHStringIsNotEmpty(self.moment.source)) return CGRectZero;
-    CGFloat sourceLableX = CGRectGetMaxX(self.createAtLableFrame)+MHMomentContentInnerMargin;
-    CGFloat sourceLableY = self.operationMoreBtnFrame.origin.y;
-    CGSize sourceLableSize = self.sourceLableLayout.textBoundingSize;
-    return (CGRect){{sourceLableX , sourceLableY},{sourceLableSize.width , self.operationMoreBtnFrame.size.height}};
-}
-
 #pragma mark - 辅助方法
 /// 创建时间
 - (NSAttributedString *)createdAt{
@@ -476,5 +452,27 @@
     for (MHMomentContentItemViewModel *itemViewModel in self.dataSource) {
         itemViewModel.attributedTapCommand = attributedTapCommand;
     }
+}
+
+/// 滚动过程 时间会一直改变 所以是Getter方法 并且（其尺寸和来源的尺寸也得随着时间的变化而变化）
+- (CGRect)createAtLableFrame{
+    /// 时间
+    CGFloat createAtLableX = self.screenNameLableFrame.origin.x;
+    CGFloat createAtLableY = self.operationMoreBtnFrame.origin.y;
+    return (CGRect){{createAtLableX , createAtLableY},{self.createAtLableLayout.textBoundingSize.width , self.operationMoreBtnFrame.size.height}};
+}
+- (YYTextLayout *)createAtLableLayout{
+    if (!self.createdAt) return nil;
+    /// 布局
+    YYTextLayout *createAtLableLayout = [YYTextLayout layoutWithContainerSize:CGSizeMake(MAXFLOAT, MAXFLOAT) text:self.createdAt];
+    return createAtLableLayout;
+}
+
+- (CGRect)sourceLableFrame{
+    if (!MHStringIsNotEmpty(self.moment.source)) return CGRectZero;
+    CGFloat sourceLableX = CGRectGetMaxX(self.createAtLableFrame)+MHMomentContentInnerMargin;
+    CGFloat sourceLableY = self.operationMoreBtnFrame.origin.y;
+    CGSize sourceLableSize = self.sourceLableLayout.textBoundingSize;
+    return (CGRect){{sourceLableX , sourceLableY},{sourceLableSize.width , self.operationMoreBtnFrame.size.height}};
 }
 @end

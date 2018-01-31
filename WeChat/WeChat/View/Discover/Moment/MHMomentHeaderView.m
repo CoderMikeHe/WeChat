@@ -164,6 +164,31 @@
         [self.viewModel.attributedTapCommand execute:userInfo];
     }];
     
+    /// 地理位置
+    [self.locationLable setHighlightTapAction:^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
+        /// 点击事件
+        @strongify(self);
+        if (range.location >= text.length) return;
+        YYTextHighlight *highlight = [text yy_attribute:YYTextHighlightAttributeName atIndex:range.location];
+        NSDictionary *userInfo = highlight.userInfo;
+        if (userInfo.count == 0) return;
+        /// 回调数据
+        [self.viewModel.attributedTapCommand execute:userInfo];
+    }];
+    
+    /// 来源
+    [self.sourceLable setHighlightTapAction:^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
+        /// 点击事件
+        @strongify(self);
+        if (range.location >= text.length) return;
+        YYTextHighlight *highlight = [text yy_attribute:YYTextHighlightAttributeName atIndex:range.location];
+        NSDictionary *userInfo = highlight.userInfo;
+        if (userInfo.count == 0) return;
+        /// 回调数据
+        [self.viewModel.attributedTapCommand execute:userInfo];
+    }];
+    
+    
     
     /// 全文/收起 事件监听
     [[self.expandBtn rac_signalForControlEvents:UIControlEventTouchUpInside]
