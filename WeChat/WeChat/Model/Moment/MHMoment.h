@@ -10,6 +10,7 @@
 #import "MHUser.h"
 #import "MHComment.h"
 #import "MHPicture.h"
+#import "MHMomentShareInfo.h"
 
 @interface MHMoment : MHObject
 /// 正文
@@ -40,4 +41,10 @@
 @property (nonatomic, readwrite, strong) MHUser *user;
 /// 图片数组
 @property (nonatomic, readwrite, copy) NSArray <MHPicture *> *picInfos;
+
+/// 微信朋友圈类型 （0 配图  1 video 2 share）
+@property (nonatomic, readwrite, assign) MHMomentExtendType type;
+
+/// 分享内容
+@property (nonatomic, readwrite, strong) MHMomentShareInfo *shareInfo;
 @end

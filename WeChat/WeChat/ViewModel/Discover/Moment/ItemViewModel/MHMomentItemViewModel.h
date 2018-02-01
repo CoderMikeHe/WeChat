@@ -93,10 +93,11 @@
 @property (nonatomic, readwrite, strong) RACSubject *reloadSectionSubject;
 /// 评论回调
 @property (nonatomic, readwrite, strong) RACSubject *commentSubject;
-
-
 /// 更新 (点赞+评论)
 - (void)updateUpArrow;
+
+
+
 /// init
 - (instancetype)initWithMoment:(MHMoment *)moment;
 

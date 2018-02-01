@@ -541,6 +541,14 @@
             "comments_list" : [
 
             ],
+            "type" : 2,
+            "shareInfo" : {
+                "title" : "iOS 基于MVVM设计模式的微信朋友圈开发",
+                "thumbImage" : "http://tva3.sinaimg.cn/crop.0.6.264.264.180/93276e1fjw8f5c6ob1pmpj207g07jaa5.jpg",
+                "url" : "https://www.jianshu.com/p/2f161f6a310f",
+                "descr": "王若琳",
+                "shareInfoType" : 0
+            },
             "user" : {
                 "profile_image_url" : "http://tp3.sinaimg.cn/1773655610/50/5728783840/1",
                 "avatar_large" : "http://tp3.sinaimg.cn/1773655610/180/5728783840/1",

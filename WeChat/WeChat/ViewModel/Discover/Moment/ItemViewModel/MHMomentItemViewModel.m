@@ -333,13 +333,20 @@
     CGFloat pictureViewTopMargin = (expandBtnH>0)?MHMomentContentInnerMargin:0;
     CGFloat pictureViewY = CGRectGetMaxY(self.expandBtnFrame)+pictureViewTopMargin;
     CGSize pictureViewSize = [self _pictureViewSizeWithPhotosCount:self.moment.picInfos.count];
+    
     self.photosViewFrame = (CGRect){{pictureViewX , pictureViewY},pictureViewSize};
+    /// 分享View
+    self.shareInfoViewFrame = (self.moment.type == MHMomentExtendTypeShare) ? CGRectMake(pictureViewX, pictureViewY, (MH_SCREEN_WIDTH - pictureViewX - MHMomentContentLeftOrRightInset) , MHMomentShareInfoViewHeight) : CGRectZero;
+    
     
     /// 地理位置
     CGFloat locationLableX = contentLableX;
     /// 顶部
     CGFloat locationLabelTopMargin = (pictureViewSize.height>0)?MHMomentContentInnerMargin:0;
-    CGFloat locationLableY = CGRectGetMaxY(self.photosViewFrame)+locationLabelTopMargin;
+    
+    /// 计算高度
+    CGFloat locationLableY = MAX(CGRectGetMaxY(self.photosViewFrame), CGRectGetMaxY(self.shareInfoViewFrame))+locationLabelTopMargin;
+    
     self.locationLableFrame = CGRectMake(locationLableX, locationLableY, self.locationLableLayout.textBoundingSize.width, self.locationLableLayout.textBoundingSize.height);
     
     

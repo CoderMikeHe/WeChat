@@ -89,7 +89,8 @@ CGFloat const MHMomentPhotosViewItemWH1 = 86.0f;
 /// pictureView中图片的大小 70x70 (屏幕尺寸<=320)
 CGFloat const MHMomentPhotosViewItemWH2 = 70.0f;
 
-
+/// 分享内容高度
+CGFloat const MHMomentShareInfoViewHeight = 50.0f;
 
 /// 微信正文内容的显示最大行数（PS：如果超过最大值，那么正文内容就单行显示，可以点击正文内容查看全部内容）
 NSUInteger const MHMomentContentTextMaxCriticalRow = 12000;

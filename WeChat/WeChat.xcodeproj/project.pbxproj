@@ -230,6 +230,8 @@
 		26AEEE0A1F7CE30800A270EE /* MHZoneCodeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AEEE091F7CE30800A270EE /* MHZoneCodeViewModel.m */; };
 		26AEEE0D1F7D16F600A270EE /* MHSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AEEE0C1F7D16F600A270EE /* MHSearchBar.m */; };
 		26AEEE111F7D1CEC00A270EE /* UISearchBar+MHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AEEE101F7D1CEC00A270EE /* UISearchBar+MHExtension.m */; };
+		26B89AB22022BB54006FBE20 /* MHMomentShareInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B89AB12022BB54006FBE20 /* MHMomentShareInfoView.m */; };
+		26B89AB72022E599006FBE20 /* MHMomentShareInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B89AB62022E599006FBE20 /* MHMomentShareInfo.m */; };
 		26BE2B522010C02C00F28AA0 /* MHMomentBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BE2B512010C02C00F28AA0 /* MHMomentBackgroundView.m */; };
 		26BEBC751F8B7844004D502F /* MHUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BEBC741F8B7844004D502F /* MHUser.m */; };
 		26BEBC7D1F8B78B1004D502F /* MHEXTRuntimeExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BEBC781F8B78B1004D502F /* MHEXTRuntimeExtensions.m */; };
@@ -756,6 +758,10 @@
 		26AEEE0C1F7D16F600A270EE /* MHSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHSearchBar.m; sourceTree = "<group>"; };
 		26AEEE0F1F7D1CEC00A270EE /* UISearchBar+MHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISearchBar+MHExtension.h"; sourceTree = "<group>"; };
 		26AEEE101F7D1CEC00A270EE /* UISearchBar+MHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISearchBar+MHExtension.m"; sourceTree = "<group>"; };
+		26B89AB02022BB54006FBE20 /* MHMomentShareInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHMomentShareInfoView.h; sourceTree = "<group>"; };
+		26B89AB12022BB54006FBE20 /* MHMomentShareInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHMomentShareInfoView.m; sourceTree = "<group>"; };
+		26B89AB52022E599006FBE20 /* MHMomentShareInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHMomentShareInfo.h; sourceTree = "<group>"; };
+		26B89AB62022E599006FBE20 /* MHMomentShareInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHMomentShareInfo.m; sourceTree = "<group>"; };
 		26BE2B502010C02C00F28AA0 /* MHMomentBackgroundView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHMomentBackgroundView.h; sourceTree = "<group>"; };
 		26BE2B512010C02C00F28AA0 /* MHMomentBackgroundView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHMomentBackgroundView.m; sourceTree = "<group>"; };
 		26BEBC731F8B7844004D502F /* MHUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHUser.h; sourceTree = "<group>"; };
@@ -1316,6 +1322,8 @@
 				26FA404C1FEB5C5B00B4AD2B /* MHPictureMetadata.m */,
 				26FA404E1FEB5C9D00B4AD2B /* MHComment.h */,
 				26FA404F1FEB5C9D00B4AD2B /* MHComment.m */,
+				26B89AB52022E599006FBE20 /* MHMomentShareInfo.h */,
+				26B89AB62022E599006FBE20 /* MHMomentShareInfo.m */,
 				263119EC2015E4E600D589D8 /* NSMutableAttributedString+MHMoment.h */,
 				263119ED2015E4E600D589D8 /* NSMutableAttributedString+MHMoment.m */,
 			);
@@ -1372,6 +1380,8 @@
 				26BE2B512010C02C00F28AA0 /* MHMomentBackgroundView.m */,
 				269754AA20170ACB005DE59C /* MHMomentCommentToolView.h */,
 				269754AB20170ACB005DE59C /* MHMomentCommentToolView.m */,
+				26B89AB02022BB54006FBE20 /* MHMomentShareInfoView.h */,
+				26B89AB12022BB54006FBE20 /* MHMomentShareInfoView.m */,
 			);
 			path = Moment;
 			sourceTree = "<group>";
@@ -2949,6 +2959,7 @@
 				263D37171F66656A007267C3 /* YYThreadSafeArray.m in Sources */,
 				261E015D1FDE2E010041E989 /* MHCommonSwitchItemViewModel.m in Sources */,
 				2615972C1FEA5AEE00C6FD80 /* MHMomentContentItemViewModel.m in Sources */,
+				26B89AB72022E599006FBE20 /* MHMomentShareInfo.m in Sources */,
 				263119EE2015E4E600D589D8 /* NSMutableAttributedString+MHMoment.m in Sources */,
 				263D370E1F666569007267C3 /* LCActionSheet.m in Sources */,
 				261753141F73710000812E1B /* MHUserInfoViewController.m in Sources */,
@@ -3117,6 +3128,7 @@
 				2605C5C11F662F1200B1F66E /* MHAccountLoginViewController.m in Sources */,
 				263D36EF1F666438007267C3 /* UIView+MHExtension.m in Sources */,
 				26A7E74E1F7A32500015CA71 /* MHLoginViewController.m in Sources */,
+				26B89AB22022BB54006FBE20 /* MHMomentShareInfoView.m in Sources */,
 				26FE656D1F9313E800642615 /* MHPlugViewModel.m in Sources */,
 				26D81812201F308A00DDB286 /* MHProfileInfoAlbumCell.m in Sources */,
 				266E15D91F8F7E7E000E31C5 /* MHCommitViewController.m in Sources */,

@@ -90,6 +90,15 @@
     self.photosView.frame = viewModel.photosViewFrame;
     [self.photosView bindViewModel:viewModel];
     
+    /// 分享
+    self.shareInfoView.hidden = !(viewModel.moment.type == MHMomentExtendTypeShare);
+    self.shareInfoView.frame = viewModel.shareInfoViewFrame;
+    
+    NSLog(@"shareInfoViewFrame  is  %@" , NSStringFromCGRect(self.shareInfoView.frame));
+    
+    
+    [self.shareInfoView bindViewModel:viewModel];
+    
     /// 位置
     self.locationLable.textLayout = viewModel.locationLableLayout;
     self.locationLable.frame = viewModel.locationLableFrame;
@@ -242,8 +251,7 @@
 }
 
 #pragma mark - 创建自控制器
-- (void)_setupSubViews
-{
+- (void)_setupSubViews{
     //// PS:这里把所有可能要显示的View全部初始化好，避免滚动过程中的动态创建，影响性能
     
     /// 用户头像
@@ -292,8 +300,7 @@
     [self.contentView addSubview:photosView];
     
     /// shareInfoView
-    MHMomentShareInfoView *shareInfoView = [[MHMomentShareInfoView alloc] init];
-    shareInfoView.backgroundColor = MHColorFromHexString(@"#F3F3F5");
+    MHMomentShareInfoView *shareInfoView = [MHMomentShareInfoView shareInfoView];
     self.shareInfoView = shareInfoView;
     [self.contentView addSubview:shareInfoView];
     

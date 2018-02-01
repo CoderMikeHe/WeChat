@@ -35,14 +35,29 @@ typedef NS_ENUM(NSUInteger, MHUserLoginChannelType) {
 
 /// 用户性别
 typedef NS_ENUM(NSUInteger, MHUserGenderType) {
-    MHUserGenderTypeMale =0,           /// 男
-    MHUserGenderTypeFemale,         /// nv
+    MHUserGenderTypeMale =0,            /// 男
+    MHUserGenderTypeFemale,             /// nv
 };
 
 /// 插件详情说明
 typedef NS_ENUM(NSUInteger, MHPlugDetailType) {
     MHPlugDetailTypeLook = 0,     /// 看一看
     MHPlugDetailTypeSearch,       /// 搜一搜
+};
+
+
+/// 微信朋友圈类型 （0 配图  1 video 2 share）
+typedef NS_ENUM(NSUInteger, MHMomentExtendType) {
+    MHMomentExtendTypePicture = 0, /// 配图
+    MHMomentExtendTypeVideo,       /// 视频
+    MHMomentExtendTypeShare,       /// 分享
+};
+
+
+/// 微信朋友圈分享内容的类型
+typedef NS_ENUM(NSUInteger, MHMomentShareInfoType) {
+    MHMomentShareInfoTypeWebPage = 0, /// 网页
+    MHMomentShareInfoTypeMusic,       /// 音乐
 };
 
 #endif /* MHConstEnum_h */
