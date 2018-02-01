@@ -50,7 +50,8 @@
 @property (nonatomic, readwrite, strong) RACCommand *profileInfoCommand;
 /// 富文本文字上的事件处理
 @property (nonatomic, readwrite, strong) RACCommand *attributedTapCommand;
-
+/// 分享view上的点击事件处理
+@property (nonatomic, readwrite, strong) RACCommand *shareTapCommand;
 
 
 /// ==== Frame Properties ====
@@ -95,8 +96,6 @@
 @property (nonatomic, readwrite, strong) RACSubject *commentSubject;
 /// 更新 (点赞+评论)
 - (void)updateUpArrow;
-
-
 
 /// init
 - (instancetype)initWithMoment:(MHMoment *)moment;

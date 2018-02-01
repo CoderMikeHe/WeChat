@@ -34,6 +34,8 @@
 
 /// 富文本文字上的事件处理
 @property (nonatomic, readwrite, strong) RACCommand *attributedTapCommand;
+/// 分享view上的点击事件处理
+@property (nonatomic, readwrite, strong) RACCommand *shareTapCommand;
 @end
 
 
@@ -162,6 +164,21 @@
         
         return [RACSignal empty];
     }];
+    
+    self.shareTapCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(MHMomentShareInfo *shareInfo) {
+        @strongify(self);
+        if (shareInfo.shareInfoType == MHMomentShareInfoTypeWebPage) { /// 分享的是链接
+            NSURL *url = [NSURL URLWithString:shareInfo.url];
+            NSURLRequest *request = [NSURLRequest requestWithURL:url];
+            MHWebViewModel *viewModel = [[MHWebViewModel alloc] initWithServices:self.services params:@{MHViewModelRequestKey:request}];
+            [self.services pushViewModel:viewModel animated:YES];
+            return [RACSignal empty];
+            
+        }else{ // 音乐
+            
+        }
+        return [RACSignal empty];
+    }];
 }
 
 /// 请求指定页的网络数据
@@ -194,6 +211,7 @@
                     itemViewModel.commentSubject = self.commentSubject;
                     itemViewModel.profileInfoCommand = self.profileInfoCommand;
                     itemViewModel.attributedTapCommand = self.attributedTapCommand;
+                    itemViewModel.shareTapCommand = self.shareTapCommand;
                     return itemViewModel;
                 }].array;
             }

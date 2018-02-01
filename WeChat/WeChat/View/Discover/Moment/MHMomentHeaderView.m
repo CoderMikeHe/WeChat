@@ -237,8 +237,14 @@
         [self.viewModel.commentSubject sendNext:@(self.section)];
     };
 
-    ///
+    /// 分享View的点击事件
+    self.shareInfoView.touchBlock = ^(MHMomentBackgroundView *view) {
+        @strongify(self);
+        [self.viewModel.shareTapCommand execute:self.viewModel.moment.shareInfo];
+    };
    
+    
+    /// 
 }
 
 
@@ -380,7 +386,6 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    MHLogFunc;
     [super touchesBegan:touches withEvent:event];
 }
 

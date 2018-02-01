@@ -32,4 +32,7 @@
 
 /// 富文本文字上的事件处理
 @property (nonatomic, readonly, strong) RACCommand *attributedTapCommand;
+
+/// 分享view上的点击事件处理
+@property (nonatomic, readonly, strong) RACCommand *shareTapCommand;
 @end

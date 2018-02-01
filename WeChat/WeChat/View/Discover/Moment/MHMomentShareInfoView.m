@@ -50,10 +50,10 @@
     self = [super initWithFrame:frame];
     if (self) {
         // 初始化
-        [self _setup];
+        [self setup];
         
         // 创建自控制器
-        [self _setupSubViews];
+        [self setupSubViews];
         
         // 布局子控件
         [self _makeSubViewsConstraints];
@@ -62,12 +62,15 @@
 }
 
 #pragma mark - 初始化
-- (void)_setup{
+- (void)setup{
+    [super setup];
+    
     self.backgroundColor = MHMomentCommentViewBackgroundColor;
 }
 
 #pragma mark - 初始化子空间
-- (void)_setupSubViews{
+- (void)setupSubViews{
+    [super setupSubViews];
     
     /// avatarView
     UIImageView *avatarView = [[UIImageView alloc] init];

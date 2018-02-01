@@ -9,5 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface MHMomentBackgroundView : UIView
+/// 基础设置
+- (void)setup;
+/// 初始化子控件
+- (void)setupSubViews;
 
+/// 点击回调
+@property (nonatomic, readwrite, copy) void (^touchBlock)(MHMomentBackgroundView *view);
+/// 长按回调
+@property (nonatomic, readwrite, copy) void (^longPressBlock)(MHMomentBackgroundView *view);
 @end
