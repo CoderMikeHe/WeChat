@@ -64,7 +64,6 @@
 		261597511FEA5DD300C6FD80 /* MHMomentPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 261597421FEA5DD300C6FD80 /* MHMomentPhotosView.m */; };
 		261597521FEA5DD300C6FD80 /* MHMomentPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 261597441FEA5DD300C6FD80 /* MHMomentPhotoView.m */; };
 		261597531FEA5DD300C6FD80 /* MHMomentProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 261597461FEA5DD300C6FD80 /* MHMomentProfileView.m */; };
-		261597541FEA5DD300C6FD80 /* MHMomentShareInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 261597481FEA5DD300C6FD80 /* MHMomentShareInfoView.m */; };
 		261597581FEA5E4200C6FD80 /* YYPhotoGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 261597571FEA5E4200C6FD80 /* YYPhotoGroupView.m */; };
 		2615975B1FEA5F5700C6FD80 /* MHControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 261597591FEA5F5600C6FD80 /* MHControl.m */; };
 		2617530E1F7360D300812E1B /* MHCommonProfileHeaderItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2617530D1F7360D300812E1B /* MHCommonProfileHeaderItemViewModel.m */; };
@@ -432,8 +431,6 @@
 		261597441FEA5DD300C6FD80 /* MHMomentPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHMomentPhotoView.m; sourceTree = "<group>"; };
 		261597451FEA5DD300C6FD80 /* MHMomentProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHMomentProfileView.h; sourceTree = "<group>"; };
 		261597461FEA5DD300C6FD80 /* MHMomentProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHMomentProfileView.m; sourceTree = "<group>"; };
-		261597471FEA5DD300C6FD80 /* MHMomentShareInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHMomentShareInfoView.h; sourceTree = "<group>"; };
-		261597481FEA5DD300C6FD80 /* MHMomentShareInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHMomentShareInfoView.m; sourceTree = "<group>"; };
 		261597561FEA5E4200C6FD80 /* YYPhotoGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYPhotoGroupView.h; sourceTree = "<group>"; };
 		261597571FEA5E4200C6FD80 /* YYPhotoGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYPhotoGroupView.m; sourceTree = "<group>"; };
 		261597591FEA5F5600C6FD80 /* MHControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHControl.m; sourceTree = "<group>"; };
@@ -1371,8 +1368,6 @@
 				261597441FEA5DD300C6FD80 /* MHMomentPhotoView.m */,
 				261597451FEA5DD300C6FD80 /* MHMomentProfileView.h */,
 				261597461FEA5DD300C6FD80 /* MHMomentProfileView.m */,
-				261597471FEA5DD300C6FD80 /* MHMomentShareInfoView.h */,
-				261597481FEA5DD300C6FD80 /* MHMomentShareInfoView.m */,
 				26BE2B502010C02C00F28AA0 /* MHMomentBackgroundView.h */,
 				26BE2B512010C02C00F28AA0 /* MHMomentBackgroundView.m */,
 				269754AA20170ACB005DE59C /* MHMomentCommentToolView.h */,
@@ -3158,7 +3153,6 @@
 				26D81803201F20FF00DDB286 /* MHProfileInfoCell.m in Sources */,
 				263D36E61F666438007267C3 /* NSString+SBExtension.m in Sources */,
 				26BEBC7E1F8B78B1004D502F /* MHObject.m in Sources */,
-				261597541FEA5DD300C6FD80 /* MHMomentShareInfoView.m in Sources */,
 				26225D861F6550840074BFC3 /* MHViewModel.m in Sources */,
 				26AEEE0A1F7CE30800A270EE /* MHZoneCodeViewModel.m in Sources */,
 				2615974F1FEA5DD300C6FD80 /* MHMomentOperationMoreItemView.m in Sources */,
