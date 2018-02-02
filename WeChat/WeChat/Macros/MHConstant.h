@@ -167,6 +167,12 @@ FOUNDATION_EXTERN CGFloat const MHMomentPhotosViewItemWH2;
 /// 分享内容高度
 FOUNDATION_EXTERN CGFloat const MHMomentShareInfoViewHeight;
 
+/// videoView高度
+FOUNDATION_EXTERN CGFloat const MHMomentVideoViewHeight ;
+/// videoView宽度
+FOUNDATION_EXTERN CGFloat const MHMomentVideoViewWidth ;
+
+
 /// 微信正文内容的显示最大行数（PS：如果超过最大值，那么正文内容就单行显示，可以点击正文内容查看全部内容）
 FOUNDATION_EXTERN NSUInteger const MHMomentContentTextMaxCriticalRow ;
 /// 微信正文内容显示（全文/收起）的临界行

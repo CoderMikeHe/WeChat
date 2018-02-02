@@ -80,7 +80,8 @@
 @property (nonatomic, readwrite, assign) CGRect photosViewFrame;
 /// 分享View
 @property (nonatomic, readwrite, assign) CGRect shareInfoViewFrame;
-
+/// 视频View
+@property (nonatomic, readwrite, assign) CGRect videoViewFrame;
 /// 箭头
 @property (nonatomic, readwrite, assign) CGRect upArrowViewFrame;
 

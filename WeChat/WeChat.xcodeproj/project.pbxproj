@@ -241,6 +241,9 @@
 		26C7BEE51F8CBED800525126 /* SAMKeychain+MHUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C7BEE41F8CBED800525126 /* SAMKeychain+MHUtil.m */; };
 		26C7BEEE1F8CCA2C00525126 /* MHHTTPService.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C7BEED1F8CCA2C00525126 /* MHHTTPService.m */; };
 		26C7BEF31F8CD2DA00525126 /* MHFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C7BEF21F8CD2DA00525126 /* MHFileManager.m */; };
+		26CCB9CE20244D370090DBC5 /* MHMomentVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CCB9CD20244D370090DBC5 /* MHMomentVideoView.m */; };
+		26CCB9D120244F690090DBC5 /* MHMomentVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CCB9D020244F690090DBC5 /* MHMomentVideo.m */; };
+		26CCB9D3202453700090DBC5 /* WeChatSight.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 26CCB9D2202453700090DBC5 /* WeChatSight.mp4 */; };
 		26D817F3201EF2FA00DDB286 /* MHProfileInfoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D817F2201EF2FA00DDB286 /* MHProfileInfoViewModel.m */; };
 		26D817F7201EF38F00DDB286 /* MHProfileInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D817F6201EF38F00DDB286 /* MHProfileInfoViewController.m */; };
 		26D817FB201F0E8200DDB286 /* MHProfileInfoFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D817FA201F0E8200DDB286 /* MHProfileInfoFooterView.m */; };
@@ -780,6 +783,11 @@
 		26C7BEED1F8CCA2C00525126 /* MHHTTPService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHHTTPService.m; sourceTree = "<group>"; };
 		26C7BEF11F8CD2DA00525126 /* MHFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHFileManager.h; sourceTree = "<group>"; };
 		26C7BEF21F8CD2DA00525126 /* MHFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHFileManager.m; sourceTree = "<group>"; };
+		26CCB9CC20244D370090DBC5 /* MHMomentVideoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHMomentVideoView.h; sourceTree = "<group>"; };
+		26CCB9CD20244D370090DBC5 /* MHMomentVideoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHMomentVideoView.m; sourceTree = "<group>"; };
+		26CCB9CF20244F690090DBC5 /* MHMomentVideo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHMomentVideo.h; sourceTree = "<group>"; };
+		26CCB9D020244F690090DBC5 /* MHMomentVideo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHMomentVideo.m; sourceTree = "<group>"; };
+		26CCB9D2202453700090DBC5 /* WeChatSight.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = WeChatSight.mp4; sourceTree = "<group>"; };
 		26D817F1201EF2FA00DDB286 /* MHProfileInfoViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHProfileInfoViewModel.h; sourceTree = "<group>"; };
 		26D817F2201EF2FA00DDB286 /* MHProfileInfoViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHProfileInfoViewModel.m; sourceTree = "<group>"; };
 		26D817F5201EF38F00DDB286 /* MHProfileInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHProfileInfoViewController.h; sourceTree = "<group>"; };
@@ -1324,6 +1332,8 @@
 				26FA404F1FEB5C9D00B4AD2B /* MHComment.m */,
 				26B89AB52022E599006FBE20 /* MHMomentShareInfo.h */,
 				26B89AB62022E599006FBE20 /* MHMomentShareInfo.m */,
+				26CCB9CF20244F690090DBC5 /* MHMomentVideo.h */,
+				26CCB9D020244F690090DBC5 /* MHMomentVideo.m */,
 				263119EC2015E4E600D589D8 /* NSMutableAttributedString+MHMoment.h */,
 				263119ED2015E4E600D589D8 /* NSMutableAttributedString+MHMoment.m */,
 			);
@@ -1382,6 +1392,8 @@
 				269754AB20170ACB005DE59C /* MHMomentCommentToolView.m */,
 				26B89AB02022BB54006FBE20 /* MHMomentShareInfoView.h */,
 				26B89AB12022BB54006FBE20 /* MHMomentShareInfoView.m */,
+				26CCB9CC20244D370090DBC5 /* MHMomentVideoView.h */,
+				26CCB9CD20244D370090DBC5 /* MHMomentVideoView.m */,
 			);
 			path = Moment;
 			sourceTree = "<group>";
@@ -2300,6 +2312,7 @@
 		2667A3ED1F7B987600A3D7A2 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				26CCB9D2202453700090DBC5 /* WeChatSight.mp4 */,
 				26452BF4201200250042B2FE /* WeChat_Moments_4.json */,
 				26452BF22012001C0042B2FE /* WeChat_Moments_3.json */,
 				26452BF0201200120042B2FE /* WeChat_Moments_2.json */,
@@ -2778,6 +2791,7 @@
 				26D817FF201F0EC000DDB286 /* MHProfileInfoFooterView.xib in Resources */,
 				2667A3E51F7B768C00A3D7A2 /* MHAccountLoginView.xib in Resources */,
 				26A7E74F1F7A32500015CA71 /* MHLoginViewController.xib in Resources */,
+				26CCB9D3202453700090DBC5 /* WeChatSight.mp4 in Resources */,
 				26FE8E8B1F9514D100EC8BE0 /* TZImagePickerController.bundle in Resources */,
 				266E15D51F8F7E43000E31C5 /* MHRegisterViewController.xib in Resources */,
 				26D8180E201F306100DDB286 /* MHProfileInfoZoneCell.xib in Resources */,
@@ -2975,6 +2989,7 @@
 				26BEBC7D1F8B78B1004D502F /* MHEXTRuntimeExtensions.m in Sources */,
 				263D36EC1F666438007267C3 /* UITableView+MHExtension.m in Sources */,
 				26FE8E881F9514D100EC8BE0 /* TZGifPhotoPreviewController.m in Sources */,
+				26CCB9CE20244D370090DBC5 /* MHMomentVideoView.m in Sources */,
 				26AEEE071F7CE14200A270EE /* MHZoneCodeViewController.m in Sources */,
 				2605C5C71F662FA300B1F66E /* MHProfileViewController.m in Sources */,
 				2611AC651F61992F00418FB9 /* MHNavigationController.m in Sources */,
@@ -3116,6 +3131,7 @@
 				262ADA4D1FCA75C700B0F4FD /* MHConfigureManager.m in Sources */,
 				2633E01A1FEA076600D0E187 /* MHSegmentedControlController.m in Sources */,
 				2605C5B81F66249F00B1F66E /* MHHomePageViewModel.m in Sources */,
+				26CCB9D120244F690090DBC5 /* MHMomentVideo.m in Sources */,
 				264F2D161F94A80F00B244AD /* MHPlugDetailViewController.m in Sources */,
 				261597491FEA5DD300C6FD80 /* MHMomentAttitudesCell.m in Sources */,
 				263D36E21F666438007267C3 /* NSObject+MHExtension.m in Sources */,

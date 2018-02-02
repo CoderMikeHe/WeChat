@@ -11,6 +11,7 @@
 #import "MHMomentShareInfoView.h"
 #import "MHMomentItemViewModel.h"
 #import "MHMomentOperationMoreView.h"
+#import "MHMomentVideoView.h"
 @interface MHMomentHeaderView ()
 /// 头像
 @property (nonatomic, readwrite, weak) UIImageView *avatarView;
@@ -32,6 +33,8 @@
 @property (nonatomic, readwrite, weak) MHMomentPhotosView *photosView;
 /// 分享View
 @property (nonatomic, readwrite, weak) MHMomentShareInfoView *shareInfoView;
+/// videoView
+@property (nonatomic, readwrite, weak) MHMomentVideoView *videoView;
 /// upArrow
 @property (nonatomic, readwrite, weak) UIImageView *upArrowView;
 /// 更多操作view
@@ -93,11 +96,12 @@
     /// 分享
     self.shareInfoView.hidden = !(viewModel.moment.type == MHMomentExtendTypeShare);
     self.shareInfoView.frame = viewModel.shareInfoViewFrame;
-    
-    NSLog(@"shareInfoViewFrame  is  %@" , NSStringFromCGRect(self.shareInfoView.frame));
-    
-    
     [self.shareInfoView bindViewModel:viewModel];
+    
+    /// 视频
+    self.videoView.hidden = !(viewModel.moment.type == MHMomentExtendTypeVideo);
+    self.videoView.frame = viewModel.videoViewFrame;
+    [self.videoView bindViewModel:viewModel];
     
     /// 位置
     self.locationLable.textLayout = viewModel.locationLableLayout;
@@ -309,6 +313,11 @@
     MHMomentShareInfoView *shareInfoView = [MHMomentShareInfoView shareInfoView];
     self.shareInfoView = shareInfoView;
     [self.contentView addSubview:shareInfoView];
+    
+    /// videoView
+    MHMomentVideoView *videoView = [MHMomentVideoView videoView];
+    self.videoView = videoView;
+    [self.contentView addSubview:videoView];
     
     /// 位置
     YYLabel *locationLable = [[YYLabel alloc] init];

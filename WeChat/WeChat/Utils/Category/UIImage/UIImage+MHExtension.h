@@ -18,4 +18,6 @@
 
 /// 返回一张未被渲染的图片
 + (UIImage *)mh_imageAlwaysShowOriginalImageWithImageName:(NSString *)imageName;
+/// 获取视频某个时间的帧图片
++ (UIImage *)mh_thumbnailImageForVideo:(NSURL *)videoURL atTime:(NSTimeInterval)time;
 @end

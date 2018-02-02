@@ -7,7 +7,8 @@
 //
 
 #import "UIImage+MHExtension.h"
-
+#import <AVFoundation/AVFoundation.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 @implementation UIImage (MHExtension)
 
 /**
@@ -34,5 +35,26 @@
     }else{
         return image;
     }
+}
+
++ (UIImage*)mh_thumbnailImageForVideo:(NSURL *)videoURL atTime:(NSTimeInterval)time {
+    
+    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:videoURL options:nil];
+    NSParameterAssert(asset);
+    AVAssetImageGenerator *assetImageGenerator =[[AVAssetImageGenerator alloc] initWithAsset:asset];
+    assetImageGenerator.appliesPreferredTrackTransform = YES;
+    assetImageGenerator.apertureMode = AVAssetImageGeneratorApertureModeEncodedPixels;
+    
+    CGImageRef thumbnailImageRef = NULL;
+    CFTimeInterval thumbnailImageTime = time;
+    NSError *thumbnailImageGenerationError = nil;
+    thumbnailImageRef = [assetImageGenerator copyCGImageAtTime:CMTimeMake(thumbnailImageTime, 60)actualTime:NULL error:&thumbnailImageGenerationError];
+    
+    if(!thumbnailImageRef)
+        NSLog(@"thumbnailImageGenerationError %@",thumbnailImageGenerationError);
+    
+    UIImage*thumbnailImage = thumbnailImageRef ? [[UIImage alloc]initWithCGImage: thumbnailImageRef] : nil;
+    
+    return thumbnailImage;
 }
 @end

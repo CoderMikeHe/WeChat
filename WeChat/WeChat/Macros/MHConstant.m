@@ -92,6 +92,12 @@ CGFloat const MHMomentPhotosViewItemWH2 = 70.0f;
 /// 分享内容高度
 CGFloat const MHMomentShareInfoViewHeight = 50.0f;
 
+/// videoView高度
+CGFloat const MHMomentVideoViewHeight = 181.0f;
+/// videoView宽度
+CGFloat const MHMomentVideoViewWidth = 103.0f;
+
+
 /// 微信正文内容的显示最大行数（PS：如果超过最大值，那么正文内容就单行显示，可以点击正文内容查看全部内容）
 NSUInteger const MHMomentContentTextMaxCriticalRow = 12000;
 /// 微信正文内容显示（全文/收起）的临界行

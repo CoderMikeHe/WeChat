@@ -11,7 +11,7 @@
 #import "MHComment.h"
 #import "MHPicture.h"
 #import "MHMomentShareInfo.h"
-
+#import "MHMomentVideo.h"
 @interface MHMoment : MHObject
 /// 正文
 @property (nonatomic, readwrite, copy) NSString *text;
@@ -47,4 +47,6 @@
 
 /// 分享内容
 @property (nonatomic, readwrite, strong) MHMomentShareInfo *shareInfo;
+/// 视频内容
+@property (nonatomic, readwrite, strong) MHMomentVideo *videoInfo;
 @end

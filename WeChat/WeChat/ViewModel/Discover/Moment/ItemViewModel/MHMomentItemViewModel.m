@@ -338,6 +338,8 @@
     /// 分享View
     self.shareInfoViewFrame = (self.moment.type == MHMomentExtendTypeShare) ? CGRectMake(pictureViewX, pictureViewY, (MH_SCREEN_WIDTH - pictureViewX - MHMomentContentLeftOrRightInset) , MHMomentShareInfoViewHeight) : CGRectZero;
     
+    /// videoView
+    self.videoViewFrame = (self.moment.type == MHMomentExtendTypeVideo) ? CGRectMake(pictureViewX, pictureViewY, MHMomentVideoViewWidth , MHMomentVideoViewHeight) : CGRectZero;
     
     /// 地理位置
     CGFloat locationLableX = contentLableX;
@@ -345,8 +347,8 @@
     CGFloat locationLabelTopMargin = (pictureViewSize.height>0)?MHMomentContentInnerMargin:0;
     
     /// 计算高度
-    CGFloat locationLableY = MAX(CGRectGetMaxY(self.photosViewFrame), CGRectGetMaxY(self.shareInfoViewFrame))+locationLabelTopMargin;
-    
+    CGFloat locationLableTempMaxY = MAX(CGRectGetMaxY(self.photosViewFrame), CGRectGetMaxY(self.shareInfoViewFrame));
+    CGFloat locationLableY = MAX(locationLableTempMaxY, CGRectGetMaxY(self.videoViewFrame))+locationLabelTopMargin;
     self.locationLableFrame = CGRectMake(locationLableX, locationLableY, self.locationLableLayout.textBoundingSize.width, self.locationLableLayout.textBoundingSize.height);
     
     
