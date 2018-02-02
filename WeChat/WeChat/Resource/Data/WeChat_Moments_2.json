@@ -525,21 +525,38 @@
             ]
         },
         {
-            "text" : "[围观]//@煮玲是也: Good",
+            "text" : "[围观][围观][围观]//@Mike-乱港三千-Mr_元先森: Good [赞][赞][赞]",
             "idstr" : "3883087819608949",
             "source" : "",
             "source_allowclick" : 0,
             "source_url" : "",
             "created_at" : "Thu Sep 03 20:35:42 +0800 2015",
             "location" : "",
-            "attitudes_status" : 0,
-            "attitudes_count" : 0,
+            "attitudes_status" : 1,
+            "attitudes_count" : 1,
             "attitudes_list" : [
-
+                {
+                    "profile_image_url" : "http://tva3.sinaimg.cn/crop.0.6.264.264.180/93276e1fjw8f5c6ob1pmpj207g07jaa5.jpg",
+                    "avatar_large" : "http://tva3.sinaimg.cn/crop.0.6.264.264.180/93276e1fjw8f5c6ob1pmpj207g07jaa5.jpg",
+                    "idstr" : "61856069",
+                    "screen_name" : "Mike-乱港三千-Mr_元先森"
+                 }
             ],
-            "comments_count" : 0,
+            "comments_count" : 1,
             "comments_list" : [
-
+                {
+                "idstr" : "3883087819608940",
+                "moment_idstr" :"3883087819608949",
+                "text" : "哈哈哈，多谢夸奖，后期会不断完善微信朋友圈的具体功能，谢谢支持。[嘻嘻][嘻嘻][嘻嘻][嘻嘻]",
+                "created_at" : "Fri Sep 04 00:06:04 +0800 2015",
+                "from_user" : {
+                    "profile_image_url" : "http://tva3.sinaimg.cn/crop.0.6.264.264.180/93276e1fjw8f5c6ob1pmpj207g07jaa5.jpg",
+                    "avatar_large" : "http://tva3.sinaimg.cn/crop.0.6.264.264.180/93276e1fjw8f5c6ob1pmpj207g07jaa5.jpg",
+                    "idstr" : "61856069",
+                    "screen_name" : "Mike-乱港三千-Mr_元先森"
+                },
+                "to_user" : null
+            }
             ],
             "type" : 2,
             "shareInfo" : {

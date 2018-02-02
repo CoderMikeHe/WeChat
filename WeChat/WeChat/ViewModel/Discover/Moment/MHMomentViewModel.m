@@ -167,16 +167,10 @@
     
     self.shareTapCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(MHMomentShareInfo *shareInfo) {
         @strongify(self);
-        if (shareInfo.shareInfoType == MHMomentShareInfoTypeWebPage) { /// 分享的是链接
-            NSURL *url = [NSURL URLWithString:shareInfo.url];
-            NSURLRequest *request = [NSURLRequest requestWithURL:url];
-            MHWebViewModel *viewModel = [[MHWebViewModel alloc] initWithServices:self.services params:@{MHViewModelRequestKey:request}];
-            [self.services pushViewModel:viewModel animated:YES];
-            return [RACSignal empty];
-            
-        }else{ // 音乐
-            
-        }
+        NSURL *url = [NSURL URLWithString:shareInfo.url];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        MHWebViewModel *viewModel = [[MHWebViewModel alloc] initWithServices:self.services params:@{MHViewModelRequestKey:request}];
+        [self.services pushViewModel:viewModel animated:YES];
         return [RACSignal empty];
     }];
 }
