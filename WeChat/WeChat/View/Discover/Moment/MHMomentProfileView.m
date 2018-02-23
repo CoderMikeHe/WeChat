@@ -105,9 +105,9 @@
     
     /// 布局昵称
     [self.screenNameLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.coverBtn).with.offset(-MHMomentContentInnerMargin);
-        make.right.equalTo(self.avatarView.mas_left).with.offset(-MHMomentContentLeftOrRightInset);
-        make.left.equalTo(self.coverBtn);
+        make.bottom.lessThanOrEqualTo(self.coverBtn).with.offset(-MHMomentContentInnerMargin);
+        make.right.lessThanOrEqualTo(self.avatarView.mas_left).with.offset(-MHMomentContentLeftOrRightInset);
+        make.left.lessThanOrEqualTo(self.coverBtn);
     }];
     
 

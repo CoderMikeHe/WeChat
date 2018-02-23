@@ -105,9 +105,9 @@
 #pragma mark - 布局子控件
 - (void)_makeSubViewsConstraints{
     [self.avatarView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.and.top.equalTo(self).with.offset(5);
-        make.bottom.equalTo(self).with.offset(-5);
-        make.width.mas_equalTo(40);
+        make.left.and.top.lessThanOrEqualTo(self).with.offset(5);
+        make.bottom.lessThanOrEqualTo(self).with.offset(-5);
+        make.width.mas_lessThanOrEqualTo(40);
     }];
     
     [self.playBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -117,8 +117,8 @@
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.avatarView.mas_top);
         make.bottom.equalTo(self.avatarView.mas_bottom);
-        make.left.equalTo(self.avatarView.mas_right).with.offset(5);
-        make.right.equalTo(self).with.offset(-5);
+        make.left.lessThanOrEqualTo(self.avatarView.mas_right).with.offset(5);
+        make.right.greaterThanOrEqualTo(self).with.offset(-5);
     }];
     
     [self.detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {

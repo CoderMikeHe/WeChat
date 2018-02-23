@@ -25,9 +25,7 @@
 
 - (void)bindViewModel:(MHMomentItemViewModel *)viewModel{
     self.viewModel = viewModel;
-    
     self.coverView.image = viewModel.moment.videoInfo.coverImage;
-    
 }
 
 + (instancetype)videoView{
@@ -57,8 +55,7 @@
 }
 
 #pragma mark - 初始化子空间
-- (void)_setupSubViews
-{
+- (void)_setupSubViews{
     /// avatarView
     UIImageView *coverView = [[UIImageView alloc] init];
     coverView.userInteractionEnabled = YES;
