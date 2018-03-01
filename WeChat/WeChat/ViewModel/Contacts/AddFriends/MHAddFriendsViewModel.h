@@ -11,4 +11,6 @@
 @interface MHAddFriendsViewModel : MHCommonViewModel
 /// headerViewModel
 @property (nonatomic, readonly, strong) MHSearchFriendsHeaderViewModel *headerViewModel;
+
+
 @end

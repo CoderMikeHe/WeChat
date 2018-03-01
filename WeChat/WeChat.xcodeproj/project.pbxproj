@@ -131,6 +131,7 @@
 		26363ACB20134298000061EF /* Emoticons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 26363ACA20134297000061EF /* Emoticons.bundle */; };
 		26363ACF201346E6000061EF /* MHEmoticonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 26363ACE201346E6000061EF /* MHEmoticonGroup.m */; };
 		26363AD2201346FC000061EF /* MHEmoticon.m in Sources */ = {isa = PBXBuildFile; fileRef = 26363AD1201346FC000061EF /* MHEmoticon.m */; };
+		2638C5AD20450DC300C334E2 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 2638C5AC20450DC300C334E2 /* UIImage+ImageEffects.m */; };
 		263C89781F6A30E600F7A0AE /* MHCommonItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 263C89771F6A30E600F7A0AE /* MHCommonItemViewModel.m */; };
 		263C897E1F6A324700F7A0AE /* MHCommonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 263C897D1F6A324700F7A0AE /* MHCommonCell.m */; };
 		263C89811F6A34D300F7A0AE /* MHCommonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 263C89801F6A34D300F7A0AE /* MHCommonViewController.m */; };
@@ -184,6 +185,8 @@
 		26452BF5201200260042B2FE /* WeChat_Moments_4.json in Resources */ = {isa = PBXBuildFile; fileRef = 26452BF4201200250042B2FE /* WeChat_Moments_4.json */; };
 		264D36D71F70AEBD003BB8CE /* MHProfileHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 264D36D51F70AEBD003BB8CE /* MHProfileHeaderCell.m */; };
 		264D36D81F70AEBD003BB8CE /* MHProfileHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264D36D61F70AEBD003BB8CE /* MHProfileHeaderCell.xib */; };
+		264D74CB20464FB400333091 /* MHSearchTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 264D74C920464FB400333091 /* MHSearchTextCell.m */; };
+		264D74CC20464FB400333091 /* MHSearchTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264D74CA20464FB400333091 /* MHSearchTextCell.xib */; };
 		264F2D161F94A80F00B244AD /* MHPlugDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 264F2D141F94A80F00B244AD /* MHPlugDetailViewController.m */; };
 		264F2D171F94A80F00B244AD /* MHPlugDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264F2D151F94A80F00B244AD /* MHPlugDetailViewController.xib */; };
 		264F2D1A1F94A84900B244AD /* MHPlugDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 264F2D191F94A84900B244AD /* MHPlugDetailViewModel.m */; };
@@ -575,6 +578,8 @@
 		26363ACE201346E6000061EF /* MHEmoticonGroup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHEmoticonGroup.m; sourceTree = "<group>"; };
 		26363AD0201346FC000061EF /* MHEmoticon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHEmoticon.h; sourceTree = "<group>"; };
 		26363AD1201346FC000061EF /* MHEmoticon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHEmoticon.m; sourceTree = "<group>"; };
+		2638C5AB20450DC300C334E2 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		2638C5AC20450DC300C334E2 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		263C89761F6A30E600F7A0AE /* MHCommonItemViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHCommonItemViewModel.h; sourceTree = "<group>"; };
 		263C89771F6A30E600F7A0AE /* MHCommonItemViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHCommonItemViewModel.m; sourceTree = "<group>"; };
 		263C897C1F6A324700F7A0AE /* MHCommonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHCommonCell.h; sourceTree = "<group>"; };
@@ -680,6 +685,9 @@
 		264D36D41F70AEBD003BB8CE /* MHProfileHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHProfileHeaderCell.h; sourceTree = "<group>"; };
 		264D36D51F70AEBD003BB8CE /* MHProfileHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHProfileHeaderCell.m; sourceTree = "<group>"; };
 		264D36D61F70AEBD003BB8CE /* MHProfileHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MHProfileHeaderCell.xib; sourceTree = "<group>"; };
+		264D74C820464FB400333091 /* MHSearchTextCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchTextCell.h; sourceTree = "<group>"; };
+		264D74C920464FB400333091 /* MHSearchTextCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchTextCell.m; sourceTree = "<group>"; };
+		264D74CA20464FB400333091 /* MHSearchTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHSearchTextCell.xib; sourceTree = "<group>"; };
 		264F2D131F94A80F00B244AD /* MHPlugDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHPlugDetailViewController.h; sourceTree = "<group>"; };
 		264F2D141F94A80F00B244AD /* MHPlugDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHPlugDetailViewController.m; sourceTree = "<group>"; };
 		264F2D151F94A80F00B244AD /* MHPlugDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHPlugDetailViewController.xib; sourceTree = "<group>"; };
@@ -1136,6 +1144,7 @@
 		26064AF01F5DA21000566B95 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				2638C5AA20450DC300C334E2 /* UIImage+ImageEffects */,
 				261597551FEA5E4200C6FD80 /* PhotoBrowser */,
 				26FE8E4E1F9514D100EC8BE0 /* SDCycleScrollView */,
 				26FE8E5F1F9514D100EC8BE0 /* TZImagePickerController */,
@@ -1773,6 +1782,9 @@
 				263004D11F751F9F00247F3D /* MHSearchFriendsHeaderView.h */,
 				263004D21F751F9F00247F3D /* MHSearchFriendsHeaderView.m */,
 				263004D41F751FB800247F3D /* MHSearchFriendsHeaderView.xib */,
+				264D74C820464FB400333091 /* MHSearchTextCell.h */,
+				264D74C920464FB400333091 /* MHSearchTextCell.m */,
+				264D74CA20464FB400333091 /* MHSearchTextCell.xib */,
 			);
 			path = AddFriends;
 			sourceTree = "<group>";
@@ -1821,6 +1833,15 @@
 				26363AD1201346FC000061EF /* MHEmoticon.m */,
 			);
 			path = Emoticon;
+			sourceTree = "<group>";
+		};
+		2638C5AA20450DC300C334E2 /* UIImage+ImageEffects */ = {
+			isa = PBXGroup;
+			children = (
+				2638C5AB20450DC300C334E2 /* UIImage+ImageEffects.h */,
+				2638C5AC20450DC300C334E2 /* UIImage+ImageEffects.m */,
+			);
+			path = "UIImage+ImageEffects";
 			sourceTree = "<group>";
 		};
 		263C896B1F6A302300F7A0AE /* Common */ = {
@@ -2773,6 +2794,7 @@
 				26FE8E471F95143D00EC8BE0 /* IDMPBLocalizations.bundle in Resources */,
 				26363ACB20134298000061EF /* Emoticons.bundle in Resources */,
 				26FE8E491F95143D00EC8BE0 /* IDMPhotoBrowser.bundle in Resources */,
+				264D74CC20464FB400333091 /* MHSearchTextCell.xib in Resources */,
 				263D36DD1F666438007267C3 /* MBProgressHUD.bundle in Resources */,
 				26452BF32012001C0042B2FE /* WeChat_Moments_3.json in Resources */,
 				26452BF5201200260042B2FE /* WeChat_Moments_4.json in Resources */,
@@ -2975,6 +2997,7 @@
 				2615972C1FEA5AEE00C6FD80 /* MHMomentContentItemViewModel.m in Sources */,
 				26B89AB72022E599006FBE20 /* MHMomentShareInfo.m in Sources */,
 				263119EE2015E4E600D589D8 /* NSMutableAttributedString+MHMoment.m in Sources */,
+				2638C5AD20450DC300C334E2 /* UIImage+ImageEffects.m in Sources */,
 				263D370E1F666569007267C3 /* LCActionSheet.m in Sources */,
 				261753141F73710000812E1B /* MHUserInfoViewController.m in Sources */,
 				2615266B1F6AE17400400BA0 /* MHTabBar.m in Sources */,
@@ -3185,6 +3208,7 @@
 				26AEEE0A1F7CE30800A270EE /* MHZoneCodeViewModel.m in Sources */,
 				2615974F1FEA5DD300C6FD80 /* MHMomentOperationMoreItemView.m in Sources */,
 				26FE65611F92F8D000642615 /* MHGenderViewController.m in Sources */,
+				264D74CB20464FB400333091 /* MHSearchTextCell.m in Sources */,
 				2658C68E1F74FD3100C70840 /* MHAddFriendsViewController.m in Sources */,
 				263D36EA1F666438007267C3 /* UIImage+MHExtension.m in Sources */,
 				2605C5D61F6633AC00B1F66E /* MHContactsViewModel.m in Sources */,

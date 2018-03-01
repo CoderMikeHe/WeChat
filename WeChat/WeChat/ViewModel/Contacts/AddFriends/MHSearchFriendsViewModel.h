@@ -9,5 +9,9 @@
 #import "MHTableViewModel.h"
 
 @interface MHSearchFriendsViewModel : MHTableViewModel
+/// searchText
+@property (nonatomic, readwrite, copy) NSString *searchText;
 
+/// searchCommand
+@property (nonatomic, readonly, strong) RACCommand *searchCommand;
 @end

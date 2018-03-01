@@ -10,4 +10,7 @@
 #import "MHReactiveView.h"
 @interface MHSearchFriendsHeaderView : UIView<MHReactiveView>
 + (instancetype)headerView;
+
+/// 点击搜索框的事件回调
+@property (nonatomic, readwrite, copy) void(^searchCallback)(MHSearchFriendsHeaderView * headerView);
 @end

@@ -8,7 +8,7 @@
 
 #import "MHContactsViewController.h"
 #import "MHAddFriendsViewController.h"
-@interface MHContactsViewController ()
+@interface MHContactsViewController ()<UISearchResultsUpdating>
 /// viewModel
 @property (nonatomic, readonly, strong) MHContactsViewModel *viewModel;
 @property (nonatomic, strong) UISearchController *searchController;
@@ -34,7 +34,11 @@
 
 #pragma mark - 初始化
 - (void)_setup{
-    
+    /// 监听searchVc的活跃度
+    [RACObserve(self, searchController.active)
+     subscribeNext:^(NSNumber * active) {
+         NSLog(@"active is %zd",active.boolValue);
+     }];
 }
 
 #pragma mark - 设置导航栏
@@ -46,9 +50,10 @@
 #pragma mark - 设置子控件
 - (void)_setupSubViews{
 
-    MHAddFriendsViewModel *viewModel = [[MHAddFriendsViewModel alloc] initWithServices:self.viewModel.services params:nil];
-    MHAddFriendsViewController *add = [[MHAddFriendsViewController alloc] initWithViewModel:viewModel];
-    self.searchController = [[UISearchController alloc] initWithSearchResultsController:add];
+//    MHAddFriendsViewModel *viewModel = [[MHAddFriendsViewModel alloc] initWithServices:self.viewModel.services params:nil];
+//    MHAddFriendsViewController *add = [[MHAddFriendsViewController alloc] initWithViewModel:viewModel];
+    
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     self.searchController.view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.95];
     
     UISearchBar *bar = self.searchController.searchBar;
@@ -70,6 +75,14 @@
     bar.frame = rect;
     self.tableView.tableHeaderView = bar;
 
+    
+    
+    
+    self.searchController.searchResultsUpdater = self;
+}
+
+// Called when the search bar's text or scope has changed or when the search bar becomes first responder.
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController{
     
 }
 @end

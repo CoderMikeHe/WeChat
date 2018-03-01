@@ -28,23 +28,21 @@
 
 - (void)bindViewModel:(MHSearchFriendsHeaderViewModel *)viewModel{
     self.viewModel = viewModel;
-    
-    self.weChatIdLabel.text = [NSString stringWithFormat:@"我的微信号：%@",@"Mr.Right"];
+    self.weChatIdLabel.text = [NSString stringWithFormat:@"我的微信号：%@",viewModel.user.wechatId];
     [self.weChatIdLabel sizeToFit];
     [self setNeedsLayout];
 }
 
 #pragma mark - 事件处理
 - (IBAction)_qrCodeBtnDidClicked:(UIButton *)sender {
-    
-    
+    /// 点击二维码
     
 }
 
 - (IBAction)_searchBtnDidClicked:(UIButton *)sender {
-    
-    [self.viewModel.searchCommand execute:nil];
-    
+//    [self.viewModel.searchCommand execute:nil];
+    /// 回调
+    !self.searchCallback ? : self.searchCallback(self);
 }
 #pragma mark - 布局
 - (void)layoutSubviews{
@@ -58,7 +56,6 @@
     self.qrCodeBtn.mh_size = CGSizeMake(20, 20);
     self.qrCodeBtn.mh_x = self.weChatIdLabel.right + 13.0f;
     self.qrCodeBtn.mh_centerY = self.weChatIdLabel.mh_centerY;
-    
 }
 
 @end

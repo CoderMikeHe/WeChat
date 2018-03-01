@@ -20,4 +20,9 @@
 + (UIImage *)mh_imageAlwaysShowOriginalImageWithImageName:(NSString *)imageName;
 /// 获取视频某个时间的帧图片
 + (UIImage *)mh_thumbnailImageForVideo:(NSURL *)videoURL atTime:(NSTimeInterval)time;
+
+/// /// 获取屏幕截图
+///
+/// @return 屏幕截图图像
++ (UIImage *)mh_screenShot;
 @end

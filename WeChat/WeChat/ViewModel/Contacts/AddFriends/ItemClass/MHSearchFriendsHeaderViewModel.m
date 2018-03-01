@@ -10,11 +10,11 @@
 
 @interface MHSearchFriendsHeaderViewModel ()
 /// Current login User
-@property (nonatomic, readwrite, strong) id user;
+@property (nonatomic, readwrite, strong) MHUser * user;
 @end
 
 @implementation MHSearchFriendsHeaderViewModel
-- (instancetype)initWithUser:(id)user{
+- (instancetype)initWithUser:(MHUser *)user{
     if (self = [super init]) {
         self.user = user;
     }

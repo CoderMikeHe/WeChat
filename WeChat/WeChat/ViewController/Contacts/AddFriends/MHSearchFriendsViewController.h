@@ -8,6 +8,6 @@
 
 #import "MHTableViewController.h"
 #import "MHSearchFriendsViewModel.h"
-@interface MHSearchFriendsViewController : MHTableViewController
+@interface MHSearchFriendsViewController : MHTableViewController<UISearchResultsUpdating,UISearchBarDelegate>
 
 @end

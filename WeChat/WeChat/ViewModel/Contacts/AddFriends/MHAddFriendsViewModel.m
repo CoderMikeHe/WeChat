@@ -21,7 +21,8 @@
     
     self.title = @"添加朋友";
     
-    self.headerViewModel = [[MHSearchFriendsHeaderViewModel alloc] initWithUser:nil];
+    /// 配置HeaderView
+    self.headerViewModel = [[MHSearchFriendsHeaderViewModel alloc] initWithUser:self.services.client.currentUser];
     
     @weakify(self);
     self.headerViewModel.searchCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {

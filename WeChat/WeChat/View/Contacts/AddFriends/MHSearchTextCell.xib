@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="107" id="KGk-i7-Jjw" customClass="MHSearchTextCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="65.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_friend_icon_search_36x36" translatesAutoresizingMaskIntoConstraints="NO" id="8s6-CK-iQr">
+                        <rect key="frame" x="15" y="15" width="36" height="36"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="搜索：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1h-kA-dwJ">
+                        <rect key="frame" x="62" y="23" width="52" height="21"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="呵呵" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhj-7K-rau" userLabel="searchLabel">
+                        <rect key="frame" x="114" y="23" width="35" height="21"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <color key="textColor" red="0.24313725490196078" green="0.52941176470588236" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ec7-e9-8rF" userLabel="dividerView">
+                        <rect key="frame" x="21" y="65" width="299" height="1"/>
+                        <color key="backgroundColor" red="0.78431372549019607" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="VPe-SL-qDN"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Y1h-kA-dwJ" firstAttribute="centerY" secondItem="8s6-CK-iQr" secondAttribute="centerY" id="25Z-B8-a5G"/>
+                    <constraint firstAttribute="trailing" secondItem="ec7-e9-8rF" secondAttribute="trailing" id="7Ma-jy-2tG"/>
+                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="yhj-7K-rau" secondAttribute="trailing" constant="15" id="985-nU-aY8"/>
+                    <constraint firstItem="yhj-7K-rau" firstAttribute="leading" secondItem="Y1h-kA-dwJ" secondAttribute="trailing" id="AUn-rp-BI0"/>
+                    <constraint firstItem="8s6-CK-iQr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="F4B-Oc-EvI"/>
+                    <constraint firstItem="8s6-CK-iQr" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="R2H-pO-MTa"/>
+                    <constraint firstItem="Y1h-kA-dwJ" firstAttribute="leading" secondItem="8s6-CK-iQr" secondAttribute="trailing" constant="11" id="Udf-8O-Brs"/>
+                    <constraint firstAttribute="bottom" secondItem="ec7-e9-8rF" secondAttribute="bottom" id="Xlo-td-boU"/>
+                    <constraint firstItem="yhj-7K-rau" firstAttribute="centerY" secondItem="8s6-CK-iQr" secondAttribute="centerY" id="sb9-Fa-M6s"/>
+                    <constraint firstItem="ec7-e9-8rF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="21" id="ylD-wL-tRQ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="searchLabel" destination="yhj-7K-rau" id="QW3-BX-2PB"/>
+            </connections>
+            <point key="canvasLocation" x="-26" y="82"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="add_friend_icon_search_36x36" width="36" height="36"/>
+    </resources>
+</document>
