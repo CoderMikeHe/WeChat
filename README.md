@@ -5,6 +5,8 @@
 
 
 ### 使用
+- [Cocoapods 安装教程](https://www.cnblogs.com/chuancheng/p/8443677.html)
+
 - 本`Demo`利用`Cocoapods`管理第三方框架，若第一次使用本项目，请使用终端`cd`到`Podfile`所在的文件夹中，如下图所示，然后执行下面两条命令即可，（PS：若你已经更新了本地仓库了，那么`pod repo update`不用执行，直接`pod install`即可）。
 
 	![Usage.png](https://github.com/CoderMikeHe/WeChat/blob/master/WeChat/SnapShot/CocopodsUsage.png)

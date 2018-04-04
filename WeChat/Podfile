@@ -4,7 +4,7 @@ use_frameworks!
 ## ignore warning
 inhibit_all_warnings!
 target 'WeChat' do
-#########  YYKit ###############
+#YYKit
 #pod 'YYKit'                             , '1.0.9'
 # YYKit 的一套分类
 pod 'YYCategories'                      , '1.0.4'

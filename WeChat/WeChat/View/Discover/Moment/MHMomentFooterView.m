@@ -40,12 +40,10 @@
     return self;
 }
 
+
 #pragma mark - 公共方法
 
-
-
-#pragma mark - 私有方法
-#pragma mark - 初始化
+#pragma mark - Private Method
 - (void)_setup
 {
     /// 这里设置背景色为clearColor 目的是不要遮盖 operationMoreView .若不明白，请设置 whiteColor 验证一下即可

@@ -282,8 +282,10 @@
 // custom view for cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [self tableView:tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
-    // fetch object
-    id object  = [self.viewModel.dataSource[indexPath.section] dataSource][indexPath.row];;
+    // fetch object 报错 why???
+//    id object  = [self.viewModel.dataSource[indexPath.section] dataSource][indexPath.row];
+    MHMomentItemViewModel *itemViewModel = self.viewModel.dataSource[indexPath.section];
+    id object = itemViewModel.dataSource[indexPath.row];    
     /// bind model
     [self configureCell:cell atIndexPath:indexPath withObject:(id)object];
     return cell;
