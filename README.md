@@ -22,6 +22,7 @@
 	$ sudo gem install cocoapods -n/usr/local/bin
 	```
 - 本项目登录或注册，只支持`QQ账号`和`手机号`的登录或注册，必须保证`QQ`或`手机号`的有效性。密码或者验证码可以随便输入，但必须是：密码长度需要保证在`8~16`位，手机验证码必须保证是`6位有效数字`。
+- 若`pod install`很漫长或有问题，请戳百度网盘链接:https://pan.baidu.com/s/1Id3Y_gmI424ZuntGZMbQwQ  密码:u1st  <PS：不定期更新！！！> 
 
 ### 期待
 - 如果在使用过程中遇到BUG，希望你能Issues我，谢谢（或者尝试下载最新的代码看看BUG修复没有）。
