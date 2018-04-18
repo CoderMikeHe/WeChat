@@ -53,8 +53,8 @@
 
 
 #pragma mark - BindData
-- (void)bindViewModel:(MHMomentProfileViewModel *)viewModel
-{
+- (void)bindViewModel:(MHMomentProfileViewModel *)viewModel{
+    
     self.viewModel = viewModel;
     
     /// 封面
@@ -81,14 +81,10 @@
          self.tipsView.hidden = self.divider.hidden;
          [self layoutIfNeeded];
      }];
-    
-    
-    
 }
 
 #pragma mark - 布局子控件
-- (void)_makeSubViewsConstraints
-{
+- (void)_makeSubViewsConstraints{
     /// 布局封面
     [self.coverBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.and.top.equalTo(self);
@@ -104,10 +100,11 @@
     }];
     
     /// 布局昵称
+    /// CoderMikeHe Fixed: 这里由于布局问题，会引发不知原因的闪退
     [self.screenNameLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.lessThanOrEqualTo(self.coverBtn).with.offset(-MHMomentContentInnerMargin);
-        make.right.lessThanOrEqualTo(self.avatarView.mas_left).with.offset(-MHMomentContentLeftOrRightInset);
-        make.left.lessThanOrEqualTo(self.coverBtn);
+        make.bottom.equalTo(self.coverBtn).with.offset(-MHMomentContentInnerMargin);
+        make.right.equalTo(self.avatarView.mas_left).with.offset(-MHMomentContentLeftOrRightInset);
+        make.left.equalTo(self.coverBtn);
     }];
     
 
@@ -135,8 +132,7 @@
 }
 
 #pragma mark - 创建自控制器
-- (void)_setupSubViews
-{
+- (void)_setupSubViews{
     /// 封面
     UIButton *coverBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     @weakify(self);
@@ -151,14 +147,14 @@
     /// 昵称
     YYLabel *screenNameLable = [[YYLabel alloc] init];
     /// 去掉交互
-    screenNameLable.userInteractionEnabled = NO;
+//    screenNameLable.userInteractionEnabled = NO;
     screenNameLable.backgroundColor = [UIColor clearColor];
-    screenNameLable.numberOfLines = 1;
+//    screenNameLable.numberOfLines = 1;
     screenNameLable.textAlignment = NSTextAlignmentRight;
     /// 垂直方向中心对齐
     screenNameLable.textVerticalAlignment = YYTextVerticalAlignmentCenter;
 //    /// 异步渲染和布局
-    screenNameLable.displaysAsynchronously = YES;
+    screenNameLable.displaysAsynchronously = NO;
 //    /// 利用textLayout来设置text、font、textColor...
     screenNameLable.ignoreCommonProperties = NO;
     screenNameLable.fadeOnAsynchronouslyDisplay = NO;

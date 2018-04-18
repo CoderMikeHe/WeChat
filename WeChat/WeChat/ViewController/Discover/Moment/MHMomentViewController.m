@@ -54,10 +54,23 @@
 
 - (void)bindViewModel{
     [super bindViewModel];
-    
     /// ... 事件处理...
-    /// 全文/收起
     @weakify(self);
+    /// 动态更新tableHeaderView的高度. PS:单纯的设置其高度无效的
+    [[[RACObserve(self.viewModel.profileViewModel, unread)
+      distinctUntilChanged]
+     deliverOnMainThread]
+     subscribeNext:^(NSNumber * unread) {
+         @strongify(self);
+         self.tableHeaderView.mh_height = self.viewModel.profileViewModel.height;
+         [self.tableView beginUpdates];  // 过度动画
+         self.tableView.tableHeaderView = self.tableHeaderView;
+         [self.tableView endUpdates];
+     }];
+    
+    
+    
+    /// 全文/收起
     [[self.viewModel.reloadSectionSubject deliverOnMainThread] subscribeNext:^(NSNumber * section) {
         @strongify(self);
         /// 局部刷新 (内部已更新子控件的尺寸，这里只做刷新)
@@ -80,7 +93,7 @@
     
     /// 点击手机号码
     [[self.viewModel.phoneSubject deliverOnMainThread] subscribeNext:^(NSString * phoneNum) {
-        @strongify(self);
+
         LCActionSheet *sheet = [LCActionSheet sheetWithTitle:[NSString stringWithFormat:@"%@可能是一个电话号码，你可以",phoneNum] cancelButtonTitle:@"取消" clicked:^(LCActionSheet * _Nonnull actionSheet, NSInteger buttonIndex) {
             if (buttonIndex == 0) return ;
         } otherButtonTitles:@"呼叫",@"复制号码",@"添加到手机通讯录", nil];
@@ -157,21 +170,10 @@
     /// 个人信息view
     MHMomentProfileView *tableHeaderView = [[MHMomentProfileView alloc] init];
     [tableHeaderView bindViewModel:self.viewModel.profileViewModel];
+    self.tableView.tableHeaderView = tableHeaderView;
+    self.tableView.tableHeaderView.mh_height = self.viewModel.profileViewModel.height;
     self.tableHeaderView = tableHeaderView;
-    
-    @weakify(self);
-    /// 动态更新tableHeaderView的高度. PS:单纯的设置其高度无效的
-    [[RACObserve(self.viewModel.profileViewModel, unread)
-      distinctUntilChanged]
-     subscribeNext:^(NSNumber * unread) {
-         @strongify(self);
-         tableHeaderView.mh_height = self.viewModel.profileViewModel.height;
-         [self.tableView beginUpdates];  // 过度动画
-         self.tableView.tableHeaderView = tableHeaderView;
-         [self.tableView endUpdates];
-     }];
-    
-    
+
     /// 这里设置下拉黑色的背景图
     UIImageView *backgroundView = [[UIImageView alloc] initWithFrame:MH_SCREEN_BOUNDS];
     backgroundView.mh_size = MH_SCREEN_BOUNDS.size;
@@ -268,7 +270,6 @@
         return;
     }
     
-    MHLogFunc;
     /// 键盘已经显示 你就先关掉键盘
     if (MHSharedAppDelegate.isShowKeyboard) {
         [self.commentToolView mh_resignFirstResponder];

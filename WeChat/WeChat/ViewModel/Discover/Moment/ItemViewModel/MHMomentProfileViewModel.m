@@ -56,7 +56,6 @@
 - (CGFloat)height
 {
     if (self.unread>0) {
-        ///
         return (MH_SCREEN_WIDTH + 121.0f);
     }
     return (MH_SCREEN_WIDTH+50);

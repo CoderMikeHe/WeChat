@@ -23,7 +23,7 @@
 
 // 输出日志 (格式: [时间] [哪个方法] [哪行] [输出内容])
 #ifdef DEBUG
-#define NSLog(format, ...)  printf("\n[%s] %s [第%zd行] 💕 %s\n", __TIME__, __FUNCTION__, __LINE__, [[NSString stringWithFormat:format, ##__VA_ARGS__] UTF8String]);
+#define NSLog(format, ...)  printf("\n[%s] %s [第%d行] 💕 %s\n", __TIME__, __FUNCTION__, __LINE__, [[NSString stringWithFormat:format, ##__VA_ARGS__] UTF8String]);
 #else
 
 #define NSLog(format, ...)
@@ -209,9 +209,6 @@ _Pragma("clang diagnostic pop")\
 
 /// 自动设置Image
 #define MHWebImageOptionAutomatic (YYWebImageOptionAllowInvalidSSLCertificates|YYWebImageOptionAllowBackgroundTask|YYWebImageOptionSetImageWithFadeAnimation)
-
-
-
 
 
 
