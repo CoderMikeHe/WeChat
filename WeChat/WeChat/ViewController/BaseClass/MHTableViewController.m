@@ -108,9 +108,9 @@
     /// 占位符
 //    tableView.emptyDataSetDelegate = self;
 //    tableView.emptyDataSetSource = self;
-    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(UIEdgeInsetsZero);
-    }];
+//    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.mas_equalTo(UIEdgeInsetsZero);
+//    }];
     
     
     self.tableView = tableView;

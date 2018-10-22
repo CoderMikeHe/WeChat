@@ -25,4 +25,6 @@
 ///
 /// @return 屏幕截图图像
 + (UIImage *)mh_screenShot;
+
+- (UIImage *)mh_fixOrientation;
 @end

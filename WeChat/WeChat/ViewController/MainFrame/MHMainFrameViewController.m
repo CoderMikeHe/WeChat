@@ -8,6 +8,8 @@
 
 #import "MHMainFrameViewController.h"
 #import "MHMainFrameTableViewCell.h"
+#import "MHTestViewController.h"
+#import "MHCameraViewController.h"
 @interface MHMainFrameViewController ()
 /// viewModel
 @property (nonatomic, readwrite, strong) MHMainFrameViewModel *viewModel;
@@ -56,7 +58,10 @@
 
 #pragma mark - 事件处理
 - (void)_addMore{
-    MHLogFunc;
+    
+    /// 跳转到小视频模块
+    MHCameraViewController *camera = [[MHCameraViewController alloc] init];
+    [self presentViewController:camera animated:YES completion:NULL];
 }
 
 #pragma mark - 初始化

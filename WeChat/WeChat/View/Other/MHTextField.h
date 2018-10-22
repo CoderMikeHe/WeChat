@@ -10,4 +10,8 @@
 
 @interface MHTextField : UITextField
 
+/// placeholderColor
+@property (nonatomic, readwrite, strong) UIColor *placeholderColor;
+
+
 @end

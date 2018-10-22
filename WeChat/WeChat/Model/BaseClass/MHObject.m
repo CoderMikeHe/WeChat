@@ -9,7 +9,7 @@
 #import "MHObject.h"
 #import "MHReflection.h"
 #import "MHEXTRuntimeExtensions.h"
-
+#import "NSError+MHModelException.h"
 // Used to cache the reflection performed in +propertyKeys.
 static void *MHObjectCachedPropertyKeysKey = &MHObjectCachedPropertyKeysKey;
 
@@ -49,7 +49,7 @@ static BOOL SBValidateAndSetValue(id obj, NSString *key, id value, BOOL forceUpd
         @throw ex;
 #else
         if (error != NULL) {
-            *error = [NSError mtl_modelErrorWithException:ex];
+            *error = [NSError mh_modelErrorWithException:ex];
         }
         
         return NO;

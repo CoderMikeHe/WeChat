@@ -20,7 +20,6 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
         self.tintColor = MH_MAIN_TINTCOLOR;
     }
     return self;

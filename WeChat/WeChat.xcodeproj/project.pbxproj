@@ -303,6 +303,11 @@
 		26FE8E931F9514D100EC8BE0 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FE8E7D1F9514D100EC8BE0 /* UIView+Layout.m */; };
 		864BB5E20D5521374F720EC0 /* Pods_WeChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F38DBDD0C5EE456B831E4A /* Pods_WeChat.framework */; };
 		AD21F790DBB21B99763DBF6A /* Pods_WeChat_WeChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F007961429C86520F15C504 /* Pods_WeChat_WeChatUITests.framework */; };
+		E932C42921369FC600B32A9F /* MHCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E932C42821369FC500B32A9F /* MHCameraViewController.m */; };
+		E932C42D2136A16700B32A9F /* MHCameraControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = E932C42C2136A16700B32A9F /* MHCameraControlView.m */; };
+		E932C4302136A1D200B32A9F /* MHVideoPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = E932C42F2136A1D200B32A9F /* MHVideoPreviewView.m */; };
+		E932C4362137925500B32A9F /* PKShortVideoRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = E932C4322137925400B32A9F /* PKShortVideoRecorder.m */; };
+		E932C4372137925500B32A9F /* PKShortVideoSession.m in Sources */ = {isa = PBXBuildFile; fileRef = E932C4352137925400B32A9F /* PKShortVideoSession.m */; };
 		FF517F8EEC68B750C774C0C7 /* Pods_WeChat_WeChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F609A3FCDE82ED766B6FC1F9 /* Pods_WeChat_WeChatTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -906,6 +911,16 @@
 		94F38DBDD0C5EE456B831E4A /* Pods_WeChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		971B7041FF0A7CD187AB3BEE /* Pods-WeChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeChat/Pods-WeChat.debug.xcconfig"; sourceTree = "<group>"; };
 		AB79D87EFBDD8EDD42D99FD8 /* Pods-WeChat-WeChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChat-WeChatUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeChat-WeChatUITests/Pods-WeChat-WeChatUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E932C42721369FC500B32A9F /* MHCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHCameraViewController.h; sourceTree = "<group>"; };
+		E932C42821369FC500B32A9F /* MHCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHCameraViewController.m; sourceTree = "<group>"; };
+		E932C42B2136A16700B32A9F /* MHCameraControlView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHCameraControlView.h; sourceTree = "<group>"; };
+		E932C42C2136A16700B32A9F /* MHCameraControlView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHCameraControlView.m; sourceTree = "<group>"; };
+		E932C42E2136A1D200B32A9F /* MHVideoPreviewView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHVideoPreviewView.h; sourceTree = "<group>"; };
+		E932C42F2136A1D200B32A9F /* MHVideoPreviewView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHVideoPreviewView.m; sourceTree = "<group>"; };
+		E932C4322137925400B32A9F /* PKShortVideoRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKShortVideoRecorder.m; sourceTree = "<group>"; };
+		E932C4332137925400B32A9F /* PKShortVideoSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKShortVideoSession.h; sourceTree = "<group>"; };
+		E932C4342137925400B32A9F /* PKShortVideoRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKShortVideoRecorder.h; sourceTree = "<group>"; };
+		E932C4352137925400B32A9F /* PKShortVideoSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKShortVideoSession.m; sourceTree = "<group>"; };
 		F49C783E35B10A317A86E4D1 /* Pods-WeChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeChat/Pods-WeChat.release.xcconfig"; sourceTree = "<group>"; };
 		F609A3FCDE82ED766B6FC1F9 /* Pods_WeChat_WeChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeChat_WeChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -1074,6 +1089,7 @@
 		26064AEB1F5DA1F800566B95 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E932C41D2136769600B32A9F /* ShortVideo */,
 				26064AF11F5DB46500566B95 /* BaseClass */,
 				26064AF61F5DB46500566B95 /* MainFrame */,
 				26064AF21F5DB46500566B95 /* Contacts */,
@@ -2672,6 +2688,55 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E932C41D2136769600B32A9F /* ShortVideo */ = {
+			isa = PBXGroup;
+			children = (
+				E932C42521369FC500B32A9F /* Camera */,
+			);
+			path = ShortVideo;
+			sourceTree = "<group>";
+		};
+		E932C42521369FC500B32A9F /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				E932C4312137921E00B32A9F /* Model */,
+				E932C42A2136A02200B32A9F /* View */,
+				E932C42621369FC500B32A9F /* Controller */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		E932C42621369FC500B32A9F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E932C42721369FC500B32A9F /* MHCameraViewController.h */,
+				E932C42821369FC500B32A9F /* MHCameraViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E932C42A2136A02200B32A9F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E932C42B2136A16700B32A9F /* MHCameraControlView.h */,
+				E932C42C2136A16700B32A9F /* MHCameraControlView.m */,
+				E932C42E2136A1D200B32A9F /* MHVideoPreviewView.h */,
+				E932C42F2136A1D200B32A9F /* MHVideoPreviewView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E932C4312137921E00B32A9F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E932C4342137925400B32A9F /* PKShortVideoRecorder.h */,
+				E932C4322137925400B32A9F /* PKShortVideoRecorder.m */,
+				E932C4332137925400B32A9F /* PKShortVideoSession.h */,
+				E932C4352137925400B32A9F /* PKShortVideoSession.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2684,7 +2749,6 @@
 				26064AB01F5D9A1400566B95 /* Frameworks */,
 				26064AB11F5D9A1400566B95 /* Resources */,
 				D7CFF80ED10617A757312352 /* [CP] Embed Pods Frameworks */,
-				CCF5F12AC85A1B6B8FEB4EF3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2704,7 +2768,6 @@
 				26064AC91F5D9A1400566B95 /* Frameworks */,
 				26064ACA1F5D9A1400566B95 /* Resources */,
 				DD3D17E8141AD6941437CC1F /* [CP] Embed Pods Frameworks */,
-				9A544D6FCBFFF716988ACFBD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2725,7 +2788,6 @@
 				26064AD41F5D9A1400566B95 /* Frameworks */,
 				26064AD51F5D9A1400566B95 /* Resources */,
 				85A8866729BE72E7764E86D9 /* [CP] Embed Pods Frameworks */,
-				0F7E6E5D6831E3F86B1B6FBE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2861,21 +2923,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		0F7E6E5D6831E3F86B1B6FBE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeChat-WeChatUITests/Pods-WeChat-WeChatUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		748D37CD935E850473BDF270 /* [CP] Check Pods Manifest.lock */ = {
@@ -3034,36 +3081,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9A544D6FCBFFF716988ACFBD /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeChat-WeChatTests/Pods-WeChat-WeChatTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CCF5F12AC85A1B6B8FEB4EF3 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeChat/Pods-WeChat-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D7CFF80ED10617A757312352 /* [CP] Embed Pods Frameworks */ = {
@@ -3357,6 +3374,7 @@
 				26BE2B522010C02C00F28AA0 /* MHMomentBackgroundView.m in Sources */,
 				2618AFDA1F91BD5B00F82A46 /* MHModifyNicknameViewModel.m in Sources */,
 				26FE65591F92EE5900642615 /* MHLocationViewModel.m in Sources */,
+				E932C4372137925500B32A9F /* PKShortVideoSession.m in Sources */,
 				260A60921F77503300F05120 /* MHSearchFriendsHeaderViewModel.m in Sources */,
 				26A7E7521F7A39110015CA71 /* MHLoginViewModel.m in Sources */,
 				2624CAE31F98DF9B0083923F /* RACSubscriber+AFProgressCallbacks.m in Sources */,
@@ -3368,6 +3386,7 @@
 				263D37161F66656A007267C3 /* YYReachability.m in Sources */,
 				2664F5371FEA6BE6005C10CF /* MHMomentHelper.m in Sources */,
 				2617533D1F73D03C00812E1B /* MHFeatureSignatureViewModel.m in Sources */,
+				E932C42921369FC600B32A9F /* MHCameraViewController.m in Sources */,
 				26225D771F654DEE0074BFC3 /* MHWebViewController.m in Sources */,
 				26AEEE0D1F7D16F600A270EE /* MHSearchBar.m in Sources */,
 				26FE8E801F9514D100EC8BE0 /* TADotView.m in Sources */,
@@ -3515,6 +3534,7 @@
 				26BEBC751F8B7844004D502F /* MHUser.m in Sources */,
 				2623001A1FD916CD007D1616 /* MHAccountSecurityViewModel.m in Sources */,
 				2615974B1FEA5DD300C6FD80 /* MHMomentContentCell.m in Sources */,
+				E932C4362137925500B32A9F /* PKShortVideoRecorder.m in Sources */,
 				26FE8E4B1F95143D00EC8BE0 /* IDMTapDetectingImageView.m in Sources */,
 				2633E0241FEA08D600D0E187 /* MHEmotionViewController.m in Sources */,
 				26FE8E821F9514D100EC8BE0 /* SDCollectionViewCell.m in Sources */,
@@ -3527,6 +3547,7 @@
 				261E01651FDE69DD0041E989 /* MHFreeInterruptionViewModel.m in Sources */,
 				261597511FEA5DD300C6FD80 /* MHMomentPhotosView.m in Sources */,
 				2609ED4D1F790AC6002D31CE /* MHLoginPasswordView.m in Sources */,
+				E932C4302136A1D200B32A9F /* MHVideoPreviewView.m in Sources */,
 				26FE8E891F9514D100EC8BE0 /* TZImageCropManager.m in Sources */,
 				26FE8E8E1F9514D100EC8BE0 /* TZPhotoPickerController.m in Sources */,
 				263D36ED1F666438007267C3 /* UITextField+MHExtension.m in Sources */,
@@ -3566,6 +3587,7 @@
 				2624CAED1F98DFC80083923F /* MHHTTPRequest.m in Sources */,
 				26C7BEEE1F8CCA2C00525126 /* MHHTTPService.m in Sources */,
 				261597501FEA5DD300C6FD80 /* MHMomentOperationMoreView.m in Sources */,
+				E932C42D2136A16700B32A9F /* MHCameraControlView.m in Sources */,
 				26FE655D1F92EEA100642615 /* MHLocationViewController.m in Sources */,
 				261597031FEA527400C6FD80 /* MHMoments.m in Sources */,
 				264F2D1A1F94A84900B244AD /* MHPlugDetailViewModel.m in Sources */,

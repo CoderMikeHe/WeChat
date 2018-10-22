@@ -54,8 +54,7 @@ static CGFloat const MHMaxImagesCount = 8;
 
 
 #pragma mark - ImagePicker
-+ (void)fetchPhotosFromCamera:(UIViewController *)viewController allowCrop:(BOOL)allowCrop completion:(void (^)(UIImage *, id))completion
-{
++ (void)fetchPhotosFromCamera:(UIViewController *)viewController allowCrop:(BOOL)allowCrop completion:(void (^)(UIImage *, id))completion{
     viewController = (viewController == nil)?[MHControllerHelper topViewController]:viewController;
     /// 检查授权
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
@@ -251,8 +250,7 @@ static CGFloat const MHMaxImagesCount = 8;
 
 
 //// 访问设置 isAblum 相册Or相机
-+ (void) accessApplicationSetting:(BOOL)isAblum
-{
++ (void) accessApplicationSetting:(BOOL)isAblum{
     if (iOS8Later) {
         if (![[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]]) {
             [NSObject mh_showAlertViewWithTitle:@"十分抱歉" message:@"无法跳转到隐私设置页面，请手动前往设置页面，谢谢" confirmTitle:@"确定"];

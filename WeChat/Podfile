@@ -49,7 +49,7 @@ pod 'Colours'                           , '5.13.0'
 pod 'UIImage+ImageWithColor'            , '1.4.0'
 
 # HUD
-pod 'MBProgressHUD'                     , '1.0.0'
+pod 'MBProgressHUD'                     , '1.1.0'
 pod 'SVProgressHUD'                     , '2.1.2'
 # 状态栏通知
 pod 'JDStatusBarNotification'           , '1.5.5'

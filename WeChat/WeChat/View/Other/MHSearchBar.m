@@ -11,8 +11,7 @@
 @implementation MHSearchBar
 + (void)initialize{
     [super initialize];
-    
-    
+
 }
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
