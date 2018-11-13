@@ -1,8 +1,11 @@
 ## 微信（WeChat）开发
 
+### 下载
+- 若`pod install`很漫长或有问题，请戳百度网盘链接:https://pan.baidu.com/s/1JNgKnnNQz5NBK7VSLtiPVA  密码:cax6  <PS：不定期更新！！！> 
+
+
 ### 概述
 本工程主要是利用`MVVM + RAC + ViewModel-Based Navigation`的方式来搭建微信（WeChat）的整体架构，希望能够以点带面，为`MVVM + RAC + ViewModel-Based Navigation`的这种设计架构提供多一种的实践参考，也为大家在学习`MVVM`提供一个学习的Demo。抛砖引玉，取长补短，希望能够提供一点思路，少走一些弯路，填补一些细坑。
-
 
 ### 使用
 - [Cocoapods 安装教程](https://www.cnblogs.com/chuancheng/p/8443677.html)
@@ -22,7 +25,6 @@
 	$ sudo gem install cocoapods -n/usr/local/bin
 	```
 - 本项目登录或注册，只支持`QQ账号`和`手机号`的登录或注册，必须保证`QQ`或`手机号`的有效性。密码或者验证码可以随便输入，但必须是：密码长度需要保证在`8~16`位，手机验证码必须保证是`6位有效数字`。
-- 若`pod install`很漫长或有问题，请戳百度网盘链接:https://pan.baidu.com/s/1JNgKnnNQz5NBK7VSLtiPVA  密码:cax6  <PS：不定期更新！！！> 
 
 ### 期待
 - 如果在使用过程中遇到BUG，希望你能Issues我，谢谢（或者尝试下载最新的代码看看BUG修复没有）。
