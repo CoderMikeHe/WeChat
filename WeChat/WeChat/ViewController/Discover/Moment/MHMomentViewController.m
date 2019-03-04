@@ -101,8 +101,6 @@
         
     }];
     
-    
-    
     /// 监听键盘 高度
     /// 监听按钮
     [[[[[NSNotificationCenter defaultCenter] rac_addObserverForName:UIKeyboardWillChangeFrameNotification object:nil] takeUntil:self.rac_willDeallocSignal ]
@@ -126,6 +124,7 @@
              [UIView animateWithDuration:duration delay:0.0f options:options animations:^{
                  // 如果是Masonry或者autoLayout UITextField或者UITextView 布局 必须layoutSubviews，否则文字会跳动
                  [self.view layoutSubviews];
+                 
                  /// 滚动表格
                  [self _scrollTheTableViewForComment];
              } completion:nil];
@@ -344,10 +343,20 @@
         /// 将尺寸转化到window的坐标系 （关键点）
         rect1 = [self.tableView convertRect:rect toViewOrWindow:nil];
     }
+    
     if (self.keyboardHeight > 0) { /// 键盘抬起 才允许滚动
         /// 这个就是你需要滚动差值
         CGFloat delta = self.commentToolView.mh_top - rect1.origin.y - rect1.size.height;
         [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentOffset.y-delta) animated:NO];
+    }else{
+        /// #Bug
+        /// 如果处于最后一个，需要滚动到底部
+        if(self.selectedIndexPath.section == self.viewModel.dataSource.count-1){
+            /// 去掉抖动
+            [UIView performWithoutAnimation:^{
+                [self.tableView scrollToBottomAnimated:NO];
+            }];
+        }
     }
 }
 

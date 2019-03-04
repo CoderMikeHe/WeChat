@@ -2949,7 +2949,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-WeChat-WeChatUITests/Pods-WeChat-WeChatUITests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-WeChat-WeChatUITests/Pods-WeChat-WeChatUITests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
 				"${BUILT_PRODUCTS_DIR}/BlocksKit/BlocksKit.framework",
@@ -3062,7 +3062,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeChat-WeChatUITests/Pods-WeChat-WeChatUITests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WeChat-WeChatUITests/Pods-WeChat-WeChatUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8A2071C5D8268FBABC59F3A8 /* [CP] Check Pods Manifest.lock */ = {
@@ -3089,7 +3089,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-WeChat/Pods-WeChat-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-WeChat/Pods-WeChat-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
 				"${BUILT_PRODUCTS_DIR}/BlocksKit/BlocksKit.framework",
@@ -3202,7 +3202,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeChat/Pods-WeChat-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WeChat/Pods-WeChat-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DD3D17E8141AD6941437CC1F /* [CP] Embed Pods Frameworks */ = {
@@ -3211,7 +3211,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-WeChat-WeChatTests/Pods-WeChat-WeChatTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-WeChat-WeChatTests/Pods-WeChat-WeChatTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
 				"${BUILT_PRODUCTS_DIR}/BlocksKit/BlocksKit.framework",
@@ -3324,7 +3324,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeChat-WeChatTests/Pods-WeChat-WeChatTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WeChat-WeChatTests/Pods-WeChat-WeChatTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
