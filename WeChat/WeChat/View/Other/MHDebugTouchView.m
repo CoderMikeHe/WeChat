@@ -27,7 +27,26 @@ static NSString * const MHDebugTouchViewStatusKey = @"MHDebugTouchViewStatusKey"
 
 @implementation MHDebugTouchView
 
-MHSingletonM(Instance)
+static MHDebugTouchView * _instance = nil;
+static dispatch_once_t onceToken;
+
+#pragma mark - Public Method
++ (instancetype)sharedInstance{
+    dispatch_once(&onceToken, ^{
+        _instance = [[self alloc] init];
+    });
+    return _instance;
+}
+
+/// 销毁单例
++ (void)deallocView{
+    onceToken = 0;
+    _instance = nil;
+}
+
+- (void)dealloc{
+    MHDealloc;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
@@ -37,7 +56,7 @@ MHSingletonM(Instance)
     
         /// 添加tap手势
         [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_tapAction:)]];
-        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        UIWindow *window = [UIApplication sharedApplication].delegate.window;
         [window addSubview:self];
         self.mh_x = [UIScreen mainScreen].bounds.size.width - self.mh_width - 20;
         self.mh_y = 84;
@@ -62,12 +81,15 @@ MHSingletonM(Instance)
 
 - (BOOL)isHide{
     BOOL temp = [[NSUserDefaults standardUserDefaults] boolForKey:MHDebugTouchViewStatusKey];
-    NSLog(@"++++ Touch View Is Hide %zd ++++" , temp);
     return temp;
 }
 
 
 - (void)open{
+    
+    UIWindow *window = [UIApplication sharedApplication].delegate.window;
+    [window bringSubviewToFront:self];
+
     /// 动画开始，禁止交互
     self.userInteractionEnabled = NO;
     self.animated = YES;
@@ -88,7 +110,7 @@ MHSingletonM(Instance)
     
 }
 
-- (void)close{
+- (void)close{ 
     /// 动画开始，禁止交互
     self.animated = YES;
     self.userInteractionEnabled = NO;

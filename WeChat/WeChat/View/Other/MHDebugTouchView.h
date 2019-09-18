@@ -10,7 +10,9 @@
 
 @interface MHDebugTouchView : UIImageView
 /// init
-MHSingletonH(Instance);
++ (instancetype)sharedInstance;
+/// 销毁单例
++ (void)deallocView;
 
 /// 设置显示or隐藏
 - (void)setHide:(BOOL)hide;

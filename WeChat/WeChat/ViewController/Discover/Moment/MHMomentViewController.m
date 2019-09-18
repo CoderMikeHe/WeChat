@@ -295,6 +295,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     MHMomentItemViewModel *itemViewModel = self.viewModel.dataSource[section];
     /// 这里每次刷新都会走两次！！！ Why？？？
+    NSLog(@"KKKKKK ------- %ld ",section);
     return itemViewModel.height;
 }
 

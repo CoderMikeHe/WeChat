@@ -47,6 +47,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     // 重置rootViewController
     [self.services resetRootViewModel:[self _createInitialViewModel]];
+    
     // 让窗口可见
     [self.window makeKeyAndVisible];
     
@@ -131,15 +132,14 @@
     [[MHNotificationCenter rac_addObserverForName:MHSwitchRootViewControllerNotification object:nil] subscribeNext:^(NSNotification * note) {
         /// 这里切换根控制器
         @strongify(self);
-        // 重置rootViewController
-        MHSwitchRootViewControllerFromType fromType = [note.userInfo[MHSwitchRootViewControllerUserInfoKey] integerValue];
-        NSLog(@"fromType is  %zd" , fromType);
         /// 切换根控制器
         [self.services resetRootViewModel:[self _createInitialViewModel]];
         
         /// 切换了根控制器，切记需要将指示器 移到window的最前面
 #if defined(DEBUG)||defined(_DEBUG)
-        [self.window bringSubviewToFront:[MHDebugTouchView sharedInstance]];
+        [MHDebugTouchView deallocView];
+        
+        [self _configDebugModelTools];
 #endif
     }];
     
@@ -155,7 +155,7 @@
     
     /// 打开调试按钮
     [MHDebugTouchView sharedInstance];
-    /// CoderMikeHe Fixed: 切换了根控制器，切记需要将指示器 移到window的最前面
+//    /// CoderMikeHe Fixed: 切换了根控制器，切记需要将指示器 移到window的最前面
     [self.window bringSubviewToFront:[MHDebugTouchView sharedInstance]];
 }
 

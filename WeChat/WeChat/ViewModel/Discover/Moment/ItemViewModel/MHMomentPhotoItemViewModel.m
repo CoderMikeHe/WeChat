@@ -17,7 +17,6 @@
     {
         self.picture = picture;
     }
-    
     return self;
 }
 
