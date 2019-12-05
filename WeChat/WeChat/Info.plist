@@ -18,6 +18,10 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict/>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1.0.0</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -27,18 +31,18 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-    <key>NSAppleMusicUsageDescription</key>
-    <string>需要您的同意，才能访问媒体资料库，用于打开音频播放的功能</string>
-    <key>NSCameraUsageDescription</key>
-    <string>需要您的同意，才能使用相机，用于图片上传或视频录制的功能</string>
-    <key>NSContactsUsageDescription</key>
-    <string>需要您的同意，才能访问通讯录，便于开启查询联系人的服务</string>
-    <key>NSMicrophoneUsageDescription</key>
-    <string>需要您的同意，在录制视频的过程中需要打开麦克风进行录音</string>
-    <key>NSPhotoLibraryAddUsageDescription</key>
-    <string>需要您的同意，才能实现保存网络图片到本地图库的服务</string>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>需要您的同意，才能访问相册权限，便于选择图片上传的服务</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>需要您的同意，才能访问媒体资料库，用于打开音频播放的功能</string>
+	<key>NSCameraUsageDescription</key>
+	<string>需要您的同意，才能使用相机，用于图片上传或视频录制的功能</string>
+	<key>NSContactsUsageDescription</key>
+	<string>需要您的同意，才能访问通讯录，便于开启查询联系人的服务</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>需要您的同意，在录制视频的过程中需要打开麦克风进行录音</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>需要您的同意，才能实现保存网络图片到本地图库的服务</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>需要您的同意，才能访问相册权限，便于选择图片上传的服务</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

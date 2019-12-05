@@ -1,11 +1,16 @@
 ## 微信（WeChat）开发
 
-### 下载
-- 若`pod install`很漫长或有问题，请戳百度网盘链接:https://pan.baidu.com/s/1JNgKnnNQz5NBK7VSLtiPVA  密码:cax6  <PS：不定期更新！！！> 
+<img src="https://github.com/CoderMikeHe/WeChat_Resource/blob/master/snapshots/logo.png" width="256px" height="256px" />
 
+### 下载
+- 若`pod install`很漫长或有问题，请戳百度网盘链接: https://pan.baidu.com/s/1JNgKnnNQz5NBK7VSLtiPVA  密码: cax6  <PS：不定期更新！！！> 
+
+---
 
 ### 概述
 本工程主要是利用`MVVM + RAC + ViewModel-Based Navigation`的方式来搭建微信（WeChat）的整体架构，希望能够以点带面，为`MVVM + RAC + ViewModel-Based Navigation`的这种设计架构提供多一种的实践参考，也为大家在学习`MVVM`提供一个学习的Demo。抛砖引玉，取长补短，希望能够提供一点思路，少走一些弯路，填补一些细坑。
+
+---
 
 ### 使用
 - [Cocoapods 安装教程](https://www.cnblogs.com/chuancheng/p/8443677.html)
@@ -26,11 +31,24 @@
 	```
 - 本项目登录或注册，只支持`QQ账号`和`手机号`的登录或注册，必须保证`QQ`或`手机号`的有效性。密码或者验证码可以随便输入，但必须是：密码长度需要保证在`8~16`位，手机验证码必须保证是`6位有效数字`。
 
+---
+
 ### 期待
 - 如果在使用过程中遇到BUG，希望你能Issues我，谢谢（或者尝试下载最新的代码看看BUG修复没有）。
 - 如果在使用过程中有任何地方不理解，希望你能Issues我，我非常乐意促使项目的理解和使用，谢谢。
 - 如果通过该工程的使用和说明文档的阅读，对您在开发中有一点帮助，码字不易，还请点击右上角`star`按钮，谢谢；
 - 简书地址：<http://www.jianshu.com/u/126498da7523>
+
+---
+
+### 商业互吹
+
+- [iOS开发技术要点汇总](https://github.com/CoderMikeHe/MHDevelopExample_Objective_C)
+- [Flutter版WeChat](https://github.com/CoderMikeHe/flutter_wechat)
+- [Vue版WeChat](https://github.com/CoderMikeHe/vue-wechat)
+- [WeChat资源汇总](https://github.com/CoderMikeHe/WeChat_Resource)
+
+---
 
 ### 文档
 - [iOS 基于MVVM + RAC + ViewModel-Based Navigation的微信开发（一）](http://www.jianshu.com/p/fd407a4ecb8e)
