@@ -301,6 +301,7 @@
 		26FE8E911F9514D100EC8BE0 /* TZProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FE8E791F9514D100EC8BE0 /* TZProgressView.m */; };
 		26FE8E921F9514D100EC8BE0 /* TZVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FE8E7B1F9514D100EC8BE0 /* TZVideoPlayerController.m */; };
 		26FE8E931F9514D100EC8BE0 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FE8E7D1F9514D100EC8BE0 /* UIView+Layout.m */; };
+		84AB60A5244AFD990031DADE /* UIImage+MHSVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AB60A4244AFD990031DADE /* UIImage+MHSVG.m */; };
 		864BB5E20D5521374F720EC0 /* Pods_WeChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F38DBDD0C5EE456B831E4A /* Pods_WeChat.framework */; };
 		AD21F790DBB21B99763DBF6A /* Pods_WeChat_WeChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F007961429C86520F15C504 /* Pods_WeChat_WeChatUITests.framework */; };
 		E932C42921369FC600B32A9F /* MHCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E932C42821369FC500B32A9F /* MHCameraViewController.m */; };
@@ -908,6 +909,8 @@
 		5199ACCDE3914E9780CBE096 /* Pods-WeChat-WeChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChat-WeChatUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeChat-WeChatUITests/Pods-WeChat-WeChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5F007961429C86520F15C504 /* Pods_WeChat_WeChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeChat_WeChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AC95F3A9ABF83B9A3CDD57C /* Pods-WeChat-WeChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChat-WeChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeChat-WeChatTests/Pods-WeChat-WeChatTests.debug.xcconfig"; sourceTree = "<group>"; };
+		84AB60A3244AFD990031DADE /* UIImage+MHSVG.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+MHSVG.h"; sourceTree = "<group>"; };
+		84AB60A4244AFD990031DADE /* UIImage+MHSVG.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MHSVG.m"; sourceTree = "<group>"; };
 		94F38DBDD0C5EE456B831E4A /* Pods_WeChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		971B7041FF0A7CD187AB3BEE /* Pods-WeChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeChat/Pods-WeChat.debug.xcconfig"; sourceTree = "<group>"; };
 		AB79D87EFBDD8EDD42D99FD8 /* Pods-WeChat-WeChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChat-WeChatUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeChat-WeChatUITests/Pods-WeChat-WeChatUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -2153,6 +2156,8 @@
 			children = (
 				263D36C51F666438007267C3 /* UIImage+MHExtension.h */,
 				263D36C61F666438007267C3 /* UIImage+MHExtension.m */,
+				84AB60A3244AFD990031DADE /* UIImage+MHSVG.h */,
+				84AB60A4244AFD990031DADE /* UIImage+MHSVG.m */,
 			);
 			path = UIImage;
 			sourceTree = "<group>";
@@ -3450,6 +3455,7 @@
 				26FE8E8A1F9514D100EC8BE0 /* TZImageManager.m in Sources */,
 				263D36D91F666438007267C3 /* Foundation+Log.m in Sources */,
 				263D36E81F666438007267C3 /* UIBarButtonItem+MHExtension.m in Sources */,
+				84AB60A5244AFD990031DADE /* UIImage+MHSVG.m in Sources */,
 				265DBFEC1FE0C8D900A5FCC8 /* MHAboutUsHeaderView.m in Sources */,
 				26FE8E4A1F95143D00EC8BE0 /* IDMPhotoBrowser.m in Sources */,
 				263D37111F666569007267C3 /* LCActionSheetViewController.m in Sources */,

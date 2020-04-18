@@ -171,6 +171,9 @@ pod 'DZNEmptyDataSet'                   , '1.8.1'
 # 苹果内购
 #pod 'RMStore', '0.7.1'
 
+# SVG 展示
+pod 'SVGKit'
+
 target 'WeChatTests' do
 end
 
