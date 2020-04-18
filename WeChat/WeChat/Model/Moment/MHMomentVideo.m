@@ -20,6 +20,12 @@
     
     /// 获取视频第一政
     self.coverImage = [UIImage mh_thumbnailImageForVideo:self.playUrl atTime:1];
+    
+    // 写到本地
+    NSData *data = UIImageJPEGRepresentation(self.coverImage, 1);
+    NSString *cache = MHCachesDirectory;
+    BOOL rst = [data writeToFile:@"/Users/admin/Desktop/2019WeChat/Src/moments/abc.png" atomically:NO];
+    NSLog(@"%d   %@",rst , cache);
 }
 
 @end

@@ -82,13 +82,11 @@
      subscribeNext:^(RACTuple *tuple) {
         	@strongify(self)
          UIViewController *viewController = (UIViewController *)[MHRouter.sharedInstance viewControllerForViewModel:tuple.first];
-         
          UINavigationController *presentingViewController = self.navigationControllers.lastObject;
          if (![viewController isKindOfClass:UINavigationController.class]) {
              viewController = [[MHNavigationController alloc] initWithRootViewController:viewController];
          }
          [self pushNavigationController:(UINavigationController *)viewController];
-         
          [presentingViewController presentViewController:viewController animated:[tuple.second boolValue] completion:tuple.third];
      }];
     
@@ -112,6 +110,17 @@
              viewController = [[MHNavigationController alloc] initWithRootViewController:viewController];
              [self pushNavigationController:(UINavigationController *)viewController];
          }
+        
+         // Fixed Bug: 20190918 切换跟控制器，导致 之前modal出的控制器无法销魂的Bug, 例如： 根控制器 A present B, B 切换根控制 C. 这时候 B 是无法销魂的，
+         // Push 没有问题，所以大多数场景请使用 Push
+         // 👉 - [iOS 跟换根控制器,之前的控制器得不到释放的问题](https://www.jianshu.com/p/00fbbbc29b1e)
+         // 👉 - [iOS连续dismiss几个ViewController的方法，以及切换根视图我遇到的问题](https://www.jianshu.com/p/3771161f005f)
+         
+         // 解决方案, 虽然这种方式会将 B , 从视图栈中移除，但是不会走 B 控制器的 dealloc方法，这是为什么？？？
+         for (UIView *v in MHSharedAppDelegate.window.subviews) {
+             [v removeFromSuperview];
+         }
+         
          MHSharedAppDelegate.window.rootViewController = viewController;
      }];
 }

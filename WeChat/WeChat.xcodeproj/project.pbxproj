@@ -2811,7 +2811,7 @@
 				TargetAttributes = {
 					26064AB21F5D9A1400566B95 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 9M4756J7A7;
+						DevelopmentTeam = 3FUZGWB9K9;
 						ProvisioningStyle = Automatic;
 					};
 					26064ACB1F5D9A1400566B95 = {
@@ -2833,6 +2833,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -3744,13 +3745,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = 9M4756J7A7;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3FUZGWB9K9;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WeChat/WeChat.pch";
 				INFOPLIST_FILE = WeChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.CoderMikeHe.WeChat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CoderMikeHe0.WeChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				WARNING_CFLAGS = (
 					"-Wno-documentation",
 					"-Wno-ambiguous-macro",
@@ -3765,13 +3769,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = 9M4756J7A7;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3FUZGWB9K9;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WeChat/WeChat.pch";
 				INFOPLIST_FILE = WeChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.CoderMikeHe.WeChat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CoderMikeHe0.WeChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				WARNING_CFLAGS = (
 					"-Wno-documentation",
 					"-Wno-ambiguous-macro",
