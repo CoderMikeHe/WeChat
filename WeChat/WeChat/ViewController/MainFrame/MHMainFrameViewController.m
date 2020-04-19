@@ -58,10 +58,6 @@
 
 #pragma mark - 事件处理
 - (void)_addMore{
-    
-    /// 跳转到小视频模块
-    MHCameraViewController *camera = [[MHCameraViewController alloc] init];
-    [self presentViewController:camera animated:YES completion:NULL];
 }
 
 #pragma mark - 初始化
@@ -70,7 +66,7 @@
 }
 #pragma mark - 设置导航栏
 - (void)_setupNavigationItem{
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem mh_systemItemWithTitle:nil titleColor:nil imageName:@"barbuttonicon_add_30x30" target:self selector:@selector(_addMore) textType:NO];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem mh_svgBarButtonItem:@"icons_outlined_add2.svg" targetSize:CGSizeMake(24.0, 24.0) tintColor:nil target:self selector:@selector(_addMore)];
 }
 
 #pragma mark - UITableViewDelegate

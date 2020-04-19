@@ -66,4 +66,17 @@ static inline UIColor *MHBarButtonItemTitleColor(BOOL useSystem) {
                                    action:(SEL)action;
 
 
+
+// 利用svg 生成一个 UIBarButtonItem
+/// 利用svg 生成一个 UIBarButtonItem
+/// @param imageName svg image name
+/// @param size image size
+/// @param tintColor image 颜色
+/// @param target tartget
+/// @param selector action
++ (UIBarButtonItem *)mh_svgBarButtonItem:(nonnull NSString *)imageName
+                              targetSize:(CGSize)size
+                               tintColor:(nullable UIColor *)tintColor
+                                  target:(nullable id)target
+                                selector:(nullable SEL)selector;
 @end

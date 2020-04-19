@@ -87,6 +87,11 @@
              viewController = [[MHNavigationController alloc] initWithRootViewController:viewController];
          }
          [self pushNavigationController:(UINavigationController *)viewController];
+        
+        
+         // 适配 iOS 13.0+ : - [iOS13开发中可能会出现的present viewcontroller相关问题](https://www.jianshu.com/p/4f96d078f1f3)
+         viewController.modalPresentationStyle = UIModalPresentationFullScreen;
+        
          [presentingViewController presentViewController:viewController animated:[tuple.second boolValue] completion:tuple.third];
      }];
     

@@ -81,4 +81,11 @@
 }
 
 
+// 利用svg 生成一个 UIBarButtonItem
++ (UIBarButtonItem *)mh_svgBarButtonItem:(nonnull NSString *)imageName targetSize:(CGSize)size tintColor:(UIColor *)tintColor target:(id)target selector:(SEL)selector {
+    
+    return [[UIBarButtonItem alloc] initWithImage:[UIImage mh_svgImageNamed:imageName targetSize:size tintColor:tintColor?tintColor:MHColorFromHexString(@"#181818")] style:UIBarButtonItemStylePlain target:target action:selector];
+}
+
+
 @end

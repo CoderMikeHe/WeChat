@@ -156,7 +156,7 @@ pod 'FLEX'                              , '2.4.0'
 # pop动画
 pod 'pop'                               , '1.0.10'
 # 键盘管理
-pod 'IQKeyboardManager'                 , '5.0.2'
+pod 'IQKeyboardManager'                 , '6.5.5'
 # 瀑布流
 pod 'CHTCollectionViewWaterfallLayout'  , '0.9.6'
 # 选择器

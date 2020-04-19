@@ -115,6 +115,14 @@ static inline UIImage *MHPicturePlaceholder()
 #define WXGlobalBlackTextColor      [UIColor colorFromHexString:@"#000000"]
 /// 全局灰色背景
 #define WXGlobalGrayBackgroundColor [UIColor colorFromHexString:@"#EFEFF4"]
+
+/// 全局tintColor
+#define WXGlobalPrimaryTintColor  [UIColor colorFromHexString:@"#07C160"]
+
+
+/// 全局Page 背景色
+#define WXGlobalPrimaryBackgroundColor  [UIColor colorFromHexString:@"#ededed"]
+
 /// 全局分割线高度
 FOUNDATION_EXTERN CGFloat const WXGlobalBottomLineHeight;
 

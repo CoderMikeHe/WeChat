@@ -304,6 +304,17 @@
 		84AB60A5244AFD990031DADE /* UIImage+MHSVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AB60A4244AFD990031DADE /* UIImage+MHSVG.m */; };
 		864BB5E20D5521374F720EC0 /* Pods_WeChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F38DBDD0C5EE456B831E4A /* Pods_WeChat.framework */; };
 		AD21F790DBB21B99763DBF6A /* Pods_WeChat_WeChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F007961429C86520F15C504 /* Pods_WeChat_WeChatUITests.framework */; };
+		DE44216C244BF0CC00206161 /* icons_outlined_discover.svg in Resources */ = {isa = PBXBuildFile; fileRef = DE442164244BF0CB00206161 /* icons_outlined_discover.svg */; };
+		DE44216D244BF0CC00206161 /* icons_filled_chats.svg in Resources */ = {isa = PBXBuildFile; fileRef = DE442165244BF0CB00206161 /* icons_filled_chats.svg */; };
+		DE44216E244BF0CC00206161 /* icons_filled_discover.svg in Resources */ = {isa = PBXBuildFile; fileRef = DE442166244BF0CB00206161 /* icons_filled_discover.svg */; };
+		DE44216F244BF0CC00206161 /* icons_filled_me.svg in Resources */ = {isa = PBXBuildFile; fileRef = DE442167244BF0CB00206161 /* icons_filled_me.svg */; };
+		DE442170244BF0CC00206161 /* icons_outlined_chats.svg in Resources */ = {isa = PBXBuildFile; fileRef = DE442168244BF0CB00206161 /* icons_outlined_chats.svg */; };
+		DE442171244BF0CC00206161 /* icons_outlined_contacts.svg in Resources */ = {isa = PBXBuildFile; fileRef = DE442169244BF0CB00206161 /* icons_outlined_contacts.svg */; };
+		DE442172244BF0CC00206161 /* icons_filled_contacts.svg in Resources */ = {isa = PBXBuildFile; fileRef = DE44216A244BF0CB00206161 /* icons_filled_contacts.svg */; };
+		DE442173244BF0CC00206161 /* icons_outlined_me.svg in Resources */ = {isa = PBXBuildFile; fileRef = DE44216B244BF0CB00206161 /* icons_outlined_me.svg */; };
+		DE442177244C547400206161 /* icons_outlined_add2.svg in Resources */ = {isa = PBXBuildFile; fileRef = DE442176244C547400206161 /* icons_outlined_add2.svg */; };
+		DE442179244C55E000206161 /* icons_outlined_add-friends.svg in Resources */ = {isa = PBXBuildFile; fileRef = DE442178244C55E000206161 /* icons_outlined_add-friends.svg */; };
+		DE44217B244C571D00206161 /* icons_filled_back.svg in Resources */ = {isa = PBXBuildFile; fileRef = DE44217A244C571D00206161 /* icons_filled_back.svg */; };
 		E932C42921369FC600B32A9F /* MHCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E932C42821369FC500B32A9F /* MHCameraViewController.m */; };
 		E932C42D2136A16700B32A9F /* MHCameraControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = E932C42C2136A16700B32A9F /* MHCameraControlView.m */; };
 		E932C4302136A1D200B32A9F /* MHVideoPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = E932C42F2136A1D200B32A9F /* MHVideoPreviewView.m */; };
@@ -914,6 +925,17 @@
 		94F38DBDD0C5EE456B831E4A /* Pods_WeChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		971B7041FF0A7CD187AB3BEE /* Pods-WeChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeChat/Pods-WeChat.debug.xcconfig"; sourceTree = "<group>"; };
 		AB79D87EFBDD8EDD42D99FD8 /* Pods-WeChat-WeChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChat-WeChatUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeChat-WeChatUITests/Pods-WeChat-WeChatUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DE442164244BF0CB00206161 /* icons_outlined_discover.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_outlined_discover.svg; sourceTree = "<group>"; };
+		DE442165244BF0CB00206161 /* icons_filled_chats.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_filled_chats.svg; sourceTree = "<group>"; };
+		DE442166244BF0CB00206161 /* icons_filled_discover.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_filled_discover.svg; sourceTree = "<group>"; };
+		DE442167244BF0CB00206161 /* icons_filled_me.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_filled_me.svg; sourceTree = "<group>"; };
+		DE442168244BF0CB00206161 /* icons_outlined_chats.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_outlined_chats.svg; sourceTree = "<group>"; };
+		DE442169244BF0CB00206161 /* icons_outlined_contacts.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_outlined_contacts.svg; sourceTree = "<group>"; };
+		DE44216A244BF0CB00206161 /* icons_filled_contacts.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_filled_contacts.svg; sourceTree = "<group>"; };
+		DE44216B244BF0CB00206161 /* icons_outlined_me.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_outlined_me.svg; sourceTree = "<group>"; };
+		DE442176244C547400206161 /* icons_outlined_add2.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_outlined_add2.svg; sourceTree = "<group>"; };
+		DE442178244C55E000206161 /* icons_outlined_add-friends.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "icons_outlined_add-friends.svg"; sourceTree = "<group>"; };
+		DE44217A244C571D00206161 /* icons_filled_back.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_filled_back.svg; sourceTree = "<group>"; };
 		E932C42721369FC500B32A9F /* MHCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHCameraViewController.h; sourceTree = "<group>"; };
 		E932C42821369FC500B32A9F /* MHCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHCameraViewController.m; sourceTree = "<group>"; };
 		E932C42B2136A16700B32A9F /* MHCameraControlView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHCameraControlView.h; sourceTree = "<group>"; };
@@ -1126,7 +1148,6 @@
 			isa = PBXGroup;
 			children = (
 				26225D991F65589E0074BFC3 /* MHConstant.h */,
-				26225D9A1F65589E0074BFC3 /* MHConstant.m */,
 				26225D9C1F65594D0074BFC3 /* MHMacros.h */,
 				263D371B1F666CD4007267C3 /* MHConstEnum.h */,
 				2617530F1F736A9C00812E1B /* MHConstInline.h */,
@@ -2183,6 +2204,7 @@
 		263D36CD1F666438007267C3 /* UITextField */ = {
 			isa = PBXGroup;
 			children = (
+				26225D9A1F65589E0074BFC3 /* MHConstant.m */,
 				263D36CE1F666438007267C3 /* UITextField+MHExtension.h */,
 				263D36CF1F666438007267C3 /* UITextField+MHExtension.m */,
 			);
@@ -2367,6 +2389,9 @@
 		2667A3EF1F7B987600A3D7A2 /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
+				DE442175244C545A00206161 /* NavigationBar */,
+				DE442174244C53A000206161 /* MainFrame */,
+				DE442163244BF09600206161 /* TabBar */,
 				26363ACA20134297000061EF /* Emoticons.bundle */,
 			);
 			path = Pictures;
@@ -2680,6 +2705,38 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DE442163244BF09600206161 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				DE442165244BF0CB00206161 /* icons_filled_chats.svg */,
+				DE44216A244BF0CB00206161 /* icons_filled_contacts.svg */,
+				DE442166244BF0CB00206161 /* icons_filled_discover.svg */,
+				DE442167244BF0CB00206161 /* icons_filled_me.svg */,
+				DE442168244BF0CB00206161 /* icons_outlined_chats.svg */,
+				DE442169244BF0CB00206161 /* icons_outlined_contacts.svg */,
+				DE442164244BF0CB00206161 /* icons_outlined_discover.svg */,
+				DE44216B244BF0CB00206161 /* icons_outlined_me.svg */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		DE442174244C53A000206161 /* MainFrame */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MainFrame;
+			sourceTree = "<group>";
+		};
+		DE442175244C545A00206161 /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				DE44217A244C571D00206161 /* icons_filled_back.svg */,
+				DE442178244C55E000206161 /* icons_outlined_add-friends.svg */,
+				DE442176244C547400206161 /* icons_outlined_add2.svg */,
+			);
+			path = NavigationBar;
+			sourceTree = "<group>";
+		};
 		E368DFC08996A6D47EB35CDB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -2862,6 +2919,7 @@
 				26FE8E471F95143D00EC8BE0 /* IDMPBLocalizations.bundle in Resources */,
 				26363ACB20134298000061EF /* Emoticons.bundle in Resources */,
 				26FE8E491F95143D00EC8BE0 /* IDMPhotoBrowser.bundle in Resources */,
+				DE44216C244BF0CC00206161 /* icons_outlined_discover.svg in Resources */,
 				264D74CC20464FB400333091 /* MHSearchTextCell.xib in Resources */,
 				263D36DD1F666438007267C3 /* MBProgressHUD.bundle in Resources */,
 				26452BF32012001C0042B2FE /* WeChat_Moments_3.json in Resources */,
@@ -2869,26 +2927,36 @@
 				2667A3F11F7B987600A3D7A2 /* Zone.plist in Resources */,
 				26A7E7421F79FE550015CA71 /* MHBootLoginViewController.xib in Resources */,
 				263004D51F751FB800247F3D /* MHSearchFriendsHeaderView.xib in Resources */,
+				DE442172244BF0CC00206161 /* icons_filled_contacts.svg in Resources */,
 				26D81809201F2A7600DDB286 /* MHProfileInfoMoreCell.xib in Resources */,
 				2667A3F61F7B9FB100A3D7A2 /* MHMobileLoginViewController.xib in Resources */,
 				26064AC31F5D9A1400566B95 /* Assets.xcassets in Resources */,
 				26452BEF201200060042B2FE /* WeChat_Moments_1.json in Resources */,
 				2609ED541F790B07002D31CE /* MHLoginCaptchaView.xib in Resources */,
+				DE44217B244C571D00206161 /* icons_filled_back.svg in Resources */,
 				26D81813201F308A00DDB286 /* MHProfileInfoAlbumCell.xib in Resources */,
 				266E15DA1F8F7E7E000E31C5 /* MHCommitViewController.xib in Resources */,
 				264F2D171F94A80F00B244AD /* MHPlugDetailViewController.xib in Resources */,
+				DE44216F244BF0CC00206161 /* icons_filled_me.svg in Resources */,
+				DE442173244BF0CC00206161 /* icons_outlined_me.svg in Resources */,
 				26452BF1201200120042B2FE /* WeChat_Moments_2.json in Resources */,
 				26D817FF201F0EC000DDB286 /* MHProfileInfoFooterView.xib in Resources */,
 				2667A3E51F7B768C00A3D7A2 /* MHAccountLoginView.xib in Resources */,
 				26A7E74F1F7A32500015CA71 /* MHLoginViewController.xib in Resources */,
+				DE442170244BF0CC00206161 /* icons_outlined_chats.svg in Resources */,
 				26CCB9D3202453700090DBC5 /* WeChatSight.mp4 in Resources */,
 				26FE8E8B1F9514D100EC8BE0 /* TZImagePickerController.bundle in Resources */,
 				266E15D51F8F7E43000E31C5 /* MHRegisterViewController.xib in Resources */,
 				26D8180E201F306100DDB286 /* MHProfileInfoZoneCell.xib in Resources */,
+				DE442179244C55E000206161 /* icons_outlined_add-friends.svg in Resources */,
+				DE44216E244BF0CC00206161 /* icons_filled_discover.svg in Resources */,
+				DE442171244BF0CC00206161 /* icons_outlined_contacts.svg in Resources */,
 				26D81804201F20FF00DDB286 /* MHProfileInfoCell.xib in Resources */,
 				26FE65731F93142400642615 /* MHPlugViewController.xib in Resources */,
+				DE44216D244BF0CC00206161 /* icons_filled_chats.svg in Resources */,
 				2654904D1F99AF6F003AEED1 /* MHMainFrameTableViewCell.xib in Resources */,
 				2618AFE01F91BDA300F82A46 /* MHModifyNicknameViewController.xib in Resources */,
+				DE442177244C547400206161 /* icons_outlined_add2.svg in Resources */,
 				264D36D81F70AEBD003BB8CE /* MHProfileHeaderCell.xib in Resources */,
 				2609ED4F1F790AD3002D31CE /* MHLoginPasswordView.xib in Resources */,
 				265DBFEE1FE0C8E400A5FCC8 /* MHAboutUsHeaderView.xib in Resources */,
@@ -2960,6 +3028,7 @@
 				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
 				"${BUILT_PRODUCTS_DIR}/BlocksKit/BlocksKit.framework",
 				"${BUILT_PRODUCTS_DIR}/CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaSecurity/CocoaSecurity.framework",
 				"${BUILT_PRODUCTS_DIR}/Colours/Colours.framework",
 				"${BUILT_PRODUCTS_DIR}/DACircularProgress/DACircularProgress.framework",
@@ -2988,6 +3057,7 @@
 				"${BUILT_PRODUCTS_DIR}/SAMKeychain/SAMKeychain.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
+				"${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SocketRocket/SocketRocket.framework",
 				"${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework",
@@ -3016,6 +3086,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionSheetPicker_3_0.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BlocksKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHTCollectionViewWaterfallLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaSecurity.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Colours.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DACircularProgress.framework",
@@ -3044,6 +3115,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SAMKeychain.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVGKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketRocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTTAttributedLabel.framework",
@@ -3100,6 +3172,7 @@
 				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
 				"${BUILT_PRODUCTS_DIR}/BlocksKit/BlocksKit.framework",
 				"${BUILT_PRODUCTS_DIR}/CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaSecurity/CocoaSecurity.framework",
 				"${BUILT_PRODUCTS_DIR}/Colours/Colours.framework",
 				"${BUILT_PRODUCTS_DIR}/DACircularProgress/DACircularProgress.framework",
@@ -3128,6 +3201,7 @@
 				"${BUILT_PRODUCTS_DIR}/SAMKeychain/SAMKeychain.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
+				"${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SocketRocket/SocketRocket.framework",
 				"${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework",
@@ -3156,6 +3230,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionSheetPicker_3_0.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BlocksKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHTCollectionViewWaterfallLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaSecurity.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Colours.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DACircularProgress.framework",
@@ -3184,6 +3259,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SAMKeychain.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVGKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketRocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTTAttributedLabel.framework",
@@ -3222,6 +3298,7 @@
 				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
 				"${BUILT_PRODUCTS_DIR}/BlocksKit/BlocksKit.framework",
 				"${BUILT_PRODUCTS_DIR}/CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaSecurity/CocoaSecurity.framework",
 				"${BUILT_PRODUCTS_DIR}/Colours/Colours.framework",
 				"${BUILT_PRODUCTS_DIR}/DACircularProgress/DACircularProgress.framework",
@@ -3250,6 +3327,7 @@
 				"${BUILT_PRODUCTS_DIR}/SAMKeychain/SAMKeychain.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
+				"${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SocketRocket/SocketRocket.framework",
 				"${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework",
@@ -3278,6 +3356,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionSheetPicker_3_0.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BlocksKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHTCollectionViewWaterfallLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaSecurity.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Colours.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DACircularProgress.framework",
@@ -3306,6 +3385,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SAMKeychain.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVGKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketRocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTTAttributedLabel.framework",

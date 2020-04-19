@@ -58,7 +58,7 @@
     // 添加自己的分割线
     CGFloat navSystemLineH = .5f;
     UIImageView *navSystemLine = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.navigationBar.mh_height - navSystemLineH, MH_SCREEN_WIDTH, navSystemLineH)];
-    navSystemLine.backgroundColor = MHColor(223.0f, 223.0f, 221.0f);
+    navSystemLine.backgroundColor = MHColorAlpha(0.0f, 0.0f, 0.0f, 0.1);
     [self.navigationBar addSubview:navSystemLine];
     self.navigationBottomLine = navSystemLine;
 }
@@ -76,14 +76,14 @@
     // 设置导航栏的样式
     [appearance setBarStyle:UIBarStyleDefault];
     //设置导航栏文字按钮的渲染色
-    [appearance setTintColor:[UIColor whiteColor]];
+    [appearance setTintColor:MHColorFromHexString(@"#181818")];
     // 设置导航栏的背景渲染色
-    CGFloat rgb = 0.1;
-    [appearance setBarTintColor:[UIColor colorWithRed:rgb green:rgb blue:rgb alpha:0.65]];
+    [appearance setBarTintColor:[MH_MAIN_BACKGROUNDCOLOR colorWithAlphaComponent:0.65]];
+    
     // 设置文字属性
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
-    textAttrs[NSFontAttributeName] = MHMediumFont(18.0f);
-    textAttrs[NSForegroundColorAttributeName] = [UIColor whiteColor];
+    textAttrs[NSFontAttributeName] = MHRegularFont(18.0f);
+    textAttrs[NSForegroundColorAttributeName] = MHColorFromHexString(@"#181818");
     
     // UIOffsetZero是结构体, 只要包装成NSValue对象, 才能放进字典\数组中
     NSShadow *shadow = [[NSShadow alloc] init];
@@ -107,7 +107,7 @@
     /**设置文字属性**/
     // 设置普通状态的文字属性
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
-    textAttrs[NSForegroundColorAttributeName] = [UIColor whiteColor];
+    textAttrs[NSForegroundColorAttributeName] = MHColorFromHexString(@"#181818");
     textAttrs[NSFontAttributeName] = MHRegularFont(fontSize);
     NSShadow *shadow = [[NSShadow alloc] init];
     shadow.shadowOffset =  CGSizeZero;
@@ -117,12 +117,12 @@
     
     // 设置高亮状态的文字属性
     NSMutableDictionary *highTextAttrs = [NSMutableDictionary dictionaryWithDictionary:textAttrs];
-    highTextAttrs[NSForegroundColorAttributeName] = [[UIColor whiteColor] colorWithAlphaComponent:.5f];
+    highTextAttrs[NSForegroundColorAttributeName] = [MHColorFromHexString(@"#181818") colorWithAlphaComponent:.5f];
     [appearance setTitleTextAttributes:highTextAttrs forState:UIControlStateHighlighted];
 
     // 设置不可用状态(disable)的文字属性
     NSMutableDictionary *disableTextAttrs = [NSMutableDictionary dictionaryWithDictionary:textAttrs];
-    disableTextAttrs[NSForegroundColorAttributeName] = [[UIColor whiteColor] colorWithAlphaComponent:.5f];
+    disableTextAttrs[NSForegroundColorAttributeName] = [MHColorFromHexString(@"#181818") colorWithAlphaComponent:.5f];
     [appearance setTitleTextAttributes:disableTextAttrs forState:UIControlStateDisabled];
 }
 
@@ -155,12 +155,12 @@
             
             /// 3. 查看backTitle 是否有值
             title = viewModel.backTitle?:title;
-            
-            
         }
         
+        // v7.0.0 不需要 title
+        
         // 4.这里可以设置导航栏的左右按钮 统一管理方法
-        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem mh_backItemWithTitle:title imageName:@"barbuttonicon_back_15x30" target:self action:@selector(_back)];
+        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem mh_svgBarButtonItem:@"icons_filled_back.svg" targetSize:CGSizeMake(12.0, 24.0) tintColor:nil target:self selector:@selector(_back)];
     }
     // push
     [super pushViewController:viewController animated:animated];
