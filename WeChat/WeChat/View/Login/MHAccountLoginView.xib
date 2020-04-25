@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -24,22 +23,21 @@
                     <rect key="frame" x="0.0" y="113.5" width="375" height="44.5"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PJ1-SE-BH7" userLabel="dividerView">
-                            <rect key="frame" x="20" y="44.5" width="335" height="0.5"/>
+                            <rect key="frame" x="20" y="44" width="335" height="0.5"/>
                             <color key="backgroundColor" red="0.78823529411764703" green="0.78823529411764703" blue="0.78823529411764703" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="0.5" id="FoX-HY-0QU"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mk-gf-Kqj" userLabel="passwordLabel">
-                            <rect key="frame" x="20" y="11" width="35" height="21"/>
+                            <rect key="frame" x="20" y="12" width="35" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请填写密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Bk1-ey-w17" userLabel="passwordTextField">
-                            <rect key="frame" x="112" y="0.0" width="243" height="44.5"/>
+                            <rect key="frame" x="112" y="0.0" width="243" height="44"/>
                             <color key="tintColor" red="0.039215686270000001" green="0.75686274509999996" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                         </textField>
@@ -62,22 +60,21 @@
                     <rect key="frame" x="0.0" y="69" width="375" height="44.5"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RQY-f7-sjT" userLabel="dividerView">
-                            <rect key="frame" x="20" y="44.5" width="335" height="0.5"/>
+                            <rect key="frame" x="20" y="44" width="335" height="0.5"/>
                             <color key="backgroundColor" red="0.78823529410000004" green="0.78823529410000004" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="0.5" id="0bD-bM-DX0"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="账号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0W-aL-OLq" userLabel="accountLabel">
-                            <rect key="frame" x="20" y="11" width="35" height="21"/>
+                            <rect key="frame" x="20" y="12" width="35" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="微信号/QQ号/邮箱" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OQE-xI-dgX" userLabel="accountTextField">
-                            <rect key="frame" x="112" y="0.0" width="243" height="44.5"/>
+                            <rect key="frame" x="112" y="0.0" width="243" height="44"/>
                             <color key="tintColor" red="0.039215686270000001" green="0.75686274509999996" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>

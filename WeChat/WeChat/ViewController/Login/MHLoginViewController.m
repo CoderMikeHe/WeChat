@@ -36,10 +36,10 @@
     [super viewDidLoad];
     /// 设置
     [self _setup];
-    
+
     /// 设置导航栏
     [self _setupNavigationItem];
-    
+
     /// 设置子控件
     [self _setupSubViews];
 }

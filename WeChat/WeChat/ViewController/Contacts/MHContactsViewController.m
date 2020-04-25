@@ -43,7 +43,7 @@
 
 #pragma mark - 设置导航栏
 - (void)_setupNavigationItem{
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem mh_systemItemWithTitle:nil titleColor:nil imageName:@"barbuttonicon_addfriends_30x30" target:nil selector:nil textType:NO];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem mh_svgBarButtonItem:@"icons_outlined_add-friends.svg" targetSize:CGSizeMake(24.0, 24.0) tintColor:nil target:nil selector:nil];
     self.navigationItem.rightBarButtonItem.rac_command = self.viewModel.addFriendsCommand;
 }
 

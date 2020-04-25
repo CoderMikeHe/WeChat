@@ -24,25 +24,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+
     /// 初始化所有的子控制器
     [self _setupAllChildViewController];
     
     /// set delegate
     self.tabBarController.delegate = self;
     
+    // 适配 iOS 13.0+ : - [设置UITabBarItem上title颜色(适配iOS 13)](https://www.jianshu.com/p/46755b8087e0)
+    if (@available(iOS 13.0, *)) {
+        // iOS 13以上
+        self.tabBarController.tabBar.tintColor = WXGlobalPrimaryTintColor;
+        self.tabBarController.tabBar.unselectedItemTintColor = MHColorFromHexString(@"#191919");
+    }
+    
 }
 
 #pragma mark - 初始化所有的子视图控制器
 - (void)_setupAllChildViewController{
     NSArray *titlesArray = @[@"微信", @"通讯录", @"发现", @"我"];
-    NSArray *imageNamesArray = @[@"tabbar_mainframe_25x23",
-                                 @"tabbar_contacts_27x23",
-                                 @"tabbar_discover_23x23",
-                                 @"tabbar_me_23x23"];
-    NSArray *selectedImageNamesArray = @[@"tabbar_mainframeHL_25x23",
-                                         @"tabbar_contactsHL_27x23",
-                                         @"tabbar_discoverHL_23x23",
-                                         @"tabbar_meHL_23x23"];
+    NSArray *imageNamesArray = @[@"icons_outlined_chats.svg",
+                                 @"icons_outlined_contacts.svg",
+                                 @"icons_outlined_discover.svg",
+                                 @"icons_outlined_me.svg"];
+    NSArray *selectedImageNamesArray = @[@"icons_filled_chats.svg",
+                                         @"icons_filled_contacts.svg",
+                                         @"icons_filled_discover.svg",
+                                         @"icons_filled_me.svg"];
     
     /// 微信会话层
     UINavigationController *mainFrameNavigationController = ({
@@ -98,19 +106,19 @@
 #pragma mark - 配置ViewController
 - (void)_configViewController:(UIViewController *)viewController imageName:(NSString *)imageName selectedImageName:(NSString *)selectedImageName title:(NSString *)title itemTag:(MHTabBarItemTagType)tagType {
     
-    UIImage *image = [UIImage imageNamed:imageName];
+    UIImage *image = [UIImage mh_svgImageNamed:imageName targetSize:CGSizeMake(25.0, 25.0)];
     image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     viewController.tabBarItem.image = image;
     viewController.tabBarItem.tag = tagType;
     
-    UIImage *selectedImage = [UIImage imageNamed:selectedImageName];
+    UIImage *selectedImage = [UIImage mh_svgImageNamed:selectedImageName targetSize:CGSizeMake(25.0, 25.0) tintColor:WXGlobalPrimaryTintColor];
     selectedImage = [selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     viewController.tabBarItem.selectedImage = selectedImage;
     viewController.tabBarItem.title = title;
     
-    NSDictionary *normalAttr = @{NSForegroundColorAttributeName:MHColorFromHexString(@"#929292"),
+    NSDictionary *normalAttr = @{NSForegroundColorAttributeName:MHColorFromHexString(@"#191919"),
                                  NSFontAttributeName:MHRegularFont_10};
-    NSDictionary *selectedAttr = @{NSForegroundColorAttributeName:MHColorFromHexString(@"#09AA07"),
+    NSDictionary *selectedAttr = @{NSForegroundColorAttributeName:WXGlobalPrimaryTintColor,
                                    NSFontAttributeName:MHRegularFont_10};
     [viewController.tabBarItem setTitleTextAttributes:normalAttr forState:UIControlStateNormal];
     [viewController.tabBarItem setTitleTextAttributes:selectedAttr forState:UIControlStateSelected];
@@ -150,7 +158,6 @@
 //
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
-    NSLog(@"viewController   %@  %zd",viewController,viewController.tabBarItem.tag);
     [MHSharedAppDelegate.navigationControllerStack popNavigationController];
     [MHSharedAppDelegate.navigationControllerStack pushNavigationController:(UINavigationController *)viewController];
 }

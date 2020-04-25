@@ -50,6 +50,7 @@
 #import "UIAlertController+MHColor.h"
 #import "UIBarButtonItem+MHExtension.h"
 #import "UIImage+MHExtension.h"
+#import "UIImage+MHSVG.h"
 #import "UIImage+ImageEffects.h"
 #import "NSObject+MH.h"
 #import "NSString+MH.h"

@@ -182,7 +182,7 @@ _Pragma("clang diagnostic pop")\
 #define MH_MAIN_TINTCOLOR [UIColor colorWithRed:(10 / 255.0) green:(193 / 255.0) blue:(42 / 255.0) alpha:1]
 
 /// 整个应用的视图的背景色 BackgroundColor
-#define MH_MAIN_BACKGROUNDCOLOR [UIColor colorFromHexString:@"#EFEFF4"]
+#define MH_MAIN_BACKGROUNDCOLOR [UIColor colorFromHexString:@"#EDEDED"]
 /// 整个应用的分割线颜色
 #define MH_MAIN_LINE_COLOR_1 [UIColor colorFromHexString:@"#D9D8D9"]
 
