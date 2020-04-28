@@ -8,6 +8,11 @@
 
 #import "MHContactsViewController.h"
 #import "MHAddFriendsViewController.h"
+
+#import "WPFPinYinTools.h"
+#import "WPFPinYinDataManager.h"
+
+
 @interface MHContactsViewController ()<UISearchResultsUpdating>
 /// viewModel
 @property (nonatomic, readonly, strong) MHContactsViewModel *viewModel;
@@ -34,6 +39,14 @@
 
 #pragma mark - 初始化
 - (void)_setup{
+    
+    HanyuPinyinOutputFormat *outputFmt = [[HanyuPinyinOutputFormat alloc] init];
+    outputFmt.toneType = ToneTypeWithoutTone;
+    outputFmt.caseType = CaseTypeUppercase;
+    
+    NSString *str = [WPFPinYinTools firstCharactor:@"h何千元" withFormat: outputFmt];
+    NSLog(@"str is %@", str);
+    
     /// 监听searchVc的活跃度
     [RACObserve(self, searchController.active)
      subscribeNext:^(NSNumber * active) {
