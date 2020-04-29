@@ -315,6 +315,8 @@
 		DE442177244C547400206161 /* icons_outlined_add2.svg in Resources */ = {isa = PBXBuildFile; fileRef = DE442176244C547400206161 /* icons_outlined_add2.svg */; };
 		DE442179244C55E000206161 /* icons_outlined_add-friends.svg in Resources */ = {isa = PBXBuildFile; fileRef = DE442178244C55E000206161 /* icons_outlined_add-friends.svg */; };
 		DE44217B244C571D00206161 /* icons_filled_back.svg in Resources */ = {isa = PBXBuildFile; fileRef = DE44217A244C571D00206161 /* icons_filled_back.svg */; };
+		DE76F56B2459A85200A7C4A6 /* contacts.json in Resources */ = {isa = PBXBuildFile; fileRef = DE76F56A2459A85200A7C4A6 /* contacts.json */; };
+		DE76F56F2459AD0000A7C4A6 /* MHContactsService.m in Sources */ = {isa = PBXBuildFile; fileRef = DE76F56E2459AD0000A7C4A6 /* MHContactsService.m */; };
 		E932C42921369FC600B32A9F /* MHCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E932C42821369FC500B32A9F /* MHCameraViewController.m */; };
 		E932C42D2136A16700B32A9F /* MHCameraControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = E932C42C2136A16700B32A9F /* MHCameraControlView.m */; };
 		E932C4302136A1D200B32A9F /* MHVideoPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = E932C42F2136A1D200B32A9F /* MHVideoPreviewView.m */; };
@@ -936,6 +938,9 @@
 		DE442176244C547400206161 /* icons_outlined_add2.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_outlined_add2.svg; sourceTree = "<group>"; };
 		DE442178244C55E000206161 /* icons_outlined_add-friends.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "icons_outlined_add-friends.svg"; sourceTree = "<group>"; };
 		DE44217A244C571D00206161 /* icons_filled_back.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_filled_back.svg; sourceTree = "<group>"; };
+		DE76F56A2459A85200A7C4A6 /* contacts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = contacts.json; sourceTree = "<group>"; };
+		DE76F56D2459AD0000A7C4A6 /* MHContactsService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHContactsService.h; sourceTree = "<group>"; };
+		DE76F56E2459AD0000A7C4A6 /* MHContactsService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHContactsService.m; sourceTree = "<group>"; };
 		E932C42721369FC500B32A9F /* MHCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHCameraViewController.h; sourceTree = "<group>"; };
 		E932C42821369FC500B32A9F /* MHCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHCameraViewController.m; sourceTree = "<group>"; };
 		E932C42B2136A16700B32A9F /* MHCameraControlView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHCameraControlView.h; sourceTree = "<group>"; };
@@ -2378,6 +2383,7 @@
 			children = (
 				26CCB9D2202453700090DBC5 /* WeChatSight.mp4 */,
 				26452BF4201200250042B2FE /* WeChat_Moments_4.json */,
+				DE76F56A2459A85200A7C4A6 /* contacts.json */,
 				26452BF22012001C0042B2FE /* WeChat_Moments_3.json */,
 				26452BF0201200120042B2FE /* WeChat_Moments_2.json */,
 				26452BEE201200060042B2FE /* WeChat_Moments_1.json */,
@@ -2447,6 +2453,7 @@
 		26C7BEE71F8CC97F00525126 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				DE76F56C2459AC6B00A7C4A6 /* Contacts */,
 				26C7BEE81F8CC97F00525126 /* HTTP */,
 			);
 			path = Service;
@@ -2737,6 +2744,15 @@
 			path = NavigationBar;
 			sourceTree = "<group>";
 		};
+		DE76F56C2459AC6B00A7C4A6 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				DE76F56D2459AD0000A7C4A6 /* MHContactsService.h */,
+				DE76F56E2459AD0000A7C4A6 /* MHContactsService.m */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
 		E368DFC08996A6D47EB35CDB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -2942,6 +2958,7 @@
 				26452BF1201200120042B2FE /* WeChat_Moments_2.json in Resources */,
 				26D817FF201F0EC000DDB286 /* MHProfileInfoFooterView.xib in Resources */,
 				2667A3E51F7B768C00A3D7A2 /* MHAccountLoginView.xib in Resources */,
+				DE76F56B2459A85200A7C4A6 /* contacts.json in Resources */,
 				26A7E74F1F7A32500015CA71 /* MHLoginViewController.xib in Resources */,
 				DE442170244BF0CC00206161 /* icons_outlined_chats.svg in Resources */,
 				26CCB9D3202453700090DBC5 /* WeChatSight.mp4 in Resources */,
@@ -3616,6 +3633,7 @@
 				26FA40501FEB5C9D00B4AD2B /* MHComment.m in Sources */,
 				2624CAE51F98DF9B0083923F /* RACSignal+MHHTTPServiceAdditions.m in Sources */,
 				261CB6311FAC18110080B7C1 /* MHLiveInfo.m in Sources */,
+				DE76F56F2459AD0000A7C4A6 /* MHContactsService.m in Sources */,
 				2634C7221FF0A33A00B1F639 /* MHTableView.m in Sources */,
 				2633E02D1FEA0A7E00D0E187 /* MHUsefulEmotionViewModel.m in Sources */,
 				26A7E7581F7A44010015CA71 /* MHLoginBaseViewModel.m in Sources */,
