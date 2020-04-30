@@ -302,6 +302,12 @@
 		26FE8E921F9514D100EC8BE0 /* TZVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FE8E7B1F9514D100EC8BE0 /* TZVideoPlayerController.m */; };
 		26FE8E931F9514D100EC8BE0 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FE8E7D1F9514D100EC8BE0 /* UIView+Layout.m */; };
 		84AB60A5244AFD990031DADE /* UIImage+MHSVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AB60A4244AFD990031DADE /* UIImage+MHSVG.m */; };
+		84CBFE2F245AA6E300054D07 /* MHContactsItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CBFE2E245AA6E300054D07 /* MHContactsItemViewModel.m */; };
+		84CBFE36245AC7FD00054D07 /* MHTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CBFE30245AC7FB00054D07 /* MHTableViewCell.m */; };
+		84CBFE37245AC7FD00054D07 /* MHCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CBFE33245AC7FC00054D07 /* MHCollectionViewCell.m */; };
+		84CBFE38245AC7FD00054D07 /* MHView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CBFE35245AC7FD00054D07 /* MHView.m */; };
+		84CBFE3F245ACDF900054D07 /* MHContactsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CBFE3D245ACDF900054D07 /* MHContactsTableViewCell.m */; };
+		84CBFE40245ACDF900054D07 /* MHContactsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84CBFE3E245ACDF900054D07 /* MHContactsTableViewCell.xib */; };
 		864BB5E20D5521374F720EC0 /* Pods_WeChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F38DBDD0C5EE456B831E4A /* Pods_WeChat.framework */; };
 		AD21F790DBB21B99763DBF6A /* Pods_WeChat_WeChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F007961429C86520F15C504 /* Pods_WeChat_WeChatUITests.framework */; };
 		DE44216C244BF0CC00206161 /* icons_outlined_discover.svg in Resources */ = {isa = PBXBuildFile; fileRef = DE442164244BF0CB00206161 /* icons_outlined_discover.svg */; };
@@ -924,6 +930,17 @@
 		6AC95F3A9ABF83B9A3CDD57C /* Pods-WeChat-WeChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChat-WeChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeChat-WeChatTests/Pods-WeChat-WeChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		84AB60A3244AFD990031DADE /* UIImage+MHSVG.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+MHSVG.h"; sourceTree = "<group>"; };
 		84AB60A4244AFD990031DADE /* UIImage+MHSVG.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MHSVG.m"; sourceTree = "<group>"; };
+		84CBFE2D245AA6E300054D07 /* MHContactsItemViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHContactsItemViewModel.h; sourceTree = "<group>"; };
+		84CBFE2E245AA6E300054D07 /* MHContactsItemViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHContactsItemViewModel.m; sourceTree = "<group>"; };
+		84CBFE30245AC7FB00054D07 /* MHTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHTableViewCell.m; sourceTree = "<group>"; };
+		84CBFE31245AC7FC00054D07 /* MHCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHCollectionViewCell.h; sourceTree = "<group>"; };
+		84CBFE32245AC7FC00054D07 /* MHTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHTableViewCell.h; sourceTree = "<group>"; };
+		84CBFE33245AC7FC00054D07 /* MHCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHCollectionViewCell.m; sourceTree = "<group>"; };
+		84CBFE34245AC7FC00054D07 /* MHView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHView.h; sourceTree = "<group>"; };
+		84CBFE35245AC7FD00054D07 /* MHView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHView.m; sourceTree = "<group>"; };
+		84CBFE3C245ACDF900054D07 /* MHContactsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHContactsTableViewCell.h; sourceTree = "<group>"; };
+		84CBFE3D245ACDF900054D07 /* MHContactsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHContactsTableViewCell.m; sourceTree = "<group>"; };
+		84CBFE3E245ACDF900054D07 /* MHContactsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHContactsTableViewCell.xib; sourceTree = "<group>"; };
 		94F38DBDD0C5EE456B831E4A /* Pods_WeChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		971B7041FF0A7CD187AB3BEE /* Pods-WeChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeChat/Pods-WeChat.debug.xcconfig"; sourceTree = "<group>"; };
 		AB79D87EFBDD8EDD42D99FD8 /* Pods-WeChat-WeChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChat-WeChatUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeChat-WeChatUITests/Pods-WeChat-WeChatUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -1615,6 +1632,7 @@
 		26225D7C1F65506E0074BFC3 /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
+				84CBFE2C245AA69D00054D07 /* ItemViewModel */,
 				2658C68F1F74FFC400C70840 /* AddFriends */,
 				2605C5D41F6633AC00B1F66E /* MHContactsViewModel.h */,
 				2605C5D51F6633AC00B1F66E /* MHContactsViewModel.m */,
@@ -1917,6 +1935,12 @@
 		263C896C1F6A305100F7A0AE /* BaseClass */ = {
 			isa = PBXGroup;
 			children = (
+				84CBFE31245AC7FC00054D07 /* MHCollectionViewCell.h */,
+				84CBFE33245AC7FC00054D07 /* MHCollectionViewCell.m */,
+				84CBFE32245AC7FC00054D07 /* MHTableViewCell.h */,
+				84CBFE30245AC7FB00054D07 /* MHTableViewCell.m */,
+				84CBFE34245AC7FC00054D07 /* MHView.h */,
+				84CBFE35245AC7FD00054D07 /* MHView.m */,
 				2615975A1FEA5F5700C6FD80 /* MHControl.h */,
 				261597591FEA5F5600C6FD80 /* MHControl.m */,
 				26003FF11F988B81000621B0 /* MHButton.h */,
@@ -1933,6 +1957,9 @@
 			isa = PBXGroup;
 			children = (
 				263004D01F751F7000247F3D /* AddFriends */,
+				84CBFE3C245ACDF900054D07 /* MHContactsTableViewCell.h */,
+				84CBFE3D245ACDF900054D07 /* MHContactsTableViewCell.m */,
+				84CBFE3E245ACDF900054D07 /* MHContactsTableViewCell.xib */,
 			);
 			path = Contacts;
 			sourceTree = "<group>";
@@ -2702,6 +2729,15 @@
 			path = TZImagePickerController;
 			sourceTree = "<group>";
 		};
+		84CBFE2C245AA69D00054D07 /* ItemViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				84CBFE2D245AA6E300054D07 /* MHContactsItemViewModel.h */,
+				84CBFE2E245AA6E300054D07 /* MHContactsItemViewModel.m */,
+			);
+			path = ItemViewModel;
+			sourceTree = "<group>";
+		};
 		DB1E4F3D3B653F9FE4DEFF73 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2950,6 +2986,7 @@
 				26452BEF201200060042B2FE /* WeChat_Moments_1.json in Resources */,
 				2609ED541F790B07002D31CE /* MHLoginCaptchaView.xib in Resources */,
 				DE44217B244C571D00206161 /* icons_filled_back.svg in Resources */,
+				84CBFE40245ACDF900054D07 /* MHContactsTableViewCell.xib in Resources */,
 				26D81813201F308A00DDB286 /* MHProfileInfoAlbumCell.xib in Resources */,
 				266E15DA1F8F7E7E000E31C5 /* MHCommitViewController.xib in Resources */,
 				264F2D171F94A80F00B244AD /* MHPlugDetailViewController.xib in Resources */,
@@ -3452,6 +3489,7 @@
 				261E015D1FDE2E010041E989 /* MHCommonSwitchItemViewModel.m in Sources */,
 				2615972C1FEA5AEE00C6FD80 /* MHMomentContentItemViewModel.m in Sources */,
 				26B89AB72022E599006FBE20 /* MHMomentShareInfo.m in Sources */,
+				84CBFE3F245ACDF900054D07 /* MHContactsTableViewCell.m in Sources */,
 				263119EE2015E4E600D589D8 /* NSMutableAttributedString+MHMoment.m in Sources */,
 				2638C5AD20450DC300C334E2 /* UIImage+ImageEffects.m in Sources */,
 				263D370E1F666569007267C3 /* LCActionSheet.m in Sources */,
@@ -3477,6 +3515,7 @@
 				26225D741F654D330074BFC3 /* MHTableViewController.m in Sources */,
 				26C7BEF31F8CD2DA00525126 /* MHFileManager.m in Sources */,
 				2667A3F91F7BA05700A3D7A2 /* MHMobileLoginViewModel.m in Sources */,
+				84CBFE36245AC7FD00054D07 /* MHTableViewCell.m in Sources */,
 				26363AC920134258000061EF /* MHEmoticonManager.m in Sources */,
 				260A609A1F77A53300F05120 /* MHSearchFriendsViewController.m in Sources */,
 				2615974C1FEA5DD300C6FD80 /* MHMomentFooterView.m in Sources */,
@@ -3527,6 +3566,7 @@
 				261E01561FDE2CF50041E989 /* MHNotificationViewModel.m in Sources */,
 				2629840E1F909D4400AA9131 /* MHLanguageViewModel.m in Sources */,
 				26BEBC7F1F8B78B1004D502F /* MHReflection.m in Sources */,
+				84CBFE37245AC7FD00054D07 /* MHCollectionViewCell.m in Sources */,
 				261596DD1FEA515000C6FD80 /* MHMomentViewController.m in Sources */,
 				263D37181F66656A007267C3 /* YYThreadSafeDictionary.m in Sources */,
 				2605C5D91F6633DE00B1F66E /* MHNewFeatureViewModel.m in Sources */,
@@ -3601,6 +3641,7 @@
 				263C89781F6A30E600F7A0AE /* MHCommonItemViewModel.m in Sources */,
 				26064AFC1F5DB52900566B95 /* MHNavigationControllerStack.m in Sources */,
 				2605E1061FE7924900F514B0 /* MHPrivacyViewController.m in Sources */,
+				84CBFE38245AC7FD00054D07 /* MHView.m in Sources */,
 				2615975B1FEA5F5700C6FD80 /* MHControl.m in Sources */,
 				26363ACF201346E6000061EF /* MHEmoticonGroup.m in Sources */,
 				264D36D71F70AEBD003BB8CE /* MHProfileHeaderCell.m in Sources */,
@@ -3608,6 +3649,7 @@
 				269754AC20170ACB005DE59C /* MHMomentCommentToolView.m in Sources */,
 				263D37121F666569007267C3 /* UIImage+LCActionSheet.m in Sources */,
 				26FE8E331F95119F00EC8BE0 /* MHPhotoManager.m in Sources */,
+				84CBFE2F245AA6E300054D07 /* MHContactsItemViewModel.m in Sources */,
 				26225D8C1F6554140074BFC3 /* MHWebViewModel.m in Sources */,
 				263D36EE1F666438007267C3 /* UITextView+MHExtension.m in Sources */,
 				262ADA4D1FCA75C700B0F4FD /* MHConfigureManager.m in Sources */,

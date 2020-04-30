@@ -8,7 +8,15 @@
 
 #import "MHContactsService.h"
 
+
+@interface MHContactsService ()
+
+@end
+
+
 @implementation MHContactsService
+
+// 单例
 MHSingletonM(Instance)
 
 - (instancetype)init
@@ -20,11 +28,23 @@ MHSingletonM(Instance)
 }
 
 
+/// 获取联系人
 -(RACSignal *)fetchContacts {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         
+        // 读取联系人json
+        // 读取路径
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"contacts" ofType:@"json"];
+        
+        // 获取data
+        NSData *data = [NSData dataWithContentsOfFile:path];
+        
+        // 转换成数据
+        NSArray *contatcs = [MHUser modelArrayWithJSON:data];
         
         
+        [subscriber sendNext:contatcs];
+        [subscriber sendCompleted];
         
         return [RACDisposable disposableWithBlock:^{
             

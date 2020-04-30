@@ -129,7 +129,7 @@
             /// 假设是这里统一都是qq号码登录
             user.qq = self.account;
             user.email = [NSString stringWithFormat:@"%@@qq.com",user.qq];       // PS：机智，拼接成QQ邮箱
-            user.wechatId = @"codermikehe";             // PS：瞎写的
+            user.wechatId = @"mikehe";             // PS：瞎写的
             user.phone = @"13874385438";                // PS：瞎写的
             user.channel = MHUserLoginChannelTypeQQ;    // QQ登录
             [subscriber sendNext:user];

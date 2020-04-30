@@ -12,6 +12,7 @@
 #import "WPFPinYinTools.h"
 #import "WPFPinYinDataManager.h"
 
+#import "MHContactsTableViewCell.h"
 
 @interface MHContactsViewController ()<UISearchResultsUpdating>
 /// viewModel
@@ -36,22 +37,31 @@
     [self _setupSubViews];
 }
 
+#pragma mark - Override
+- (void)bindViewModel {
+    [super bindViewModel];
+}
+
+/// 返回自定义的cell
+- (UITableViewCell *)tableView:(UITableView *)tableView dequeueReusableCellWithIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath{
+    return [MHContactsTableViewCell cellWithTableView:tableView];
+}
+
+/// 绑定数据
+- (void)configureCell:(MHContactsTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath withObject:(id)object{
+    [cell bindViewModel:object];
+}
 
 #pragma mark - 初始化
 - (void)_setup{
     
-    HanyuPinyinOutputFormat *outputFmt = [[HanyuPinyinOutputFormat alloc] init];
-    outputFmt.toneType = ToneTypeWithoutTone;
-    outputFmt.caseType = CaseTypeUppercase;
-    
-    NSString *str = [WPFPinYinTools firstCharactor:@"h何千元" withFormat: outputFmt];
-    NSLog(@"str is %@", str);
+    self.tableView.rowHeight = 56.0f;
     
     /// 监听searchVc的活跃度
-    [RACObserve(self, searchController.active)
-     subscribeNext:^(NSNumber * active) {
-         NSLog(@"active is %zd",active.boolValue);
-     }];
+//    [RACObserve(self, searchController.active)
+//     subscribeNext:^(NSNumber * active) {
+//         NSLog(@"active is %zd",active.boolValue);
+//     }];
 }
 
 #pragma mark - 设置导航栏
@@ -66,32 +76,32 @@
 //    MHAddFriendsViewModel *viewModel = [[MHAddFriendsViewModel alloc] initWithServices:self.viewModel.services params:nil];
 //    MHAddFriendsViewController *add = [[MHAddFriendsViewController alloc] initWithViewModel:viewModel];
     
-    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
-    self.searchController.view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.95];
-    
-    UISearchBar *bar = self.searchController.searchBar;
-    bar.barStyle = UIBarStyleDefault;
-    bar.translucent = YES;
-    bar.barTintColor = MHColor(248, 248, 248);
-    bar.tintColor = [UIColor colorWithRed:0 green:(190 / 255.0) blue:(12 / 255.0) alpha:1];
-//    UIImageView *view = [[[bar.subviews objectAtIndex:0] subviews] firstObject];
-//    view.layer.borderColor = [UIColor redColor].CGColor;
-//    view.layer.borderWidth = 1;
-    
-    bar.layer.borderColor = [UIColor redColor].CGColor;
-    
-    bar.showsBookmarkButton = YES;
-    [bar setImage:[UIImage imageNamed:@"VoiceSearchStartBtn"] forSearchBarIcon:UISearchBarIconBookmark state:UIControlStateNormal];
-//    bar.delegate = self;
-    CGRect rect = bar.frame;
-    rect.size.height = 44;
-    bar.frame = rect;
-    self.tableView.tableHeaderView = bar;
-
-    
-    
-    
-    self.searchController.searchResultsUpdater = self;
+//    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+//    self.searchController.view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.95];
+//
+//    UISearchBar *bar = self.searchController.searchBar;
+//    bar.barStyle = UIBarStyleDefault;
+//    bar.translucent = YES;
+//    bar.barTintColor = MHColor(248, 248, 248);
+//    bar.tintColor = [UIColor colorWithRed:0 green:(190 / 255.0) blue:(12 / 255.0) alpha:1];
+////    UIImageView *view = [[[bar.subviews objectAtIndex:0] subviews] firstObject];
+////    view.layer.borderColor = [UIColor redColor].CGColor;
+////    view.layer.borderWidth = 1;
+//
+//    bar.layer.borderColor = [UIColor redColor].CGColor;
+//
+//    bar.showsBookmarkButton = YES;
+//    [bar setImage:[UIImage imageNamed:@"VoiceSearchStartBtn"] forSearchBarIcon:UISearchBarIconBookmark state:UIControlStateNormal];
+////    bar.delegate = self;
+//    CGRect rect = bar.frame;
+//    rect.size.height = 44;
+//    bar.frame = rect;
+//    self.tableView.tableHeaderView = bar;
+//
+//
+//
+//
+//    self.searchController.searchResultsUpdater = self;
 }
 
 // Called when the search bar's text or scope has changed or when the search bar becomes first responder.
