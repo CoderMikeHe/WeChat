@@ -16,6 +16,9 @@
 /// 用户昵称
 @property (weak, nonatomic) IBOutlet UILabel *nicknameLabel;
 
+/// 分割线
+@property (weak, nonatomic) IBOutlet UIView *divider;
+
 /// viewModel
 @property (nonatomic, readwrite, strong) MHContactsItemViewModel *viewModel;
 
@@ -46,6 +49,11 @@
         self.nicknameLabel.text = viewModel.contact.screenName;
         [self.avatarView yy_setImageWithURL:viewModel.contact.profileImageUrl placeholder:MHWebAvatarImagePlaceholder() options:MHWebImageOptionAutomatic completion:NULL];
     }
+}
+
+
+- (void)setIndexPath:(NSIndexPath *)indexPath rowsInSection:(NSInteger)rows {
+    
 }
 
 

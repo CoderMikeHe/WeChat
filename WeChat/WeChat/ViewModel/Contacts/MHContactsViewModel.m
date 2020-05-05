@@ -21,6 +21,12 @@
 
 /// 存储联系人 拼音 首字母
 @property (nonatomic, readwrite, strong) NSArray *letters;
+
+/// 总人数
+@property (nonatomic, readwrite, copy) NSString *total;
+
+/// searchBarViewModel
+@property (nonatomic, readwrite, strong) MHNavSearchBarViewModel *searchBarViewModel;
 @end
 
 
@@ -31,7 +37,14 @@
     
     self.title = @"通讯录";
     
-    self.shouldMultiSections = true;
+    /// 隐藏导航栏
+    self.prefersNavigationBarHidden = YES;
+    self.prefersNavigationBarBottomLineHidden = YES;
+    
+    self.shouldMultiSections = YES;
+    
+    // 配置viewModel
+    self.searchBarViewModel = [[MHNavSearchBarViewModel alloc] init];
     
     @weakify(self);
     self.addFriendsCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
@@ -63,6 +76,10 @@
 #pragma mark - 辅助方法
 - (void)_handleContacts:(NSArray *)contacts {
     if (MHObjectIsNil(contacts) || contacts.count == 0) return;
+    
+    // 计算总人数
+    self.total = [NSString stringWithFormat:@"%ld位联系人",contacts.count];
+    
     
     // 这里需要处理数据
     NSMutableDictionary *tempDict = [[NSMutableDictionary alloc] init];

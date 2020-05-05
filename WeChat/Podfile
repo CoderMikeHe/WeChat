@@ -177,6 +177,9 @@ pod 'SVGKit'
 # 类似微信的客户端本地搜索、搜索关键字高亮显示
 pod 'HighlightedSearch', '0.1.0'
 
+# 侧滑 https://github.com/MortimerGoro/MGSwipeTableCell
+pod 'MGSwipeTableCell', '~> 1.6.11'
+
 target 'WeChatTests' do
 end
 

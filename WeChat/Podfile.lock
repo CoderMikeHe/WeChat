@@ -104,6 +104,7 @@ PODS:
   - LxDBAnything (1.1.0)
   - Masonry (1.0.2)
   - MBProgressHUD (1.1.0)
+  - MGSwipeTableCell (1.6.11)
   - MJExtension (3.0.13)
   - MJRefresh (3.1.12)
   - MMMaterialDesignSpinner (0.2.3)
@@ -180,6 +181,7 @@ DEPENDENCIES:
   - LxDBAnything (= 1.1.0)
   - Masonry (= 1.0.2)
   - MBProgressHUD (= 1.1.0)
+  - MGSwipeTableCell (~> 1.6.11)
   - MJExtension (= 3.0.13)
   - MJRefresh (= 3.1.12)
   - MMMaterialDesignSpinner (= 0.2.3)
@@ -239,6 +241,7 @@ SPEC REPOS:
     - LxDBAnything
     - Masonry
     - MBProgressHUD
+    - MGSwipeTableCell
     - MJExtension
     - MJRefresh
     - MMMaterialDesignSpinner
@@ -312,6 +315,7 @@ SPEC CHECKSUMS:
   LxDBAnything: 154a2ad1ae32e70355d886b5443260543bb60c71
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  MGSwipeTableCell: b804e4e450dee439c42250be90bd50458bf67fce
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MMMaterialDesignSpinner: 55c80b454f7928d0ed789cc3c456fa06bd6a2f16
@@ -341,6 +345,6 @@ SPEC CHECKSUMS:
   ZBarSDK: 4c1b5daeb7d6cc67dc9355e690af0230a661f6ec
   ZYCornerRadius: f0af817be7805b5c63d793042ca7a03f81e14069
 
-PODFILE CHECKSUM: 810800d873839ab8bf205663ea40d72422a58106
+PODFILE CHECKSUM: 0188103cb76b33063188d96e9c10f033a55d1bcd
 
 COCOAPODS: 1.9.1

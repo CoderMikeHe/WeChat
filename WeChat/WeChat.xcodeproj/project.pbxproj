@@ -310,6 +310,9 @@
 		84CBFE40245ACDF900054D07 /* MHContactsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84CBFE3E245ACDF900054D07 /* MHContactsTableViewCell.xib */; };
 		864BB5E20D5521374F720EC0 /* Pods_WeChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F38DBDD0C5EE456B831E4A /* Pods_WeChat.framework */; };
 		AD21F790DBB21B99763DBF6A /* Pods_WeChat_WeChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F007961429C86520F15C504 /* Pods_WeChat_WeChatUITests.framework */; };
+		DE191DB3245E41010022E1A9 /* MHNavSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DE191DB2245E41010022E1A9 /* MHNavSearchBar.m */; };
+		DE349F4D245FC2EA0086B1AB /* MHNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DE349F4C245FC2EA0086B1AB /* MHNavigationBar.m */; };
+		DE349F4F245FC3380086B1AB /* MHNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE349F4E245FC3380086B1AB /* MHNavigationBar.xib */; };
 		DE44216C244BF0CC00206161 /* icons_outlined_discover.svg in Resources */ = {isa = PBXBuildFile; fileRef = DE442164244BF0CB00206161 /* icons_outlined_discover.svg */; };
 		DE44216D244BF0CC00206161 /* icons_filled_chats.svg in Resources */ = {isa = PBXBuildFile; fileRef = DE442165244BF0CB00206161 /* icons_filled_chats.svg */; };
 		DE44216E244BF0CC00206161 /* icons_filled_discover.svg in Resources */ = {isa = PBXBuildFile; fileRef = DE442166244BF0CB00206161 /* icons_filled_discover.svg */; };
@@ -321,8 +324,21 @@
 		DE442177244C547400206161 /* icons_outlined_add2.svg in Resources */ = {isa = PBXBuildFile; fileRef = DE442176244C547400206161 /* icons_outlined_add2.svg */; };
 		DE442179244C55E000206161 /* icons_outlined_add-friends.svg in Resources */ = {isa = PBXBuildFile; fileRef = DE442178244C55E000206161 /* icons_outlined_add-friends.svg */; };
 		DE44217B244C571D00206161 /* icons_filled_back.svg in Resources */ = {isa = PBXBuildFile; fileRef = DE44217A244C571D00206161 /* icons_filled_back.svg */; };
+		DE4973C3245EB426003FB76C /* MHNavSearchBarViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4973C2245EB426003FB76C /* MHNavSearchBarViewModel.m */; };
+		DE4973C7245EC891003FB76C /* icons_outlined_searchicon_moment.svg in Resources */ = {isa = PBXBuildFile; fileRef = DE4973C5245EC891003FB76C /* icons_outlined_searchicon_moment.svg */; };
+		DE4973C8245EC891003FB76C /* icons_outlined_searchicon_miniprogram.svg in Resources */ = {isa = PBXBuildFile; fileRef = DE4973C6245EC891003FB76C /* icons_outlined_searchicon_miniprogram.svg */; };
+		DE4973CA245EC8CA003FB76C /* icons_outlined_searchicon_music.svg in Resources */ = {isa = PBXBuildFile; fileRef = DE4973C9245EC8C9003FB76C /* icons_outlined_searchicon_music.svg */; };
+		DE4973CC245EC905003FB76C /* icons_outlined_searchicon_official_accounts.svg in Resources */ = {isa = PBXBuildFile; fileRef = DE4973CB245EC905003FB76C /* icons_outlined_searchicon_official_accounts.svg */; };
+		DE4973CF245EC949003FB76C /* icons_outlined_searchicon_subscriptions.svg in Resources */ = {isa = PBXBuildFile; fileRef = DE4973CD245EC948003FB76C /* icons_outlined_searchicon_subscriptions.svg */; };
+		DE4973D0245EC949003FB76C /* icons_outlined_searchicon_sticker.svg in Resources */ = {isa = PBXBuildFile; fileRef = DE4973CE245EC949003FB76C /* icons_outlined_searchicon_sticker.svg */; };
+		DE4973D2245EC991003FB76C /* icons_outlined_search.svg in Resources */ = {isa = PBXBuildFile; fileRef = DE4973D1245EC991003FB76C /* icons_outlined_search.svg */; };
+		DE4A9D62245C25DD0094E21A /* SCIndexViewConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4A9D5C245C25DC0094E21A /* SCIndexViewConfiguration.m */; };
+		DE4A9D63245C25DD0094E21A /* SCIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4A9D5E245C25DC0094E21A /* SCIndexView.m */; };
+		DE4A9D64245C25DD0094E21A /* UITableView+SCIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4A9D60245C25DC0094E21A /* UITableView+SCIndexView.m */; };
 		DE76F56B2459A85200A7C4A6 /* contacts.json in Resources */ = {isa = PBXBuildFile; fileRef = DE76F56A2459A85200A7C4A6 /* contacts.json */; };
 		DE76F56F2459AD0000A7C4A6 /* MHContactsService.m in Sources */ = {isa = PBXBuildFile; fileRef = DE76F56E2459AD0000A7C4A6 /* MHContactsService.m */; };
+		DEA6F3D4245AF3E200542C6B /* MHContactsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA6F3D3245AF3E200542C6B /* MHContactsHeaderView.m */; };
+		DEA6F3D8245AF5D900542C6B /* MHContactsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA6F3D7245AF5D900542C6B /* MHContactsHeaderView.xib */; };
 		E932C42921369FC600B32A9F /* MHCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E932C42821369FC500B32A9F /* MHCameraViewController.m */; };
 		E932C42D2136A16700B32A9F /* MHCameraControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = E932C42C2136A16700B32A9F /* MHCameraControlView.m */; };
 		E932C4302136A1D200B32A9F /* MHVideoPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = E932C42F2136A1D200B32A9F /* MHVideoPreviewView.m */; };
@@ -944,6 +960,11 @@
 		94F38DBDD0C5EE456B831E4A /* Pods_WeChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		971B7041FF0A7CD187AB3BEE /* Pods-WeChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeChat/Pods-WeChat.debug.xcconfig"; sourceTree = "<group>"; };
 		AB79D87EFBDD8EDD42D99FD8 /* Pods-WeChat-WeChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChat-WeChatUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeChat-WeChatUITests/Pods-WeChat-WeChatUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DE191DB1245E41010022E1A9 /* MHNavSearchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHNavSearchBar.h; sourceTree = "<group>"; };
+		DE191DB2245E41010022E1A9 /* MHNavSearchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHNavSearchBar.m; sourceTree = "<group>"; };
+		DE349F4B245FC2EA0086B1AB /* MHNavigationBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHNavigationBar.h; sourceTree = "<group>"; };
+		DE349F4C245FC2EA0086B1AB /* MHNavigationBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHNavigationBar.m; sourceTree = "<group>"; };
+		DE349F4E245FC3380086B1AB /* MHNavigationBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHNavigationBar.xib; sourceTree = "<group>"; };
 		DE442164244BF0CB00206161 /* icons_outlined_discover.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_outlined_discover.svg; sourceTree = "<group>"; };
 		DE442165244BF0CB00206161 /* icons_filled_chats.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_filled_chats.svg; sourceTree = "<group>"; };
 		DE442166244BF0CB00206161 /* icons_filled_discover.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_filled_discover.svg; sourceTree = "<group>"; };
@@ -955,9 +976,27 @@
 		DE442176244C547400206161 /* icons_outlined_add2.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_outlined_add2.svg; sourceTree = "<group>"; };
 		DE442178244C55E000206161 /* icons_outlined_add-friends.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "icons_outlined_add-friends.svg"; sourceTree = "<group>"; };
 		DE44217A244C571D00206161 /* icons_filled_back.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_filled_back.svg; sourceTree = "<group>"; };
+		DE4973C1245EB426003FB76C /* MHNavSearchBarViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHNavSearchBarViewModel.h; sourceTree = "<group>"; };
+		DE4973C2245EB426003FB76C /* MHNavSearchBarViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHNavSearchBarViewModel.m; sourceTree = "<group>"; };
+		DE4973C5245EC891003FB76C /* icons_outlined_searchicon_moment.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_outlined_searchicon_moment.svg; sourceTree = "<group>"; };
+		DE4973C6245EC891003FB76C /* icons_outlined_searchicon_miniprogram.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_outlined_searchicon_miniprogram.svg; sourceTree = "<group>"; };
+		DE4973C9245EC8C9003FB76C /* icons_outlined_searchicon_music.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_outlined_searchicon_music.svg; sourceTree = "<group>"; };
+		DE4973CB245EC905003FB76C /* icons_outlined_searchicon_official_accounts.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_outlined_searchicon_official_accounts.svg; sourceTree = "<group>"; };
+		DE4973CD245EC948003FB76C /* icons_outlined_searchicon_subscriptions.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_outlined_searchicon_subscriptions.svg; sourceTree = "<group>"; };
+		DE4973CE245EC949003FB76C /* icons_outlined_searchicon_sticker.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_outlined_searchicon_sticker.svg; sourceTree = "<group>"; };
+		DE4973D1245EC991003FB76C /* icons_outlined_search.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_outlined_search.svg; sourceTree = "<group>"; };
+		DE4A9D5C245C25DC0094E21A /* SCIndexViewConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCIndexViewConfiguration.m; sourceTree = "<group>"; };
+		DE4A9D5D245C25DC0094E21A /* UITableView+SCIndexView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+SCIndexView.h"; sourceTree = "<group>"; };
+		DE4A9D5E245C25DC0094E21A /* SCIndexView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCIndexView.m; sourceTree = "<group>"; };
+		DE4A9D5F245C25DC0094E21A /* SCIndexViewConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCIndexViewConfiguration.h; sourceTree = "<group>"; };
+		DE4A9D60245C25DC0094E21A /* UITableView+SCIndexView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SCIndexView.m"; sourceTree = "<group>"; };
+		DE4A9D61245C25DC0094E21A /* SCIndexView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCIndexView.h; sourceTree = "<group>"; };
 		DE76F56A2459A85200A7C4A6 /* contacts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = contacts.json; sourceTree = "<group>"; };
 		DE76F56D2459AD0000A7C4A6 /* MHContactsService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHContactsService.h; sourceTree = "<group>"; };
 		DE76F56E2459AD0000A7C4A6 /* MHContactsService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHContactsService.m; sourceTree = "<group>"; };
+		DEA6F3D2245AF3E200542C6B /* MHContactsHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHContactsHeaderView.h; sourceTree = "<group>"; };
+		DEA6F3D3245AF3E200542C6B /* MHContactsHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHContactsHeaderView.m; sourceTree = "<group>"; };
+		DEA6F3D7245AF5D900542C6B /* MHContactsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHContactsHeaderView.xib; sourceTree = "<group>"; };
 		E932C42721369FC500B32A9F /* MHCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHCameraViewController.h; sourceTree = "<group>"; };
 		E932C42821369FC500B32A9F /* MHCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHCameraViewController.m; sourceTree = "<group>"; };
 		E932C42B2136A16700B32A9F /* MHCameraControlView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHCameraControlView.h; sourceTree = "<group>"; };
@@ -1039,12 +1078,12 @@
 		26064AAA1F5D9A1400566B95 = {
 			isa = PBXGroup;
 			children = (
+				DB1E4F3D3B653F9FE4DEFF73 /* Frameworks */,
+				E368DFC08996A6D47EB35CDB /* Pods */,
+				26064AB41F5D9A1400566B95 /* Products */,
 				26064AB51F5D9A1400566B95 /* WeChat */,
 				26064ACF1F5D9A1400566B95 /* WeChatTests */,
 				26064ADA1F5D9A1400566B95 /* WeChatUITests */,
-				26064AB41F5D9A1400566B95 /* Products */,
-				E368DFC08996A6D47EB35CDB /* Pods */,
-				DB1E4F3D3B653F9FE4DEFF73 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1206,6 +1245,7 @@
 		26064AF01F5DA21000566B95 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				DE4A9D5B245C25DC0094E21A /* SCIndexView */,
 				2638C5AA20450DC300C334E2 /* UIImage+ImageEffects */,
 				261597551FEA5E4200C6FD80 /* PhotoBrowser */,
 				26FE8E4E1F9514D100EC8BE0 /* SDCycleScrollView */,
@@ -1708,6 +1748,7 @@
 		26225D821F65506E0074BFC3 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				DE4973C0245EB3F9003FB76C /* SearchBar */,
 				263C896B1F6A302300F7A0AE /* Common */,
 				265490551F99E921003AEED1 /* MHTestViewModel.h */,
 				265490561F99E921003AEED1 /* MHTestViewModel.m */,
@@ -1957,6 +1998,9 @@
 			isa = PBXGroup;
 			children = (
 				263004D01F751F7000247F3D /* AddFriends */,
+				DEA6F3D2245AF3E200542C6B /* MHContactsHeaderView.h */,
+				DEA6F3D3245AF3E200542C6B /* MHContactsHeaderView.m */,
+				DEA6F3D7245AF5D900542C6B /* MHContactsHeaderView.xib */,
 				84CBFE3C245ACDF900054D07 /* MHContactsTableViewCell.h */,
 				84CBFE3D245ACDF900054D07 /* MHContactsTableViewCell.m */,
 				84CBFE3E245ACDF900054D07 /* MHContactsTableViewCell.xib */,
@@ -2019,11 +2063,14 @@
 		263C89731F6A305100F7A0AE /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				DE349F4A245FC2C90086B1AB /* NavigationBar */,
 				263C89741F6A305100F7A0AE /* Common */,
 				261526691F6AE17400400BA0 /* MHTabBar.h */,
 				2615266A1F6AE17400400BA0 /* MHTabBar.m */,
 				26AEEE0B1F7D16F600A270EE /* MHSearchBar.h */,
 				26AEEE0C1F7D16F600A270EE /* MHSearchBar.m */,
+				DE191DB1245E41010022E1A9 /* MHNavSearchBar.h */,
+				DE191DB2245E41010022E1A9 /* MHNavSearchBar.m */,
 				266E15CE1F8F2086000E31C5 /* MHTextField.h */,
 				266E15CF1F8F2086000E31C5 /* MHTextField.m */,
 				262ADA471FCA741800B0F4FD /* MHDebugTouchView.h */,
@@ -2422,6 +2469,7 @@
 		2667A3EF1F7B987600A3D7A2 /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
+				DE4973C4245EC87F003FB76C /* SearchBar */,
 				DE442175244C545A00206161 /* NavigationBar */,
 				DE442174244C53A000206161 /* MainFrame */,
 				DE442163244BF09600206161 /* TabBar */,
@@ -2748,6 +2796,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DE349F4A245FC2C90086B1AB /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				DE349F4B245FC2EA0086B1AB /* MHNavigationBar.h */,
+				DE349F4C245FC2EA0086B1AB /* MHNavigationBar.m */,
+				DE349F4E245FC3380086B1AB /* MHNavigationBar.xib */,
+			);
+			path = NavigationBar;
+			sourceTree = "<group>";
+		};
 		DE442163244BF09600206161 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -2778,6 +2836,42 @@
 				DE442176244C547400206161 /* icons_outlined_add2.svg */,
 			);
 			path = NavigationBar;
+			sourceTree = "<group>";
+		};
+		DE4973C0245EB3F9003FB76C /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				DE4973C1245EB426003FB76C /* MHNavSearchBarViewModel.h */,
+				DE4973C2245EB426003FB76C /* MHNavSearchBarViewModel.m */,
+			);
+			path = SearchBar;
+			sourceTree = "<group>";
+		};
+		DE4973C4245EC87F003FB76C /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				DE4973D1245EC991003FB76C /* icons_outlined_search.svg */,
+				DE4973C9245EC8C9003FB76C /* icons_outlined_searchicon_music.svg */,
+				DE4973CE245EC949003FB76C /* icons_outlined_searchicon_sticker.svg */,
+				DE4973CD245EC948003FB76C /* icons_outlined_searchicon_subscriptions.svg */,
+				DE4973CB245EC905003FB76C /* icons_outlined_searchicon_official_accounts.svg */,
+				DE4973C6245EC891003FB76C /* icons_outlined_searchicon_miniprogram.svg */,
+				DE4973C5245EC891003FB76C /* icons_outlined_searchicon_moment.svg */,
+			);
+			path = SearchBar;
+			sourceTree = "<group>";
+		};
+		DE4A9D5B245C25DC0094E21A /* SCIndexView */ = {
+			isa = PBXGroup;
+			children = (
+				DE4A9D61245C25DC0094E21A /* SCIndexView.h */,
+				DE4A9D5E245C25DC0094E21A /* SCIndexView.m */,
+				DE4A9D5F245C25DC0094E21A /* SCIndexViewConfiguration.h */,
+				DE4A9D5C245C25DC0094E21A /* SCIndexViewConfiguration.m */,
+				DE4A9D5D245C25DC0094E21A /* UITableView+SCIndexView.h */,
+				DE4A9D60245C25DC0094E21A /* UITableView+SCIndexView.m */,
+			);
+			path = SCIndexView;
 			sourceTree = "<group>";
 		};
 		DE76F56C2459AC6B00A7C4A6 /* Contacts */ = {
@@ -2968,6 +3062,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE4973D0245EC949003FB76C /* icons_outlined_searchicon_sticker.svg in Resources */,
 				26FE8E471F95143D00EC8BE0 /* IDMPBLocalizations.bundle in Resources */,
 				26363ACB20134298000061EF /* Emoticons.bundle in Resources */,
 				26FE8E491F95143D00EC8BE0 /* IDMPhotoBrowser.bundle in Resources */,
@@ -2980,11 +3075,13 @@
 				26A7E7421F79FE550015CA71 /* MHBootLoginViewController.xib in Resources */,
 				263004D51F751FB800247F3D /* MHSearchFriendsHeaderView.xib in Resources */,
 				DE442172244BF0CC00206161 /* icons_filled_contacts.svg in Resources */,
+				DE4973C7245EC891003FB76C /* icons_outlined_searchicon_moment.svg in Resources */,
 				26D81809201F2A7600DDB286 /* MHProfileInfoMoreCell.xib in Resources */,
 				2667A3F61F7B9FB100A3D7A2 /* MHMobileLoginViewController.xib in Resources */,
 				26064AC31F5D9A1400566B95 /* Assets.xcassets in Resources */,
 				26452BEF201200060042B2FE /* WeChat_Moments_1.json in Resources */,
 				2609ED541F790B07002D31CE /* MHLoginCaptchaView.xib in Resources */,
+				DE4973CF245EC949003FB76C /* icons_outlined_searchicon_subscriptions.svg in Resources */,
 				DE44217B244C571D00206161 /* icons_filled_back.svg in Resources */,
 				84CBFE40245ACDF900054D07 /* MHContactsTableViewCell.xib in Resources */,
 				26D81813201F308A00DDB286 /* MHProfileInfoAlbumCell.xib in Resources */,
@@ -2993,14 +3090,19 @@
 				DE44216F244BF0CC00206161 /* icons_filled_me.svg in Resources */,
 				DE442173244BF0CC00206161 /* icons_outlined_me.svg in Resources */,
 				26452BF1201200120042B2FE /* WeChat_Moments_2.json in Resources */,
+				DE4973C8245EC891003FB76C /* icons_outlined_searchicon_miniprogram.svg in Resources */,
 				26D817FF201F0EC000DDB286 /* MHProfileInfoFooterView.xib in Resources */,
+				DE349F4F245FC3380086B1AB /* MHNavigationBar.xib in Resources */,
 				2667A3E51F7B768C00A3D7A2 /* MHAccountLoginView.xib in Resources */,
 				DE76F56B2459A85200A7C4A6 /* contacts.json in Resources */,
 				26A7E74F1F7A32500015CA71 /* MHLoginViewController.xib in Resources */,
 				DE442170244BF0CC00206161 /* icons_outlined_chats.svg in Resources */,
 				26CCB9D3202453700090DBC5 /* WeChatSight.mp4 in Resources */,
+				DE4973CC245EC905003FB76C /* icons_outlined_searchicon_official_accounts.svg in Resources */,
+				DE4973D2245EC991003FB76C /* icons_outlined_search.svg in Resources */,
 				26FE8E8B1F9514D100EC8BE0 /* TZImagePickerController.bundle in Resources */,
 				266E15D51F8F7E43000E31C5 /* MHRegisterViewController.xib in Resources */,
+				DEA6F3D8245AF5D900542C6B /* MHContactsHeaderView.xib in Resources */,
 				26D8180E201F306100DDB286 /* MHProfileInfoZoneCell.xib in Resources */,
 				DE442179244C55E000206161 /* icons_outlined_add-friends.svg in Resources */,
 				DE44216E244BF0CC00206161 /* icons_filled_discover.svg in Resources */,
@@ -3012,6 +3114,7 @@
 				2618AFE01F91BDA300F82A46 /* MHModifyNicknameViewController.xib in Resources */,
 				DE442177244C547400206161 /* icons_outlined_add2.svg in Resources */,
 				264D36D81F70AEBD003BB8CE /* MHProfileHeaderCell.xib in Resources */,
+				DE4973CA245EC8CA003FB76C /* icons_outlined_searchicon_music.svg in Resources */,
 				2609ED4F1F790AD3002D31CE /* MHLoginPasswordView.xib in Resources */,
 				265DBFEE1FE0C8E400A5FCC8 /* MHAboutUsHeaderView.xib in Resources */,
 				2667A3EA1F7B7B0A00A3D7A2 /* MHMobileLoginView.xib in Resources */,
@@ -3104,6 +3207,7 @@
 				"${BUILT_PRODUCTS_DIR}/KVOController/KVOController.framework",
 				"${BUILT_PRODUCTS_DIR}/LBXScan/LBXScan.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MGSwipeTableCell/MGSwipeTableCell.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/MMMaterialDesignSpinner/MMMaterialDesignSpinner.framework",
@@ -3163,6 +3267,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KVOController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LBXScan.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MGSwipeTableCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MMMaterialDesignSpinner.framework",
@@ -3250,6 +3355,7 @@
 				"${BUILT_PRODUCTS_DIR}/KVOController/KVOController.framework",
 				"${BUILT_PRODUCTS_DIR}/LBXScan/LBXScan.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MGSwipeTableCell/MGSwipeTableCell.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/MMMaterialDesignSpinner/MMMaterialDesignSpinner.framework",
@@ -3309,6 +3415,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KVOController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LBXScan.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MGSwipeTableCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MMMaterialDesignSpinner.framework",
@@ -3378,6 +3485,7 @@
 				"${BUILT_PRODUCTS_DIR}/KVOController/KVOController.framework",
 				"${BUILT_PRODUCTS_DIR}/LBXScan/LBXScan.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MGSwipeTableCell/MGSwipeTableCell.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/MMMaterialDesignSpinner/MMMaterialDesignSpinner.framework",
@@ -3437,6 +3545,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KVOController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LBXScan.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MGSwipeTableCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MMMaterialDesignSpinner.framework",
@@ -3516,6 +3625,7 @@
 				26C7BEF31F8CD2DA00525126 /* MHFileManager.m in Sources */,
 				2667A3F91F7BA05700A3D7A2 /* MHMobileLoginViewModel.m in Sources */,
 				84CBFE36245AC7FD00054D07 /* MHTableViewCell.m in Sources */,
+				DE191DB3245E41010022E1A9 /* MHNavSearchBar.m in Sources */,
 				26363AC920134258000061EF /* MHEmoticonManager.m in Sources */,
 				260A609A1F77A53300F05120 /* MHSearchFriendsViewController.m in Sources */,
 				2615974C1FEA5DD300C6FD80 /* MHMomentFooterView.m in Sources */,
@@ -3592,6 +3702,7 @@
 				2624CAEE1F98DFC80083923F /* MHKeyedSubscript.m in Sources */,
 				263D370F1F666569007267C3 /* LCActionSheetCell.m in Sources */,
 				260175851FE904D1000F6A25 /* MHGeneralViewController.m in Sources */,
+				DE4973C3245EB426003FB76C /* MHNavSearchBarViewModel.m in Sources */,
 				261753361F73C41D00812E1B /* MHFeatureSignatureViewController.m in Sources */,
 				263D37191F66656A007267C3 /* YYTimer.m in Sources */,
 				26FE8E811F9514D100EC8BE0 /* TAPageControl.m in Sources */,
@@ -3616,6 +3727,7 @@
 				265490571F99E921003AEED1 /* MHTestViewModel.m in Sources */,
 				2633E0201FEA089E00D0E187 /* MHEmotionViewModel.m in Sources */,
 				26FE8E4C1F95143D00EC8BE0 /* IDMTapDetectingView.m in Sources */,
+				DEA6F3D4245AF3E200542C6B /* MHContactsHeaderView.m in Sources */,
 				26C7BEE51F8CBED800525126 /* SAMKeychain+MHUtil.m in Sources */,
 				2605C5CA1F6631D300B1F66E /* MHProfileViewModel.m in Sources */,
 				263D37151F666569007267C3 /* YYKeychain.m in Sources */,
@@ -3627,6 +3739,7 @@
 				26064ABB1F5D9A1400566B95 /* AppDelegate.m in Sources */,
 				26FE8E851F9514D100EC8BE0 /* NSBundle+TZImagePicker.m in Sources */,
 				2618AFDF1F91BDA300F82A46 /* MHModifyNicknameViewController.m in Sources */,
+				DE349F4D245FC2EA0086B1AB /* MHNavigationBar.m in Sources */,
 				26225D8F1F65545E0074BFC3 /* MHTabBarViewModel.m in Sources */,
 				263C89841F6A355C00F7A0AE /* MHCommonViewModel.m in Sources */,
 				2617531D1F739C1900812E1B /* MHCommonLabelItemViewModel.m in Sources */,
@@ -3676,6 +3789,7 @@
 				2624CAE51F98DF9B0083923F /* RACSignal+MHHTTPServiceAdditions.m in Sources */,
 				261CB6311FAC18110080B7C1 /* MHLiveInfo.m in Sources */,
 				DE76F56F2459AD0000A7C4A6 /* MHContactsService.m in Sources */,
+				DE4A9D63245C25DD0094E21A /* SCIndexView.m in Sources */,
 				2634C7221FF0A33A00B1F639 /* MHTableView.m in Sources */,
 				2633E02D1FEA0A7E00D0E187 /* MHUsefulEmotionViewModel.m in Sources */,
 				26A7E7581F7A44010015CA71 /* MHLoginBaseViewModel.m in Sources */,
@@ -3693,6 +3807,7 @@
 				26FE8E821F9514D100EC8BE0 /* SDCollectionViewCell.m in Sources */,
 				261753241F73ADB800812E1B /* MHMoreInfoViewModel.m in Sources */,
 				2624CAF21F98E97B0083923F /* MHLiveRoom.m in Sources */,
+				DE4A9D64245C25DD0094E21A /* UITableView+SCIndexView.m in Sources */,
 				261E015A1FDE2D200041E989 /* MHNotificationViewController.m in Sources */,
 				26D81808201F2A7600DDB286 /* MHProfileInfoMoreCell.m in Sources */,
 				261753281F73ADFB00812E1B /* MHMoreInfoViewController.m in Sources */,
@@ -3709,6 +3824,7 @@
 				263D36E61F666438007267C3 /* NSString+SBExtension.m in Sources */,
 				26BEBC7E1F8B78B1004D502F /* MHObject.m in Sources */,
 				26225D861F6550840074BFC3 /* MHViewModel.m in Sources */,
+				DE4A9D62245C25DD0094E21A /* SCIndexViewConfiguration.m in Sources */,
 				26AEEE0A1F7CE30800A270EE /* MHZoneCodeViewModel.m in Sources */,
 				2615974F1FEA5DD300C6FD80 /* MHMomentOperationMoreItemView.m in Sources */,
 				26FE65611F92F8D000642615 /* MHGenderViewController.m in Sources */,
