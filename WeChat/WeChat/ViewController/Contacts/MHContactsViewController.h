@@ -8,6 +8,6 @@
 
 #import "MHTableViewController.h"
 #import "MHContactsViewModel.h"
-@interface MHContactsViewController : MHTableViewController<UISearchResultsUpdating>
+@interface MHContactsViewController : MHTableViewController
 
 @end

@@ -54,10 +54,10 @@
     self.viewModel = viewModel;
     
     @weakify(self);
-    [[[RACObserve(self, viewModel.animating) skip:1] distinctUntilChanged]  subscribeNext:^(NSNumber *animating) {
+    [[[RACObserve(self, viewModel.isEdit) skip:1] distinctUntilChanged]  subscribeNext:^(NSNumber *isEdit) {
         @strongify(self);
         
-        NSLog(@"animating is %d", animating.boolValue);
+        NSLog(@"animating is %d", isEdit.boolValue);
         
         self.userInteractionEnabled = false;
         
@@ -68,13 +68,13 @@
 //        }];
         
         // 取消按钮
-        CGFloat offset1 = animating.boolValue ? 0 : self.cancelBtnWidth - 8.0f;
+        CGFloat offset1 = isEdit.boolValue ? 0 : self.cancelBtnWidth - 8.0f;
         [self.cancelBtn mas_updateConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(self).with.offset(offset1);
         }];
         
         // textFeild
-        CGFloat offset2 = animating.boolValue ? 8.0 : (MH_SCREEN_WIDTH - self.textFieldMinWidth) * 0.5;
+        CGFloat offset2 = isEdit.boolValue ? 8.0 : (MH_SCREEN_WIDTH - self.textFieldMinWidth) * 0.5;
         [self.textField mas_updateConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(offset2);
         }];
@@ -118,7 +118,7 @@
     [backgroundView addGestureRecognizer:tapGr];
     [tapGr.rac_gestureSignal subscribeNext:^(id x) {
         @strongify(self);
-        [self.viewModel.animateCommand execute:@1];
+        [self.viewModel.editCommand execute:@1];
     }];
     
     // textField
@@ -145,7 +145,7 @@
     self.cancelBtn = cancelBtn;
     [[cancelBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
-        [self.viewModel.animateCommand execute:@0];
+        [self.viewModel.editCommand execute:@0];
     }];
     
     

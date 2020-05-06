@@ -8,6 +8,8 @@
 
 #import "MHContactsViewController.h"
 #import "MHAddFriendsViewController.h"
+#import "MHSearchViewController.h"
+
 
 #import "WPFPinYinTools.h"
 #import "WPFPinYinDataManager.h"
@@ -16,10 +18,9 @@
 #import "MHContactsHeaderView.h"
 #import "UITableView+SCIndexView.h"
 #import "MHNavSearchBar.h"
-@interface MHContactsViewController ()<UISearchResultsUpdating>
+@interface MHContactsViewController ()
 /// viewModel
 @property (nonatomic, readonly, strong) MHContactsViewModel *viewModel;
-@property (nonatomic, strong) UISearchController *searchController;
 
 /// footerView
 @property (nonatomic, readwrite, weak) UILabel *footerView;
@@ -32,6 +33,9 @@
 
 /// navBar
 @property (nonatomic, readwrite, weak) MHNavigationBar *navBar;
+
+/// searchController
+@property (nonatomic, readwrite, strong) MHSearchViewController *searchController;
 
 @end
 
@@ -106,10 +110,47 @@
     RAC(self.footerView, text) = RACObserve(self.viewModel, total);
     
     
-    [[[RACObserve(self.viewModel, searchBarViewModel.animating) distinctUntilChanged] skip:1] subscribeNext:^(NSNumber *animating) {
+    [[[RACObserve(self.viewModel, searchBarViewModel.isEdit) distinctUntilChanged] skip:1] subscribeNext:^(NSNumber *isEdit) {
         @strongify(self);
         
+        self.view.userInteractionEnabled = NO;
         
+        CGFloat navBarY = 0.0;
+        if (isEdit.boolValue) {
+            navBarY = -MH_APPLICATION_TOP_BAR_HEIGHT;
+            // 编辑模式场景下 从 tableViwe 身上移掉
+            [self.searchBar removeFromSuperview];
+            
+            // 清除掉tableHeaderView 会导致其 16px = 24 + 56 - 64 像素被遮住
+            self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MH_SCREEN_WIDTH, 16)];
+  
+            // 将其添加到self.view
+            [self.view addSubview:self.searchBar];
+            self.searchBar.mh_y = MH_APPLICATION_TOP_BAR_HEIGHT;
+        } else {
+            self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MH_SCREEN_WIDTH, 56)];
+        }
+
+        [self.navBar mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.view).with.offset(navBarY);
+        }];
+        
+        // 更新布局
+        [UIView animateWithDuration:0.25 animations:^{
+            [self.view layoutIfNeeded];
+            // 动画
+            self.searchBar.mh_y = isEdit.boolValue ? ([UIApplication sharedApplication].statusBarFrame.size.height + 4) : MH_APPLICATION_TOP_BAR_HEIGHT;
+            
+        } completion:^(BOOL finished) {
+            
+            if(!isEdit.boolValue) {
+                // 退出编辑场景下 从 self.view 身上移掉
+                [self.searchBar removeFromSuperview];
+                // 添加到tableHeaderView
+                self.tableView.tableHeaderView = self.searchBar;
+            }
+            self.view.userInteractionEnabled = true;
+        }];
     }];
 }
 
@@ -148,6 +189,9 @@
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    NSLog(@"xxxxxofff y is %f", scrollView.contentOffset.y);
+    
     /// 刷新headerColor
     [self _reloadHeaderViewColor];
 }
@@ -216,11 +260,6 @@
     self.tableView.sc_indexViewConfiguration = configuration;
     self.tableView.sc_translucentForTableViewInNavigationBar = true;
     
-    /// 监听searchVc的活跃度
-//    [RACObserve(self, searchController.active)
-//     subscribeNext:^(NSNumber * active) {
-//         NSLog(@"active is %zd",active.boolValue);
-//     }];
 }
 
 #pragma mark - 设置导航栏
@@ -270,6 +309,14 @@
     tempView.hidden = YES;
     tempView.backgroundColor = [UIColor whiteColor];
     [self.view insertSubview:tempView belowSubview:self.tableView];
+    
+    
+    /// 添加搜索View
+    MHSearchViewController *searchController = [[MHSearchViewController alloc] initWithViewModel:self.viewModel.searchViewModel];
+    [self.view addSubview:searchController.view];
+    [self addChildViewController:searchController];
+    [searchController didMoveToParentViewController:self];
+    self.searchController = searchController;
 }
 
 #pragma mark - 布局子控件
@@ -286,12 +333,11 @@
         make.left.right.and.top.equalTo(self.view);
         make.height.mas_equalTo(MH_APPLICATION_TOP_BAR_HEIGHT);
     }];
-}
-
-
-
-// Called when the search bar's text or scope has changed or when the search bar becomes first responder.
-- (void)updateSearchResultsForSearchController:(UISearchController *)searchController{
     
+    [self.searchController.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.and.bottom.equalTo(self.view);
+        make.top.equalTo(self.view).with.offset(MH_APPLICATION_STATUS_BAR_HEIGHT + 4.0 + 56.0);
+    }];
 }
+
 @end

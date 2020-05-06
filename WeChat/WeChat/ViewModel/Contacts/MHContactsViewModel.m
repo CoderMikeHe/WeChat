@@ -27,6 +27,8 @@
 
 /// searchBarViewModel
 @property (nonatomic, readwrite, strong) MHNavSearchBarViewModel *searchBarViewModel;
+/// searchViewModel
+@property (nonatomic, readwrite, strong) MHSearchViewModel *searchViewModel;
 @end
 
 
@@ -63,6 +65,9 @@
         [self _handleContacts:contacts];
     }];
     
+    
+    // 创建 searchViewModel
+    self.searchViewModel = [[MHSearchViewModel alloc] initWithServices:self.services params:nil];
 }
 
 

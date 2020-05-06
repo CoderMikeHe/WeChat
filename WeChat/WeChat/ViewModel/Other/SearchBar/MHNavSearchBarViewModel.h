@@ -14,11 +14,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// height
 @property (nonatomic, readonly, assign) CGFloat height;
 
-/// 动画cmd
-@property (nonatomic, readonly, strong) RACCommand *animateCommand;
+/// 编辑cmd
+@property (nonatomic, readonly, strong) RACCommand *editCommand;
 
-/// 动画ing
-@property (nonatomic, readonly, assign) BOOL animating;
+/// 是否是编辑状态
+@property (nonatomic, readonly, assign) BOOL isEdit;
 @end
 
 NS_ASSUME_NONNULL_END

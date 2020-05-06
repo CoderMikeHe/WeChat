@@ -12,6 +12,10 @@
 
 /// 字符
 @property (weak, nonatomic) IBOutlet UILabel *letterLabel;
+/// topDivider
+@property (weak, nonatomic) IBOutlet UIView *topDivider;
+/// bottomDivider
+@property (weak, nonatomic) IBOutlet UIView *bottomDivider;
 
 
 /// viewModel
@@ -38,8 +42,10 @@
     
     if ([viewModel isEqualToString:UITableViewIndexSearch]) {
         self.letterLabel.text = nil;
+        self.topDivider.hidden = self.bottomDivider.hidden = YES;
     } else {
         self.letterLabel.text = viewModel;
+        self.topDivider.hidden = self.bottomDivider.hidden = NO;
     }
 }
 

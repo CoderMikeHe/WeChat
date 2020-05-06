@@ -301,6 +301,8 @@
 		26FE8E911F9514D100EC8BE0 /* TZProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FE8E791F9514D100EC8BE0 /* TZProgressView.m */; };
 		26FE8E921F9514D100EC8BE0 /* TZVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FE8E7B1F9514D100EC8BE0 /* TZVideoPlayerController.m */; };
 		26FE8E931F9514D100EC8BE0 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FE8E7D1F9514D100EC8BE0 /* UIView+Layout.m */; };
+		84725F21246297B000DCC9B8 /* MHSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84725F1F246297B000DCC9B8 /* MHSearchViewController.m */; };
+		849393232462A49300CC591B /* MHSearchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 849393222462A49300CC591B /* MHSearchViewModel.m */; };
 		84AB60A5244AFD990031DADE /* UIImage+MHSVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AB60A4244AFD990031DADE /* UIImage+MHSVG.m */; };
 		84CBFE2F245AA6E300054D07 /* MHContactsItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CBFE2E245AA6E300054D07 /* MHContactsItemViewModel.m */; };
 		84CBFE36245AC7FD00054D07 /* MHTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CBFE30245AC7FB00054D07 /* MHTableViewCell.m */; };
@@ -944,6 +946,10 @@
 		5199ACCDE3914E9780CBE096 /* Pods-WeChat-WeChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChat-WeChatUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeChat-WeChatUITests/Pods-WeChat-WeChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5F007961429C86520F15C504 /* Pods_WeChat_WeChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeChat_WeChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AC95F3A9ABF83B9A3CDD57C /* Pods-WeChat-WeChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChat-WeChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeChat-WeChatTests/Pods-WeChat-WeChatTests.debug.xcconfig"; sourceTree = "<group>"; };
+		84725F1E246297B000DCC9B8 /* MHSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchViewController.h; sourceTree = "<group>"; };
+		84725F1F246297B000DCC9B8 /* MHSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchViewController.m; sourceTree = "<group>"; };
+		849393212462A49300CC591B /* MHSearchViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchViewModel.h; sourceTree = "<group>"; };
+		849393222462A49300CC591B /* MHSearchViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchViewModel.m; sourceTree = "<group>"; };
 		84AB60A3244AFD990031DADE /* UIImage+MHSVG.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+MHSVG.h"; sourceTree = "<group>"; };
 		84AB60A4244AFD990031DADE /* UIImage+MHSVG.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MHSVG.m"; sourceTree = "<group>"; };
 		84CBFE2D245AA6E300054D07 /* MHContactsItemViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHContactsItemViewModel.h; sourceTree = "<group>"; };
@@ -1175,6 +1181,7 @@
 		26064AEB1F5DA1F800566B95 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				84725F1D246294B000DCC9B8 /* Search */,
 				E932C41D2136769600B32A9F /* ShortVideo */,
 				26064AF11F5DB46500566B95 /* BaseClass */,
 				26064AF61F5DB46500566B95 /* MainFrame */,
@@ -1192,6 +1199,7 @@
 		26064AEC1F5DA1F800566B95 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				849393202462A47200CC591B /* Search */,
 				26225D7B1F65506E0074BFC3 /* BaseClass */,
 				26225D801F65506E0074BFC3 /* MainFrame */,
 				26225D7C1F65506E0074BFC3 /* Contacts */,
@@ -2388,8 +2396,6 @@
 			children = (
 				2658C68C1F74FD3100C70840 /* MHAddFriendsViewController.h */,
 				2658C68D1F74FD3100C70840 /* MHAddFriendsViewController.m */,
-				260A60981F77A53300F05120 /* MHSearchFriendsViewController.h */,
-				260A60991F77A53300F05120 /* MHSearchFriendsViewController.m */,
 			);
 			path = AddFriends;
 			sourceTree = "<group>";
@@ -2775,6 +2781,34 @@
 				26FE8E7D1F9514D100EC8BE0 /* UIView+Layout.m */,
 			);
 			path = TZImagePickerController;
+			sourceTree = "<group>";
+		};
+		84725F1D246294B000DCC9B8 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				84725F23246299C100DCC9B8 /* SearchFriends */,
+				84725F1E246297B000DCC9B8 /* MHSearchViewController.h */,
+				84725F1F246297B000DCC9B8 /* MHSearchViewController.m */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		84725F23246299C100DCC9B8 /* SearchFriends */ = {
+			isa = PBXGroup;
+			children = (
+				260A60981F77A53300F05120 /* MHSearchFriendsViewController.h */,
+				260A60991F77A53300F05120 /* MHSearchFriendsViewController.m */,
+			);
+			path = SearchFriends;
+			sourceTree = "<group>";
+		};
+		849393202462A47200CC591B /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				849393212462A49300CC591B /* MHSearchViewModel.h */,
+				849393222462A49300CC591B /* MHSearchViewModel.m */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		84CBFE2C245AA69D00054D07 /* ItemViewModel */ = {
@@ -3646,6 +3680,7 @@
 				2617533D1F73D03C00812E1B /* MHFeatureSignatureViewModel.m in Sources */,
 				E932C42921369FC600B32A9F /* MHCameraViewController.m in Sources */,
 				26225D771F654DEE0074BFC3 /* MHWebViewController.m in Sources */,
+				84725F21246297B000DCC9B8 /* MHSearchViewController.m in Sources */,
 				26AEEE0D1F7D16F600A270EE /* MHSearchBar.m in Sources */,
 				26FE8E801F9514D100EC8BE0 /* TADotView.m in Sources */,
 				26AEEE111F7D1CEC00A270EE /* UISearchBar+MHExtension.m in Sources */,
@@ -3665,6 +3700,7 @@
 				263D37141F666569007267C3 /* YYGestureRecognizer.m in Sources */,
 				26A7E7451F79FEB00015CA71 /* MHBootLoginViewModel.m in Sources */,
 				2615974D1FEA5DD300C6FD80 /* MHMomentHeaderView.m in Sources */,
+				849393232462A49300CC591B /* MHSearchViewModel.m in Sources */,
 				2615972B1FEA5AEE00C6FD80 /* MHMomentCommentItemViewModel.m in Sources */,
 				26BEBC821F8B7B1D004D502F /* NSError+MHModelException.m in Sources */,
 				2624CAF51F98E9ED0083923F /* MHHTTPService+Live.m in Sources */,

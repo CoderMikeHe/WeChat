@@ -9,12 +9,17 @@
 #import "MHTableViewModel.h"
 #import "MHContactsItemViewModel.h"
 #import "MHNavSearchBarViewModel.h"
+
+#import "MHSearchViewModel.h"
+
 @interface MHContactsViewModel : MHTableViewModel
 /// addFriendsCommand
 @property (nonatomic, readonly, strong) RACCommand *addFriendsCommand;
 
 /// searchBarViewModel
 @property (nonatomic, readonly, strong) MHNavSearchBarViewModel *searchBarViewModel;
+/// searchViewModel
+@property (nonatomic, readonly, strong) MHSearchViewModel *searchViewModel;
 
 /// contacts
 @property (nonatomic, readonly, strong) NSArray *contacts;
@@ -24,4 +29,7 @@
 
 /// 总人数
 @property (nonatomic, readonly, copy) NSString *total;
+
+
+
 @end

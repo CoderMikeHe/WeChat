@@ -14,11 +14,11 @@
 @property (nonatomic, readwrite, assign) CGFloat height;
 
 
-/// 动画cmd
-@property (nonatomic, readwrite, strong) RACCommand *animateCommand;
+/// 编辑cmd
+@property (nonatomic, readwrite, strong) RACCommand *editCommand;
 
-/// 动画ing
-@property (nonatomic, readwrite, assign) BOOL animating;
+/// 是否是编辑状态
+@property (nonatomic, readwrite, assign) BOOL isEdit;
 
 @end
 
@@ -39,10 +39,10 @@
     self.height = 56.0f;
     
     @weakify(self);
-    self.animateCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSNumber *input) {
+    self.editCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSNumber *input) {
         // 修改数据
         @strongify(self);
-        self.animating = input.boolValue;
+        self.isEdit = input.boolValue;
         return [RACSignal empty];
     }];
 }
