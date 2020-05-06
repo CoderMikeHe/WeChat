@@ -116,8 +116,11 @@
         self.view.userInteractionEnabled = NO;
         
         CGFloat navBarY = 0.0;
+        CGFloat searchViewY = 200.0;
         if (isEdit.boolValue) {
+            
             navBarY = -MH_APPLICATION_TOP_BAR_HEIGHT;
+
             // 编辑模式场景下 从 tableViwe 身上移掉
             [self.searchBar removeFromSuperview];
             
@@ -127,17 +130,33 @@
             // 将其添加到self.view
             [self.view addSubview:self.searchBar];
             self.searchBar.mh_y = MH_APPLICATION_TOP_BAR_HEIGHT;
+    
+            [self.view bringSubviewToFront:self.searchController.view];
+            searchViewY = MH_APPLICATION_STATUS_BAR_HEIGHT + 4.0 + 56.0;
+            
         } else {
+            
             self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MH_SCREEN_WIDTH, 56)];
+            [self.view sendSubviewToBack:self.searchController.view];
         }
 
         [self.navBar mas_updateConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.view).with.offset(navBarY);
         }];
         
+        [self.searchController.view mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.view).with.offset(searchViewY);
+        }];
+        
+        /// 隐藏导航栏
+        self.tabBarController.tabBar.hidden = isEdit.boolValue;
+        
         // 更新布局
         [UIView animateWithDuration:0.25 animations:^{
             [self.view layoutIfNeeded];
+            
+            self.searchController.view.alpha = isEdit.boolValue ? 1.0 : .0;
+            
             // 动画
             self.searchBar.mh_y = isEdit.boolValue ? ([UIApplication sharedApplication].statusBarFrame.size.height + 4) : MH_APPLICATION_TOP_BAR_HEIGHT;
             
@@ -189,9 +208,7 @@
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    
-    NSLog(@"xxxxxofff y is %f", scrollView.contentOffset.y);
-    
+
     /// 刷新headerColor
     [self _reloadHeaderViewColor];
 }
@@ -313,6 +330,7 @@
     
     /// 添加搜索View
     MHSearchViewController *searchController = [[MHSearchViewController alloc] initWithViewModel:self.viewModel.searchViewModel];
+    searchController.view.alpha = 0.0;
     [self.view addSubview:searchController.view];
     [self addChildViewController:searchController];
     [searchController didMoveToParentViewController:self];
@@ -336,7 +354,7 @@
     
     [self.searchController.view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.and.bottom.equalTo(self.view);
-        make.top.equalTo(self.view).with.offset(MH_APPLICATION_STATUS_BAR_HEIGHT + 4.0 + 56.0);
+        make.top.equalTo(self.view).with.offset(200);
     }];
 }
 
