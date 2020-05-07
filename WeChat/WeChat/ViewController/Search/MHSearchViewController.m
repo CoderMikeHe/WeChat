@@ -8,6 +8,9 @@
 
 #import "MHSearchViewController.h"
 #import "MHSearchTypeView.h"
+#import "MHSearchOfficialAccountsView.h"
+#import "MHSearchMusicView.h"
+
 @interface MHSearchViewController ()
 /// scrollView
 @property (nonatomic, readwrite, weak) UIScrollView *scrollView;
@@ -16,9 +19,21 @@
 
 /// searchTypeView
 @property (nonatomic, readwrite, weak) MHSearchTypeView *searchTypeView;
+
+/// officialAccountsView
+@property (nonatomic, readwrite, strong) MHSearchOfficialAccountsView *officialAccountsView;
+
+/// MusicView
+@property (nonatomic, readwrite, strong) MHSearchMusicView *musicView;
+
+/// viewModel
+@property (nonatomic, readwrite, strong) MHSearchViewModel *viewModel;
+
 @end
 
 @implementation MHSearchViewController
+
+@dynamic viewModel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,10 +54,52 @@
 - (void)bindViewModel {
     [super bindViewModel];
     
-    
+    @weakify(self);
+    [[self.viewModel.searchTypeSubject deliverOnMainThread] subscribeNext:^(NSNumber *x) {
+        @strongify(self);
+        MHSearchType searchType = x.integerValue;
+        [self _configureSearchView:searchType];
+    }];
 }
 
 #pragma mark - 事件处理Or辅助方法
+- (void)_configureSearchView:(MHSearchType)type {
+    self.view.userInteractionEnabled = NO;
+    // 更新布局
+    [UIView animateWithDuration:0.25 animations:^{
+        
+        switch (type) {
+            case MHSearchTypeOfficialAccounts:
+            {
+                self.officialAccountsView.alpha = 1.0;
+                self.musicView.alpha = .0;
+            }
+                break;
+            case MHSearchTypeMusic:
+            {
+                self.officialAccountsView.alpha = .0;
+                self.musicView.alpha = 1.0;
+            }
+                break;
+            case MHSearchTypeSticker:
+            {
+                self.officialAccountsView.alpha = .0;
+                self.musicView.alpha = .0;
+            }
+                break;
+            default:
+            {
+                self.officialAccountsView.alpha = .0;
+                self.musicView.alpha = .0;
+            }
+                break;
+        }
+        
+        
+    } completion:^(BOOL finished) {
+        self.view.userInteractionEnabled = YES;
+    }];
+}
 
 #pragma mark - 初始化OrUI布局
 /// 初始化
@@ -76,8 +133,20 @@
     // searchTypeView
     MHSearchTypeView *searchTypeView = [MHSearchTypeView searchTypeView];
     self.searchTypeView = searchTypeView;
-    [searchTypeView bindViewModel:self.viewModel];
+    [searchTypeView bindViewModel:self.viewModel.searchTypeViewModel];
     [containerView addSubview:searchTypeView];
+    
+    // OfficialAccountsView
+    MHSearchOfficialAccountsView *officialAccountsView = [MHSearchOfficialAccountsView officialAccountsView];
+    self.officialAccountsView = officialAccountsView;
+    officialAccountsView.alpha = .0;
+    [containerView addSubview:officialAccountsView];
+    
+    // musicView
+    MHSearchMusicView *musicView = [MHSearchMusicView musicView];
+    self.musicView = musicView;
+    musicView.alpha = .0;
+    [containerView addSubview:musicView];
     
     // 设置背景色
     containerView.backgroundColor = searchTypeView.backgroundColor = self.view.backgroundColor;
@@ -101,6 +170,11 @@
     [self.searchTypeView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.and.right.equalTo(self.containerView);
         make.top.equalTo(self.containerView).with.offset(39.0);
+    }];
+    
+    
+    [self.officialAccountsView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.and.right.equalTo(self.containerView);
     }];
 }
 

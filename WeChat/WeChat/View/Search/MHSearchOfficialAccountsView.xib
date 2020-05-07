@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="TGN-A7-dwu" customClass="MHSearchOfficialAccountsView">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="173"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="153"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vns-ae-abb" userLabel="titleView">
@@ -26,9 +24,9 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="经常搜索的公众号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USk-my-xWh" userLabel="titleLabel">
-                            <rect key="frame" x="16" y="11.5" width="382" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <rect key="frame" x="16" y="12.5" width="382" height="19.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -43,15 +41,48 @@
                         <constraint firstAttribute="trailing" secondItem="USk-my-xWh" secondAttribute="trailing" constant="16" id="tsM-hr-OjE"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ri-cc-aCf" userLabel="contentView">
+                    <rect key="frame" x="0.0" y="44" width="414" height="109"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZEI-V5-o4H">
+                            <rect key="frame" x="22" y="18.5" width="81" height="72"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="81" id="SRk-I9-Beg"/>
+                                <constraint firstAttribute="height" constant="72" id="sZy-4s-rWe"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gI3-ZJ-FwO">
+                            <rect key="frame" x="118" y="18.5" width="81" height="72"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="72" id="4ih-22-eZ5"/>
+                                <constraint firstAttribute="width" constant="81" id="hBD-4Q-cfb"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="gI3-ZJ-FwO" firstAttribute="centerY" secondItem="ZEI-V5-o4H" secondAttribute="centerY" id="2hR-HE-Zo7"/>
+                        <constraint firstAttribute="height" constant="109" id="Hgq-ct-3Xp"/>
+                        <constraint firstItem="ZEI-V5-o4H" firstAttribute="centerY" secondItem="7Ri-cc-aCf" secondAttribute="centerY" id="LNh-ZP-hE2"/>
+                        <constraint firstItem="gI3-ZJ-FwO" firstAttribute="leading" secondItem="ZEI-V5-o4H" secondAttribute="trailing" constant="15" id="Xik-gv-EGO"/>
+                        <constraint firstItem="ZEI-V5-o4H" firstAttribute="leading" secondItem="7Ri-cc-aCf" secondAttribute="leading" constant="22" id="kfY-5x-DLY"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="Vns-ae-abb" firstAttribute="top" secondItem="TGN-A7-dwu" secondAttribute="top" id="7Nz-Nh-4JJ"/>
                 <constraint firstAttribute="trailing" secondItem="Vns-ae-abb" secondAttribute="trailing" id="Bey-VU-q83"/>
+                <constraint firstItem="7Ri-cc-aCf" firstAttribute="trailing" secondItem="Vns-ae-abb" secondAttribute="trailing" id="Fcu-CY-2KB"/>
+                <constraint firstAttribute="bottom" secondItem="7Ri-cc-aCf" secondAttribute="bottom" id="Fs1-TS-rO8"/>
                 <constraint firstItem="Vns-ae-abb" firstAttribute="leading" secondItem="TGN-A7-dwu" secondAttribute="leading" id="QZO-gu-o3N"/>
+                <constraint firstItem="7Ri-cc-aCf" firstAttribute="top" secondItem="Vns-ae-abb" secondAttribute="bottom" id="iwf-8I-WDC"/>
+                <constraint firstItem="7Ri-cc-aCf" firstAttribute="leading" secondItem="Vns-ae-abb" secondAttribute="leading" id="mca-Ln-XKW"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="324.63768115942031" y="-419.53125"/>
+            <point key="canvasLocation" x="324.63768115942031" y="-426.22767857142856"/>
         </view>
     </objects>
 </document>
