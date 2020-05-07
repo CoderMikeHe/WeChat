@@ -38,6 +38,8 @@
 #pragma mark - Override
 - (void)bindViewModel {
     [super bindViewModel];
+    
+    
 }
 
 #pragma mark - 事件处理Or辅助方法
@@ -74,18 +76,11 @@
     // searchTypeView
     MHSearchTypeView *searchTypeView = [MHSearchTypeView searchTypeView];
     self.searchTypeView = searchTypeView;
+    [searchTypeView bindViewModel:self.viewModel];
     [containerView addSubview:searchTypeView];
     
     // 设置背景色
     containerView.backgroundColor = searchTypeView.backgroundColor = self.view.backgroundColor;
-    
-    
-//    UITapGestureRecognizer *r = [[UITapGestureRecognizer alloc] init];
-//    [containerView addGestureRecognizer:r];
-//    
-//    [r.rac_gestureSignal subscribeNext:^(id x) {
-//        NSLog(@"MLGB");
-//    }];
 }
 
 /// 布局子控件
@@ -102,10 +97,10 @@
         make.height.mas_equalTo(MH_SCREEN_HEIGHT);
     }];
     
+    /// 布局 
     [self.searchTypeView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.and.right.equalTo(self.containerView);
         make.top.equalTo(self.containerView).with.offset(39.0);
-        make.height.mas_equalTo(150);
     }];
 }
 

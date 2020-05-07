@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "MHSearchTypeViewModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MHNavSearchBarViewModel : NSObject
@@ -15,10 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, assign) CGFloat height;
 
 /// 编辑cmd
-@property (nonatomic, readonly, strong) RACCommand *editCommand;
+@property (nonatomic, readwrite, strong) RACSubject *editSubject;
 
-/// 是否是编辑状态
-@property (nonatomic, readonly, assign) BOOL isEdit;
+/// searchType
+@property (nonatomic, readwrite, strong) RACSubject *searchTypeSubject;
 @end
 
 NS_ASSUME_NONNULL_END

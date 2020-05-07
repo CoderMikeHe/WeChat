@@ -29,6 +29,12 @@
 @property (nonatomic, readwrite, strong) MHNavSearchBarViewModel *searchBarViewModel;
 /// searchViewModel
 @property (nonatomic, readwrite, strong) MHSearchViewModel *searchViewModel;
+
+/// 编辑回调
+@property (nonatomic, readwrite, strong) RACSubject *editSubject;
+/// searchType
+@property (nonatomic, readwrite, strong) RACSubject *searchTypeSubject;
+
 @end
 
 
@@ -45,8 +51,7 @@
     
     self.shouldMultiSections = YES;
     
-    // 配置viewModel
-    self.searchBarViewModel = [[MHNavSearchBarViewModel alloc] init];
+    
     
     @weakify(self);
     self.addFriendsCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
@@ -66,8 +71,21 @@
     }];
     
     
+    /// 点击 🔍 搜索
+    self.editSubject = [RACSubject subject];
+    
+    
     // 创建 searchViewModel
     self.searchViewModel = [[MHSearchViewModel alloc] initWithServices:self.services params:nil];
+    
+    
+    // 配置 searchBar viewModel
+    self.searchBarViewModel = [[MHNavSearchBarViewModel alloc] init];
+    self.searchBarViewModel.editSubject = self.editSubject;
+    self.searchBarViewModel.searchTypeSubject = self.searchViewModel.searchTypeSubject;
+    
+    /// 监听searchViewModel 的 searchType 改变
+//    RAC(self.searchBarViewModel, searchType) = [RACObserve(self.searchViewModel, searchType) distinctUntilChanged] ;
 }
 
 

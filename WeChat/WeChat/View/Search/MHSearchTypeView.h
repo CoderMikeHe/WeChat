@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MHSearchTypeView : UIView
+@interface MHSearchTypeView : UIView<MHReactiveView>
 
 + (instancetype)searchTypeView;
 

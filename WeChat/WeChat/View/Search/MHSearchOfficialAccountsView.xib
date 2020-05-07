@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="TGN-A7-dwu" customClass="MHSearchOfficialAccountsView">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="173"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vns-ae-abb" userLabel="titleView">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O88-ej-WX1" userLabel="divider">
+                            <rect key="frame" x="16" y="43" width="398" height="1"/>
+                            <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.80000000000000004" id="q9P-YZ-OtR"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="经常搜索的公众号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USk-my-xWh" userLabel="titleLabel">
+                            <rect key="frame" x="16" y="11.5" width="382" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="O88-ej-WX1" firstAttribute="leading" secondItem="Vns-ae-abb" secondAttribute="leading" constant="16" id="0uc-90-w9w"/>
+                        <constraint firstItem="USk-my-xWh" firstAttribute="centerY" secondItem="Vns-ae-abb" secondAttribute="centerY" id="3pc-q5-4rz"/>
+                        <constraint firstItem="USk-my-xWh" firstAttribute="leading" secondItem="Vns-ae-abb" secondAttribute="leading" constant="16" id="BcT-li-cPz"/>
+                        <constraint firstAttribute="trailing" secondItem="O88-ej-WX1" secondAttribute="trailing" id="Bgs-jw-Uxp"/>
+                        <constraint firstAttribute="bottom" secondItem="O88-ej-WX1" secondAttribute="bottom" id="PVr-qG-gB9"/>
+                        <constraint firstAttribute="height" constant="44" id="WVZ-3y-cm1"/>
+                        <constraint firstAttribute="trailing" secondItem="USk-my-xWh" secondAttribute="trailing" constant="16" id="tsM-hr-OjE"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Vns-ae-abb" firstAttribute="top" secondItem="TGN-A7-dwu" secondAttribute="top" id="7Nz-Nh-4JJ"/>
+                <constraint firstAttribute="trailing" secondItem="Vns-ae-abb" secondAttribute="trailing" id="Bey-VU-q83"/>
+                <constraint firstItem="Vns-ae-abb" firstAttribute="leading" secondItem="TGN-A7-dwu" secondAttribute="leading" id="QZO-gu-o3N"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="324.63768115942031" y="-419.53125"/>
+        </view>
+    </objects>
+</document>

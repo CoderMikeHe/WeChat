@@ -110,7 +110,7 @@
     RAC(self.footerView, text) = RACObserve(self.viewModel, total);
     
     
-    [[[RACObserve(self.viewModel, searchBarViewModel.isEdit) distinctUntilChanged] skip:1] subscribeNext:^(NSNumber *isEdit) {
+    [[self.viewModel.editSubject deliverOnMainThread] subscribeNext:^(NSNumber *isEdit) {
         @strongify(self);
         
         self.view.userInteractionEnabled = NO;
