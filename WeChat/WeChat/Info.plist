@@ -43,6 +43,14 @@
 	<string>需要您的同意，才能实现保存网络图片到本地图库的服务</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>需要您的同意，才能访问相册权限，便于选择图片上传的服务</string>
+    <key>NSContactsUsageDescription</key>
+    <string>需要您的同意，才能访问通讯录，便于开启查询联系人的服务</string>
+    <key>NSLocationUsageDescription</key>
+    <string>需要您的同意，才能开启定位服务，便于准确获取您当前的地理位置</string>
+    <key>NSLocationWhenInUseDescription</key>
+    <string>需要您的同意，在使用期间开启定位服务，便于准确获取您当前的地理位置</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>需要您的同意，在使用期间开启定位服务，便于准确获取您当前的地理位置</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

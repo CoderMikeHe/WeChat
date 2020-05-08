@@ -179,7 +179,7 @@ _Pragma("clang diagnostic pop")\
 #define MH_MAIN_NAVIGATIONBAR_BACKGROUNDCOLOR_3 [UIColor colorFromHexString:@"#F3F3F3"]
 #define MH_MAIN_NAVIGATIONBAR_BACKGROUNDCOLOR_4 [UIColor colorFromHexString:@"#E6A863"]
 /// 全局青色 tintColor
-#define MH_MAIN_TINTCOLOR [UIColor colorWithRed:(10 / 255.0) green:(193 / 255.0) blue:(42 / 255.0) alpha:1]
+#define MH_MAIN_TINTCOLOR [UIColor colorFromHexString:@"#57be6a"]
 
 /// 整个应用的视图的背景色 BackgroundColor
 #define MH_MAIN_BACKGROUNDCOLOR [UIColor colorFromHexString:@"#EDEDED"]

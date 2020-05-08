@@ -8,6 +8,14 @@
 
 #import "MHSearchVoiceInputView.h"
 
+
+typedef NS_ENUM(NSUInteger, MHButtonTouchState) {
+    MHButtonTouchStateDefault = 0, // 默认
+    MHButtonTouchStateInside,      // 内部
+    MHButtonTouchStateOutside,     // 外部
+};
+
+
 @interface MHSearchVoiceInputView ()
 
 /// voiceInputBtn
@@ -15,6 +23,10 @@
 
 /// tipsLabel
 @property (nonatomic, readwrite, weak) UILabel *tipsLabel;
+
+
+/// rippleView
+@property (nonatomic, readwrite, weak) UIView *rippleView;
 @end
 
 
@@ -57,16 +69,13 @@
 #pragma mark - 辅助方法
 
 - (void)_btnTouchDown:(UIButton *)sender {
-    // 修改背景颜色
-    sender.backgroundColor = WXGlobalPrimaryTintColor;
-    // 修改图标颜色
-    UIImage *image = [UIImage mh_svgImageNamed:@"icons_filled_voiceinput_white.svg" targetSize:CGSizeMake(36.0, 36.0) tintColor:MHColorFromHexString(@"#ffffff")];
-    [sender setImage:image forState:UIControlStateNormal|UIControlStateHighlighted];
+    // touch inside
+    [self _configVoiceInputButtonStyle:MHButtonTouchStateInside];
 }
 
 - (void)_btnTouchUp:(UIButton *)sender withEvent:(UIEvent *)event {
     UITouch *touch = [[event allTouches] anyObject];
-    CGFloat boundsExtension = 25.0f;
+    CGFloat boundsExtension = 27.0f;
     CGRect outerBounds = CGRectInset(sender.bounds, -1 * boundsExtension, -1 * boundsExtension);
     BOOL touchOutside = !CGRectContainsPoint(outerBounds, [touch locationInView:sender]);
     if (touchOutside) {
@@ -75,16 +84,12 @@
         // UIControlEventTouchUpInside
     }
     
-    // 修改背景颜色
-    sender.backgroundColor = [UIColor whiteColor];
-    // 修改图标颜色
-    UIImage *image = [UIImage mh_svgImageNamed:@"icons_filled_voiceinput_white.svg" targetSize:CGSizeMake(36.0, 36.0) tintColor:MHColorFromHexString(@"#666666")];
-    [sender setImage:image forState:UIControlStateNormal];
+    [self _configVoiceInputButtonStyle:MHButtonTouchStateDefault];
 }
 
 - (void)_btnDragged:(UIButton *)sender withEvent:(UIEvent *)event {
     UITouch *touch = [[event allTouches] anyObject];
-    CGFloat boundsExtension = 25.0f;
+    CGFloat boundsExtension = 27.0f;
     CGRect outerBounds = CGRectInset(sender.bounds, -1 * boundsExtension, -1 * boundsExtension);
     BOOL touchOutside = !CGRectContainsPoint(outerBounds, [touch locationInView:sender]);
     if (touchOutside) {
@@ -93,11 +98,7 @@
             // UIControlEventTouchDragExit
         } else {
             // UIControlEventTouchDragOutside
-            // 修改背景颜色
-            sender.backgroundColor = [UIColor whiteColor];
-            // 修改图标颜色
-            UIImage *image = [UIImage mh_svgImageNamed:@"icons_filled_voiceinput_white.svg" targetSize:CGSizeMake(36.0, 36.0) tintColor:MHColorFromHexString(@"#666666")];
-            [sender setImage:image forState:UIControlStateNormal|UIControlStateHighlighted];
+            [self _configVoiceInputButtonStyle:MHButtonTouchStateOutside];
         }
     } else {
         BOOL previewTouchOutside = !CGRectContainsPoint(outerBounds, [touch previousLocationInView:sender]);
@@ -105,16 +106,47 @@
             // UIControlEventTouchDragEnter
         } else {
             // UIControlEventTouchDragInside
-            // 修改背景颜色
-            sender.backgroundColor = WXGlobalPrimaryTintColor;
-            // 修改图标颜色
-            UIImage *image = [UIImage mh_svgImageNamed:@"icons_filled_voiceinput_white.svg" targetSize:CGSizeMake(36.0, 36.0) tintColor:MHColorFromHexString(@"#ffffff")];
-            [sender setImage:image forState:UIControlStateNormal|UIControlStateHighlighted];
+            [self _configVoiceInputButtonStyle:MHButtonTouchStateInside];
         }
     }
 }
 
+/// 配置按钮
+- (void)_configVoiceInputButtonStyle: (MHButtonTouchState)state {
+    
+    UIColor *backgroundColor = [UIColor whiteColor];
+    UIColor *tintColor = MHColorFromHexString(@"#666666");
+    
+    if (state == MHButtonTouchStateInside) {
+        backgroundColor = WXGlobalPrimaryTintColor;
+        tintColor = MHColorFromHexString(@"#CAEED8");
+    } else if(state == MHButtonTouchStateOutside){
+        backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8];
+        tintColor = MHColorFromHexString(@"#587C66");
+    }
+    
+    UIImage *image = [UIImage mh_svgImageNamed:@"icons_filled_voiceinput_white.svg" targetSize:CGSizeMake(36.0, 36.0) tintColor:tintColor];
+    [self.voiceInputBtn setImage:image forState:UIControlStateNormal];
+    [self.voiceInputBtn setImage:image forState:UIControlStateHighlighted];
+    self.voiceInputBtn.backgroundColor = backgroundColor;
+}
 
+- (void)voiceCircleRun {
+    CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    scaleAnimation.duration = 1;
+    scaleAnimation.repeatCount = HUGE_VALF;
+    scaleAnimation.autoreverses = YES;
+    //removedOnCompletion为NO保证app切换到后台动画再切回来时动画依然执行
+    scaleAnimation.removedOnCompletion = NO;
+    scaleAnimation.fromValue = @(1.0);
+    scaleAnimation.toValue = @(1.4);
+    [self.rippleView.layer addAnimation:scaleAnimation forKey:@"scale-layer"];
+}
+
+//不使用时记得移除动画
+- (void)voiceCircleStop {
+    [self.layer removeAllAnimations];
+}
 
 #pragma mark - 初始化OrUI布局
 /// 初始化
@@ -122,20 +154,19 @@
     self.backgroundColor = MH_MAIN_BACKGROUNDCOLOR;
 }
 
+
 /// 创建子控件
 - (void)_setupSubviews{
     
     @weakify(self);
     /// 按钮
     UIButton *voiceInputBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *image = [UIImage mh_svgImageNamed:@"icons_filled_voiceinput_white.svg" targetSize:CGSizeMake(36.0, 36.0) tintColor:MHColorFromHexString(@"#666666")];
-    [voiceInputBtn setImage:image forState:UIControlStateNormal];
-    voiceInputBtn.backgroundColor = [UIColor whiteColor];
     voiceInputBtn.cornerRadius = 57 * 0.5;
     voiceInputBtn.masksToBounds = YES;
     [self addSubview:voiceInputBtn];
     self.voiceInputBtn = voiceInputBtn;
     
+    [self _configVoiceInputButtonStyle:MHButtonTouchStateDefault];
     
     // 关于 UIBUtton 事件详解 👍
     // https://stackoverflow.com/questions/14340122/uicontroleventtouchdragexit-triggers-when-100-pixels-away-from-uibutton/30320206#30320206
@@ -162,6 +193,12 @@
     tipsLabel.text = @"按住 说话";
     [self addSubview:tipsLabel];
     self.tipsLabel = tipsLabel;
+    
+    // rippleView
+    UIView *rippleView = [[UIView alloc] init];
+    rippleView.backgroundColor = MHColorFromHexString(@"#c6e3d2");
+    self.rippleView = rippleView;
+    [self insertSubview:rippleView belowSubview:voiceInputBtn];
 }
 
 /// 布局子控件
@@ -175,6 +212,11 @@
     [self.tipsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.voiceInputBtn.mas_bottom).with.offset(5.0f);
         make.centerX.equalTo(self);
+    }];
+    
+    [self.rippleView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(84, 84));
+        make.center.equalTo(self.voiceInputBtn);
     }];
 }
 

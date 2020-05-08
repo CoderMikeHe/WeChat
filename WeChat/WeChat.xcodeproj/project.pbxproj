@@ -354,6 +354,18 @@
 		DEA6F3D8245AF5D900542C6B /* MHContactsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA6F3D7245AF5D900542C6B /* MHContactsHeaderView.xib */; };
 		DEAEB0382462D69400F51CC5 /* MHSearchTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEAEB0372462D69400F51CC5 /* MHSearchTypeView.m */; };
 		DEAEB03A2462D6A100F51CC5 /* MHSearchTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEAEB0392462D6A100F51CC5 /* MHSearchTypeView.xib */; };
+		DED808012465A11500AC76AD /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED808002465A11400AC76AD /* iflyMSC.framework */; };
+		DED808042465A26800AC76AD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED808032465A26800AC76AD /* AVFoundation.framework */; };
+		DED808062465A28400AC76AD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED808052465A28400AC76AD /* SystemConfiguration.framework */; };
+		DED808082465A2A800AC76AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED808072465A2A800AC76AD /* Foundation.framework */; };
+		DED8080A2465A2B500AC76AD /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED808092465A2B500AC76AD /* CoreTelephony.framework */; };
+		DED8080C2465A2C600AC76AD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED8080B2465A2C600AC76AD /* AudioToolbox.framework */; };
+		DED8080E2465A2D500AC76AD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED8080D2465A2D400AC76AD /* UIKit.framework */; };
+		DED808102465A2E200AC76AD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED8080F2465A2E200AC76AD /* CoreLocation.framework */; };
+		DED808122465A2F200AC76AD /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED808112465A2F100AC76AD /* Contacts.framework */; };
+		DED808142465A30300AC76AD /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED808132465A30200AC76AD /* AddressBook.framework */; };
+		DED808162465A31400AC76AD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED808152465A31400AC76AD /* QuartzCore.framework */; };
+		DED808182465A32A00AC76AD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED808172465A32900AC76AD /* CoreGraphics.framework */; };
 		E932C42921369FC600B32A9F /* MHCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E932C42821369FC500B32A9F /* MHCameraViewController.m */; };
 		E932C42D2136A16700B32A9F /* MHCameraControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = E932C42C2136A16700B32A9F /* MHCameraControlView.m */; };
 		E932C4302136A1D200B32A9F /* MHVideoPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = E932C42F2136A1D200B32A9F /* MHVideoPreviewView.m */; };
@@ -1036,6 +1048,20 @@
 		DEAEB0362462D69400F51CC5 /* MHSearchTypeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchTypeView.h; sourceTree = "<group>"; };
 		DEAEB0372462D69400F51CC5 /* MHSearchTypeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchTypeView.m; sourceTree = "<group>"; };
 		DEAEB0392462D6A100F51CC5 /* MHSearchTypeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHSearchTypeView.xib; sourceTree = "<group>"; };
+		DED808002465A11400AC76AD /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
+		DED808022465A22600AC76AD /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		DED808032465A26800AC76AD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		DED808052465A28400AC76AD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		DED808072465A2A800AC76AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DED808092465A2B500AC76AD /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		DED8080B2465A2C600AC76AD /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		DED8080D2465A2D400AC76AD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DED8080F2465A2E200AC76AD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		DED808112465A2F100AC76AD /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
+		DED808132465A30200AC76AD /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		DED808152465A31400AC76AD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		DED808172465A32900AC76AD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DED808192465A34400AC76AD /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		E932C42721369FC500B32A9F /* MHCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHCameraViewController.h; sourceTree = "<group>"; };
 		E932C42821369FC500B32A9F /* MHCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHCameraViewController.m; sourceTree = "<group>"; };
 		E932C42B2136A16700B32A9F /* MHCameraControlView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHCameraControlView.h; sourceTree = "<group>"; };
@@ -1055,7 +1081,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DED808182465A32A00AC76AD /* CoreGraphics.framework in Frameworks */,
+				DED808082465A2A800AC76AD /* Foundation.framework in Frameworks */,
+				DED808122465A2F200AC76AD /* Contacts.framework in Frameworks */,
+				DED808142465A30300AC76AD /* AddressBook.framework in Frameworks */,
+				DED8080E2465A2D500AC76AD /* UIKit.framework in Frameworks */,
+				DED808012465A11500AC76AD /* iflyMSC.framework in Frameworks */,
+				DED808102465A2E200AC76AD /* CoreLocation.framework in Frameworks */,
 				864BB5E20D5521374F720EC0 /* Pods_WeChat.framework in Frameworks */,
+				DED808062465A28400AC76AD /* SystemConfiguration.framework in Frameworks */,
+				DED808162465A31400AC76AD /* QuartzCore.framework in Frameworks */,
+				DED8080C2465A2C600AC76AD /* AudioToolbox.framework in Frameworks */,
+				DED8080A2465A2B500AC76AD /* CoreTelephony.framework in Frameworks */,
+				DED808042465A26800AC76AD /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2878,6 +2916,20 @@
 		DB1E4F3D3B653F9FE4DEFF73 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DED808192465A34400AC76AD /* libc++.tbd */,
+				DED808172465A32900AC76AD /* CoreGraphics.framework */,
+				DED808152465A31400AC76AD /* QuartzCore.framework */,
+				DED808132465A30200AC76AD /* AddressBook.framework */,
+				DED808112465A2F100AC76AD /* Contacts.framework */,
+				DED8080F2465A2E200AC76AD /* CoreLocation.framework */,
+				DED8080D2465A2D400AC76AD /* UIKit.framework */,
+				DED8080B2465A2C600AC76AD /* AudioToolbox.framework */,
+				DED808092465A2B500AC76AD /* CoreTelephony.framework */,
+				DED808072465A2A800AC76AD /* Foundation.framework */,
+				DED808052465A28400AC76AD /* SystemConfiguration.framework */,
+				DED808032465A26800AC76AD /* AVFoundation.framework */,
+				DED808022465A22600AC76AD /* libz.tbd */,
+				DED808002465A11400AC76AD /* iflyMSC.framework */,
 				94F38DBDD0C5EE456B831E4A /* Pods_WeChat.framework */,
 				F609A3FCDE82ED766B6FC1F9 /* Pods_WeChat_WeChatTests.framework */,
 				5F007961429C86520F15C504 /* Pods_WeChat_WeChatUITests.framework */,
@@ -4142,6 +4194,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3FUZGWB9K9;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WeChat/WeChat.pch";
 				INFOPLIST_FILE = WeChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -4166,6 +4223,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3FUZGWB9K9;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WeChat/WeChat.pch";
 				INFOPLIST_FILE = WeChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
