@@ -8,6 +8,7 @@
 
 #import "MHViewModel.h"
 #import "MHSearchTypeViewModel.h"
+#import "MHSearchOfficialAccountsViewModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MHSearchViewModel : MHViewModel
@@ -18,7 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// searchTypeSubject 点击搜索类型的回调
 @property (nonatomic, readonly, strong) RACSubject *searchTypeSubject;
 
-
+/// officialAccountsViewModel
+@property (nonatomic, readonly, strong) MHSearchOfficialAccountsViewModel *officialAccountsViewModel;
 @end
 
 NS_ASSUME_NONNULL_END

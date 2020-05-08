@@ -10,7 +10,7 @@
 #import "MHSearchTypeView.h"
 #import "MHSearchOfficialAccountsView.h"
 #import "MHSearchMusicView.h"
-
+#import "MHSearchVoiceInputView.h"
 @interface MHSearchViewController ()
 /// scrollView
 @property (nonatomic, readwrite, weak) UIScrollView *scrollView;
@@ -22,6 +22,9 @@
 
 /// officialAccountsView
 @property (nonatomic, readwrite, strong) MHSearchOfficialAccountsView *officialAccountsView;
+
+/// voiceInputView
+@property (nonatomic, readwrite, weak) MHSearchVoiceInputView *voiceInputView;
 
 /// MusicView
 @property (nonatomic, readwrite, strong) MHSearchMusicView *musicView;
@@ -65,20 +68,23 @@
 #pragma mark - 事件处理Or辅助方法
 - (void)_configureSearchView:(MHSearchType)type {
     self.view.userInteractionEnabled = NO;
+    
+    /// 先隐藏所有的View
+    self.officialAccountsView.alpha = .0f;
+    self.musicView.alpha = .0;
+    self.searchTypeView.alpha = .0f;
+    
     // 更新布局
     [UIView animateWithDuration:0.25 animations:^{
-        
         switch (type) {
             case MHSearchTypeOfficialAccounts:
             {
                 self.officialAccountsView.alpha = 1.0;
-                self.musicView.alpha = .0;
             }
                 break;
             case MHSearchTypeMusic:
             {
                 self.officialAccountsView.alpha = .0;
-                self.musicView.alpha = 1.0;
             }
                 break;
             case MHSearchTypeSticker:
@@ -89,8 +95,7 @@
                 break;
             default:
             {
-                self.officialAccountsView.alpha = .0;
-                self.musicView.alpha = .0;
+                self.searchTypeView.alpha = 1.0f;
             }
                 break;
         }
@@ -138,6 +143,7 @@
     
     // OfficialAccountsView
     MHSearchOfficialAccountsView *officialAccountsView = [MHSearchOfficialAccountsView officialAccountsView];
+    [officialAccountsView bindViewModel:self.viewModel.officialAccountsViewModel];
     self.officialAccountsView = officialAccountsView;
     officialAccountsView.alpha = .0;
     [containerView addSubview:officialAccountsView];
@@ -150,6 +156,12 @@
     
     // 设置背景色
     containerView.backgroundColor = searchTypeView.backgroundColor = self.view.backgroundColor;
+    
+    
+    /// 语音输入View
+    MHSearchVoiceInputView *voiceInputView = [MHSearchVoiceInputView voiceInputView];
+    self.voiceInputView = voiceInputView;
+    [self.view addSubview:voiceInputView];
 }
 
 /// 布局子控件
@@ -166,15 +178,21 @@
         make.height.mas_equalTo(MH_SCREEN_HEIGHT);
     }];
     
-    /// 布局 
+    /// 布局搜索类型
     [self.searchTypeView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.and.right.equalTo(self.containerView);
         make.top.equalTo(self.containerView).with.offset(39.0);
     }];
     
-    
+    /// 布局公众号
     [self.officialAccountsView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.and.right.equalTo(self.containerView);
+    }];
+    
+    [self.voiceInputView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view);
+        make.centerX.equalTo(self.view);
+        make.size.mas_equalTo(CGSizeMake(110, 110));
     }];
 }
 

@@ -58,6 +58,8 @@
     
     [self.headTipsBtn setTitle:viewModel.liveRoom.familyName forState:UIControlStateNormal];
     [self.coverView yy_setImageWithURL:viewModel.liveRoom.bigpic placeholder:MHImageNamed(@"placeholder_head_100x100") options:MHWebImageOptionAutomatic completion:NULL];
+    
+    NSLog(@"00000 ===== %@", viewModel.liveRoom.bigpic);
 }
 
 #pragma mark - Private Method

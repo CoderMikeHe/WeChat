@@ -303,6 +303,7 @@
 		26FE8E931F9514D100EC8BE0 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FE8E7D1F9514D100EC8BE0 /* UIView+Layout.m */; };
 		84725F21246297B000DCC9B8 /* MHSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84725F1F246297B000DCC9B8 /* MHSearchViewController.m */; };
 		849393232462A49300CC591B /* MHSearchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 849393222462A49300CC591B /* MHSearchViewModel.m */; };
+		8495D09224653FD3005B98B2 /* icons_filled_voiceinput_white.svg in Resources */ = {isa = PBXBuildFile; fileRef = 8495D09124653FD3005B98B2 /* icons_filled_voiceinput_white.svg */; };
 		84AB60A5244AFD990031DADE /* UIImage+MHSVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AB60A4244AFD990031DADE /* UIImage+MHSVG.m */; };
 		84AD506124639BFD0053A79A /* MHSearchTypeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AD506024639BFD0053A79A /* MHSearchTypeViewModel.m */; };
 		84AD50642463AAD70053A79A /* MHSearchOfficialAccountsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AD50632463AAD70053A79A /* MHSearchOfficialAccountsView.m */; };
@@ -312,6 +313,8 @@
 		84AD506E2463B3AF0053A79A /* MHSearchStickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AD506D2463B3AF0053A79A /* MHSearchStickerView.m */; };
 		84AD50702463B3C90053A79A /* MHSearchStickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84AD506F2463B3C90053A79A /* MHSearchStickerView.xib */; };
 		84AD5072246406C30053A79A /* icons_outlined_search_full.svg in Resources */ = {isa = PBXBuildFile; fileRef = 84AD5071246406C20053A79A /* icons_outlined_search_full.svg */; };
+		84C29D1C2464F5D700C0F729 /* MHSearchOfficialAccountsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C29D1B2464F5D700C0F729 /* MHSearchOfficialAccountsViewModel.m */; };
+		84C29D1F246534A600C0F729 /* MHSearchVoiceInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C29D1E246534A600C0F729 /* MHSearchVoiceInputView.m */; };
 		84CBFE2F245AA6E300054D07 /* MHContactsItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CBFE2E245AA6E300054D07 /* MHContactsItemViewModel.m */; };
 		84CBFE36245AC7FD00054D07 /* MHTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CBFE30245AC7FB00054D07 /* MHTableViewCell.m */; };
 		84CBFE37245AC7FD00054D07 /* MHCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CBFE33245AC7FC00054D07 /* MHCollectionViewCell.m */; };
@@ -960,6 +963,7 @@
 		84725F1F246297B000DCC9B8 /* MHSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchViewController.m; sourceTree = "<group>"; };
 		849393212462A49300CC591B /* MHSearchViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchViewModel.h; sourceTree = "<group>"; };
 		849393222462A49300CC591B /* MHSearchViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchViewModel.m; sourceTree = "<group>"; };
+		8495D09124653FD3005B98B2 /* icons_filled_voiceinput_white.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_filled_voiceinput_white.svg; sourceTree = "<group>"; };
 		84AB60A3244AFD990031DADE /* UIImage+MHSVG.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+MHSVG.h"; sourceTree = "<group>"; };
 		84AB60A4244AFD990031DADE /* UIImage+MHSVG.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MHSVG.m"; sourceTree = "<group>"; };
 		84AD505F24639BFD0053A79A /* MHSearchTypeViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchTypeViewModel.h; sourceTree = "<group>"; };
@@ -974,6 +978,10 @@
 		84AD506D2463B3AF0053A79A /* MHSearchStickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchStickerView.m; sourceTree = "<group>"; };
 		84AD506F2463B3C90053A79A /* MHSearchStickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHSearchStickerView.xib; sourceTree = "<group>"; };
 		84AD5071246406C20053A79A /* icons_outlined_search_full.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_outlined_search_full.svg; sourceTree = "<group>"; };
+		84C29D1A2464F5D700C0F729 /* MHSearchOfficialAccountsViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchOfficialAccountsViewModel.h; sourceTree = "<group>"; };
+		84C29D1B2464F5D700C0F729 /* MHSearchOfficialAccountsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchOfficialAccountsViewModel.m; sourceTree = "<group>"; };
+		84C29D1D246534A600C0F729 /* MHSearchVoiceInputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchVoiceInputView.h; sourceTree = "<group>"; };
+		84C29D1E246534A600C0F729 /* MHSearchVoiceInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchVoiceInputView.m; sourceTree = "<group>"; };
 		84CBFE2D245AA6E300054D07 /* MHContactsItemViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHContactsItemViewModel.h; sourceTree = "<group>"; };
 		84CBFE2E245AA6E300054D07 /* MHContactsItemViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHContactsItemViewModel.m; sourceTree = "<group>"; };
 		84CBFE30245AC7FB00054D07 /* MHTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHTableViewCell.m; sourceTree = "<group>"; };
@@ -2501,6 +2509,7 @@
 		2667A3EF1F7B987600A3D7A2 /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
+				84A4129224653F9D00DA3AAC /* Search */,
 				DE4973C4245EC87F003FB76C /* SearchBar */,
 				DE442175244C545A00206161 /* NavigationBar */,
 				DE442174244C53A000206161 /* MainFrame */,
@@ -2838,11 +2847,21 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		84A4129224653F9D00DA3AAC /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				8495D09124653FD3005B98B2 /* icons_filled_voiceinput_white.svg */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		84AD505E24639B910053A79A /* ItemViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				84AD505F24639BFD0053A79A /* MHSearchTypeViewModel.h */,
 				84AD506024639BFD0053A79A /* MHSearchTypeViewModel.m */,
+				84C29D1A2464F5D700C0F729 /* MHSearchOfficialAccountsViewModel.h */,
+				84C29D1B2464F5D700C0F729 /* MHSearchOfficialAccountsViewModel.m */,
 			);
 			path = ItemViewModel;
 			sourceTree = "<group>";
@@ -2969,6 +2988,8 @@
 				84AD506C2463B3AF0053A79A /* MHSearchStickerView.h */,
 				84AD506D2463B3AF0053A79A /* MHSearchStickerView.m */,
 				84AD506F2463B3C90053A79A /* MHSearchStickerView.xib */,
+				84C29D1D246534A600C0F729 /* MHSearchVoiceInputView.h */,
+				84C29D1E246534A600C0F729 /* MHSearchVoiceInputView.m */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -3207,6 +3228,7 @@
 				DE44216D244BF0CC00206161 /* icons_filled_chats.svg in Resources */,
 				2654904D1F99AF6F003AEED1 /* MHMainFrameTableViewCell.xib in Resources */,
 				2618AFE01F91BDA300F82A46 /* MHModifyNicknameViewController.xib in Resources */,
+				8495D09224653FD3005B98B2 /* icons_filled_voiceinput_white.svg in Resources */,
 				DE442177244C547400206161 /* icons_outlined_add2.svg in Resources */,
 				264D36D81F70AEBD003BB8CE /* MHProfileHeaderCell.xib in Resources */,
 				DE4973CA245EC8CA003FB76C /* icons_outlined_searchicon_music.svg in Resources */,
@@ -3806,6 +3828,7 @@
 				261753361F73C41D00812E1B /* MHFeatureSignatureViewController.m in Sources */,
 				263D37191F66656A007267C3 /* YYTimer.m in Sources */,
 				26FE8E811F9514D100EC8BE0 /* TAPageControl.m in Sources */,
+				84C29D1C2464F5D700C0F729 /* MHSearchOfficialAccountsViewModel.m in Sources */,
 				26FE8E8A1F9514D100EC8BE0 /* TZImageManager.m in Sources */,
 				263D36D91F666438007267C3 /* Foundation+Log.m in Sources */,
 				263D36E81F666438007267C3 /* UIBarButtonItem+MHExtension.m in Sources */,
@@ -3898,6 +3921,7 @@
 				2633E02A1FEA097A00D0E187 /* MHMoreEmotionViewController.m in Sources */,
 				263D36DB1F666438007267C3 /* LCActionSheet+MHExtension.m in Sources */,
 				2605C5BE1F662EE400B1F66E /* MHMainFrameViewModel.m in Sources */,
+				84C29D1F246534A600C0F729 /* MHSearchVoiceInputView.m in Sources */,
 				265B4EC61F8DEF54004AEE5F /* MHSettingViewController.m in Sources */,
 				26BEBC751F8B7844004D502F /* MHUser.m in Sources */,
 				2623001A1FD916CD007D1616 /* MHAccountSecurityViewModel.m in Sources */,
