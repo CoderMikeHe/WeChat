@@ -7,8 +7,8 @@
 //
 
 #import "MHSearchVoiceInputView.h"
-
-
+#import "IFlyMSC/IFlyMSC.h"
+#import "ISRDataHelper.h"
 typedef NS_ENUM(NSUInteger, MHButtonTouchState) {
     MHButtonTouchStateDefault = 0, // 默认
     MHButtonTouchStateInside,      // 内部
@@ -16,7 +16,7 @@ typedef NS_ENUM(NSUInteger, MHButtonTouchState) {
 };
 
 
-@interface MHSearchVoiceInputView ()
+@interface MHSearchVoiceInputView ()<IFlySpeechRecognizerDelegate>
 
 /// voiceInputBtn
 @property (nonatomic, readwrite, weak) UIButton *voiceInputBtn;
@@ -27,6 +27,12 @@ typedef NS_ENUM(NSUInteger, MHButtonTouchState) {
 
 /// rippleView
 @property (nonatomic, readwrite, weak) UIView *rippleView;
+
+
+
+// 不带界面的识别对象
+@property (nonatomic, readwrite, strong) IFlySpeechRecognizer *iFlySpeechRecognizer;
+
 @end
 
 
@@ -67,12 +73,48 @@ typedef NS_ENUM(NSUInteger, MHButtonTouchState) {
 
 
 #pragma mark - 辅助方法
+- (void)_startListening {
+    [self.iFlySpeechRecognizer cancel];
+    
+    //Set microphone as audio source
+    [self.iFlySpeechRecognizer setParameter:IFLY_AUDIO_SOURCE_MIC forKey:@"audio_source"];
+    
+    //Set result type
+    [self.iFlySpeechRecognizer setParameter:@"json" forKey:[IFlySpeechConstant RESULT_TYPE]];
+    
+    //Set the audio name of saved recording file while is generated in the local storage path of SDK,by default in library/cache.
+    [self.iFlySpeechRecognizer setParameter:@"asr.pcm" forKey:[IFlySpeechConstant ASR_AUDIO_PATH]];
+    
+    [self.iFlySpeechRecognizer setDelegate:self];
+    
+    BOOL ret = [self.iFlySpeechRecognizer startListening];
+    
+    if (ret) {
+        
+        NSLog(@"开始录入成功...");
+        
+    }else{
+        NSLog(@"开始录入失败...");
+    }
+}
 
+- (void)_stopListening {
+    [self.iFlySpeechRecognizer stopListening];
+}
+
+
+// 按下 开始语音录入
 - (void)_btnTouchDown:(UIButton *)sender {
     // touch inside
     [self _configVoiceInputButtonStyle:MHButtonTouchStateInside];
+    
+    [self voiceCircleRun];
+    
+    [self _startListening];
 }
 
+
+// 弹起 结束语音录入
 - (void)_btnTouchUp:(UIButton *)sender withEvent:(UIEvent *)event {
     UITouch *touch = [[event allTouches] anyObject];
     CGFloat boundsExtension = 27.0f;
@@ -85,8 +127,11 @@ typedef NS_ENUM(NSUInteger, MHButtonTouchState) {
     }
     
     [self _configVoiceInputButtonStyle:MHButtonTouchStateDefault];
+    [self voiceCircleStop];
+    [self _stopListening];
 }
 
+// 拖拽
 - (void)_btnDragged:(UIButton *)sender withEvent:(UIEvent *)event {
     UITouch *touch = [[event allTouches] anyObject];
     CGFloat boundsExtension = 27.0f;
@@ -145,8 +190,54 @@ typedef NS_ENUM(NSUInteger, MHButtonTouchState) {
 
 //不使用时记得移除动画
 - (void)voiceCircleStop {
-    [self.layer removeAllAnimations];
+    [self.rippleView.layer removeAllAnimations];
 }
+
+
+#pragma mark - IFlySpeechRecognizerDelegate
+- (void) onCompleted:(IFlySpeechError *) error {
+    NSLog(@" onCompleted   %@", error);
+}
+// 识别结果返回代理
+- (void) onResults:(NSArray *) results isLast:(BOOL)isLast{
+    NSMutableString *resultString = [[NSMutableString alloc] init];
+    NSDictionary *dic = results[0];
+    for (NSString *key in dic) {
+        [resultString appendFormat:@"%@",key];
+    }
+    
+    NSLog(@"onResults  %@  %d", results, isLast);
+    
+    //持续拼接语音内容
+//    self.resultStringFromJson = [self.resultStringFromJson stringByAppendingString:[ISRDataHelper stringFromJson:resultString]];
+//    NSLog(@"self.resultStringFromJson = %@",self.resultStringFromJson);
+}
+
+// 停止录音回调
+-(void)onEndOfSpeech
+{
+//    self.isStartRecord = YES;
+    NSLog(@"onEndOfSpeech");
+}
+
+// 开始录音回调
+-(void)onBeginOfSpeech
+{
+        NSLog(@"onbeginofspeech");
+}
+
+// 音量回调函数
+-(void)onVolumeChanged:(int)volume
+{
+    NSLog(@"onVolumeChanged  %d", volume);
+}
+
+// 会话取消回调
+-(void)onCancel
+{
+        NSLog(@"取消本次录音");
+}
+
 
 #pragma mark - 初始化OrUI布局
 /// 初始化
@@ -219,5 +310,39 @@ typedef NS_ENUM(NSUInteger, MHButtonTouchState) {
         make.center.equalTo(self.voiceInputBtn);
     }];
 }
+
+#pragma mark - Lazy Load
+-(IFlySpeechRecognizer *)iFlySpeechRecognizer
+{
+    if (!_iFlySpeechRecognizer) {
+        //创建语音识别对象
+        _iFlySpeechRecognizer = [IFlySpeechRecognizer sharedInstance];
+        //设置识别参数
+        //设置为听写模式
+        [_iFlySpeechRecognizer setParameter:@"iat" forKey:[IFlySpeechConstant IFLY_DOMAIN]];
+        //asr_audio_path 是录音文件名，设置 value 为 nil 或者为空取消保存，默认保存目录在 Library/cache 下。
+        [_iFlySpeechRecognizer setParameter:@"iat.pcm" forKey:[IFlySpeechConstant ASR_AUDIO_PATH]];
+        //设置最长录音时间:60秒
+        [_iFlySpeechRecognizer setParameter:@"-1" forKey:[IFlySpeechConstant SPEECH_TIMEOUT]];
+        //设置语音后端点:后端点静音检测时间，即用户停止说话多长时间内即认为不再输入， 自动停止录音
+        [_iFlySpeechRecognizer setParameter:@"10000" forKey:[IFlySpeechConstant VAD_EOS]];
+        //设置语音前端点:静音超时时间，即用户多长时间不说话则当做超时处理
+        [_iFlySpeechRecognizer setParameter:@"5000" forKey:[IFlySpeechConstant VAD_BOS]];
+        //网络等待时间
+        [_iFlySpeechRecognizer setParameter:@"2000" forKey:[IFlySpeechConstant NET_TIMEOUT]];
+        //设置采样率，推荐使用16K
+        [_iFlySpeechRecognizer setParameter:@"16000" forKey:[IFlySpeechConstant SAMPLE_RATE]];
+        //设置语言
+        [_iFlySpeechRecognizer setParameter:@"zh_cn" forKey:[IFlySpeechConstant LANGUAGE]];
+        //设置方言
+        [_iFlySpeechRecognizer setParameter:@"mandarin" forKey:[IFlySpeechConstant ACCENT]];
+        //设置是否返回标点符号
+        [_iFlySpeechRecognizer setParameter:@"0" forKey:[IFlySpeechConstant ASR_PTT]];
+        //设置代理
+        _iFlySpeechRecognizer.delegate = self;
+    }
+    return _iFlySpeechRecognizer;
+}
+
 
 @end

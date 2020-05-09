@@ -13,6 +13,8 @@
 #import "MHBootLoginViewModel.h"
 
 
+#import "IFlyMSC/IFlyMSC.h"
+
 #if defined(DEBUG)||defined(_DEBUG)
 #import <JPFPSStatus/JPFPSStatus.h>
 #import "MHDebugTouchView.h"
@@ -145,6 +147,10 @@
     
     /// 配置H5
 //    [SBConfigureManager configure];
+    
+    
+    /// 配置讯飞语音
+    [self _configIFlyMSC];
 }
 
 #pragma mark - 调试(DEBUG)模式下的工具条
@@ -157,6 +163,30 @@
     [MHDebugTouchView sharedInstance];
 //    /// CoderMikeHe Fixed: 切换了根控制器，切记需要将指示器 移到window的最前面
     [self.window bringSubviewToFront:[MHDebugTouchView sharedInstance]];
+}
+
+
+/// 配置讯飞语音听写
+- (void)_configIFlyMSC {
+    
+    // 配置
+    //Set log level
+    [IFlySetting setLogFile:LVL_ALL];
+    
+    //Set whether to output log messages in Xcode console
+    [IFlySetting showLogcat:YES];
+    
+    //Set the local storage path of SDK
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cachePath = [paths objectAtIndex:0];
+    [IFlySetting setLogFilePath:cachePath];
+    
+    //Set APPID
+    NSString *initString = [[NSString alloc] initWithFormat:@"appid=%@",IFLY_APPID_VALUE];
+    
+    // Configure and initialize iflytek services.(This interface must been invoked in application:didFinishLaunchingWithOptions:)
+    [IFlySpeechUtility createUtility:initString];
+    
 }
 
 

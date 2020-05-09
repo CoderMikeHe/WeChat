@@ -10,6 +10,16 @@
 #ifndef MHMacros_h
 #define MHMacros_h
 
+
+/// 讯飞语音输入
+#define IFLY_APPID_VALUE  @"573bcc40"
+
+
+
+
+
+
+
 /// 存储应用版本的key
 #define MHApplicationVersionKey   @"SBApplicationVersionKey"
 /// 应用名称

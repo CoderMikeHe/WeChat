@@ -302,6 +302,7 @@
 		26FE8E921F9514D100EC8BE0 /* TZVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FE8E7B1F9514D100EC8BE0 /* TZVideoPlayerController.m */; };
 		26FE8E931F9514D100EC8BE0 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FE8E7D1F9514D100EC8BE0 /* UIView+Layout.m */; };
 		84725F21246297B000DCC9B8 /* MHSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84725F1F246297B000DCC9B8 /* MHSearchViewController.m */; };
+		849135EA2466966F00450D94 /* ISRDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 849135E92466966E00450D94 /* ISRDataHelper.m */; };
 		849393232462A49300CC591B /* MHSearchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 849393222462A49300CC591B /* MHSearchViewModel.m */; };
 		8495D09224653FD3005B98B2 /* icons_filled_voiceinput_white.svg in Resources */ = {isa = PBXBuildFile; fileRef = 8495D09124653FD3005B98B2 /* icons_filled_voiceinput_white.svg */; };
 		84AB60A5244AFD990031DADE /* UIImage+MHSVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AB60A4244AFD990031DADE /* UIImage+MHSVG.m */; };
@@ -973,6 +974,8 @@
 		6AC95F3A9ABF83B9A3CDD57C /* Pods-WeChat-WeChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChat-WeChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeChat-WeChatTests/Pods-WeChat-WeChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		84725F1E246297B000DCC9B8 /* MHSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchViewController.h; sourceTree = "<group>"; };
 		84725F1F246297B000DCC9B8 /* MHSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchViewController.m; sourceTree = "<group>"; };
+		849135E82466966E00450D94 /* ISRDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISRDataHelper.h; sourceTree = "<group>"; };
+		849135E92466966E00450D94 /* ISRDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISRDataHelper.m; sourceTree = "<group>"; };
 		849393212462A49300CC591B /* MHSearchViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchViewModel.h; sourceTree = "<group>"; };
 		849393222462A49300CC591B /* MHSearchViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchViewModel.m; sourceTree = "<group>"; };
 		8495D09124653FD3005B98B2 /* icons_filled_voiceinput_white.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_filled_voiceinput_white.svg; sourceTree = "<group>"; };
@@ -2435,6 +2438,8 @@
 		263D371C1F667D2C007267C3 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				849135E82466966E00450D94 /* ISRDataHelper.h */,
+				849135E92466966E00450D94 /* ISRDataHelper.m */,
 				2664F5361FEA6BE5005C10CF /* MHMomentHelper.h */,
 				2664F5351FEA6BE5005C10CF /* MHMomentHelper.m */,
 				263D371D1F667DF2007267C3 /* MHControllerHelper.h */,
@@ -3877,6 +3882,7 @@
 				263D370F1F666569007267C3 /* LCActionSheetCell.m in Sources */,
 				260175851FE904D1000F6A25 /* MHGeneralViewController.m in Sources */,
 				DE4973C3245EB426003FB76C /* MHNavSearchBarViewModel.m in Sources */,
+				849135EA2466966F00450D94 /* ISRDataHelper.m in Sources */,
 				261753361F73C41D00812E1B /* MHFeatureSignatureViewController.m in Sources */,
 				263D37191F66656A007267C3 /* YYTimer.m in Sources */,
 				26FE8E811F9514D100EC8BE0 /* TAPageControl.m in Sources */,
@@ -4203,7 +4209,7 @@
 				INFOPLIST_FILE = WeChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.CoderMikeHe0.WeChat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mh.wechat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				WARNING_CFLAGS = (
@@ -4232,7 +4238,7 @@
 				INFOPLIST_FILE = WeChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.CoderMikeHe0.WeChat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mh.wechat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				WARNING_CFLAGS = (
