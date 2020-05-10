@@ -63,6 +63,32 @@
         MHSearchType searchType = x.integerValue;
         [self _configureSearchView:searchType];
     }];
+    
+    
+    
+    /// 监听键盘 高度
+    /// 监听按钮
+    [[[[[NSNotificationCenter defaultCenter] rac_addObserverForName:UIKeyboardWillChangeFrameNotification object:nil] takeUntil:self.rac_willDeallocSignal ]
+      deliverOnMainThread]
+     subscribeNext:^(NSNotification * notification) {
+         @strongify(self);
+         @weakify(self);
+         [self mh_convertNotification:notification completion:^(CGFloat duration, UIViewAnimationOptions options, CGFloat keyboardH) {
+             @strongify(self);
+             if (keyboardH <= 0) {
+                 keyboardH = - self.voiceInputView.mh_height;
+             }
+             // voiceInputView距离底部的高
+             [self.voiceInputView mas_updateConstraints:^(MASConstraintMaker *make) {
+                 make.bottom.equalTo(self.view).with.offset(-1 *keyboardH);
+             }];
+             // 执行动画
+             [UIView animateWithDuration:duration delay:0.0f options:options animations:^{
+                 // 如果是Masonry或者autoLayout UITextField或者UITextView 布局 必须layoutSubviews，否则文字会跳动
+                 [self.view layoutIfNeeded];
+             } completion:nil];
+         }];
+     }];
 }
 
 #pragma mark - 事件处理Or辅助方法
@@ -190,9 +216,9 @@
     }];
     
     [self.voiceInputView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.view);
+        make.bottom.equalTo(self.view).with.offset(-115.0);
         make.centerX.equalTo(self.view);
-        make.size.mas_equalTo(CGSizeMake(110, 110));
+        make.size.mas_equalTo(CGSizeMake(200.0, 115));
     }];
 }
 

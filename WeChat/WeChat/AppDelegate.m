@@ -170,18 +170,18 @@
 - (void)_configIFlyMSC {
     
     // 配置
-    //Set log level
-    [IFlySetting setLogFile:LVL_ALL];
+    // Set log level
+    [IFlySetting setLogFile:LVL_NONE];
     
-    //Set whether to output log messages in Xcode console
-    [IFlySetting showLogcat:YES];
+    // Set whether to output log messages in Xcode console
+    [IFlySetting showLogcat:NO];
     
-    //Set the local storage path of SDK
+    // Set the local storage path of SDK
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *cachePath = [paths objectAtIndex:0];
     [IFlySetting setLogFilePath:cachePath];
     
-    //Set APPID
+    // Set APPID
     NSString *initString = [[NSString alloc] initWithFormat:@"appid=%@",IFLY_APPID_VALUE];
     
     // Configure and initialize iflytek services.(This interface must been invoked in application:didFinishLaunchingWithOptions:)

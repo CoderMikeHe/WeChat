@@ -33,6 +33,10 @@ typedef NS_ENUM(NSUInteger, MHButtonTouchState) {
 // 不带界面的识别对象
 @property (nonatomic, readwrite, strong) IFlySpeechRecognizer *iFlySpeechRecognizer;
 
+/// resultStringFromJson
+@property (nonatomic, readwrite, copy) NSString *resultStringFromJson;
+
+
 @end
 
 
@@ -73,20 +77,12 @@ typedef NS_ENUM(NSUInteger, MHButtonTouchState) {
 
 
 #pragma mark - 辅助方法
+/// 开始录音
 - (void)_startListening {
     [self.iFlySpeechRecognizer cancel];
     
-    //Set microphone as audio source
-    [self.iFlySpeechRecognizer setParameter:IFLY_AUDIO_SOURCE_MIC forKey:@"audio_source"];
     
-    //Set result type
-    [self.iFlySpeechRecognizer setParameter:@"json" forKey:[IFlySpeechConstant RESULT_TYPE]];
-    
-    //Set the audio name of saved recording file while is generated in the local storage path of SDK,by default in library/cache.
-    [self.iFlySpeechRecognizer setParameter:@"asr.pcm" forKey:[IFlySpeechConstant ASR_AUDIO_PATH]];
-    
-    [self.iFlySpeechRecognizer setDelegate:self];
-    
+
     BOOL ret = [self.iFlySpeechRecognizer startListening];
     
     if (ret) {
@@ -98,6 +94,7 @@ typedef NS_ENUM(NSUInteger, MHButtonTouchState) {
     }
 }
 
+/// 停止录音
 - (void)_stopListening {
     [self.iFlySpeechRecognizer stopListening];
 }
@@ -110,7 +107,7 @@ typedef NS_ENUM(NSUInteger, MHButtonTouchState) {
     
     [self voiceCircleRun];
     
-    [self _startListening];
+//    [self _startListening];
 }
 
 
@@ -128,7 +125,7 @@ typedef NS_ENUM(NSUInteger, MHButtonTouchState) {
     
     [self _configVoiceInputButtonStyle:MHButtonTouchStateDefault];
     [self voiceCircleStop];
-    [self _stopListening];
+//    [self _stopListening];
 }
 
 // 拖拽
@@ -177,26 +174,31 @@ typedef NS_ENUM(NSUInteger, MHButtonTouchState) {
 }
 
 - (void)voiceCircleRun {
-    CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-    scaleAnimation.duration = 1;
-    scaleAnimation.repeatCount = HUGE_VALF;
-    scaleAnimation.autoreverses = YES;
-    //removedOnCompletion为NO保证app切换到后台动画再切回来时动画依然执行
-    scaleAnimation.removedOnCompletion = NO;
-    scaleAnimation.fromValue = @(1.0);
-    scaleAnimation.toValue = @(1.4);
-    [self.rippleView.layer addAnimation:scaleAnimation forKey:@"scale-layer"];
+    [UIView animateWithDuration:0.25 delay:0.0 options: UIViewAnimationOptionCurveEaseOut animations:^{
+        self.rippleView.transform = CGAffineTransformMakeScale(1.4, 1.4);
+    } completion:^(BOOL finished) {
+       [UIView animateWithDuration:1.0 delay:0.25 usingSpringWithDamping:.5 initialSpringVelocity:15.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+           self.rippleView.transform = CGAffineTransformMakeScale(1.9, 1.9);
+       } completion:^(BOOL finished) {
+           
+       }];
+    }];
 }
 
 //不使用时记得移除动画
 - (void)voiceCircleStop {
-    [self.rippleView.layer removeAllAnimations];
+   [UIView animateWithDuration:0.25 delay:0.25 options: UIViewAnimationOptionCurveEaseIn animations:^{
+       self.rippleView.transform = CGAffineTransformMakeScale(1.0, 1.0);
+   } completion:^(BOOL finished) {
+      
+   }];
 }
 
 
 #pragma mark - IFlySpeechRecognizerDelegate
 - (void) onCompleted:(IFlySpeechError *) error {
-    NSLog(@" onCompleted   %@", error);
+    NSString *text = [NSString stringWithFormat:@"Error：%d %@", error.errorCode,error.errorDesc];
+    NSLog(@" onCompleted   %@", text);
 }
 // 识别结果返回代理
 - (void) onResults:(NSArray *) results isLast:(BOOL)isLast{
@@ -206,30 +208,29 @@ typedef NS_ENUM(NSUInteger, MHButtonTouchState) {
         [resultString appendFormat:@"%@",key];
     }
     
-    NSLog(@"onResults  %@  %d", results, isLast);
+    NSString * _result =[NSString stringWithFormat:@"%@", resultString];
+    
+    NSLog(@"onResults  %@  %d  %@", results, isLast, _result);
     
     //持续拼接语音内容
-//    self.resultStringFromJson = [self.resultStringFromJson stringByAppendingString:[ISRDataHelper stringFromJson:resultString]];
-//    NSLog(@"self.resultStringFromJson = %@",self.resultStringFromJson);
+    self.resultStringFromJson = [self.resultStringFromJson stringByAppendingString:[ISRDataHelper stringFromJson:resultString]];
+    NSLog(@"self.resultStringFromJson = %@",self.resultStringFromJson);
 }
 
 // 停止录音回调
--(void)onEndOfSpeech
-{
+-(void)onEndOfSpeech{
 //    self.isStartRecord = YES;
     NSLog(@"onEndOfSpeech");
 }
 
 // 开始录音回调
--(void)onBeginOfSpeech
-{
+-(void)onBeginOfSpeech{
         NSLog(@"onbeginofspeech");
 }
 
-// 音量回调函数
--(void)onVolumeChanged:(int)volume
-{
-    NSLog(@"onVolumeChanged  %d", volume);
+// 音量回调函数 0-30
+-(void)onVolumeChanged:(int)volume{
+//    NSLog(@"onVolumeChanged  %d", volume);
 }
 
 // 会话取消回调
@@ -263,8 +264,6 @@ typedef NS_ENUM(NSUInteger, MHButtonTouchState) {
     // https://stackoverflow.com/questions/14340122/uicontroleventtouchdragexit-triggers-when-100-pixels-away-from-uibutton/30320206#30320206
     // https://www.jianshu.com/p/dffcf43a4141
     // https://blog.csdn.net/heng615975867/article/details/39321081
-    
-    
     // touchdown
     [voiceInputBtn addTarget:self action:@selector(_btnTouchDown:) forControlEvents:UIControlEventTouchDown];
     
@@ -289,6 +288,8 @@ typedef NS_ENUM(NSUInteger, MHButtonTouchState) {
     UIView *rippleView = [[UIView alloc] init];
     rippleView.backgroundColor = MHColorFromHexString(@"#c6e3d2");
     self.rippleView = rippleView;
+    rippleView.cornerRadius = 57 * 0.5;
+    rippleView.masksToBounds = YES;
     [self insertSubview:rippleView belowSubview:voiceInputBtn];
 }
 
@@ -305,8 +306,9 @@ typedef NS_ENUM(NSUInteger, MHButtonTouchState) {
         make.centerX.equalTo(self);
     }];
     
+    // 常规状态时111
     [self.rippleView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(84, 84));
+        make.size.mas_equalTo(CGSizeMake(57, 57));
         make.center.equalTo(self.voiceInputBtn);
     }];
 }
@@ -338,6 +340,11 @@ typedef NS_ENUM(NSUInteger, MHButtonTouchState) {
         [_iFlySpeechRecognizer setParameter:@"mandarin" forKey:[IFlySpeechConstant ACCENT]];
         //设置是否返回标点符号
         [_iFlySpeechRecognizer setParameter:@"0" forKey:[IFlySpeechConstant ASR_PTT]];
+        //Set microphone as audio source
+        [_iFlySpeechRecognizer setParameter:IFLY_AUDIO_SOURCE_MIC forKey:@"audio_source"];
+        
+        // Set result type
+        [_iFlySpeechRecognizer setParameter:@"json" forKey:[IFlySpeechConstant RESULT_TYPE]];
         //设置代理
         _iFlySpeechRecognizer.delegate = self;
     }
