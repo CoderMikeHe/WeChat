@@ -6,6 +6,8 @@
 //  Copyright © 2020 CoderMikeHe. All rights reserved.
 //  主要用于 微信 + 通讯录 搜索模块
 
+//  这个作为 搜索类型 
+
 #import "MHViewController.h"
 #import "MHSearchViewModel.h"
 NS_ASSUME_NONNULL_BEGIN

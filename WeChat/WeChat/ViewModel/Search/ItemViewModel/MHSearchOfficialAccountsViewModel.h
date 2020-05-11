@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "MHSearchTypeViewModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MHSearchOfficialAccountsViewModel : NSObject
+@interface MHSearchOfficialAccountsViewModel : MHSearchTypeViewModel
 
 /// officialAccountTapCommand
 @property (nonatomic, readwrite, strong) RACCommand *officialAccountTapCommand;

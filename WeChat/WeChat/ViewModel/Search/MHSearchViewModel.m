@@ -12,10 +12,13 @@
 @interface MHSearchViewModel ()
 
 /// searchTypeViewModel
-@property (nonatomic, readwrite, strong) MHSearchTypeViewModel *searchTypeViewModel;
+@property (nonatomic, readwrite, strong) MHSearchTypeItemViewModel *searchTypeViewModel;
 
 /// searchTypeSubject
 @property (nonatomic, readwrite, strong) RACSubject *searchTypeSubject;
+
+/// popItemSubject 子控制器（朋友圈、文章、 公众号、小程序、音乐、表情）侧滑返回回调
+@property (nonatomic, readwrite, strong) RACSubject *popItemSubject;
 
 /// officialAccountsViewModel
 @property (nonatomic, readwrite, strong) MHSearchOfficialAccountsViewModel *officialAccountsViewModel;
@@ -32,6 +35,7 @@
     
     @weakify(self);
     self.searchTypeSubject = [RACSubject subject];
+    self.popItemSubject = [RACSubject subject];
     self.officialAccountTapCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSNumber *input) {
         @strongify(self);
         
@@ -51,12 +55,13 @@
     
     
     // 创建viewModel
-    self.searchTypeViewModel = [[MHSearchTypeViewModel alloc] init];
+    self.searchTypeViewModel = [[MHSearchTypeItemViewModel alloc] init];
     self.searchTypeViewModel.searchTypeSubject = self.searchTypeSubject;
     
     // 公众号ViewModel
-    self.officialAccountsViewModel = [[MHSearchOfficialAccountsViewModel alloc] init];
-    self.officialAccountsViewModel.officialAccountTapCommand = self.officialAccountTapCommand;
+    self.officialAccountsViewModel = [[MHSearchOfficialAccountsViewModel alloc] initWithServices:self.services params:@{MHViewModelIDKey: @(MHSearchTypeOfficialAccounts), MHViewModelUtilKey: self.popItemSubject}];
+    //
+//    self.officialAccountsViewModel.officialAccountTapCommand = self.officialAccountTapCommand;
 }
 
 

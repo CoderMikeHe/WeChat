@@ -60,4 +60,16 @@ typedef NS_ENUM(NSUInteger, MHMomentShareInfoType) {
     MHMomentShareInfoTypeMusic,       /// 音乐
 };
 
+
+
+// 搜索类型 <微信、通讯录>
+typedef NS_ENUM(NSInteger, MHSearchType) {
+    MHSearchTypeDefault = -1,  // All
+    MHSearchTypeMoments = 0,   // 朋友圈
+    MHSearchTypeSubscriptions, // 文章
+    MHSearchTypeOfficialAccounts, // 公众号
+    MHSearchTypeMiniprogram,   // 小程序
+    MHSearchTypeMusic,         // 音乐
+    MHSearchTypeSticker        // 表情
+};
 #endif /* MHConstEnum_h */
