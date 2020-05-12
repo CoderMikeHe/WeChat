@@ -20,15 +20,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.backgroundColor = [UIColor redColor];
-    
     /// 添加一个边缘手势
     UIScreenEdgePanGestureRecognizer *panGestureRecognizer = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(_panGestureDetected:)];
     panGestureRecognizer.edges = UIRectEdgeLeft;
     [panGestureRecognizer setDelegate:self];
     [self.view addGestureRecognizer:panGestureRecognizer];
-
 }
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+}
+
 #pragma mark - 辅助方法
 -(void)_panGestureDetected:(UIScreenEdgePanGestureRecognizer *)recognizer{
    
@@ -44,9 +46,6 @@
         [recognizer setTranslation:CGPointZero inView:recognizer.view];
         
     } else if (state == UIGestureRecognizerStateEnded || state == UIGestureRecognizerStateCancelled) {
-        /*获取拖动的位置*/
-        CGPoint translation = [recognizer translationInView:recognizer.view];
-        NSLog(@" frame  is  %@", NSStringFromCGRect(recognizer.view.frame));
         if (recognizer.view.mh_left <= recognizer.view.mh_width * 0.5) {
             // 归位
             [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
@@ -54,9 +53,7 @@
             } completion:^(BOOL finished) {
             }];
         }else {
-            NSLog(@"xxxxxxxxxxxxxxxxxx");
-            // 归位
-            
+            // 返回
             [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 [recognizer.view setTransform:CGAffineTransformMakeTranslation(recognizer.view.mh_width, 0)];
             } completion:^(BOOL finished) {
@@ -78,8 +75,5 @@
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
     return YES;
 }
-
-
-
 
 @end

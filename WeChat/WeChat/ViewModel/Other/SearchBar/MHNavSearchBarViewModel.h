@@ -14,11 +14,18 @@ NS_ASSUME_NONNULL_BEGIN
 /// height
 @property (nonatomic, readonly, assign) CGFloat height;
 
-/// 编辑cmd
+/// 编辑cmd  点击 搜索 或者 取消按钮
 @property (nonatomic, readwrite, strong) RACSubject *editSubject;
 
 /// searchType
 @property (nonatomic, readwrite, strong) RACSubject *searchTypeSubject;
+
+/// 文本框输入回调
+@property (nonatomic, readwrite, strong) RACSubject *textSubject;
+/// text 文本框显示的东西
+@property (nonatomic, readwrite, copy) NSString *text;
+/// searchType 搜索类型
+@property (nonatomic, readwrite, assign) MHSearchType searchType;
 @end
 
 NS_ASSUME_NONNULL_END

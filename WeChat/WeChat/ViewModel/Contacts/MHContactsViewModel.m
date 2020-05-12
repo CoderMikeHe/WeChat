@@ -27,6 +27,7 @@
 
 /// searchBarViewModel
 @property (nonatomic, readwrite, strong) MHNavSearchBarViewModel *searchBarViewModel;
+
 /// searchViewModel
 @property (nonatomic, readwrite, strong) MHSearchViewModel *searchViewModel;
 
@@ -48,11 +49,7 @@
     /// 隐藏导航栏
     self.prefersNavigationBarHidden = YES;
     self.prefersNavigationBarBottomLineHidden = YES;
-    
     self.shouldMultiSections = YES;
-    
-    
-    
     @weakify(self);
     self.addFriendsCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         @strongify(self);
@@ -71,6 +68,8 @@
     }];
     
     
+    
+    // --------------------- 搜索相关 ----------------------
     /// 点击 🔍 搜索
     self.editSubject = [RACSubject subject];
     
@@ -81,11 +80,17 @@
     
     // 配置 searchBar viewModel
     self.searchBarViewModel = [[MHNavSearchBarViewModel alloc] init];
+    // 点击搜索和点击取消按钮回调
     self.searchBarViewModel.editSubject = self.editSubject;
+    // 搜索页面 点击搜索类型回调
     self.searchBarViewModel.searchTypeSubject = self.searchViewModel.searchTypeSubject;
+    // 语音输入回调 + 文本框输入回调
+    self.searchBarViewModel.textSubject = self.searchViewModel.textSubject;
     
-    /// 监听searchViewModel 的 searchType 改变
-//    RAC(self.searchBarViewModel, searchType) = [RACObserve(self.searchViewModel, searchType) distinctUntilChanged] ;
+    /// 赋值操作
+    RAC(self.searchBarViewModel, text) = RACObserve(self.searchViewModel, keyword);
+    RAC(self.searchBarViewModel, searchType) = RACObserve(self.searchViewModel, searchType);
+    
 }
 
 

@@ -7,6 +7,7 @@
 //
 
 #import "MHSearchOfficialAccountsViewController.h"
+#import "MHSearchOfficialAccountsDefaultCell.h"
 
 @interface MHSearchOfficialAccountsViewController ()
 
@@ -30,7 +31,49 @@
     [self _makeSubViewsConstraints];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    MHLogFunc;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    MHLogFunc;
+}
+
+
+#pragma mark - Override
+- (void)bindViewModel {
+    [super bindViewModel];
+    
+    
+}
+
+/// 返回自定义的cell
+- (UITableViewCell *)tableView:(UITableView *)tableView dequeueReusableCellWithIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath{
+    return [MHSearchOfficialAccountsDefaultCell cellWithTableView:tableView];
+}
+
+/// 绑定数据
+- (void)configureCell:(MHSearchOfficialAccountsDefaultCell *)cell atIndexPath:(NSIndexPath *)indexPath withObject:(id)object{
+    [cell bindViewModel:object];
+}
+
+- (UIEdgeInsets)contentInset {
+    return UIEdgeInsetsZero;
+}
+
+
 #pragma mark - 事件处理Or辅助方法
+
+
+#pragma mark - UITableViewDelegate & UITableViewDataSource
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 44 + 109;
+}
+
 
 #pragma mark - 初始化OrUI布局
 /// 初始化

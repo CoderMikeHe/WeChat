@@ -124,43 +124,7 @@
 
 #pragma mark - 事件处理Or辅助方法
 - (void)_configureSearchView:(MHSearchType)type {
-//    self.view.userInteractionEnabled = NO;
-//
-//    /// 先隐藏所有的View
-//    self.officialAccountsView.alpha = .0f;
-//    self.musicView.alpha = .0;
-//    self.searchTypeView.alpha = .0f;
-//
-//    // 更新布局
-//    [UIView animateWithDuration:0.25 animations:^{
-//        switch (type) {
-//            case MHSearchTypeOfficialAccounts:
-//            {
-//                self.officialAccountsView.alpha = 1.0;
-//            }
-//                break;
-//            case MHSearchTypeMusic:
-//            {
-//                self.officialAccountsView.alpha = .0;
-//            }
-//                break;
-//            case MHSearchTypeSticker:
-//            {
-//                self.officialAccountsView.alpha = .0;
-//                self.musicView.alpha = .0;
-//            }
-//                break;
-//            default:
-//            {
-//                self.searchTypeView.alpha = 1.0f;
-//            }
-//                break;
-//        }
-//
-//
-//    } completion:^(BOOL finished) {
-//        self.view.userInteractionEnabled = YES;
-//    }];
+    // 默认页
     if (type == MHSearchTypeDefault) {
         /// 如果有值 说名当前处于搜索子模块
         if (self.currentViewController) {

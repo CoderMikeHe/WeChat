@@ -1,48 +1,54 @@
 //
-//  MHSearchOfficialAccountsView.m
+//  MHSearchOfficialAccountsDefaultCell.m
 //  WeChat
 //
-//  Created by admin on 2020/5/7.
+//  Created by admin on 2020/5/12.
 //  Copyright © 2020 CoderMikeHe. All rights reserved.
 //
 
-#import "MHSearchOfficialAccountsView.h"
-#import "MHSearchOfficialAccountsViewModel.h"
-@interface MHSearchOfficialAccountsView ()
-/// kingGloryBgView
+#import "MHSearchOfficialAccountsDefaultCell.h"
+#import "MHSearchOfficialAccountsDefaultItemViewModel.h"
+@interface MHSearchOfficialAccountsDefaultCell ()
+
+/// viewModel
+@property (nonatomic, readwrite, strong) MHSearchOfficialAccountsDefaultItemViewModel *viewModel;
+
 @property (weak, nonatomic) IBOutlet UIView *kingGloryBgView;
 
-/// cmhBgView
 @property (weak, nonatomic) IBOutlet UIView *cmhBgView;
 
-/// kingGloryView
 @property (weak, nonatomic) IBOutlet UIImageView *kingGloryView;
-
-/// cmhView
 @property (weak, nonatomic) IBOutlet UIImageView *cmhView;
 
-/// viewMdoel
-@property (nonatomic, readwrite, strong) MHSearchOfficialAccountsViewModel *viewModel;
 
 @end
 
 
-@implementation MHSearchOfficialAccountsView
+@implementation MHSearchOfficialAccountsDefaultCell
 
 #pragma mark - Public Method
-/// 构造方法
-+ (instancetype)officialAccountsView {
-    return [self mh_viewFromXib];
+/// 返回cell
++ (instancetype)cellWithTableView:(UITableView *)tableView{
+    static NSString *ID = @"SearchOfficialAccountsDefaultCell";
+    MHSearchOfficialAccountsDefaultCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (!cell) {
+        cell = [self mh_viewFromXib];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    return cell;
 }
 
-
-// 绑定viewModel
-- (void)bindViewModel:(MHSearchOfficialAccountsViewModel *)viewModel {
+- (void)bindViewModel:(MHSearchOfficialAccountsDefaultItemViewModel *)viewModel {
     self.viewModel = viewModel;
 }
 
-#pragma mark - Private Method
 
+- (void)setIndexPath:(NSIndexPath *)indexPath rowsInSection:(NSInteger)rows {
+    
+}
+
+
+#pragma mark - Private Method
 - (void)awakeFromNib {
     [super awakeFromNib];
     
@@ -71,8 +77,10 @@
         @strongify(self);
         [self.viewModel.officialAccountTapCommand execute:@1];
     }];
-    
 }
-#pragma mark - 事件处理
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+}
 
 @end

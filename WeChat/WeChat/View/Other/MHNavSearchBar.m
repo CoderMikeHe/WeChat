@@ -61,7 +61,7 @@
 #pragma mark - Overwrite
 - (void)bindViewModel:(MHNavSearchBarViewModel *)viewModel {
     self.viewModel = viewModel;
-    
+
     @weakify(self);
     [[self.viewModel.editSubject deliverOnMainThread] subscribeNext:^(NSNumber *isEdit) {
         @strongify(self);
@@ -141,13 +141,17 @@
             self.userInteractionEnabled = YES;
         }];
     }];
+    
+    
+    /// 文字改了
+    [[RACObserve(self.viewModel, text) distinctUntilChanged] subscribeNext:^(id x) {
+        @strongify(self);
+        // 这个不会触发 textField.rac_textSignal
+        self.textField.text = x;
+    }];
 }
 
 #pragma mark - 辅助方法
-- (void)_cancelBtnDidClicked:(UIButton *)sender{
-       
-}
-
 /// 获取placeholder
 - (NSString *)_fetchPlaceholder:(MHSearchType)type {
     NSString *placeholder = @"小程序";
@@ -174,7 +178,6 @@
             placeholder = @"搜索";
             break;
     }
-    
     return placeholder;
 }
 
@@ -269,12 +272,16 @@
     textField.font = MHRegularFont_16;
     textField.leftViewMode = UITextFieldViewModeAlways;
     textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-    
-    // 编辑模式
+    // 编辑模式 默认不能编辑
     textField.enabled = NO;
-    
     [self addSubview:textField];
     self.textField = textField;
+    
+    // 回调事件
+    [[textField.rac_textSignal distinctUntilChanged] subscribeNext:^(id x) {
+        @strongify(self);
+        [self.viewModel.textSubject sendNext:x];
+    }];
     
     /// 取消按钮
     UIButton *cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];

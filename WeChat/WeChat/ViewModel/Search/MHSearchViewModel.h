@@ -25,7 +25,14 @@ NS_ASSUME_NONNULL_BEGIN
 /// officialAccountsViewModel
 @property (nonatomic, readonly, strong) MHSearchOfficialAccountsViewModel *officialAccountsViewModel;
 
-///
+/// 文本框输入回调
+@property (nonatomic, readonly, strong) RACSubject *textSubject;
+
+
+/// keyword 关键字
+@property (nonatomic, readonly, copy) NSString *keyword;
+/// searchType 搜索类型
+@property (nonatomic, readonly, assign) MHSearchType searchType;
 @end
 
 NS_ASSUME_NONNULL_END

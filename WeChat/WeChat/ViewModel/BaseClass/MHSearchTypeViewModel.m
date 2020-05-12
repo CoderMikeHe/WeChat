@@ -8,7 +8,17 @@
 
 #import "MHSearchTypeViewModel.h"
 
+/// 搜索类型
+NSString * const  MHSearchTypeTypeKey = @"MHSearchTypeTypeKey" ;
+/// 侧滑返回回调
+NSString * const  MHSearchTypePopKey = @"MHSearchTypePopKey";
+/// 关键字
+NSString * const  MHSearchTypeKeywordKey = @"MHSearchTypeKeywordKey";
+
 @interface MHSearchTypeViewModel ()
+
+/// popSubject 侧滑返回回调
+@property (nonatomic, readwrite, strong) RACSubject *popSubject;
 
 /// 搜索类型
 @property (nonatomic, readwrite, assign) MHSearchType searchType;
@@ -21,10 +31,10 @@
 {
     if (self = [super initWithServices:services params:params]) {
         /// 搜索类型
-        self.searchType = [params[MHViewModelIDKey] integerValue];
-        self.popSubject = params[MHViewModelUtilKey];
+        self.searchType = [params[MHSearchTypeTypeKey] integerValue];
+        self.popSubject = params[MHSearchTypePopKey];
+        self.keyword = params[MHSearchTypeKeywordKey];
     }
-    
     return self;
 }
 @end
