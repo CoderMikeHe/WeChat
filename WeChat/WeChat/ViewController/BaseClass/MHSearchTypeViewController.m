@@ -33,7 +33,7 @@
 
 #pragma mark - 辅助方法
 -(void)_panGestureDetected:(UIScreenEdgePanGestureRecognizer *)recognizer{
-   
+
     /*获取状态*/
     UIGestureRecognizerState state = [recognizer state];
     if (state == UIGestureRecognizerStateBegan || state == UIGestureRecognizerStateChanged)

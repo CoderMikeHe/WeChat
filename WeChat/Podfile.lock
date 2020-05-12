@@ -53,7 +53,6 @@ PODS:
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
   - FXBlurView (1.6.4)
-  - HighlightedSearch (0.1.0)
   - HJCornerRadius (0.0.1)
   - HYBImageCliped (2.2.4)
   - IQKeyboardManager (6.5.5)
@@ -165,7 +164,6 @@ DEPENDENCIES:
   - FLEX (= 2.4.0)
   - FMDB (= 2.6.2)
   - FXBlurView (= 1.6.4)
-  - HighlightedSearch (= 0.1.0)
   - HJCornerRadius (from `https://github.com/panghaijiao/HJCornerRadius.git`)
   - HYBImageCliped (= 2.2.4)
   - IQKeyboardManager (= 6.5.5)
@@ -229,7 +227,6 @@ SPEC REPOS:
     - FLEX
     - FMDB
     - FXBlurView
-    - HighlightedSearch
     - HYBImageCliped
     - IQKeyboardManager
     - JDStatusBarNotification
@@ -302,7 +299,6 @@ SPEC CHECKSUMS:
   FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   FXBlurView: db786c2561cb49a09ae98407f52460096ab8a44f
-  HighlightedSearch: adf759fa7c99be5a5bea6c351d37ea51ddfb0a4b
   HJCornerRadius: 0af191386b5f2e9c4465739b5db22c0acc52923b
   HYBImageCliped: 22d14431324bc9d056353d6f1490a3bd03fc7dff
   IQKeyboardManager: 3a8b9e603f8b0eeaf5f096a1f2b2cfcf121992ef
@@ -345,6 +341,6 @@ SPEC CHECKSUMS:
   ZBarSDK: 4c1b5daeb7d6cc67dc9355e690af0230a661f6ec
   ZYCornerRadius: f0af817be7805b5c63d793042ca7a03f81e14069
 
-PODFILE CHECKSUM: 0188103cb76b33063188d96e9c10f033a55d1bcd
+PODFILE CHECKSUM: 92cd78a0684636e230dd0f8c9f23eaabad519f64
 
 COCOAPODS: 1.9.1

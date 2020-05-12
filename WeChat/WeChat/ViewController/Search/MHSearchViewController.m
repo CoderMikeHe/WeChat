@@ -13,7 +13,7 @@
 #import "MHSearchVoiceInputView.h"
 
 #import "MHSearchOfficialAccountsViewController.h"
-
+#import "MHSearchMomentsViewController.h"
 
 
 @interface MHSearchViewController ()
@@ -200,7 +200,12 @@
 
 #pragma mark - 初始化子控制器
 - (void)_setupChildController {
-    // 公众号
+    
+    /// 朋友圈
+    MHSearchMomentsViewController *moments = [[MHSearchMomentsViewController alloc] initWithViewModel:self.viewModel.momentsViewModel];
+    [self.viewControllers addObject:moments];
+    
+    /// 公众号
     MHSearchOfficialAccountsViewController *officialAccounts = [[MHSearchOfficialAccountsViewController alloc] initWithViewModel:self.viewModel.officialAccountsViewModel];
     [self.viewControllers addObject:officialAccounts];
 }

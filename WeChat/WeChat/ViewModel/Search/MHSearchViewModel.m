@@ -24,6 +24,8 @@
 
 /// officialAccountsViewModel
 @property (nonatomic, readwrite, strong) MHSearchOfficialAccountsViewModel *officialAccountsViewModel;
+/// momentsViewModel
+@property (nonatomic, readwrite, strong) MHSearchMomentsViewModel *momentsViewModel;
 
 /// searchType
 @property (nonatomic, readwrite, assign) MHSearchType searchType;
@@ -63,6 +65,12 @@
                    [self _resetSearchTypeData:self.searchType];
                }
                    break;
+               case MHSearchTypeMoments:
+               {
+                   // 传递关键字
+                   self.momentsViewModel.keyword = text;
+               }
+                   break;
                case MHSearchTypeOfficialAccounts:
                {
                    // 传递关键字
@@ -89,6 +97,9 @@
     // 公众号ViewModel
     self.officialAccountsViewModel = [[MHSearchOfficialAccountsViewModel alloc] initWithServices:self.services params:@{MHSearchTypeTypeKey: @(MHSearchTypeOfficialAccounts), MHSearchTypePopKey: self.popItemSubject, MHSearchTypeKeywordKey: @""}];
     
+    // 朋友圈ViewModel
+    self.momentsViewModel = [[MHSearchMomentsViewModel alloc] initWithServices:self.services params:@{MHSearchTypeTypeKey: @(MHSearchTypeMoments), MHSearchTypePopKey: self.popItemSubject, MHSearchTypeKeywordKey: @""}];
+    
 }
 
 //// 将各个模块的数据重置一下
@@ -102,7 +113,14 @@
             self.officialAccountsViewModel.keyword = @"";
         }
             break;
-            
+        case MHSearchTypeMoments:
+        {
+            // 传递关键字 将
+            self.keyword = @"";
+            // 传递关键字
+            self.momentsViewModel.keyword = @"";
+        }
+            break;
         default:
             break;
     }

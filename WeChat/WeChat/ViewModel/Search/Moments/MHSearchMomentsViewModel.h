@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MHSearchMomentsViewModel : MHSearchTypeViewModel
 
+/// results
+@property (nonatomic, readonly, copy) NSArray *results;
+
 @end
 
 NS_ASSUME_NONNULL_END

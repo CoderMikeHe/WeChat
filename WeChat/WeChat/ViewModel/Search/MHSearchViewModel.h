@@ -9,6 +9,7 @@
 #import "MHViewModel.h"
 #import "MHSearchTypeItemViewModel.h"
 #import "MHSearchOfficialAccountsViewModel.h"
+#import "MHSearchMomentsViewModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MHSearchViewModel : MHViewModel
@@ -24,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// officialAccountsViewModel
 @property (nonatomic, readonly, strong) MHSearchOfficialAccountsViewModel *officialAccountsViewModel;
+/// momentsViewModel
+@property (nonatomic, readonly, strong) MHSearchMomentsViewModel *momentsViewModel;
 
 /// 文本框输入回调
 @property (nonatomic, readonly, strong) RACSubject *textSubject;

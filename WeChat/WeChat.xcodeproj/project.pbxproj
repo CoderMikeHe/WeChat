@@ -356,6 +356,20 @@
 		DE4A9D62245C25DD0094E21A /* SCIndexViewConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4A9D5C245C25DC0094E21A /* SCIndexViewConfiguration.m */; };
 		DE4A9D63245C25DD0094E21A /* SCIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4A9D5E245C25DC0094E21A /* SCIndexView.m */; };
 		DE4A9D64245C25DD0094E21A /* UITableView+SCIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4A9D60245C25DC0094E21A /* UITableView+SCIndexView.m */; };
+		DE66C0C4246AC5C2000E9915 /* MHSearchMomentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DE66C0C2246AC5C2000E9915 /* MHSearchMomentsCell.m */; };
+		DE66C0C5246AC5C2000E9915 /* MHSearchMomentsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE66C0C3246AC5C2000E9915 /* MHSearchMomentsCell.xib */; };
+		DE66C0C9246ACABD000E9915 /* MHSearchMomentsItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DE66C0C8246ACABD000E9915 /* MHSearchMomentsItemViewModel.m */; };
+		DE66C0E1246AE2A3000E9915 /* NSString+PinYin4Cocoa.m in Sources */ = {isa = PBXBuildFile; fileRef = DE66C0D0246AE2A3000E9915 /* NSString+PinYin4Cocoa.m */; };
+		DE66C0E2246AE2A3000E9915 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = DE66C0D2246AE2A3000E9915 /* .gitkeep */; };
+		DE66C0E3246AE2A3000E9915 /* WPFPinYinDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DE66C0D4246AE2A3000E9915 /* WPFPinYinDataManager.m */; };
+		DE66C0E4246AE2A3000E9915 /* PinyinHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DE66C0D5246AE2A3000E9915 /* PinyinHelper.m */; };
+		DE66C0E5246AE2A3000E9915 /* WPFPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = DE66C0D6246AE2A3000E9915 /* WPFPerson.m */; };
+		DE66C0E6246AE2A3000E9915 /* WPFPinYinTools.m in Sources */ = {isa = PBXBuildFile; fileRef = DE66C0D8246AE2A3000E9915 /* WPFPinYinTools.m */; };
+		DE66C0E7246AE2A3000E9915 /* HanyuPinyinOutputFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = DE66C0D9246AE2A3000E9915 /* HanyuPinyinOutputFormat.m */; };
+		DE66C0E8246AE2A3000E9915 /* ChineseToPinyinResource.m in Sources */ = {isa = PBXBuildFile; fileRef = DE66C0DA246AE2A3000E9915 /* ChineseToPinyinResource.m */; };
+		DE66C0E9246AE2A3000E9915 /* PinyinFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = DE66C0DC246AE2A3000E9915 /* PinyinFormatter.m */; };
+		DE66C0EA246AE2A3000E9915 /* unicode_to_hanyu_pinyin.txt in Resources */ = {isa = PBXBuildFile; fileRef = DE66C0DF246AE2A3000E9915 /* unicode_to_hanyu_pinyin.txt */; };
+		DE66C0EB246AE2A3000E9915 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = DE66C0E0246AE2A3000E9915 /* .gitkeep */; };
 		DE76F56B2459A85200A7C4A6 /* contacts.json in Resources */ = {isa = PBXBuildFile; fileRef = DE76F56A2459A85200A7C4A6 /* contacts.json */; };
 		DE76F56F2459AD0000A7C4A6 /* MHContactsService.m in Sources */ = {isa = PBXBuildFile; fileRef = DE76F56E2459AD0000A7C4A6 /* MHContactsService.m */; };
 		DEA6F3D4245AF3E200542C6B /* MHContactsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA6F3D3245AF3E200542C6B /* MHContactsHeaderView.m */; };
@@ -1063,6 +1077,31 @@
 		DE4A9D5F245C25DC0094E21A /* SCIndexViewConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCIndexViewConfiguration.h; sourceTree = "<group>"; };
 		DE4A9D60245C25DC0094E21A /* UITableView+SCIndexView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SCIndexView.m"; sourceTree = "<group>"; };
 		DE4A9D61245C25DC0094E21A /* SCIndexView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCIndexView.h; sourceTree = "<group>"; };
+		DE66C0C1246AC5C2000E9915 /* MHSearchMomentsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchMomentsCell.h; sourceTree = "<group>"; };
+		DE66C0C2246AC5C2000E9915 /* MHSearchMomentsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchMomentsCell.m; sourceTree = "<group>"; };
+		DE66C0C3246AC5C2000E9915 /* MHSearchMomentsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHSearchMomentsCell.xib; sourceTree = "<group>"; };
+		DE66C0C7246ACABD000E9915 /* MHSearchMomentsItemViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchMomentsItemViewModel.h; sourceTree = "<group>"; };
+		DE66C0C8246ACABD000E9915 /* MHSearchMomentsItemViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchMomentsItemViewModel.m; sourceTree = "<group>"; };
+		DE66C0CC246AE2A3000E9915 /* PinyinHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinyinHelper.h; sourceTree = "<group>"; };
+		DE66C0CD246AE2A3000E9915 /* HanyuPinyinOutputFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HanyuPinyinOutputFormat.h; sourceTree = "<group>"; };
+		DE66C0CE246AE2A3000E9915 /* WPFPinYinTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPFPinYinTools.h; sourceTree = "<group>"; };
+		DE66C0CF246AE2A3000E9915 /* WPFPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPFPerson.h; sourceTree = "<group>"; };
+		DE66C0D0246AE2A3000E9915 /* NSString+PinYin4Cocoa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PinYin4Cocoa.m"; sourceTree = "<group>"; };
+		DE66C0D1246AE2A3000E9915 /* ChineseToPinyinResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseToPinyinResource.h; sourceTree = "<group>"; };
+		DE66C0D2246AE2A3000E9915 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		DE66C0D3246AE2A3000E9915 /* PinyinFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinyinFormatter.h; sourceTree = "<group>"; };
+		DE66C0D4246AE2A3000E9915 /* WPFPinYinDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPFPinYinDataManager.m; sourceTree = "<group>"; };
+		DE66C0D5246AE2A3000E9915 /* PinyinHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinyinHelper.m; sourceTree = "<group>"; };
+		DE66C0D6246AE2A3000E9915 /* WPFPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPFPerson.m; sourceTree = "<group>"; };
+		DE66C0D7246AE2A3000E9915 /* NSString+PinYin4Cocoa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PinYin4Cocoa.h"; sourceTree = "<group>"; };
+		DE66C0D8246AE2A3000E9915 /* WPFPinYinTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPFPinYinTools.m; sourceTree = "<group>"; };
+		DE66C0D9246AE2A3000E9915 /* HanyuPinyinOutputFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HanyuPinyinOutputFormat.m; sourceTree = "<group>"; };
+		DE66C0DA246AE2A3000E9915 /* ChineseToPinyinResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChineseToPinyinResource.m; sourceTree = "<group>"; };
+		DE66C0DB246AE2A3000E9915 /* WPFPinYinDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPFPinYinDataManager.h; sourceTree = "<group>"; };
+		DE66C0DC246AE2A3000E9915 /* PinyinFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinyinFormatter.m; sourceTree = "<group>"; };
+		DE66C0DD246AE2A3000E9915 /* PinYin4Objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinYin4Objc.h; sourceTree = "<group>"; };
+		DE66C0DF246AE2A3000E9915 /* unicode_to_hanyu_pinyin.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = unicode_to_hanyu_pinyin.txt; sourceTree = "<group>"; };
+		DE66C0E0246AE2A3000E9915 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		DE76F56A2459A85200A7C4A6 /* contacts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = contacts.json; sourceTree = "<group>"; };
 		DE76F56D2459AD0000A7C4A6 /* MHContactsService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHContactsService.h; sourceTree = "<group>"; };
 		DE76F56E2459AD0000A7C4A6 /* MHContactsService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHContactsService.m; sourceTree = "<group>"; };
@@ -1349,6 +1388,7 @@
 		26064AF01F5DA21000566B95 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				DE66C0CA246AE2A3000E9915 /* HighlightedSearch */,
 				DE4A9D5B245C25DC0094E21A /* SCIndexView */,
 				2638C5AA20450DC300C334E2 /* UIImage+ImageEffects */,
 				261597551FEA5E4200C6FD80 /* PhotoBrowser */,
@@ -2929,6 +2969,7 @@
 		842D243A246AA7F9008E5A2C /* Moments */ = {
 			isa = PBXGroup;
 			children = (
+				DE66C0C6246ACA94000E9915 /* ItemViewModel */,
 				842D243B246AA86D008E5A2C /* MHSearchMomentsViewModel.h */,
 				842D243C246AA86D008E5A2C /* MHSearchMomentsViewModel.m */,
 			);
@@ -2947,6 +2988,7 @@
 		84725F1D246294B000DCC9B8 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				DE66C0EC246AED34000E9915 /* Common */,
 				842D243E246AAC89008E5A2C /* Moments */,
 				8408C5202468F0FA008847B2 /* OfficialAccounts */,
 				84725F23246299C100DCC9B8 /* SearchFriends */,
@@ -3106,6 +3148,75 @@
 			path = SCIndexView;
 			sourceTree = "<group>";
 		};
+		DE66C0BD246AC549000E9915 /* Moments */ = {
+			isa = PBXGroup;
+			children = (
+				DE66C0C1246AC5C2000E9915 /* MHSearchMomentsCell.h */,
+				DE66C0C2246AC5C2000E9915 /* MHSearchMomentsCell.m */,
+				DE66C0C3246AC5C2000E9915 /* MHSearchMomentsCell.xib */,
+			);
+			path = Moments;
+			sourceTree = "<group>";
+		};
+		DE66C0C6246ACA94000E9915 /* ItemViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DE66C0C7246ACABD000E9915 /* MHSearchMomentsItemViewModel.h */,
+				DE66C0C8246ACABD000E9915 /* MHSearchMomentsItemViewModel.m */,
+			);
+			path = ItemViewModel;
+			sourceTree = "<group>";
+		};
+		DE66C0CA246AE2A3000E9915 /* HighlightedSearch */ = {
+			isa = PBXGroup;
+			children = (
+				DE66C0CB246AE2A3000E9915 /* Classes */,
+				DE66C0DE246AE2A3000E9915 /* Assets */,
+			);
+			path = HighlightedSearch;
+			sourceTree = "<group>";
+		};
+		DE66C0CB246AE2A3000E9915 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				DE66C0D2246AE2A3000E9915 /* .gitkeep */,
+				DE66C0D1246AE2A3000E9915 /* ChineseToPinyinResource.h */,
+				DE66C0DA246AE2A3000E9915 /* ChineseToPinyinResource.m */,
+				DE66C0CD246AE2A3000E9915 /* HanyuPinyinOutputFormat.h */,
+				DE66C0D9246AE2A3000E9915 /* HanyuPinyinOutputFormat.m */,
+				DE66C0D7246AE2A3000E9915 /* NSString+PinYin4Cocoa.h */,
+				DE66C0D0246AE2A3000E9915 /* NSString+PinYin4Cocoa.m */,
+				DE66C0DD246AE2A3000E9915 /* PinYin4Objc.h */,
+				DE66C0D3246AE2A3000E9915 /* PinyinFormatter.h */,
+				DE66C0DC246AE2A3000E9915 /* PinyinFormatter.m */,
+				DE66C0CC246AE2A3000E9915 /* PinyinHelper.h */,
+				DE66C0D5246AE2A3000E9915 /* PinyinHelper.m */,
+				DE66C0CF246AE2A3000E9915 /* WPFPerson.h */,
+				DE66C0D6246AE2A3000E9915 /* WPFPerson.m */,
+				DE66C0DB246AE2A3000E9915 /* WPFPinYinDataManager.h */,
+				DE66C0D4246AE2A3000E9915 /* WPFPinYinDataManager.m */,
+				DE66C0CE246AE2A3000E9915 /* WPFPinYinTools.h */,
+				DE66C0D8246AE2A3000E9915 /* WPFPinYinTools.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		DE66C0DE246AE2A3000E9915 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				DE66C0DF246AE2A3000E9915 /* unicode_to_hanyu_pinyin.txt */,
+				DE66C0E0246AE2A3000E9915 /* .gitkeep */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		DE66C0EC246AED34000E9915 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		DE76F56C2459AC6B00A7C4A6 /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
@@ -3118,6 +3229,7 @@
 		DEAEB0352462D66400F51CC5 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				DE66C0BD246AC549000E9915 /* Moments */,
 				842D2427246A2CBF008E5A2C /* OfficialAccounts */,
 				DEAEB0362462D69400F51CC5 /* MHSearchTypeView.h */,
 				DEAEB0372462D69400F51CC5 /* MHSearchTypeView.m */,
@@ -3314,6 +3426,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE4973D0245EC949003FB76C /* icons_outlined_searchicon_sticker.svg in Resources */,
+				DE66C0C5246AC5C2000E9915 /* MHSearchMomentsCell.xib in Resources */,
 				26FE8E471F95143D00EC8BE0 /* IDMPBLocalizations.bundle in Resources */,
 				26363ACB20134298000061EF /* Emoticons.bundle in Resources */,
 				26FE8E491F95143D00EC8BE0 /* IDMPhotoBrowser.bundle in Resources */,
@@ -3343,6 +3456,7 @@
 				264F2D171F94A80F00B244AD /* MHPlugDetailViewController.xib in Resources */,
 				DE44216F244BF0CC00206161 /* icons_filled_me.svg in Resources */,
 				DE442173244BF0CC00206161 /* icons_outlined_me.svg in Resources */,
+				DE66C0E2246AE2A3000E9915 /* .gitkeep in Resources */,
 				26452BF1201200120042B2FE /* WeChat_Moments_2.json in Resources */,
 				DE4973C8245EC891003FB76C /* icons_outlined_searchicon_miniprogram.svg in Resources */,
 				26D817FF201F0EC000DDB286 /* MHProfileInfoFooterView.xib in Resources */,
@@ -3350,6 +3464,7 @@
 				DE349F4F245FC3380086B1AB /* MHNavigationBar.xib in Resources */,
 				2667A3E51F7B768C00A3D7A2 /* MHAccountLoginView.xib in Resources */,
 				DE76F56B2459A85200A7C4A6 /* contacts.json in Resources */,
+				DE66C0EA246AE2A3000E9915 /* unicode_to_hanyu_pinyin.txt in Resources */,
 				26A7E74F1F7A32500015CA71 /* MHLoginViewController.xib in Resources */,
 				DE442170244BF0CC00206161 /* icons_outlined_chats.svg in Resources */,
 				26CCB9D3202453700090DBC5 /* WeChatSight.mp4 in Resources */,
@@ -3367,6 +3482,7 @@
 				26FE65731F93142400642615 /* MHPlugViewController.xib in Resources */,
 				DE44216D244BF0CC00206161 /* icons_filled_chats.svg in Resources */,
 				2654904D1F99AF6F003AEED1 /* MHMainFrameTableViewCell.xib in Resources */,
+				DE66C0EB246AE2A3000E9915 /* .gitkeep in Resources */,
 				2618AFE01F91BDA300F82A46 /* MHModifyNicknameViewController.xib in Resources */,
 				8495D09224653FD3005B98B2 /* icons_filled_voiceinput_white.svg in Resources */,
 				DE442177244C547400206161 /* icons_outlined_add2.svg in Resources */,
@@ -3456,7 +3572,6 @@
 				"${BUILT_PRODUCTS_DIR}/FXBlurView/FXBlurView.framework",
 				"${BUILT_PRODUCTS_DIR}/HJCornerRadius/HJCornerRadius.framework",
 				"${BUILT_PRODUCTS_DIR}/HYBImageCliped/HYBImageCliped.framework",
-				"${BUILT_PRODUCTS_DIR}/HighlightedSearch/HighlightedSearch.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/JDStatusBarNotification/JDStatusBarNotification.framework",
 				"${BUILT_PRODUCTS_DIR}/JPFPSStatus/JPFPSStatus.framework",
@@ -3516,7 +3631,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FXBlurView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HJCornerRadius.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HYBImageCliped.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HighlightedSearch.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JDStatusBarNotification.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JPFPSStatus.framework",
@@ -3604,7 +3718,6 @@
 				"${BUILT_PRODUCTS_DIR}/FXBlurView/FXBlurView.framework",
 				"${BUILT_PRODUCTS_DIR}/HJCornerRadius/HJCornerRadius.framework",
 				"${BUILT_PRODUCTS_DIR}/HYBImageCliped/HYBImageCliped.framework",
-				"${BUILT_PRODUCTS_DIR}/HighlightedSearch/HighlightedSearch.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/JDStatusBarNotification/JDStatusBarNotification.framework",
 				"${BUILT_PRODUCTS_DIR}/JPFPSStatus/JPFPSStatus.framework",
@@ -3664,7 +3777,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FXBlurView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HJCornerRadius.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HYBImageCliped.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HighlightedSearch.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JDStatusBarNotification.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JPFPSStatus.framework",
@@ -3734,7 +3846,6 @@
 				"${BUILT_PRODUCTS_DIR}/FXBlurView/FXBlurView.framework",
 				"${BUILT_PRODUCTS_DIR}/HJCornerRadius/HJCornerRadius.framework",
 				"${BUILT_PRODUCTS_DIR}/HYBImageCliped/HYBImageCliped.framework",
-				"${BUILT_PRODUCTS_DIR}/HighlightedSearch/HighlightedSearch.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/JDStatusBarNotification/JDStatusBarNotification.framework",
 				"${BUILT_PRODUCTS_DIR}/JPFPSStatus/JPFPSStatus.framework",
@@ -3794,7 +3905,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FXBlurView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HJCornerRadius.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HYBImageCliped.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HighlightedSearch.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JDStatusBarNotification.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JPFPSStatus.framework",
@@ -3905,6 +4015,7 @@
 				2664F5371FEA6BE6005C10CF /* MHMomentHelper.m in Sources */,
 				2617533D1F73D03C00812E1B /* MHFeatureSignatureViewModel.m in Sources */,
 				E932C42921369FC600B32A9F /* MHCameraViewController.m in Sources */,
+				DE66C0E8246AE2A3000E9915 /* ChineseToPinyinResource.m in Sources */,
 				26225D771F654DEE0074BFC3 /* MHWebViewController.m in Sources */,
 				84725F21246297B000DCC9B8 /* MHSearchViewController.m in Sources */,
 				26AEEE0D1F7D16F600A270EE /* MHSearchBar.m in Sources */,
@@ -3935,19 +4046,24 @@
 				2615972A1FEA5AEE00C6FD80 /* MHMomentAttitudesItemViewModel.m in Sources */,
 				2605C5D31F6632AA00B1F66E /* MHContactsViewController.m in Sources */,
 				2615972F1FEA5AEE00C6FD80 /* MHMomentProfileViewModel.m in Sources */,
+				DE66C0E6246AE2A3000E9915 /* WPFPinYinTools.m in Sources */,
 				2658C6921F74FFDE00C70840 /* MHAddFriendsViewModel.m in Sources */,
 				261E01561FDE2CF50041E989 /* MHNotificationViewModel.m in Sources */,
 				2629840E1F909D4400AA9131 /* MHLanguageViewModel.m in Sources */,
 				26BEBC7F1F8B78B1004D502F /* MHReflection.m in Sources */,
+				DE66C0E1246AE2A3000E9915 /* NSString+PinYin4Cocoa.m in Sources */,
+				DE66C0E5246AE2A3000E9915 /* WPFPerson.m in Sources */,
 				84CBFE37245AC7FD00054D07 /* MHCollectionViewCell.m in Sources */,
 				261596DD1FEA515000C6FD80 /* MHMomentViewController.m in Sources */,
 				263D37181F66656A007267C3 /* YYThreadSafeDictionary.m in Sources */,
 				2605C5D91F6633DE00B1F66E /* MHNewFeatureViewModel.m in Sources */,
 				26FE65691F930A9400642615 /* MHGenderItemViewModel.m in Sources */,
 				2617531A1F7398F000812E1B /* MHCommonAvatarItemViewModel.m in Sources */,
+				DE66C0E9246AE2A3000E9915 /* PinyinFormatter.m in Sources */,
 				26D817F3201EF2FA00DDB286 /* MHProfileInfoViewModel.m in Sources */,
 				26FE8E8D1F9514D100EC8BE0 /* TZLocationManager.m in Sources */,
 				2609ED4A1F790833002D31CE /* UILabel+MHExtension.m in Sources */,
+				DE66C0E4246AE2A3000E9915 /* PinyinHelper.m in Sources */,
 				26FE8E481F95143D00EC8BE0 /* IDMPhoto.m in Sources */,
 				26FE8E8C1F9514D100EC8BE0 /* TZImagePickerController.m in Sources */,
 				261753201F739DDC00812E1B /* MHCommonQRCodeItemViewModel.m in Sources */,
@@ -3996,7 +4112,9 @@
 				26C7BEE51F8CBED800525126 /* SAMKeychain+MHUtil.m in Sources */,
 				2605C5CA1F6631D300B1F66E /* MHProfileViewModel.m in Sources */,
 				263D37151F666569007267C3 /* YYKeychain.m in Sources */,
+				DE66C0C4246AC5C2000E9915 /* MHSearchMomentsCell.m in Sources */,
 				26A7E7411F79FE550015CA71 /* MHBootLoginViewController.m in Sources */,
+				DE66C0E7246AE2A3000E9915 /* HanyuPinyinOutputFormat.m in Sources */,
 				2618AFD11F91A5D900F82A46 /* MHPreferenceSettingHelper.m in Sources */,
 				2609ED521F790AF8002D31CE /* MHLoginCaptchaView.m in Sources */,
 				265490511F99D6A0003AEED1 /* MHMainFrameItemViewModel.m in Sources */,
@@ -4015,6 +4133,7 @@
 				2605C5DC1F6633F500B1F66E /* MHNewFeatureViewController.m in Sources */,
 				2605C5D01F66326000B1F66E /* MHDiscoverViewController.m in Sources */,
 				263D36DC1F666438007267C3 /* MBProgressHUD+MHExtension.m in Sources */,
+				DE66C0C9246ACABD000E9915 /* MHSearchMomentsItemViewModel.m in Sources */,
 				261597061FEA52CE00C6FD80 /* MHMoment.m in Sources */,
 				26003FF31F988B81000621B0 /* MHButton.m in Sources */,
 				842D2435246A39C4008E5A2C /* MHSearchOfficialAccountsItemViewModel.m in Sources */,
@@ -4121,6 +4240,7 @@
 				262300171FD91682007D1616 /* MHAccountSecurityViewController.m in Sources */,
 				261597581FEA5E4200C6FD80 /* YYPhotoGroupView.m in Sources */,
 				263004D31F751F9F00247F3D /* MHSearchFriendsHeaderView.m in Sources */,
+				DE66C0E3246AE2A3000E9915 /* WPFPinYinDataManager.m in Sources */,
 				266E15E01F8F7F05000E31C5 /* MHCommitViewModel.m in Sources */,
 				263D36DF1F666438007267C3 /* NSDateFormatter+Extension.m in Sources */,
 				2667A3F51F7B9FB100A3D7A2 /* MHMobileLoginViewController.m in Sources */,
