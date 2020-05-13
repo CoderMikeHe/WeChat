@@ -8,13 +8,15 @@
 
 #import "MHSearchViewController.h"
 #import "MHSearchTypeView.h"
-//#import "MHSearchOfficialAccountsView.h"
-#import "MHSearchMusicView.h"
 #import "MHSearchVoiceInputView.h"
 
-#import "MHSearchOfficialAccountsViewController.h"
-#import "MHSearchMomentsViewController.h"
 
+#import "MHSearchMomentsViewController.h"
+#import "MHSearchSubscriptionsViewController.h"
+#import "MHSearchOfficialAccountsViewController.h"
+#import "MHSearchMiniprogramViewController.h"
+#import "MHSearchMusicViewController.h"
+#import "MHSearchStickerViewController.h"
 
 @interface MHSearchViewController ()
 /// scrollView
@@ -25,14 +27,9 @@
 /// searchTypeView
 @property (nonatomic, readwrite, weak) MHSearchTypeView *searchTypeView;
 
-/// officialAccountsView
-//@property (nonatomic, readwrite, strong) MHSearchOfficialAccountsView *officialAccountsView;
-
 /// voiceInputView
 @property (nonatomic, readwrite, weak) MHSearchVoiceInputView *voiceInputView;
 
-/// MusicView
-@property (nonatomic, readwrite, strong) MHSearchMusicView *musicView;
 
 /// viewModel
 @property (nonatomic, readwrite, strong) MHSearchViewModel *viewModel;
@@ -142,7 +139,7 @@
     }
     
     /// 取出控制器
-    UIViewController *toViewController = self.viewControllers.firstObject;
+    UIViewController *toViewController = self.viewControllers[type];
     /// 清空transform
     toViewController.view.transform = CGAffineTransformIdentity;
     /// 调整frame
@@ -153,34 +150,6 @@
     [toViewController didMoveToParentViewController:self];
     // 记录当前子控制器
     self.currentViewController = toViewController;
-    
-    
-//    switch (type) {
-//        case MHSearchTypeOfficialAccounts:
-//        {
-//            // 添加view
-//        }
-//            break;
-//        case MHSearchTypeMusic:
-//        {
-//            self.officialAccountsView.alpha = .0;
-//        }
-//            break;
-//        case MHSearchTypeSticker:
-//        {
-//            self.officialAccountsView.alpha = .0;
-//            self.musicView.alpha = .0;
-//        }
-//            break;
-//        default:
-//        {
-//            self.searchTypeView.alpha = 1.0f;
-//        }
-//            break;
-//    }
-
-    
-    
 }
 
 
@@ -205,9 +174,25 @@
     MHSearchMomentsViewController *moments = [[MHSearchMomentsViewController alloc] initWithViewModel:self.viewModel.momentsViewModel];
     [self.viewControllers addObject:moments];
     
+    /// 文章
+    MHSearchSubscriptionsViewController *subscriptions = [[MHSearchSubscriptionsViewController alloc] initWithViewModel:self.viewModel.subscriptionsViewModel];
+    [self.viewControllers addObject:subscriptions];
+    
     /// 公众号
     MHSearchOfficialAccountsViewController *officialAccounts = [[MHSearchOfficialAccountsViewController alloc] initWithViewModel:self.viewModel.officialAccountsViewModel];
     [self.viewControllers addObject:officialAccounts];
+    
+    /// 小程序
+    MHSearchMiniprogramViewController *miniprogram = [[MHSearchMiniprogramViewController alloc] initWithViewModel:self.viewModel.miniprogramViewModel];
+    [self.viewControllers addObject:miniprogram];
+    
+    /// 音乐
+    MHSearchMusicViewController *music = [[MHSearchMusicViewController alloc] initWithViewModel:self.viewModel.musicViewModel];
+    [self.viewControllers addObject:music];
+    
+    /// 表情
+    MHSearchStickerViewController *sticker = [[MHSearchStickerViewController alloc] initWithViewModel:self.viewModel.stickerViewModel];
+    [self.viewControllers addObject:sticker];
 }
 
 /// 初始化子控件
@@ -234,18 +219,6 @@
     [searchTypeView bindViewModel:self.viewModel.searchTypeViewModel];
     [containerView addSubview:searchTypeView];
     
-    // OfficialAccountsView
-//    MHSearchOfficialAccountsView *officialAccountsView = [MHSearchOfficialAccountsView officialAccountsView];
-//    [officialAccountsView bindViewModel:self.viewModel.officialAccountsViewModel];
-//    self.officialAccountsView = officialAccountsView;
-//    officialAccountsView.alpha = .0;
-//    [containerView addSubview:officialAccountsView];
-    
-    // musicView
-    MHSearchMusicView *musicView = [MHSearchMusicView musicView];
-    self.musicView = musicView;
-    musicView.alpha = .0;
-    [containerView addSubview:musicView];
     
     // 设置背景色
     containerView.backgroundColor = searchTypeView.backgroundColor = self.view.backgroundColor;
@@ -277,11 +250,6 @@
         make.top.equalTo(self.containerView).with.offset(39.0);
     }];
     
-    /// 布局公众号
-//    [self.officialAccountsView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.top.and.right.equalTo(self.containerView);
-//    }];
-//    
     [self.voiceInputView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.view).with.offset(-115.0);
         make.centerX.equalTo(self.view);

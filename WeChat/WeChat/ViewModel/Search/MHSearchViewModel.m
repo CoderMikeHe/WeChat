@@ -22,10 +22,19 @@
 /// popItemSubject 子控制器（朋友圈、文章、 公众号、小程序、音乐、表情）侧滑返回回调
 @property (nonatomic, readwrite, strong) RACSubject *popItemSubject;
 
-/// officialAccountsViewModel
-@property (nonatomic, readwrite, strong) MHSearchOfficialAccountsViewModel *officialAccountsViewModel;
 /// momentsViewModel
 @property (nonatomic, readwrite, strong) MHSearchMomentsViewModel *momentsViewModel;
+/// subscriptionsViewModel
+@property (nonatomic, readwrite, strong) MHSearchSubscriptionsViewModel *subscriptionsViewModel;
+/// officialAccountsViewModel
+@property (nonatomic, readwrite, strong) MHSearchOfficialAccountsViewModel *officialAccountsViewModel;
+/// miniprogramViewModel
+@property (nonatomic, readwrite, strong) MHSearchMiniprogramViewModel *miniprogramViewModel;
+/// musicViewModel
+@property (nonatomic, readwrite, strong) MHSearchMusicViewModel *musicViewModel;
+/// stickerViewModel
+@property (nonatomic, readwrite, strong) MHSearchStickerViewModel *stickerViewModel;
+
 
 /// searchType
 @property (nonatomic, readwrite, assign) MHSearchType searchType;
@@ -94,12 +103,22 @@
     self.searchTypeViewModel = [[MHSearchTypeItemViewModel alloc] init];
     self.searchTypeViewModel.searchTypeSubject = self.searchTypeSubject;
     
-    // 公众号ViewModel
-    self.officialAccountsViewModel = [[MHSearchOfficialAccountsViewModel alloc] initWithServices:self.services params:@{MHSearchTypeTypeKey: @(MHSearchTypeOfficialAccounts), MHSearchTypePopKey: self.popItemSubject, MHSearchTypeKeywordKey: @""}];
+    
     
     // 朋友圈ViewModel
     self.momentsViewModel = [[MHSearchMomentsViewModel alloc] initWithServices:self.services params:@{MHSearchTypeTypeKey: @(MHSearchTypeMoments), MHSearchTypePopKey: self.popItemSubject, MHSearchTypeKeywordKey: @""}];
+    // 文章ViewModel
+    self.subscriptionsViewModel = [[MHSearchSubscriptionsViewModel alloc] initWithServices:self.services params:@{MHSearchTypeTypeKey: @(MHSearchTypeSubscriptions), MHSearchTypePopKey: self.popItemSubject, MHSearchTypeKeywordKey: @""}];
+    // 公众号ViewModel
+    self.officialAccountsViewModel = [[MHSearchOfficialAccountsViewModel alloc] initWithServices:self.services params:@{MHSearchTypeTypeKey: @(MHSearchTypeOfficialAccounts), MHSearchTypePopKey: self.popItemSubject, MHSearchTypeKeywordKey: @""}];
     
+    
+    // 小程序ViewModel
+    self.miniprogramViewModel = [[MHSearchMiniprogramViewModel alloc] initWithServices:self.services params:@{MHSearchTypeTypeKey: @(MHSearchTypeMiniprogram), MHSearchTypePopKey: self.popItemSubject, MHSearchTypeKeywordKey: @""}];
+    // 音乐ViewModel
+    self.musicViewModel = [[MHSearchMusicViewModel alloc] initWithServices:self.services params:@{MHSearchTypeTypeKey: @(MHSearchTypeMusic), MHSearchTypePopKey: self.popItemSubject, MHSearchTypeKeywordKey: @""}];
+    // 表情ViewModel
+    self.stickerViewModel = [[MHSearchStickerViewModel alloc] initWithServices:self.services params:@{MHSearchTypeTypeKey: @(MHSearchTypeSticker), MHSearchTypePopKey: self.popItemSubject, MHSearchTypeKeywordKey: @""}];
 }
 
 //// 将各个模块的数据重置一下

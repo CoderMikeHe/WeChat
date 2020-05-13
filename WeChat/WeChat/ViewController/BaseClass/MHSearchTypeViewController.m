@@ -11,6 +11,9 @@
 @interface MHSearchTypeViewController ()<UIGestureRecognizerDelegate>
 /// viewModel
 @property (nonatomic, readonly, strong) MHSearchTypeViewModel *viewModel;
+
+/// coverView
+@property (nonatomic, readwrite, weak) UIView *coverView;
 @end
 
 @implementation MHSearchTypeViewController
@@ -25,6 +28,20 @@
     panGestureRecognizer.edges = UIRectEdgeLeft;
     [panGestureRecognizer setDelegate:self];
     [self.view addGestureRecognizer:panGestureRecognizer];
+    
+    /// 添加一个蒙版
+    UIView *coverView = [[UIView alloc] initWithFrame:self.view.bounds];
+    coverView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.1f];
+    // 默认是不需要蒙版的 只有侧滑时才需要
+    coverView.hidden = YES;
+    self.coverView = coverView;
+    [self.view addSubview:coverView];
+    
+    [coverView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.and.bottom.equalTo(self.view).with.offset(0);
+        make.width.mas_equalTo(MH_SCREEN_WIDTH);
+        make.right.equalTo(self.view.mas_left).with.offset(0);
+    }];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -38,6 +55,9 @@
     UIGestureRecognizerState state = [recognizer state];
     if (state == UIGestureRecognizerStateBegan || state == UIGestureRecognizerStateChanged)
     {
+        if (state == UIGestureRecognizerStateBegan) {
+            self.coverView.hidden = NO;
+        }
         /*获取拖动的位置*/
         CGPoint translation = [recognizer translationInView:recognizer.view];
         /*每次都以传入的translation为起始参照*/
@@ -59,6 +79,7 @@
             } completion:^(BOOL finished) {
                 /// 回调回去
                 [self.viewModel.popSubject sendNext:@1];
+                self.coverView.hidden = YES;
             }];
         }
         

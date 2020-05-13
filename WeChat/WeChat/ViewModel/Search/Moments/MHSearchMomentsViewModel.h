@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// results
 @property (nonatomic, readonly, copy) NSArray *results;
 
+/// sectionTitle
+@property (nonatomic, readonly, copy) NSString *sectionTitle;
+
 @end
 
 NS_ASSUME_NONNULL_END

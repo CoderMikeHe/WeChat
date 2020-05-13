@@ -10,6 +10,10 @@
 #import "MHSearchTypeItemViewModel.h"
 #import "MHSearchOfficialAccountsViewModel.h"
 #import "MHSearchMomentsViewModel.h"
+#import "MHSearchSubscriptionsViewModel.h"
+#import "MHSearchMiniprogramViewModel.h"
+#import "MHSearchMusicViewModel.h"
+#import "MHSearchStickerViewModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MHSearchViewModel : MHViewModel
@@ -23,10 +27,19 @@ NS_ASSUME_NONNULL_BEGIN
 /// popItemSubject 子控制器（朋友圈、文章、 公众号、小程序、音乐、表情）侧滑返回回调
 @property (nonatomic, readonly, strong) RACSubject *popItemSubject;
 
-/// officialAccountsViewModel
-@property (nonatomic, readonly, strong) MHSearchOfficialAccountsViewModel *officialAccountsViewModel;
 /// momentsViewModel
 @property (nonatomic, readonly, strong) MHSearchMomentsViewModel *momentsViewModel;
+/// subscriptionsViewModel
+@property (nonatomic, readonly, strong) MHSearchSubscriptionsViewModel *subscriptionsViewModel;
+/// officialAccountsViewModel
+@property (nonatomic, readonly, strong) MHSearchOfficialAccountsViewModel *officialAccountsViewModel;
+/// miniprogramViewModel
+@property (nonatomic, readonly, strong) MHSearchMiniprogramViewModel *miniprogramViewModel;
+/// musicViewModel
+@property (nonatomic, readonly, strong) MHSearchMusicViewModel *musicViewModel;
+/// stickerViewModel
+@property (nonatomic, readonly, strong) MHSearchStickerViewModel *stickerViewModel;
+
 
 /// 文本框输入回调
 @property (nonatomic, readonly, strong) RACSubject *textSubject;

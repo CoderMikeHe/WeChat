@@ -8,11 +8,14 @@
 
 #import "MHSearchMomentsViewController.h"
 #import "MHSearchMomentsCell.h"
+#import "MHSearchCommonHeaderView.h"
 @interface MHSearchMomentsViewController ()
-
+/// viewModel
+@property (nonatomic, readonly, strong) MHSearchMomentsViewModel *viewModel;
 @end
 
 @implementation MHSearchMomentsViewController
+@dynamic viewModel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -51,12 +54,33 @@
     return UIEdgeInsetsZero;
 }
 
+
+
 #pragma mark - 事件处理Or辅助方法
+
+#pragma mark - UITableViewDelegate & UITableViewDataSource
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    MHSearchCommonHeaderView *headerView = [MHSearchCommonHeaderView headerViewWithTableView:tableView];
+    headerView.titleLabel.text = self.viewModel.sectionTitle;
+    return headerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 48.0f;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return CGFLOAT_MIN;
+}
+
 
 #pragma mark - 初始化OrUI布局
 /// 初始化
 - (void)_setup{
     self.tableView.rowHeight = 52.0f;
+    // style Grouped 无效
+    self.tableView.sectionHeaderHeight = 48.0f;
+    self.tableView.sectionFooterHeight = CGFLOAT_MIN;
 }
 
 /// 设置导航栏
@@ -71,7 +95,9 @@
 
 /// 布局子控件
 - (void)_makeSubViewsConstraints{
-    
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
 }
 
 

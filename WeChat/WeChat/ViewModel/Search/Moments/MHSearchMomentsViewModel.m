@@ -15,12 +15,19 @@
 /// results
 @property (nonatomic, readwrite, copy) NSArray *results;
 
+/// sectionTitle
+@property (nonatomic, readwrite, copy) NSString *sectionTitle;
+
 @end
 
 @implementation MHSearchMomentsViewModel
 
 - (void)initialize {
     [super initialize];
+    
+    self.sectionTitle = @"搜索联系人的朋友圈";
+    self.shouldMultiSections = YES;
+    self.style = UITableViewStyleGrouped;
     
     @weakify(self);
     [[[RACObserve(self, keyword) distinctUntilChanged] map:^id(NSString *keyword) {
@@ -53,7 +60,8 @@
     /// 数据源
     RAC(self,dataSource) = [RACObserve(self, results) map:^(NSArray * results) {
         @strongify(self)
-        return [self _dataSourceWithResults:results];
+        NSArray *rsts = [self _dataSourceWithResults:results];
+        return MHArrayIsEmpty(rsts)?@[]:@[rsts];
     }];
     
 }
