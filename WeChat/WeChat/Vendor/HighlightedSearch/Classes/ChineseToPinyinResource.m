@@ -53,8 +53,11 @@ static inline NSString* cachePathForKey(NSString* directory, NSString* key) {
     if (dataMap) {
         self->_unicodeToHanyuPinyinTable=dataMap;
     }else{
-        NSBundle *myBundle = [NSBundle bundleWithURL:[[NSBundle bundleForClass:NSClassFromString(@"WPFPinYinDataManager")] URLForResource:@"HighlightedSearch" withExtension:@"bundle"]];
-        NSString *resourceName =[myBundle pathForResource:@"unicode_to_hanyu_pinyin" ofType:@"txt"];
+        // Fixed Bug: 这样写 crach
+//        NSURL *url = [[NSBundle bundleForClass:NSClassFromString(@"WPFPinYinDataManager")] URLForResource:@"HighlightedSearch" withExtension:@"bundle"];
+//        NSBundle *myBundle = [NSBundle bundleWithURL:url];
+
+        NSString *resourceName =[[NSBundle mainBundle] pathForResource:@"unicode_to_hanyu_pinyin" ofType:@"txt"];
         NSString *dictionaryText=[NSString stringWithContentsOfFile:resourceName encoding:NSUTF8StringEncoding error:nil];
         NSArray *lines = [dictionaryText componentsSeparatedByString:@"\r\n"];
         __block NSMutableDictionary *tempMap=[[NSMutableDictionary alloc] init];
