@@ -11,7 +11,7 @@
 #import "MHSearchCommonHeaderView.h"
 #import "MHSearchMusicHistoryCell.h"
 #import "MHSearchMusicDelHistoryCell.h"
-
+#import "MHSearchCommonCell.h"
 @interface MHSearchMusicViewController ()
 /// viewModel
 @property (nonatomic, readonly, strong) MHSearchMusicViewModel *viewModel;
@@ -49,7 +49,7 @@
     if (indexPath.section == 0) {
         return [MHSearchMusicHotSearchCell cellWithTableView:tableView];
     } else if (indexPath.section == 1) {
-        return [MHSearchMusicHistoryCell cellWithTableView:tableView];
+        return [MHSearchCommonCell cellWithTableView:tableView];
     } else{
         return [MHSearchMusicDelHistoryCell cellWithTableView:tableView];
     }
@@ -84,15 +84,20 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSArray * array = self.viewModel.dataSource[indexPath.section];
-    id vm = array[indexPath.row];
-    if ([vm isKindOfClass:[MHSearchMusicHotItemViewModel class]]) {
-        MHSearchMusicHotItemViewModel *itemViewModel = (MHSearchMusicHotItemViewModel *)vm;
-        return itemViewModel.cellHeight;
-    }else {
-        return 56.0f;
+    
+    if (indexPath.section == 0) {
+        NSArray * array = self.viewModel.dataSource[indexPath.section];
+        id vm = array[indexPath.row];
+        if ([vm isKindOfClass:[MHSearchMusicHotItemViewModel class]]) {
+            MHSearchMusicHotItemViewModel *itemViewModel = (MHSearchMusicHotItemViewModel *)vm;
+            return itemViewModel.cellHeight;
+        }
+        return CGFLOAT_MIN;
+    }else if (indexPath.section == 1) {
+        return 54.0f;
+    } else {
+        return 58.0f;
     }
-    return CGFLOAT_MIN;
 }
 
 
@@ -100,15 +105,14 @@
     if (section == 0 || section == 1) {
         return 44.0f;
     }
-    
     return CGFLOAT_MIN;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     if (section == 0) {
-        return 10.0f;
+        return 8.0f;
     }else if (section == 2) {
-        return 30.0f;
+        return 29.0f;
     }
     return CGFLOAT_MIN;
 }

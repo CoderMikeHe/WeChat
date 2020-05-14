@@ -26,6 +26,9 @@ FOUNDATION_EXTERN NSString * const  MHSearchTypeKeywordKey;
 
 /// 关键字 搜索关键字
 @property (nonatomic, readwrite, assign) NSString *keyword;
+
+/// 搜索模式 默认是defalut
+@property (nonatomic, readwrite, assign) MHSearchMode searchMode;
 @end
 
 NS_ASSUME_NONNULL_END

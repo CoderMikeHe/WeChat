@@ -40,7 +40,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    UIImage *imageNormal = [UIImage mh_svgImageNamed:@"icons_outlined_delete.svg" targetSize:CGSizeMake(24.0, 24.0f) tintColor:MHColorFromHexString(@"#808080")];
+    UIImage *imageNormal = [UIImage mh_svgImageNamed:@"icons_outlined_delete.svg" targetSize:CGSizeMake(18.0, 18.0f) tintColor:MHColorFromHexString(@"#808080")];
     [self.deleteBtn setBackgroundImage:imageNormal forState:UIControlStateNormal];
 }
 
@@ -52,7 +52,7 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     
-    CGFloat w = 24.0f + 10.0f + [@"清除历史" mh_sizeWithFont:MHRegularFont_16].width;
+    CGFloat w = 18.0f + 6.0f + [@"清除历史" mh_sizeWithFont:MHRegularFont_16].width;
     self.deleteBtnLeftConstraint.constant = (self.mh_width - w) * .5f;
 }
 

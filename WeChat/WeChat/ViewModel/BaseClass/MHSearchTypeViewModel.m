@@ -34,6 +34,9 @@ NSString * const  MHSearchTypeKeywordKey = @"MHSearchTypeKeywordKey";
         self.searchType = [params[MHSearchTypeTypeKey] integerValue];
         self.popSubject = params[MHSearchTypePopKey];
         self.keyword = params[MHSearchTypeKeywordKey];
+        
+        /// 默认模式
+        self.searchMode = MHSearchModeDefault;
     }
     return self;
 }

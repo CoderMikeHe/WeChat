@@ -49,13 +49,17 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
 
-    self.timeImageView.image = [UIImage mh_svgImageNamed:@"icons_outlined_time.svg" targetSize:CGSizeMake(24.0, 24.0f) tintColor:MHColorFromHexString(@"#808080")];
+    UIColor *color = MHColorFromHexString(@"#b3b3b3");
+    
+    self.timeImageView.image = [UIImage mh_svgImageNamed:@"icons_outlined_time.svg" targetSize:CGSizeMake(18.0, 18.0f) tintColor:color];
 
     
-    [self.deleteBtn setBackgroundImage:[UIImage yy_imageWithColor:[UIColor lightGrayColor] size:CGSizeMake(56.0f, 56.0f)] forState:UIControlStateHighlighted];
+    [self.deleteBtn setBackgroundImage:[UIImage yy_imageWithColor:MHColorFromHexString(@"#e6e6e6") size:CGSizeMake(50.0f, 50.0f)] forState:UIControlStateHighlighted];
     
-    UIImage *imageNormal = [UIImage mh_svgImageNamed:@"icons_outlined_close.svg" targetSize:CGSizeMake(24.0, 24.0f) tintColor:MHColorFromHexString(@"#808080")];
+    UIImage *imageNormal = [UIImage mh_svgImageNamed:@"icons_outlined_close.svg" targetSize:CGSizeMake(16.0, 16.0f) tintColor:color];
+    UIImage *imageHL = [UIImage mh_svgImageNamed:@"icons_outlined_close.svg" targetSize:CGSizeMake(16.0, 16.0f) tintColor:MHColorFromHexString(@"#a1a1a1")];
     [self.deleteBtn setImage:imageNormal forState:UIControlStateNormal];
+    [self.deleteBtn setImage:imageHL forState:UIControlStateHighlighted];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

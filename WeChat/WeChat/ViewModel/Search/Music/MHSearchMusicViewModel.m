@@ -10,7 +10,7 @@
 
 @interface MHSearchMusicViewModel ()
 
-/// tapItemCommand
+/// tapItemCommand 点击热门回调
 @property (nonatomic, readwrite, strong) RACCommand *tapItemCommand;
 
 @end
@@ -30,5 +30,18 @@
     /// 转换成 itemViewModel
     MHSearchMusicHotItemViewModel *hotItemViewModel = [[MHSearchMusicHotItemViewModel alloc] initWithMusics:musics];
     self.dataSource = @[@[hotItemViewModel],@[@0, @1, @2], @[@2]];
+    
+    /// UI Test
+    self.didSelectCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSIndexPath *indexPath) {
+        @strongify(self);
+        
+        NSInteger section = indexPath.section;
+        NSInteger row = indexPath.row;
+        
+        
+        
+        
+        return [RACSignal empty];
+    }];
 }
 @end
