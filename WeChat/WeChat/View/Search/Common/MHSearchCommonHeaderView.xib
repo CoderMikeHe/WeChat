@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,7 +30,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="uv0-7a-Eh7" firstAttribute="leading" secondItem="Dof-dc-W9m" secondAttribute="leading" id="0F6-JQ-JDt"/>
                 <constraint firstAttribute="trailing" secondItem="uv0-7a-Eh7" secondAttribute="trailing" id="PvD-BH-nRk"/>
@@ -40,6 +42,7 @@
             <viewLayoutGuide key="safeArea" id="4Dc-Yz-0cS"/>
             <connections>
                 <outlet property="titleLabel" destination="Dof-dc-W9m" id="SXR-i4-nEc"/>
+                <outlet property="titleLabelLeftConstraint" destination="ny5-Pd-NFq" id="aWZ-Y0-gew"/>
             </connections>
             <point key="canvasLocation" x="73.913043478260875" y="84.375"/>
         </view>

@@ -42,6 +42,11 @@
         make.width.mas_equalTo(MH_SCREEN_WIDTH);
         make.right.equalTo(self.view.mas_left).with.offset(0);
     }];
+    
+    /// 布局好tableView
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

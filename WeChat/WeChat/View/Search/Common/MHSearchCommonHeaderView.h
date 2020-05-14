@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// titleLabel
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
+/// titleLabelLeftConstraint
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLabelLeftConstraint;
+
 @end
 
 NS_ASSUME_NONNULL_END

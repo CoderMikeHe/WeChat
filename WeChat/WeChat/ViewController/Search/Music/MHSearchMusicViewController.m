@@ -7,26 +7,131 @@
 //
 
 #import "MHSearchMusicViewController.h"
+#import "MHSearchMusicHotSearchCell.h"
+#import "MHSearchCommonHeaderView.h"
+#import "MHSearchMusicHistoryCell.h"
+#import "MHSearchMusicDelHistoryCell.h"
 
 @interface MHSearchMusicViewController ()
-
+/// viewModel
+@property (nonatomic, readonly, strong) MHSearchMusicViewModel *viewModel;
 @end
 
 @implementation MHSearchMusicViewController
+@dynamic viewModel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    /// 设置
+    [self _setup];
+    
+    /// 设置导航栏
+    [self _setupNavigationItem];
+    
+    /// 设置子控件
+    [self _setupSubviews];
+    
+    /// 布局子空间
+    [self _makeSubViewsConstraints];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - Override
+- (void)bindViewModel {
+    [super bindViewModel];
+    
+    // 
 }
-*/
+
+/// 返回自定义的cell
+- (UITableViewCell *)tableView:(UITableView *)tableView dequeueReusableCellWithIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath{
+    
+    if (indexPath.section == 0) {
+        return [MHSearchMusicHotSearchCell cellWithTableView:tableView];
+    } else if (indexPath.section == 1) {
+        return [MHSearchMusicHistoryCell cellWithTableView:tableView];
+    } else{
+        return [MHSearchMusicDelHistoryCell cellWithTableView:tableView];
+    }
+}
+
+/// 绑定数据
+- (void)configureCell:(MHSearchMusicHotSearchCell *)cell atIndexPath:(NSIndexPath *)indexPath withObject:(id)object{
+    [cell bindViewModel:object];
+}
+
+- (UIEdgeInsets)contentInset {
+    return UIEdgeInsetsZero;
+}
+
+
+
+#pragma mark - 事件处理Or辅助方法
+
+#pragma mark - UITableViewDelegate & UITableViewDataSource
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    MHSearchCommonHeaderView *headerView = [MHSearchCommonHeaderView headerViewWithTableView:tableView];
+    NSString *headerTitle = @"";
+    if (section == 0) {
+        headerTitle = @"热门搜索";
+    }else if (section == 1){
+        headerTitle = @"搜索历史";
+    }
+    headerView.titleLabel.text = headerTitle;
+    headerView.titleLabel.textColor = MHColorFromHexString(@"#808080");
+    headerView.titleLabelLeftConstraint.constant = 20.0f;
+    return headerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSArray * array = self.viewModel.dataSource[indexPath.section];
+    id vm = array[indexPath.row];
+    if ([vm isKindOfClass:[MHSearchMusicHotItemViewModel class]]) {
+        MHSearchMusicHotItemViewModel *itemViewModel = (MHSearchMusicHotItemViewModel *)vm;
+        return itemViewModel.cellHeight;
+    }else {
+        return 56.0f;
+    }
+    return CGFLOAT_MIN;
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 0 || section == 1) {
+        return 44.0f;
+    }
+    
+    return CGFLOAT_MIN;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if (section == 0) {
+        return 10.0f;
+    }else if (section == 2) {
+        return 30.0f;
+    }
+    return CGFLOAT_MIN;
+}
+
+
+#pragma mark - 初始化OrUI布局
+/// 初始化
+- (void)_setup{
+    
+}
+
+/// 设置导航栏
+- (void)_setupNavigationItem{
+    
+}
+
+/// 初始化子控件
+- (void)_setupSubviews{
+    
+}
+
+/// 布局子控件
+- (void)_makeSubViewsConstraints{
+}
 
 @end

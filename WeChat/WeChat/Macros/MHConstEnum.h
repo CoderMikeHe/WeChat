@@ -72,4 +72,13 @@ typedef NS_ENUM(NSInteger, MHSearchType) {
     MHSearchTypeMusic,         // 音乐
     MHSearchTypeSticker        // 表情
 };
+
+
+// 搜索模式 <微信、通讯录>
+typedef NS_ENUM(NSInteger, MHSearchMode) {
+    MHSearchModeDefault = 0, // 默认模式，比如 搜索-搜索音乐 进入时便是默认模式
+    MHSearchModeRelated,     // 输入框输入文字 关联的场景
+    MHSearchModeSearch       // 点击键盘搜索 或者 点击关联出来的内容 进入搜索模式
+};
+
 #endif /* MHConstEnum_h */

@@ -325,6 +325,18 @@
 		84CBFE38245AC7FD00054D07 /* MHView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CBFE35245AC7FD00054D07 /* MHView.m */; };
 		84CBFE3F245ACDF900054D07 /* MHContactsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CBFE3D245ACDF900054D07 /* MHContactsTableViewCell.m */; };
 		84CBFE40245ACDF900054D07 /* MHContactsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84CBFE3E245ACDF900054D07 /* MHContactsTableViewCell.xib */; };
+		84CFE08F246CD6E4004C8739 /* MHSearchMusicHotSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFE08E246CD6E4004C8739 /* MHSearchMusicHotSearchCell.m */; };
+		84CFE093246CE2CD004C8739 /* MHSearchMusicHotItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFE092246CE2CD004C8739 /* MHSearchMusicHotItemViewModel.m */; };
+		84CFE096246D339D004C8739 /* icons_outlined_time.svg in Resources */ = {isa = PBXBuildFile; fileRef = 84CFE095246D339D004C8739 /* icons_outlined_time.svg */; };
+		84CFE098246D33C6004C8739 /* icons_outlined_close.svg in Resources */ = {isa = PBXBuildFile; fileRef = 84CFE097246D33C6004C8739 /* icons_outlined_close.svg */; };
+		84CFE09A246D33E2004C8739 /* icons_outlined_delete.svg in Resources */ = {isa = PBXBuildFile; fileRef = 84CFE099246D33E2004C8739 /* icons_outlined_delete.svg */; };
+		84CFE09D246D36CB004C8739 /* expression.svg in Resources */ = {isa = PBXBuildFile; fileRef = 84CFE09B246D36CA004C8739 /* expression.svg */; };
+		84CFE09E246D36CB004C8739 /* icon_outlined_hb_smile.svg in Resources */ = {isa = PBXBuildFile; fileRef = 84CFE09C246D36CA004C8739 /* icon_outlined_hb_smile.svg */; };
+		84CFE0A2246D37BF004C8739 /* MHSearchMusicHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFE0A0246D37BF004C8739 /* MHSearchMusicHistoryCell.m */; };
+		84CFE0A3246D37BF004C8739 /* MHSearchMusicHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84CFE0A1246D37BF004C8739 /* MHSearchMusicHistoryCell.xib */; };
+		84CFE0A7246D387E004C8739 /* MHSearchMusicDelHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFE0A5246D387E004C8739 /* MHSearchMusicDelHistoryCell.m */; };
+		84CFE0A8246D387E004C8739 /* MHSearchMusicDelHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84CFE0A6246D387E004C8739 /* MHSearchMusicDelHistoryCell.xib */; };
+		84CFE0AB246D450F004C8739 /* YYCache+MHUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFE0AA246D450F004C8739 /* YYCache+MHUtil.m */; };
 		864BB5E20D5521374F720EC0 /* Pods_WeChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F38DBDD0C5EE456B831E4A /* Pods_WeChat.framework */; };
 		AD21F790DBB21B99763DBF6A /* Pods_WeChat_WeChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F007961429C86520F15C504 /* Pods_WeChat_WeChatUITests.framework */; };
 		DE191DB3245E41010022E1A9 /* MHNavSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DE191DB2245E41010022E1A9 /* MHNavSearchBar.m */; };
@@ -1043,6 +1055,23 @@
 		84CBFE3C245ACDF900054D07 /* MHContactsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHContactsTableViewCell.h; sourceTree = "<group>"; };
 		84CBFE3D245ACDF900054D07 /* MHContactsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHContactsTableViewCell.m; sourceTree = "<group>"; };
 		84CBFE3E245ACDF900054D07 /* MHContactsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHContactsTableViewCell.xib; sourceTree = "<group>"; };
+		84CFE08D246CD6E4004C8739 /* MHSearchMusicHotSearchCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchMusicHotSearchCell.h; sourceTree = "<group>"; };
+		84CFE08E246CD6E4004C8739 /* MHSearchMusicHotSearchCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchMusicHotSearchCell.m; sourceTree = "<group>"; };
+		84CFE091246CE2CD004C8739 /* MHSearchMusicHotItemViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchMusicHotItemViewModel.h; sourceTree = "<group>"; };
+		84CFE092246CE2CD004C8739 /* MHSearchMusicHotItemViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchMusicHotItemViewModel.m; sourceTree = "<group>"; };
+		84CFE095246D339D004C8739 /* icons_outlined_time.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_outlined_time.svg; sourceTree = "<group>"; };
+		84CFE097246D33C6004C8739 /* icons_outlined_close.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_outlined_close.svg; sourceTree = "<group>"; };
+		84CFE099246D33E2004C8739 /* icons_outlined_delete.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_outlined_delete.svg; sourceTree = "<group>"; };
+		84CFE09B246D36CA004C8739 /* expression.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = expression.svg; sourceTree = "<group>"; };
+		84CFE09C246D36CA004C8739 /* icon_outlined_hb_smile.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icon_outlined_hb_smile.svg; sourceTree = "<group>"; };
+		84CFE09F246D37BF004C8739 /* MHSearchMusicHistoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchMusicHistoryCell.h; sourceTree = "<group>"; };
+		84CFE0A0246D37BF004C8739 /* MHSearchMusicHistoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchMusicHistoryCell.m; sourceTree = "<group>"; };
+		84CFE0A1246D37BF004C8739 /* MHSearchMusicHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHSearchMusicHistoryCell.xib; sourceTree = "<group>"; };
+		84CFE0A4246D387E004C8739 /* MHSearchMusicDelHistoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchMusicDelHistoryCell.h; sourceTree = "<group>"; };
+		84CFE0A5246D387E004C8739 /* MHSearchMusicDelHistoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchMusicDelHistoryCell.m; sourceTree = "<group>"; };
+		84CFE0A6246D387E004C8739 /* MHSearchMusicDelHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHSearchMusicDelHistoryCell.xib; sourceTree = "<group>"; };
+		84CFE0A9246D450F004C8739 /* YYCache+MHUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YYCache+MHUtil.h"; sourceTree = "<group>"; };
+		84CFE0AA246D450F004C8739 /* YYCache+MHUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "YYCache+MHUtil.m"; sourceTree = "<group>"; };
 		94F38DBDD0C5EE456B831E4A /* Pods_WeChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		971B7041FF0A7CD187AB3BEE /* Pods-WeChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeChat/Pods-WeChat.debug.xcconfig"; sourceTree = "<group>"; };
 		AB79D87EFBDD8EDD42D99FD8 /* Pods-WeChat-WeChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChat-WeChatUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeChat-WeChatUITests/Pods-WeChat-WeChatUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -2689,6 +2718,8 @@
 			children = (
 				26C7BEE31F8CBED800525126 /* SAMKeychain+MHUtil.h */,
 				26C7BEE41F8CBED800525126 /* SAMKeychain+MHUtil.m */,
+				84CFE0A9246D450F004C8739 /* YYCache+MHUtil.h */,
+				84CFE0AA246D450F004C8739 /* YYCache+MHUtil.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -3048,6 +3079,11 @@
 		84A4129224653F9D00DA3AAC /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				84CFE09B246D36CA004C8739 /* expression.svg */,
+				84CFE09C246D36CA004C8739 /* icon_outlined_hb_smile.svg */,
+				84CFE099246D33E2004C8739 /* icons_outlined_delete.svg */,
+				84CFE097246D33C6004C8739 /* icons_outlined_close.svg */,
+				84CFE095246D339D004C8739 /* icons_outlined_time.svg */,
 				8495D09124653FD3005B98B2 /* icons_filled_voiceinput_white.svg */,
 			);
 			path = Search;
@@ -3069,6 +3105,37 @@
 				84CBFE2E245AA6E300054D07 /* MHContactsItemViewModel.m */,
 			);
 			path = ItemViewModel;
+			sourceTree = "<group>";
+		};
+		84CFE089246CD5E0004C8739 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				84CFE08D246CD6E4004C8739 /* MHSearchMusicHotSearchCell.h */,
+				84CFE08E246CD6E4004C8739 /* MHSearchMusicHotSearchCell.m */,
+				84CFE09F246D37BF004C8739 /* MHSearchMusicHistoryCell.h */,
+				84CFE0A0246D37BF004C8739 /* MHSearchMusicHistoryCell.m */,
+				84CFE0A1246D37BF004C8739 /* MHSearchMusicHistoryCell.xib */,
+				84CFE0A4246D387E004C8739 /* MHSearchMusicDelHistoryCell.h */,
+				84CFE0A5246D387E004C8739 /* MHSearchMusicDelHistoryCell.m */,
+				84CFE0A6246D387E004C8739 /* MHSearchMusicDelHistoryCell.xib */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+		84CFE090246CE10B004C8739 /* ItemViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				84CFE091246CE2CD004C8739 /* MHSearchMusicHotItemViewModel.h */,
+				84CFE092246CE2CD004C8739 /* MHSearchMusicHotItemViewModel.m */,
+			);
+			path = ItemViewModel;
+			sourceTree = "<group>";
+		};
+		84CFE094246D25BE004C8739 /* Sticker */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sticker;
 			sourceTree = "<group>";
 		};
 		DB1E4F3D3B653F9FE4DEFF73 /* Frameworks */ = {
@@ -3204,6 +3271,7 @@
 		DE56248A246C1D67009CFF82 /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				84CFE090246CE10B004C8739 /* ItemViewModel */,
 				DE56248B246C1D87009CFF82 /* MHSearchMusicViewModel.h */,
 				DE56248C246C1D87009CFF82 /* MHSearchMusicViewModel.m */,
 			);
@@ -3330,6 +3398,8 @@
 		DEAEB0352462D66400F51CC5 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				84CFE094246D25BE004C8739 /* Sticker */,
+				84CFE089246CD5E0004C8739 /* Music */,
 				DE66C0EC246AED34000E9915 /* Common */,
 				DE66C0BD246AC549000E9915 /* Moments */,
 				842D2427246A2CBF008E5A2C /* OfficialAccounts */,
@@ -3543,18 +3613,22 @@
 				26064AC31F5D9A1400566B95 /* Assets.xcassets in Resources */,
 				26452BEF201200060042B2FE /* WeChat_Moments_1.json in Resources */,
 				2609ED541F790B07002D31CE /* MHLoginCaptchaView.xib in Resources */,
+				84CFE09E246D36CB004C8739 /* icon_outlined_hb_smile.svg in Resources */,
 				DE4973CF245EC949003FB76C /* icons_outlined_searchicon_subscriptions.svg in Resources */,
 				DE44217B244C571D00206161 /* icons_filled_back.svg in Resources */,
 				84CBFE40245ACDF900054D07 /* MHContactsTableViewCell.xib in Resources */,
 				26D81813201F308A00DDB286 /* MHProfileInfoAlbumCell.xib in Resources */,
 				266E15DA1F8F7E7E000E31C5 /* MHCommitViewController.xib in Resources */,
 				264F2D171F94A80F00B244AD /* MHPlugDetailViewController.xib in Resources */,
+				84CFE09A246D33E2004C8739 /* icons_outlined_delete.svg in Resources */,
 				DE44216F244BF0CC00206161 /* icons_filled_me.svg in Resources */,
+				84CFE0A3246D37BF004C8739 /* MHSearchMusicHistoryCell.xib in Resources */,
 				DE442173244BF0CC00206161 /* icons_outlined_me.svg in Resources */,
 				DE66C0E2246AE2A3000E9915 /* .gitkeep in Resources */,
 				26452BF1201200120042B2FE /* WeChat_Moments_2.json in Resources */,
 				DE4973C8245EC891003FB76C /* icons_outlined_searchicon_miniprogram.svg in Resources */,
 				26D817FF201F0EC000DDB286 /* MHProfileInfoFooterView.xib in Resources */,
+				84CFE096246D339D004C8739 /* icons_outlined_time.svg in Resources */,
 				DE349F4F245FC3380086B1AB /* MHNavigationBar.xib in Resources */,
 				2667A3E51F7B768C00A3D7A2 /* MHAccountLoginView.xib in Resources */,
 				DE76F56B2459A85200A7C4A6 /* contacts.json in Resources */,
@@ -3568,10 +3642,12 @@
 				266E15D51F8F7E43000E31C5 /* MHRegisterViewController.xib in Resources */,
 				DEA6F3D8245AF5D900542C6B /* MHContactsHeaderView.xib in Resources */,
 				26D8180E201F306100DDB286 /* MHProfileInfoZoneCell.xib in Resources */,
+				84CFE0A8246D387E004C8739 /* MHSearchMusicDelHistoryCell.xib in Resources */,
 				DEAEB03A2462D6A100F51CC5 /* MHSearchTypeView.xib in Resources */,
 				DE442179244C55E000206161 /* icons_outlined_add-friends.svg in Resources */,
 				DE44216E244BF0CC00206161 /* icons_filled_discover.svg in Resources */,
 				DE442171244BF0CC00206161 /* icons_outlined_contacts.svg in Resources */,
+				84CFE098246D33C6004C8739 /* icons_outlined_close.svg in Resources */,
 				DE56247D246C0B43009CFF82 /* MHSearchCommonHeaderView.xib in Resources */,
 				26D81804201F20FF00DDB286 /* MHProfileInfoCell.xib in Resources */,
 				26FE65731F93142400642615 /* MHPlugViewController.xib in Resources */,
@@ -3586,6 +3662,7 @@
 				2609ED4F1F790AD3002D31CE /* MHLoginPasswordView.xib in Resources */,
 				265DBFEE1FE0C8E400A5FCC8 /* MHAboutUsHeaderView.xib in Resources */,
 				2667A3EA1F7B7B0A00A3D7A2 /* MHMobileLoginView.xib in Resources */,
+				84CFE09D246D36CB004C8739 /* expression.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4060,6 +4137,7 @@
 				261E015D1FDE2E010041E989 /* MHCommonSwitchItemViewModel.m in Sources */,
 				2615972C1FEA5AEE00C6FD80 /* MHMomentContentItemViewModel.m in Sources */,
 				26B89AB72022E599006FBE20 /* MHMomentShareInfo.m in Sources */,
+				84CFE093246CE2CD004C8739 /* MHSearchMusicHotItemViewModel.m in Sources */,
 				84CBFE3F245ACDF900054D07 /* MHContactsTableViewCell.m in Sources */,
 				263119EE2015E4E600D589D8 /* NSMutableAttributedString+MHMoment.m in Sources */,
 				2638C5AD20450DC300C334E2 /* UIImage+ImageEffects.m in Sources */,
@@ -4255,6 +4333,7 @@
 				263D36EE1F666438007267C3 /* UITextView+MHExtension.m in Sources */,
 				262ADA4D1FCA75C700B0F4FD /* MHConfigureManager.m in Sources */,
 				2633E01A1FEA076600D0E187 /* MHSegmentedControlController.m in Sources */,
+				84CFE0A2246D37BF004C8739 /* MHSearchMusicHistoryCell.m in Sources */,
 				2605C5B81F66249F00B1F66E /* MHHomePageViewModel.m in Sources */,
 				26CCB9D120244F690090DBC5 /* MHMomentVideo.m in Sources */,
 				264F2D161F94A80F00B244AD /* MHPlugDetailViewController.m in Sources */,
@@ -4271,6 +4350,7 @@
 				26A7E74E1F7A32500015CA71 /* MHLoginViewController.m in Sources */,
 				26B89AB22022BB54006FBE20 /* MHMomentShareInfoView.m in Sources */,
 				26FE656D1F9313E800642615 /* MHPlugViewModel.m in Sources */,
+				84CFE08F246CD6E4004C8739 /* MHSearchMusicHotSearchCell.m in Sources */,
 				26D81812201F308A00DDB286 /* MHProfileInfoAlbumCell.m in Sources */,
 				266E15D91F8F7E7E000E31C5 /* MHCommitViewController.m in Sources */,
 				26FA40501FEB5C9D00B4AD2B /* MHComment.m in Sources */,
@@ -4290,6 +4370,8 @@
 				26BEBC751F8B7844004D502F /* MHUser.m in Sources */,
 				2623001A1FD916CD007D1616 /* MHAccountSecurityViewModel.m in Sources */,
 				2615974B1FEA5DD300C6FD80 /* MHMomentContentCell.m in Sources */,
+				84CFE0A7246D387E004C8739 /* MHSearchMusicDelHistoryCell.m in Sources */,
+				84CFE0AB246D450F004C8739 /* YYCache+MHUtil.m in Sources */,
 				E932C4362137925500B32A9F /* PKShortVideoRecorder.m in Sources */,
 				26FE8E4B1F95143D00EC8BE0 /* IDMTapDetectingImageView.m in Sources */,
 				2633E0241FEA08D600D0E187 /* MHEmotionViewController.m in Sources */,

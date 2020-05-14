@@ -62,6 +62,7 @@
 #import "UISearchBar+MHExtension.h"
 #import "UITableView+MHExtension.h"
 #import "SAMKeychain+MHUtil.h"
+#import "YYCache+MHUtil.h"
 #import "NSDate+Extension.h"
 
 #endif /* WeChat_pch */
