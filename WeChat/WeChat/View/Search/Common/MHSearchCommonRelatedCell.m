@@ -1,14 +1,14 @@
 //
-//  MHSearchCommonCell.m
+//  MHSearchCommonRelatedCell.m
 //  WeChat
 //
 //  Created by 何千元 on 2020/5/14.
 //  Copyright © 2020 CoderMikeHe. All rights reserved.
 //
 
-#import "MHSearchCommonCell.h"
+#import "MHSearchCommonRelatedCell.h"
 #import "MHSearchCommonItemViewModel.h"
-@interface MHSearchCommonCell ()
+@interface MHSearchCommonRelatedCell ()
 
 /// searchImageView
 @property (weak, nonatomic) IBOutlet UIImageView *searchImageView;
@@ -23,11 +23,11 @@
 
 @end
 
-@implementation MHSearchCommonCell
+@implementation MHSearchCommonRelatedCell
 #pragma mark - Public Method
 + (instancetype)cellWithTableView:(UITableView *)tableView {
     static NSString *ID = @"SearchCommonCell";
-    MHSearchCommonCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    MHSearchCommonRelatedCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (!cell) {
         cell = [self mh_viewFromXib];
     }

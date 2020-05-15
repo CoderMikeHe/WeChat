@@ -98,7 +98,7 @@
         @weakify(self);
         [tapGr.rac_gestureSignal subscribeNext:^(id x) {
             @strongify(self);
-            
+            [self.viewModel.requestSearchKeywordCommand execute:self.viewModel.musics[i]];
         }];
     }
 }

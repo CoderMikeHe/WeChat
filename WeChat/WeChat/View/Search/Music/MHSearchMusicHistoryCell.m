@@ -7,18 +7,20 @@
 //
 
 #import "MHSearchMusicHistoryCell.h"
-
+#import "MHSearchMusicHistoryItemViewModel.h"
 @interface MHSearchMusicHistoryCell ()
 
 /// timeImageView
 @property (weak, nonatomic) IBOutlet UIImageView *timeImageView;
-
 
 /// musicNameLabel
 @property (weak, nonatomic) IBOutlet UILabel *musicNameLabel;
 
 /// deleteBtn
 @property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
+
+/// viewModel
+@property (nonatomic, readwrite, strong) MHSearchMusicHistoryItemViewModel *viewModel;
 
 @end
 
@@ -34,15 +36,16 @@
     return cell;
 }
 
-- (void)bindViewModel:(id)viewModel {
-
+- (void)bindViewModel:(MHSearchMusicHistoryItemViewModel *)viewModel {
+    self.viewModel = viewModel;
+    
+    self.musicNameLabel.text = viewModel.music;
 }
 
 #pragma mark - Event & Action
 
 - (IBAction)_deleteBtnDidClick:(UIButton *)sender {
-    
-    
+    [self.viewModel.clearMusicCommand execute:self.viewModel];
 }
 
 #pragma mark - Private Method

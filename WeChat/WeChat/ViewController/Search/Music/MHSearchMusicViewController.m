@@ -11,7 +11,9 @@
 #import "MHSearchCommonHeaderView.h"
 #import "MHSearchMusicHistoryCell.h"
 #import "MHSearchMusicDelHistoryCell.h"
-#import "MHSearchCommonCell.h"
+#import "MHSearchCommonRelatedCell.h"
+#import "MHSearchCommonSearchCell.h"
+
 @interface MHSearchMusicViewController ()
 /// viewModel
 @property (nonatomic, readonly, strong) MHSearchMusicViewModel *viewModel;
@@ -45,18 +47,24 @@
 
 /// 返回自定义的cell
 - (UITableViewCell *)tableView:(UITableView *)tableView dequeueReusableCellWithIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath{
-    
-    if (indexPath.section == 0) {
-        return [MHSearchMusicHotSearchCell cellWithTableView:tableView];
-    } else if (indexPath.section == 1) {
-        return [MHSearchCommonCell cellWithTableView:tableView];
-    } else{
-        return [MHSearchMusicDelHistoryCell cellWithTableView:tableView];
+    if (self.viewModel.searchMode == MHSearchModeDefault) {
+        if (indexPath.section == 0) {
+            return [MHSearchMusicHotSearchCell cellWithTableView:tableView];
+        } else if (indexPath.section == 1) {
+            return [MHSearchMusicHistoryCell cellWithTableView:tableView];
+        } else{
+            return [MHSearchMusicDelHistoryCell cellWithTableView:tableView];
+        }
+    } else if (self.viewModel.searchMode == MHSearchModeRelated) {
+        return [MHSearchCommonRelatedCell cellWithTableView:tableView];
+    } else {
+        return [MHSearchCommonSearchCell cellWithTableView:tableView];
     }
 }
 
-/// 绑定数据
-- (void)configureCell:(MHSearchMusicHotSearchCell *)cell atIndexPath:(NSIndexPath *)indexPath withObject:(id)object{
+/// 绑定数据 // 利用多态
+- (void)configureCell:(MHTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath withObject:(id)object{
+    /// 必须确保 cell 有 bindViewModel 否则崩卡拉卡
     [cell bindViewModel:object];
 }
 
@@ -71,49 +79,77 @@
 #pragma mark - UITableViewDelegate & UITableViewDataSource
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     MHSearchCommonHeaderView *headerView = [MHSearchCommonHeaderView headerViewWithTableView:tableView];
-    NSString *headerTitle = @"";
-    if (section == 0) {
-        headerTitle = @"热门搜索";
-    }else if (section == 1){
-        headerTitle = @"搜索历史";
-    }
-    headerView.titleLabel.text = headerTitle;
     headerView.titleLabel.textColor = MHColorFromHexString(@"#808080");
     headerView.titleLabelLeftConstraint.constant = 20.0f;
+    NSString *headerTitle = @"";
+    if (self.viewModel.searchMode == MHSearchModeDefault) {
+        if (section == 0) {
+            headerTitle = @"热门搜索";
+        }else if (section == 1){
+            headerTitle = @"搜索历史";
+        }
+    } else if(self.viewModel.searchMode == MHSearchModeRelated){
+        
+    } else {
+        headerTitle = @"音乐";
+        headerView.titleLabel.textColor = MHColorFromHexString(@"#191919");
+        headerView.titleLabelLeftConstraint.constant = 16.0f;
+    }
+    headerView.titleLabel.text = headerTitle;
     return headerView;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (indexPath.section == 0) {
-        NSArray * array = self.viewModel.dataSource[indexPath.section];
-        id vm = array[indexPath.row];
-        if ([vm isKindOfClass:[MHSearchMusicHotItemViewModel class]]) {
-            MHSearchMusicHotItemViewModel *itemViewModel = (MHSearchMusicHotItemViewModel *)vm;
-            return itemViewModel.cellHeight;
+    if (self.viewModel.searchMode == MHSearchModeDefault) {
+        if (indexPath.section == 0) {
+            NSArray * array = self.viewModel.dataSource[indexPath.section];
+            id vm = array[indexPath.row];
+            if ([vm isKindOfClass:[MHSearchMusicHotItemViewModel class]]) {
+                MHSearchMusicHotItemViewModel *itemViewModel = (MHSearchMusicHotItemViewModel *)vm;
+                return itemViewModel.cellHeight;
+            }
+            return CGFLOAT_MIN;
+        }else if (indexPath.section == 1) {
+            return 54.0f;
+        } else {
+            return 58.0f;
         }
-        return CGFLOAT_MIN;
-    }else if (indexPath.section == 1) {
-        return 54.0f;
+    } else if(self.viewModel.searchMode == MHSearchModeRelated){
+        return 53.0f;
     } else {
-        return 58.0f;
+        return 132.0f;
     }
+    
 }
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (section == 0 || section == 1) {
+    if (self.viewModel.searchMode == MHSearchModeDefault) {
+        if (section == 0 || section == 1) {
+            return 44.0f;
+        }
+    } else if(self.viewModel.searchMode == MHSearchModeRelated){
+        return CGFLOAT_MIN;
+    } else {
         return 44.0f;
     }
+    
     return CGFLOAT_MIN;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    if (section == 0) {
-        return 8.0f;
-    }else if (section == 2) {
-        return 29.0f;
+    if (self.viewModel.searchMode == MHSearchModeDefault) {
+        if (section == 0) {
+            return 8.0f;
+        }else if (section == 2) {
+            return 29.0f;
+        }
+    } else if(self.viewModel.searchMode == MHSearchModeRelated){
+        return CGFLOAT_MIN;
+    } else {
+        return CGFLOAT_MIN;
     }
+    
     return CGFLOAT_MIN;
 }
 

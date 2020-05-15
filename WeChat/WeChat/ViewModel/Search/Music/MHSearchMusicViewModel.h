@@ -8,6 +8,9 @@
 
 #import "MHSearchTypeViewModel.h"
 #import "MHSearchMusicHotItemViewModel.h"
+#import "MHSearchMusicHistoryItemViewModel.h"
+#import "MHSearchMusicDelHistoryItemViewModel.h"
+#import "MHSearchCommonSearchItemViewModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MHSearchMusicViewModel : MHSearchTypeViewModel

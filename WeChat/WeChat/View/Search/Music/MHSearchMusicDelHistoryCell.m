@@ -7,14 +7,15 @@
 //
 
 #import "MHSearchMusicDelHistoryCell.h"
-
+#import "MHSearchMusicDelHistoryItemViewModel.h"
 @interface MHSearchMusicDelHistoryCell ()
 
 /// deleteBtn
 @property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
 /// deleteBtnLeftConstraint
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *deleteBtnLeftConstraint;
-
+/// viewModel
+@property (nonatomic, readwrite, strong) MHSearchMusicDelHistoryItemViewModel *viewModel;
 @end
 
 @implementation MHSearchMusicDelHistoryCell
@@ -30,8 +31,8 @@
     return cell;
 }
 
-- (void)bindViewModel:(id)viewModel {
-    
+- (void)bindViewModel:(MHSearchMusicDelHistoryItemViewModel *)viewModel {
+    self.viewModel = viewModel;
 }
 
 #pragma mark - Event & Action

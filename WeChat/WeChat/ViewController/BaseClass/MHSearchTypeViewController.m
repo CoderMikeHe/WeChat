@@ -19,6 +19,9 @@
 @implementation MHSearchTypeViewController
 @dynamic viewModel;
 
+- (void)dealloc{
+    MHDealloc;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,7 +32,7 @@
     [panGestureRecognizer setDelegate:self];
     [self.view addGestureRecognizer:panGestureRecognizer];
     
-    /// 添加一个蒙版
+    /// 添加一个侧滑跟随的蒙版
     UIView *coverView = [[UIView alloc] initWithFrame:self.view.bounds];
     coverView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.1f];
     // 默认是不需要蒙版的 只有侧滑时才需要

@@ -42,6 +42,7 @@
 #import "MHMomentHelper.h"
 #import "MHReactiveView.h"
 #import "MHNavigationBar.h"
+#import "MHTableViewCell.h"
 
 #import "LCActionSheet+MHExtension.h"
 #import "UIFont+MHExtension.h"

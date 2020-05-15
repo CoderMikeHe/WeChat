@@ -26,4 +26,6 @@
     return cell;
 }
 
+- (void)bindViewModel:(id)viewModel {}
+
 @end

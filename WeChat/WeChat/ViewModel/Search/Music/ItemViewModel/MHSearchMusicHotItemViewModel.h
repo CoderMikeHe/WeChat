@@ -18,8 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// cellHeight
 @property (nonatomic, readonly, assign) CGFloat cellHeight;
 
-/// tapItemCommand
-@property (nonatomic, readwrite, strong) RACCommand *tapItemCommand;
+/// 键盘搜索 以及 点击关联结果
+@property (nonatomic, readwrite, strong) RACCommand *requestSearchKeywordCommand;
 
 - (instancetype)initWithMusics:(NSArray *)musics;
 

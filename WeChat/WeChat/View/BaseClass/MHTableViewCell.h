@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MHTableViewCell : UITableViewCell
+@interface MHTableViewCell : UITableViewCell<MHReactiveView>
 
 /// init 子类可以重写，无需调用 super xxx
 + (instancetype)cellWithTableView:(UITableView *)tableView;

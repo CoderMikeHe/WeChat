@@ -14,7 +14,8 @@ FOUNDATION_EXTERN NSString * _Nullable const MHSearchMusicHistoryCacheKey;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface YYCache (MHUtil)
-
+// 单例
++ (instancetype)sharedCache;
 @end
 
 NS_ASSUME_NONNULL_END
