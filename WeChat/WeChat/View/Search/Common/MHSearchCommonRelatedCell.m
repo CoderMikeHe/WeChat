@@ -7,7 +7,7 @@
 //
 
 #import "MHSearchCommonRelatedCell.h"
-#import "MHSearchCommonItemViewModel.h"
+#import "MHSearchCommonRelatedItemViewModel.h"
 @interface MHSearchCommonRelatedCell ()
 
 /// searchImageView
@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIView *relatedContentView;
 
 /// viewModel
-@property (nonatomic, readwrite, strong) MHSearchCommonItemViewModel *viewModel;
+@property (nonatomic, readwrite, strong) MHSearchCommonRelatedItemViewModel *viewModel;
 
 @end
 
@@ -34,22 +34,29 @@
     return cell;
 }
 
-- (void)bindViewModel:(MHSearchCommonItemViewModel *)viewModel {
+- (void)bindViewModel:(MHSearchCommonRelatedItemViewModel *)viewModel {
     self.viewModel = viewModel;
     
+    self.titleLabel.attributedText = viewModel.titleAttr;
     
 }
+
+#pragma mark - 事件处理
 
 
 #pragma mark - Private Method
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
+    @weakify(self);
     UIColor *color = MHColorFromHexString(@"#b3b3b3");
     self.searchImageView.image = [UIImage mh_svgImageNamed:@"icons_outlined_search.svg" targetSize:CGSizeMake(18.0, 18.0f) tintColor:color];
     
-    
-
+    UITapGestureRecognizer *tapGr = [[UITapGestureRecognizer alloc] init];
+    [self.relatedContentView addGestureRecognizer:tapGr];
+    [tapGr.rac_gestureSignal subscribeNext:^(id x) {
+        @strongify(self);
+        [self.viewModel.relatedKeywordCommand execute: self.viewModel.title];
+    }];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

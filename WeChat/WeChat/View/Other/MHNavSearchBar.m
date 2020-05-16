@@ -68,7 +68,14 @@
         
         self.edit = isEdit.boolValue;
         
-        self.userInteractionEnabled = false;
+        if (self.isEdit) {
+            [self.textField becomeFirstResponder];
+        }else {
+            [self.textField resignFirstResponder];
+        }
+        
+        
+//        self.userInteractionEnabled = false;
         
         // 取消按钮
         CGFloat offset1 = isEdit.boolValue ? 0 : self.cancelBtnWidth - 8.0f;
@@ -226,9 +233,19 @@
 
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    /// 搜索命令回调
-    [self.viewModel.searchCommand execute:textField.text];
+    if (MHStringIsNotEmpty(textField.text)) {
+        /// 搜索命令回调
+        [self.viewModel.searchCommand execute:textField.text];
+    }
     return YES;
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    if (MHStringIsNotEmpty(textField.text)) {
+        // 回调
+        [self.viewModel.textSubject sendNext:textField.text];
+    }
+    return true;
 }
 
 
@@ -290,10 +307,14 @@
     
     textField.delegate = self;
     
-    // 回调事件
-    [[textField.rac_textSignal distinctUntilChanged] subscribeNext:^(id x) {
+    // 回调事件 限流
+    [[[textField.rac_textSignal throttle:0.25] distinctUntilChanged] subscribeNext:^(NSString *x) {
         @strongify(self);
-        [self.viewModel.textSubject sendNext:x];
+        // 不相等才回调
+        if (![self.viewModel.text isEqualToString:x]) {
+            NSLog(@"输入框文字改变了............");
+            [self.viewModel.textSubject sendNext:x];
+        }
     }];
     
     /// 取消按钮

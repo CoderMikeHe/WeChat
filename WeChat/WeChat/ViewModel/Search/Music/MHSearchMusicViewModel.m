@@ -50,7 +50,6 @@ static NSUInteger const MHMaxSearchMusicCacheCount = 8;
         @strongify(self);
         NSInteger section = indexPath.section;
         NSInteger row = indexPath.row;
-        
         if (self.searchMode == MHSearchModeDefault) {
             // 默认形式
             if (section == 1) {
@@ -93,7 +92,7 @@ static NSUInteger const MHMaxSearchMusicCacheCount = 8;
     [self.requestSearchKeywordCommand.executionSignals.switchToLatest subscribeNext:^(MHSearch * search) {
         @strongify(self);
         if (search.searchMode == MHSearchModeSearch) {
-            /// 搜索模式 添加到缓存
+            /// 必须是搜索模式 才添加到缓存
             [self _cacheMusic:search.keyword];
         }
     }];
@@ -134,12 +133,35 @@ static NSUInteger const MHMaxSearchMusicCacheCount = 8;
                 }else {
                     self.dataSource = @[@[self.hotItemViewModel], self.cacheMusicViewModels, @[self.delHistoryItemViewModel]];
                 }
-            } else if (self.searchMode == MHSearchModeDefault) {
+            } else if (self.searchMode == MHSearchModeRelated) {
                 // 关联模式
                 self.shouldMultiSections = NO;
                 self.shouldPullUpToLoadMore = NO;
+                
+                NSInteger count0 = self.relatedKeywords0.count;
+                NSInteger count1 = self.relatedKeywords1.count;
+                NSMutableArray *dataSource = [NSMutableArray array];
+                
+                NSInteger count = 0;
+                if (self.relatedCount == 0) {
+                    count = count0;
+                } else if(self.relatedCount == 1) {
+                    count = count1;
+                }
+                for (NSInteger i = 0; i < count; i++) {
+                    NSString *relatedTitle = self.relatedCount == 0 ? self.relatedKeywords0[i] : self.relatedKeywords1[i];
+                    NSString *title = [NSString stringWithFormat:@"%@ %@", self.keyword, relatedTitle];
+                    MHSearchCommonRelatedItemViewModel *itemViewModel = [[MHSearchCommonRelatedItemViewModel alloc] initWithTitle:title keyword:self.keyword];
+                    itemViewModel.relatedKeywordCommand = self.relatedKeywordCommand;
+                    [dataSource addObject:itemViewModel];
+                }
+                
+                self.dataSource = dataSource.copy;
+                
+                
             } else {
-                // 搜索模式 单个section 需要上拉加载
+                // 搜索模式 单个section
+                // 需要上拉加载
                 self.shouldMultiSections = NO;
                 self.shouldPullUpToLoadMore = YES;
                 

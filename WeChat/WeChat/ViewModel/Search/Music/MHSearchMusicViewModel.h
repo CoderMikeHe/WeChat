@@ -11,6 +11,7 @@
 #import "MHSearchMusicHistoryItemViewModel.h"
 #import "MHSearchMusicDelHistoryItemViewModel.h"
 #import "MHSearchCommonSearchItemViewModel.h"
+#import "MHSearchCommonRelatedItemViewModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MHSearchMusicViewModel : MHSearchTypeViewModel

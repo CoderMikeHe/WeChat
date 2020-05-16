@@ -305,7 +305,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
     if (self.viewModel.shouldMultiSections) return self.viewModel.dataSource ? self.viewModel.dataSource.count : 0;
-    return self.viewModel.dataSource.count == 0 ? : 1;
+    return self.viewModel.dataSource.count == 0 ? 0 : 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
