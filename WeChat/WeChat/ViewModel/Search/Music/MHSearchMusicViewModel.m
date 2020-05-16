@@ -7,7 +7,7 @@
 //
 
 #import "MHSearchMusicViewModel.h"
-
+#import "MHWebViewModel.h"
 static NSUInteger const MHMaxSearchMusicCacheCount = 8;
 
 @interface MHSearchMusicViewModel ()
@@ -57,8 +57,9 @@ static NSUInteger const MHMaxSearchMusicCacheCount = 8;
                 // 缓存的音乐
                 NSArray *itemViewModels = self.dataSource[section];
                 MHSearchMusicHistoryItemViewModel *itemViewModel = itemViewModels[row];
+                MHSearch *search = [MHSearch searchWithKeyword:itemViewModel.music searchMode:MHSearchModeSearch];
                 /// 传递数据
-                [self.requestSearchKeywordCommand execute:itemViewModel.music];
+                [self.requestSearchKeywordCommand execute:search];
             }else if (section == 2) {
                 // 删除all音乐
                 [self _clearAllMusic];
@@ -67,9 +68,13 @@ static NSUInteger const MHMaxSearchMusicCacheCount = 8;
             // 关联模式
         }else {
             // 搜索模式
+            NSURL *url = [NSURL URLWithString:MHMyBlogHomepageUrl];
+            NSURLRequest *request = [NSURLRequest requestWithURL:url];
+            MHWebViewModel * viewModel = [[MHWebViewModel alloc] initWithServices:self.services params:@{MHViewModelRequestKey:request}];
+            /// 去掉关闭按钮
+            viewModel.shouldDisableWebViewClose = YES;
+            [self.services pushViewModel:viewModel animated:YES];
         }
-        
-        
         return [RACSignal empty];
     }];
     
@@ -85,10 +90,12 @@ static NSUInteger const MHMaxSearchMusicCacheCount = 8;
     
     
     /// 一旦有搜索信号
-    [self.requestSearchKeywordCommand.executionSignals.switchToLatest subscribeNext:^(NSString * keyword) {
+    [self.requestSearchKeywordCommand.executionSignals.switchToLatest subscribeNext:^(MHSearch * search) {
         @strongify(self);
-        /// 添加到缓存
-        [self _cacheMusic:keyword];
+        if (search.searchMode == MHSearchModeSearch) {
+            /// 搜索模式 添加到缓存
+            [self _cacheMusic:search.keyword];
+        }
     }];
     
     /// 获取缓存数据
@@ -113,18 +120,49 @@ static NSUInteger const MHMaxSearchMusicCacheCount = 8;
     @weakify(self);
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         @strongify(self);
-        /// 判断当前模式
-        if (self.searchMode == MHSearchModeDefault) {
-            // 默认模式
-        } else if (self.searchMode == MHSearchModeDefault) {
-            // 关联模式
-        } else {
-            // 搜索模式
-//            self.shouldMultiSections = NO;
-            self.dataSource = @[@[@0,@1,@2]];
-        }
-        [subscriber sendNext:self.dataSource];
-        [subscriber sendCompleted];
+        /// 模拟网络延迟
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            /// 判断当前模式
+            if (self.searchMode == MHSearchModeDefault) {
+                // 默认模式
+                self.shouldMultiSections = YES;
+                self.shouldPullUpToLoadMore = NO;
+                
+                /// 这种场景 都是默认形式
+                if (self.cacheMusicViewModels.count == 0) {
+                    self.dataSource = @[@[self.hotItemViewModel]];
+                }else {
+                    self.dataSource = @[@[self.hotItemViewModel], self.cacheMusicViewModels, @[self.delHistoryItemViewModel]];
+                }
+            } else if (self.searchMode == MHSearchModeDefault) {
+                // 关联模式
+                self.shouldMultiSections = NO;
+                self.shouldPullUpToLoadMore = NO;
+            } else {
+                // 搜索模式 单个section 需要上拉加载
+                self.shouldMultiSections = NO;
+                self.shouldPullUpToLoadMore = YES;
+                
+                NSInteger index = (page - 1) * self.perPage;
+                NSInteger count = page * self.perPage;
+                NSMutableArray *dataSource = [NSMutableArray array];
+                for (NSInteger i = index; i < count; i++) {
+                    NSString *title = [NSString stringWithFormat:@"%@ 结果%ld", self.keyword, i];
+                    MHSearchCommonSearchItemViewModel *itemViewModel = [[MHSearchCommonSearchItemViewModel alloc] initWithTitle:title subtitle:@"这是搜索到的音乐的子标题..." desc:@"这是搜索到的音乐的描述..." keyword:self.keyword];
+                    [dataSource addObject:itemViewModel];
+                }
+                
+                if (page == 1) {
+                    self.page = 1;
+                    self.dataSource = dataSource.copy;
+                }else {
+                    NSArray *temps = [dataSource copy];
+                    self.dataSource = @[(self.dataSource ?: @[]).rac_sequence, temps.rac_sequence].rac_sequence.flatten.array;
+                }
+            }
+            [subscriber sendNext:self.dataSource];
+            [subscriber sendCompleted];
+        });
         return [RACDisposable disposableWithBlock:^{
             
         }];
@@ -212,7 +250,6 @@ static NSUInteger const MHMaxSearchMusicCacheCount = 8;
     
     /// 这种场景 都是默认形式
     if (tempArray.count == 0) {
-        
         self.dataSource = @[@[self.hotItemViewModel]];
     }else {
         self.dataSource = @[@[self.hotItemViewModel], self.cacheMusicViewModels, @[self.delHistoryItemViewModel]];
@@ -222,6 +259,7 @@ static NSUInteger const MHMaxSearchMusicCacheCount = 8;
 /// 清除所有音乐缓存
 - (void)_clearAllMusic {
     self.cacheMusics = @[];
+    self.cacheMusicViewModels = @[];
     
     /// 这种场景 都是默认形式
     self.dataSource = @[@[self.hotItemViewModel]];

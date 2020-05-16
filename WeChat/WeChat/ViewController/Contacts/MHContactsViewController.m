@@ -37,6 +37,9 @@
 /// searchController
 @property (nonatomic, readwrite, strong) MHSearchViewController *searchController;
 
+/// isEdit
+@property (nonatomic, readwrite, assign) BOOL isEdit;
+
 @end
 
 @implementation MHContactsViewController
@@ -58,6 +61,19 @@
     /// 布局子控件
     [self _makeSubViewsConstraints];
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    // 这里也根据条件设置隐藏
+    self.tabBarController.tabBar.hidden = self.isEdit;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    // 这里也根据条件设置隐藏
+    self.tabBarController.tabBar.hidden = self.isEdit;
+}
+
 
 #pragma mark - 辅助方法
 /// 刷新header color
@@ -149,12 +165,17 @@
         }];
         
         /// 隐藏导航栏
+        /// Fixed Bug: 这种方式可以暂时隐藏  但是如果子控制器进行push操作 那么返回来这个tabBar又会显示出来
         self.tabBarController.tabBar.hidden = isEdit.boolValue;
+        /// 解决方案：在 viewWillDisappear 和 viewWillAppear 在设置一次显示隐藏逻辑即可
+        self.isEdit = isEdit.boolValue;
+        NSLog(@"xxxxxxxxxxx 👉 %@", NSStringFromCGRect(self.tabBarController.tabBar.frame));
         
         // 更新布局
         [UIView animateWithDuration:0.25 animations:^{
             [self.view layoutIfNeeded];
             
+//            self.tabBarController.tabBar.mh_y = isEdit.boolValue ? MH_SCREEN_HEIGHT : (MH_SCREEN_HEIGHT - self.tabBarController.tabBar.bounds.size.height);
             self.searchController.view.alpha = isEdit.boolValue ? 1.0 : .0;
             
             // 动画

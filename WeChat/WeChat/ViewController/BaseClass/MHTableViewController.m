@@ -78,6 +78,60 @@
         emptyDataSetView.alpha = 1.0 - executing.floatValue;
     }];
     
+    /// 新增一个需求 有些场景下 进来 不需要下拉刷新和上拉加载  但是切换一种模式 又想要下拉刷新和上拉加载了 安排
+    [[[[RACObserve(self.viewModel, shouldPullDownToRefresh) distinctUntilChanged] skip:1]
+     deliverOnMainThread]
+    subscribeNext:^(NSNumber *x) {
+        NSLog(@"🔥 动态加载下拉刷新组件 👉 %@", x);
+        @strongify(self)
+        /// 添加加载和刷新控件
+        if (x.boolValue) {
+            /// 下拉刷新
+            @weakify(self);
+            [self.tableView mh_addHeaderRefresh:^(MJRefreshNormalHeader *header) {
+                /// 加载下拉刷新的数据
+                @strongify(self);
+                [self tableViewDidTriggerHeaderRefresh];
+            }];
+        }else {
+            self.tableView.mj_header = nil;
+        }
+    }];
+    
+    [[[[RACObserve(self.viewModel, shouldPullUpToLoadMore) distinctUntilChanged] skip:1]
+     deliverOnMainThread]
+    subscribeNext:^(NSNumber *x) {
+        NSLog(@"🔥 动态加载上拉加载组件 👉 %@", x);
+        @strongify(self)
+        if (x.boolValue) {
+            /// 上拉加载
+            @weakify(self);
+            [self.tableView mh_addFooterRefresh:^(MJRefreshAutoNormalFooter *footer) {
+                /// 加载上拉刷新的数据
+                @strongify(self);
+                [self tableViewDidTriggerFooterRefresh];
+            }];
+            
+            /// 隐藏footer or 无更多数据
+            RAC(self.tableView.mj_footer, hidden) = [[RACObserve(self.viewModel, dataSource)
+                                                      deliverOnMainThread]
+                                                     map:^(NSArray *dataSource) {
+                                                         @strongify(self)
+                                                         NSUInteger count = dataSource.count;
+                                                         /// 无数据，默认隐藏mj_footer
+                                                         if (count == 0) return @1;
+                                                         
+                                                         if (self.viewModel.shouldEndRefreshingWithNoMoreData) return @(0);
+                                                         
+                                                         /// because of
+                                                         return (count % self.viewModel.perPage)?@1:@0;
+                                                     }];
+            
+        }else {
+            self.tableView.mj_footer = nil;
+        }
+    }];
+    
     
 //    [self.viewModel.requestRemoteDataCommand.executionSignals.switchToLatest subscribeNext:^(id _) {
 //        @strongify(self);
@@ -251,7 +305,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
     if (self.viewModel.shouldMultiSections) return self.viewModel.dataSource ? self.viewModel.dataSource.count : 0;
-    return 1;
+    return self.viewModel.dataSource.count == 0 ? : 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

@@ -26,7 +26,8 @@ FOUNDATION_EXTERN NSString * const  MHSearchTypeKeywordKey;
 /// 搜索类型
 @property (nonatomic, readonly, assign) MHSearchType searchType;
 
-/// 键盘搜索 以及 点击关联结果
+/// 由于考虑到 搜索框的回调  以及子模块的关联搜索回调 所以设计成 Command
+/// 键盘搜索 以及 点击关联结果的回调 ，数据传递  MHSearch 
 @property (nonatomic, readonly, strong) RACCommand *requestSearchKeywordCommand;
 
 /// 关键字 搜索关键字
@@ -34,6 +35,9 @@ FOUNDATION_EXTERN NSString * const  MHSearchTypeKeywordKey;
 
 /// 搜索模式 默认是defalut
 @property (nonatomic, readwrite, assign) MHSearchMode searchMode;
+
+/// search
+@property (nonatomic, readonly, strong) MHSearch *search;
 @end
 
 NS_ASSUME_NONNULL_END

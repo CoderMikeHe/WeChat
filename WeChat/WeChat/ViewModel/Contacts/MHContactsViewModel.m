@@ -83,10 +83,16 @@
     self.searchBarViewModel = [[MHNavSearchBarViewModel alloc] init];
     // 点击搜索和点击取消按钮回调
     self.searchBarViewModel.editSubject = self.editSubject;
+    
+    
     // 搜索页面 点击搜索类型回调
     self.searchBarViewModel.searchTypeSubject = self.searchViewModel.searchTypeSubject;
     // 语音输入回调 + 文本框输入回调
     self.searchBarViewModel.textSubject = self.searchViewModel.textSubject;
+    // 返回按钮的命令
+    self.searchBarViewModel.backCommand = self.searchViewModel.backCommand;
+    // 键盘搜索按钮的命令
+    self.searchBarViewModel.searchCommand = self.searchViewModel.searchCommand;
     
     /// 赋值操作
     RAC(self.searchBarViewModel, text) = RACObserve(self.searchViewModel, keyword);

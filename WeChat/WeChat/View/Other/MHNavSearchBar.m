@@ -9,7 +9,7 @@
 #import "MHNavSearchBar.h"
 #import "MHNavSearchBarViewModel.h"
 
-@interface MHNavSearchBar ()
+@interface MHNavSearchBar ()<UITextFieldDelegate>
 /// viewModel
 @property (nonatomic, readwrite, strong) MHNavSearchBarViewModel *viewModel;
 /// 背景view
@@ -224,6 +224,14 @@
     return leftView;
 }
 
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    /// 搜索命令回调
+    [self.viewModel.searchCommand execute:textField.text];
+    return YES;
+}
+
+
 #pragma mark - 初始化OrUI布局
 /// 初始化
 - (void)_setup{
@@ -245,7 +253,9 @@
     self.backBtn = backBtn;
     [[backBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
-        [self.viewModel.searchTypeSubject sendNext:@(MHSearchTypeDefault)];
+//        [self.viewModel.searchTypeSubject sendNext:@(MHSearchTypeDefault)];
+        /// 只做回调
+        [self.viewModel.backCommand execute:nil];
     }];
     
     
@@ -267,6 +277,7 @@
     
     // textField
     MHTextField *textField = [[MHTextField alloc] init];
+    textField.returnKeyType = UIReturnKeySearch;
     textField.placeholder = [self _fetchPlaceholder:MHSearchTypeDefault];
     textField.leftView = [self _fetchLeftView:MHSearchTypeDefault];
     textField.font = MHRegularFont_16;
@@ -276,6 +287,8 @@
     textField.enabled = NO;
     [self addSubview:textField];
     self.textField = textField;
+    
+    textField.delegate = self;
     
     // 回调事件
     [[textField.rac_textSignal distinctUntilChanged] subscribeNext:^(id x) {

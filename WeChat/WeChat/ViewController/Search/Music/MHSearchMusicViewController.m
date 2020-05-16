@@ -81,6 +81,7 @@
     MHSearchCommonHeaderView *headerView = [MHSearchCommonHeaderView headerViewWithTableView:tableView];
     headerView.titleLabel.textColor = MHColorFromHexString(@"#808080");
     headerView.titleLabelLeftConstraint.constant = 20.0f;
+    headerView.titleLabel.font = MHRegularFont_14;
     NSString *headerTitle = @"";
     if (self.viewModel.searchMode == MHSearchModeDefault) {
         if (section == 0) {
@@ -94,6 +95,7 @@
         headerTitle = @"音乐";
         headerView.titleLabel.textColor = MHColorFromHexString(@"#191919");
         headerView.titleLabelLeftConstraint.constant = 16.0f;
+        headerView.titleLabel.font = MHRegularFont_17;
     }
     headerView.titleLabel.text = headerTitle;
     return headerView;
@@ -117,7 +119,7 @@
     } else if(self.viewModel.searchMode == MHSearchModeRelated){
         return 53.0f;
     } else {
-        return 132.0f;
+        return 99.0f;
     }
     
 }
@@ -131,9 +133,8 @@
     } else if(self.viewModel.searchMode == MHSearchModeRelated){
         return CGFLOAT_MIN;
     } else {
-        return 44.0f;
+        return 46.0f;
     }
-    
     return CGFLOAT_MIN;
 }
 

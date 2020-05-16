@@ -25,7 +25,7 @@
         NSMutableAttributedString *screenNameAttr = [[NSMutableAttributedString alloc] initWithString:person.name];
         screenNameAttr.yy_font = MHRegularFont_16;
         screenNameAttr.yy_color = MHColorFromHexString(@"#191919");
-        screenNameAttr.yy_alignment = NSTextAlignmentRight;
+        screenNameAttr.yy_alignment = NSTextAlignmentLeft;
         [screenNameAttr yy_setColor:MHColorFromHexString(@"#4eab5f") range:person.textRange];
         self.screenNameAttr = screenNameAttr.copy;
     }

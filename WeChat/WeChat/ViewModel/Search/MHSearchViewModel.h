@@ -41,10 +41,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, strong) MHSearchStickerViewModel *stickerViewModel;
 
 
+//// 处理 NavSearchBar 的回调
 /// 文本框输入回调
 @property (nonatomic, readonly, strong) RACSubject *textSubject;
+/// 点击键盘搜索
+@property (nonatomic, readonly, strong) RACCommand *searchCommand;
+/// 点击返回按钮回调
+@property (nonatomic, readonly, strong) RACCommand *backCommand;
 
-
+//// 传参给 NavSearchBar
 /// keyword 关键字
 @property (nonatomic, readonly, copy) NSString *keyword;
 /// searchType 搜索类型

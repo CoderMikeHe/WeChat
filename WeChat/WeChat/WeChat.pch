@@ -33,6 +33,7 @@
 
 /// User Custom File
 #import "MHMacros.h"
+#import "MHSearch.h"
 #import "MHFileManager.h"
 #import "MHSearchBar.h"
 #import "AppDelegate.h"

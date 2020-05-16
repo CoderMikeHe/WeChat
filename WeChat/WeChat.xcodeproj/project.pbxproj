@@ -368,6 +368,7 @@
 		DE4A9D62245C25DD0094E21A /* SCIndexViewConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4A9D5C245C25DC0094E21A /* SCIndexViewConfiguration.m */; };
 		DE4A9D63245C25DD0094E21A /* SCIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4A9D5E245C25DC0094E21A /* SCIndexView.m */; };
 		DE4A9D64245C25DD0094E21A /* UITableView+SCIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4A9D60245C25DC0094E21A /* UITableView+SCIndexView.m */; };
+		DE4B8F8B246F72CF0096CFFB /* MHSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4B8F8A246F72CF0096CFFB /* MHSearch.m */; };
 		DE56247B246C0B36009CFF82 /* MHSearchCommonHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE56247A246C0B36009CFF82 /* MHSearchCommonHeaderView.m */; };
 		DE56247D246C0B43009CFF82 /* MHSearchCommonHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE56247C246C0B43009CFF82 /* MHSearchCommonHeaderView.xib */; };
 		DE562481246C1C42009CFF82 /* MHSearchSubscriptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE562480246C1C42009CFF82 /* MHSearchSubscriptionsViewController.m */; };
@@ -1123,6 +1124,8 @@
 		DE4A9D5F245C25DC0094E21A /* SCIndexViewConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCIndexViewConfiguration.h; sourceTree = "<group>"; };
 		DE4A9D60245C25DC0094E21A /* UITableView+SCIndexView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SCIndexView.m"; sourceTree = "<group>"; };
 		DE4A9D61245C25DC0094E21A /* SCIndexView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCIndexView.h; sourceTree = "<group>"; };
+		DE4B8F89246F72CF0096CFFB /* MHSearch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearch.h; sourceTree = "<group>"; };
+		DE4B8F8A246F72CF0096CFFB /* MHSearch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearch.m; sourceTree = "<group>"; };
 		DE562479246C0B36009CFF82 /* MHSearchCommonHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchCommonHeaderView.h; sourceTree = "<group>"; };
 		DE56247A246C0B36009CFF82 /* MHSearchCommonHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchCommonHeaderView.m; sourceTree = "<group>"; };
 		DE56247C246C0B43009CFF82 /* MHSearchCommonHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHSearchCommonHeaderView.xib; sourceTree = "<group>"; };
@@ -1360,6 +1363,7 @@
 		26064AE91F5DA1F800566B95 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DE4B8F88246F72B10096CFFB /* Search */,
 				26363ACC20134651000061EF /* Emoticon */,
 				261597001FEA525E00C6FD80 /* Moment */,
 				26BEBC761F8B78B1004D502F /* BaseClass */,
@@ -1407,16 +1411,16 @@
 		26064AEC1F5DA1F800566B95 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				849393202462A47200CC591B /* Search */,
 				26225D7B1F65506E0074BFC3 /* BaseClass */,
-				26225D801F65506E0074BFC3 /* MainFrame */,
 				26225D7C1F65506E0074BFC3 /* Contacts */,
 				26225D7D1F65506E0074BFC3 /* Discover */,
-				26225D831F65506E0074BFC3 /* Profile */,
 				26225D7E1F65506E0074BFC3 /* HomePage */,
 				26225D7F1F65506E0074BFC3 /* Login */,
+				26225D801F65506E0074BFC3 /* MainFrame */,
 				26225D811F65506E0074BFC3 /* NewFeature */,
 				26225D821F65506E0074BFC3 /* Other */,
+				26225D831F65506E0074BFC3 /* Profile */,
+				849393202462A47200CC591B /* Search */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -3271,6 +3275,15 @@
 			path = SCIndexView;
 			sourceTree = "<group>";
 		};
+		DE4B8F88246F72B10096CFFB /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				DE4B8F89246F72CF0096CFFB /* MHSearch.h */,
+				DE4B8F8A246F72CF0096CFFB /* MHSearch.m */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		DE56247E246C1C0A009CFF82 /* Subscriptions */ = {
 			isa = PBXGroup;
 			children = (
@@ -4291,6 +4304,7 @@
 				26FE8E8D1F9514D100EC8BE0 /* TZLocationManager.m in Sources */,
 				2609ED4A1F790833002D31CE /* UILabel+MHExtension.m in Sources */,
 				DE66C0E4246AE2A3000E9915 /* PinyinHelper.m in Sources */,
+				DE4B8F8B246F72CF0096CFFB /* MHSearch.m in Sources */,
 				26FE8E481F95143D00EC8BE0 /* IDMPhoto.m in Sources */,
 				26FE8E8C1F9514D100EC8BE0 /* TZImagePickerController.m in Sources */,
 				261753201F739DDC00812E1B /* MHCommonQRCodeItemViewModel.m in Sources */,

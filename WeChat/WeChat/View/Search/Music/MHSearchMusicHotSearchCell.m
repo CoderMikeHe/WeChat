@@ -98,7 +98,8 @@
         @weakify(self);
         [tapGr.rac_gestureSignal subscribeNext:^(id x) {
             @strongify(self);
-            [self.viewModel.requestSearchKeywordCommand execute:self.viewModel.musics[i]];
+            MHSearch *search = [MHSearch searchWithKeyword:self.viewModel.musics[i] searchMode:MHSearchModeSearch];
+            [self.viewModel.requestSearchKeywordCommand execute:search];
         }];
     }
 }
