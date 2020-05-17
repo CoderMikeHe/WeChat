@@ -8,6 +8,7 @@
 
 #import "MHTableViewModel.h"
 #import "MHSearchTypeViewModel.h"
+#import "MHSearchCommonSearchItemViewModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MHSearchMomentsViewModel : MHSearchTypeViewModel

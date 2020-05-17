@@ -21,17 +21,24 @@ NSString * const  MHSearchTypeKeywordCommandKey = @"MHSearchTypeKeywordCommandKe
 
 @interface MHSearchTypeViewModel ()
 
-/// popSubject 侧滑返回回调
-@property (nonatomic, readwrite, strong) RACSubject *popSubject;
+/// popCommand 侧滑返回回调
+@property (nonatomic, readwrite, strong) RACCommand *popCommand;
 
 /// 搜索类型
 @property (nonatomic, readwrite, assign) MHSearchType searchType;
 
 /// search
 @property (nonatomic, readwrite, strong) MHSearch *search;
+/// 关键字 搜索关键字
+@property (nonatomic, readwrite, copy) NSString *keyword;
+
+/// 搜索模式 默认是defalut
+@property (nonatomic, readwrite, assign) MHSearchMode searchMode;
 
 /// 键盘搜索 以及 点击关联结果
 @property (nonatomic, readwrite, strong) RACCommand *requestSearchKeywordCommand;
+
+
 /// MHSearchModeRelated 场景下 点击关联符号的事件
 @property (nonatomic, readwrite, strong) RACCommand *relatedKeywordCommand;
 /// relatedKeywords0  假数据 仅仅模拟微信的逻辑
@@ -49,7 +56,7 @@ NSString * const  MHSearchTypeKeywordCommandKey = @"MHSearchTypeKeywordCommandKe
     if (self = [super initWithServices:services params:params]) {
         /// 搜索类型
         self.searchType = [params[MHSearchTypeTypeKey] integerValue];
-        self.popSubject = params[MHSearchTypePopKey];
+        self.popCommand = params[MHSearchTypePopKey];
         self.keyword = params[MHSearchTypeKeywordKey];
         self.keywordCommand = params[MHSearchTypeKeywordCommandKey];
         
@@ -91,11 +98,13 @@ NSString * const  MHSearchTypeKeywordCommandKey = @"MHSearchTypeKeywordCommandKe
             /// 回调数据到 搜索框
             [self.keywordCommand execute:search.keyword];
         }
-        
+
         /// 如果用户一旦输入文字 且 关键字与上一次不一样  , 则立即将关联次数清0
         if (self.searchMode == MHSearchModeRelated && ![self.keyword isEqualToString:search.keyword]) {
             self.relatedCount = 0;
         }
+        
+        
     
         // 记录关键字
         self.keyword = search.keyword;
@@ -123,7 +132,6 @@ NSString * const  MHSearchTypeKeywordCommandKey = @"MHSearchTypeKeywordCommandKe
     /// 关联关键字的命令
     self.relatedKeywordCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSString *input) {
         @strongify(self);
-        NSLog(@"xxxxxxxxxx关联keyword  %@", input);
         // 增加关联次数
         self.relatedCount++;
         /// 回调数据到 搜索框

@@ -39,6 +39,7 @@ static NSUInteger const MHMaxSearchMusicCacheCount = 8;
     self.cacheMusics = @[];
     self.cacheMusicViewModels = @[];
     
+    /// 配置清除单个music的命令
     self.clearMusicCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(MHSearchMusicHistoryItemViewModel *input) {
        @strongify(self);
         [self _clearMusic: input];
@@ -64,7 +65,11 @@ static NSUInteger const MHMaxSearchMusicCacheCount = 8;
                 [self _clearAllMusic];
             }
         }else if (self.searchMode == MHSearchModeRelated) {
-            // 关联模式
+            // 关联模式 点击cell 也是搜索模式
+            MHSearchCommonRelatedItemViewModel *itemViewModel = self.dataSource[row];
+            MHSearch *search = [MHSearch searchWithKeyword:itemViewModel.title searchMode:MHSearchModeSearch];
+            /// 传递数据
+            [self.requestSearchKeywordCommand execute:search];
         }else {
             // 搜索模式
             NSURL *url = [NSURL URLWithString:MHMyBlogHomepageUrl];
@@ -78,6 +83,16 @@ static NSUInteger const MHMaxSearchMusicCacheCount = 8;
     }];
     
     
+    /// 一旦有搜索信号
+    [self.requestSearchKeywordCommand.executionSignals.switchToLatest subscribeNext:^(MHSearch * search) {
+        @strongify(self);
+        if (search.searchMode == MHSearchModeSearch) {
+            /// 必须是搜索模式 才添加到缓存
+            [self _cacheMusic:search.keyword];
+        }
+    }];
+    
+    
     
     /// 配置热门音乐
     NSArray *musics = @[@"你我不一", @"隔壁老樊", @"晴天", @"周杰伦", @"中毒", @"野区歌神", @"喉咙唱的沙哑", @"枯木逢春"];
@@ -88,14 +103,7 @@ static NSUInteger const MHMaxSearchMusicCacheCount = 8;
     self.hotItemViewModel = hotItemViewModel;
     
     
-    /// 一旦有搜索信号
-    [self.requestSearchKeywordCommand.executionSignals.switchToLatest subscribeNext:^(MHSearch * search) {
-        @strongify(self);
-        if (search.searchMode == MHSearchModeSearch) {
-            /// 必须是搜索模式 才添加到缓存
-            [self _cacheMusic:search.keyword];
-        }
-    }];
+    
     
     /// 获取缓存数据
     [[YYCache sharedCache] objectForKey:MHSearchMusicHistoryCacheKey withBlock:^(NSString * _Nonnull key, NSArray *  _Nonnull cacheMusics) {

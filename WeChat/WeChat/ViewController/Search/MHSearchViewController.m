@@ -72,7 +72,7 @@
     [super bindViewModel];
     
     @weakify(self);
-    [[self.viewModel.searchTypeSubject deliverOnMainThread] subscribeNext:^(NSNumber *x) {
+    [[RACObserve(self.viewModel, searchType) deliverOnMainThread] subscribeNext:^(NSNumber *x) {
         @strongify(self);
         MHSearchType searchType = x.integerValue;
         [self _configureSearchView:searchType];
@@ -105,18 +105,18 @@
     
     
     /// 监听子控制器 侧滑返回
-    [[self.viewModel.popItemSubject deliverOnMainThread] subscribeNext:^(id x) {
-        @strongify(self);
-        [self.currentViewController willMoveToParentViewController:nil];
-        [self.currentViewController.view removeFromSuperview];
-        [self.currentViewController removeFromParentViewController];
-        
-        // 置位 必须置位nil 
-        self.currentViewController = nil;
-        
-        // 修改 navSearchBar 的 searchType
-        [self.viewModel.searchTypeSubject sendNext:@(MHSearchTypeDefault)];
-    }];
+//    [[self.viewModel.popItemCommand deliverOnMainThread] subscribeNext:^(id x) {
+//        @strongify(self);
+//        [self.currentViewController willMoveToParentViewController:nil];
+//        [self.currentViewController.view removeFromSuperview];
+//        [self.currentViewController removeFromParentViewController];
+//
+//        // 置位 必须置位nil
+//        self.currentViewController = nil;
+//
+//        // 修改 navSearchBar 的 searchType
+//        [self.viewModel.searchTypeSubject sendNext:@(MHSearchTypeDefault)];
+//    }];
 }
 
 #pragma mark - 事件处理Or辅助方法
@@ -148,6 +148,7 @@
     [self.view addSubview:toViewController.view];
     [self addChildViewController:toViewController];
     [toViewController didMoveToParentViewController:self];
+    
     // 记录当前子控制器
     self.currentViewController = toViewController;
 }

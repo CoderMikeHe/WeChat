@@ -21,8 +21,8 @@ FOUNDATION_EXTERN NSString * const  MHSearchTypeKeywordCommandKey;
 
 @interface MHSearchTypeViewModel : MHTableViewModel
 
-/// popSubject 侧滑返回回调
-@property (nonatomic, readonly, strong) RACSubject *popSubject;
+/// popCommand 侧滑返回回调
+@property (nonatomic, readonly, strong) RACCommand *popCommand;
 
 /// 搜索类型
 @property (nonatomic, readonly, assign) MHSearchType searchType;
@@ -45,10 +45,10 @@ FOUNDATION_EXTERN NSString * const  MHSearchTypeKeywordCommandKey;
 @property (nonatomic, readonly, assign) NSInteger relatedCount;
 
 /// 关键字 搜索关键字
-@property (nonatomic, readwrite, assign) NSString *keyword;
+@property (nonatomic, readonly, copy) NSString *keyword;
 
 /// 搜索模式 默认是defalut
-@property (nonatomic, readwrite, assign) MHSearchMode searchMode;
+@property (nonatomic, readonly, assign) MHSearchMode searchMode;
 
 /// search
 @property (nonatomic, readonly, strong) MHSearch *search;

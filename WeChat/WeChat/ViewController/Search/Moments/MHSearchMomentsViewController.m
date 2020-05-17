@@ -9,6 +9,7 @@
 #import "MHSearchMomentsViewController.h"
 #import "MHSearchMomentsCell.h"
 #import "MHSearchCommonHeaderView.h"
+#import "MHSearchCommonSearchCell.h"
 @interface MHSearchMomentsViewController ()
 /// viewModel
 @property (nonatomic, readonly, strong) MHSearchMomentsViewModel *viewModel;
@@ -42,11 +43,17 @@
 
 /// 返回自定义的cell
 - (UITableViewCell *)tableView:(UITableView *)tableView dequeueReusableCellWithIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath{
-    return [MHSearchMomentsCell cellWithTableView:tableView];
+    if (self.viewModel.searchMode == MHSearchModeRelated) {
+        return [MHSearchMomentsCell cellWithTableView:tableView];
+    }else if (self.viewModel.searchMode == MHSearchModeSearch) {
+        return [MHSearchCommonSearchCell cellWithTableView:tableView];
+    }else {
+        return nil;
+    }
 }
 
 /// 绑定数据
-- (void)configureCell:(MHSearchMomentsCell *)cell atIndexPath:(NSIndexPath *)indexPath withObject:(id)object{
+- (void)configureCell:(MHTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath withObject:(id)object{
     [cell bindViewModel:object];
 }
 
@@ -61,12 +68,66 @@
 #pragma mark - UITableViewDelegate & UITableViewDataSource
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     MHSearchCommonHeaderView *headerView = [MHSearchCommonHeaderView headerViewWithTableView:tableView];
-    headerView.titleLabel.text = self.viewModel.sectionTitle;
+    headerView.titleLabel.textColor = MHColorFromHexString(@"#b3b3b3");
+    headerView.titleLabel.font = MHRegularFont_14;
+    headerView.titleLabel.text = nil;
+    switch (self.viewModel.searchMode) {
+        case MHSearchModeRelated:
+        {
+            headerView.titleLabel.text = self.viewModel.sectionTitle;
+        }
+            break;
+        case MHSearchModeSearch:
+        {
+            headerView.titleLabel.text = @"朋友圈";
+            headerView.titleLabel.textColor = MHColorFromHexString(@"#191919");
+            headerView.titleLabel.font = MHRegularFont_17;
+        }
+            break;
+        default:
+            break;
+    }
+    
     return headerView;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    CGFloat height = CGFLOAT_MIN;
+    switch (self.viewModel.searchMode) {
+        case MHSearchModeRelated:
+        {
+            height = 52.0f;
+        }
+            break;
+        case MHSearchModeSearch:
+        {
+            height = 99.0f;
+        }
+            break;
+        default:
+            break;
+    }
+    return height;
+    
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 48.0f;
+    CGFloat height = CGFLOAT_MIN;
+    switch (self.viewModel.searchMode) {
+        case MHSearchModeRelated:
+        {
+            height = 48.0f;
+        }
+            break;
+        case MHSearchModeSearch:
+        {
+            height = 46.0f;
+        }
+            break;
+        default:
+            break;
+    }
+    return height;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {

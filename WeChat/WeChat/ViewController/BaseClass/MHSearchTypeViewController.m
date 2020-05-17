@@ -86,7 +86,7 @@
                 [recognizer.view setTransform:CGAffineTransformMakeTranslation(recognizer.view.mh_width, 0)];
             } completion:^(BOOL finished) {
                 /// 回调回去
-                [self.viewModel.popSubject sendNext:@1];
+                [self.viewModel.popCommand execute:@1];
                 self.coverView.hidden = YES;
             }];
         }

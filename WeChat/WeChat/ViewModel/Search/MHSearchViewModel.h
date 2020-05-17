@@ -24,8 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// searchTypeSubject 点击搜索类型的回调
 @property (nonatomic, readonly, strong) RACSubject *searchTypeSubject;
 
-/// popItemSubject 子控制器（朋友圈、文章、 公众号、小程序、音乐、表情）侧滑返回回调
-@property (nonatomic, readonly, strong) RACSubject *popItemSubject;
+/// popItemCommand 子控制器（朋友圈、文章、 公众号、小程序、音乐、表情）侧滑返回回调 或者 点击searchBar 返回按钮的回调
+@property (nonatomic, readonly, strong) RACCommand *popItemCommand;
 
 /// momentsViewModel
 @property (nonatomic, readonly, strong) MHSearchMomentsViewModel *momentsViewModel;

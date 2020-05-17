@@ -25,13 +25,11 @@
 /// 点击返回按钮回调
 @property (nonatomic, readwrite, strong) RACCommand *backCommand;
 
-/// popItemSubject 子控制器（朋友圈、文章、 公众号、小程序、音乐、表情）侧滑返回回调
-@property (nonatomic, readwrite, strong) RACSubject *popItemSubject;
+/// 配置子模块
+/// popItemCommand 子控制器（朋友圈、文章、 公众号、小程序、音乐、表情）侧滑返回回调
+@property (nonatomic, readwrite, strong) RACCommand *popItemCommand;
 /// 点击列表中关键字 or 关联关键字按钮 回调给 searchBar 的命令
 @property (nonatomic, readwrite, strong) RACCommand *keywordCommand;
-
-
-
 
 /// momentsViewModel
 @property (nonatomic, readwrite, strong) MHSearchMomentsViewModel *momentsViewModel;
@@ -45,7 +43,6 @@
 @property (nonatomic, readwrite, strong) MHSearchMusicViewModel *musicViewModel;
 /// stickerViewModel
 @property (nonatomic, readwrite, strong) MHSearchStickerViewModel *stickerViewModel;
-
 
 /// searchType
 @property (nonatomic, readwrite, assign) MHSearchType searchType;
@@ -70,11 +67,17 @@
          self.searchType = x.integerValue;
     }];
     
-    
-    
-    self.popItemSubject = [RACSubject subject];
+    /// 子模块侧滑返回
+    self.popItemCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        @strongify(self);
+        /// 先重置之前模块的数据
+        [self _resetSearchTypeModuleData:self.searchType];
+        /// 设置默认搜索类型
+        [self.searchTypeSubject sendNext:@(MHSearchTypeDefault)];
+        return [RACSignal empty];
+    }];
+    /// 子模块关键字回调给searchBar
     self.keywordCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSString *input) {
-        NSLog(@"cellllllxxxx回调数据  👉 %@", input);
         @strongify(self);
         self.keyword = input;
         return [RACSignal empty];
@@ -84,7 +87,6 @@
     /// 定义 NavSearchBar 的回调
     self.textSubject = [RACSubject subject];
     self.backCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-        NSLog(@"点击返回按钮  👉");
         @strongify(self);
         /// 先重置之前模块的数据
         [self _resetSearchTypeModuleData:self.searchType];
@@ -92,6 +94,7 @@
         [self.searchTypeSubject sendNext:@(MHSearchTypeDefault)];
         return [RACSignal empty];
     }];
+    
     /// 点击键盘的回调
     self.searchCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSString *input) {
         /// 点击键盘回调
@@ -99,68 +102,11 @@
         [self _searchTypeModuleData:input];
         return [RACSignal empty];
     }];
-    
-
     [self.textSubject subscribeNext:^(NSString *x) {
         @strongify(self);
         [self _inputTypeModuleData:x];
     }];
-    
-    
-    
-    
-    /// searchTypeSubject + textSubject 聚合起来
-    /// 注意：这两个必须调用 sendNext 才会执行 reduce block
-    [[[RACSignal
-       combineLatest:@[self.searchTypeSubject, self.textSubject]
-       reduce:^id(NSNumber *type , NSString *text) {
-           @strongify(self);
-        return nil;
-           NSLog(@"type === %@   text === %@", type, text);
-           MHSearchType searchType = type.integerValue;
-           
-           // 先记录一下关键字
-           self.keyword = text;
-           
-           switch (searchType) {
-               case MHSearchTypeDefault:
-               {
-                   /// 这里要处理一下 之前的searchType 重置一下数据
-                   [self _resetSearchTypeModuleData:self.searchType];
-               }
-                   break;
-               case MHSearchTypeMoments:
-               {
-                   // 传递关键字
-                   self.momentsViewModel.keyword = text;
-               }
-                   break;
-               case MHSearchTypeOfficialAccounts:
-               {
-                   // 传递关键字
-                   self.officialAccountsViewModel.keyword = text;
-               }
-                   break;
-               case MHSearchTypeMusic:
-               {
-                   // 传递关键字
-                   self.musicViewModel.keyword = text;
-                   // 传递关键字
-                   MHSearch *search = [MHSearch searchWithKeyword:text searchMode:MHSearchModeRelated];
-                   [self.musicViewModel.requestSearchKeywordCommand execute: search];
-               }
-                   break;
-               default:
-                   break;
-           }
-           // 记录一下 searchType
-           self.searchType = searchType;
-           return nil;
-       }]
-      distinctUntilChanged] subscribeNext:^(id x) {
-        
-    }];
-    
+
 
     // 创建viewModel
     self.searchTypeViewModel = [[MHSearchTypeItemViewModel alloc] init];
@@ -169,18 +115,17 @@
     
     //// 配置各个模块的vm
     // 朋友圈ViewModel
-    self.momentsViewModel = [[MHSearchMomentsViewModel alloc] initWithServices:self.services params:@{MHSearchTypeTypeKey: @(MHSearchTypeMoments), MHSearchTypePopKey: self.popItemSubject, MHSearchTypeKeywordKey: @""}];
+    self.momentsViewModel = [[MHSearchMomentsViewModel alloc] initWithServices:self.services params:@{MHSearchTypeTypeKey: @(MHSearchTypeMoments), MHSearchTypePopKey: self.popItemCommand, MHSearchTypeKeywordKey: @"", MHSearchTypeKeywordCommandKey: self.keywordCommand}];
     // 文章ViewModel
-    self.subscriptionsViewModel = [[MHSearchSubscriptionsViewModel alloc] initWithServices:self.services params:@{MHSearchTypeTypeKey: @(MHSearchTypeSubscriptions), MHSearchTypePopKey: self.popItemSubject, MHSearchTypeKeywordKey: @""}];
+    self.subscriptionsViewModel = [[MHSearchSubscriptionsViewModel alloc] initWithServices:self.services params:@{MHSearchTypeTypeKey: @(MHSearchTypeSubscriptions), MHSearchTypePopKey: self.popItemCommand, MHSearchTypeKeywordKey: @"", MHSearchTypeKeywordCommandKey: self.keywordCommand}];
     // 公众号ViewModel
-    self.officialAccountsViewModel = [[MHSearchOfficialAccountsViewModel alloc] initWithServices:self.services params:@{MHSearchTypeTypeKey: @(MHSearchTypeOfficialAccounts), MHSearchTypePopKey: self.popItemSubject, MHSearchTypeKeywordKey: @""}];
-    
+    self.officialAccountsViewModel = [[MHSearchOfficialAccountsViewModel alloc] initWithServices:self.services params:@{MHSearchTypeTypeKey: @(MHSearchTypeOfficialAccounts), MHSearchTypePopKey: self.popItemCommand, MHSearchTypeKeywordKey: @"", MHSearchTypeKeywordCommandKey: self.keywordCommand}];
     // 小程序ViewModel
-    self.miniprogramViewModel = [[MHSearchMiniprogramViewModel alloc] initWithServices:self.services params:@{MHSearchTypeTypeKey: @(MHSearchTypeMiniprogram), MHSearchTypePopKey: self.popItemSubject, MHSearchTypeKeywordKey: @""}];
+    self.miniprogramViewModel = [[MHSearchMiniprogramViewModel alloc] initWithServices:self.services params:@{MHSearchTypeTypeKey: @(MHSearchTypeMiniprogram), MHSearchTypePopKey: self.popItemCommand, MHSearchTypeKeywordKey: @"", MHSearchTypeKeywordCommandKey: self.keywordCommand}];
     // 音乐ViewModel
-    self.musicViewModel = [[MHSearchMusicViewModel alloc] initWithServices:self.services params:@{MHSearchTypeTypeKey: @(MHSearchTypeMusic), MHSearchTypePopKey: self.popItemSubject, MHSearchTypeKeywordKey: @"", MHSearchTypeKeywordCommandKey: self.keywordCommand}];
+    self.musicViewModel = [[MHSearchMusicViewModel alloc] initWithServices:self.services params:@{MHSearchTypeTypeKey: @(MHSearchTypeMusic), MHSearchTypePopKey: self.popItemCommand, MHSearchTypeKeywordKey: @"", MHSearchTypeKeywordCommandKey: self.keywordCommand}];
     // 表情ViewModel
-    self.stickerViewModel = [[MHSearchStickerViewModel alloc] initWithServices:self.services params:@{MHSearchTypeTypeKey: @(MHSearchTypeSticker), MHSearchTypePopKey: self.popItemSubject, MHSearchTypeKeywordKey: @""}];
+    self.stickerViewModel = [[MHSearchStickerViewModel alloc] initWithServices:self.services params:@{MHSearchTypeTypeKey: @(MHSearchTypeSticker), MHSearchTypePopKey: self.popItemCommand, MHSearchTypeKeywordKey: @""}];
 }
 
 #pragma mark - 辅助方法
@@ -201,7 +146,7 @@
             break;
         case MHSearchTypeMoments:
         {
-            
+            [self.momentsViewModel.requestSearchKeywordCommand execute:search];
         }
             break;
         case MHSearchTypeOfficialAccounts:
