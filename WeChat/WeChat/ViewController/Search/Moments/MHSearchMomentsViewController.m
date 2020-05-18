@@ -138,10 +138,7 @@
 #pragma mark - 初始化OrUI布局
 /// 初始化
 - (void)_setup{
-    self.tableView.rowHeight = 52.0f;
-    // style Grouped 无效
-    self.tableView.sectionHeaderHeight = 48.0f;
-    self.tableView.sectionFooterHeight = CGFLOAT_MIN;
+
 }
 
 /// 设置导航栏

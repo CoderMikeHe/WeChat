@@ -7,7 +7,7 @@
 //
 
 #import "MHSearchTypeViewModel.h"
-
+#import "YYTimer.h"
 /// 搜索类型
 NSString * const  MHSearchTypeTypeKey = @"MHSearchTypeTypeKey" ;
 /// 侧滑返回回调
@@ -47,6 +47,13 @@ NSString * const  MHSearchTypeKeywordCommandKey = @"MHSearchTypeKeywordCommandKe
 @property (nonatomic, readwrite, copy) NSArray *relatedKeywords1;
 /// relatedCount
 @property (nonatomic, readwrite, assign) NSInteger relatedCount;
+
+
+/// progress 请求进度
+@property (nonatomic, readwrite, assign) CGFloat progress;
+
+/// Timer
+@property (nonatomic, readwrite, strong) YYTimer *timer;
 @end
 
 
@@ -62,6 +69,7 @@ NSString * const  MHSearchTypeKeywordCommandKey = @"MHSearchTypeKeywordCommandKe
         
         /// 默认模式
         self.searchMode = MHSearchModeDefault;
+        self.progress = .0;
         
         
         /// 来源 <生僻字> 欺负我不会写
@@ -145,5 +153,63 @@ NSString * const  MHSearchTypeKeywordCommandKey = @"MHSearchTypeKeywordCommandKe
         [self.requestRemoteDataCommand execute:@1];
         return [RACSignal empty];
     }];
+    
+    
+    
+    /// 聚合信号
+    RACSignal *searchModeSignal = [[RACObserve(self, searchMode) skip:1] distinctUntilChanged];
+    RACSignal *executingSignal = self.requestRemoteDataCommand.executing;
+    
+    RAC(self, validProgressSignal) = [[RACSignal
+                                       combineLatest:@[searchModeSignal, executingSignal]
+                                       reduce:^(NSNumber *mode , NSNumber *executing) {
+                                           @strongify(self);
+                                           /// mode
+                                           MHSearchMode searchMode = mode.integerValue;
+                                           ///
+                                           NSLog(@"Bui bui bui  %@  %@", mode, executing);
+                                           
+                                           /// 只有搜索模式才需要 进度条
+                                           if (searchMode == MHSearchModeSearch) {
+                                               if (executing.integerValue == 1) {
+                                                   // 开启定时器
+                                                   [self _startTimer];
+                                               }else {
+                                                   // 关闭定时器
+                                                   [self _endTimer];
+                                               }
+                                           }else {
+                                               // 关闭定时器
+                                               [self _endTimer];
+                                           }
+                                           return @(searchMode == MHSearchModeSearch);
+                                       }]
+                                      distinctUntilChanged];
+    
+}
+
+
+#pragma mark - 辅助方法
+- (void)_startTimer {
+    
+    self.progress = .0f;
+    
+    [self _endTimer];
+    self.timer = [YYTimer timerWithTimeInterval:0.01 target:self selector:@selector(_timerValueChanged:) repeats:YES];
+}
+
+- (void)_endTimer {
+    if (self.timer) {
+        [_timer invalidate];
+        _timer = nil;
+    }
+}
+
+-(void)_timerValueChanged:(YYTimer *)timer {
+    MHLogFunc;
+//    if (self.) {
+//        <#statements#>
+//    }
+    
 }
 @end

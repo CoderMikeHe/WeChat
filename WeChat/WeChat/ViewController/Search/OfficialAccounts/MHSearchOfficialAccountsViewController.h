@@ -7,7 +7,7 @@
 //  搜索 公众号
 
 #import "MHSearchTypeViewController.h"
-
+#import "MHSearchOfficialAccountsViewModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MHSearchOfficialAccountsViewController : MHSearchTypeViewController

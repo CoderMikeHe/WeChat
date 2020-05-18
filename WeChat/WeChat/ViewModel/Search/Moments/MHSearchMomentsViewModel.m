@@ -75,7 +75,8 @@
                 // 查询数据
                 NSMutableArray *results = [NSMutableArray array];
                 for (WPFPerson *person in [WPFPinYinDataManager getInitializedDataSource]) {
-                    WPFSearchResultModel *resultModel = [WPFPinYinTools searchEffectiveResultWithSearchString:self.keyword Person:person];
+                    /// 用小写字母去查找
+                    WPFSearchResultModel *resultModel = [WPFPinYinTools searchEffectiveResultWithSearchString:self.keyword.lowercaseString Person:person];
                     if (resultModel.highlightedRange.length) {
                         person.highlightLoaction = resultModel.highlightedRange.location;
                         person.textRange = resultModel.highlightedRange;

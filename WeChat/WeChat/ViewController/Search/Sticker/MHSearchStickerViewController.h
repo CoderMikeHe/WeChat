@@ -7,7 +7,7 @@
 //
 
 #import "MHSearchTypeViewController.h"
-
+#import "MHSearchStickerViewModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MHSearchStickerViewController : MHSearchTypeViewController

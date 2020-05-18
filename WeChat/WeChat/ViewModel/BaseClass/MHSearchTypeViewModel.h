@@ -23,7 +23,6 @@ FOUNDATION_EXTERN NSString * const  MHSearchTypeKeywordCommandKey;
 
 /// popCommand 侧滑返回回调
 @property (nonatomic, readonly, strong) RACCommand *popCommand;
-
 /// 搜索类型
 @property (nonatomic, readonly, assign) MHSearchType searchType;
 
@@ -44,14 +43,22 @@ FOUNDATION_EXTERN NSString * const  MHSearchTypeKeywordCommandKey;
 /// relatedCount 关联次数 最大只能关联两次
 @property (nonatomic, readonly, assign) NSInteger relatedCount;
 
+
+
+
 /// 关键字 搜索关键字
 @property (nonatomic, readonly, copy) NSString *keyword;
-
 /// 搜索模式 默认是defalut
 @property (nonatomic, readonly, assign) MHSearchMode searchMode;
-
 /// search
 @property (nonatomic, readonly, strong) MHSearch *search;
+
+
+
+/// progress 请求进度
+@property (nonatomic, readonly, assign) CGFloat progress;
+/// 显示进度条有效性
+@property (nonatomic, readonly, strong) RACSignal *validProgressSignal;
 @end
 
 NS_ASSUME_NONNULL_END

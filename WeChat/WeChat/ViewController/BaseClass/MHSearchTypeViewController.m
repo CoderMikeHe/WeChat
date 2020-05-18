@@ -14,6 +14,9 @@
 
 /// coverView
 @property (nonatomic, readwrite, weak) UIView *coverView;
+
+/// 进度条
+@property (nonatomic, readwrite, strong) UIProgressView *progressView;
 @end
 
 @implementation MHSearchTypeViewController
@@ -50,10 +53,20 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
+    
+    // 布局好进度条View
+    [self.view addSubview:self.progressView];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+}
+
+#pragma mark - Override
+- (void)bindViewModel {
+    [super bindViewModel];
+    
+    //
 }
 
 #pragma mark - 辅助方法
@@ -103,6 +116,22 @@
 /// 只有当系统侧滑手势失败了，才去触发ScrollView的滑动
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
     return YES;
+}
+
+
+#pragma mark - Getter & Setter
+- (UIProgressView *)progressView {
+    if (!_progressView) {
+        CGFloat progressViewW = MH_SCREEN_WIDTH;
+        CGFloat progressViewH = 3;
+        CGFloat progressViewX = 0;
+        CGFloat progressViewY = 0;
+        UIProgressView *progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(progressViewX, progressViewY, progressViewW, progressViewH)];
+        progressView.progressTintColor = MH_MAIN_TINTCOLOR;
+        progressView.trackTintColor = [UIColor clearColor];
+        self.progressView = progressView;
+    }
+    return _progressView;
 }
 
 @end

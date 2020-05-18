@@ -8,12 +8,17 @@
 
 #import "MHSearchOfficialAccountsViewController.h"
 #import "MHSearchOfficialAccountsDefaultCell.h"
-
+#import "MHSearchCommonRelatedCell.h"
+#import "MHSearchCommonSearchCell.h"
+#import "MHSearchCommonHeaderView.h"
 @interface MHSearchOfficialAccountsViewController ()
-
+/// viewModel
+@property (nonatomic, readwrite, strong) MHSearchOfficialAccountsViewModel *viewModel;
 @end
 
 @implementation MHSearchOfficialAccountsViewController
+
+@dynamic viewModel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -53,11 +58,18 @@
 
 /// 返回自定义的cell
 - (UITableViewCell *)tableView:(UITableView *)tableView dequeueReusableCellWithIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath{
-    return [MHSearchOfficialAccountsDefaultCell cellWithTableView:tableView];
+    if (self.viewModel.searchMode == MHSearchModeDefault) {
+        return [MHSearchOfficialAccountsDefaultCell cellWithTableView:tableView];
+    } else if (self.viewModel.searchMode == MHSearchModeRelated) {
+        return [MHSearchCommonRelatedCell cellWithTableView:tableView];
+    } else {
+        return [MHSearchCommonSearchCell cellWithTableView:tableView];
+    }
+    
 }
 
 /// 绑定数据
-- (void)configureCell:(MHSearchOfficialAccountsDefaultCell *)cell atIndexPath:(NSIndexPath *)indexPath withObject:(id)object{
+- (void)configureCell:(MHTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath withObject:(id)object{
     [cell bindViewModel:object];
 }
 
@@ -70,8 +82,51 @@
 
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if(self.viewModel.searchMode == MHSearchModeSearch) {
+        MHSearchCommonHeaderView *headerView = [MHSearchCommonHeaderView headerViewWithTableView:tableView];
+        headerView.titleLabel.text = @"公众号";
+        headerView.titleLabel.textColor = MHColorFromHexString(@"#191919");
+        headerView.titleLabel.font = MHRegularFont_17;
+        return headerView;
+    }
+    return nil;
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44 + 109;
+    CGFloat height = 44 + 109;
+    switch (self.viewModel.searchMode) {
+        case MHSearchModeRelated:
+        {
+            height = 53.0f;
+        }
+            break;
+        case MHSearchModeSearch:
+        {
+            height = 99.0f;
+        }
+            break;
+        default:
+            break;
+    }
+    return height;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    CGFloat height = CGFLOAT_MIN;
+    switch (self.viewModel.searchMode) {
+        case MHSearchModeSearch:
+        {
+            height = 46.0f;
+        }
+            break;
+        default:
+            break;
+    }
+    return height;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return CGFLOAT_MIN;
 }
 
 

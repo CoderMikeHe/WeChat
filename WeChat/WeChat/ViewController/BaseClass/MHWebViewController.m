@@ -256,7 +256,6 @@ static NSString * const MHWebViewKVOEstimatedProgress = @"estimatedProgress";
         UIProgressView *progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(progressViewX, progressViewY, progressViewW, progressViewH)];
         progressView.progressTintColor = MH_MAIN_TINTCOLOR;
         progressView.trackTintColor = [UIColor clearColor];
-        [self.view addSubview:progressView];
         self.progressView = progressView;
     }
     return _progressView;

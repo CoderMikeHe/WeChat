@@ -125,7 +125,7 @@
     // 音乐ViewModel
     self.musicViewModel = [[MHSearchMusicViewModel alloc] initWithServices:self.services params:@{MHSearchTypeTypeKey: @(MHSearchTypeMusic), MHSearchTypePopKey: self.popItemCommand, MHSearchTypeKeywordKey: @"", MHSearchTypeKeywordCommandKey: self.keywordCommand}];
     // 表情ViewModel
-    self.stickerViewModel = [[MHSearchStickerViewModel alloc] initWithServices:self.services params:@{MHSearchTypeTypeKey: @(MHSearchTypeSticker), MHSearchTypePopKey: self.popItemCommand, MHSearchTypeKeywordKey: @""}];
+    self.stickerViewModel = [[MHSearchStickerViewModel alloc] initWithServices:self.services params:@{MHSearchTypeTypeKey: @(MHSearchTypeSticker), MHSearchTypePopKey: self.popItemCommand, MHSearchTypeKeywordKey: @"", MHSearchTypeKeywordCommandKey: self.keywordCommand}];
 }
 
 #pragma mark - 辅助方法
@@ -149,14 +149,29 @@
             [self.momentsViewModel.requestSearchKeywordCommand execute:search];
         }
             break;
+        case MHSearchTypeSubscriptions:
+        {
+            [self.subscriptionsViewModel.requestSearchKeywordCommand execute:search];
+        }
+            break;
         case MHSearchTypeOfficialAccounts:
         {
-            
+            [self.officialAccountsViewModel.requestSearchKeywordCommand execute:search];
+        }
+            break;
+        case MHSearchTypeMiniprogram:
+        {
+            [self.miniprogramViewModel.requestSearchKeywordCommand execute:search];
         }
             break;
         case MHSearchTypeMusic:
         {
             [self.musicViewModel.requestSearchKeywordCommand execute:search];
+        }
+            break;
+        case MHSearchTypeSticker:
+        {
+            [self.stickerViewModel.requestSearchKeywordCommand execute:search];
         }
             break;
         default:
@@ -184,17 +199,32 @@
             break;
         case MHSearchTypeMoments:
         {
-            
+            [self.momentsViewModel.requestSearchKeywordCommand execute:search];
+        }
+            break;
+        case MHSearchTypeSubscriptions:
+        {
+            [self.subscriptionsViewModel.requestSearchKeywordCommand execute:search];
         }
             break;
         case MHSearchTypeOfficialAccounts:
         {
-            
+            [self.officialAccountsViewModel.requestSearchKeywordCommand execute:search];
         }
             break;
         case MHSearchTypeMusic:
         {
             [self.musicViewModel.requestSearchKeywordCommand execute:search];
+        }
+            break;
+        case MHSearchTypeMiniprogram:
+        {
+            [self.miniprogramViewModel.requestSearchKeywordCommand execute:search];
+        }
+            break;
+        case MHSearchTypeSticker:
+        {
+            [self.stickerViewModel.requestSearchKeywordCommand execute:search];
         }
             break;
         default:
@@ -209,22 +239,36 @@
     self.keyword = @"";
     // 默认搜索模式
     self.searchType = MHSearchTypeDefault;
-    
+    MHSearch *search = [MHSearch searchWithKeyword:@"" searchMode:MHSearchModeDefault];
     switch (searchType) {
-        case MHSearchTypeOfficialAccounts:
-        {
-   
-        }
-            break;
         case MHSearchTypeMoments:
         {
-
+            [self.momentsViewModel.requestSearchKeywordCommand execute:search];
+        }
+            break;
+        case MHSearchTypeSubscriptions:
+        {
+            [self.subscriptionsViewModel.requestSearchKeywordCommand execute:search];
+        }
+            break;
+        case MHSearchTypeOfficialAccounts:
+        {
+            [self.officialAccountsViewModel.requestSearchKeywordCommand execute:search];
         }
             break;
         case MHSearchTypeMusic:
         {
-            MHSearch *search = [MHSearch searchWithKeyword:@"" searchMode:MHSearchModeDefault];
             [self.musicViewModel.requestSearchKeywordCommand execute:search];
+        }
+            break;
+        case MHSearchTypeMiniprogram:
+        {
+            [self.miniprogramViewModel.requestSearchKeywordCommand execute:search];
+        }
+            break;
+        case MHSearchTypeSticker:
+        {
+            [self.stickerViewModel.requestSearchKeywordCommand execute:search];
         }
             break;
         default:

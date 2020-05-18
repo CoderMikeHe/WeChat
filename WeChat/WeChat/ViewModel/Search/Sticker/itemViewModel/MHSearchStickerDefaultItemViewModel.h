@@ -1,8 +1,8 @@
 //
-//  MHSearchOfficialAccountsItemViewModel.h
+//  MHSearchStickerDefaultItemViewModel.h
 //  WeChat
 //
-//  Created by admin on 2020/5/12.
+//  Created by admin on 2020/5/18.
 //  Copyright © 2020 CoderMikeHe. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MHSearchOfficialAccountsItemViewModel : NSObject
+@interface MHSearchStickerDefaultItemViewModel : NSObject
 
 @end
 

@@ -7,7 +7,7 @@
 //
 
 #import "MHSearchTypeViewController.h"
-
+#import "MHSearchSubscriptionsViewModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MHSearchSubscriptionsViewController : MHSearchTypeViewController

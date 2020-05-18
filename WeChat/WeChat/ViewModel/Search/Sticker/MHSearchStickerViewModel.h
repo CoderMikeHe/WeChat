@@ -7,7 +7,8 @@
 //
 
 #import "MHSearchTypeViewModel.h"
-
+#import "MHSearchCommonSearchItemViewModel.h"
+#import "MHSearchCommonRelatedItemViewModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MHSearchStickerViewModel : MHSearchTypeViewModel
