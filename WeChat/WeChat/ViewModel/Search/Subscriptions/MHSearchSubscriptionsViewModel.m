@@ -44,8 +44,9 @@
     @weakify(self);
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         @strongify(self);
+        NSTimeInterval t = self.searchMode == MHSearchModeSearch ? 1.0 : .25f;
         /// 模拟网络延迟
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(t * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             /// 判断当前模式
             if (self.searchMode == MHSearchModeDefault) {
                 // 默认模式

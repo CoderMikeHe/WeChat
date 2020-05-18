@@ -54,6 +54,9 @@ NSString * const  MHSearchTypeKeywordCommandKey = @"MHSearchTypeKeywordCommandKe
 
 /// Timer
 @property (nonatomic, readwrite, strong) YYTimer *timer;
+
+/// 显示进度条有效性
+@property (nonatomic, readwrite, strong) RACSignal *validProgressSignal;
 @end
 
 
@@ -94,7 +97,7 @@ NSString * const  MHSearchTypeKeywordCommandKey = @"MHSearchTypeKeywordCommandKe
         if (search.searchMode != self.searchMode) {
             /// 一旦进入这里，就是进入搜索模式
             self.searchMode = search.searchMode;
-           
+            
             self.dataSource = @[];
             
             /// 模式一旦不同 立即请0
@@ -106,14 +109,14 @@ NSString * const  MHSearchTypeKeywordCommandKey = @"MHSearchTypeKeywordCommandKe
             /// 回调数据到 搜索框
             [self.keywordCommand execute:search.keyword];
         }
-
+        
         /// 如果用户一旦输入文字 且 关键字与上一次不一样  , 则立即将关联次数清0
         if (self.searchMode == MHSearchModeRelated && ![self.keyword isEqualToString:search.keyword]) {
             self.relatedCount = 0;
         }
         
         
-    
+        
         // 记录关键字
         self.keyword = search.keyword;
         
@@ -124,14 +127,14 @@ NSString * const  MHSearchTypeKeywordCommandKey = @"MHSearchTypeKeywordCommandKe
         // return [RACSignal empty];  /// ❌ 这样子VM 监听不到数据
         
         // 方式一 OK
-//        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-//            @strongify(self);
-//            [subscriber sendNext:search];
-//            [subscriber sendCompleted];
-//            return [RACDisposable disposableWithBlock:^{
-//                /// 取消任务
-//            }];
-//        }];
+        //        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        //            @strongify(self);
+        //            [subscriber sendNext:search];
+        //            [subscriber sendCompleted];
+        //            return [RACDisposable disposableWithBlock:^{
+        //                /// 取消任务
+        //            }];
+        //        }];
         /// 方式二 推荐
         return [RACSignal return:search];
     }];
@@ -160,45 +163,46 @@ NSString * const  MHSearchTypeKeywordCommandKey = @"MHSearchTypeKeywordCommandKe
     RACSignal *searchModeSignal = [[RACObserve(self, searchMode) skip:1] distinctUntilChanged];
     RACSignal *executingSignal = self.requestRemoteDataCommand.executing;
     
-    RAC(self, validProgressSignal) = [[RACSignal
-                                       combineLatest:@[searchModeSignal, executingSignal]
-                                       reduce:^(NSNumber *mode , NSNumber *executing) {
-                                           @strongify(self);
-                                           /// mode
-                                           MHSearchMode searchMode = mode.integerValue;
-                                           ///
-                                           NSLog(@"Bui bui bui  %@  %@", mode, executing);
-                                           
-                                           /// 只有搜索模式才需要 进度条
-                                           if (searchMode == MHSearchModeSearch) {
-                                               if (executing.integerValue == 1) {
-                                                   // 开启定时器
-                                                   [self _startTimer];
-                                               }else {
-                                                   // 关闭定时器
-                                                   [self _endTimer];
-                                               }
-                                           }else {
-                                               // 关闭定时器
-                                               [self _endTimer];
-                                           }
-                                           return @(searchMode == MHSearchModeSearch);
-                                       }]
-                                      distinctUntilChanged];
+    self.validProgressSignal = [[RACSignal
+                                 combineLatest:@[searchModeSignal, executingSignal]
+                                 reduce:^(NSNumber *mode , NSNumber *executing) {
+        @strongify(self);
+        /// mode
+        MHSearchMode searchMode = mode.integerValue;
+        ///
+        NSLog(@"Bui bui bui  %@  %@", mode, executing);
+        
+        /// 只有搜索模式才需要 进度条
+        if (searchMode == MHSearchModeSearch) {
+            if (executing.integerValue == 1) {
+                // 开启定时器
+                [self _startTimer];
+            }else {
+                // 关闭定时器
+                [self _endTimer];
+            }
+        }else {
+            // 关闭定时器
+            [self _endTimer];
+        }
+        
+        return @(searchMode != MHSearchModeSearch && executing.boolValue);
+    }]
+                                distinctUntilChanged];
     
 }
 
 
 #pragma mark - 辅助方法
 - (void)_startTimer {
-    
-    self.progress = .0f;
-    
     [self _endTimer];
     self.timer = [YYTimer timerWithTimeInterval:0.01 target:self selector:@selector(_timerValueChanged:) repeats:YES];
 }
 
 - (void)_endTimer {
+    // 归零处理
+    self.progress = .0f;
+    
     if (self.timer) {
         [_timer invalidate];
         _timer = nil;
@@ -206,10 +210,12 @@ NSString * const  MHSearchTypeKeywordCommandKey = @"MHSearchTypeKeywordCommandKe
 }
 
 -(void)_timerValueChanged:(YYTimer *)timer {
-    MHLogFunc;
-//    if (self.) {
-//        <#statements#>
-//    }
-    
+    if (self.progress >= 0.8) {
+        self.progress = self.progress + 0.004;
+    } else if (self.progress >= 0.3) {
+        self.progress = self.progress + 0.025;
+    } else {
+        self.progress = self.progress + 0.01;
+    }
 }
 @end

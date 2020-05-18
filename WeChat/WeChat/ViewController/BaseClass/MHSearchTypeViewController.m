@@ -66,7 +66,13 @@
 - (void)bindViewModel {
     [super bindViewModel];
     
-    //
+    // 监听搜索进度
+    @weakify(self);
+    RAC(self.progressView, hidden) = self.viewModel.validProgressSignal;
+    [[RACObserve(self.viewModel, progress) distinctUntilChanged] subscribeNext:^(NSNumber *x) {
+        @strongify(self);
+        [self.progressView setProgress: x.floatValue animated:YES];
+    }];
 }
 
 #pragma mark - 辅助方法
