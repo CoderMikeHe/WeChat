@@ -37,6 +37,11 @@
 /// searchType
 @property (nonatomic, readwrite, strong) RACSubject *searchTypeSubject;
 
+
+
+/// 弹出/消失 搜索内容页 回调
+@property (nonatomic, readwrite, strong) RACCommand *popCommand;
+
 @end
 
 
@@ -59,6 +64,13 @@
         return [RACSignal empty];
     }];
     
+    /// 弹出搜索页或者隐藏搜索页的回调  以及侧滑搜索页回调
+    self.popCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        @strongify(self);
+
+        return [RACSignal empty];
+    }];
+    
     // 赋值数据
     RAC(self, contacts) = self.requestRemoteDataCommand.executionSignals.switchToLatest;
     
@@ -76,7 +88,7 @@
     
     
     // 创建 searchViewModel
-    self.searchViewModel = [[MHSearchViewModel alloc] initWithServices:self.services params:nil];
+    self.searchViewModel = [[MHSearchViewModel alloc] initWithServices:self.services params:@{MHSearchViewPopCommandKey: self.popCommand}];
     
     
     // 配置 searchBar viewModel
@@ -93,6 +105,8 @@
     self.searchBarViewModel.backCommand = self.searchViewModel.backCommand;
     // 键盘搜索按钮的命令
     self.searchBarViewModel.searchCommand = self.searchViewModel.searchCommand;
+    // 点击 搜索 或者 取消按钮的回调
+    self.searchBarViewModel.popCommand = self.popCommand;
     
     /// 赋值操作
     RAC(self.searchBarViewModel, text) = RACObserve(self.searchViewModel, keyword);

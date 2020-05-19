@@ -22,19 +22,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 文本框输入回调
 @property (nonatomic, readwrite, strong) RACSubject *textSubject;
-/// 点击键盘搜索
+/// 点击键盘搜索按钮
 @property (nonatomic, readwrite, strong) RACCommand *searchCommand;
 /// 点击返回按钮回调
 @property (nonatomic, readwrite, strong) RACCommand *backCommand;
-/// 点击取消按钮回调
-@property (nonatomic, readwrite, strong) RACSubject *cancelSubject;
-
+/// 弹出/消失 搜索内容页 回调
+@property (nonatomic, readwrite, strong) RACCommand *popCommand;
 
 
 /// text 文本框显示的东西
 @property (nonatomic, readwrite, copy) NSString *text;
 /// searchType 搜索类型
 @property (nonatomic, readwrite, assign) MHSearchType searchType;
+/// 搜索状态
+@property (nonatomic, readwrite, assign) MHNavSearchBarState searchState;
 @end
 
 NS_ASSUME_NONNULL_END

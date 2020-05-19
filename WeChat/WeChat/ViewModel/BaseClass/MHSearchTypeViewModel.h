@@ -59,6 +59,9 @@ FOUNDATION_EXTERN NSString * const  MHSearchTypeKeywordCommandKey;
 @property (nonatomic, readonly, assign) CGFloat progress;
 /// 显示进度条有效性
 @property (nonatomic, readonly, strong) RACSignal *validProgressSignal;
+
+/// 隐藏进度条
+@property (nonatomic, readwrite, assign) BOOL hidden;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -162,33 +162,23 @@ NSString * const  MHSearchTypeKeywordCommandKey = @"MHSearchTypeKeywordCommandKe
     /// 聚合信号
     RACSignal *searchModeSignal = [[RACObserve(self, searchMode) skip:1] distinctUntilChanged];
     RACSignal *executingSignal = self.requestRemoteDataCommand.executing;
-    
-    self.validProgressSignal = [[RACSignal
-                                 combineLatest:@[searchModeSignal, executingSignal]
-                                 reduce:^(NSNumber *mode , NSNumber *executing) {
+    [[[RACSignal
+       combineLatest:@[searchModeSignal, executingSignal]
+       reduce:^(NSNumber *mode , NSNumber *executing) {
+           /// 搜索模式 && 正在请求
+           return @(mode.integerValue == MHSearchModeSearch && executing.boolValue);
+       }]
+      distinctUntilChanged] subscribeNext:^(NSNumber *x) {
         @strongify(self);
-        /// mode
-        MHSearchMode searchMode = mode.integerValue;
-        ///
-        NSLog(@"Bui bui bui  %@  %@", mode, executing);
-        
-        /// 只有搜索模式才需要 进度条
-        if (searchMode == MHSearchModeSearch) {
-            if (executing.integerValue == 1) {
-                // 开启定时器
-                [self _startTimer];
-            }else {
-                // 关闭定时器
-                [self _endTimer];
-            }
+        self.hidden = !x.boolValue;
+        if (x.boolValue) {
+            // 开启定时器
+            [self _startTimer];
         }else {
             // 关闭定时器
             [self _endTimer];
         }
-        
-        return @(searchMode != MHSearchModeSearch && executing.boolValue);
-    }]
-                                distinctUntilChanged];
+    }];
     
 }
 
@@ -210,10 +200,10 @@ NSString * const  MHSearchTypeKeywordCommandKey = @"MHSearchTypeKeywordCommandKe
 }
 
 -(void)_timerValueChanged:(YYTimer *)timer {
-    if (self.progress >= 0.8) {
-        self.progress = self.progress + 0.004;
+    if (self.progress >= 0.9) {
+        self.progress = self.progress + 0.002;
     } else if (self.progress >= 0.3) {
-        self.progress = self.progress + 0.025;
+        self.progress = self.progress + 0.03;
     } else {
         self.progress = self.progress + 0.01;
     }

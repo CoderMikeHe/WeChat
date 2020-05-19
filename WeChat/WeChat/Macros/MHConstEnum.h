@@ -60,6 +60,11 @@ typedef NS_ENUM(NSUInteger, MHMomentShareInfoType) {
     MHMomentShareInfoTypeMusic,       /// 音乐
 };
 
+/// 导航栏搜索状态
+typedef NS_ENUM(NSUInteger, MHNavSearchBarState) {
+    MHNavSearchBarStateDefault = 0,  /// 展示模式
+    MHNavSearchBarStateSearch        /// 搜索模式
+};
 
 
 // 搜索类型 <微信、通讯录>

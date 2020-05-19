@@ -68,7 +68,7 @@
     
     // 监听搜索进度
     @weakify(self);
-    RAC(self.progressView, hidden) = self.viewModel.validProgressSignal;
+    RAC(self.progressView, hidden) = RACObserve(self.viewModel, hidden);
     [[RACObserve(self.viewModel, progress) distinctUntilChanged] subscribeNext:^(NSNumber *x) {
         @strongify(self);
         [self.progressView setProgress: x.floatValue animated:YES];

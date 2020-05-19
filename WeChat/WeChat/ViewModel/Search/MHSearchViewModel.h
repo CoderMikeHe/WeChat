@@ -16,6 +16,10 @@
 #import "MHSearchStickerViewModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
+/// 侧滑返回回调
+FOUNDATION_EXTERN NSString * const  MHSearchViewPopCommandKey ;
+/// 关键字
+
 @interface MHSearchViewModel : MHViewModel
 
 /// searchTypeViewModel
@@ -26,6 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// popItemCommand 子控制器（朋友圈、文章、 公众号、小程序、音乐、表情）侧滑返回回调 或者 点击searchBar 返回按钮的回调
 @property (nonatomic, readonly, strong) RACCommand *popItemCommand;
+/// 弹出搜索页或者隐藏搜索页的回调  以及侧滑搜索页回调
+@property (nonatomic, readonly, strong) RACCommand *popCommand;
 
 /// momentsViewModel
 @property (nonatomic, readonly, strong) MHSearchMomentsViewModel *momentsViewModel;

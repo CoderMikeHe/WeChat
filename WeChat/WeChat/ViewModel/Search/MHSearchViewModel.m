@@ -9,6 +9,9 @@
 #import "MHSearchViewModel.h"
 #import "MHWebViewModel.h"
 
+/// 侧滑返回回调
+NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
+
 @interface MHSearchViewModel ()
 
 /// searchTypeViewModel
@@ -28,6 +31,8 @@
 /// 配置子模块
 /// popItemCommand 子控制器（朋友圈、文章、 公众号、小程序、音乐、表情）侧滑返回回调
 @property (nonatomic, readwrite, strong) RACCommand *popItemCommand;
+/// 弹出搜索页或者隐藏搜索页的回调  以及侧滑搜索页回调
+@property (nonatomic, readwrite, strong) RACCommand *popCommand;
 /// 点击列表中关键字 or 关联关键字按钮 回调给 searchBar 的命令
 @property (nonatomic, readwrite, strong) RACCommand *keywordCommand;
 
@@ -52,6 +57,13 @@
 @end
 @implementation MHSearchViewModel
 
+- (instancetype)initWithServices:(id<MHViewModelServices>)services params:(NSDictionary *)params
+{
+    if (self = [super initWithServices:services params:params]) {
+        self.popCommand = params[MHSearchViewPopCommandKey];
+    }
+    return self;
+}
 
 - (void)initialize {
     [super initialize];
