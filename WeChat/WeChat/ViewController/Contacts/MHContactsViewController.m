@@ -65,13 +65,13 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     // 这里也根据条件设置隐藏
-    self.tabBarController.tabBar.hidden = self.isEdit;
+    self.tabBarController.tabBar.hidden = (self.viewModel.searchState == MHNavSearchBarStateSearch);
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     // 这里也根据条件设置隐藏
-    self.tabBarController.tabBar.hidden = self.isEdit;
+    self.tabBarController.tabBar.hidden = (self.viewModel.searchState == MHNavSearchBarStateSearch);
 }
 
 
@@ -126,14 +126,16 @@
     RAC(self.footerView, text) = RACObserve(self.viewModel, total);
     
     
-    [[self.viewModel.editSubject deliverOnMainThread] subscribeNext:^(NSNumber *isEdit) {
+    [[[RACObserve(self.viewModel, searchState) skip:1] deliverOnMainThread] subscribeNext:^(NSNumber *state) {
         @strongify(self);
+        
+        MHNavSearchBarState searchState = state.integerValue;
         
         self.view.userInteractionEnabled = NO;
         
         CGFloat navBarY = 0.0;
         CGFloat searchViewY = 200.0;
-        if (isEdit.boolValue) {
+        if (searchState == MHNavSearchBarStateSearch) {
             
             navBarY = -MH_APPLICATION_TOP_BAR_HEIGHT;
 
@@ -166,24 +168,20 @@
         
         /// 隐藏导航栏
         /// Fixed Bug: 这种方式可以暂时隐藏  但是如果子控制器进行push操作 那么返回来这个tabBar又会显示出来
-        self.tabBarController.tabBar.hidden = isEdit.boolValue;
+        self.tabBarController.tabBar.hidden = (searchState == MHNavSearchBarStateSearch);
         /// 解决方案：在 viewWillDisappear 和 viewWillAppear 在设置一次显示隐藏逻辑即可
-        self.isEdit = isEdit.boolValue;
-        NSLog(@"xxxxxxxxxxx 👉 %@", NSStringFromCGRect(self.tabBarController.tabBar.frame));
-        
         // 更新布局
         [UIView animateWithDuration:0.25 animations:^{
             [self.view layoutIfNeeded];
             
-//            self.tabBarController.tabBar.mh_y = isEdit.boolValue ? MH_SCREEN_HEIGHT : (MH_SCREEN_HEIGHT - self.tabBarController.tabBar.bounds.size.height);
-            self.searchController.view.alpha = isEdit.boolValue ? 1.0 : .0;
+            self.searchController.view.alpha = (searchState == MHNavSearchBarStateSearch) ? 1.0 : .0;
             
             // 动画
-            self.searchBar.mh_y = isEdit.boolValue ? ([UIApplication sharedApplication].statusBarFrame.size.height + 4) : MH_APPLICATION_TOP_BAR_HEIGHT;
+            self.searchBar.mh_y = (searchState == MHNavSearchBarStateSearch) ? ([UIApplication sharedApplication].statusBarFrame.size.height + 4) : MH_APPLICATION_TOP_BAR_HEIGHT;
             
         } completion:^(BOOL finished) {
             
-            if(!isEdit.boolValue) {
+            if((searchState != MHNavSearchBarStateSearch)) {
                 // 退出编辑场景下 从 self.view 身上移掉
                 [self.searchBar removeFromSuperview];
                 // 添加到tableHeaderView

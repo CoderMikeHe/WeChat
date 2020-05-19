@@ -22,7 +22,7 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
 
 //// 处理 NavSearchBar 的回调
 /// 文本框输入回调 + 语音输入回调
-@property (nonatomic, readwrite, strong) RACSubject *textSubject;
+@property (nonatomic, readwrite, strong) RACCommand *textCommand;
 /// 点击键盘搜索
 @property (nonatomic, readwrite, strong) RACCommand *searchCommand;
 /// 点击返回按钮回调
@@ -88,6 +88,7 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
         [self.searchTypeSubject sendNext:@(MHSearchTypeDefault)];
         return [RACSignal empty];
     }];
+    
     /// 子模块关键字回调给searchBar
     self.keywordCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSString *input) {
         @strongify(self);
@@ -97,7 +98,11 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
     
     
     /// 定义 NavSearchBar 的回调
-    self.textSubject = [RACSubject subject];
+    self.textCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        @strongify(self);
+        [self _inputTypeModuleData:input];
+        return [RACSignal empty];
+    }];;
     self.backCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         @strongify(self);
         /// 先重置之前模块的数据
@@ -114,9 +119,14 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
         [self _searchTypeModuleData:input];
         return [RACSignal empty];
     }];
-    [self.textSubject subscribeNext:^(NSString *x) {
+    
+    /// 监听searchState
+    [[[RACObserve(self, searchState) skip:1] distinctUntilChanged] subscribeNext:^(NSNumber *x) {
         @strongify(self);
-        [self _inputTypeModuleData:x];
+        /// 先重置之前模块的数据
+        [self _resetSearchTypeModuleData:self.searchType];
+        /// 设置默认搜索类型
+        [self.searchTypeSubject sendNext:@(MHSearchTypeDefault)];
     }];
 
 
@@ -284,6 +294,9 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
         }
             break;
         default:
+        {
+            NSLog(@"++++++++=== 默认搜索类型 ++++++==========");
+        }
             break;
     }
 }

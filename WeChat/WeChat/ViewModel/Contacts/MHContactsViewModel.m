@@ -32,12 +32,8 @@
 /// searchViewModel
 @property (nonatomic, readwrite, strong) MHSearchViewModel *searchViewModel;
 
-/// 编辑回调
-@property (nonatomic, readwrite, strong) RACSubject *editSubject;
-/// searchType
-@property (nonatomic, readwrite, strong) RACSubject *searchTypeSubject;
-
-
+/// 搜索状态
+@property (nonatomic, readwrite, assign) MHNavSearchBarState searchState;
 
 /// 弹出/消失 搜索内容页 回调
 @property (nonatomic, readwrite, strong) RACCommand *popCommand;
@@ -65,9 +61,9 @@
     }];
     
     /// 弹出搜索页或者隐藏搜索页的回调  以及侧滑搜索页回调
-    self.popCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+    self.popCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSNumber *input) {
         @strongify(self);
-
+        self.searchState = input.integerValue;
         return [RACSignal empty];
     }];
     
@@ -83,24 +79,15 @@
     
     
     // --------------------- 搜索相关 ----------------------
-    /// 点击 🔍 搜索
-    self.editSubject = [RACSubject subject];
-    
-    
+ 
     // 创建 searchViewModel
     self.searchViewModel = [[MHSearchViewModel alloc] initWithServices:self.services params:@{MHSearchViewPopCommandKey: self.popCommand}];
     
-    
+
     // 配置 searchBar viewModel
     self.searchBarViewModel = [[MHNavSearchBarViewModel alloc] init];
-    // 点击搜索和点击取消按钮回调
-    self.searchBarViewModel.editSubject = self.editSubject;
-    
-    
-    // 搜索页面 点击搜索类型回调
-    self.searchBarViewModel.searchTypeSubject = self.searchViewModel.searchTypeSubject;
     // 语音输入回调 + 文本框输入回调
-    self.searchBarViewModel.textSubject = self.searchViewModel.textSubject;
+    self.searchBarViewModel.textCommand = self.searchViewModel.textCommand;
     // 返回按钮的命令
     self.searchBarViewModel.backCommand = self.searchViewModel.backCommand;
     // 键盘搜索按钮的命令
@@ -112,6 +99,8 @@
     RAC(self.searchBarViewModel, text) = RACObserve(self.searchViewModel, keyword);
     RAC(self.searchBarViewModel, searchType) = RACObserve(self.searchViewModel, searchType);
     
+    RAC(self.searchViewModel, searchState) = RACObserve(self, searchState);
+    RAC(self.searchBarViewModel, searchState) = RACObserve(self, searchState);
 }
 
 

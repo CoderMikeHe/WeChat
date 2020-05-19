@@ -30,9 +30,7 @@
 /// 总人数
 @property (nonatomic, readonly, copy) NSString *total;
 
-
-/// 是否点击 🔍 搜索 是编辑状态
-/// 编辑回调
-@property (nonatomic, readonly, strong) RACSubject *editSubject;
+/// 搜索状态
+@property (nonatomic, readonly, assign) MHNavSearchBarState searchState;
 
 @end

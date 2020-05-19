@@ -49,7 +49,7 @@ FOUNDATION_EXTERN NSString * const  MHSearchViewPopCommandKey ;
 
 //// 处理 NavSearchBar 的回调
 /// 文本框输入回调
-@property (nonatomic, readonly, strong) RACSubject *textSubject;
+@property (nonatomic, readonly, strong) RACCommand *textCommand;
 /// 点击键盘搜索
 @property (nonatomic, readonly, strong) RACCommand *searchCommand;
 /// 点击返回按钮回调
@@ -60,6 +60,10 @@ FOUNDATION_EXTERN NSString * const  MHSearchViewPopCommandKey ;
 @property (nonatomic, readonly, copy) NSString *keyword;
 /// searchType 搜索类型
 @property (nonatomic, readonly, assign) MHSearchType searchType;
+
+
+/// 搜索状态
+@property (nonatomic, readwrite, assign) MHNavSearchBarState searchState;
 @end
 
 NS_ASSUME_NONNULL_END

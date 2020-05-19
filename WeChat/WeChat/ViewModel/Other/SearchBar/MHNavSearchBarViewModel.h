@@ -14,14 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// height
 @property (nonatomic, readonly, assign) CGFloat height;
 
-/// 编辑  点击 搜索 或者 取消按钮 回调
-@property (nonatomic, readwrite, strong) RACSubject *editSubject;
-
-/// searchType
-@property (nonatomic, readwrite, strong) RACSubject *searchTypeSubject;
-
 /// 文本框输入回调
-@property (nonatomic, readwrite, strong) RACSubject *textSubject;
+@property (nonatomic, readwrite, strong) RACCommand *textCommand;
 /// 点击键盘搜索按钮
 @property (nonatomic, readwrite, strong) RACCommand *searchCommand;
 /// 点击返回按钮回调

@@ -32,13 +32,6 @@
 /// 最小宽度
 @property (nonatomic, readwrite, assign) CGFloat textFieldMinWidth;
 
-
-/// isEdit
-@property (nonatomic, readwrite, assign, getter=isEdit) BOOL edit;
-
-/// searchType
-@property (nonatomic, readwrite, assign) MHSearchType searchType;
-
 @end
 
 @implementation MHNavSearchBar
@@ -63,40 +56,32 @@
     self.viewModel = viewModel;
 
     @weakify(self);
-    [[self.viewModel.editSubject deliverOnMainThread] subscribeNext:^(NSNumber *isEdit) {
+    [[[RACObserve(self.viewModel, searchState) skip:1] distinctUntilChanged] subscribeNext:^(NSNumber *state) {
         @strongify(self);
         
-        self.edit = isEdit.boolValue;
-        
-        if (self.isEdit) {
-            [self.textField becomeFirstResponder];
-        }else {
-            [self.textField resignFirstResponder];
-        }
+        MHNavSearchBarState searchState = state.integerValue;
         
         
-//        self.userInteractionEnabled = false;
+        self.userInteractionEnabled = false;
         
         // 取消按钮
-        CGFloat offset1 = isEdit.boolValue ? 0 : self.cancelBtnWidth - 8.0f;
+        CGFloat offset1 = (searchState == MHNavSearchBarStateSearch) ? 0 : self.cancelBtnWidth - 8.0f;
         [self.cancelBtn mas_updateConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(self).with.offset(offset1);
         }];
         
         // textFeild
-        CGFloat offset2 = isEdit.boolValue ? 8.0 : (MH_SCREEN_WIDTH - self.textFieldMinWidth) * 0.5;
+        CGFloat offset2 = (searchState == MHNavSearchBarStateSearch) ? 8.0 : (MH_SCREEN_WIDTH - self.textFieldMinWidth) * 0.5;
         [self.textField mas_updateConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(offset2);
         }];
         
         // 退出编辑 且 搜索类型 不是默认状态  要把 < 按钮归位
-        if (!self.isEdit && self.searchType != MHSearchTypeDefault) {
+        if ((searchState != MHNavSearchBarStateSearch) && self.viewModel.searchType != MHSearchTypeDefault) {
             CGFloat offsetX0 = -self.backBtnWidth + 8.0f;
             [self.backBtn mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(self).with.offset(offsetX0);
             }];
-            // 重新设置为默认
-            [self.viewModel.searchTypeSubject sendNext:@(MHSearchTypeDefault)];
         }
         
         // 更新布局
@@ -104,26 +89,24 @@
             [self layoutIfNeeded];
         } completion:^(BOOL finished) {
             self.userInteractionEnabled = true;
-
-            self.textField.enabled = isEdit.boolValue;
+            self.textField.enabled = (searchState == MHNavSearchBarStateSearch);
         }];
 
     }];
     
     /// 监听searchType
-    [[self.viewModel.searchTypeSubject deliverOnMainThread] subscribeNext:^(NSNumber *type) {
+    [[[RACObserve(self.viewModel, searchType) skip:1] distinctUntilChanged] subscribeNext:^(NSNumber *type) {
         
         @strongify(self);
 
         MHSearchType searchType = type.integerValue;
-        self.searchType = searchType;
-        
+   
         self.textField.placeholder = [self _fetchPlaceholder:searchType];
         self.textField.leftView = [self _fetchLeftView:searchType];
         
         
         // 非编辑模式 do nothing...
-        if (!self.isEdit) {
+        if (self.viewModel.searchState != MHNavSearchBarStateSearch) {
             return ;
         }
         
@@ -156,6 +139,8 @@
         // 这个不会触发 textField.rac_textSignal
         self.textField.text = x;
     }];
+    
+    
 }
 
 #pragma mark - 辅助方法
@@ -191,7 +176,7 @@
 /// 获取leftView
 - (UIView *)_fetchLeftView:(MHSearchType)type {
     
-    NSString *imageName = @"小程序";
+    NSString *imageName = @"icons_outlined_search_full.svg";
     switch (type) {
         case MHSearchTypeMoments:
             imageName = @"icons_outlined_searchicon_moment.svg";
@@ -243,7 +228,7 @@
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     if (MHStringIsNotEmpty(textField.text)) {
         // 回调
-        [self.viewModel.textSubject sendNext:textField.text];
+        [self.viewModel.textCommand execute:textField.text];
     }
     return true;
 }
@@ -270,11 +255,9 @@
     self.backBtn = backBtn;
     [[backBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
-//        [self.viewModel.searchTypeSubject sendNext:@(MHSearchTypeDefault)];
         /// 只做回调
         [self.viewModel.backCommand execute:nil];
     }];
-    
     
     
     // 背景View
@@ -289,7 +272,7 @@
     [backgroundView addGestureRecognizer:tapGr];
     [tapGr.rac_gestureSignal subscribeNext:^(id x) {
         @strongify(self);
-        [self.viewModel.editSubject sendNext:@1];
+        [self.viewModel.popCommand execute: @(MHNavSearchBarStateSearch)];
     }];
     
     // textField
@@ -313,7 +296,7 @@
         // 不相等才回调
         if (![self.viewModel.text isEqualToString:x]) {
             NSLog(@"输入框文字改变了............");
-            [self.viewModel.textSubject sendNext:x];
+            [self.viewModel.textCommand execute:x];
         }
     }];
     
@@ -327,7 +310,7 @@
     self.cancelBtn = cancelBtn;
     [[cancelBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
-        [self.viewModel.editSubject sendNext:@0];
+        [self.viewModel.popCommand execute: @(MHNavSearchBarStateDefault)];
     }];
 }
 
