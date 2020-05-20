@@ -6,8 +6,8 @@
 //  Copyright © 2020 CoderMikeHe. All rights reserved.
 //
 
-#import "MHViewModel.h"
-#import "MHSearchTypeItemViewModel.h"
+#import "MHTableViewModel.h"
+#import "MHSearchDefaultSearchTypeItemViewModel.h"
 #import "MHSearchOfficialAccountsViewModel.h"
 #import "MHSearchMomentsViewModel.h"
 #import "MHSearchSubscriptionsViewModel.h"
@@ -20,10 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXTERN NSString * const  MHSearchViewPopCommandKey ;
 /// 关键字
 
-@interface MHSearchViewModel : MHViewModel
-
-/// searchTypeViewModel
-@property (nonatomic, readonly, strong) MHSearchTypeItemViewModel *searchTypeViewModel;
+@interface MHSearchViewModel : MHTableViewModel
 
 /// searchTypeSubject 点击搜索类型的回调
 @property (nonatomic, readonly, strong) RACSubject *searchTypeSubject;
@@ -61,9 +58,12 @@ FOUNDATION_EXTERN NSString * const  MHSearchViewPopCommandKey ;
 /// searchType 搜索类型
 @property (nonatomic, readonly, assign) MHSearchType searchType;
 
-
 /// 搜索状态
 @property (nonatomic, readwrite, assign) MHNavSearchBarState searchState;
+
+/// searchMode
+@property (nonatomic, readonly, assign) MHSearchMode searchMode;
+
 @end
 
 NS_ASSUME_NONNULL_END

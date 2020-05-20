@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MHSearchTypeItemViewModel.h"
+#import "MHSearchDefaultSearchTypeItemViewModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MHNavSearchBarViewModel : NSObject

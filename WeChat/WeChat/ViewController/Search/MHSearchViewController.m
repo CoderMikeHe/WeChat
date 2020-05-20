@@ -18,6 +18,12 @@
 #import "MHSearchMusicViewController.h"
 #import "MHSearchStickerViewController.h"
 
+
+#import "MHSearchCommonFooterView.h"
+#import "MHSearchCommonHeaderView.h"
+#import "MHSearchDefaultSearchTypeCell.h"
+#import "MHSearchDefaultContactCell.h"
+
 @interface MHSearchViewController ()
 /// scrollView
 @property (nonatomic, readwrite, weak) UIScrollView *scrollView;
@@ -30,14 +36,11 @@
 /// voiceInputView
 @property (nonatomic, readwrite, weak) MHSearchVoiceInputView *voiceInputView;
 
-
 /// viewModel
 @property (nonatomic, readwrite, strong) MHSearchViewModel *viewModel;
 
 /// 当前展示的控制器
 @property (nonatomic, readwrite, strong) UIViewController *currentViewController;
-
-
 
 /// viewControllers 用来管理子控制器
 @property (nonatomic, readwrite, strong) NSMutableArray *viewControllers;
@@ -66,6 +69,8 @@
     
     /// 布局子空间
     [self _makeSubViewsConstraints];
+    
+    
 }
 #pragma mark - Override
 - (void)bindViewModel {
@@ -102,21 +107,6 @@
              } completion:nil];
          }];
      }];
-    
-    
-    /// 监听子控制器 侧滑返回
-//    [[self.viewModel.popItemCommand deliverOnMainThread] subscribeNext:^(id x) {
-//        @strongify(self);
-//        [self.currentViewController willMoveToParentViewController:nil];
-//        [self.currentViewController.view removeFromSuperview];
-//        [self.currentViewController removeFromParentViewController];
-//
-//        // 置位 必须置位nil
-//        self.currentViewController = nil;
-//
-//        // 修改 navSearchBar 的 searchType
-//        [self.viewModel.searchTypeSubject sendNext:@(MHSearchTypeDefault)];
-//    }];
 }
 
 #pragma mark - 事件处理Or辅助方法
@@ -153,13 +143,81 @@
     self.currentViewController = toViewController;
 }
 
+/// 返回自定义的cell
+- (UITableViewCell *)tableView:(UITableView *)tableView dequeueReusableCellWithIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath{
+    if (self.viewModel.searchMode == MHSearchModeDefault) {
+        return [MHSearchDefaultSearchTypeCell cellWithTableView:tableView];
+    }
+    return [MHSearchDefaultContactCell cellWithTableView:tableView];
+}
+
+/// 绑定数据 // 利用多态
+- (void)configureCell:(MHTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath withObject:(id)object{
+    /// 必须确保 cell 有 bindViewModel 否则崩卡拉卡
+    [cell bindViewModel:object];
+}
+
+- (UIEdgeInsets)contentInset {
+    return UIEdgeInsetsZero;
+}
+
+#pragma mark - UITableViewDelegate & UITableViewDataSource
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if(self.viewModel.searchMode == MHSearchModeSearch) {
+        MHSearchCommonHeaderView *headerView = [MHSearchCommonHeaderView headerViewWithTableView:tableView];
+        headerView.titleLabel.text = @"文章";
+        headerView.titleLabel.textColor = MHColorFromHexString(@"#191919");
+        headerView.titleLabel.font = MHRegularFont_17;
+        return headerView;
+    }
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    CGFloat height = CGFLOAT_MIN;
+    switch (self.viewModel.searchMode) {
+        case MHSearchModeRelated:
+        {
+            height = 53.0f;
+        }
+            break;
+        case MHSearchModeSearch:
+        {
+            height = 99.0f;
+        }
+            break;
+        default:
+            break;
+    }
+    return height;
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    CGFloat height = CGFLOAT_MIN;
+    switch (self.viewModel.searchMode) {
+        case MHSearchModeSearch:
+        {
+            height = 46.0f;
+        }
+            break;
+        default:
+            break;
+    }
+    return height;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 10.0;
+}
 
 
 
 #pragma mark - 初始化OrUI布局
 /// 初始化
 - (void)_setup{
-    
+    // 自动计算行高
+    self.tableView.estimatedRowHeight = UITableViewAutomaticDimension;
 }
 
 /// 设置导航栏
@@ -199,30 +257,35 @@
 /// 初始化子控件
 - (void)_setupSubviews{
     
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    
     // scrollView
-    UIScrollView *scrollView = [[UIScrollView alloc] init];
-    scrollView.alwaysBounceVertical = YES;
-    scrollView.showsHorizontalScrollIndicator = NO;
-    scrollView.showsVerticalScrollIndicator = NO;
-    /// 适配 iOS 11
-    MHAdjustsScrollViewInsets_Never(scrollView);
-    [self.view addSubview:scrollView];
-    self.scrollView = scrollView;
-    
-    /// containerView
-    UIView *containerView = [[UIView alloc] init];
-    [scrollView addSubview:containerView];
-    self.containerView = containerView;
-    
-    // searchTypeView
-    MHSearchTypeView *searchTypeView = [MHSearchTypeView searchTypeView];
-    self.searchTypeView = searchTypeView;
-    [searchTypeView bindViewModel:self.viewModel.searchTypeViewModel];
-    [containerView addSubview:searchTypeView];
-    
-    
-    // 设置背景色
-    containerView.backgroundColor = searchTypeView.backgroundColor = self.view.backgroundColor;
+//    UIScrollView *scrollView = [[UIScrollView alloc] init];
+//    scrollView.alwaysBounceVertical = YES;
+//    scrollView.showsHorizontalScrollIndicator = NO;
+//    scrollView.showsVerticalScrollIndicator = NO;
+//
+//    /// 适配 iOS 11
+//    MHAdjustsScrollViewInsets_Never(scrollView);
+//    [self.view addSubview:scrollView];
+//    self.scrollView = scrollView;
+//
+//    /// containerView
+//    UIView *containerView = [[UIView alloc] init];
+//    [scrollView addSubview:containerView];
+//    self.containerView = containerView;
+//
+//    // searchTypeView
+//    MHSearchTypeView *searchTypeView = [MHSearchTypeView searchTypeView];
+//    self.searchTypeView = searchTypeView;
+//    [searchTypeView bindViewModel:self.viewModel.searchTypeViewModel];
+//    [containerView addSubview:searchTypeView];
+//
+//
+//    // 设置背景色
+//    containerView.backgroundColor = searchTypeView.backgroundColor = self.view.backgroundColor;
     
     
     /// 语音输入View
@@ -234,22 +297,22 @@
 /// 布局子控件
 - (void)_makeSubViewsConstraints{
     
-    // 设置view
-    [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
-    }];
-    
-    /// 设置contentSize
-    [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(MH_SCREEN_WIDTH);
-        make.height.mas_equalTo(MH_SCREEN_HEIGHT);
-    }];
-    
-    /// 布局搜索类型
-    [self.searchTypeView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.and.right.equalTo(self.containerView);
-        make.top.equalTo(self.containerView).with.offset(39.0);
-    }];
+//    // 设置view
+//    [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(self.view);
+//    }];
+//
+//    /// 设置contentSize
+//    [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.width.mas_equalTo(MH_SCREEN_WIDTH);
+//        make.height.mas_equalTo(MH_SCREEN_HEIGHT);
+//    }];
+//
+//    /// 布局搜索类型
+//    [self.searchTypeView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.and.right.equalTo(self.containerView);
+//        make.top.equalTo(self.containerView).with.offset(39.0);
+//    }];
     
     [self.voiceInputView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.view).with.offset(-115.0);

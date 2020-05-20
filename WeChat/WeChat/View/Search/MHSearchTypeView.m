@@ -7,11 +7,11 @@
 //
 
 #import "MHSearchTypeView.h"
-#import "MHSearchTypeItemViewModel.h"
+#import "MHSearchDefaultSearchTypeItemViewModel.h"
 @interface MHSearchTypeView ()
 
 /// viewModel
-@property (nonatomic, readwrite, strong) MHSearchTypeItemViewModel *viewModel;
+@property (nonatomic, readwrite, strong) MHSearchDefaultSearchTypeItemViewModel *viewModel;
 
 ///
 @end
@@ -26,7 +26,7 @@
 
 
 // 绑定viewModel
-- (void)bindViewModel:(MHSearchTypeItemViewModel *)viewModel {
+- (void)bindViewModel:(MHSearchDefaultSearchTypeItemViewModel *)viewModel {
     self.viewModel = viewModel;
 }
 

@@ -323,8 +323,16 @@
 		84A1BF28246E98ED008A807C /* MHSearchCommonSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1BF26246E98ED008A807C /* MHSearchCommonSearchCell.m */; };
 		84A1BF29246E98ED008A807C /* MHSearchCommonSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A1BF27246E98ED008A807C /* MHSearchCommonSearchCell.xib */; };
 		84A1BF2C246E9FB7008A807C /* MHSearchCommonSearchItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1BF2B246E9FB7008A807C /* MHSearchCommonSearchItemViewModel.m */; };
+		84A545602474D3D30020FEE7 /* MHSearchCommonFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A5455F2474D3D30020FEE7 /* MHSearchCommonFooterView.m */; };
+		84A545622474D3E70020FEE7 /* MHSearchCommonFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A545612474D3E70020FEE7 /* MHSearchCommonFooterView.xib */; };
+		84A545672474D96D0020FEE7 /* MHSearchDefaultSearchTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A545652474D96D0020FEE7 /* MHSearchDefaultSearchTypeCell.m */; };
+		84A545682474D96D0020FEE7 /* MHSearchDefaultSearchTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A545662474D96D0020FEE7 /* MHSearchDefaultSearchTypeCell.xib */; };
+		84A5456E24752ABF0020FEE7 /* MHSearchDefaultItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A5456D24752ABF0020FEE7 /* MHSearchDefaultItemViewModel.m */; };
+		84A5457124752C840020FEE7 /* MHSearchDefaultContactItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A5457024752C840020FEE7 /* MHSearchDefaultContactItemViewModel.m */; };
+		84A5457524752CBF0020FEE7 /* MHSearchDefaultContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A5457324752CBF0020FEE7 /* MHSearchDefaultContactCell.m */; };
+		84A5457624752CBF0020FEE7 /* MHSearchDefaultContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A5457424752CBF0020FEE7 /* MHSearchDefaultContactCell.xib */; };
 		84AB60A5244AFD990031DADE /* UIImage+MHSVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AB60A4244AFD990031DADE /* UIImage+MHSVG.m */; };
-		84AD506124639BFD0053A79A /* MHSearchTypeItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AD506024639BFD0053A79A /* MHSearchTypeItemViewModel.m */; };
+		84AD506124639BFD0053A79A /* MHSearchDefaultSearchTypeItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AD506024639BFD0053A79A /* MHSearchDefaultSearchTypeItemViewModel.m */; };
 		84AD5072246406C30053A79A /* icons_outlined_search_full.svg in Resources */ = {isa = PBXBuildFile; fileRef = 84AD5071246406C20053A79A /* icons_outlined_search_full.svg */; };
 		84C29D1C2464F5D700C0F729 /* MHSearchOfficialAccountsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C29D1B2464F5D700C0F729 /* MHSearchOfficialAccountsViewModel.m */; };
 		84C29D1F246534A600C0F729 /* MHSearchVoiceInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C29D1E246534A600C0F729 /* MHSearchVoiceInputView.m */; };
@@ -1061,10 +1069,23 @@
 		84A1BF27246E98ED008A807C /* MHSearchCommonSearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHSearchCommonSearchCell.xib; sourceTree = "<group>"; };
 		84A1BF2A246E9FB7008A807C /* MHSearchCommonSearchItemViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchCommonSearchItemViewModel.h; sourceTree = "<group>"; };
 		84A1BF2B246E9FB7008A807C /* MHSearchCommonSearchItemViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchCommonSearchItemViewModel.m; sourceTree = "<group>"; };
+		84A5455E2474D3D30020FEE7 /* MHSearchCommonFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchCommonFooterView.h; sourceTree = "<group>"; };
+		84A5455F2474D3D30020FEE7 /* MHSearchCommonFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchCommonFooterView.m; sourceTree = "<group>"; };
+		84A545612474D3E70020FEE7 /* MHSearchCommonFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHSearchCommonFooterView.xib; sourceTree = "<group>"; };
+		84A545642474D96D0020FEE7 /* MHSearchDefaultSearchTypeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchDefaultSearchTypeCell.h; sourceTree = "<group>"; };
+		84A545652474D96D0020FEE7 /* MHSearchDefaultSearchTypeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchDefaultSearchTypeCell.m; sourceTree = "<group>"; };
+		84A545662474D96D0020FEE7 /* MHSearchDefaultSearchTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHSearchDefaultSearchTypeCell.xib; sourceTree = "<group>"; };
+		84A5456C24752ABF0020FEE7 /* MHSearchDefaultItemViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchDefaultItemViewModel.h; sourceTree = "<group>"; };
+		84A5456D24752ABF0020FEE7 /* MHSearchDefaultItemViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchDefaultItemViewModel.m; sourceTree = "<group>"; };
+		84A5456F24752C840020FEE7 /* MHSearchDefaultContactItemViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchDefaultContactItemViewModel.h; sourceTree = "<group>"; };
+		84A5457024752C840020FEE7 /* MHSearchDefaultContactItemViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchDefaultContactItemViewModel.m; sourceTree = "<group>"; };
+		84A5457224752CBF0020FEE7 /* MHSearchDefaultContactCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchDefaultContactCell.h; sourceTree = "<group>"; };
+		84A5457324752CBF0020FEE7 /* MHSearchDefaultContactCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchDefaultContactCell.m; sourceTree = "<group>"; };
+		84A5457424752CBF0020FEE7 /* MHSearchDefaultContactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHSearchDefaultContactCell.xib; sourceTree = "<group>"; };
 		84AB60A3244AFD990031DADE /* UIImage+MHSVG.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+MHSVG.h"; sourceTree = "<group>"; };
 		84AB60A4244AFD990031DADE /* UIImage+MHSVG.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MHSVG.m"; sourceTree = "<group>"; };
-		84AD505F24639BFD0053A79A /* MHSearchTypeItemViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchTypeItemViewModel.h; sourceTree = "<group>"; };
-		84AD506024639BFD0053A79A /* MHSearchTypeItemViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchTypeItemViewModel.m; sourceTree = "<group>"; };
+		84AD505F24639BFD0053A79A /* MHSearchDefaultSearchTypeItemViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchDefaultSearchTypeItemViewModel.h; sourceTree = "<group>"; };
+		84AD506024639BFD0053A79A /* MHSearchDefaultSearchTypeItemViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchDefaultSearchTypeItemViewModel.m; sourceTree = "<group>"; };
 		84AD5071246406C20053A79A /* icons_outlined_search_full.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_outlined_search_full.svg; sourceTree = "<group>"; };
 		84C29D1A2464F5D700C0F729 /* MHSearchOfficialAccountsViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchOfficialAccountsViewModel.h; sourceTree = "<group>"; };
 		84C29D1B2464F5D700C0F729 /* MHSearchOfficialAccountsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchOfficialAccountsViewModel.m; sourceTree = "<group>"; };
@@ -3132,11 +3153,28 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		84A545632474D8300020FEE7 /* Default */ = {
+			isa = PBXGroup;
+			children = (
+				84A545642474D96D0020FEE7 /* MHSearchDefaultSearchTypeCell.h */,
+				84A545652474D96D0020FEE7 /* MHSearchDefaultSearchTypeCell.m */,
+				84A545662474D96D0020FEE7 /* MHSearchDefaultSearchTypeCell.xib */,
+				84A5457224752CBF0020FEE7 /* MHSearchDefaultContactCell.h */,
+				84A5457324752CBF0020FEE7 /* MHSearchDefaultContactCell.m */,
+				84A5457424752CBF0020FEE7 /* MHSearchDefaultContactCell.xib */,
+			);
+			path = Default;
+			sourceTree = "<group>";
+		};
 		84AD505E24639B910053A79A /* ItemViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				84AD505F24639BFD0053A79A /* MHSearchTypeItemViewModel.h */,
-				84AD506024639BFD0053A79A /* MHSearchTypeItemViewModel.m */,
+				84AD505F24639BFD0053A79A /* MHSearchDefaultSearchTypeItemViewModel.h */,
+				84AD506024639BFD0053A79A /* MHSearchDefaultSearchTypeItemViewModel.m */,
+				84A5456C24752ABF0020FEE7 /* MHSearchDefaultItemViewModel.h */,
+				84A5456D24752ABF0020FEE7 /* MHSearchDefaultItemViewModel.m */,
+				84A5456F24752C840020FEE7 /* MHSearchDefaultContactItemViewModel.h */,
+				84A5457024752C840020FEE7 /* MHSearchDefaultContactItemViewModel.m */,
 			);
 			path = ItemViewModel;
 			sourceTree = "<group>";
@@ -3449,6 +3487,9 @@
 				DE6EF1C8246D67B400FF1303 /* MHSearchCommonRelatedCell.xib */,
 				DE6EF1CB246D6B5E00FF1303 /* MHSearchRelatedView.h */,
 				DE6EF1CC246D6B5E00FF1303 /* MHSearchRelatedView.m */,
+				84A5455E2474D3D30020FEE7 /* MHSearchCommonFooterView.h */,
+				84A5455F2474D3D30020FEE7 /* MHSearchCommonFooterView.m */,
+				84A545612474D3E70020FEE7 /* MHSearchCommonFooterView.xib */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -3476,6 +3517,7 @@
 		DEAEB0352462D66400F51CC5 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				84A545632474D8300020FEE7 /* Default */,
 				84CFE094246D25BE004C8739 /* Sticker */,
 				84CFE089246CD5E0004C8739 /* Music */,
 				DE66C0EC246AED34000E9915 /* Common */,
@@ -3692,6 +3734,7 @@
 				2667A3F61F7B9FB100A3D7A2 /* MHMobileLoginViewController.xib in Resources */,
 				26064AC31F5D9A1400566B95 /* Assets.xcassets in Resources */,
 				26452BEF201200060042B2FE /* WeChat_Moments_1.json in Resources */,
+				84A545622474D3E70020FEE7 /* MHSearchCommonFooterView.xib in Resources */,
 				2609ED541F790B07002D31CE /* MHLoginCaptchaView.xib in Resources */,
 				DE4973CF245EC949003FB76C /* icons_outlined_searchicon_subscriptions.svg in Resources */,
 				DE44217B244C571D00206161 /* icons_filled_back.svg in Resources */,
@@ -3730,12 +3773,14 @@
 				84CFE098246D33C6004C8739 /* icons_outlined_close.svg in Resources */,
 				DE56247D246C0B43009CFF82 /* MHSearchCommonHeaderView.xib in Resources */,
 				DE6EF1CF246D742B00FF1303 /* icons_outlined_search.svg in Resources */,
+				84A545682474D96D0020FEE7 /* MHSearchDefaultSearchTypeCell.xib in Resources */,
 				26D81804201F20FF00DDB286 /* MHProfileInfoCell.xib in Resources */,
 				26FE65731F93142400642615 /* MHPlugViewController.xib in Resources */,
 				DE44216D244BF0CC00206161 /* icons_filled_chats.svg in Resources */,
 				2654904D1F99AF6F003AEED1 /* MHMainFrameTableViewCell.xib in Resources */,
 				DE66C0EB246AE2A3000E9915 /* .gitkeep in Resources */,
 				2618AFE01F91BDA300F82A46 /* MHModifyNicknameViewController.xib in Resources */,
+				84A5457624752CBF0020FEE7 /* MHSearchDefaultContactCell.xib in Resources */,
 				8495D09224653FD3005B98B2 /* icons_filled_voiceinput_white.svg in Resources */,
 				DE442177244C547400206161 /* icons_outlined_add2.svg in Resources */,
 				264D36D81F70AEBD003BB8CE /* MHProfileHeaderCell.xib in Resources */,
@@ -4209,6 +4254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84A545672474D96D0020FEE7 /* MHSearchDefaultSearchTypeCell.m in Sources */,
 				26FE8E861F9514D100EC8BE0 /* TZAssetCell.m in Sources */,
 				261E01691FDE6A130041E989 /* MHFreeInterruptionItemViewModel.m in Sources */,
 				2633E0271FEA095D00D0E187 /* MHUsefulEmotionViewController.m in Sources */,
@@ -4301,6 +4347,7 @@
 				261E014F1FDE2A400041E989 /* MHCommonValueItemViewModel.m in Sources */,
 				DE562491246C1E00009CFF82 /* MHSearchStickerViewModel.m in Sources */,
 				2615972A1FEA5AEE00C6FD80 /* MHMomentAttitudesItemViewModel.m in Sources */,
+				84A5457524752CBF0020FEE7 /* MHSearchDefaultContactCell.m in Sources */,
 				2605C5D31F6632AA00B1F66E /* MHContactsViewController.m in Sources */,
 				2615972F1FEA5AEE00C6FD80 /* MHMomentProfileViewModel.m in Sources */,
 				DE66C0E6246AE2A3000E9915 /* WPFPinYinTools.m in Sources */,
@@ -4310,6 +4357,7 @@
 				26BEBC7F1F8B78B1004D502F /* MHReflection.m in Sources */,
 				DE66C0E1246AE2A3000E9915 /* NSString+PinYin4Cocoa.m in Sources */,
 				DE66C0E5246AE2A3000E9915 /* WPFPerson.m in Sources */,
+				84A545602474D3D30020FEE7 /* MHSearchCommonFooterView.m in Sources */,
 				84CBFE37245AC7FD00054D07 /* MHCollectionViewCell.m in Sources */,
 				261596DD1FEA515000C6FD80 /* MHMomentViewController.m in Sources */,
 				263D37181F66656A007267C3 /* YYThreadSafeDictionary.m in Sources */,
@@ -4329,6 +4377,7 @@
 				26A7E7551F7A3FE00015CA71 /* MHLoginBaseViewController.m in Sources */,
 				2629840B1F909D1400AA9131 /* MHLanguageViewController.m in Sources */,
 				263D36DE1F666438007267C3 /* NSDate+Extension.m in Sources */,
+				84A5457124752C840020FEE7 /* MHSearchDefaultContactItemViewModel.m in Sources */,
 				26225D971F6557290074BFC3 /* MHViewModelServicesImpl.m in Sources */,
 				2667A3E31F7B75BB00A3D7A2 /* MHAccountLoginView.m in Sources */,
 				DE562485246C1C80009CFF82 /* MHSearchSubscriptionsViewModel.m in Sources */,
@@ -4339,6 +4388,7 @@
 				26FA404D1FEB5C5B00B4AD2B /* MHPictureMetadata.m in Sources */,
 				2624CAEE1F98DFC80083923F /* MHKeyedSubscript.m in Sources */,
 				263D370F1F666569007267C3 /* LCActionSheetCell.m in Sources */,
+				84A5456E24752ABF0020FEE7 /* MHSearchDefaultItemViewModel.m in Sources */,
 				260175851FE904D1000F6A25 /* MHGeneralViewController.m in Sources */,
 				DE4973C3245EB426003FB76C /* MHNavSearchBarViewModel.m in Sources */,
 				849135EA2466966F00450D94 /* ISRDataHelper.m in Sources */,
@@ -4515,7 +4565,7 @@
 				266E15E01F8F7F05000E31C5 /* MHCommitViewModel.m in Sources */,
 				263D36DF1F666438007267C3 /* NSDateFormatter+Extension.m in Sources */,
 				2667A3F51F7B9FB100A3D7A2 /* MHMobileLoginViewController.m in Sources */,
-				84AD506124639BFD0053A79A /* MHSearchTypeItemViewModel.m in Sources */,
+				84AD506124639BFD0053A79A /* MHSearchDefaultSearchTypeItemViewModel.m in Sources */,
 				263D36E71F666438007267C3 /* UIAlertController+MHColor.m in Sources */,
 				2624CAED1F98DFC80083923F /* MHHTTPRequest.m in Sources */,
 				26C7BEEE1F8CCA2C00525126 /* MHHTTPService.m in Sources */,

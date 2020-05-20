@@ -15,7 +15,7 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
 @interface MHSearchViewModel ()
 
 /// searchTypeViewModel
-@property (nonatomic, readwrite, strong) MHSearchTypeItemViewModel *searchTypeViewModel;
+@property (nonatomic, readwrite, strong) MHSearchDefaultSearchTypeItemViewModel *searchTypeItemViewModel;
 
 /// searchTypeSubject
 @property (nonatomic, readwrite, strong) RACSubject *searchTypeSubject;
@@ -54,6 +54,9 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
 /// keyword 关键字
 @property (nonatomic, readwrite, copy) NSString *keyword;
 
+/// searchMode
+@property (nonatomic, readwrite, assign) MHSearchMode searchMode;
+
 @end
 @implementation MHSearchViewModel
 
@@ -71,6 +74,7 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
     
     /// 默认模式
     self.searchType = MHSearchTypeDefault;
+    self.searchMode = MHSearchModeRelated;
     
     /// 定义searchTypeView的回调
     self.searchTypeSubject = [RACSubject subject];
@@ -131,8 +135,8 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
 
 
     // 创建viewModel
-    self.searchTypeViewModel = [[MHSearchTypeItemViewModel alloc] init];
-    self.searchTypeViewModel.searchTypeSubject = self.searchTypeSubject;
+    self.searchTypeItemViewModel = [[MHSearchDefaultSearchTypeItemViewModel alloc] init];
+    self.searchTypeItemViewModel.searchTypeSubject = self.searchTypeSubject;
     
     
     //// 配置各个模块的vm
@@ -148,7 +152,64 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
     self.musicViewModel = [[MHSearchMusicViewModel alloc] initWithServices:self.services params:@{MHSearchTypeTypeKey: @(MHSearchTypeMusic), MHSearchTypePopKey: self.popItemCommand, MHSearchTypeKeywordKey: @"", MHSearchTypeKeywordCommandKey: self.keywordCommand}];
     // 表情ViewModel
     self.stickerViewModel = [[MHSearchStickerViewModel alloc] initWithServices:self.services params:@{MHSearchTypeTypeKey: @(MHSearchTypeSticker), MHSearchTypePopKey: self.popItemCommand, MHSearchTypeKeywordKey: @"", MHSearchTypeKeywordCommandKey: self.keywordCommand}];
+    
+    
+    self.dataSource = @[self.searchTypeItemViewModel];
 }
+
+- (RACSignal *)requestRemoteDataSignalWithPage:(NSUInteger)page {
+    @weakify(self);
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        @strongify(self);
+        NSTimeInterval t = self.searchMode == MHSearchModeSearch ? 1.0 : .25f;
+        /// 模拟网络延迟
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(t * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            /// 判断当前模式
+            if (self.searchMode == MHSearchModeDefault) {
+                // 默认模式
+                self.shouldPullUpToLoadMore = NO;
+                /// 这种场景 都是默认形式
+                self.dataSource = @[];
+            } else if (self.searchMode == MHSearchModeRelated) {
+                // 关联模式
+                self.shouldPullUpToLoadMore = NO;
+     
+                NSMutableArray *dataSource = [NSMutableArray array];
+                
+               
+                
+                self.dataSource = dataSource.copy;
+            } else {
+                // 搜索模式 单个section
+                // 需要上拉加载
+                self.shouldMultiSections = NO;
+                self.shouldPullUpToLoadMore = YES;
+                
+                NSInteger index = (page - 1) * self.perPage;
+                NSInteger count = page * self.perPage;
+                NSMutableArray *dataSource = [NSMutableArray array];
+                for (NSInteger i = index; i < count; i++) {
+                    NSString *title = [NSString stringWithFormat:@"%@ 结果%ld", self.keyword, i];
+                    MHSearchCommonSearchItemViewModel *itemViewModel = [[MHSearchCommonSearchItemViewModel alloc] initWithTitle:title subtitle:@"这是搜索到的文章的子标题..." desc:@"这是搜索到的文章的描述..." keyword:self.keyword];
+                    [dataSource addObject:itemViewModel];
+                }
+                if (page == 1) {
+                    self.page = 1;
+                    self.dataSource = dataSource.copy;
+                }else {
+                    NSArray *temps = [dataSource copy];
+                    self.dataSource = @[(self.dataSource ?: @[]).rac_sequence, temps.rac_sequence].rac_sequence.flatten.array;
+                }
+            }
+            [subscriber sendNext:self.dataSource];
+            [subscriber sendCompleted];
+        });
+        return [RACDisposable disposableWithBlock:^{
+            
+        }];
+    }];
+}
+
 
 #pragma mark - 辅助方法
 
