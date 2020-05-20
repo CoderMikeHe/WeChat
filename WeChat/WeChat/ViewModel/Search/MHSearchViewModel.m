@@ -8,7 +8,8 @@
 
 #import "MHSearchViewModel.h"
 #import "MHWebViewModel.h"
-
+#import "MHSearchDefaultContactItemViewModel.h"
+#import "WPFPinYinDataManager.h"
 /// 侧滑返回回调
 NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
 
@@ -72,9 +73,13 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
     [super initialize];
     @weakify(self);
     
+    self.style = UITableViewStyleGrouped;
+    self.shouldMultiSections = YES;
+    
     /// 默认模式
     self.searchType = MHSearchTypeDefault;
-    self.searchMode = MHSearchModeRelated;
+    self.searchMode = MHSearchModeDefault;
+    
     
     /// 定义searchTypeView的回调
     self.searchTypeSubject = [RACSubject subject];
@@ -154,7 +159,8 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
     self.stickerViewModel = [[MHSearchStickerViewModel alloc] initWithServices:self.services params:@{MHSearchTypeTypeKey: @(MHSearchTypeSticker), MHSearchTypePopKey: self.popItemCommand, MHSearchTypeKeywordKey: @"", MHSearchTypeKeywordCommandKey: self.keywordCommand}];
     
     
-    self.dataSource = @[self.searchTypeItemViewModel];
+    
+    self.dataSource = @[@[self.searchTypeItemViewModel]];
 }
 
 - (RACSignal *)requestRemoteDataSignalWithPage:(NSUInteger)page {
@@ -166,25 +172,37 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(t * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             /// 判断当前模式
             if (self.searchMode == MHSearchModeDefault) {
-                // 默认模式
-                self.shouldPullUpToLoadMore = NO;
+         
                 /// 这种场景 都是默认形式
-                self.dataSource = @[];
-            } else if (self.searchMode == MHSearchModeRelated) {
-                // 关联模式
-                self.shouldPullUpToLoadMore = NO;
-     
+                self.dataSource = @[@[self.searchTypeItemViewModel]];
+                
+                
+            } else if (self.searchMode == MHSearchModeRelated ) {
+                
                 NSMutableArray *dataSource = [NSMutableArray array];
-                
-               
-                
+                // 查询数据
+                NSMutableArray *contacts = [NSMutableArray array];
+                for (WPFPerson *person in [WPFPinYinDataManager getInitializedDataSource]) {
+                    /// 用小写字母去查找
+                    WPFSearchResultModel *resultModel = [WPFPinYinTools searchEffectiveResultWithSearchString:self.keyword.lowercaseString Person:person];
+                    if (resultModel.highlightedRange.length) {
+                        person.highlightLoaction = resultModel.highlightedRange.location;
+                        person.textRange = resultModel.highlightedRange;
+                        person.matchType = resultModel.matchType;
+                        [contacts addObject:person];
+                    }
+                }
+                // 排序
+                [contacts sortUsingDescriptors:[WPFPinYinTools sortingRules]];
+                // 转成itemViewMdoel
+                NSArray *contactItemViewModels = [self _contacts2ContactItemViewModels:contacts];
+                if (!MHArrayIsEmpty(contactItemViewModels)) {
+                    [dataSource addObject:contactItemViewModels];
+                }
+
+                // 更新数据源
                 self.dataSource = dataSource.copy;
             } else {
-                // 搜索模式 单个section
-                // 需要上拉加载
-                self.shouldMultiSections = NO;
-                self.shouldPullUpToLoadMore = YES;
-                
                 NSInteger index = (page - 1) * self.perPage;
                 NSInteger count = page * self.perPage;
                 NSMutableArray *dataSource = [NSMutableArray array];
@@ -217,13 +235,14 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
 - (void)_inputTypeModuleData:(NSString *)keyword {
     // 记录keyword
     self.keyword = keyword;
-    
     MHSearchMode searchMode = MHStringIsNotEmpty(keyword) ? MHSearchModeRelated : MHSearchModeDefault;
     MHSearch *search = [MHSearch searchWithKeyword:keyword searchMode:searchMode];
-    
+    self.searchMode = searchMode;
     switch (self.searchType) {
         case MHSearchTypeDefault:
         {
+            /// 默认搜索
+            [self.requestRemoteDataCommand execute:@1];
             
         }
             break;
@@ -360,6 +379,18 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
         }
             break;
     }
+}
+
+
+#pragma mark - 辅助方法
+- (NSArray *)_contacts2ContactItemViewModels:(NSArray *)results {
+    if (MHObjectIsNil(results) || results.count == 0) return nil;
+    NSArray *viewModels = [results.rac_sequence map:^(WPFPerson *person) {
+        /// 将其转换
+        MHSearchDefaultContactItemViewModel *viewModel = [[MHSearchDefaultContactItemViewModel alloc] initWithPerson:person];
+        return viewModel;
+    }].array;
+    return viewModels ?: @[] ;
 }
 
 

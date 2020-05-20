@@ -24,6 +24,8 @@
 #import "MHSearchDefaultSearchTypeCell.h"
 #import "MHSearchDefaultContactCell.h"
 
+#import "MHSearchDefaultItemViewModel.h"
+
 @interface MHSearchViewController ()
 /// scrollView
 @property (nonatomic, readwrite, weak) UIScrollView *scrollView;
@@ -174,23 +176,9 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CGFloat height = CGFLOAT_MIN;
-    switch (self.viewModel.searchMode) {
-        case MHSearchModeRelated:
-        {
-            height = 53.0f;
-        }
-            break;
-        case MHSearchModeSearch:
-        {
-            height = 99.0f;
-        }
-            break;
-        default:
-            break;
-    }
-    return height;
-    
+    NSArray *array = self.viewModel.dataSource[indexPath.section];
+    MHSearchDefaultItemViewModel *itemViewModel = array[indexPath.row];
+    return itemViewModel.cellHeight;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -208,7 +196,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 10.0;
+    return 9.0;
 }
 
 

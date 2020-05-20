@@ -7,6 +7,7 @@
 //  64
 
 #import "MHSearchDefaultContactCell.h"
+#import "MHSearchDefaultContactItemViewModel.h"
 @interface MHSearchDefaultContactCell ()
 
 /// avatarView
@@ -14,7 +15,8 @@
 /// nicknameLabel
 @property (weak, nonatomic) IBOutlet UILabel *nicknameLabel;
 
-
+/// viewMOdel
+@property (nonatomic, readwrite, strong) MHSearchDefaultContactItemViewModel *viewModel;
 @end
 @implementation MHSearchDefaultContactCell
 #pragma mark - Public Method
@@ -27,8 +29,12 @@
     return cell;
 }
 
-- (void)bindViewModel:(id )viewModel {
-//    self.viewModel = viewModel;
+- (void)bindViewModel:(MHSearchDefaultContactItemViewModel *)viewModel {
+    self.viewModel = viewModel;
+    
+    [self.avatarImageView yy_setImageWithURL:viewModel.profileImageUrl placeholder:MHWebAvatarImagePlaceholder() options:MHWebImageOptionAutomatic completion:NULL];
+    
+    self.nicknameLabel.attributedText = viewModel.screenNameAttr;
     
 }
 - (void)awakeFromNib {

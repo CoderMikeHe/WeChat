@@ -3171,10 +3171,10 @@
 			children = (
 				84AD505F24639BFD0053A79A /* MHSearchDefaultSearchTypeItemViewModel.h */,
 				84AD506024639BFD0053A79A /* MHSearchDefaultSearchTypeItemViewModel.m */,
-				84A5456C24752ABF0020FEE7 /* MHSearchDefaultItemViewModel.h */,
-				84A5456D24752ABF0020FEE7 /* MHSearchDefaultItemViewModel.m */,
 				84A5456F24752C840020FEE7 /* MHSearchDefaultContactItemViewModel.h */,
 				84A5457024752C840020FEE7 /* MHSearchDefaultContactItemViewModel.m */,
+				84A5456C24752ABF0020FEE7 /* MHSearchDefaultItemViewModel.h */,
+				84A5456D24752ABF0020FEE7 /* MHSearchDefaultItemViewModel.m */,
 			);
 			path = ItemViewModel;
 			sourceTree = "<group>";

@@ -9,5 +9,16 @@
 #import "MHSearchDefaultItemViewModel.h"
 
 @implementation MHSearchDefaultItemViewModel
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
 
+- (CGFloat)cellHeight {
+    return 44.0f;
+}
 @end

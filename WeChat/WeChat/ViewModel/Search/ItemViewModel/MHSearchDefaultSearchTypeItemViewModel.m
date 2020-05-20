@@ -17,6 +17,17 @@
 
 @implementation MHSearchDefaultSearchTypeItemViewModel
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+    
+    }
+    return self;
+}
 
+- (CGFloat)cellHeight {
+    return 171.0f;
+}
 
 @end

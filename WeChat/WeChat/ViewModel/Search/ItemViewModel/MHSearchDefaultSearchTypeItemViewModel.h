@@ -7,11 +7,11 @@
 //  搜索页 默认样式
 
 #import "MHViewModel.h"
-
+#import "MHSearchDefaultItemViewModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 
-@interface MHSearchDefaultSearchTypeItemViewModel : NSObject
+@interface MHSearchDefaultSearchTypeItemViewModel : MHSearchDefaultItemViewModel
 
 /// searchTypeSubject
 @property (nonatomic, readwrite, strong) RACSubject *searchTypeSubject;

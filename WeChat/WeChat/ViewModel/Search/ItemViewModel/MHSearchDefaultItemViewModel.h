@@ -11,7 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MHSearchDefaultItemViewModel : NSObject
-
+/// cellHeight default is CGFLOAT_MIN
+@property (nonatomic, readonly, assign) CGFloat cellHeight;
 @end
 
 NS_ASSUME_NONNULL_END

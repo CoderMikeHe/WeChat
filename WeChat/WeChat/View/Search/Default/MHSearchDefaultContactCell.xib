@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="367" height="64"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="367" height="63.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="367" height="64"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tw7-ot-hc5">
@@ -38,12 +36,22 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BUt-nw-hGm">
+                        <rect key="frame" x="16" y="63" width="351" height="1"/>
+                        <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.80000000000000004" id="QoO-te-q3m"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="OgY-NL-7mT" firstAttribute="leading" secondItem="tw7-ot-hc5" secondAttribute="trailing" constant="15" id="1po-MW-gYk"/>
                     <constraint firstItem="OgY-NL-7mT" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="HMF-yB-l80"/>
+                    <constraint firstAttribute="bottom" secondItem="BUt-nw-hGm" secondAttribute="bottom" id="O71-Cy-BQb"/>
                     <constraint firstItem="tw7-ot-hc5" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="gZ6-oJ-hHF"/>
+                    <constraint firstItem="BUt-nw-hGm" firstAttribute="leading" secondItem="tw7-ot-hc5" secondAttribute="leading" id="iKj-NI-fSB"/>
                     <constraint firstItem="tw7-ot-hc5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="iX8-q1-BEM"/>
+                    <constraint firstAttribute="trailing" secondItem="BUt-nw-hGm" secondAttribute="trailing" id="iwj-8c-aok"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="OgY-NL-7mT" secondAttribute="trailing" constant="16" id="tA1-JK-Ise"/>
                 </constraints>
             </tableViewCellContentView>
@@ -52,7 +60,7 @@
                 <outlet property="avatarImageView" destination="tw7-ot-hc5" id="hyb-Lo-L1D"/>
                 <outlet property="nicknameLabel" destination="OgY-NL-7mT" id="5hB-XU-6VY"/>
             </connections>
-            <point key="canvasLocation" x="165.94202898550725" y="137.61160714285714"/>
+            <point key="canvasLocation" x="165.94202898550725" y="137.27678571428569"/>
         </tableViewCell>
     </objects>
 </document>
