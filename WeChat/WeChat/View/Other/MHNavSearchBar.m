@@ -76,8 +76,8 @@
             make.left.mas_equalTo(offset2);
         }];
         
-        // 退出编辑 且 搜索类型 不是默认状态  要把 < 按钮归位
-        if ((searchState != MHNavSearchBarStateSearch) && self.viewModel.searchType != MHSearchTypeDefault) {
+        // 退出编辑 且 搜索类型 不是默认状态   要把 < 按钮归位
+        if ((searchState != MHNavSearchBarStateSearch) && (self.viewModel.searchType != MHSearchTypeDefault || self.viewModel.searchDefaultType != MHSearchDefaultTypeDefault)) {
             CGFloat offsetX0 = -self.backBtnWidth + 8.0f;
             [self.backBtn mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(self).with.offset(offsetX0);
@@ -94,32 +94,42 @@
 
     }];
     
-    /// 监听searchType
-    [[[RACObserve(self.viewModel, searchType) skip:1] distinctUntilChanged] subscribeNext:^(NSNumber *type) {
+    RACSignal *searchTypeSignal = [RACObserve(self.viewModel, searchType) distinctUntilChanged];
+    RACSignal *searchDefaultTypeSignal = [RACObserve(self.viewModel, searchDefaultType) distinctUntilChanged];
+    
+    [[[RACSignal
+       combineLatest:@[searchTypeSignal, searchDefaultTypeSignal]
+       reduce:^(NSNumber *type, NSNumber *defaultType) {
         
-        @strongify(self);
-
+        NSLog(@" NavSearchBar  type  is  %@,  defaultType is %@", type, defaultType);
+        
         MHSearchType searchType = type.integerValue;
-   
-        self.textField.placeholder = [self _fetchPlaceholder:searchType];
-        self.textField.leftView = [self _fetchLeftView:searchType];
+        MHSearchDefaultType searchDefaultType = defaultType.integerValue;
         
+        NSString *placeholder = @"搜索";
+        if (searchType == MHSearchTypeDefault && searchDefaultType != MHSearchDefaultTypeDefault) {
+            placeholder = [self _fetchPlaceholderWithSearchDefaultType:searchDefaultType];
+        } else {
+            placeholder = [self _fetchPlaceholderWithSearchType:searchType];
+        }
+        self.textField.placeholder = placeholder;
+        self.textField.leftView = [self _fetchLeftView:searchType];
         
         // 非编辑模式 do nothing...
         if (self.viewModel.searchState != MHNavSearchBarStateSearch) {
-            return ;
+            return type;
         }
         
         /// 更新布局
         self.userInteractionEnabled = NO;
         
-        CGFloat offsetX0 = searchType != MHSearchTypeDefault ? 0 : -self.backBtnWidth + 8.0f;
+        CGFloat offsetX0 = (searchType != MHSearchTypeDefault || searchDefaultType != MHSearchDefaultTypeDefault) ? 0 : -self.backBtnWidth + 8.0f;
         
         [self.backBtn mas_updateConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self).with.offset(offsetX0);
         }];
         
-        CGFloat offsetX1 = searchType != MHSearchTypeDefault ? self.backBtnWidth : 8.0f;
+        CGFloat offsetX1 = (searchType != MHSearchTypeDefault || searchDefaultType != MHSearchDefaultTypeDefault) ? self.backBtnWidth : 8.0f;
         [self.textField mas_updateConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self).with.offset(offsetX1);
         }];
@@ -130,8 +140,12 @@
         } completion:^(BOOL finished) {
             self.userInteractionEnabled = YES;
         }];
+        
+        return type;
+    }]
+      distinctUntilChanged] subscribeNext:^(id x) {
+        
     }];
-    
     
     /// 文字改了
     [[RACObserve(self.viewModel, text) distinctUntilChanged] subscribeNext:^(id x) {
@@ -145,8 +159,8 @@
 
 #pragma mark - 辅助方法
 /// 获取placeholder
-- (NSString *)_fetchPlaceholder:(MHSearchType)type {
-    NSString *placeholder = @"小程序";
+- (NSString *)_fetchPlaceholderWithSearchType:(MHSearchType)type {
+    NSString *placeholder = @"搜索";
     switch (type) {
         case MHSearchTypeMoments:
             placeholder = @"搜索朋友圈";
@@ -165,6 +179,20 @@
             break;
         case MHSearchTypeSticker:
             placeholder = @"搜索表情";
+            break;
+        default:
+            placeholder = @"搜索";
+            break;
+    }
+    return placeholder;
+}
+
+/// 获取placeholder
+- (NSString *)_fetchPlaceholderWithSearchDefaultType:(MHSearchDefaultType)type {
+    NSString *placeholder = @"搜索";
+    switch (type) {
+        case MHSearchDefaultTypeContacts:
+            placeholder = @"搜索联系人";
             break;
         default:
             placeholder = @"搜索";
@@ -278,7 +306,7 @@
     // textField
     MHTextField *textField = [[MHTextField alloc] init];
     textField.returnKeyType = UIReturnKeySearch;
-    textField.placeholder = [self _fetchPlaceholder:MHSearchTypeDefault];
+    textField.placeholder = [self _fetchPlaceholderWithSearchType:MHSearchTypeDefault];
     textField.leftView = [self _fetchLeftView:MHSearchTypeDefault];
     textField.font = MHRegularFont_16;
     textField.leftViewMode = UITextFieldViewModeAlways;

@@ -30,6 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readwrite, assign) MHSearchType searchType;
 /// 搜索状态
 @property (nonatomic, readwrite, assign) MHNavSearchBarState searchState;
+/// 默认搜索类型
+@property (nonatomic, readwrite, assign) MHSearchDefaultType searchDefaultType;
 @end
 
 NS_ASSUME_NONNULL_END

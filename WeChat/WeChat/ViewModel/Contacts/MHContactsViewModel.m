@@ -98,6 +98,7 @@
     /// 赋值操作
     RAC(self.searchBarViewModel, text) = RACObserve(self.searchViewModel, keyword);
     RAC(self.searchBarViewModel, searchType) = RACObserve(self.searchViewModel, searchType);
+    RAC(self.searchBarViewModel, searchDefaultType) = RACObserve(self.searchViewModel, searchDefaultType);
     
     RAC(self.searchViewModel, searchState) = RACObserve(self, searchState);
     RAC(self.searchBarViewModel, searchState) = RACObserve(self, searchState);

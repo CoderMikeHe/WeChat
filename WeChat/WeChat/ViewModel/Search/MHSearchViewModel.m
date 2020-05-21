@@ -56,7 +56,8 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
 @property (nonatomic, readwrite, assign) MHSearchType searchType;
 /// keyword 关键字
 @property (nonatomic, readwrite, copy) NSString *keyword;
-
+/// lockKeyword 锁定关键字
+@property (nonatomic, readwrite, copy) NSString *lockKeyword;
 /// searchMode
 @property (nonatomic, readwrite, assign) MHSearchMode searchMode;
 
@@ -69,6 +70,9 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
 @property (nonatomic, readwrite, assign) BOOL searchMore;
 /// defaultViewModel
 @property (nonatomic, readwrite, strong) MHSearchDefaultViewModel *defaultViewModel;
+
+/// 默认搜索类型
+@property (nonatomic, readwrite, assign) MHSearchDefaultType searchDefaultType;
 
 @end
 @implementation MHSearchViewModel
@@ -92,6 +96,7 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
     self.searchType = MHSearchTypeDefault;
     self.searchMode = MHSearchModeDefault;
     self.searchMore = NO;
+    self.searchDefaultType = MHSearchDefaultTypeDefault;
     
     
     /// 定义searchTypeView的回调
@@ -201,8 +206,8 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
             /// 判断当前模式
             if (self.searchMode == MHSearchModeDefault) {
                 /// 这种场景 都是默认形式
-                self.dataSource = @[@[self.searchTypeItemViewModel]];
                 self.sectionTitles =@[@""];
+                self.dataSource = @[@[self.searchTypeItemViewModel]];
             } else if (self.searchMode == MHSearchModeRelated ) {
                 // 更新数据源
                 self.dataSource = [self _fetchDataSource];
@@ -221,10 +226,19 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
 
 /// 输入模块数据
 - (void)_inputTypeModuleData:(NSString *)keyword {
-    // 记录keyword
-    self.keyword = keyword;
+    
     MHSearchMode searchMode = MHStringIsNotEmpty(keyword) ? MHSearchModeRelated : MHSearchModeDefault;
     MHSearch *search = [MHSearch searchWithKeyword:keyword searchMode:searchMode];
+    
+    if (self.searchType == MHSearchTypeDefault && self.searchDefaultType != MHSearchDefaultTypeDefault) {
+        // 这个是搜索更多页的内容
+        
+        /// 不做任何事
+        return;
+    }
+    
+    // 记录keyword
+    self.keyword = keyword;
     self.searchMode = searchMode;
     switch (self.searchType) {
         case MHSearchTypeDefault:
@@ -324,18 +338,26 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
 
 //// 将各个模块的数据重置一下
 - (void)_resetSearchTypeModuleData:(MHSearchType)searchType {
-    // 传递关键字 将
-    self.keyword = @"";
+    
+    if (searchType == MHSearchTypeDefault && self.searchDefaultType != MHSearchDefaultTypeDefault) {
+        // 如果是上一次是默认搜索
+        self.keyword = self.lockKeyword.copy;
+        self.searchMore = NO;
+        self.searchDefaultType = MHSearchDefaultTypeDefault;
+        self.defaultViewModel = nil;
+        self.lockKeyword = nil;
+        /// 不做任何事
+        return;
+    }
+    
     // 默认搜索模式
+    self.keyword = @"";
+    self.searchMode = MHSearchModeDefault;
     self.searchType = MHSearchTypeDefault;
     MHSearch *search = [MHSearch searchWithKeyword:@"" searchMode:MHSearchModeDefault];
-    self.searchMode =MHSearchModeDefault;
     switch (searchType) {
         case MHSearchTypeDefault:
         {
-            // 清空数据
-            self.searchMore = NO;
-            self.defaultViewModel = nil;
             /// 默认搜索 发起请求
             [self.requestRemoteDataCommand execute:@1];
         }
@@ -385,12 +407,18 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
         /// 更多搜索
         /// 根据类型判断下钻
         MHSearchDefaultMoreItemViewModel *moreItemViewModel = (MHSearchDefaultMoreItemViewModel *)itemViewModel;
+        
+        // 锁定关键字
+        self.lockKeyword = self.keyword.copy;
+        self.searchDefaultType = MHSearchDefaultTypeContacts;
+        
         switch (itemViewModel.searchDefaultType) {
             case MHSearchDefaultTypeContacts: /// 下钻更多联系人
             {
                 /// 下钻到
                 self.defaultViewModel = [[MHSearchDefaultViewModel alloc] initWithServices:self.services params:@{MHViewModelUtilKey: moreItemViewModel.results, MHViewModelIDKey: @(MHSearchDefaultTypeContacts)}];
                 self.searchMore = YES;
+                
             }
                 break;
             /// .....

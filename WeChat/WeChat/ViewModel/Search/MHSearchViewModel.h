@@ -73,7 +73,8 @@ FOUNDATION_EXTERN NSString * const  MHSearchViewPopCommandKey ;
 @property (nonatomic, readonly, assign) BOOL searchMore;
 /// defaultViewModel
 @property (nonatomic, readonly, strong) MHSearchDefaultViewModel *defaultViewModel;
-
+/// 默认搜索类型
+@property (nonatomic, readonly, assign) MHSearchDefaultType searchDefaultType;
 @end
 
 NS_ASSUME_NONNULL_END

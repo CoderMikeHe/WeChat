@@ -423,8 +423,6 @@
 		DE76F56F2459AD0000A7C4A6 /* MHContactsService.m in Sources */ = {isa = PBXBuildFile; fileRef = DE76F56E2459AD0000A7C4A6 /* MHContactsService.m */; };
 		DEA6F3D4245AF3E200542C6B /* MHContactsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA6F3D3245AF3E200542C6B /* MHContactsHeaderView.m */; };
 		DEA6F3D8245AF5D900542C6B /* MHContactsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA6F3D7245AF5D900542C6B /* MHContactsHeaderView.xib */; };
-		DEAEB0382462D69400F51CC5 /* MHSearchTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEAEB0372462D69400F51CC5 /* MHSearchTypeView.m */; };
-		DEAEB03A2462D6A100F51CC5 /* MHSearchTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEAEB0392462D6A100F51CC5 /* MHSearchTypeView.xib */; };
 		DED808012465A11500AC76AD /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED808002465A11400AC76AD /* iflyMSC.framework */; };
 		DED808042465A26800AC76AD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED808032465A26800AC76AD /* AVFoundation.framework */; };
 		DED808062465A28400AC76AD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED808052465A28400AC76AD /* SystemConfiguration.framework */; };
@@ -1240,9 +1238,6 @@
 		DEA6F3D2245AF3E200542C6B /* MHContactsHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHContactsHeaderView.h; sourceTree = "<group>"; };
 		DEA6F3D3245AF3E200542C6B /* MHContactsHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHContactsHeaderView.m; sourceTree = "<group>"; };
 		DEA6F3D7245AF5D900542C6B /* MHContactsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHContactsHeaderView.xib; sourceTree = "<group>"; };
-		DEAEB0362462D69400F51CC5 /* MHSearchTypeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchTypeView.h; sourceTree = "<group>"; };
-		DEAEB0372462D69400F51CC5 /* MHSearchTypeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchTypeView.m; sourceTree = "<group>"; };
-		DEAEB0392462D6A100F51CC5 /* MHSearchTypeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHSearchTypeView.xib; sourceTree = "<group>"; };
 		DED808002465A11400AC76AD /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
 		DED808022465A22600AC76AD /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		DED808032465A26800AC76AD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -3620,9 +3615,6 @@
 				DE66C0EC246AED34000E9915 /* Common */,
 				DE66C0BD246AC549000E9915 /* Moments */,
 				842D2427246A2CBF008E5A2C /* OfficialAccounts */,
-				DEAEB0362462D69400F51CC5 /* MHSearchTypeView.h */,
-				DEAEB0372462D69400F51CC5 /* MHSearchTypeView.m */,
-				DEAEB0392462D6A100F51CC5 /* MHSearchTypeView.xib */,
 				84C29D1D246534A600C0F729 /* MHSearchVoiceInputView.h */,
 				84C29D1E246534A600C0F729 /* MHSearchVoiceInputView.m */,
 			);
@@ -3865,7 +3857,6 @@
 				DEA6F3D8245AF5D900542C6B /* MHContactsHeaderView.xib in Resources */,
 				26D8180E201F306100DDB286 /* MHProfileInfoZoneCell.xib in Resources */,
 				84CFE0A8246D387E004C8739 /* MHSearchMusicDelHistoryCell.xib in Resources */,
-				DEAEB03A2462D6A100F51CC5 /* MHSearchTypeView.xib in Resources */,
 				DE442179244C55E000206161 /* icons_outlined_add-friends.svg in Resources */,
 				DE44216E244BF0CC00206161 /* icons_filled_discover.svg in Resources */,
 				DE442171244BF0CC00206161 /* icons_outlined_contacts.svg in Resources */,
@@ -4565,7 +4556,6 @@
 				264D36D71F70AEBD003BB8CE /* MHProfileHeaderCell.m in Sources */,
 				266E15DD1F8F7ED0000E31C5 /* MHRegisterViewModel.m in Sources */,
 				269754AC20170ACB005DE59C /* MHMomentCommentToolView.m in Sources */,
-				DEAEB0382462D69400F51CC5 /* MHSearchTypeView.m in Sources */,
 				263D37121F666569007267C3 /* UIImage+LCActionSheet.m in Sources */,
 				26FE8E331F95119F00EC8BE0 /* MHPhotoManager.m in Sources */,
 				84CBFE2F245AA6E300054D07 /* MHContactsItemViewModel.m in Sources */,
