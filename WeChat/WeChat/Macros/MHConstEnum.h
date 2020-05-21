@@ -86,4 +86,15 @@ typedef NS_ENUM(NSInteger, MHSearchMode) {
     MHSearchModeSearch       // 点击键盘搜索 或者 点击关联出来的内容 进入搜索模式
 };
 
+
+/// 默认模式搜索到的类型
+typedef NS_ENUM(NSUInteger, MHSearchDefaultType) {
+    MHSearchDefaultTypeContacts = 0,  // 搜索联系人
+    MHSearchDefaultTypeGroupChat,     // 群聊
+    MHSearchDefaultTypeOfficialAccounts, // 关注的公众号
+    MHSearchDefaultTypeChatRecord,       // 聊天记录
+    MHSearchDefaultTypeCollect,          // 收藏
+    MHSearchDefaultTypeSearch            // 搜一搜
+};
+
 #endif /* MHConstEnum_h */

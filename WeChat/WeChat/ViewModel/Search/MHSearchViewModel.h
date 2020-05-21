@@ -14,6 +14,7 @@
 #import "MHSearchMiniprogramViewModel.h"
 #import "MHSearchMusicViewModel.h"
 #import "MHSearchStickerViewModel.h"
+#import "MHSearchDefaultViewModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 /// 侧滑返回回调
@@ -63,6 +64,15 @@ FOUNDATION_EXTERN NSString * const  MHSearchViewPopCommandKey ;
 
 /// searchMode
 @property (nonatomic, readonly, assign) MHSearchMode searchMode;
+
+/// sectionTitles
+@property (nonatomic, readonly, copy) NSArray *sectionTitles;
+
+
+/// 是否显示 searchMore 页面
+@property (nonatomic, readonly, assign) BOOL searchMore;
+/// defaultViewModel
+@property (nonatomic, readonly, strong) MHSearchDefaultViewModel *defaultViewModel;
 
 @end
 

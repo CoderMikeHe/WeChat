@@ -18,13 +18,17 @@
 #import "MHSearchMusicViewController.h"
 #import "MHSearchStickerViewController.h"
 
+#import "MHSearchDefaultViewController.h"
 
 #import "MHSearchCommonFooterView.h"
 #import "MHSearchCommonHeaderView.h"
+
 #import "MHSearchDefaultSearchTypeCell.h"
 #import "MHSearchDefaultContactCell.h"
+#import "MHSearchDefaultMoreCell.h"
 
 #import "MHSearchDefaultItemViewModel.h"
+
 
 @interface MHSearchViewController ()
 /// scrollView
@@ -47,6 +51,8 @@
 /// viewControllers 用来管理子控制器
 @property (nonatomic, readwrite, strong) NSMutableArray *viewControllers;
 
+/// 搜索更多xxx 展示的页面
+@property (nonatomic, readwrite, strong) UIViewController *defaultViewController;
 
 @end
 
@@ -84,6 +90,48 @@
         MHSearchType searchType = x.integerValue;
         [self _configureSearchView:searchType];
     }];
+    
+    
+    /// 监听searchMore变化
+    [[[RACObserve(self.viewModel, searchMore) skip:1] distinctUntilChanged] subscribeNext:^(NSNumber *x) {
+        @strongify(self);
+        
+        BOOL searchMore = x.boolValue;
+        
+        if (searchMore) {
+            /// 取出控制器
+            UIViewController *toViewController = [[MHSearchDefaultViewController alloc] initWithViewModel:self.viewModel.defaultViewModel];
+            /// 清空transform
+            toViewController.view.transform = CGAffineTransformIdentity;
+            /// 调整frame
+            toViewController.view.frame = self.view.bounds;
+            toViewController.view.mh_x = self.view.bounds.size.width;
+            /// 加入控制器
+            [self.view addSubview:toViewController.view];
+            [self addChildViewController:toViewController];
+            [toViewController didMoveToParentViewController:self];
+            
+            [UIView animateWithDuration:.5f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                toViewController.view.mh_x = 40;
+                self.view.mh_x = -40;
+            } completion:^(BOOL finished) {
+                
+            }];
+            
+            
+            // 记录当前子控制器
+            self.defaultViewController = toViewController;
+        }else {
+            if (self.defaultViewController) {
+                [self.defaultViewController willMoveToParentViewController:nil];
+                [self.defaultViewController.view removeFromSuperview];
+                [self.defaultViewController removeFromParentViewController];
+                // 置位
+                self.defaultViewController = nil;
+            }
+        }
+    }];
+    
     
     
     
@@ -150,7 +198,19 @@
     if (self.viewModel.searchMode == MHSearchModeDefault) {
         return [MHSearchDefaultSearchTypeCell cellWithTableView:tableView];
     }
-    return [MHSearchDefaultContactCell cellWithTableView:tableView];
+    NSArray *vms = self.viewModel.dataSource[indexPath.section];
+    MHSearchDefaultItemViewModel *vm = vms[indexPath.row];
+    if (vm.isSearchMore) {
+        return [MHSearchDefaultMoreCell cellWithTableView:tableView];
+    }else {
+        if (vm.searchDefaultType == MHSearchDefaultTypeContacts) {
+            return [MHSearchDefaultContactCell cellWithTableView:tableView];
+        } else {
+            return [MHSearchDefaultContactCell cellWithTableView:tableView];
+        }
+    }
+    
+    return nil;
 }
 
 /// 绑定数据 // 利用多态
@@ -165,33 +225,22 @@
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    if(self.viewModel.searchMode == MHSearchModeSearch) {
-        MHSearchCommonHeaderView *headerView = [MHSearchCommonHeaderView headerViewWithTableView:tableView];
-        headerView.titleLabel.text = @"文章";
-        headerView.titleLabel.textColor = MHColorFromHexString(@"#191919");
-        headerView.titleLabel.font = MHRegularFont_17;
-        return headerView;
-    }
-    return nil;
+    MHSearchCommonHeaderView *headerView = [MHSearchCommonHeaderView headerViewWithTableView:tableView];
+    headerView.titleLabel.text = self.viewModel.sectionTitles[section];
+    headerView.titleLabel.textColor = MHColorFromHexString(@"#808080");
+    return headerView;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSArray *array = self.viewModel.dataSource[indexPath.section];
-    MHSearchDefaultItemViewModel *itemViewModel = array[indexPath.row];
-    return itemViewModel.cellHeight;
+    NSArray *vms = self.viewModel.dataSource[indexPath.section];
+    MHSearchDefaultItemViewModel *vm = vms[indexPath.row];
+    return vm.cellHeight;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     CGFloat height = CGFLOAT_MIN;
-    switch (self.viewModel.searchMode) {
-        case MHSearchModeSearch:
-        {
-            height = 46.0f;
-        }
-            break;
-        default:
-            break;
-    }
+    NSString *title = self.viewModel.sectionTitles[section];
+    height = MHStringIsNotEmpty(title)?40.0f: CGFLOAT_MIN;
     return height;
 }
 

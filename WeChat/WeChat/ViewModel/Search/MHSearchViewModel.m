@@ -8,8 +8,10 @@
 
 #import "MHSearchViewModel.h"
 #import "MHWebViewModel.h"
-#import "MHSearchDefaultContactItemViewModel.h"
 #import "WPFPinYinDataManager.h"
+#import "MHSearchDefaultContactItemViewModel.h"
+#import "MHSearchDefaultMoreItemViewModel.h"
+#import "MHSingleChatViewModel.h"
 /// 侧滑返回回调
 NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
 
@@ -58,6 +60,16 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
 /// searchMode
 @property (nonatomic, readwrite, assign) MHSearchMode searchMode;
 
+
+/// sectionTitles
+@property (nonatomic, readwrite, copy) NSArray *sectionTitles;
+
+
+/// 是否显示 searchMore 页面
+@property (nonatomic, readwrite, assign) BOOL searchMore;
+/// defaultViewModel
+@property (nonatomic, readwrite, strong) MHSearchDefaultViewModel *defaultViewModel;
+
 @end
 @implementation MHSearchViewModel
 
@@ -79,6 +91,7 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
     /// 默认模式
     self.searchType = MHSearchTypeDefault;
     self.searchMode = MHSearchModeDefault;
+    self.searchMore = NO;
     
     
     /// 定义searchTypeView的回调
@@ -159,8 +172,23 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
     self.stickerViewModel = [[MHSearchStickerViewModel alloc] initWithServices:self.services params:@{MHSearchTypeTypeKey: @(MHSearchTypeSticker), MHSearchTypePopKey: self.popItemCommand, MHSearchTypeKeywordKey: @"", MHSearchTypeKeywordCommandKey: self.keywordCommand}];
     
     
-    
+    /// 默认数据源
     self.dataSource = @[@[self.searchTypeItemViewModel]];
+    self.sectionTitles = @[@""];
+    
+    /// 选中cell 跳转的命令
+    self.didSelectCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSIndexPath * indexPath) {
+        @strongify(self);
+        NSInteger section = indexPath.section;
+        NSInteger row = indexPath.row;
+        if (self.searchMode == MHSearchModeRelated) {
+            // 关联模式 点击cell 也是搜索模式
+            NSArray *itemViewModels = self.dataSource[section];
+            MHSearchDefaultItemViewModel *itemViewModel = itemViewModels[row];
+            [self _push2ViewControllerItemViewModel:itemViewModel];
+        }
+        return [RACSignal empty];
+    }];
 }
 
 - (RACSignal *)requestRemoteDataSignalWithPage:(NSUInteger)page {
@@ -172,52 +200,12 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(t * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             /// 判断当前模式
             if (self.searchMode == MHSearchModeDefault) {
-         
                 /// 这种场景 都是默认形式
                 self.dataSource = @[@[self.searchTypeItemViewModel]];
-                
-                
+                self.sectionTitles =@[@""];
             } else if (self.searchMode == MHSearchModeRelated ) {
-                
-                NSMutableArray *dataSource = [NSMutableArray array];
-                // 查询数据
-                NSMutableArray *contacts = [NSMutableArray array];
-                for (WPFPerson *person in [WPFPinYinDataManager getInitializedDataSource]) {
-                    /// 用小写字母去查找
-                    WPFSearchResultModel *resultModel = [WPFPinYinTools searchEffectiveResultWithSearchString:self.keyword.lowercaseString Person:person];
-                    if (resultModel.highlightedRange.length) {
-                        person.highlightLoaction = resultModel.highlightedRange.location;
-                        person.textRange = resultModel.highlightedRange;
-                        person.matchType = resultModel.matchType;
-                        [contacts addObject:person];
-                    }
-                }
-                // 排序
-                [contacts sortUsingDescriptors:[WPFPinYinTools sortingRules]];
-                // 转成itemViewMdoel
-                NSArray *contactItemViewModels = [self _contacts2ContactItemViewModels:contacts];
-                if (!MHArrayIsEmpty(contactItemViewModels)) {
-                    [dataSource addObject:contactItemViewModels];
-                }
-
                 // 更新数据源
-                self.dataSource = dataSource.copy;
-            } else {
-                NSInteger index = (page - 1) * self.perPage;
-                NSInteger count = page * self.perPage;
-                NSMutableArray *dataSource = [NSMutableArray array];
-                for (NSInteger i = index; i < count; i++) {
-                    NSString *title = [NSString stringWithFormat:@"%@ 结果%ld", self.keyword, i];
-                    MHSearchCommonSearchItemViewModel *itemViewModel = [[MHSearchCommonSearchItemViewModel alloc] initWithTitle:title subtitle:@"这是搜索到的文章的子标题..." desc:@"这是搜索到的文章的描述..." keyword:self.keyword];
-                    [dataSource addObject:itemViewModel];
-                }
-                if (page == 1) {
-                    self.page = 1;
-                    self.dataSource = dataSource.copy;
-                }else {
-                    NSArray *temps = [dataSource copy];
-                    self.dataSource = @[(self.dataSource ?: @[]).rac_sequence, temps.rac_sequence].rac_sequence.flatten.array;
-                }
+                self.dataSource = [self _fetchDataSource];
             }
             [subscriber sendNext:self.dataSource];
             [subscriber sendCompleted];
@@ -241,9 +229,8 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
     switch (self.searchType) {
         case MHSearchTypeDefault:
         {
-            /// 默认搜索
+            /// 默认搜索 发起请求
             [self.requestRemoteDataCommand execute:@1];
-            
         }
             break;
         case MHSearchTypeMoments:
@@ -296,7 +283,7 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
     switch (self.searchType) {
         case MHSearchTypeDefault:
         {
-            
+            // 这种场景donothing 因为你已经关联出来了
         }
             break;
         case MHSearchTypeMoments:
@@ -342,7 +329,17 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
     // 默认搜索模式
     self.searchType = MHSearchTypeDefault;
     MHSearch *search = [MHSearch searchWithKeyword:@"" searchMode:MHSearchModeDefault];
+    self.searchMode =MHSearchModeDefault;
     switch (searchType) {
+        case MHSearchTypeDefault:
+        {
+            // 清空数据
+            self.searchMore = NO;
+            self.defaultViewModel = nil;
+            /// 默认搜索 发起请求
+            [self.requestRemoteDataCommand execute:@1];
+        }
+            break;
         case MHSearchTypeMoments:
         {
             [self.momentsViewModel.requestSearchKeywordCommand execute:search];
@@ -381,13 +378,105 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
     }
 }
 
+// 根据不同页面下钻不同控制器
+- (void)_push2ViewControllerItemViewModel:(MHSearchDefaultItemViewModel *)itemViewModel {
+    
+    if (itemViewModel.isSearchMore) {
+        /// 更多搜索
+        /// 根据类型判断下钻
+        MHSearchDefaultMoreItemViewModel *moreItemViewModel = (MHSearchDefaultMoreItemViewModel *)itemViewModel;
+        switch (itemViewModel.searchDefaultType) {
+            case MHSearchDefaultTypeContacts: /// 下钻更多联系人
+            {
+                /// 下钻到
+                self.defaultViewModel = [[MHSearchDefaultViewModel alloc] initWithServices:self.services params:@{MHViewModelUtilKey: moreItemViewModel.results, MHViewModelIDKey: @(MHSearchDefaultTypeContacts)}];
+                self.searchMore = YES;
+            }
+                break;
+            /// .....
+            default:
+                break;
+        }
+        
+    } else {
+        /// 根据类型判断下钻
+        switch (itemViewModel.searchDefaultType) {
+            case MHSearchDefaultTypeContacts: /// 下钻联系人聊天
+            {
+                MHSearchDefaultContactItemViewModel *contactItemViewModel = (MHSearchDefaultContactItemViewModel *)itemViewModel;
+                /// 下钻单聊页面
+                MHSingleChatViewModel *viewModel = [[MHSingleChatViewModel alloc] initWithServices:self.services params:@{MHViewModelUtilKey: contactItemViewModel.person.model}];
+                [self.services pushViewModel:viewModel animated:YES];
+            }
+                break;
+                
+            default:
+                break;
+        }
+        
+    }
+}
 
-#pragma mark - 辅助方法
+- (NSArray *)_fetchDataSource {
+    // 数据源
+    NSMutableArray *dataSource = [NSMutableArray array];
+    NSMutableArray *sectionTitles = [NSMutableArray array];
+    
+    
+    // 查询联系人数据
+    NSMutableArray *contacts = [NSMutableArray array];
+    for (WPFPerson *person in [WPFPinYinDataManager getInitializedDataSource]) {
+        /// 用小写字母去查找
+        WPFSearchResultModel *resultModel = [WPFPinYinTools searchEffectiveResultWithSearchString:self.keyword.lowercaseString Person:person];
+        if (resultModel.highlightedRange.length) {
+            person.highlightLoaction = resultModel.highlightedRange.location;
+            person.textRange = resultModel.highlightedRange;
+            person.matchType = resultModel.matchType;
+            [contacts addObject:person];
+        }
+    }
+    // 排序
+    [contacts sortUsingDescriptors:[WPFPinYinTools sortingRules]];
+    // 转成itemViewMdoel
+    NSArray *contactItemViewModels = [self _contacts2ContactItemViewModels:contacts];
+    if (!MHArrayIsEmpty(contactItemViewModels)) {
+        if (contactItemViewModels.count > 3) {
+            // 大于三条 有个更多数据
+            NSMutableArray *temps = [NSMutableArray array];
+            for (NSInteger i = 0; i < 3; i++) {
+                MHSearchDefaultContactItemViewModel *vm = contactItemViewModels[i];
+                [temps addObject:vm];
+            }
+            
+            // 添加更多数据
+            MHSearchDefaultMoreItemViewModel *vm = [[MHSearchDefaultMoreItemViewModel alloc] initWithResults:contactItemViewModels];
+            vm.searchDefaultType = MHSearchDefaultTypeContacts;
+            vm.title = @"更多联系人";
+            vm.searchMore = YES;
+            [temps addObject:vm];
+            // 添加到数据源
+            [dataSource addObject:temps];
+        }else {
+            // 少于三条 则直接添加
+            [dataSource addObject:contactItemViewModels];
+        }
+        
+        /// 添加titles
+        [sectionTitles addObject:@"联系人"];
+    }
+    
+    self.sectionTitles = sectionTitles.copy;
+    
+    return dataSource.copy;
+}
+
+
 - (NSArray *)_contacts2ContactItemViewModels:(NSArray *)results {
     if (MHObjectIsNil(results) || results.count == 0) return nil;
     NSArray *viewModels = [results.rac_sequence map:^(WPFPerson *person) {
         /// 将其转换
         MHSearchDefaultContactItemViewModel *viewModel = [[MHSearchDefaultContactItemViewModel alloc] initWithPerson:person];
+        viewModel.searchDefaultType = MHSearchDefaultTypeContacts;
         return viewModel;
     }].array;
     return viewModels ?: @[] ;
