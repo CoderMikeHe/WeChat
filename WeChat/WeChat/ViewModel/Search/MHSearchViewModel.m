@@ -34,6 +34,8 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
 /// 配置子模块
 /// popItemCommand 子控制器（朋友圈、文章、 公众号、小程序、音乐、表情）侧滑返回回调
 @property (nonatomic, readwrite, strong) RACCommand *popItemCommand;
+/// 搜索更多页 侧滑返回回调
+@property (nonatomic, readwrite, strong) RACCommand *popMoreCommand;
 /// 弹出搜索页或者隐藏搜索页的回调  以及侧滑搜索页回调
 @property (nonatomic, readwrite, strong) RACCommand *popCommand;
 /// 点击列表中关键字 or 关联关键字按钮 回调给 searchBar 的命令
@@ -115,6 +117,17 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
         [self.searchTypeSubject sendNext:@(MHSearchTypeDefault)];
         return [RACSignal empty];
     }];
+    /// 侧滑搜索更多xx页
+    self.popMoreCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSDictionary *dict) {
+        @strongify(self);
+        MHSearchPopState state = [dict[@"state"] integerValue];
+        if (state == MHSearchPopStateCompleted && self.searchMore) {
+            /// 先重置之前模块的数据
+            [self _resetSearchTypeModuleData:self.searchType];
+        }
+        return [RACSignal return:dict];
+    }];
+    
     
     /// 子模块关键字回调给searchBar
     self.keywordCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSString *input) {
@@ -200,7 +213,7 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
     @weakify(self);
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         @strongify(self);
-        NSTimeInterval t = self.searchMode == MHSearchModeSearch ? 1.0 : .25f;
+        NSTimeInterval t = self.searchMode == MHSearchModeRelated ? .25 : .01f;
         /// 模拟网络延迟
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(t * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             /// 判断当前模式
@@ -232,7 +245,12 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
     
     if (self.searchType == MHSearchTypeDefault && self.searchDefaultType != MHSearchDefaultTypeDefault) {
         // 这个是搜索更多页的内容
-        
+        if (![keyword isEqualToString:self.keyword]) {
+            // 记录keyword
+            self.keyword = keyword;
+            // 搜索更多页面 请求数据
+            [self.defaultViewModel.requestSearchKeywordCommand execute:search];
+        }
         /// 不做任何事
         return;
     }
@@ -402,7 +420,6 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
 
 // 根据不同页面下钻不同控制器
 - (void)_push2ViewControllerItemViewModel:(MHSearchDefaultItemViewModel *)itemViewModel {
-    
     if (itemViewModel.isSearchMore) {
         /// 更多搜索
         /// 根据类型判断下钻
@@ -416,7 +433,7 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
             case MHSearchDefaultTypeContacts: /// 下钻更多联系人
             {
                 /// 下钻到
-                self.defaultViewModel = [[MHSearchDefaultViewModel alloc] initWithServices:self.services params:@{MHViewModelUtilKey: moreItemViewModel.results, MHViewModelIDKey: @(MHSearchDefaultTypeContacts)}];
+                self.defaultViewModel = [[MHSearchDefaultViewModel alloc] initWithServices:self.services params:@{MHViewModelUtilKey: moreItemViewModel.results, MHViewModelIDKey: @(MHSearchDefaultTypeContacts), MHSearchDefaultPopCommandKey: self.popMoreCommand}];
                 self.searchMore = YES;
                 
             }
@@ -475,7 +492,6 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
                 MHSearchDefaultContactItemViewModel *vm = contactItemViewModels[i];
                 [temps addObject:vm];
             }
-            
             // 添加更多数据
             MHSearchDefaultMoreItemViewModel *vm = [[MHSearchDefaultMoreItemViewModel alloc] initWithResults:contactItemViewModels];
             vm.searchDefaultType = MHSearchDefaultTypeContacts;

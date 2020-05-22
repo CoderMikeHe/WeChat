@@ -28,6 +28,7 @@
 
 #import "MHSearchDefaultItemViewModel.h"
 
+static CGFloat const MHOffsetWidth = 76;
 
 @interface MHSearchViewController ()
 
@@ -46,6 +47,8 @@
 /// 搜索更多xxx 展示的页面
 @property (nonatomic, readwrite, strong) UIViewController *defaultViewController;
 
+/// 获取截图
+@property (nonatomic, readwrite, weak) UIView *snapshotView;
 @end
 
 @implementation MHSearchViewController
@@ -91,13 +94,20 @@
         BOOL searchMore = x.boolValue;
         
         if (searchMore) {
+        
+            // 立即获得当前self.view 的屏幕快照
+            UIView *snapshotView = [self.view snapshotViewAfterScreenUpdates:NO];
+            self.snapshotView = snapshotView;
+            snapshotView.frame = self.view.bounds;
+            [self.view addSubview:snapshotView];
+            
+            
             /// 取出控制器
             UIViewController *toViewController = [[MHSearchDefaultViewController alloc] initWithViewModel:self.viewModel.defaultViewModel];
-            /// 清空transform
-            toViewController.view.transform = CGAffineTransformIdentity;
             /// 调整frame
             toViewController.view.frame = self.view.bounds;
             toViewController.view.mh_x = self.view.bounds.size.width;
+            
             /// 加入控制器
             [self.view addSubview:toViewController.view];
             [self addChildViewController:toViewController];
@@ -105,25 +115,61 @@
             
             [UIView animateWithDuration:.25f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 toViewController.view.mh_x = 0;
+                snapshotView.mh_x = -MHOffsetWidth;
             } completion:^(BOOL finished) {
+                /// 细节
+                /// 由于cell按下会有个灰色块，这里重新截取快照，然后添加进去 替换掉之前的
+                [self.snapshotView removeFromSuperview];
+                self.snapshotView = nil;
+                
+                // 重新添加 移驾乱真
+                UIView *snapshotView0 = [self.tableView snapshotViewAfterScreenUpdates:NO];
+                self.snapshotView = snapshotView0;
+                snapshotView0.frame = self.view.bounds;
+                snapshotView.mh_x = -MHOffsetWidth;
+                [self.view insertSubview:snapshotView0 belowSubview:toViewController.view];
                 
             }];
             
-            
             // 记录当前子控制器
             self.defaultViewController = toViewController;
+            
         }else {
             if (self.defaultViewController) {
-                [self.defaultViewController willMoveToParentViewController:nil];
-                [self.defaultViewController.view removeFromSuperview];
-                [self.defaultViewController removeFromParentViewController];
-                // 置位
-                self.defaultViewController = nil;
+                // 这种事点击返回按钮
+                if (self.snapshotView && self.snapshotView.mh_x < 0) {
+                    /// 做动画
+                    [UIView animateWithDuration:.25f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                        self.defaultViewController.view.mh_x = self.view.bounds.size.width;
+                        self.snapshotView.mh_x = 0;
+                    } completion:^(BOOL finished) {
+                        // 移除掉搜索更多xxx的view
+                        [self _removeSearchDefaultViewController];
+                    }];
+                }else {
+                    // 移除掉搜索更多xxx的view
+                    [self _removeSearchDefaultViewController];
+                }
             }
         }
     }];
     
-    
+    /// 监听popMoreCommand 回调
+    [self.viewModel.popMoreCommand.executionSignals.switchToLatest subscribeNext:^(NSDictionary *dict) {
+        @strongify(self);
+        MHSearchPopState state = [dict[@"state"] integerValue];
+        CGFloat progress = [dict[@"progress"] floatValue];
+        
+        if (state == MHSearchPopStateBegan || state == MHSearchPopStateChanged) {
+            self.snapshotView.mh_x = -MHOffsetWidth + progress * MHOffsetWidth;
+        }else if (state == MHSearchPopStateEnded) {
+            // 归位
+            [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+               self.snapshotView.mh_x = -MHOffsetWidth + 1 * progress * MHOffsetWidth;
+            } completion:^(BOOL finished) {
+            }];
+        }
+    }];
     
     
     /// 监听键盘 高度
@@ -151,6 +197,19 @@
 }
 
 #pragma mark - 事件处理Or辅助方法
+- (void)_removeSearchDefaultViewController {
+    // 移除掉快照view
+    [self.snapshotView removeFromSuperview];
+    self.snapshotView = nil;
+    
+    [self.defaultViewController willMoveToParentViewController:nil];
+    [self.defaultViewController.view removeFromSuperview];
+    [self.defaultViewController removeFromParentViewController];
+    // 置位
+    self.defaultViewController = nil;
+}
+
+
 - (void)_configureSearchView:(MHSearchType)type {
     // 默认页
     if (type == MHSearchTypeDefault) {
@@ -237,6 +296,13 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return 9.0;
+}
+
+#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    // execute commond
+    [self.viewModel.didSelectCommand execute:indexPath];
 }
 
 

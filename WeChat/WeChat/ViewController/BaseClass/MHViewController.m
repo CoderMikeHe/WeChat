@@ -68,7 +68,7 @@
         self.snapshot = [self.navigationController.view snapshotViewAfterScreenUpdates:NO];
     }
     
-    /// 这里做友盟统计
+    /// 这里做友盟统计tr
     //    [MobClick endLogPageView:SBPageName(self)];
 }
 

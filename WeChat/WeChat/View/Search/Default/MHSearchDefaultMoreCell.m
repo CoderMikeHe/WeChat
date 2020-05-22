@@ -37,6 +37,7 @@
     self.titleLabel.text = viewModel.title;   
     
 }
+#pragma mark - Private Method
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code

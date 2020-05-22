@@ -37,4 +37,11 @@
         return [RACSignal empty];
     }];
 }
+
+- (RACSignal *)requestRemoteDataSignalWithPage:(NSUInteger)page {
+    
+    NSLog(@"xxxxxxxxxxxxxx🔥");
+    
+    return [RACSignal empty];
+}
 @end

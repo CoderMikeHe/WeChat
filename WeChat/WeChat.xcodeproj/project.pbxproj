@@ -345,6 +345,9 @@
 		84AB60A5244AFD990031DADE /* UIImage+MHSVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AB60A4244AFD990031DADE /* UIImage+MHSVG.m */; };
 		84AD506124639BFD0053A79A /* MHSearchDefaultSearchTypeItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AD506024639BFD0053A79A /* MHSearchDefaultSearchTypeItemViewModel.m */; };
 		84AD5072246406C30053A79A /* icons_outlined_search_full.svg in Resources */ = {isa = PBXBuildFile; fileRef = 84AD5071246406C20053A79A /* icons_outlined_search_full.svg */; };
+		84B0F636247774B10075D576 /* MHSearchDefaultNoResultItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0F635247774B10075D576 /* MHSearchDefaultNoResultItemViewModel.m */; };
+		84B0F63F24777C310075D576 /* MHSearchDefaultNoResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0F63D24777C310075D576 /* MHSearchDefaultNoResultCell.m */; };
+		84B0F64024777C310075D576 /* MHSearchDefaultNoResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B0F63E24777C310075D576 /* MHSearchDefaultNoResultCell.xib */; };
 		84C29D1C2464F5D700C0F729 /* MHSearchOfficialAccountsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C29D1B2464F5D700C0F729 /* MHSearchOfficialAccountsViewModel.m */; };
 		84C29D1F246534A600C0F729 /* MHSearchVoiceInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C29D1E246534A600C0F729 /* MHSearchVoiceInputView.m */; };
 		84CBFE2F245AA6E300054D07 /* MHContactsItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CBFE2E245AA6E300054D07 /* MHContactsItemViewModel.m */; };
@@ -1115,6 +1118,11 @@
 		84AD505F24639BFD0053A79A /* MHSearchDefaultSearchTypeItemViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchDefaultSearchTypeItemViewModel.h; sourceTree = "<group>"; };
 		84AD506024639BFD0053A79A /* MHSearchDefaultSearchTypeItemViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchDefaultSearchTypeItemViewModel.m; sourceTree = "<group>"; };
 		84AD5071246406C20053A79A /* icons_outlined_search_full.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_outlined_search_full.svg; sourceTree = "<group>"; };
+		84B0F634247774B10075D576 /* MHSearchDefaultNoResultItemViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchDefaultNoResultItemViewModel.h; sourceTree = "<group>"; };
+		84B0F635247774B10075D576 /* MHSearchDefaultNoResultItemViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchDefaultNoResultItemViewModel.m; sourceTree = "<group>"; };
+		84B0F63C24777C310075D576 /* MHSearchDefaultNoResultCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchDefaultNoResultCell.h; sourceTree = "<group>"; };
+		84B0F63D24777C310075D576 /* MHSearchDefaultNoResultCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchDefaultNoResultCell.m; sourceTree = "<group>"; };
+		84B0F63E24777C310075D576 /* MHSearchDefaultNoResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHSearchDefaultNoResultCell.xib; sourceTree = "<group>"; };
 		84C29D1A2464F5D700C0F729 /* MHSearchOfficialAccountsViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchOfficialAccountsViewModel.h; sourceTree = "<group>"; };
 		84C29D1B2464F5D700C0F729 /* MHSearchOfficialAccountsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchOfficialAccountsViewModel.m; sourceTree = "<group>"; };
 		84C29D1D246534A600C0F729 /* MHSearchVoiceInputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchVoiceInputView.h; sourceTree = "<group>"; };
@@ -3090,6 +3098,7 @@
 		84178C1F24765A6700F7EFEE /* Default */ = {
 			isa = PBXGroup;
 			children = (
+				84B0F633247773DC0075D576 /* ItemViewModel */,
 				84178C2024765A9400F7EFEE /* MHSearchDefaultViewModel.h */,
 				84178C2124765A9400F7EFEE /* MHSearchDefaultViewModel.m */,
 			);
@@ -3251,6 +3260,9 @@
 				8409B31D247610CE00FF1F3D /* MHSearchDefaultMoreCell.h */,
 				8409B31E247610CE00FF1F3D /* MHSearchDefaultMoreCell.m */,
 				8409B31F247610CE00FF1F3D /* MHSearchDefaultMoreCell.xib */,
+				84B0F63C24777C310075D576 /* MHSearchDefaultNoResultCell.h */,
+				84B0F63D24777C310075D576 /* MHSearchDefaultNoResultCell.m */,
+				84B0F63E24777C310075D576 /* MHSearchDefaultNoResultCell.xib */,
 			);
 			path = Default;
 			sourceTree = "<group>";
@@ -3266,6 +3278,15 @@
 				84A5456D24752ABF0020FEE7 /* MHSearchDefaultItemViewModel.m */,
 				8409B322247611E400FF1F3D /* MHSearchDefaultMoreItemViewModel.h */,
 				8409B323247611E400FF1F3D /* MHSearchDefaultMoreItemViewModel.m */,
+			);
+			path = ItemViewModel;
+			sourceTree = "<group>";
+		};
+		84B0F633247773DC0075D576 /* ItemViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				84B0F634247774B10075D576 /* MHSearchDefaultNoResultItemViewModel.h */,
+				84B0F635247774B10075D576 /* MHSearchDefaultNoResultItemViewModel.m */,
 			);
 			path = ItemViewModel;
 			sourceTree = "<group>";
@@ -3816,6 +3837,7 @@
 				2667A3F11F7B987600A3D7A2 /* Zone.plist in Resources */,
 				26A7E7421F79FE550015CA71 /* MHBootLoginViewController.xib in Resources */,
 				263004D51F751FB800247F3D /* MHSearchFriendsHeaderView.xib in Resources */,
+				84B0F64024777C310075D576 /* MHSearchDefaultNoResultCell.xib in Resources */,
 				842D242C246A2D60008E5A2C /* MHSearchOfficialAccountsDefaultCell.xib in Resources */,
 				84AD5072246406C30053A79A /* icons_outlined_search_full.svg in Resources */,
 				DE442172244BF0CC00206161 /* icons_filled_contacts.svg in Resources */,
@@ -4539,6 +4561,7 @@
 				2617531D1F739C1900812E1B /* MHCommonLabelItemViewModel.m in Sources */,
 				842D243D246AA86D008E5A2C /* MHSearchMomentsViewModel.m in Sources */,
 				263D36E31F666438007267C3 /* NSAttributedString+MHSize.m in Sources */,
+				84B0F636247774B10075D576 /* MHSearchDefaultNoResultItemViewModel.m in Sources */,
 				2605C5DC1F6633F500B1F66E /* MHNewFeatureViewController.m in Sources */,
 				2605C5D01F66326000B1F66E /* MHDiscoverViewController.m in Sources */,
 				263D36DC1F666438007267C3 /* MBProgressHUD+MHExtension.m in Sources */,
@@ -4676,6 +4699,7 @@
 				84A1BF2C246E9FB7008A807C /* MHSearchCommonSearchItemViewModel.m in Sources */,
 				264F2D1A1F94A84900B244AD /* MHPlugDetailViewModel.m in Sources */,
 				2615974A1FEA5DD300C6FD80 /* MHMomentCommentCell.m in Sources */,
+				84B0F63F24777C310075D576 /* MHSearchDefaultNoResultCell.m in Sources */,
 				260A609D1F77A57100F05120 /* MHSearchFriendsViewModel.m in Sources */,
 				263D36DA1F666438007267C3 /* FBKVOController+MHExtension.m in Sources */,
 				2605C5B51F66241D00B1F66E /* MHHomePageViewController.m in Sources */,

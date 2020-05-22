@@ -88,7 +88,8 @@ typedef NS_ENUM(NSInteger, MHSearchMode) {
 
 
 /// 默认模式搜索到的类型
-typedef NS_ENUM(NSUInteger, MHSearchDefaultType) {
+typedef NS_ENUM(NSInteger, MHSearchDefaultType) {
+    MHSearchDefaultTypeNoResult = -1, // 没有数据
     MHSearchDefaultTypeDefault = 0,   // 默认场景
     MHSearchDefaultTypeContacts = 1,  // 搜索联系人
     MHSearchDefaultTypeGroupChat,     // 群聊
@@ -96,6 +97,15 @@ typedef NS_ENUM(NSUInteger, MHSearchDefaultType) {
     MHSearchDefaultTypeChatRecord,       // 聊天记录
     MHSearchDefaultTypeCollect,          // 收藏
     MHSearchDefaultTypeSearch            // 搜一搜
+};
+
+
+/// 搜索页侧滑回调状态
+typedef NS_ENUM(NSUInteger, MHSearchPopState) {
+    MHSearchPopStateBegan = 0,     // 开始
+    MHSearchPopStateChanged,       // 移动
+    MHSearchPopStateEnded,         // 结束
+    MHSearchPopStateCompleted      // 完成
 };
 
 #endif /* MHConstEnum_h */

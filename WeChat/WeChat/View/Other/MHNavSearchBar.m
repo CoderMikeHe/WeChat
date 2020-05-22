@@ -192,7 +192,7 @@
     NSString *placeholder = @"搜索";
     switch (type) {
         case MHSearchDefaultTypeContacts:
-            placeholder = @"搜索联系人";
+            placeholder = @"查找联系人";
             break;
         default:
             placeholder = @"搜索";
