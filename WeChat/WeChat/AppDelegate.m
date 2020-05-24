@@ -14,6 +14,7 @@
 
 
 #import "IFlyMSC/IFlyMSC.h"
+#import "MHContactsService.h"
 
 #if defined(DEBUG)||defined(_DEBUG)
 #import <JPFPSStatus/JPFPSStatus.h>
@@ -84,6 +85,9 @@
     
     /// 配置FMDB
     [self _configureFMDB];
+    
+    /// 初始化联系人信息
+    [MHContactsService sharedInstance];
 }
 
 /// 配置文件夹
@@ -202,6 +206,8 @@
         /// 这里判断一下
         if ([SAMKeychain rawLogin] && self.services.client.currentUser) { 
             /// 有账号+有用户数据
+    
+            ///
             /// 已经登录，跳转到主页
             return [[MHHomePageViewModel alloc] initWithServices:self.services params:nil];
         }else if(self.services.client.currentUser){ /// 没账号+有用户数据

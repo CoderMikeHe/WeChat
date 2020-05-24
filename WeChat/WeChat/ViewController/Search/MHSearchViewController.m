@@ -24,11 +24,13 @@
 
 #import "MHSearchDefaultSearchTypeCell.h"
 #import "MHSearchDefaultContactCell.h"
+#import "MHSearchDefaultGroupChatCell.h"
 #import "MHSearchDefaultMoreCell.h"
 
 #import "MHSearchDefaultItemViewModel.h"
 
-static CGFloat const MHOffsetWidth = 76;
+/// 侧滑最大偏移量
+static CGFloat const MHSlideOffsetMaxWidth = 56;
 
 @interface MHSearchViewController ()
 
@@ -115,7 +117,7 @@ static CGFloat const MHOffsetWidth = 76;
             
             [UIView animateWithDuration:.25f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 toViewController.view.mh_x = 0;
-                snapshotView.mh_x = -MHOffsetWidth;
+                snapshotView.mh_x = -MHSlideOffsetMaxWidth;
             } completion:^(BOOL finished) {
                 /// 细节
                 /// 由于cell按下会有个灰色块，这里重新截取快照，然后添加进去 替换掉之前的
@@ -126,9 +128,8 @@ static CGFloat const MHOffsetWidth = 76;
                 UIView *snapshotView0 = [self.tableView snapshotViewAfterScreenUpdates:NO];
                 self.snapshotView = snapshotView0;
                 snapshotView0.frame = self.view.bounds;
-                snapshotView.mh_x = -MHOffsetWidth;
+                snapshotView0.mh_x = -MHSlideOffsetMaxWidth;
                 [self.view insertSubview:snapshotView0 belowSubview:toViewController.view];
-                
             }];
             
             // 记录当前子控制器
@@ -161,11 +162,11 @@ static CGFloat const MHOffsetWidth = 76;
         CGFloat progress = [dict[@"progress"] floatValue];
         
         if (state == MHSearchPopStateBegan || state == MHSearchPopStateChanged) {
-            self.snapshotView.mh_x = -MHOffsetWidth + progress * MHOffsetWidth;
+            self.snapshotView.mh_x = -MHSlideOffsetMaxWidth + progress * MHSlideOffsetMaxWidth;
         }else if (state == MHSearchPopStateEnded) {
             // 归位
             [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-               self.snapshotView.mh_x = -MHOffsetWidth + 1 * progress * MHOffsetWidth;
+               self.snapshotView.mh_x = -MHSlideOffsetMaxWidth + 1 * progress * MHSlideOffsetMaxWidth;
             } completion:^(BOOL finished) {
             }];
         }
@@ -255,6 +256,8 @@ static CGFloat const MHOffsetWidth = 76;
     }else {
         if (vm.searchDefaultType == MHSearchDefaultTypeContacts) {
             return [MHSearchDefaultContactCell cellWithTableView:tableView];
+        } else if (vm.searchDefaultType == MHSearchDefaultTypeGroupChat) {
+            return [MHSearchDefaultGroupChatCell cellWithTableView:tableView];
         } else {
             return [MHSearchDefaultContactCell cellWithTableView:tableView];
         }
@@ -363,8 +366,11 @@ static CGFloat const MHOffsetWidth = 76;
         make.edges.equalTo(self.view);
     }];
     
+    NSLog(@"xxxxxxxxxx------> %@", NSStringFromCGRect(self.view.frame));
+    
+    
     [self.voiceInputView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.view).with.offset(-115.0);
+        make.bottom.equalTo(self.view).with.offset(115.0f);
         make.centerX.equalTo(self.view);
         make.size.mas_equalTo(CGSizeMake(200.0, 115));
     }];

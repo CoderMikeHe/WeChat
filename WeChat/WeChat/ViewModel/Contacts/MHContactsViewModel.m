@@ -11,8 +11,7 @@
 #import "MHContactsService.h"
 #import "WPFPinYinTools.h"
 #import "WPFPinYinDataManager.h"
-#import "WPFPerson.h"
-#import "WPFPinYinDataManager.h"
+
 @interface MHContactsViewModel ()
 /// addFriendsCommand
 @property (nonatomic, readwrite, strong) RACCommand *addFriendsCommand;
@@ -127,9 +126,6 @@
     for(MHUser *contact in contacts){
         // 存到字典中去 <ps: 由于 contacts.json 的wechatId 都是拼音 so...>
         [tempDict setObject:contact forKey:[[contact.wechatId substringToIndex:1] uppercaseString]];
-        
-        /** 添加解析的单个数据源,id标识符是为了防止重名 */
-        [WPFPinYinDataManager addInitializeString:contact.screenName identifer:contact.wechatId model:contact];
     }
     
     

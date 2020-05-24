@@ -8,10 +8,11 @@
 
 #import "MHSearchViewModel.h"
 #import "MHWebViewModel.h"
-#import "WPFPinYinDataManager.h"
 #import "MHSearchDefaultContactItemViewModel.h"
 #import "MHSearchDefaultMoreItemViewModel.h"
+#import "MHSearchDefaultGroupChatItemViewModel.h"
 #import "MHSingleChatViewModel.h"
+#import "MHContactsService.h"
 /// 侧滑返回回调
 NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
 
@@ -207,6 +208,9 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
         }
         return [RACSignal empty];
     }];
+    
+    /// 配置妹子数组
+    
 }
 
 - (RACSignal *)requestRemoteDataSignalWithPage:(NSUInteger)page {
@@ -357,7 +361,7 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
 //// 将各个模块的数据重置一下
 - (void)_resetSearchTypeModuleData:(MHSearchType)searchType {
     
-    if (searchType == MHSearchTypeDefault && self.searchDefaultType != MHSearchDefaultTypeDefault) {
+    if (searchType == MHSearchTypeDefault && self.searchDefaultType != MHSearchDefaultTypeDefault && self.searchState != MHNavSearchBarStateDefault) {
         // 如果是上一次是默认搜索
         self.keyword = self.lockKeyword.copy;
         self.searchMore = NO;
@@ -370,8 +374,12 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
     
     // 默认搜索模式
     self.keyword = @"";
+    self.lockKeyword = nil;
+    self.searchMore = NO;
+    self.defaultViewModel = nil;
     self.searchMode = MHSearchModeDefault;
     self.searchType = MHSearchTypeDefault;
+    self.searchDefaultType = MHSearchDefaultTypeDefault;
     MHSearch *search = [MHSearch searchWithKeyword:@"" searchMode:MHSearchModeDefault];
     switch (searchType) {
         case MHSearchTypeDefault:
@@ -462,13 +470,15 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
     }
 }
 
+// 获取默认搜索关联模式下的数据源
+
 - (NSArray *)_fetchDataSource {
     // 数据源
     NSMutableArray *dataSource = [NSMutableArray array];
     NSMutableArray *sectionTitles = [NSMutableArray array];
     
     
-    // 查询联系人数据
+    // 0.查询联系人数据
     NSMutableArray *contacts = [NSMutableArray array];
     for (WPFPerson *person in [WPFPinYinDataManager getInitializedDataSource]) {
         /// 用小写字母去查找
@@ -509,6 +519,41 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
         [sectionTitles addObject:@"联系人"];
     }
     
+    /// 1.查询群聊数据 有联系人才有群聊数据
+    if (!MHArrayIsEmpty(contacts)) {
+        /// 转成群聊itemViewModels
+        NSArray *itemViewModels = [self _contacts2GroupChatItemViewModels:contacts];
+        
+        if (!MHArrayIsEmpty(itemViewModels)) {
+            
+            if (itemViewModels.count > 3) {
+                // 大于三条 有个更多数据
+                NSMutableArray *temps = [NSMutableArray array];
+                for (NSInteger i = 0; i < 3; i++) {
+                    MHSearchDefaultItemViewModel *vm = itemViewModels[i];
+                    [temps addObject:vm];
+                }
+                // 添加更多数据
+                MHSearchDefaultMoreItemViewModel *vm = [[MHSearchDefaultMoreItemViewModel alloc] initWithResults:itemViewModels];
+                vm.searchDefaultType = MHSearchDefaultTypeGroupChat;
+                vm.title = @"更多群聊";
+                vm.searchMore = YES;
+                [temps addObject:vm];
+                // 添加到数据源
+                [dataSource addObject:temps];
+            }else {
+                // 少于三条 则直接添加
+                [dataSource addObject:itemViewModels];
+            }
+            /// 添加titles
+            [sectionTitles addObject:@"群聊"];
+        }
+    }
+    
+    
+    /// 后面的请自行补充....
+
+    
     self.sectionTitles = sectionTitles.copy;
     
     return dataSource.copy;
@@ -525,6 +570,67 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
     }].array;
     return viewModels ?: @[] ;
 }
+
+
+- (NSArray *)_contacts2GroupChatItemViewModels:(NSArray *)results {
+    if (MHObjectIsNil(results) || results.count == 0) return nil;
+    
+    NSMutableArray *viewModels = [NSMutableArray array];
+    
+    /// 3-9
+    NSInteger count = MIN(7, results.count);
+    /// 查询数据
+    for (NSInteger i=0; i<count; i++) {
+        /// 取出查询person
+        WPFPerson *person = results[i];
+        MHUser *user = (MHUser *)person.model;
+        NSString *wechatId = user.wechatId;
+        
+        /// users 组群聊用户
+        NSMutableArray *users = [NSMutableArray array];
+        // 首先将查到的数据添加进来
+        [users addObject:user];
+        
+        
+        NSInteger cnt = [MHContactsService sharedInstance].girlFriends.count;
+        NSInteger initJ = 0;
+        
+        /// 因为只有33个女朋友
+        if (i < 6) {
+            if (i != 0) {
+                initJ = (2 + i - 1 + 2)/2 * i;
+            }
+        }else {
+            initJ = cnt - 9;
+        }
+            
+        for (NSInteger j = initJ; j < cnt; j++) {
+            
+            MHUser *girl = [MHContactsService sharedInstance].girlFriends[j];
+            if ([girl.wechatId isEqualToString:wechatId]) {
+                // 相同则跳过
+                continue;
+            }
+            [users addObject:girl];
+            
+            /// 超过则直接退出循环
+            if (users.count >= (i+3)) {
+                break;
+            }
+        }
+        
+        /// 把
+        MHSearchDefaultGroupChatItemViewModel *viewModel = [[MHSearchDefaultGroupChatItemViewModel alloc] initWithPerson:person groupUsers:users];
+        viewModel.searchDefaultType = MHSearchDefaultTypeGroupChat;
+        
+        [viewModels addObject:viewModel];
+    }
+    
+    
+    
+    return viewModels.copy;
+}
+
 
 
 @end
