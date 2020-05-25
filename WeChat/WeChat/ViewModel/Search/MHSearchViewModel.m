@@ -11,8 +11,11 @@
 #import "MHSearchDefaultContactItemViewModel.h"
 #import "MHSearchDefaultMoreItemViewModel.h"
 #import "MHSearchDefaultGroupChatItemViewModel.h"
+#import "MHSearchDefaultSearchItemViewModel.h"
 #import "MHSingleChatViewModel.h"
 #import "MHContactsService.h"
+#import "MHGroupChatViewModel.h"
+
 /// 侧滑返回回调
 NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
 
@@ -446,6 +449,14 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
                 
             }
                 break;
+            case MHSearchDefaultTypeGroupChat: /// 下钻更多群聊
+            {
+                /// 下钻到
+                self.defaultViewModel = [[MHSearchDefaultViewModel alloc] initWithServices:self.services params:@{MHViewModelUtilKey: moreItemViewModel.results, MHViewModelIDKey: @(MHSearchDefaultTypeGroupChat), MHSearchDefaultPopCommandKey: self.popMoreCommand}];
+                self.searchMore = YES;
+                
+            }
+                break;
             /// .....
             default:
                 break;
@@ -462,7 +473,26 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
                 [self.services pushViewModel:viewModel animated:YES];
             }
                 break;
-                
+            case MHSearchDefaultTypeGroupChat: /// 下钻群聊聊天
+            {
+                MHSearchDefaultGroupChatItemViewModel *groupChatItemViewModel = (MHSearchDefaultGroupChatItemViewModel *)itemViewModel;
+                /// 下钻单聊页面
+                MHGroupChatViewModel *viewModel = [[MHGroupChatViewModel alloc] initWithServices:self.services params:@{MHViewModelUtilKey: groupChatItemViewModel.groupUsers, MHViewModelTitleKey: groupChatItemViewModel.groupChatName}];
+                [self.services pushViewModel:viewModel animated:YES];
+            }
+                break;
+            case MHSearchDefaultTypeSearch: /// 下钻到搜一搜页面
+            {
+                // 测试....
+                // 搜索模式
+                NSURL *url = [NSURL URLWithString:MHMyBlogHomepageUrl];
+                NSURLRequest *request = [NSURLRequest requestWithURL:url];
+                MHWebViewModel * viewModel = [[MHWebViewModel alloc] initWithServices:self.services params:@{MHViewModelRequestKey:request}];
+                /// 去掉关闭按钮
+                viewModel.shouldDisableWebViewClose = YES;
+                [self.services pushViewModel:viewModel animated:YES];
+            }
+                break;
             default:
                 break;
         }
@@ -470,8 +500,7 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
     }
 }
 
-// 获取默认搜索关联模式下的数据源
-
+// 获取默认搜索关联模式下的数据源  Just For Test...
 - (NSArray *)_fetchDataSource {
     // 数据源
     NSMutableArray *dataSource = [NSMutableArray array];
@@ -550,6 +579,16 @@ NSString * const  MHSearchViewPopCommandKey = @"MHSearchViewPopCommandKey";
         }
     }
     
+    /// 配置搜一搜
+    MHSearchDefaultSearchItemViewModel *itemViewModel0 = [[MHSearchDefaultSearchItemViewModel alloc] initWithKeyWord:self.keyword searchKeyword:self.keyword search:YES];
+    MHSearchDefaultSearchItemViewModel *itemViewModel1 = [[MHSearchDefaultSearchItemViewModel alloc] initWithKeyWord:self.keyword searchKeyword:[NSString stringWithFormat:@"%@在线推塔",self.keyword] search:NO];
+    MHSearchDefaultSearchItemViewModel *itemViewModel2 = [[MHSearchDefaultSearchItemViewModel alloc] initWithKeyWord:self.keyword searchKeyword:[NSString stringWithFormat:@"%@落地成盒",self.keyword] search:NO];
+    MHSearchDefaultSearchItemViewModel *itemViewModel3 = [[MHSearchDefaultSearchItemViewModel alloc] initWithKeyWord:self.keyword searchKeyword:[NSString stringWithFormat:@"%@逆风翻盘",self.keyword] search:NO];
+    MHSearchDefaultSearchItemViewModel *itemViewModel4 = [[MHSearchDefaultSearchItemViewModel alloc] initWithKeyWord:self.keyword searchKeyword:[NSString stringWithFormat:@"%@西楚霸王",self.keyword] search:NO];
+    
+    ///
+    [dataSource addObject:@[itemViewModel0,itemViewModel1,itemViewModel2,itemViewModel3,itemViewModel4]];
+    [sectionTitles addObject:@""];
     
     /// 后面的请自行补充....
 

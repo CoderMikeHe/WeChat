@@ -30,7 +30,7 @@
         self.person = person;
         self.groupUsers = users.copy;
         
-        self.groupChatName = [NSString stringWithFormat:@"王者荣耀-%@-交流群 (%ld)",person.name, users.count];
+        self.groupChatName = [NSString stringWithFormat:@"王者荣耀-%@-交流群(%ld)",person.name, users.count];
         NSString *subtitle = [NSString stringWithFormat:@"包含:%@",person.name];
         NSMutableAttributedString *subtitleAttr = [[NSMutableAttributedString alloc] initWithString:subtitle];
         subtitleAttr.yy_font = MHRegularFont_14;

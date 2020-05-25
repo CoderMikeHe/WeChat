@@ -20,14 +20,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="err-Iu-Qb6">
-                        <rect key="frame" x="139" y="39" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="141.5" y="42" width="37.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="err-Iu-Qb6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="39" id="CAl-rY-swi"/>
+                    <constraint firstItem="err-Iu-Qb6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="42" id="CAl-rY-swi"/>
                     <constraint firstItem="err-Iu-Qb6" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="X4t-Mj-UWp"/>
                 </constraints>
             </tableViewCellContentView>

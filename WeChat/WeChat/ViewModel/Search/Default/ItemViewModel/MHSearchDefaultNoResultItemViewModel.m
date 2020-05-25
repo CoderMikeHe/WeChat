@@ -27,7 +27,9 @@
             case MHSearchDefaultTypeContacts:
                 typeName = @"联系人";
                 break;
-                
+            case MHSearchDefaultTypeGroupChat:
+                typeName = @"群聊";
+                break;
             default:
                 break;
         }
@@ -35,7 +37,7 @@
         NSString *title = [NSString stringWithFormat:@"没有找到\"%@\"相关%@",self.keyword,typeName];
         NSMutableAttributedString *titleAttr = [[NSMutableAttributedString alloc] initWithString:title];
         titleAttr.yy_font = MHRegularFont_15;
-        titleAttr.yy_color = MHColorFromHexString(@"#b3b3b3");
+        titleAttr.yy_color = MHColorFromHexString(@"#a6a6a6");
         titleAttr.yy_alignment = NSTextAlignmentLeft;
         [titleAttr yy_setColor:MHColorFromHexString(@"#4eab5f") range:NSMakeRange(5, keyword.length)];
         self.titleAttr = titleAttr.copy;
@@ -44,6 +46,6 @@
 }
 
 - (CGFloat)cellHeight {
-    return 64;
+    return 80;
 }
 @end

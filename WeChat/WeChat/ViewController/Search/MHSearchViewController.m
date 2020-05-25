@@ -26,6 +26,7 @@
 #import "MHSearchDefaultContactCell.h"
 #import "MHSearchDefaultGroupChatCell.h"
 #import "MHSearchDefaultMoreCell.h"
+#import "MHSearchDefaultSearchCell.h"
 
 #import "MHSearchDefaultItemViewModel.h"
 
@@ -258,8 +259,10 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
             return [MHSearchDefaultContactCell cellWithTableView:tableView];
         } else if (vm.searchDefaultType == MHSearchDefaultTypeGroupChat) {
             return [MHSearchDefaultGroupChatCell cellWithTableView:tableView];
-        } else {
-            return [MHSearchDefaultContactCell cellWithTableView:tableView];
+        } else if (vm.searchDefaultType == MHSearchDefaultTypeSearch) {
+            return [MHSearchDefaultSearchCell cellWithTableView:tableView];
+        } else{
+            return nil;
         }
     }
     
@@ -298,7 +301,7 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 9.0;
+    return section == self.viewModel.sectionTitles.count-1 ? 40.0f : 9.0;
 }
 
 #pragma mark - UITableViewDelegate
@@ -307,7 +310,6 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
     // execute commond
     [self.viewModel.didSelectCommand execute:indexPath];
 }
-
 
 
 #pragma mark - 初始化OrUI布局

@@ -11,7 +11,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MHGroupChatViewModel : MHTableViewModel
+/// toUsers 聊天对象群
+@property (nonatomic, readonly, copy) NSArray *toUsers;
 
+/// 点击导航栏更多按钮
+@property (nonatomic, readonly, strong) RACCommand *moreCommand;
 @end
 
 NS_ASSUME_NONNULL_END

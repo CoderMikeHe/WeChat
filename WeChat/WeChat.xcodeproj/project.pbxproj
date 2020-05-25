@@ -366,6 +366,11 @@
 		84CFE0A7246D387E004C8739 /* MHSearchMusicDelHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFE0A5246D387E004C8739 /* MHSearchMusicDelHistoryCell.m */; };
 		84CFE0A8246D387E004C8739 /* MHSearchMusicDelHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84CFE0A6246D387E004C8739 /* MHSearchMusicDelHistoryCell.xib */; };
 		84CFE0AB246D450F004C8739 /* YYCache+MHUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFE0AA246D450F004C8739 /* YYCache+MHUtil.m */; };
+		84ED8EE0247B51690040C46B /* MHSearchDefaultSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ED8EDE247B51690040C46B /* MHSearchDefaultSearchCell.m */; };
+		84ED8EE1247B51690040C46B /* MHSearchDefaultSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ED8EDF247B51690040C46B /* MHSearchDefaultSearchCell.xib */; };
+		84ED8EE4247B56AE0040C46B /* MHSearchDefaultSearchItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ED8EE3247B56AE0040C46B /* MHSearchDefaultSearchItemViewModel.m */; };
+		84ED8EE6247B66C60040C46B /* icons_outlined_search-logo.svg in Resources */ = {isa = PBXBuildFile; fileRef = 84ED8EE5247B66C60040C46B /* icons_outlined_search-logo.svg */; };
+		84ED8EE9247B6DF00040C46B /* icons_outlined_arrow.svg in Resources */ = {isa = PBXBuildFile; fileRef = 84ED8EE8247B6DF00040C46B /* icons_outlined_arrow.svg */; };
 		864BB5E20D5521374F720EC0 /* Pods_WeChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F38DBDD0C5EE456B831E4A /* Pods_WeChat.framework */; };
 		AD21F790DBB21B99763DBF6A /* Pods_WeChat_WeChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F007961429C86520F15C504 /* Pods_WeChat_WeChatUITests.framework */; };
 		DE191DB3245E41010022E1A9 /* MHNavSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DE191DB2245E41010022E1A9 /* MHNavSearchBar.m */; };
@@ -1159,6 +1164,13 @@
 		84CFE0A6246D387E004C8739 /* MHSearchMusicDelHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHSearchMusicDelHistoryCell.xib; sourceTree = "<group>"; };
 		84CFE0A9246D450F004C8739 /* YYCache+MHUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YYCache+MHUtil.h"; sourceTree = "<group>"; };
 		84CFE0AA246D450F004C8739 /* YYCache+MHUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "YYCache+MHUtil.m"; sourceTree = "<group>"; };
+		84ED8EDD247B51690040C46B /* MHSearchDefaultSearchCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchDefaultSearchCell.h; sourceTree = "<group>"; };
+		84ED8EDE247B51690040C46B /* MHSearchDefaultSearchCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchDefaultSearchCell.m; sourceTree = "<group>"; };
+		84ED8EDF247B51690040C46B /* MHSearchDefaultSearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHSearchDefaultSearchCell.xib; sourceTree = "<group>"; };
+		84ED8EE2247B56AE0040C46B /* MHSearchDefaultSearchItemViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchDefaultSearchItemViewModel.h; sourceTree = "<group>"; };
+		84ED8EE3247B56AE0040C46B /* MHSearchDefaultSearchItemViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchDefaultSearchItemViewModel.m; sourceTree = "<group>"; };
+		84ED8EE5247B66C60040C46B /* icons_outlined_search-logo.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "icons_outlined_search-logo.svg"; sourceTree = "<group>"; };
+		84ED8EE8247B6DF00040C46B /* icons_outlined_arrow.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_outlined_arrow.svg; sourceTree = "<group>"; };
 		94F38DBDD0C5EE456B831E4A /* Pods_WeChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		971B7041FF0A7CD187AB3BEE /* Pods-WeChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeChat/Pods-WeChat.debug.xcconfig"; sourceTree = "<group>"; };
 		AB79D87EFBDD8EDD42D99FD8 /* Pods-WeChat-WeChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChat-WeChatUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeChat-WeChatUITests/Pods-WeChat-WeChatUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -2776,6 +2788,7 @@
 		2667A3EF1F7B987600A3D7A2 /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
+				84ED8EE7247B6DE10040C46B /* Arrow */,
 				84A4129224653F9D00DA3AAC /* Search */,
 				DE4973C4245EC87F003FB76C /* SearchBar */,
 				DE442175244C545A00206161 /* NavigationBar */,
@@ -3255,6 +3268,7 @@
 		84A4129224653F9D00DA3AAC /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				84ED8EE5247B66C60040C46B /* icons_outlined_search-logo.svg */,
 				84178C362476684900F7EFEE /* icon_outlined_search_more_magnifier.svg */,
 				8417666A24726C4100B2A704 /* icons_add_expression.svg */,
 				8417666B24726C4100B2A704 /* icons_outlined_sticker.svg */,
@@ -3285,6 +3299,9 @@
 				DE54EAC724790BEE00CAA223 /* MHSearchDefaultGroupChatCell.h */,
 				DE54EAC824790BEE00CAA223 /* MHSearchDefaultGroupChatCell.m */,
 				DE54EAC924790BEE00CAA223 /* MHSearchDefaultGroupChatCell.xib */,
+				84ED8EDD247B51690040C46B /* MHSearchDefaultSearchCell.h */,
+				84ED8EDE247B51690040C46B /* MHSearchDefaultSearchCell.m */,
+				84ED8EDF247B51690040C46B /* MHSearchDefaultSearchCell.xib */,
 			);
 			path = Default;
 			sourceTree = "<group>";
@@ -3302,6 +3319,8 @@
 				8409B323247611E400FF1F3D /* MHSearchDefaultMoreItemViewModel.m */,
 				DE54EACC24790C6700CAA223 /* MHSearchDefaultGroupChatItemViewModel.h */,
 				DE54EACD24790C6700CAA223 /* MHSearchDefaultGroupChatItemViewModel.m */,
+				84ED8EE2247B56AE0040C46B /* MHSearchDefaultSearchItemViewModel.h */,
+				84ED8EE3247B56AE0040C46B /* MHSearchDefaultSearchItemViewModel.m */,
 			);
 			path = ItemViewModel;
 			sourceTree = "<group>";
@@ -3360,6 +3379,14 @@
 				841766632472396500B2A704 /* MHSearchStickerDefaultCell.xib */,
 			);
 			path = Sticker;
+			sourceTree = "<group>";
+		};
+		84ED8EE7247B6DE10040C46B /* Arrow */ = {
+			isa = PBXGroup;
+			children = (
+				84ED8EE8247B6DF00040C46B /* icons_outlined_arrow.svg */,
+			);
+			path = Arrow;
 			sourceTree = "<group>";
 		};
 		DB1E4F3D3B653F9FE4DEFF73 /* Frameworks */ = {
@@ -3926,12 +3953,14 @@
 				26A7E74F1F7A32500015CA71 /* MHLoginViewController.xib in Resources */,
 				DE442170244BF0CC00206161 /* icons_outlined_chats.svg in Resources */,
 				26CCB9D3202453700090DBC5 /* WeChatSight.mp4 in Resources */,
+				84ED8EE1247B51690040C46B /* MHSearchDefaultSearchCell.xib in Resources */,
 				DE4973CC245EC905003FB76C /* icons_outlined_searchicon_official_accounts.svg in Resources */,
 				26FE8E8B1F9514D100EC8BE0 /* TZImagePickerController.bundle in Resources */,
 				266E15D51F8F7E43000E31C5 /* MHRegisterViewController.xib in Resources */,
 				DEA6F3D8245AF5D900542C6B /* MHContactsHeaderView.xib in Resources */,
 				26D8180E201F306100DDB286 /* MHProfileInfoZoneCell.xib in Resources */,
 				84CFE0A8246D387E004C8739 /* MHSearchMusicDelHistoryCell.xib in Resources */,
+				84ED8EE9247B6DF00040C46B /* icons_outlined_arrow.svg in Resources */,
 				DE442179244C55E000206161 /* icons_outlined_add-friends.svg in Resources */,
 				DE44216E244BF0CC00206161 /* icons_filled_discover.svg in Resources */,
 				DE442171244BF0CC00206161 /* icons_outlined_contacts.svg in Resources */,
@@ -3950,6 +3979,7 @@
 				DE442177244C547400206161 /* icons_outlined_add2.svg in Resources */,
 				84178C372476684900F7EFEE /* icon_outlined_search_more_magnifier.svg in Resources */,
 				264D36D81F70AEBD003BB8CE /* MHProfileHeaderCell.xib in Resources */,
+				84ED8EE6247B66C60040C46B /* icons_outlined_search-logo.svg in Resources */,
 				DE4973CA245EC8CA003FB76C /* icons_outlined_searchicon_music.svg in Resources */,
 				2609ED4F1F790AD3002D31CE /* MHLoginPasswordView.xib in Resources */,
 				265DBFEE1FE0C8E400A5FCC8 /* MHAboutUsHeaderView.xib in Resources */,
@@ -4562,6 +4592,7 @@
 				DE4973C3245EB426003FB76C /* MHNavSearchBarViewModel.m in Sources */,
 				849135EA2466966F00450D94 /* ISRDataHelper.m in Sources */,
 				261753361F73C41D00812E1B /* MHFeatureSignatureViewController.m in Sources */,
+				84ED8EE4247B56AE0040C46B /* MHSearchDefaultSearchItemViewModel.m in Sources */,
 				263D37191F66656A007267C3 /* YYTimer.m in Sources */,
 				26FE8E811F9514D100EC8BE0 /* TAPageControl.m in Sources */,
 				84178C1E24765A4A00F7EFEE /* MHSearchDefaultViewController.m in Sources */,
@@ -4654,6 +4685,7 @@
 				26FE8E921F9514D100EC8BE0 /* TZVideoPlayerController.m in Sources */,
 				261753171F73712200812E1B /* MHUserInfoViewModel.m in Sources */,
 				2605C5C11F662F1200B1F66E /* MHAccountLoginViewController.m in Sources */,
+				84ED8EE0247B51690040C46B /* MHSearchDefaultSearchCell.m in Sources */,
 				263D36EF1F666438007267C3 /* UIView+MHExtension.m in Sources */,
 				26A7E74E1F7A32500015CA71 /* MHLoginViewController.m in Sources */,
 				26B89AB22022BB54006FBE20 /* MHMomentShareInfoView.m in Sources */,

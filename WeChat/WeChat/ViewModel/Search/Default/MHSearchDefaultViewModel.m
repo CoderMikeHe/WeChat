@@ -8,8 +8,12 @@
 
 #import "MHSearchDefaultViewModel.h"
 #import "MHSearchDefaultContactItemViewModel.h"
+#import "MHSearchDefaultGroupChatItemViewModel.h"
 #import "MHSingleChatViewModel.h"
+#import "MHGroupChatViewModel.h"
 #import "WPFPinYinDataManager.h"
+
+#import "MHContactsService.h"
 
 /// 侧滑返回回调
 NSString * const MHSearchDefaultPopCommandKey = @"MHSearchDefaultPopCommandKey";
@@ -46,7 +50,9 @@ NSString * const MHSearchDefaultPopCommandKey = @"MHSearchDefaultPopCommandKey";
             case MHSearchDefaultTypeContacts:
                 sectionTitle = @"联系人";
                 break;
-                
+            case MHSearchDefaultTypeGroupChat:
+                sectionTitle = @"群聊";
+                break;
             default:
                 break;
         }
@@ -84,7 +90,14 @@ NSString * const MHSearchDefaultPopCommandKey = @"MHSearchDefaultPopCommandKey";
                 [self.services pushViewModel:viewModel animated:YES];
             }
                 break;
-                
+            case MHSearchDefaultTypeGroupChat: /// 下钻群聊聊天
+            {
+                MHSearchDefaultGroupChatItemViewModel *groupChatItemViewModel = (MHSearchDefaultGroupChatItemViewModel *)itemViewModel;
+                /// 下钻群聊页面
+                MHGroupChatViewModel *viewModel = [[MHGroupChatViewModel alloc] initWithServices:self.services params:@{MHViewModelUtilKey: groupChatItemViewModel.groupUsers, MHViewModelTitleKey: groupChatItemViewModel.groupChatName}];
+                [self.services pushViewModel:viewModel animated:YES];
+            }
+                break;
             default:
                 break;
         }
@@ -160,25 +173,25 @@ NSString * const MHSearchDefaultPopCommandKey = @"MHSearchDefaultPopCommandKey";
     // 数据源
     NSMutableArray *dataSource = [NSMutableArray array];
     
-    if (self.searchDefaultType == MHSearchDefaultTypeContacts) {
-        // 查询联系人数据
-        NSMutableArray *contacts = [NSMutableArray array];
-        for (WPFPerson *person in [WPFPinYinDataManager getInitializedDataSource]) {
-            /// 用小写字母去查找
-            WPFSearchResultModel *resultModel = [WPFPinYinTools searchEffectiveResultWithSearchString:self.keyword.lowercaseString Person:person];
-            if (resultModel.highlightedRange.length) {
-                person.highlightLoaction = resultModel.highlightedRange.location;
-                person.textRange = resultModel.highlightedRange;
-                person.matchType = resultModel.matchType;
-                [contacts addObject:person];
-            }
+    // 查询联系人数据
+    NSMutableArray *contacts = [NSMutableArray array];
+    for (WPFPerson *person in [WPFPinYinDataManager getInitializedDataSource]) {
+        /// 用小写字母去查找
+        WPFSearchResultModel *resultModel = [WPFPinYinTools searchEffectiveResultWithSearchString:self.keyword.lowercaseString Person:person];
+        if (resultModel.highlightedRange.length) {
+            person.highlightLoaction = resultModel.highlightedRange.location;
+            person.textRange = resultModel.highlightedRange;
+            person.matchType = resultModel.matchType;
+            [contacts addObject:person];
         }
-        // 排序
-        [contacts sortUsingDescriptors:[WPFPinYinTools sortingRules]];
+    }
+    // 排序
+    [contacts sortUsingDescriptors:[WPFPinYinTools sortingRules]];
+    
+    if (self.searchDefaultType == MHSearchDefaultTypeContacts) {
         // 转成itemViewMdoel
-        NSArray *contactItemViewModels = [self _contacts2ContactItemViewModels:contacts];
-
-        if (MHArrayIsEmpty(contactItemViewModels)) {
+        NSArray *itemViewModels = [self _contacts2ContactItemViewModels:contacts];
+        if (MHArrayIsEmpty(itemViewModels)) {
             MHSearchDefaultNoResultItemViewModel *noResultItemViewModel = [[MHSearchDefaultNoResultItemViewModel alloc] initWithKeyword:self.keyword searchDefaultType:self.searchDefaultType];
             noResultItemViewModel.searchDefaultType = MHSearchDefaultTypeNoResult;
             // 清空
@@ -187,7 +200,21 @@ NSString * const MHSearchDefaultPopCommandKey = @"MHSearchDefaultPopCommandKey";
         }else {
             // 赋值
             self.sectionTitle = @"联系人";
-            [dataSource addObjectsFromArray:contactItemViewModels];
+            [dataSource addObjectsFromArray:itemViewModels];
+        }
+    } if (self.searchDefaultType == MHSearchDefaultTypeGroupChat) {
+        /// 转成群聊itemViewModels
+        NSArray *itemViewModels = [self _contacts2GroupChatItemViewModels:contacts];
+        if (MHArrayIsEmpty(itemViewModels)) {
+            MHSearchDefaultNoResultItemViewModel *noResultItemViewModel = [[MHSearchDefaultNoResultItemViewModel alloc] initWithKeyword:self.keyword searchDefaultType:self.searchDefaultType];
+            noResultItemViewModel.searchDefaultType = MHSearchDefaultTypeNoResult;
+            // 清空
+            self.sectionTitle = @"";
+            [dataSource addObject:noResultItemViewModel];
+        }else {
+            // 赋值
+            self.sectionTitle = @"群聊";
+            [dataSource addObjectsFromArray:itemViewModels];
         }
     }
     
@@ -205,4 +232,65 @@ NSString * const MHSearchDefaultPopCommandKey = @"MHSearchDefaultPopCommandKey";
     }].array;
     return viewModels ?: @[] ;
 }
+
+
+- (NSArray *)_contacts2GroupChatItemViewModels:(NSArray *)results {
+    if (MHObjectIsNil(results) || results.count == 0) return nil;
+    
+    NSMutableArray *viewModels = [NSMutableArray array];
+    
+    /// 3-9
+    NSInteger count = MIN(7, results.count);
+    /// 查询数据
+    for (NSInteger i=0; i<count; i++) {
+        /// 取出查询person
+        WPFPerson *person = results[i];
+        MHUser *user = (MHUser *)person.model;
+        NSString *wechatId = user.wechatId;
+        
+        /// users 组群聊用户
+        NSMutableArray *users = [NSMutableArray array];
+        // 首先将查到的数据添加进来
+        [users addObject:user];
+        
+        
+        NSInteger cnt = [MHContactsService sharedInstance].girlFriends.count;
+        NSInteger initJ = 0;
+        
+        /// 因为只有33个女朋友
+        if (i < 6) {
+            if (i != 0) {
+                initJ = (2 + i - 1 + 2)/2 * i;
+            }
+        }else {
+            initJ = cnt - 9;
+        }
+        
+        for (NSInteger j = initJ; j < cnt; j++) {
+            
+            MHUser *girl = [MHContactsService sharedInstance].girlFriends[j];
+            if ([girl.wechatId isEqualToString:wechatId]) {
+                // 相同则跳过
+                continue;
+            }
+            [users addObject:girl];
+            
+            /// 超过则直接退出循环
+            if (users.count >= (i+3)) {
+                break;
+            }
+        }
+        
+        /// 把
+        MHSearchDefaultGroupChatItemViewModel *viewModel = [[MHSearchDefaultGroupChatItemViewModel alloc] initWithPerson:person groupUsers:users];
+        viewModel.searchDefaultType = MHSearchDefaultTypeGroupChat;
+        
+        [viewModels addObject:viewModel];
+    }
+    
+    
+    
+    return viewModels.copy;
+}
+
 @end

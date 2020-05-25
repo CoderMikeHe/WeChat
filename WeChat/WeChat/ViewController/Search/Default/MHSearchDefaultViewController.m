@@ -9,6 +9,7 @@
 #import "MHSearchDefaultViewController.h"
 #import "MHSearchCommonHeaderView.h"
 #import "MHSearchDefaultContactCell.h"
+#import "MHSearchDefaultGroupChatCell.h"
 #import "MHSearchDefaultNoResultCell.h"
 
 @interface MHSearchDefaultViewController ()<UIGestureRecognizerDelegate>
@@ -47,6 +48,8 @@
         return [MHSearchDefaultContactCell cellWithTableView:tableView];
     } else if (vm.searchDefaultType == MHSearchDefaultTypeNoResult){
         return [MHSearchDefaultNoResultCell cellWithTableView:tableView];
+    } else if (vm.searchDefaultType == MHSearchDefaultTypeGroupChat){
+        return [MHSearchDefaultGroupChatCell cellWithTableView:tableView];
     }
     return nil;
 }
