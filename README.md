@@ -24,7 +24,7 @@
 
 - 由于`2019年初--至今`，笔者为求生计，被迫转学`Vue`开发，老将不死，只会逐渐凋零，以致于渐渐冷落了这个`Repo`(PS：**可能没Star，没动力，哈哈....**)，笔者虽出走半生，但归来依旧少年，后面会将微信的主要功能补全，尽最大努力还原真实微信。
 
-### 🚀🚀🚀功能
+### 🚀🚀🚀模块
 - **✅登陆/注册/登出 (ps: UI尚未适配，逻辑正常)**
 
 - **✅我(ps: UI尚未适配)**
@@ -95,3 +95,14 @@
 - [iOS 基于MVVM + RAC + ViewModel-Based Navigation的微信开发（二）](http://www.jianshu.com/p/8c35fc02f47b)
 - [iOS 基于MVVM设计模式的微信朋友圈开发](https://www.jianshu.com/p/2f161f6a310f)
 - [iOS 实现微信朋友圈的最优方案参照](https://www.jianshu.com/p/395bac3648a7)
+
+---
+### 预览
+###### 通讯录模块
+| ![](https://github.com/CoderMikeHe/WeChat_Resource/blob/master/snapshots/contacts/ios_contacts_page_0.png) | ![](https://github.com/CoderMikeHe/WeChat_Resource/blob/master/snapshots/contacts/ios_contacts_page_1.png) | 虚位以待 | 虚位以待 |
+| :-------------------------------------------: | :-------------------------------------------: | :-------------------------------------------: | :-------------------------------------------: |
+
+###### 搜索模块
+| ![](https://github.com/CoderMikeHe/WeChat_Resource/blob/master/snapshots/search/ios_search_page_0.png) | ![](https://github.com/CoderMikeHe/WeChat_Resource/blob/master/snapshots/search/ios_search_page_1.png) | ![](https://github.com/CoderMikeHe/WeChat_Resource/blob/master/snapshots/search/ios_search_page_2.png) | ![](https://github.com/CoderMikeHe/WeChat_Resource/blob/master/snapshots/search/ios_search_page_3.png) |
+| :-------------------------------------------: | :-------------------------------------------: | :-------------------------------------------: | :-------------------------------------------: |
+| ![](https://github.com/CoderMikeHe/WeChat_Resource/blob/master/snapshots/search/ios_search_page_4.png) | ![](https://github.com/CoderMikeHe/WeChat_Resource/blob/master/snapshots/search/ios_search_page_5.png) | ![](https://github.com/CoderMikeHe/WeChat_Resource/blob/master/snapshots/search/ios_search_page_6.png) | ![](https://github.com/CoderMikeHe/WeChat_Resource/blob/master/snapshots/search/ios_search_page_7.png) |
