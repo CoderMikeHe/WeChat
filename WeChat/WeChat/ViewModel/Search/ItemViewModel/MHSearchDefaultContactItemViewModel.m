@@ -7,6 +7,7 @@
 //
 
 #import "MHSearchDefaultContactItemViewModel.h"
+
 @interface MHSearchDefaultContactItemViewModel ()
 /// avatar 头像 60x60
 @property (nonatomic, readwrite, strong) NSURL *profileImageUrl;

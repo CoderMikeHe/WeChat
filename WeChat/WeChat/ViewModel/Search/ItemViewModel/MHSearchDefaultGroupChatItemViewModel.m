@@ -18,6 +18,8 @@
 @property (nonatomic, readwrite, strong) WPFPerson *person;
 /// 群聊用户
 @property (nonatomic, readwrite, copy) NSArray *groupUsers;
+/// groupAvatarsViewModel
+@property (nonatomic, readwrite, strong) MHGroupAvatarsViewModel *groupAvatarsViewModel;
 @end
 
 
@@ -40,6 +42,10 @@
         NSRange range = NSMakeRange(3 + person.textRange.location, person.textRange.length);
         [subtitleAttr yy_setColor:MHColorFromHexString(@"#4eab5f") range:range];
         self.subtitleAttr = subtitleAttr.copy;
+        
+        /// 获取头像组vm
+        self.groupAvatarsViewModel = [[MHGroupAvatarsViewModel alloc] initWithUsers:users targetSize:CGSizeMake(40.0f, 40.0f) innerSpace:1];
+        
     }
     return self;
 }

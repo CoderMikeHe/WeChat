@@ -12,6 +12,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MHGroupAvatarsItemViewModel : NSObject
 
+
+/// user
+@property (nonatomic, readonly, strong) MHUser *user;
+
+/// frame
+@property (nonatomic, readonly, assign) CGRect frame;
+
+
+- (instancetype)initWithUser:(MHUser *)user frame:(CGRect)frame;
 @end
 
 NS_ASSUME_NONNULL_END

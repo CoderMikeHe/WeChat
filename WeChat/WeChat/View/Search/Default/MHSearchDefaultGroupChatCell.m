@@ -23,7 +23,6 @@
 /// subtitleLabel
 @property (weak, nonatomic) IBOutlet UILabel *subtitleLabel;
 
-
 @end
 
 
@@ -44,7 +43,7 @@
     self.titleLabel.text = viewModel.groupChatName;
     self.subtitleLabel.attributedText = viewModel.subtitleAttr;
     
-    
+    [self.avatarsView bindViewModel:viewModel.groupAvatarsViewModel];
 }
 #pragma mark - Private Method
 - (void)awakeFromNib {

@@ -7,6 +7,7 @@
 //
 
 #import "MHSearchDefaultItemViewModel.h"
+#import "MHGroupAvatarsViewModel.h"
 #import "WPFPerson.h"
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,6 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, strong) WPFPerson *person;
 /// 群聊用户
 @property (nonatomic, readonly, copy) NSArray *groupUsers;
+
+/// groupAvatarsViewModel
+@property (nonatomic, readonly, strong) MHGroupAvatarsViewModel *groupAvatarsViewModel;
 
 /// 初始化
 - (instancetype)initWithPerson:(WPFPerson *)person groupUsers:(NSArray *)users;
