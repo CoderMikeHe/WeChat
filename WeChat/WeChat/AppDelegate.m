@@ -13,6 +13,9 @@
 #import "MHBootLoginViewModel.h"
 
 
+#import "IFlyMSC/IFlyMSC.h"
+#import "MHContactsService.h"
+
 #if defined(DEBUG)||defined(_DEBUG)
 #import <JPFPSStatus/JPFPSStatus.h>
 #import "MHDebugTouchView.h"
@@ -82,6 +85,9 @@
     
     /// 配置FMDB
     [self _configureFMDB];
+    
+    /// 初始化联系人信息
+    [MHContactsService sharedInstance];
 }
 
 /// 配置文件夹
@@ -145,6 +151,10 @@
     
     /// 配置H5
 //    [SBConfigureManager configure];
+    
+    
+    /// 配置讯飞语音
+    [self _configIFlyMSC];
 }
 
 #pragma mark - 调试(DEBUG)模式下的工具条
@@ -160,6 +170,30 @@
 }
 
 
+/// 配置讯飞语音听写
+- (void)_configIFlyMSC {
+    
+    // 配置
+    // Set log level
+    [IFlySetting setLogFile:LVL_NONE];
+    
+    // Set whether to output log messages in Xcode console
+    [IFlySetting showLogcat:NO];
+    
+    // Set the local storage path of SDK
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cachePath = [paths objectAtIndex:0];
+    [IFlySetting setLogFilePath:cachePath];
+    
+    // Set APPID
+    NSString *initString = [[NSString alloc] initWithFormat:@"appid=%@",IFLY_APPID_VALUE];
+    
+    // Configure and initialize iflytek services.(This interface must been invoked in application:didFinishLaunchingWithOptions:)
+    [IFlySpeechUtility createUtility:initString];
+    
+}
+
+
 
 #pragma mark - 创建根控制器
 - (MHViewModel *)_createInitialViewModel {
@@ -172,6 +206,8 @@
         /// 这里判断一下
         if ([SAMKeychain rawLogin] && self.services.client.currentUser) { 
             /// 有账号+有用户数据
+    
+            ///
             /// 已经登录，跳转到主页
             return [[MHHomePageViewModel alloc] initWithServices:self.services params:nil];
         }else if(self.services.client.currentUser){ /// 没账号+有用户数据

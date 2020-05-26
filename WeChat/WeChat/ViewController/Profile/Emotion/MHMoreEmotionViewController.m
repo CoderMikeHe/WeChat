@@ -25,8 +25,22 @@
     
     /// 设置子控件
     [self _setupSubViews];
+    
+    NSLog(@" viewDidLoad 更多表情 .... ");
 }
 
+
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    NSLog(@" vwil 更多表情 .... ");
+}
+
+- (void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    NSLog(@" viewWillDisappear 更多表情 .... ");
+}
 
 #pragma mark - 初始化
 - (void)_setup{

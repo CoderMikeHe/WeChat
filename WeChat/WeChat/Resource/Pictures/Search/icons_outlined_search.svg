@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>icons_outlined_search</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="icons_outlined_search" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="common_icons_search" fill="#000000">
+            <path d="M16.3099312,15.561403 L20.4242641,19.6757359 L19.5757359,20.5242641 L15.4528509,16.4013791 C14.2428099,17.4000674 12.6914673,18 11,18 C7.134,18 4,14.866 4,11 C4,7.134 7.134,4 11,4 C14.866,4 18,7.134 18,11 C18,12.7424841 17.3633321,14.3362634 16.3099312,15.561403 Z M16.7999973,11.0000124 C16.7999973,7.79675515 14.2032544,5.20001221 10.9999971,5.20001221 C7.79673989,5.20001221 5.19999695,7.79675515 5.19999695,11.0000124 C5.19999695,14.2032696 7.79673989,16.8000126 10.9999971,16.8000126 C14.2032544,16.8000126 16.7999973,14.2032696 16.7999973,11.0000124 Z" id="Fill-1"></path>
+        </g>
+    </g>
+</svg>

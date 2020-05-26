@@ -117,7 +117,7 @@ static inline UIImage *MHPicturePlaceholder()
 #define WXGlobalGrayBackgroundColor [UIColor colorFromHexString:@"#EFEFF4"]
 
 /// 全局tintColor
-#define WXGlobalPrimaryTintColor  [UIColor colorFromHexString:@"#07C160"]
+#define WXGlobalPrimaryTintColor  [UIColor colorFromHexString:@"#57BE6A"]
 
 
 /// 全局Page 背景色

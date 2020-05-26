@@ -174,6 +174,12 @@ pod 'DZNEmptyDataSet'                   , '1.8.1'
 # SVG 展示
 pod 'SVGKit'
 
+# 类似微信的客户端本地搜索、搜索关键字高亮显示 PS：由于要改写其中代码 所以放在 Vendor中去了
+#pod 'HighlightedSearch', '0.1.0'
+
+# 侧滑 https://github.com/MortimerGoro/MGSwipeTableCell
+pod 'MGSwipeTableCell', '~> 1.6.11'
+
 target 'WeChatTests' do
 end
 

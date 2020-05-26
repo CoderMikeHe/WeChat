@@ -10,6 +10,7 @@
 #import "MHMainFrameTableViewCell.h"
 #import "MHTestViewController.h"
 #import "MHCameraViewController.h"
+#import "MHSingleChatViewModel.h"
 @interface MHMainFrameViewController ()
 /// viewModel
 @property (nonatomic, readwrite, strong) MHMainFrameViewModel *viewModel;
@@ -58,6 +59,9 @@
 
 #pragma mark - 事件处理
 - (void)_addMore{
+    NSLog(@"..............");
+    MHSingleChatViewModel *vm = [[MHSingleChatViewModel alloc] initWithServices:self.viewModel.services params:@{MHViewModelUtilKey: self.viewModel.services.client.currentUser}];
+    [self.viewModel.services pushViewModel:vm animated:YES];
 }
 
 #pragma mark - 初始化

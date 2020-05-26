@@ -60,4 +60,52 @@ typedef NS_ENUM(NSUInteger, MHMomentShareInfoType) {
     MHMomentShareInfoTypeMusic,       /// 音乐
 };
 
+/// 导航栏搜索状态
+typedef NS_ENUM(NSUInteger, MHNavSearchBarState) {
+    MHNavSearchBarStateDefault = 0,  /// 展示模式
+    MHNavSearchBarStateSearch        /// 搜索模式
+};
+
+
+// 搜索类型 <微信、通讯录>
+typedef NS_ENUM(NSInteger, MHSearchType) {
+    MHSearchTypeDefault = -1,  // All
+    MHSearchTypeMoments = 0,   // 朋友圈
+    MHSearchTypeSubscriptions, // 文章
+    MHSearchTypeOfficialAccounts, // 公众号
+    MHSearchTypeMiniprogram,   // 小程序
+    MHSearchTypeMusic,         // 音乐
+    MHSearchTypeSticker        // 表情
+};
+
+
+// 搜索模式 <微信、通讯录>
+typedef NS_ENUM(NSInteger, MHSearchMode) {
+    MHSearchModeDefault = 0, // 默认模式，比如 搜索-搜索音乐 进入时便是默认模式
+    MHSearchModeRelated,     // 输入框输入文字 关联的场景
+    MHSearchModeSearch       // 点击键盘搜索 或者 点击关联出来的内容 进入搜索模式
+};
+
+
+/// 默认模式搜索到的类型
+typedef NS_ENUM(NSInteger, MHSearchDefaultType) {
+    MHSearchDefaultTypeNoResult = -1, // 没有数据
+    MHSearchDefaultTypeDefault = 0,   // 默认场景
+    MHSearchDefaultTypeContacts = 1,  // 搜索联系人
+    MHSearchDefaultTypeGroupChat,     // 群聊
+    MHSearchDefaultTypeOfficialAccounts, // 关注的公众号
+    MHSearchDefaultTypeChatRecord,       // 聊天记录
+    MHSearchDefaultTypeCollect,          // 收藏
+    MHSearchDefaultTypeSearch            // 搜一搜
+};
+
+
+/// 搜索页侧滑回调状态
+typedef NS_ENUM(NSUInteger, MHSearchPopState) {
+    MHSearchPopStateBegan = 0,     // 开始
+    MHSearchPopStateChanged,       // 移动
+    MHSearchPopStateEnded,         // 结束
+    MHSearchPopStateCompleted      // 完成
+};
+
 #endif /* MHConstEnum_h */

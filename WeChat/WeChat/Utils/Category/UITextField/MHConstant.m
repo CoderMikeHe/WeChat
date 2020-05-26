@@ -156,3 +156,5 @@ CGFloat const MHMomentCommentToolViewMinHeight = 60;
 CGFloat const MHMomentCommentToolViewMaxHeight = 130;
 /** 弹出评论框View的除了编辑框的高度 */
 CGFloat const MHMomentCommentToolViewWithNoTextViewHeight = 20;
+
+

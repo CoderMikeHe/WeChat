@@ -1,0 +1,4792 @@
+[
+  {
+    "screen_name": "马超",
+    "idstr": "10000000",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/518/518.jpg",
+    "wechatId": "machao",
+    "featureSign": "我的枪去而复返，你的生命有去无回",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "幸存者",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/518/518-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/518/518-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "冷晖之枪",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/518/518-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/518/518-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "冷晖之枪"
+  },
+  {
+    "screen_name": "曜",
+    "idstr": "10000001",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/522/522.jpg",
+    "wechatId": "yao",
+    "featureSign": "我没耍帅，有些东西是天生的。",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "归虚梦演",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/522/522-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/522/522-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "星辰之子",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/522/522-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/522/522-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "星辰之子"
+  },
+  {
+    "screen_name": "云中君",
+    "idstr": "10000002",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/506/506.jpg",
+    "wechatId": "yunzhongjun",
+    "featureSign": "记忆触手可得，蓝天延绵不绝",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "荷鲁斯之眼",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/506/506-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/506/506-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "苍云之翼",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/506/506-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/506/506-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "苍云之翼"
+  },
+  {
+    "screen_name": "盘古",
+    "idstr": "10000003",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/529/529.jpg",
+    "wechatId": "pangu",
+    "featureSign": "与其享乐，还是冲锋适合我",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "创世神祝",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/529/529-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/529/529-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "破晓之神",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/529/529-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/529/529-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "破晓之神"
+  },
+  {
+    "screen_name": "李信",
+    "idstr": "10000004",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/507/507.jpg",
+    "wechatId": "lixin",
+    "featureSign": "侯非侯，王非王，千乘万骑走北芒",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "灼热之刃",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/507/507-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/507/507-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "谋世之战",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/507/507-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/507/507-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "谋世之战"
+  },
+  {
+    "screen_name": "孙策",
+    "idstr": "10000005",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/510/510.jpg",
+    "wechatId": "sunce",
+    "featureSign": "梦想着梦想中国家的梦想",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "猫狗日记",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/510/510-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/510/510-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "海之征途",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/510/510-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/510/510-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "光明之海",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/510/510-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/510/510-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "光明之海"
+  },
+  {
+    "screen_name": "狂铁",
+    "idstr": "10000006",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/503/503.jpg",
+    "wechatId": "kuangtie",
+    "featureSign": "放弃就等同失败",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "御狮",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/503/503-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/503/503-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "命运角斗场",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/503/503-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/503/503-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "战车意志",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/503/503-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/503/503-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "战车意志"
+  },
+  {
+    "screen_name": "苏烈",
+    "idstr": "10000007",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/194/194.jpg",
+    "wechatId": "sulie",
+    "featureSign": "长城在，故乡就在",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "玄武志",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/194/194-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/194/194-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "坚韧之力",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/194/194-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/194/194-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "爱与和平",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/194/194-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/194/194-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "不屈铁壁",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/194/194-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/194/194-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "不屈铁壁"
+  },
+  {
+    "screen_name": "凯",
+    "idstr": "10000008",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/193/193.jpg",
+    "wechatId": "kai",
+    "featureSign": "以绝望为剑,铸逝者为铠!",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "青龙志",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/193/193-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/193/193-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "曙光守护者",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/193/193-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/193/193-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "龙域领主",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/193/193-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/193/193-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "破灭刃锋",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/193/193-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/193/193-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "破灭刃锋"
+  },
+  {
+    "screen_name": "哪吒",
+    "idstr": "10000009",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/180/180.jpg",
+    "wechatId": "nezha",
+    "featureSign": "你的空手接不住我的白刃",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "次元突破",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/180/180-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/180/180-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "逐梦之翼",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/180/180-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/180/180-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "三太子",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/180/180-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/180/180-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "桀骜炎枪",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/180/180-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/180/180-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "桀骜炎枪"
+  },
+  {
+    "screen_name": "杨戬",
+    "idstr": "10000010",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/178/178.jpg",
+    "wechatId": "yangjian",
+    "featureSign": "刀锋所划之地 便是疆土",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "永曜之星",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/178/178-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/178/178-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "埃及法老",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/178/178-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/178/178-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "根源之目",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/178/178-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/178/178-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "根源之目"
+  },
+  {
+    "screen_name": "橘右京",
+    "idstr": "10000011",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/163/163.jpg",
+    "wechatId": "juyoujing",
+    "featureSign": "ジタザシジズシギグゲグスシ",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "战争女神",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/163/163-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/163/163-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "神梦一刀",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/163/163-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/163/163-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "神梦一刀"
+  },
+  {
+    "screen_name": "雅典娜",
+    "idstr": "10000012",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/183/183.jpg",
+    "wechatId": "yadianna",
+    "featureSign": "正视你的邪恶！",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "神奇女侠",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/183/183-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/183/183-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "冰冠公主",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/183/183-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/183/183-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "战争女神",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/183/183-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/183/183-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "圣域余晖",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/183/183-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/183/183-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "圣域余晖"
+  },
+  {
+    "screen_name": "夏侯惇",
+    "idstr": "10000013",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/126/126.jpg",
+    "wechatId": "xiahoudun",
+    "featureSign": "没错，我就是呼唤胜利的男神",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "朔风刀",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/126/126-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/126/126-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "无限飓风号",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/126/126-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/126/126-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "乘风破浪",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/126/126-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/126/126-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "战争骑士",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/126/126-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/126/126-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "不羁之风",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/126/126-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/126/126-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "不羁之风"
+  },
+  {
+    "screen_name": "关羽",
+    "idstr": "10000014",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/140/140.jpg",
+    "wechatId": "guanyu",
+    "featureSign": "聪明，就该跟我的大刀保持安全距离",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "冰锋战神",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/140/140-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/140/140-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "天启骑士",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/140/140-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/140/140-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "龙腾万里",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/140/140-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/140/140-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "一骑当千",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/140/140-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/140/140-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "一骑当千"
+  },
+  {
+    "screen_name": "钟馗",
+    "idstr": "10000015",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/175/175.jpg",
+    "wechatId": "zhongkui",
+    "featureSign": "垃圾就该呆在垃圾桶里",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "神迹守卫",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/175/175-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/175/175-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "地府判官",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/175/175-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/175/175-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "虚灵城判",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/175/175-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/175/175-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "虚灵城判"
+  },
+  {
+    "screen_name": "刘备",
+    "idstr": "10000016",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/170/170.jpg",
+    "wechatId": "liubei",
+    "featureSign": "除暴安良是责任，行善积德是兴趣",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "汉昭烈帝",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/170/170-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/170/170-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "纽约教父",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/170/170-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/170/170-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "万事如意",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/170/170-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/170/170-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "仁德义枪",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/170/170-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/170/170-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "仁德义枪"
+  },
+  {
+    "screen_name": "花木兰",
+    "idstr": "10000017",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/154/154.jpg",
+    "wechatId": "huamulan",
+    "featureSign": "姐来展示下高端操作",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "瑞麟志",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/154/154-smallskin-7.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/154/154-bigskin-7.jpg"
+        }
+      },
+      {
+        "name": "冠军飞将",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/154/154-smallskin-6.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/154/154-bigskin-6.jpg"
+        }
+      },
+      {
+        "name": "青春决赛季",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/154/154-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/154/154-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "水晶猎龙者",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/154/154-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/154/154-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "兔女郎",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/154/154-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/154/154-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "剑舞者",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/154/154-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/154/154-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "传说之刃",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/154/154-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/154/154-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "传说之刃"
+  },
+  {
+    "screen_name": "吕布",
+    "idstr": "10000018",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/123/123.jpg",
+    "wechatId": "lvbu",
+    "featureSign": "无法得到那就将他彻底毁掉",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "野性能量",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/123/123-smallskin-6.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/123/123-bigskin-6.jpg"
+        }
+      },
+      {
+        "name": "猎兽之王",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/123/123-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/123/123-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "末日机甲",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/123/123-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/123/123-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "天魔缭乱",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/123/123-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/123/123-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "圣诞狂欢",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/123/123-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/123/123-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "无双之魔",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/123/123-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/123/123-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "无双之魔"
+  },
+  {
+    "screen_name": "宫本武藏",
+    "idstr": "10000019",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/130/130.jpg",
+    "wechatId": "gongbenwuzang",
+    "featureSign": "天下无双",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "霸王丸",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/130/130-smallskin-6.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/130/130-bigskin-6.jpg"
+        }
+      },
+      {
+        "name": "地狱之眼",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/130/130-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/130/130-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "万象初新",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/130/130-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/130/130-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "未来纪元",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/130/130-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/130/130-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "鬼剑武藏",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/130/130-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/130/130-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "剑圣",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/130/130-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/130/130-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "剑圣"
+  },
+  {
+    "screen_name": "露娜",
+    "idstr": "10000020",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/146/146.jpg",
+    "wechatId": "luna",
+    "featureSign": "今天是对面的坏日子",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "一生所爱",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/146/146-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/146/146-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "紫霞仙子",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/146/146-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/146/146-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "绯红之刃",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/146/146-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/146/146-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "哥特玫瑰",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/146/146-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/146/146-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "月光之女",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/146/146-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/146/146-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "月光之女"
+  },
+  {
+    "screen_name": "韩信",
+    "idstr": "10000021",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/150/150.jpg",
+    "wechatId": "hanxin",
+    "featureSign": "必将百倍奉还",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "飞衡",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/150/150-smallskin-6.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/150/150-bigskin-6.jpg"
+        }
+      },
+      {
+        "name": "逐梦之影",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/150/150-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/150/150-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "白龙吟",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/150/150-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/150/150-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "教廷特使",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/150/150-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/150/150-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "街头霸王",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/150/150-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/150/150-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "国士无双",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/150/150-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/150/150-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "国士无双"
+  },
+  {
+    "screen_name": "孙悟空",
+    "idstr": "10000022",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/167/167.jpg",
+    "wechatId": "sunwukong",
+    "featureSign": "超出三界之外，不在五行之中",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "大圣娶亲",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/167/167-smallskin-7.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/167/167-bigskin-7.jpg"
+        }
+      },
+      {
+        "name": "全息碎影",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/167/167-smallskin-6.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/167/167-bigskin-6.jpg"
+        }
+      },
+      {
+        "name": "至尊宝",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/167/167-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/167/167-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "美猴王",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/167/167-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/167/167-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "西部大镖客",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/167/167-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/167/167-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "地狱火",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/167/167-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/167/167-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "齐天大圣",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/167/167-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/167/167-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "齐天大圣"
+  },
+  {
+    "screen_name": "曹操",
+    "idstr": "10000023",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/128/128.jpg",
+    "wechatId": "caocao",
+    "featureSign": "宁教我负天下人",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "天狼征服者",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/128/128-smallskin-6.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/128/128-bigskin-6.jpg"
+        }
+      },
+      {
+        "name": "烛龙",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/128/128-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/128/128-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "死神来了",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/128/128-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/128/128-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "幽灵船长",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/128/128-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/128/128-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "超能战警",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/128/128-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/128/128-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "鲜血枭雄",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/128/128-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/128/128-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "鲜血枭雄"
+  },
+  {
+    "screen_name": "亚瑟",
+    "idstr": "10000024",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/166/166.jpg",
+    "wechatId": "yase",
+    "featureSign": "王者背负，王者审判，王者不可阻挡",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "心灵战警",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/166/166-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/166/166-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "狮心王",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/166/166-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/166/166-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "死亡骑士",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/166/166-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/166/166-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "圣骑之力",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/166/166-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/166/166-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "圣骑之力"
+  },
+  {
+    "screen_name": "程咬金",
+    "idstr": "10000025",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/144/144.jpg",
+    "wechatId": "chengyaojin",
+    "featureSign": "一个字：干",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "活力突击",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/144/144-smallskin-6.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/144/144-bigskin-6.jpg"
+        }
+      },
+      {
+        "name": "功夫厨神",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/144/144-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/144/144-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "华尔街大亨",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/144/144-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/144/144-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "星际陆战队",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/144/144-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/144/144-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "爱与正义",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/144/144-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/144/144-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "热烈之斧",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/144/144-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/144/144-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "热烈之斧"
+  },
+  {
+    "screen_name": "赵云",
+    "idstr": "10000026",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/107/107.jpg",
+    "wechatId": "zhaoyun",
+    "featureSign": "心怀不惧，才能翱翔于天际",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "引擎之心",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/107/107-smallskin-7.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/107/107-bigskin-7.jpg"
+        }
+      },
+      {
+        "name": "白执事",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/107/107-smallskin-6.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/107/107-bigskin-6.jpg"
+        }
+      },
+      {
+        "name": "嘻哈天王",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/107/107-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/107/107-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "皇家上将",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/107/107-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/107/107-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "未来纪元",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/107/107-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/107/107-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "忍●炎影",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/107/107-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/107/107-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "苍天翔龙",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/107/107-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/107/107-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "苍天翔龙"
+  },
+  {
+    "screen_name": "达摩",
+    "idstr": "10000027",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/134/134.jpg",
+    "wechatId": "damo",
+    "featureSign": "死亡面前，众生平等",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "黄金狮子座",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/134/134-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/134/134-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "大发明家",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/134/134-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/134/134-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "拳王",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/134/134-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/134/134-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "拳僧",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/134/134-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/134/134-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "拳僧"
+  },
+  {
+    "screen_name": "典韦",
+    "idstr": "10000028",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/129/129.jpg",
+    "wechatId": "dianwei",
+    "featureSign": "求求你阻止我",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "岱宗",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/129/129-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/129/129-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "蓝屏警告",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/129/129-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/129/129-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "穷奇",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/129/129-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/129/129-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "黄金武士",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/129/129-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/129/129-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "狂战士",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/129/129-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/129/129-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "狂战士"
+  },
+  {
+    "screen_name": "钟无艳",
+    "idstr": "10000029",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/117/117.jpg",
+    "wechatId": "zhongwuyan",
+    "featureSign": "俗说说得好，有钱男子汉，无钱汉子难",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "海滩丽影",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/117/117-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/117/117-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "王者之锤",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/117/117-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/117/117-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "生化警戒",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/117/117-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/117/117-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "野蛮之锤",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/117/117-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/117/117-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "野蛮之锤"
+  },
+  {
+    "screen_name": "老夫子",
+    "idstr": "10000030",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/139/139.jpg",
+    "wechatId": "laofuzi",
+    "featureSign": "有朋友自远方来，不亦乐乎",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "功夫老勺",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/139/139-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/139/139-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "圣诞老人",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/139/139-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/139/139-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "潮流仙人",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/139/139-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/139/139-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "万古长明",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/139/139-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/139/139-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "万古长明"
+  },
+  {
+    "screen_name": "西施",
+    "idstr": "10000031",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/523/523.jpg",
+    "wechatId": "xishi",
+    "featureSign": "最有价值之物,给最珍贵之人",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "归虚梦演",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/523/523-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/523/523-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "幻纱之灵",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/523/523-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/523/523-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "幻纱之灵"
+  },
+  {
+    "screen_name": "嫦娥",
+    "idstr": "10000032",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/515/515.jpg",
+    "wechatId": "change",
+    "featureSign": "夜晚的太阳，保护属于它的人。",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "如梦令",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/515/515-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/515/515-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "露花倒影",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/515/515-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/515/515-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "寒月公主",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/515/515-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/515/515-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "寒月公主"
+  },
+  {
+    "screen_name": "上官婉儿",
+    "idstr": "10000033",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/513/513.jpg",
+    "wechatId": "shangguanwaner",
+    "featureSign": "上通自然之性,下取万类之象",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "梁祝",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/513/513-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/513/513-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "修竹墨客",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/513/513-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/513/513-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "惊鸿之笔",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/513/513-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/513/513-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "惊鸿之笔"
+  },
+  {
+    "screen_name": "沈梦溪",
+    "idstr": "10000034",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/312/312.jpg",
+    "wechatId": "shenmengxi",
+    "featureSign": "没人能在喵的暴躁节奏里战胜本猫。",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "星空之诺",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/312/312-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/312/312-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "鲨炮海盗猫",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/312/312-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/312/312-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "棒球奇才",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/312/312-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/312/312-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "爆弹怪猫",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/312/312-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/312/312-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "爆弹怪猫"
+  },
+  {
+    "screen_name": "司马懿",
+    "idstr": "10000035",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/137/137.jpg",
+    "wechatId": "simayi",
+    "featureSign": "喜欢黑色吗",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "魇语军师",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/137/137-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/137/137-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "寂灭之心",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/137/137-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/137/137-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "寂灭之心"
+  },
+  {
+    "screen_name": "米莱狄",
+    "idstr": "10000036",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/504/504.jpg",
+    "wechatId": "milaidi",
+    "featureSign": "世界是我的意志，机关为我的表象",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "御霄",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/504/504-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/504/504-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "精准探案法",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/504/504-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/504/504-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "筑城者",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/504/504-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/504/504-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "筑城者"
+  },
+  {
+    "screen_name": "女娲",
+    "idstr": "10000037",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/179/179.jpg",
+    "wechatId": "nvwa",
+    "featureSign": "当历史只剩罪恶 只有推倒重来",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "朔望之晖",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/179/179-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/179/179-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "尼罗河女神",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/179/179-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/179/179-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "至高创世",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/179/179-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/179/179-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "至高创世"
+  },
+  {
+    "screen_name": "梦奇",
+    "idstr": "10000038",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/198/198.jpg",
+    "wechatId": "mengqi",
+    "featureSign": "咕呼~",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "胖达荣荣",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/198/198-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/198/198-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "美梦成真",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/198/198-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/198/198-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "入梦之灵",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/198/198-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/198/198-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "入梦之灵"
+  },
+  {
+    "screen_name": "干将莫邪",
+    "idstr": "10000039",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/182/182.jpg",
+    "wechatId": "ganjiangmoye",
+    "featureSign": "最好的剑，永远是下一把。",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "久胜战神",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/182/182-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/182/182-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "冰霜恋舞曲",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/182/182-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/182/182-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "第七人偶",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/182/182-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/182/182-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "淬命双剑",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/182/182-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/182/182-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "淬命双剑"
+  },
+  {
+    "screen_name": "奕星",
+    "idstr": "10000040",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/197/197.jpg",
+    "wechatId": "yixing",
+    "featureSign": "纵横十九道内的 是无穷宇宙",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "混沌棋",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/197/197-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/197/197-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "踏雪寻梅",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/197/197-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/197/197-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "天元之奕",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/197/197-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/197/197-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "天元之奕"
+  },
+  {
+    "screen_name": "诸葛亮",
+    "idstr": "10000041",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/190/190.jpg",
+    "wechatId": "zhugeliang",
+    "featureSign": "运筹帷幄之中 决胜千里之外",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "掌控之力",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/190/190-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/190/190-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "武陵仙君",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/190/190-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/190/190-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "黄金分割率",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/190/190-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/190/190-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "星航指挥官",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/190/190-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/190/190-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "绝代智谋",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/190/190-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/190/190-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "绝代智谋"
+  },
+  {
+    "screen_name": "不知火舞",
+    "idstr": "10000042",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/157/157.jpg",
+    "wechatId": "buzhihuowu",
+    "featureSign": "りゅうえんぶ",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "魅语",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/157/157-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/157/157-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "明媚烈焰",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/157/157-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/157/157-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "明媚烈焰"
+  },
+  {
+    "screen_name": "杨玉环",
+    "idstr": "10000043",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/176/176.jpg",
+    "wechatId": "yangyuhuan",
+    "featureSign": "人家是绿茶，你就像热水，想泡吗?",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "遇见飞天",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/176/176-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/176/176-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "霓裳曲",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/176/176-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/176/176-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "霓裳风华",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/176/176-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/176/176-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "霓裳风华"
+  },
+  {
+    "screen_name": "貂蝉",
+    "idstr": "10000044",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/141/141.jpg",
+    "wechatId": "diaochan",
+    "featureSign": "想欣赏妾身的舞姿吗",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "猫影幻舞",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/141/141-smallskin-6.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/141/141-bigskin-6.jpg"
+        }
+      },
+      {
+        "name": "逐梦之音",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/141/141-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/141/141-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "仲夏夜之梦",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/141/141-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/141/141-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "圣诞恋歌",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/141/141-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/141/141-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "异域舞娘",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/141/141-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/141/141-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "爵士舞姬",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/141/141-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/141/141-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "爵士舞姬"
+  },
+  {
+    "screen_name": "孙膑",
+    "idstr": "10000045",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/118/118.jpg",
+    "wechatId": "sunbin",
+    "featureSign": "嘀嗒～嘀嗒～嘀嗒～嘀嗒～",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "归虚梦演",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/118/118-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/118/118-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "妖精王",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/118/118-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/118/118-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "天使之翼",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/118/118-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/118/118-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "未来旅行",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/118/118-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/118/118-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "逆流之时",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/118/118-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/118/118-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "逆流之时"
+  },
+  {
+    "screen_name": "芈月",
+    "idstr": "10000046",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/121/121.jpg",
+    "wechatId": "miyue",
+    "featureSign": "整容手术都是骗人的，青春美貌全靠把你吸干",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "重明",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/121/121-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/121/121-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "大秦宣太后",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/121/121-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/121/121-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "红桃皇后",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/121/121-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/121/121-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "永恒之月",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/121/121-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/121/121-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "永恒之月"
+  },
+  {
+    "screen_name": "周瑜",
+    "idstr": "10000047",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/124/124.jpg",
+    "wechatId": "zhouyu",
+    "featureSign": "没有欲望何来胜利",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "赤莲之焰",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/124/124-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/124/124-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "真爱至上",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/124/124-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/124/124-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "海军大将",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/124/124-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/124/124-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "铁血都督",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/124/124-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/124/124-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "铁血都督"
+  },
+  {
+    "screen_name": "墨子",
+    "idstr": "10000048",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/108/108.jpg",
+    "wechatId": "mozi",
+    "featureSign": "生存就是最谨慎的战斗",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "进击墨子号",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/108/108-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/108/108-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "龙骑士",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/108/108-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/108/108-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "金属风暴",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/108/108-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/108/108-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "和平守望",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/108/108-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/108/108-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "和平守望"
+  },
+  {
+    "screen_name": "张良",
+    "idstr": "10000049",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/156/156.jpg",
+    "wechatId": "zhangliang",
+    "featureSign": "好奇心会害死猫",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "黄金白羊座",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/156/156-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/156/156-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "幽兰居士",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/156/156-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/156/156-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "一千零一夜",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/156/156-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/156/156-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "天堂福音",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/156/156-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/156/156-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "言灵之书",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/156/156-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/156/156-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "言灵之书"
+  },
+  {
+    "screen_name": "安琪拉",
+    "idstr": "10000050",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/142/142.jpg",
+    "wechatId": "anqila",
+    "featureSign": "萝莉身，御姐心",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "如懿",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/142/142-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/142/142-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "心灵骇客",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/142/142-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/142/142-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "魔法小厨娘",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/142/142-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/142/142-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "玩偶对对碰",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/142/142-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/142/142-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "暗夜萝莉",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/142/142-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/142/142-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "暗夜萝莉"
+  },
+  {
+    "screen_name": "高渐离",
+    "idstr": "10000051",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/115/115.jpg",
+    "wechatId": "gaojianli",
+    "featureSign": "动起来，鲜花会为你开",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "玩趣恶龙",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/115/115-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/115/115-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "死亡摇滚",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/115/115-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/115/115-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "金属狂潮",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/115/115-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/115/115-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "叛逆游吟",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/115/115-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/115/115-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "叛逆游吟"
+  },
+  {
+    "screen_name": "武则天",
+    "idstr": "10000052",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/136/136.jpg",
+    "wechatId": "wuzetian",
+    "featureSign": "普天之下莫非王土 做女人难做女帝更难....",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "倪克斯神谕",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/136/136-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/136/136-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "海洋之心",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/136/136-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/136/136-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "东方不败",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/136/136-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/136/136-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "女帝",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/136/136-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/136/136-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "女帝"
+  },
+  {
+    "screen_name": "甄姬",
+    "idstr": "10000053",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/127/127.jpg",
+    "wechatId": "zhenji",
+    "featureSign": "悲伤，逆流成河",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "幽恒",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/127/127-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/127/127-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "游园惊梦",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/127/127-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/127/127-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "花好人间",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/127/127-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/127/127-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "冰雪圆舞曲",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/127/127-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/127/127-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "洛神降临",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/127/127-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/127/127-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "洛神降临"
+  },
+  {
+    "screen_name": "姜子牙",
+    "idstr": "10000054",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/148/148.jpg",
+    "wechatId": "jiangziya",
+    "featureSign": "强者生，弱者死",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "炽热元素使",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/148/148-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/148/148-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "时尚教父",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/148/148-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/148/148-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "太古魔导",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/148/148-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/148/148-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "太古魔导"
+  },
+  {
+    "screen_name": "猪八戒",
+    "idstr": "10000055",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/511/511.jpg",
+    "wechatId": "zhubajie",
+    "featureSign": "心中乾坤在 地上有西瓜",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "年年有余",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/511/511-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/511/511-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "无忧猛士",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/511/511-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/511/511-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "无忧猛士"
+  },
+  {
+    "screen_name": "东皇太一",
+    "idstr": "10000056",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/187/187.jpg",
+    "wechatId": "donghuangtaiyi",
+    "featureSign": "比黑暗，更深沉的黑暗，辉映着永恒。",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "逐梦之光",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/187/187-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/187/187-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "东海龙王",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/187/187-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/187/187-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "噬灭日蚀",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/187/187-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/187/187-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "噬灭日蚀"
+  },
+  {
+    "screen_name": "太乙真人",
+    "idstr": "10000057",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/186/186.jpg",
+    "wechatId": "taiyizhenren",
+    "featureSign": "道生一，一生二！",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "华丽摇滚",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/186/186-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/186/186-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "饕餮",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/186/186-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/186/186-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "圆桌骑士",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/186/186-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/186/186-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "炼金大师",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/186/186-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/186/186-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "炼金大师"
+  },
+  {
+    "screen_name": "刘邦",
+    "idstr": "10000058",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/149/149.jpg",
+    "wechatId": "liubang",
+    "featureSign": "不客观的说，我是个好人",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "夺宝奇兵",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/149/149-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/149/149-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "德古拉伯爵",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/149/149-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/149/149-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "圣殿之光",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/149/149-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/149/149-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "双面君主",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/149/149-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/149/149-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "双面君主"
+  },
+  {
+    "screen_name": "张飞",
+    "idstr": "10000059",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/171/171.jpg",
+    "wechatId": "zhangfei",
+    "featureSign": "英雄就是比普通人更变态的变态",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "乱世虎臣",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/171/171-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/171/171-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "五福同心",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/171/171-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/171/171-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "禁血狂兽",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/171/171-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/171/171-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "禁血狂兽"
+  },
+  {
+    "screen_name": "牛魔",
+    "idstr": "10000060",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/168/168.jpg",
+    "wechatId": "niumo",
+    "featureSign": "牛气冲天，纯爷们",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "御旌",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/168/168-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/168/168-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "制霸全明星",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/168/168-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/168/168-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "西部大镖客",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/168/168-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/168/168-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "精英酋长",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/168/168-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/168/168-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "精英酋长"
+  },
+  {
+    "screen_name": "白起",
+    "idstr": "10000061",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/120/120.jpg",
+    "wechatId": "baiqi",
+    "featureSign": "血浓于血",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "星夜王子",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/120/120-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/120/120-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "狰",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/120/120-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/120/120-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "白色死神",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/120/120-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/120/120-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "最终兵器",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/120/120-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/120/120-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "最终兵器"
+  },
+  {
+    "screen_name": "刘禅",
+    "idstr": "10000062",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/114/114.jpg",
+    "wechatId": "liushan",
+    "featureSign": "蓉城小霸王，威力无穷",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "天才门将",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/114/114-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/114/114-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "绅士熊喵",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/114/114-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/114/114-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "英喵野望",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/114/114-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/114/114-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "暴走机关",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/114/114-smallskin-1.jpg.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/114/114-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "暴走机关"
+  },
+  {
+    "screen_name": "庄周",
+    "idstr": "10000063",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/113/113.jpg",
+    "wechatId": "zhuangzhou",
+    "featureSign": "蝴蝶是我，我就是蝴蝶",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "玄嵩",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/113/113-smallskin-6.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/113/113-bigskin-6.jpg"
+        }
+      },
+      {
+        "name": "奇妙博物学",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/113/113-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/113/113-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "云端筑梦师",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/113/113-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/113/113-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "蜃楼王",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/113/113-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/113/113-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "鲤鱼之梦",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/113/113-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/113/113-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "逍遥梦幻",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/113/113-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/113/113-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "逍遥梦幻"
+  },
+  {
+    "screen_name": "廉颇",
+    "idstr": "10000064",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/105/105.jpg",
+    "wechatId": "lianpo",
+    "featureSign": "要硬上吗，正合我意",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "地狱岩魂",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/105/105-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/105/105-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "正义爆轰",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/105/105-smallskin-1.jpg.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/105/105-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "正义爆轰"
+  },
+  {
+    "screen_name": "项羽",
+    "idstr": "10000065",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/135/135.jpg",
+    "wechatId": "xiangyu",
+    "featureSign": "天不容我，我必逆天",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "科学大爆炸",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/135/135-smallskin-7.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/135/135-bigskin-7.jpg"
+        }
+      },
+      {
+        "name": "霸王别姬",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/135/135-smallskin-6.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/135/135-bigskin-6.jpg"
+        }
+      },
+      {
+        "name": "职棒王牌",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/135/135-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/135/135-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "海滩派对",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/135/135-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/135/135-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "苍穹之光",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/135/135-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/135/135-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "帝国元帅",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/135/135-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/135/135-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "霸王",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/135/135-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/135/135-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "霸王防脱"
+  },
+  {
+    "screen_name": "元歌",
+    "idstr": "10000066",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/125/125.jpg",
+    "wechatId": "yuange",
+    "featureSign": "用头脑，而不是武力。",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "午夜歌剧院",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/125/125-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/125/125-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "无间傀儡",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/125/125-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/125/125-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "无间傀儡"
+  },
+  {
+    "screen_name": "百里玄策",
+    "idstr": "10000067",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/195/195.jpg",
+    "wechatId": "bailixuance",
+    "featureSign": "全场醒目担当！",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "白虎志",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/195/195-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/195/195-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "威尼斯狂欢",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/195/195-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/195/195-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "嚣狂之镰",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/195/195-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/195/195-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "嚣狂之镰"
+  },
+  {
+    "screen_name": "裴擒虎",
+    "idstr": "10000068",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/502/502.jpg",
+    "wechatId": "peiqinhu",
+    "featureSign": "会牵挂的叫亲人，会回去的是故乡",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "天狼狩猎者",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/502/502-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/502/502-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "梅西",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/502/502-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/502/502-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "街头旋风",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/502/502-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/502/502-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "六合虎拳",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/502/502-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/502/502-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "六合虎拳"
+  },
+  {
+    "screen_name": "百里守约",
+    "idstr": "10000069",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/196/196.jpg",
+    "wechatId": "bailishouyue",
+    "featureSign": "简单，但很极致；守约，言出必果。",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "朱雀志",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/196/196-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/196/196-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "特工魅影",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/196/196-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/196/196-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "绝影神枪",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/196/196-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/196/196-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "静谧之眼",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/196/196-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/196/196-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "静谧之眼"
+  },
+  {
+    "screen_name": "李白",
+    "idstr": "10000070",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/131/131.jpg",
+    "wechatId": "libai",
+    "featureSign": "可以赶尽，无法杀绝。",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "敏锐之力",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/131/131-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/131/131-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "凤求凰",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/131/131-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/131/131-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "千年之狐",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/131/131-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/131/131-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "范海辛",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/131/131-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/131/131-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "青莲剑仙",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/131/131-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/131/131-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "青莲剑仙"
+  },
+  {
+    "screen_name": "娜可露露",
+    "idstr": "10000071",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/162/162.jpg",
+    "wechatId": "nakelulu",
+    "featureSign": "ありがとう、ママハハ",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "晚萤",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/162/162-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/162/162-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "鹰之守护",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/162/162-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/162/162-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "鹰之守护"
+  },
+  {
+    "screen_name": "艾琳",
+    "idstr": "10000072",
+    "profile_image_url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584764149241&di=d449232dd6b524ec92c64b6b8e2280a7&imgtype=0&src=http%3A%2F%2Fn.sinaimg.cn%2Fsinacn10%2F404%2Fw592h612%2F20180410%2F5145-fyvtmxe8715392.jpg",
+    "wechatId": "ailin",
+    "featureSign": "记住，你的未来只能属于我",
+    "gender": 1,
+    "phones": [],
+    "pictures": [],
+    "remarks": "精灵之弓"
+  },
+  {
+    "screen_name": "兰陵王",
+    "idstr": "10000073",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/153/153.jpg",
+    "wechatId": "lanlingwang",
+    "featureSign": "我为黑暗服务",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "驯魔猎人",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/153/153-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/153/153-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "暗隐猎兽者",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/153/153-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/153/153-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "隐刃",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/153/153-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/153/153-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "暗影刀锋",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/153/153-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/153/153-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "暗影刀锋"
+  },
+  {
+    "screen_name": "阿珂",
+    "idstr": "10000074",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/116/116.jpg",
+    "wechatId": "ake",
+    "featureSign": "不知道你的名字，但清楚你的死期",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "迷踪丽影",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/116/116-smallskin-6.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/116/116-bigskin-6.jpg"
+        }
+      },
+      {
+        "name": "节奏热浪",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/116/116-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/116/116-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "致命风华",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/116/116-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/116/116-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "暗夜猫娘",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/116/116-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/116/116-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "爱心护理",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/116/116-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/116/116-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "信念之刃",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/116/116-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/116/116-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "信念之刃"
+  },
+  {
+    "screen_name": "伽罗",
+    "idstr": "10000075",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/508/508.jpg",
+    "wechatId": "jialuo",
+    "featureSign": "千窟唯佑，太平无忧",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "太华",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/508/508-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/508/508-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "箭羽风息",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/508/508-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/508/508-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "花见巫女",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/508/508-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/508/508-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "破魔之箭",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/508/508-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/508/508-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "破魔之箭"
+  },
+  {
+    "screen_name": "公孙离",
+    "idstr": "10000076",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/199/199.jpg",
+    "wechatId": "gongsunli",
+    "featureSign": "来如雷霆，大如江海",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "无限星赏官",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/199/199-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/199/199-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "蜜橘之夏",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/199/199-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/199/199-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "花间舞",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/199/199-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/199/199-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "幻舞玲珑",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/199/199-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/199/199-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "幻舞玲珑"
+  },
+  {
+    "screen_name": "黄忠",
+    "idstr": "10000077",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/192/192.jpg",
+    "wechatId": "huangzhong",
+    "featureSign": "老兵不死，只会逐渐凋零",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "芝加哥教父",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/192/192-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/192/192-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "燃魂重炮",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/192/192-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/192/192-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "燃魂重炮"
+  },
+  {
+    "screen_name": "成吉思汗",
+    "idstr": "10000078",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/177/177.jpg",
+    "wechatId": "chengjisihan",
+    "featureSign": "选择堕落为野兽吗",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "维京掠夺者",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/177/177-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/177/177-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "苍狼末裔",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/177/177-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/177/177-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "苍狼末裔"
+  },
+  {
+    "screen_name": "马可波罗",
+    "idstr": "10000079",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/132/132.jpg",
+    "wechatId": "makeboluo",
+    "featureSign": "世界那么大，我想来看看",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "逐梦之星",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/132/132-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/132/132-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "激情绿茵",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/132/132-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/132/132-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "远游之轮",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/132/132-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/132/132-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "远游之轮"
+  },
+  {
+    "screen_name": "虞姬",
+    "idstr": "10000080",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/174/174.jpg",
+    "wechatId": "yuji",
+    "featureSign": "风会带走你曾经存在过的证明。",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "云霓雀翎",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/174/174-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/174/174-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "凯尔特女王",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/174/174-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/174/174-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "霸王别姬",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/174/174-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/174/174-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "加勒比小姐",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/174/174-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/174/174-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "森之风灵",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/174/174-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/174/174-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "森之风灵"
+  },
+  {
+    "screen_name": "李元芳",
+    "idstr": "10000081",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/173/173.jpg",
+    "wechatId": "liyuanfang",
+    "featureSign": "秘密的密，探案的探。",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "银河之约",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/173/173-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/173/173-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "逐浪之夏",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/173/173-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/173/173-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "黑猫爱糖果",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/173/173-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/173/173-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "特种部队",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/173/173-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/173/173-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "王都密探",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/173/173-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/173/173-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "王都密探"
+  },
+  {
+    "screen_name": "后裔",
+    "idstr": "10000082",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/169/169.jpg",
+    "wechatId": "houyi",
+    "featureSign": "最光明，最黑暗",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "如梦令",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/169/169-smallskin-6.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/169/169-bigskin-6.jpg"
+        }
+      },
+      {
+        "name": "黄金射手座",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/169/169-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/169/169-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "辉光之辰",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/169/169-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/169/169-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "阿尔法小队",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/169/169-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/169/169-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "精灵王",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/169/169-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/169/169-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "半神之弓",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/169/169-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/169/169-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "半神之弓"
+  },
+  {
+    "screen_name": "狄仁杰",
+    "idstr": "10000083",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/133/133.jpg",
+    "wechatId": "direnjie",
+    "featureSign": "代表法律制裁你",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "鹰眼统帅",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/133/133-smallskin-6.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/133/133-bigskin-6.jpg"
+        }
+      },
+      {
+        "name": "阴阳师",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/133/133-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/133/133-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "超时空战士",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/133/133-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/133/133-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "魔术师",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/133/133-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/133/133-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "锦衣卫",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/133/133-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/133/133-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "断案大师",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/133/133-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/133/133-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "断案大师"
+  },
+  {
+    "screen_name": "孙尚香",
+    "idstr": "10000084",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/111/111.jpg",
+    "wechatId": "sunshangxiang",
+    "featureSign": "大小姐驾到，通通闪开！",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "沉稳之力",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/111/111-smallskin-7.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/111/111-bigskin-7.jpg"
+        }
+      },
+      {
+        "name": "末日机甲",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/111/111-smallskin-6.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/111/111-bigskin-6.jpg"
+        }
+      },
+      {
+        "name": "杀手不太冷",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/111/111-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/111/111-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "蔷薇恋人",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/111/111-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/111/111-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "水果甜心",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/111/111-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/111/111-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "火炮千金",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/111/111-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/111/111-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "千金重弩",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/111/111-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/111/111-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "千金重弩"
+  },
+  {
+    "screen_name": "鲁班七号",
+    "idstr": "10000085",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/112/112.jpg",
+    "wechatId": "lubanqihao",
+    "featureSign": "鲁班大师，智商二百五，膜拜，极度膜拜",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "黑桃队长",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/112/112-smallskin-7.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/112/112-bigskin-7.jpg"
+        }
+      },
+      {
+        "name": "狮舞东方",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/112/112-smallskin-6.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/112/112-bigskin-6.jpg"
+        }
+      },
+      {
+        "name": "星空梦想",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/112/112-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/112/112-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "电玩小子",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/112/112-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/112/112-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "福禄兄弟",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/112/112-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/112/112-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "木偶奇遇记",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/112/112-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/112/112-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "机关造物",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/112/112-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/112/112-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "机关造物"
+  },
+  {
+    "screen_name": "瑶",
+    "idstr": "10000086",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/505/505.jpg",
+    "wechatId": "yaosen",
+    "featureSign": "神在白天做梦，太阳从西边升起",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "森",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/505/505-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/505/505-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "鹿灵守心",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/505/505-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/505/505-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "鹿灵守心"
+  },
+  {
+    "screen_name": "盾山",
+    "idstr": "10000087",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/509/509.jpg",
+    "wechatId": "dunshan",
+    "featureSign": "***** *****",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "御銮",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/509/509-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/509/509-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "极冰防御线",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/509/509-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/509/509-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "无尽之盾",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/509/509-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/509/509-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "无尽之盾"
+  },
+  {
+    "screen_name": "明世隐",
+    "idstr": "10000088",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/501/501.jpg",
+    "wechatId": "mingshiyin",
+    "featureSign": "花如盛世绽放，以人心培育",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "疑决卦",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/501/501-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/501/501-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "虹云星官",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/501/501-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/501/501-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "占星师",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/501/501-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/501/501-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "灵魂劫卜",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/501/501-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/501/501-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "灵魂劫卜"
+  },
+  {
+    "screen_name": "鬼谷子",
+    "idstr": "10000089",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/189/189.jpg",
+    "wechatId": "guiguzi",
+    "featureSign": "挥舞太危险的武器，小心被他吞掉人生哦！",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "幻乐之宴",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/189/189-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/189/189-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "阿摩司公爵",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/189/189-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/189/189-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "万物有灵",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/189/189-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/189/189-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "万物有灵"
+  },
+  {
+    "screen_name": "大乔",
+    "idstr": "10000090",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/191/191.jpg",
+    "wechatId": "daqiao",
+    "featureSign": "完美，是最无情的禁锢！",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "白蛇",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/191/191-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/191/191-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "猫狗日记",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/191/191-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/191/191-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "守护之力",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/191/191-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/191/191-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "伊势巫女",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/191/191-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/191/191-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "沧海之曜",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/191/191-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/191/191-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "沧海之曜"
+  },
+  {
+    "screen_name": "蔡文姬",
+    "idstr": "10000091",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/184/184.jpg",
+    "wechatId": "caiwenji",
+    "featureSign": "左三圈~右三圈~扭一扭转一转~人家也作萝莉控~",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "繁星吟游",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/184/184-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/184/184-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "舞动绿茵",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/184/184-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/184/184-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "奇迹圣诞",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/184/184-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/184/184-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "蔷薇王座",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/184/184-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/184/184-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "天籁弦音",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/184/184-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/184/184-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "天籁弦音"
+  },
+  {
+    "screen_name": "嬴政",
+    "idstr": "10000092",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/110/110.jpg",
+    "wechatId": "yingzheng",
+    "featureSign": "天上天下，唯朕独尊",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "白昼王子",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/110/110-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/110/110-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "优雅恋人",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/110/110-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/110/110-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "暗夜贵公子",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/110/110-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/110/110-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "摇滚巨星",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/110/110-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/110/110-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "王者独尊",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/110/110-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/110/110-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "王者独尊"
+  },
+  {
+    "screen_name": "妲己",
+    "idstr": "10000093",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/109/109.jpg",
+    "wechatId": "daji",
+    "featureSign": "为什么会痛苦，一直微笑就好了",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "时之彼端",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/109/109-smallskin-7.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/109/109-bigskin-7.jpg"
+        }
+      },
+      {
+        "name": "热情桑巴",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/109/109-smallskin-6.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/109/109-bigskin-6.jpg"
+        }
+      },
+      {
+        "name": "少女阿狸",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/109/109-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/109/109-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "仙境爱丽丝",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/109/109-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/109/109-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "魅力维加斯",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/109/109-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/109/109-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "女仆咖啡",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/109/109-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/109/109-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "魅力之狐",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/109/109-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/109/109-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "魅力之狐"
+  },
+  {
+    "screen_name": "扁鹊",
+    "idstr": "10000094",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/119/119.jpg",
+    "wechatId": "bianque",
+    "featureSign": "命不是廉价品，治疗很昂贵",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "炼金王",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/119/119-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/119/119-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "化身博士",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/119/119-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/119/119-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "救世之瞳",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/119/119-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/119/119-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "善恶怪医",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/119/119-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/119/119-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "善恶怪医"
+  },
+  {
+    "screen_name": "小乔",
+    "idstr": "10000095",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/106/106.jpg",
+    "wechatId": "xiaoqiao",
+    "featureSign": "恋爱可是门高深莫测的学问",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "青蛇",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/106/106-smallskin-7.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/106/106-bigskin-7.jpg"
+        }
+      },
+      {
+        "name": "丁香结",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/106/106-smallskin-6.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/106/106-bigskin-6.jpg"
+        }
+      },
+      {
+        "name": "缤纷独角兽",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/106/106-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/106/106-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "纯白花嫁",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/106/106-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/106/106-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "天鹅之梦",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/106/106-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/106/106-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "万圣前夜",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/106/106-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/106/106-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "恋之微风",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/106/106-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/106/106-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "恋之微风"
+  },
+  {
+    "screen_name": "王昭君",
+    "idstr": "10000096",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/152/152.jpg",
+    "wechatId": "wangzhaojun",
+    "featureSign": "凛冬已至，故乡的梅花开了吗？",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "幻想奇妙夜",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/152/152-smallskin-5.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/152/152-bigskin-5.jpg"
+        }
+      },
+      {
+        "name": "凤凰于飞",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/152/152-smallskin-4.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/152/152-bigskin-4.jpg"
+        }
+      },
+      {
+        "name": "偶像歌手",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/152/152-smallskin-3.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/152/152-bigskin-3.jpg"
+        }
+      },
+      {
+        "name": "精灵公主",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/152/152-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/152/152-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "冰雪之华",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/152/152-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/152/152-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "冰雪之华"
+  },
+  {
+    "screen_name": "鲁班大师",
+    "idstr": "10000097",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/525/525.jpg",
+    "wechatId": "lubandashi",
+    "featureSign": "你的无知，无边无际",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "归虚梦演",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/525/525-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/525/525-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "神匠",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/525/525-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/525/525-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "神匠"
+  },
+  {
+    "screen_name": "蒙犽",
+    "idstr": "10000098",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/524/524.jpg",
+    "wechatId": "mengya",
+    "featureSign": "情绪调配，火力翻倍",
+    "gender": 0,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "归虚梦演",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/524/524-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/524/524-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "烈炮小子",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/524/524-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/524/524-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "烈炮小子"
+  },
+  {
+    "screen_name": "镜",
+    "idstr": "10000099",
+    "profile_image_url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/531/531.jpg",
+    "wechatId": "jing",
+    "featureSign": "不要忘记不该忘的事，不要记住不该记的人。",
+    "gender": 1,
+    "phones": [],
+    "pictures": [
+      {
+        "name": "冰刃幻境",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/531/531-smallskin-2.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/531/531-bigskin-2.jpg"
+        }
+      },
+      {
+        "name": "破镜之刃",
+        "small": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/heroimg/531/531-smallskin-1.jpg"
+        },
+        "big": {
+          "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/531/531-bigskin-1.jpg"
+        }
+      }
+    ],
+    "remarks": "破镜之刃"
+  }
+]

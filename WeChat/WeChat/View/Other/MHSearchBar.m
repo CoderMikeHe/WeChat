@@ -33,7 +33,7 @@
     self.placeholder = @"搜索";
     self.barStyle = UIBarStyleDefault;
     self.barTintColor = MH_MAIN_BACKGROUNDCOLOR;
-    self.tintColor = [UIColor colorWithRed:0 green:(190 / 255.0) blue:(12 / 255.0) alpha:1];
+    self.tintColor = WXGlobalPrimaryTintColor;
     UIImageView *view = [[[self.subviews objectAtIndex:0] subviews] firstObject];
     view.layer.borderColor = MHColorFromHexString(@"#DFDFDD").CGColor;
     view.layer.borderWidth = 1;
