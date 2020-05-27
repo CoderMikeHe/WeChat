@@ -60,10 +60,19 @@
     }];
     
     /// 弹出搜索页或者隐藏搜索页的回调  以及侧滑搜索页回调
-    self.popCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSNumber *input) {
+    self.popCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         @strongify(self);
-        self.searchState = input.integerValue;
-        return [RACSignal empty];
+        if ([input isKindOfClass:NSNumber.class]) {
+            NSNumber *value = (NSNumber *)input;
+            self.searchState = value.integerValue;
+        } else {
+            NSDictionary *dict = (NSDictionary *)input;
+            MHSearchPopState state = [dict[@"state"] integerValue];
+            if (state == MHSearchPopStateCompleted && self.searchState == MHNavSearchBarStateSearch) {
+                self.searchState = MHNavSearchBarStateDefault;
+            }
+        }
+        return [RACSignal return:input];
     }];
     
     // 赋值数据

@@ -18,6 +18,11 @@
 #import "MHContactsHeaderView.h"
 #import "UITableView+SCIndexView.h"
 #import "MHNavSearchBar.h"
+
+/// 侧滑最大偏移量
+static CGFloat const MHSlideOffsetMaxWidth = 56;
+
+
 @interface MHContactsViewController ()
 /// viewModel
 @property (nonatomic, readonly, strong) MHContactsViewModel *viewModel;
@@ -37,8 +42,8 @@
 /// searchController
 @property (nonatomic, readwrite, strong) MHSearchViewController *searchController;
 
-/// isEdit
-@property (nonatomic, readwrite, assign) BOOL isEdit;
+/// 获取截图
+@property (nonatomic, readwrite, weak) UIView *snapshotView;
 
 @end
 
@@ -144,16 +149,17 @@
             
             // 清除掉tableHeaderView 会导致其 16px = 24 + 56 - 64 像素被遮住
             self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MH_SCREEN_WIDTH, 16)];
-  
             // 将其添加到self.view
             [self.view addSubview:self.searchBar];
             self.searchBar.mh_y = MH_APPLICATION_TOP_BAR_HEIGHT;
     
             [self.view bringSubviewToFront:self.searchController.view];
             searchViewY = MH_APPLICATION_STATUS_BAR_HEIGHT + 4.0 + 56.0;
-            
         } else {
-            
+            if (self.snapshotView) {
+                [self.snapshotView removeFromSuperview];
+                self.snapshotView = nil;
+            }
             self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MH_SCREEN_WIDTH, 56)];
             [self.view sendSubviewToBack:self.searchController.view];
         }
@@ -173,7 +179,6 @@
         // 更新布局
         [UIView animateWithDuration:0.25 animations:^{
             [self.view layoutIfNeeded];
-            
             self.searchController.view.alpha = (searchState == MHNavSearchBarStateSearch) ? 1.0 : .0;
             
             // 动画
@@ -181,14 +186,46 @@
             
         } completion:^(BOOL finished) {
             
-            if((searchState != MHNavSearchBarStateSearch)) {
+            if((searchState == MHNavSearchBarStateDefault)) {
                 // 退出编辑场景下 从 self.view 身上移掉
                 [self.searchBar removeFromSuperview];
                 // 添加到tableHeaderView
                 self.tableView.tableHeaderView = self.searchBar;
+            }else {
+                /// 获取缩略图
+                // 立即获得当前self.tableView 的屏幕快照
+                UIView *snapshotView = [self.tableView snapshotViewAfterScreenUpdates:NO];
+                snapshotView.frame = self.view.bounds;
+                self.snapshotView = snapshotView;
+                [self.view insertSubview:snapshotView belowSubview:self.searchBar];
+                snapshotView.mh_x = -MHSlideOffsetMaxWidth;
             }
+            
             self.view.userInteractionEnabled = true;
         }];
+    }];
+    
+    
+    /// 监听popMoreCommand 回调
+    [self.viewModel.popCommand.executionSignals.switchToLatest subscribeNext:^(NSDictionary *dict) {
+        @strongify(self);
+        
+        if ([dict isKindOfClass:NSNumber.class]) {
+            return;
+        }
+        
+        MHSearchPopState state = [dict[@"state"] integerValue];
+        CGFloat progress = [dict[@"progress"] floatValue];
+        
+        if (state == MHSearchPopStateBegan || state == MHSearchPopStateChanged) {
+            self.snapshotView.mh_x = -MHSlideOffsetMaxWidth + progress * MHSlideOffsetMaxWidth;
+        }else if (state == MHSearchPopStateEnded) {
+            // 归位
+            [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+               self.snapshotView.mh_x = -MHSlideOffsetMaxWidth + 1 * progress * MHSlideOffsetMaxWidth;
+            } completion:^(BOOL finished) {
+            }];
+        }
     }];
 }
 
