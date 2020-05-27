@@ -57,28 +57,28 @@
 
 - 本`Demo`利用`Cocoapods`管理第三方框架，若第一次使用本项目，请使用终端`cd`到`Podfile`所在的文件夹中，如下图所示，然后执行下面两条命令即可，（PS：若你已经更新了本地仓库了，那么`pod repo update`不用执行，直接`pod install`即可）。
 
-      	![Usage.png](https://github.com/CoderMikeHe/WeChat/blob/master/WeChat/SnapShot/CocopodsUsage.png)
+  ![Usage.png](https://github.com/CoderMikeHe/WeChat/blob/master/WeChat/SnapShot/CocopodsUsage.png)
 
-      	```
-      	1. pod repo update : 更新本地仓库
-      	2. pod install : 下载新的库
-      	```
+  ```
+  1. pod repo update : 更新本地仓库
+  2. pod install : 下载新的库
+  ```
 
 - 如果你升级了 Mac 的系统时，并且当你的 Mac 系统升级为`high sierra`的时候，别忘记更新`cocoapods`。执行命令为：
 
-      	```
-      	$ sudo gem update --system
-      	$ sudo gem install cocoapods -n/usr/local/bin
-      	```
+  ```
+  $ sudo gem update --system
+  $ sudo gem install cocoapods -n/usr/local/bin
+  ```
 
 - 本项目登录或注册，只支持`QQ账号`和`手机号`的登录或注册，必须保证`QQ`或`手机号`的有效性。密码或者验证码可以随便输入，但必须是：密码长度需要保证在`8~16`位，手机验证码必须保证是`6位有效数字`。
 
 * 分支策略
 
-      	```
-      	master: 各个功能完整，且稳定，出现Bug优先处理
-      	dev: 笔者的开发分支，意识流且不稳定，但知识或技术会超前 master 分支，按需加载。
-      	```
+  ```
+  master: 各个功能完整，且稳定，出现Bug优先处理
+  dev: 笔者的开发分支，意识流且不稳定，但知识或技术会超前 master 分支，按需加载。
+  ```
 
 ---
 

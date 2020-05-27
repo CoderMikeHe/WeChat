@@ -33,4 +33,7 @@
 /// 搜索状态
 @property (nonatomic, readonly, assign) MHNavSearchBarState searchState;
 
+/// 弹出/消失 搜索内容页 回调
+@property (nonatomic, readonly, strong) RACCommand *popCommand;
+
 @end
