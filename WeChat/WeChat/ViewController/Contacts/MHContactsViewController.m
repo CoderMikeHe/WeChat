@@ -264,7 +264,6 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-
     /// 刷新headerColor
     [self _reloadHeaderViewColor];
 }
@@ -279,11 +278,12 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
 - (nullable UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath  API_AVAILABLE(ios(11.0)){
     
     UIContextualAction *remarkAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleNormal title:@"备注" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
-    
         sourceView.backgroundColor = MHColorFromHexString(@"#4c4c4c");
+        sourceView.superview.backgroundColor = MHColorFromHexString(@"#4c4c4c");
         // Fixed Bug: 延迟一丢丢去设置 不然无效 点击需要设置颜色 不然会被重置
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.001 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             sourceView.backgroundColor = MHColorFromHexString(@"#4c4c4c");
+            sourceView.superview.backgroundColor = MHColorFromHexString(@"#4c4c4c");
         });
         
         completionHandler(YES);
@@ -296,8 +296,18 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
 
 /// 修改侧滑出来的按钮的背景色 👉 https://www.jianshu.com/p/aa6ff5d9f965
 - (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    /// 注意低版本的Xcode中 不一定是 `_UITableViewCellSwipeContainerView+UISwipeActionPullView+UISwipeActionStandardButton` 而是 `UISwipeActionPullView+UISwipeActionStandardButton`
+    
     for (UIView *subView in tableView.subviews) {
-        if ([subView isKindOfClass:NSClassFromString(@"_UITableViewCellSwipeContainerView")]) {
+        if ([subView isKindOfClass:NSClassFromString(@"UISwipeActionPullView")]) {
+            subView.backgroundColor = MHColorFromHexString(@"#4c4c4c");
+            for (UIButton *button in subView.subviews) {
+                if ([button isKindOfClass:NSClassFromString(@"UISwipeActionStandardButton")]) {
+                    // 修改背景色
+                    button.backgroundColor = MHColorFromHexString(@"#4c4c4c");
+                }
+            }
+        } else if ([subView isKindOfClass:NSClassFromString(@"_UITableViewCellSwipeContainerView")]) {
             for (UIView *childView in subView.subviews) {
                 if ([childView isKindOfClass:NSClassFromString(@"UISwipeActionPullView")]) {
                     childView.backgroundColor = MHColorFromHexString(@"#4c4c4c");
