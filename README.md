@@ -106,6 +106,7 @@
 - [iOS 基于 MVVM + RAC + ViewModel-Based Navigation 的微信开发（二）](http://www.jianshu.com/p/8c35fc02f47b)
 - [iOS 基于 MVVM 设计模式的微信朋友圈开发](https://www.jianshu.com/p/2f161f6a310f)
 - [iOS 实现微信朋友圈的最优方案参照](https://www.jianshu.com/p/395bac3648a7)
+- [iOS 玩转微信——通讯录](https://www.jianshu.com/p/7c2d74675808)
 
 ---
 
