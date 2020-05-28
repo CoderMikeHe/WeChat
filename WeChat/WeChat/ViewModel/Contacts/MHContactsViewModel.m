@@ -47,6 +47,12 @@
     
     self.title = @"通讯录";
     
+    // iOS 原生汉子转拼音 👍
+//    CFMutableStringRef string = CFStringCreateMutableCopy(NULL, 0, CFSTR("芈月"));
+//    CFStringTransform(string, NULL, kCFStringTransformMandarinLatin, NO);
+//    CFStringTransform(string, NULL, kCFStringTransformStripDiacritics, NO);
+//    NSLog(@"Input PinYin %@", string);
+    
     /// 隐藏导航栏
     self.prefersNavigationBarHidden = YES;
     self.prefersNavigationBarBottomLineHidden = YES;
@@ -151,10 +157,7 @@
     
     // 已经排好序的数据
     NSMutableArray *letters = [tempDict.allKeys sortedArrayUsingComparator: comparator].mutableCopy;
-    
-    
     NSMutableArray *viewModels = [NSMutableArray array];
-    
     /// 遍历数据
     for (NSString *letter in letters) {
         // 存储相同首字母 对象
@@ -175,9 +178,6 @@
     MHContactsItemViewModel *groups = [[MHContactsItemViewModel alloc] initWithIcon:@"add_friend_icon_addgroup_36x36" name:@"群聊"];
     MHContactsItemViewModel *tags = [[MHContactsItemViewModel alloc] initWithIcon:@"Contact_icon_ContactTag_36x36" name:@"标签"];
     MHContactsItemViewModel *officals = [[MHContactsItemViewModel alloc] initWithIcon:@"add_friend_icon_offical_36x36" name:@"公众号"];
-
-    
-    
     // 插入到第一个位置
     [viewModels insertObject:@[friends,groups,tags,officals] atIndex:0];
     

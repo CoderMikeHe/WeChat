@@ -310,8 +310,7 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
         if (progress <= 0.5) {
             /// 数据回调出去
             NSDictionary *dict = @{@"state": @(MHSearchPopStateEnded), @"progress": @0};
-            [self.viewModel.popCommand execute: dict];
-            // 归位
+            [self.viewModel.popCommand execute: dict];            // 归位
             [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 recognizer.view.mh_x = 0;
             } completion:^(BOOL finished) {
