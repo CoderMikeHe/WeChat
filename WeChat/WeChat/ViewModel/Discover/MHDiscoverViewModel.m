@@ -40,103 +40,64 @@
     /// 第一组
     MHCommonGroupViewModel *group0 = [MHCommonGroupViewModel groupViewModel];
     /// 盆友圈
-    MHCommonArrowItemViewModel *moment = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"朋友圈" icon:@"ff_IconShowAlbum_25x25"];
+    MHCommonArrowItemViewModel *moment = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"朋友圈" icon:@"icons_outlined_colorful_moment.svg" svg:YES];
     moment.destViewModelClass = [MHMomentViewModel class];
     group0.itemViewModels = @[moment];
     
     /// 第二组
     MHCommonGroupViewModel *group1 = [MHCommonGroupViewModel groupViewModel];
-    /// 扫一扫
-    MHCommonArrowItemViewModel *qrCode = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"扫一扫" icon:@"ff_IconQRCode_25x25"];
-    /// 摇一摇
-    MHCommonArrowItemViewModel *shake = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"摇一摇" icon:@"ff_IconShake_25x25"];
-    group1.itemViewModels = @[qrCode , shake];
+    /// 视频号
+    MHCommonArrowItemViewModel *finder = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"视频号" icon:@"icons_outlined_finder.svg" svg:YES];
+    finder.destViewModelClass = [MHMomentViewModel class];
+    group1.itemViewModels = @[finder];
+    
     
     /// 第三组
     MHCommonGroupViewModel *group2 = [MHCommonGroupViewModel groupViewModel];
-    /// 附近的人
-    MHCommonArrowItemViewModel *locationService = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"附近的人" icon:@"ff_IconLocationService_25x25"];
-    /// 漂流瓶
-    MHCommonArrowItemViewModel *bottle = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"漂流瓶" icon:@"ff_IconBottle_25x25"];
-    group2.itemViewModels = @[locationService , bottle];
+    /// 扫一扫
+    MHCommonArrowItemViewModel *qrCode = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"扫一扫" icon:@"scan_history_msg.svg" svg:YES];
+    /// 摇一摇
+    MHCommonArrowItemViewModel *shake = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"摇一摇" icon:@"icons_outlined_shake.svg" svg:YES];
+    shake.svgTintColor = MHColorFromHexString(@"#1485EE");
+    group2.itemViewModels = @[qrCode , shake];
+    
     
     /// 第四组
     MHCommonGroupViewModel *group3 = [MHCommonGroupViewModel groupViewModel];
-    /// 购物
-    MHCommonArrowItemViewModel *shopping = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"购物" icon:@"CreditCard_ShoppingBag_25x25"];
-    /// 游戏
-    MHCommonArrowItemViewModel *game = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"游戏" icon:@"MoreGame_25x25"];
-    group3.itemViewModels = @[shopping , game];
+    /// 看一看
+    MHCommonArrowItemViewModel *look = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"看一看" icon:@"icons_outlined_news.svg" svg:YES];
+    look.svgTintColor = MHColorFromHexString(@"#F6C543");
+    /// 搜一搜
+    MHCommonArrowItemViewModel *search = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"搜一搜" icon:@"icons_outlined_search-logo.svg" svg:YES];
+    search.svgTintColor = MHColorFromHexString(@"#FA5151");
+    group3.itemViewModels = @[look , search];
+    
     
     /// 第五组
     MHCommonGroupViewModel *group4 = [MHCommonGroupViewModel groupViewModel];
+    /// 附近的人
+    MHCommonArrowItemViewModel *locationService = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"附近的人" icon:@"icons_outlined_nearby.svg" svg:YES];
+    locationService.svgTintColor = MHColorFromHexString(@"#1485EE");
+    group4.itemViewModels = @[locationService];
+    
+    
+    
+    /// 第六组
+    MHCommonGroupViewModel *group5 = [MHCommonGroupViewModel groupViewModel];
+    /// 购物
+    MHCommonArrowItemViewModel *shopping = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"购物" icon:@"icons_outlined_shop.svg" svg:YES];
+    shopping.svgTintColor = MHColorFromHexString(@"#FA5151");
+    /// 游戏
+    MHCommonArrowItemViewModel *game = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"游戏" icon:@"icons_outlined_colorful_game.svg" svg:YES];
+    group5.itemViewModels = @[shopping , game];
+    
+    /// 第七组
+    MHCommonGroupViewModel *group6 = [MHCommonGroupViewModel groupViewModel];
     /// 小程序
-    MHCommonArrowItemViewModel *moreApps = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"小程序" icon:@"MoreWeApp_25x25"];
-    group4.itemViewModels = @[moreApps];
+    MHCommonArrowItemViewModel *moreApps = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"小程序" icon:@"icons_outlined_miniprogram.svg" svg:YES];
+    moreApps.svgTintColor = MHColorFromHexString(@"#6467e8");
+    group6.itemViewModels = @[moreApps];
     
-    /// 插件功能
-    NSMutableArray *group5s = [NSMutableArray arrayWithCapacity:2];
-    /// 看一看
-    if ([MHPreferenceSettingHelper boolForKey:MHPreferenceSettingLook]) {
-        MHCommonArrowItemViewModel *look= [MHCommonArrowItemViewModel itemViewModelWithTitle:@"看一看" icon:@"ff_IconBrowse1_25x25"];
-        look.centerLeftViewName = [MHPreferenceSettingHelper boolForKey:MHPreferenceSettingLookArtboard]?@"Artboard23_38x18":nil;;
-        [group5s addObject:look];
-        @weakify(look);
-        look.operation = ^{
-            @strongify(self);
-            @strongify(look);
-            NSURL *url = [NSURL URLWithString:MHMyBlogHomepageUrl];
-            NSURLRequest *request = [NSURLRequest requestWithURL:url];
-            MHWebViewModel * webViewModel = [[MHWebViewModel alloc] initWithServices:self.services params:@{MHViewModelRequestKey:request}];
-            /// 去掉关闭按钮
-            webViewModel.shouldDisableWebViewClose = YES;
-            [self.services pushViewModel:webViewModel animated:YES];
-            
-            if (look.centerLeftViewName) {
-                look.centerLeftViewName = nil;
-                [MHPreferenceSettingHelper setBool:NO forKey:MHPreferenceSettingLookArtboard];
-                // “手动触发self.dataSource的KVO”，必写。
-                [self willChangeValueForKey:@"dataSource"];
-                // “手动触发self.now的KVO”，必写。
-                [self didChangeValueForKey:@"dataSource"];
-            }
-        };
-    }
-    /// 搜一搜
-    if ([MHPreferenceSettingHelper boolForKey:MHPreferenceSettingSearch]) {
-        MHCommonArrowItemViewModel *search = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"搜一搜" icon:@"ff_IconSearch1_25x25"];
-        search.centerLeftViewName = [MHPreferenceSettingHelper boolForKey:MHPreferenceSettingSearchArtboard]?@"Artboard23_38x18":nil;
-        [group5s addObject:search];
-        @weakify(search);
-        search.operation = ^{
-            @strongify(self);
-            @strongify(search);
-            NSURL *url = [NSURL URLWithString:MHMyBlogHomepageUrl];
-            NSURLRequest *request = [NSURLRequest requestWithURL:url];
-            MHWebViewModel * webViewModel = [[MHWebViewModel alloc] initWithServices:self.services params:@{MHViewModelRequestKey:request}];
-            /// 去掉关闭按钮
-            webViewModel.shouldDisableWebViewClose = YES;
-            [self.services pushViewModel:webViewModel animated:YES];
-            
-            if (search.centerLeftViewName) {
-                search.centerLeftViewName = nil;
-                [MHPreferenceSettingHelper setBool:NO forKey:MHPreferenceSettingSearchArtboard];
-                // “手动触发self.dataSource的KVO”，必写。
-                [self willChangeValueForKey:@"dataSource"];
-                // “手动触发self.now的KVO”，必写。
-                [self didChangeValueForKey:@"dataSource"];
-            }
-        };
-    }
-    
-    
-    
-    if (group5s.count>0) {
-        MHCommonGroupViewModel *group5 = [MHCommonGroupViewModel groupViewModel];
-        group5.itemViewModels = [group5s copy];
-        self.dataSource = @[group0 , group1 ,group5 , group2 , group3 , group4];
-    }else{
-        self.dataSource = @[group0 , group1 , group2 , group3 , group4];
-    }
+    self.dataSource = @[group0 ,group1 , group2 , group3 , group4, group5, group6];
 }
 @end

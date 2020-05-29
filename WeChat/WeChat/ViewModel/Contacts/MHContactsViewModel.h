@@ -9,7 +9,6 @@
 #import "MHTableViewModel.h"
 #import "MHContactsItemViewModel.h"
 #import "MHNavSearchBarViewModel.h"
-
 #import "MHSearchViewModel.h"
 
 @interface MHContactsViewModel : MHTableViewModel

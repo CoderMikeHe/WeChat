@@ -194,7 +194,7 @@ _Pragma("clang diagnostic pop")\
 /// 整个应用的视图的背景色 BackgroundColor
 #define MH_MAIN_BACKGROUNDCOLOR [UIColor colorFromHexString:@"#EDEDED"]
 /// 整个应用的分割线颜色
-#define MH_MAIN_LINE_COLOR_1 [UIColor colorFromHexString:@"#D9D8D9"]
+#define MH_MAIN_LINE_COLOR_1 [UIColor colorFromHexString:@"#e6e6e6"]
 
 /// 文字颜色
 /// #56585f

@@ -91,28 +91,31 @@
     
     /// 第一组
     MHCommonGroupViewModel *group1 = [MHCommonGroupViewModel groupViewModel];
-    /// 钱包
-    MHCommonArrowItemViewModel *wallet = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"钱包" icon:@"MoreMyBankCard_25x25"];
+    /// 支付
+    MHCommonArrowItemViewModel *pay = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"支付" icon:@"icons_outlined_wechatpay.svg" svg:YES];
     /// 设置组头高度
-    group1.itemViewModels = @[wallet];
+    group1.itemViewModels = @[pay];
     
     /// 第二组
     MHCommonGroupViewModel *group2 = [MHCommonGroupViewModel groupViewModel];
     /// 收藏
-    MHCommonArrowItemViewModel *collect = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"收藏" icon:@"MoreMyFavorites_25x25"];
+    MHCommonArrowItemViewModel *collect = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"收藏" icon:@"icons_outlined_colorful_favorites.svg" svg:YES];
     /// 相册
-    MHCommonArrowItemViewModel *album = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"相册" icon:@"MoreMyAlbum_25x25"];
+    MHCommonArrowItemViewModel *album = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"相册" icon:@"icons_outlined_album.svg" svg:YES];
+    album.svgTintColor = MHColorFromHexString(@"#1485EE");
     /// 卡包
-    MHCommonArrowItemViewModel *cardPackage = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"卡包" icon:@"MyCardPackageIcon_25x25"];
+    MHCommonArrowItemViewModel *cardPackage = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"卡包" icon:@"icons_outlined_colorful_cards.svg" svg:YES];
     /// 表情
-    MHCommonArrowItemViewModel *expression = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"表情" icon:@"MoreExpressionShops_25x25"];
+    MHCommonArrowItemViewModel *expression = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"表情" icon:@"icons_outlined_sticker.svg" svg:YES];
     expression.destViewModelClass = [MHEmotionViewModel class];
+    expression.svgTintColor = MHColorFromHexString(@"#F6C543");
     group2.itemViewModels = @[collect, album, cardPackage,expression];
     
     /// 第三组
     MHCommonGroupViewModel *group3 = [MHCommonGroupViewModel groupViewModel];
     /// 设置
-    MHCommonArrowItemViewModel *setting = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"设置" icon:@"MoreSetting_25x25"];
+    MHCommonArrowItemViewModel *setting = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"设置" icon:@"icons_outlined_setting.svg" svg:YES];
+    setting.svgTintColor = MHColorFromHexString(@"#1485EE");
     setting.destViewModelClass = [MHSettingViewModel class];
     
 #if defined(DEBUG)||defined(_DEBUG)

@@ -45,6 +45,10 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
 /// 获取截图
 @property (nonatomic, readwrite, weak) UIView *snapshotView;
 
+/// 开始拖拽的偏移量
+@property (nonatomic, readwrite, assign) CGFloat startDragOffsetY;
+/// 结束拖拽的偏移量
+@property (nonatomic, readwrite, assign) CGFloat endDragOffsetY;
 @end
 
 @implementation MHContactsViewController
@@ -111,7 +115,25 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
     [headerView configColorWithProgress:progress];
 }
 
-
+/// 处理搜索框显示偏移
+- (void)_handleSearchBarOffset:(UIScrollView *)scrollView {
+    // 获取当前偏移量
+    CGFloat offsetY = scrollView.contentOffset.y;
+    CGFloat searchBarH = 56.0f;
+    /// 在这个范围内
+    if (offsetY > -scrollView.contentInset.top && offsetY < (-scrollView.contentInset.top + searchBarH)) {
+        // 判断上下拉
+        if (self.endDragOffsetY > self.startDragOffsetY) {
+            // 上拉 隐藏
+            CGPoint offset = CGPointMake(0, -scrollView.contentInset.top + searchBarH);
+            [self.tableView setContentOffset:offset animated:YES];
+        } else {
+            // 下拉 显示
+            CGPoint offset = CGPointMake(0, -scrollView.contentInset.top);
+            [self.tableView setContentOffset:offset animated:YES];
+        }
+    }
+}
 #pragma mark - Override
 - (void)bindViewModel {
     [super bindViewModel];
@@ -268,6 +290,28 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
     [self _reloadHeaderViewColor];
 }
 
+/// 细节处理：
+/// 由于要弹出 搜索模块，所以要保证滚动到最顶部时，要确保搜索框完全显示或者完全隐藏，
+/// 不然会导致弹出搜索模块,然后收回搜索模块，会导致动画不流畅，影响体验，微信做法也是如此
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    /// 注意：这个方法不一定调用 当你缓慢拖动的时候是不会调用的
+    [self _handleSearchBarOffset:scrollView];
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    // 记录刚开始拖拽的值
+    self.startDragOffsetY = scrollView.contentOffset.y;
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    // 记录刚开始拖拽的值
+    self.endDragOffsetY = scrollView.contentOffset.y;
+    // decelerate: YES 说明还有速度或者说惯性，会继续滚动 停止时调用scrollViewDidEndDecelerating
+    // decelerate: NO  说明是很慢的拖拽，没有惯性，不会调用 scrollViewDidEndDecelerating
+    if (!decelerate) {
+        [self _handleSearchBarOffset:scrollView];
+    }
+}
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {

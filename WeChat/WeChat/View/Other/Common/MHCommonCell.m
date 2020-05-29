@@ -82,7 +82,24 @@
     
     self.selectionStyle = viewModel.selectionStyle;
     self.textLabel.text = viewModel.title;
-    self.imageView.image = (MHStringIsNotEmpty(viewModel.icon))?MHImageNamed(viewModel.icon):nil;
+ 
+    
+    /// 增加svg 逻辑
+    if (MHStringIsNotEmpty(viewModel.icon)) {
+        if (viewModel.isSvg) {
+            if (viewModel.svgTintColor) {
+                self.imageView.image = [UIImage mh_svgImageNamed:viewModel.icon targetSize:viewModel.svgSize tintColor:viewModel.svgTintColor];
+            }else {
+                self.imageView.image = [UIImage mh_svgImageNamed:viewModel.icon targetSize:viewModel.svgSize];
+            }
+        } else {
+            self.imageView.image = MHImageNamed(viewModel.icon);
+        }
+    } else {
+        self.imageView.image = nil;
+    }
+    
+    
     self.detailTextLabel.text = viewModel.subtitle;
     /// 设置全新
     if (MHStringIsNotEmpty(viewModel.centerLeftViewName)) {
@@ -218,7 +235,7 @@
     
     
     self.divider0.frame = CGRectMake(0, 0, self.mh_width, MHGlobalBottomLineHeight);
-    self.divider1.frame = CGRectMake(14, self.mh_height-MHGlobalBottomLineHeight, self.mh_width-14, MHGlobalBottomLineHeight);
+    self.divider1.frame = CGRectMake(self.textLabel.mh_x, self.mh_height-MHGlobalBottomLineHeight, self.mh_width-14, MHGlobalBottomLineHeight);
     self.divider2.frame = CGRectMake(0, self.mh_height-MHGlobalBottomLineHeight, self.mh_width, MHGlobalBottomLineHeight);
     
     /// 设置头像

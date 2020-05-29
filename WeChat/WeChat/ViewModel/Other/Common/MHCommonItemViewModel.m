@@ -10,9 +10,14 @@
 
 @implementation MHCommonItemViewModel
 + (instancetype)itemViewModelWithTitle:(NSString *)title icon:(NSString *)icon{
+    return [self itemViewModelWithTitle:title icon:icon svg:NO];
+}
+
++ (instancetype)itemViewModelWithTitle:(NSString *)title icon:(NSString *)icon svg:(BOOL)svg {
     MHCommonItemViewModel *item = [[self alloc] init];
     item.title = title;
     item.icon = icon;
+    item.svg = svg;
     return item;
 }
 
@@ -25,7 +30,8 @@
     self = [super init];
     if (self) {
         _selectionStyle = UITableViewCellSelectionStyleGray;
-        _rowHeight = 44.0f;
+        _svgSize = CGSizeMake(24.0f, 24.0f);
+        _rowHeight = 56.0f;
     }
     return self;
 }

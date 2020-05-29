@@ -16,10 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    NSLog(@"%@" , self.title);
-    
 }
 #pragma mark - Override
 - (UITableViewCell *)tableView:(UITableView *)tableView dequeueReusableCellWithIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath{
@@ -39,4 +35,8 @@
     [super configureCell:cell atIndexPath:indexPath withObject:object];
 }
 
+
+- (UIEdgeInsets)contentInset{
+    return UIEdgeInsetsMake(MH_APPLICATION_TOP_BAR_HEIGHT+16, 0, MH_APPLICATION_TAB_BAR_HEIGHT, 0);
+}
 @end
