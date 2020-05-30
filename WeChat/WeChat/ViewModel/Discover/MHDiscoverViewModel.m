@@ -48,6 +48,7 @@
     MHCommonGroupViewModel *group1 = [MHCommonGroupViewModel groupViewModel];
     /// 视频号
     MHCommonArrowItemViewModel *finder = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"视频号" icon:@"icons_outlined_finder.svg" svg:YES];
+    finder.svgTintColor = MHColorFromHexString(@"#EDA150");
     finder.destViewModelClass = [MHMomentViewModel class];
     group1.itemViewModels = @[finder];
     

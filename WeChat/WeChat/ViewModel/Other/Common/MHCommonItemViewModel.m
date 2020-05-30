@@ -30,7 +30,7 @@
     self = [super init];
     if (self) {
         _selectionStyle = UITableViewCellSelectionStyleGray;
-        _svgSize = CGSizeMake(24.0f, 24.0f);
+        _svgSize = CGSizeMake(22.0f, 22.0f);
         _rowHeight = 56.0f;
     }
     return self;

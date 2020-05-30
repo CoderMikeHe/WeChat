@@ -267,7 +267,9 @@
 #pragma mark - Setter Or Getter
 - (UIImageView *)rightArrow{
     if (_rightArrow == nil) {
-        _rightArrow = [[UIImageView alloc] initWithImage:MHImageNamed(@"tableview_arrow_8x13")];
+        // arrow
+        UIImage *image = [UIImage mh_svgImageNamed:@"icons_outlined_arrow.svg"];
+        _rightArrow = [[UIImageView alloc] initWithImage:image];
     }
     return _rightArrow;
 }

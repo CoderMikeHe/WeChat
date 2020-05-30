@@ -20,6 +20,9 @@
 /// The current `user`.
 @property (nonatomic, readwrite , strong) MHUser *user;
 
+/// cameraCommand
+@property (nonatomic, readwrite, strong) RACCommand *cameraCommand;
+
 @end
 
 
@@ -40,6 +43,9 @@
     @weakify(self);
     self.title = @"我";
     
+    // 隐藏掉导航栏
+    self.prefersNavigationBarHidden = self.prefersNavigationBarBottomLineHidden = YES;
+    
     /// 获取网络数据+本地数据
     RACSignal *fetchLocalDataSignal = [RACSignal return:[self fetchLocalData]];
     RACSignal *requestRemoteDataSignal = self.requestRemoteDataCommand.executionSignals.switchToLatest;
@@ -53,6 +59,14 @@
          [self.user mergeValuesForKeysFromModel:user];
          [self didChangeValueForKey:@"user"];
      }];
+    
+    
+    self.cameraCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        @strongify(self);
+        NSLog(@"Click the Camera ...");
+        return [RACSignal empty];
+    }];
+    
     
     /// 配置数据
     [self _configureData];
@@ -86,7 +100,6 @@
         [self.services pushViewModel:viewModel animated:YES];
         
     };
-    profileHeader.rowHeight = 88.0f;
     group0.itemViewModels = @[profileHeader];
     
     /// 第一组

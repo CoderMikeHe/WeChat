@@ -16,6 +16,7 @@
 @implementation MHCommonProfileHeaderItemViewModel
 - (instancetype)initViewModelWithUser:(MHUser *)user{
     if (self = [super init]) {
+        self.rowHeight = 76.0f;
         self.user = user;
     }
     return self;

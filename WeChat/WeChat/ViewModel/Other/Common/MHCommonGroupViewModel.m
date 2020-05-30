@@ -17,7 +17,7 @@
 {
     self = [super init];
     if (self) {
-        _footerHeight = 8.0f;
+        _footerHeight = 9.0f;
         _headerHeight = CGFLOAT_MIN;
     }
     return self;

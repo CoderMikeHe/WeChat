@@ -13,5 +13,6 @@
 @interface MHProfileViewModel : MHCommonViewModel
 /// The current `user`.
 @property (nonatomic, readonly , strong) MHUser *user;
-
+/// cameraCommand
+@property (nonatomic, readonly, strong) RACCommand *cameraCommand;
 @end

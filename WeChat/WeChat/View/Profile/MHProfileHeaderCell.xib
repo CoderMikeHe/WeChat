@@ -1,45 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="88" id="KGk-i7-Jjw" customClass="MHProfileHeaderCell">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="74" id="KGk-i7-Jjw" customClass="MHProfileHeaderCell">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="87.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="414" height="75.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CoderMikeHe" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXz-O0-hN9" userLabel="nickeNameLabel">
-                        <rect key="frame" x="92" y="22" width="116.5" height="23"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                        <nil key="textColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CoderMikeHe" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXz-O0-hN9" userLabel="nickeNameLabel">
+                        <rect key="frame" x="108" y="-27" width="123.5" height="24"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                        <color key="textColor" red="0.10353933739591729" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="awH-1A-zX8" userLabel="topDividerView">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.5"/>
-                        <color key="backgroundColor" red="0.85098039219999999" green="0.84705882349999995" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="0.5" id="xNj-93-fGG"/>
-                        </constraints>
-                    </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tableview_arrow_8x13" translatesAutoresizingMaskIntoConstraints="NO" id="ybm-Tc-bRq" userLabel="rightArrow">
-                        <rect key="frame" x="386" y="37.5" width="8" height="13"/>
-                    </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultProfileHead_66x66" translatesAutoresizingMaskIntoConstraints="NO" id="kF6-Pj-TMb" userLabel="ImageView">
-                        <rect key="frame" x="14" y="11" width="66" height="66"/>
+                        <rect key="frame" x="24" y="-32" width="64" height="64"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="66" id="Gim-9N-193"/>
-                            <constraint firstAttribute="width" constant="66" id="ae2-xd-r4G"/>
+                            <constraint firstAttribute="height" constant="64" id="Gim-9N-193"/>
+                            <constraint firstAttribute="width" constant="64" id="ae2-xd-r4G"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
@@ -55,52 +45,61 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wio-4k-DAZ" userLabel="bottomDividerView">
-                        <rect key="frame" x="0.0" y="87" width="414" height="0.5"/>
+                        <rect key="frame" x="0.0" y="75" width="414" height="0.5"/>
                         <color key="backgroundColor" red="0.85098039219999999" green="0.84705882349999995" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="0.5" id="zGb-6I-g8E"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信号：Mr.Right " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eh-kD-zEA" userLabel="wechatNumLabel">
-                        <rect key="frame" x="92" y="51" width="123" height="18"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <nil key="textColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信号：Mr.Right " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eh-kD-zEA" userLabel="wechatNumLabel">
+                        <rect key="frame" x="108" y="6.5" width="138" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setting_myQR_18x18" translatesAutoresizingMaskIntoConstraints="NO" id="U3H-ab-N9p" userLabel="qrCodeView">
-                        <rect key="frame" x="361" y="34.5" width="18" height="18"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U3H-ab-N9p" userLabel="qrCodeView">
+                        <rect key="frame" x="342" y="7" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="Eh6-x8-3zS"/>
+                            <constraint firstAttribute="width" constant="20" id="nm3-wt-mJz"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ybm-Tc-bRq" userLabel="rightArrow">
+                        <rect key="frame" x="382" y="5" width="12" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="12" id="97s-4z-4se"/>
+                            <constraint firstAttribute="height" constant="24" id="eXc-Mi-kmX"/>
+                        </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="ybm-Tc-bRq" secondAttribute="trailing" constant="20" id="2uc-oy-IQ7"/>
-                    <constraint firstItem="1eh-kD-zEA" firstAttribute="top" secondItem="FXz-O0-hN9" secondAttribute="bottom" constant="6" id="EhP-h0-5dB"/>
-                    <constraint firstItem="ybm-Tc-bRq" firstAttribute="leading" secondItem="U3H-ab-N9p" secondAttribute="trailing" constant="7" id="NXz-tT-KOd"/>
-                    <constraint firstItem="U3H-ab-N9p" firstAttribute="centerY" secondItem="ybm-Tc-bRq" secondAttribute="centerY" id="Ng5-SF-t1P"/>
-                    <constraint firstItem="FXz-O0-hN9" firstAttribute="top" secondItem="kF6-Pj-TMb" secondAttribute="top" constant="11" id="QeF-Qw-8Le"/>
-                    <constraint firstItem="awH-1A-zX8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="T9m-Aj-IKI"/>
+                    <constraint firstItem="U3H-ab-N9p" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1eh-kD-zEA" secondAttribute="trailing" constant="20" id="9Xb-4U-yXc"/>
+                    <constraint firstItem="U3H-ab-N9p" firstAttribute="centerY" secondItem="1eh-kD-zEA" secondAttribute="centerY" id="Llf-GH-cWk"/>
+                    <constraint firstItem="ybm-Tc-bRq" firstAttribute="centerY" secondItem="1eh-kD-zEA" secondAttribute="centerY" id="NB4-7F-zKX"/>
+                    <constraint firstItem="ybm-Tc-bRq" firstAttribute="leading" secondItem="U3H-ab-N9p" secondAttribute="trailing" constant="20" id="NXz-tT-KOd"/>
+                    <constraint firstItem="FXz-O0-hN9" firstAttribute="top" secondItem="kF6-Pj-TMb" secondAttribute="top" constant="5" id="QeF-Qw-8Le"/>
                     <constraint firstAttribute="trailing" secondItem="wio-4k-DAZ" secondAttribute="trailing" id="Xdv-cL-VCS"/>
                     <constraint firstAttribute="bottom" secondItem="wio-4k-DAZ" secondAttribute="bottom" id="Zth-Fu-Rlm"/>
-                    <constraint firstItem="FXz-O0-hN9" firstAttribute="leading" secondItem="kF6-Pj-TMb" secondAttribute="trailing" constant="12" id="afc-ry-R8E"/>
+                    <constraint firstItem="FXz-O0-hN9" firstAttribute="leading" secondItem="kF6-Pj-TMb" secondAttribute="trailing" constant="20" id="afc-ry-R8E"/>
                     <constraint firstItem="wio-4k-DAZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="bcg-3T-uJs"/>
-                    <constraint firstItem="kF6-Pj-TMb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="cRf-8F-IuF"/>
+                    <constraint firstItem="1eh-kD-zEA" firstAttribute="bottom" secondItem="kF6-Pj-TMb" secondAttribute="bottom" constant="-5" id="bi6-bJ-cL7"/>
+                    <constraint firstItem="kF6-Pj-TMb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="cRf-8F-IuF"/>
                     <constraint firstItem="1eh-kD-zEA" firstAttribute="leading" secondItem="FXz-O0-hN9" secondAttribute="leading" id="cSq-He-dqH"/>
-                    <constraint firstItem="awH-1A-zX8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="h0a-gq-tFA"/>
-                    <constraint firstAttribute="trailing" secondItem="awH-1A-zX8" secondAttribute="trailing" id="qNs-tm-NOd"/>
-                    <constraint firstItem="kF6-Pj-TMb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="uCi-sL-Fcy"/>
-                    <constraint firstItem="ybm-Tc-bRq" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="wIZ-th-IqR"/>
+                    <constraint firstItem="kF6-Pj-TMb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="-32" id="iAA-th-QKd"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="arrowImageView" destination="ybm-Tc-bRq" id="cLh-3m-4gH"/>
                 <outlet property="avatarView" destination="kF6-Pj-TMb" id="JJi-Fc-pya"/>
                 <outlet property="nicknameLabel" destination="FXz-O0-hN9" id="zCW-ch-FYB"/>
+                <outlet property="qrCodeView" destination="U3H-ab-N9p" id="c1Q-h0-Mtf"/>
                 <outlet property="wechatNumLabel" destination="1eh-kD-zEA" id="G49-U2-qMh"/>
             </connections>
-            <point key="canvasLocation" x="-39.5" y="86"/>
+            <point key="canvasLocation" x="116.8" y="-17.091454272863569"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="DefaultProfileHead_66x66" width="66" height="66"/>
-        <image name="setting_myQR_18x18" width="18" height="18"/>
-        <image name="tableview_arrow_8x13" width="8" height="13"/>
     </resources>
 </document>
