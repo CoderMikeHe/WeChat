@@ -21,7 +21,7 @@
 #import "MHContactsHeaderView.h"
 #import "UITableView+SCIndexView.h"
 #import "MHNavSearchBar.h"
-
+#import "MHMainFrameMoreView.h"
 
 /// 侧滑最大偏移量
 static CGFloat const MHSlideOffsetMaxWidth = 56;
@@ -47,7 +47,8 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
 @property (nonatomic, readwrite, assign) CGFloat startDragOffsetY;
 /// 结束拖拽的偏移量
 @property (nonatomic, readwrite, assign) CGFloat endDragOffsetY;
-
+/// moreView
+@property (nonatomic, readwrite, weak) MHMainFrameMoreView *moreView;
 @end
 
 @implementation MHMainFrameViewController
@@ -214,8 +215,7 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
 #pragma mark - 事件处理
 - (void)_addMore{
     NSLog(@"..............");
-    MHSingleChatViewModel *vm = [[MHSingleChatViewModel alloc] initWithServices:self.viewModel.services params:@{MHViewModelUtilKey: self.viewModel.services.client.currentUser}];
-    [self.viewModel.services pushViewModel:vm animated:YES];
+    
 }
 
 /// 处理搜索框显示偏移
@@ -301,6 +301,11 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
     [self addChildViewController:searchController];
     [searchController didMoveToParentViewController:self];
     self.searchController = searchController;
+    
+    /// moreView
+    MHMainFrameMoreView *moreView = [[MHMainFrameMoreView alloc] init];
+    self.moreView = moreView;
+    [self.view addSubview:moreView];
 }
 
 #pragma mark - 布局子控件
@@ -314,6 +319,12 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
     [self.searchController.view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.and.bottom.equalTo(self.view);
         make.top.equalTo(self.view).with.offset(200);
+    }];
+    
+    [self.moreView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.and.right.equalTo(self.view).with.offset(0);
+        make.top.equalTo(self.view).with.offset(MH_APPLICATION_TOP_BAR_HEIGHT);
+        make.bottom.equalTo(self.view).with.offset(-MH_APPLICATION_TAB_BAR_HEIGHT);
     }];
 }
 

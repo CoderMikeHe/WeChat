@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>icons_filled_chats</title>
+    <desc>Created with Sketch.</desc>
+    <g id="icons_filled_chats" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="common_icons_chats" fill="#000000">
+            <path d="M12,20 C17.5228475,20 22,16.1944204 22,11.5 C22,6.80557963 17.5228475,3 12,3 C6.4771525,3 2,6.80557963 2,11.5 C2,14.0364044 3.30699806,16.313333 5.37975626,17.8707334 L5.07765905,20.4696138 C5.04577459,20.7439092 5.24228753,20.9921171 5.51658297,21.0240015 C5.61038279,21.0349049 5.70535272,21.0190228 5.79050106,20.9781933 L8.77345417,19.5478358 C9.78573058,19.8409734 10.8710167,20 12,20 Z" id="Combined-Shape"></path>
+        </g>
+    </g>
+</svg>

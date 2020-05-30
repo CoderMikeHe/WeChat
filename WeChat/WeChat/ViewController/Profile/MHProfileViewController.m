@@ -40,9 +40,6 @@
 #pragma mark - Override
 - (void)bindViewModel {
     [super bindViewModel];
-    
-    //
-    @weakify(self);
     RAC(self.videoDynamicView, hidden) = [RACObserve(self.viewModel, dataSource) map:^id(NSArray * value) {
         return @(value.count == 0);
     }];
