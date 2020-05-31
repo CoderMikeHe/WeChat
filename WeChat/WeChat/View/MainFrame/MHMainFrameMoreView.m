@@ -103,7 +103,7 @@
     self.triangleView = triangleView;
     [containerView addSubview:triangleView];
     
-    /// 三角形
+    /// 菜单
     UIView *menuView = [[UIView alloc] init];
     menuView.cornerRadius = 10.0f;
     menuView.masksToBounds = YES;
@@ -111,14 +111,18 @@
     [containerView addSubview:menuView];
     
     NSArray *images = @[@"icons_filled_chats.svg",@"icons_filled_add_friends.svg",@"icons_filled_scan.svg",@"icons_outlined_pay.svg"];
+    
     NSArray *titles = @[@"发起群聊",@"添加朋友",@"扫一扫",@"收付款"];
     
-    for (NSInteger i=0; i<titles.count; i++) {
+    for (NSInteger i = 0; i<titles.count; i++) {
         MHMainFrameMoreItemView *itemView = [[MHMainFrameMoreItemView alloc] init];
         itemView.tag = i;
         UIImage *image = [UIImage mh_svgImageNamed:images[i] targetSize:CGSizeMake(24.0f, 24.0f) tintColor:[UIColor whiteColor]];
         [itemView setImage:image forState:UIControlStateNormal];
+        [itemView setImage:image forState:UIControlStateHighlighted];
         [itemView setTitle:titles[i] forState:UIControlStateNormal];
+        [itemView setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        
         [menuView addSubview:itemView];
     }
     
@@ -155,5 +159,19 @@
         make.left.right.and.bottom.equalTo(self.containerView).with.offset(.0);
         make.top.equalTo(self.triangleView.mas_bottom).with.offset(.0);
     }];
+    
+    /// 布局item
+    UIView *lastView;
+    CGFloat height = 57.0f;
+    NSInteger count = self.menuView.subviews.count;
+    for (int i = 0; i < count; i++) {
+        UIView *view = self.menuView.subviews[i];
+        [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(lastView ? lastView.mas_bottom : @0);
+            make.left.and.right.equalTo(self.menuView);
+            make.height.mas_equalTo(height);
+        }];
+//        lastView = view;
+    }
 }
 @end
