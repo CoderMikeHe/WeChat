@@ -169,6 +169,237 @@
     [cell bindViewModel:model];
 }
 
+#pragma mark - 辅助方法
+- (void)_commentOrReplyWithItemViewModel:(id)itemViewModel indexPath:(NSIndexPath *)indexPath{
+    /// 传递数据 (生成 replyItemViewModel)
+    MHMomentReplyItemViewModel *viewModel = [[MHMomentReplyItemViewModel alloc] initWithItemViewModel:itemViewModel];
+    viewModel.section = indexPath.section;
+    viewModel.commentCommand = self.viewModel.commentCommand;
+    self.selectedIndexPath = indexPath; /// 记录indexPath
+    [self.commentToolView bindViewModel:viewModel];
+    /// 键盘弹起
+    [self.commentToolView  mh_becomeFirstResponder];
+}
+
+/// 评论的时候 滚动tableView
+- (void)_scrollTheTableViewForComment{
+    CGRect rect = CGRectZero;
+    CGRect rect1 = CGRectZero;
+    if (self.selectedIndexPath.row == -1) {
+        /// 获取整个尾部section对应的尺寸 获取的rect是相当于tableView的尺寸
+        rect = [self.tableView rectForFooterInSection:self.selectedIndexPath.section];
+        /// 将尺寸转化到window的坐标系 （关键点）
+        rect1 = [self.tableView convertRect:rect toViewOrWindow:nil];
+    }else{
+        /// 回复
+        /// 获取整个尾部section对应的尺寸 获取的rect是相当于tableView的尺寸
+        rect = [self.tableView rectForRowAtIndexPath:self.selectedIndexPath];
+        /// 将尺寸转化到window的坐标系 （关键点）
+        rect1 = [self.tableView convertRect:rect toViewOrWindow:nil];
+    }
+    
+    if (self.keyboardHeight > 0) { /// 键盘抬起 才允许滚动
+        /// 这个就是你需要滚动差值
+        CGFloat delta = self.commentToolView.mh_top - rect1.origin.y - rect1.size.height;
+        [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentOffset.y-delta) animated:NO];
+    }else{
+        /// #Bug
+        /// 如果处于最后一个，需要滚动到底部
+        if(self.selectedIndexPath.section == self.viewModel.dataSource.count-1){
+            /// 去掉抖动
+            [UIView performWithoutAnimation:^{
+                [self.tableView scrollToBottomAnimated:NO];
+            }];
+        }
+    }
+}
+
+
+/// PS:这里复写了 MHTableViewController 里面的UITableViewDelegate和UITableViewDataSource的方法，所以大家不需要过多关注 MHTableViewController的里面的UITableViewDataSource方法
+#pragma mark - UITableViewDataSource & UITableViewDelegate
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return self.viewModel.dataSource.count;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    MHMomentItemViewModel *itemViewModel =  self.viewModel.dataSource[section];
+    return itemViewModel.dataSource.count;
+}
+
+// custom view for header. will be adjusted to default or specified header height
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    MHMomentHeaderView *headerView = [MHMomentHeaderView headerViewWithTableView:tableView];
+    /// 传递section 后期需要用到
+    headerView.section = section;
+    [headerView bindViewModel:self.viewModel.dataSource[section]];
+    return headerView;
+}
+// custom view for footer. will be adjusted to default or specified footer height
+- (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    return [MHMomentFooterView footerViewWithTableView:tableView];
+}
+
+/// 点击Cell的事件
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    NSInteger section = indexPath.section;
+    NSInteger row = indexPath.row;
+    /// 先取出该section的说说
+    MHMomentItemViewModel *itemViweModel = self.viewModel.dataSource[section];
+    /// 然后取出该 row 的评论Or点赞
+    MHMomentContentItemViewModel *contentItemViewModel = itemViweModel.dataSource[row];
+    /// 去掉点赞
+    if ([contentItemViewModel isKindOfClass:MHMomentAttitudesItemViewModel.class]) {
+        [self.commentToolView mh_resignFirstResponder];
+        return;
+    }
+
+    /// 判断是否是自己的评论  或者 回复
+    MHMomentCommentItemViewModel *commentItemViewModel = (MHMomentCommentItemViewModel *)contentItemViewModel;
+    if ([commentItemViewModel.comment.fromUser.idstr isEqualToString: self.viewModel.services.client.currentUser.idstr]) {
+        /// 关掉键盘
+        [self.commentToolView  mh_resignFirstResponder];
+        
+        /// 自己评论的活回复他人
+        @weakify(self);
+        LCActionSheet *sheet = [LCActionSheet sheetWithTitle:nil cancelButtonTitle:@"取消" clicked:^(LCActionSheet * _Nonnull actionSheet, NSInteger buttonIndex) {
+            if (buttonIndex == 0) return ;
+            @strongify(self);
+            /// 删除数据源
+            [self.viewModel.delCommentCommand execute:indexPath];
+    
+        } otherButtonTitles:@"删除", nil];
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:1];
+        sheet.destructiveButtonIndexSet = indexSet;
+        [sheet show];
+        return;
+    }
+    
+    /// 键盘已经显示 你就先关掉键盘
+    if (MHSharedAppDelegate.isShowKeyboard) {
+        [self.commentToolView mh_resignFirstResponder];
+        return;
+    }
+    /// 评论
+    [self _commentOrReplyWithItemViewModel:contentItemViewModel indexPath:indexPath];
+}
+
+
+// custom view for cell
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [self tableView:tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
+    // fetch object 报错 why???
+//    id object  = [self.viewModel.dataSource[indexPath.section] dataSource][indexPath.row];
+    MHMomentItemViewModel *itemViewModel = self.viewModel.dataSource[indexPath.section];
+    id object = itemViewModel.dataSource[indexPath.row];
+    /// bind model
+    [self configureCell:cell atIndexPath:indexPath withObject:(id)object];
+    return cell;
+}
+
+/// 设置高度
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    MHMomentItemViewModel *itemViewModel = self.viewModel.dataSource[section];
+    /// 这里每次刷新都会走两次！！！ Why？？？
+    NSLog(@"KKKKKK ------- %ld ",section);
+    return itemViewModel.height;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    MHMomentItemViewModel *itemViewModel =  self.viewModel.dataSource[indexPath.section];
+    /// 这里用 id 去指向（但是一定要确保取出来的模型有 `cellHeight` 属性 ，否则crash）
+    id model = itemViewModel.dataSource[indexPath.row];
+    return [model cellHeight];
+}
+
+/// 监听滚动到顶部
+- (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView{
+    /// 这里下拉刷新
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    /// 处理popView
+    [MHMomentHelper hideAllPopViewWithAnimated:NO];
+}
+
+// 这里监听 滚动 实现导航栏渐变
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    NSLog(@"🔥 scrollViewDidScroll 👉 %f",scrollView.contentOffset.y);
+    /// 计算临界点
+    CGFloat insertTop = UIApplication.sharedApplication.statusBarFrame.size.height + 44 * .5f;
+    CGFloat cPoint = MH_SCREEN_WIDTH - 51 - insertTop;
+    /// 计算偏差
+    CGFloat delta = scrollView.contentOffset.y - cPoint;
+    /// 导航栏高度
+    CGFloat height = UIApplication.sharedApplication.statusBarFrame.size.height + 44;
+    double progress = .0f;
+    
+    if (delta < 0) {
+        progress = .0f;
+    }else {
+        if (delta > height) {
+            progress = 1.0f;
+        } else {
+            progress = delta/height;
+        }
+    }
+    
+    static NSArray<NSNumber *> *defaultBgColors;
+    static NSArray<NSNumber *> *defaultTintColors;
+    
+    static NSMutableArray<NSNumber *> *selectedBgDeltaColors;
+    static NSMutableArray<NSNumber *> *selectedTintDeltaColors;
+
+    
+    if (selectedBgDeltaColors.count == 0) {
+        UIColor *defaultBgColor = [MHColorFromHexString(@"#ededed") colorWithAlphaComponent:0];
+        UIColor *defaultTintColor = [UIColor whiteColor];
+        
+        UIColor *selectedBgColor = MHColorFromHexString(@"#ededed");
+        UIColor *selectedTintColor = MHColorFromHexString(@"#181818");
+        
+        defaultBgColors = [defaultBgColor rgbaArray];
+        
+        NSLog(@"xxxxxxxx %@ %@ %@ %@", defaultBgColors[0], defaultBgColors[1], defaultBgColors[2], defaultBgColors[3]);
+        
+        NSArray<NSNumber *> *selectedBgColors = [selectedBgColor rgbaArray];
+        
+        defaultTintColors = [defaultTintColor rgbaArray];
+        NSArray<NSNumber *> *selectedTintColors = [selectedTintColor rgbaArray];
+        
+        selectedBgDeltaColors = @[].mutableCopy;
+        selectedTintDeltaColors = @[].mutableCopy;
+        
+        for (int i = 0; i < 4; i++) {
+            double bgDelta = selectedBgColors[i].doubleValue - defaultBgColors[i].doubleValue;
+            [selectedBgDeltaColors addObject:@(bgDelta)];
+            
+            double tintDelta = selectedTintColors[i].doubleValue - defaultTintColors[i].doubleValue;
+            [selectedTintDeltaColors addObject:@(tintDelta)];
+        }
+    }
+    
+    NSMutableArray<NSNumber *> *bgColors = @[].mutableCopy;
+    NSMutableArray<NSNumber *> *tintClors = @[].mutableCopy;
+    for (int i = 0; i < 4; i++) {
+        double bg = defaultBgColors[i].doubleValue + progress * selectedBgDeltaColors[i].doubleValue;
+        [bgColors addObject:@(bg)];
+        
+        double tint = defaultTintColors[i].doubleValue + progress * selectedTintDeltaColors[i].doubleValue;
+        [tintClors addObject:@(tint)];
+    }
+    
+//    [bgColors addObject:@1];
+//    [tintClors addObject:@1];
+    
+    NSLog(@"xxxxxxxx %@ %@ %@ %@", bgColors[0], bgColors[1], bgColors[2], bgColors[3]);
+    
+    /// 设置背景色
+    self.navBar.backgroundColor = self.navBar.backgroundView.backgroundColor = [UIColor colorFromRGBAArray:bgColors];
+}
+
+
 
 #pragma mark - 初始化
 - (void)_setup{
@@ -255,158 +486,7 @@
 }
 
 
-/// PS:这里复写了 MHTableViewController 里面的UITableViewDelegate和UITableViewDataSource的方法，所以大家不需要过多关注 MHTableViewController的里面的UITableViewDataSource方法
-#pragma mark - UITableViewDataSource & UITableViewDelegate
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.viewModel.dataSource.count;
-}
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    MHMomentItemViewModel *itemViewModel =  self.viewModel.dataSource[section];
-    return itemViewModel.dataSource.count;
-}
-
-// custom view for header. will be adjusted to default or specified header height
-- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    MHMomentHeaderView *headerView = [MHMomentHeaderView headerViewWithTableView:tableView];
-    /// 传递section 后期需要用到
-    headerView.section = section;
-    [headerView bindViewModel:self.viewModel.dataSource[section]];
-    return headerView;
-}
-// custom view for footer. will be adjusted to default or specified footer height
-- (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    return [MHMomentFooterView footerViewWithTableView:tableView];
-}
-
-/// 点击Cell的事件
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    NSInteger section = indexPath.section;
-    NSInteger row = indexPath.row;
-    /// 先取出该section的说说
-    MHMomentItemViewModel *itemViweModel = self.viewModel.dataSource[section];
-    /// 然后取出该 row 的评论Or点赞
-    MHMomentContentItemViewModel *contentItemViewModel = itemViweModel.dataSource[row];
-    /// 去掉点赞
-    if ([contentItemViewModel isKindOfClass:MHMomentAttitudesItemViewModel.class]) {
-        [self.commentToolView mh_resignFirstResponder];
-        return;
-    }
-
-    /// 判断是否是自己的评论  或者 回复
-    MHMomentCommentItemViewModel *commentItemViewModel = (MHMomentCommentItemViewModel *)contentItemViewModel;
-    if ([commentItemViewModel.comment.fromUser.idstr isEqualToString: self.viewModel.services.client.currentUser.idstr]) {
-        /// 关掉键盘
-        [self.commentToolView  mh_resignFirstResponder];
-        
-        /// 自己评论的活回复他人
-        @weakify(self);
-        LCActionSheet *sheet = [LCActionSheet sheetWithTitle:nil cancelButtonTitle:@"取消" clicked:^(LCActionSheet * _Nonnull actionSheet, NSInteger buttonIndex) {
-            if (buttonIndex == 0) return ;
-            @strongify(self);
-            /// 删除数据源
-            [self.viewModel.delCommentCommand execute:indexPath];
-    
-        } otherButtonTitles:@"删除", nil];
-        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:1];
-        sheet.destructiveButtonIndexSet = indexSet;
-        [sheet show];
-        return;
-    }
-    
-    /// 键盘已经显示 你就先关掉键盘
-    if (MHSharedAppDelegate.isShowKeyboard) {
-        [self.commentToolView mh_resignFirstResponder];
-        return;
-    }
-    /// 评论
-    [self _commentOrReplyWithItemViewModel:contentItemViewModel indexPath:indexPath];
-}
-
-
-// custom view for cell
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [self tableView:tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
-    // fetch object 报错 why???
-//    id object  = [self.viewModel.dataSource[indexPath.section] dataSource][indexPath.row];
-    MHMomentItemViewModel *itemViewModel = self.viewModel.dataSource[indexPath.section];
-    id object = itemViewModel.dataSource[indexPath.row];    
-    /// bind model
-    [self configureCell:cell atIndexPath:indexPath withObject:(id)object];
-    return cell;
-}
-
-/// 设置高度
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    MHMomentItemViewModel *itemViewModel = self.viewModel.dataSource[section];
-    /// 这里每次刷新都会走两次！！！ Why？？？
-    NSLog(@"KKKKKK ------- %ld ",section);
-    return itemViewModel.height;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    MHMomentItemViewModel *itemViewModel =  self.viewModel.dataSource[indexPath.section];
-    /// 这里用 id 去指向（但是一定要确保取出来的模型有 `cellHeight` 属性 ，否则crash）
-    id model = itemViewModel.dataSource[indexPath.row];
-    return [model cellHeight];
-}
-
-/// 监听滚动到顶部
-- (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView{
-    /// 这里下拉刷新
-}
-
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    /// 处理popView
-    [MHMomentHelper hideAllPopViewWithAnimated:NO];
-}
-
-#pragma mark - 辅助方法
-- (void)_commentOrReplyWithItemViewModel:(id)itemViewModel indexPath:(NSIndexPath *)indexPath{
-    /// 传递数据 (生成 replyItemViewModel)
-    MHMomentReplyItemViewModel *viewModel = [[MHMomentReplyItemViewModel alloc] initWithItemViewModel:itemViewModel];
-    viewModel.section = indexPath.section;
-    viewModel.commentCommand = self.viewModel.commentCommand;
-    self.selectedIndexPath = indexPath; /// 记录indexPath
-    [self.commentToolView bindViewModel:viewModel];
-    /// 键盘弹起
-    [self.commentToolView  mh_becomeFirstResponder];
-}
-
-/// 评论的时候 滚动tableView
-- (void)_scrollTheTableViewForComment{
-    CGRect rect = CGRectZero;
-    CGRect rect1 = CGRectZero;
-    if (self.selectedIndexPath.row == -1) {
-        /// 获取整个尾部section对应的尺寸 获取的rect是相当于tableView的尺寸
-        rect = [self.tableView rectForFooterInSection:self.selectedIndexPath.section];
-        /// 将尺寸转化到window的坐标系 （关键点）
-        rect1 = [self.tableView convertRect:rect toViewOrWindow:nil];
-    }else{
-        /// 回复
-        /// 获取整个尾部section对应的尺寸 获取的rect是相当于tableView的尺寸
-        rect = [self.tableView rectForRowAtIndexPath:self.selectedIndexPath];
-        /// 将尺寸转化到window的坐标系 （关键点）
-        rect1 = [self.tableView convertRect:rect toViewOrWindow:nil];
-    }
-    
-    if (self.keyboardHeight > 0) { /// 键盘抬起 才允许滚动
-        /// 这个就是你需要滚动差值
-        CGFloat delta = self.commentToolView.mh_top - rect1.origin.y - rect1.size.height;
-        [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentOffset.y-delta) animated:NO];
-    }else{
-        /// #Bug
-        /// 如果处于最后一个，需要滚动到底部
-        if(self.selectedIndexPath.section == self.viewModel.dataSource.count-1){
-            /// 去掉抖动
-            [UIView performWithoutAnimation:^{
-                [self.tableView scrollToBottomAnimated:NO];
-            }];
-        }
-    }
-}
 
 
 @end
