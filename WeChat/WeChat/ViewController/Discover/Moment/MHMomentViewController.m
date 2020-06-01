@@ -17,6 +17,9 @@
 #import "MHEmoticonManager.h"
 #import "MHMomentHelper.h"
 #import "MHMomentCommentToolView.h"
+
+#import "MHNavSearchBar.h"
+
 @interface MHMomentViewController ()
 /// viewModel
 @property (nonatomic, readonly, strong) MHMomentViewModel *viewModel;
@@ -28,6 +31,9 @@
 @property (nonatomic, readwrite, strong) NSIndexPath * selectedIndexPath;
 /// 记录键盘高度
 @property (nonatomic, readwrite, assign) CGFloat keyboardHeight;
+
+/// navBar
+@property (nonatomic, readwrite, weak) MHNavigationBar *navBar;
 @end
 
 @implementation MHMomentViewController
@@ -40,11 +46,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // 初始化子控件
+    /// 设置
+    [self _setup];
+    
+    /// 设置导航栏
+    [self _setupNavigationItem];
+    
+    /// 设置子控件
     [self _setupSubViews];
     
-    /// 初始化导航栏Item
-    [self _setupNavigationItem];
+    /// 布局子控件
+    [self _makeSubViewsConstraints];
 }
 
 #pragma mark - Override
@@ -67,8 +79,6 @@
          self.tableView.tableHeaderView = self.tableHeaderView;
          [self.tableView endUpdates];
      }];
-    
-    
     
     /// 全文/收起
     [[self.viewModel.reloadSectionSubject deliverOnMainThread] subscribeNext:^(NSNumber * section) {
@@ -159,12 +169,40 @@
     [cell bindViewModel:model];
 }
 
-#pragma mark - 初始化子控件
-- (void)_setupSubViews{
+
+#pragma mark - 初始化
+- (void)_setup{
     /// 配置tableView
     self.tableView.backgroundColor = [UIColor whiteColor];
     /// 固定高度-这样写比使用代理性能好，且使用代理会获取每次刷新数据会调用两次代理 ，苹果的bug
     self.tableView.sectionFooterHeight =  MHMomentFooterViewHeight;
+}
+
+#pragma mark - 初始化子控件
+- (void)_setupSubViews{
+    
+    // 自定义导航栏
+    MHNavigationBar *navBar = [MHNavigationBar navigationBar];
+    navBar.backgroundView.backgroundColor = [UIColor clearColor];
+    
+    UIImage *image = [UIImage mh_svgImageNamed:@"icons_filled_camera.svg" targetSize:CGSizeMake(24.0, 24.0) tintColor:MHColorFromHexString(@"#FFFFFF")];
+    UIImage *imageHigh = [UIImage mh_svgImageNamed:@"icons_filled_camera.svg" targetSize:CGSizeMake(24.0, 24.0) tintColor:[MHColorFromHexString(@"#FFFFFF") colorWithAlphaComponent:0.5]];
+    [navBar.rightButton setImage:image forState:UIControlStateNormal];
+    [navBar.rightButton setImage:imageHigh forState:UIControlStateHighlighted];
+    
+    UIImage *image0 = [UIImage mh_svgImageNamed:@"icons_outlined_back.svg" targetSize:CGSizeMake(12.0, 24.0) tintColor:MHColorFromHexString(@"#FFFFFF")];
+    UIImage *imageHigh0 = [UIImage mh_svgImageNamed:@"icons_outlined_back.svg" targetSize:CGSizeMake(12.0, 24.0) tintColor:[MHColorFromHexString(@"#FFFFFF") colorWithAlphaComponent:0.5]];
+    [navBar.leftButton setImage:image0 forState:UIControlStateNormal];
+    [navBar.leftButton setImage:imageHigh0 forState:UIControlStateHighlighted];
+    @weakify(self);
+    [[navBar.leftButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
+        [self.viewModel.services popViewModelAnimated:YES];
+    }];
+    
+    self.navBar = navBar;
+    [self.view addSubview:navBar];
+    
     
     /// 个人信息view
     MHMomentProfileView *tableHeaderView = [[MHMomentProfileView alloc] init];
@@ -204,6 +242,15 @@
         } otherButtonTitles:@"拍摄",@"从手机相册选择", nil];
         [sheet show];
         return [RACSignal empty];
+    }];
+}
+
+#pragma mark - 布局子控件
+- (void)_makeSubViewsConstraints{
+    
+    [self.navBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.and.top.equalTo(self.view);
+        make.height.mas_equalTo(MH_APPLICATION_TOP_BAR_HEIGHT);
     }];
 }
 

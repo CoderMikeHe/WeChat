@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 /// rightButton
 @property (weak, nonatomic) IBOutlet UIButton *rightButton;
+/// leftButton
+@property (weak, nonatomic) IBOutlet UIButton *leftButton;
 
 
 // 初始化

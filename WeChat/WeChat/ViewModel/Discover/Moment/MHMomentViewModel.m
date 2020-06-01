@@ -48,6 +48,9 @@
     
     /// 设置tableView的样式
     self.style = UITableViewStyleGrouped;
+    
+    /// 隐藏导航栏
+    self.prefersNavigationBarHidden = YES;
     /// 隐藏导航栏的细线
     self.prefersNavigationBarBottomLineHidden = YES;
     
