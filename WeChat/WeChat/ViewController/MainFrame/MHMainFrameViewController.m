@@ -85,6 +85,9 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
     [super viewWillDisappear:animated];
     // 这里也根据条件设置隐藏
     self.tabBarController.tabBar.hidden = (self.viewModel.searchState == MHNavSearchBarStateSearch);
+    
+    // 离开此页面 隐藏
+    self.moreView.hidden = YES;
 }
 
 #pragma mark - Override
@@ -214,8 +217,17 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
 
 #pragma mark - 事件处理
 - (void)_addMore{
-    NSLog(@"..............");
-    
+
+    if (self.moreView.hidden) {
+        self.moreView.hidden = NO;
+        [self.moreView show];
+    }else {
+        @weakify(self);
+        [self.moreView hideWithCompletion:^{
+            @strongify(self);
+            self.moreView.hidden = YES;
+        }];
+    }
 }
 
 /// 处理搜索框显示偏移
@@ -272,7 +284,6 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
 }
 #pragma mark - 设置导航栏
 - (void)_setupNavigationItem{
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem mh_svgBarButtonItem:@"icons_outlined_add2.svg" targetSize:CGSizeMake(24.0, 24.0) tintColor:nil target:self selector:@selector(_addMore)];
 }
 
 #pragma mark - 设置子控件
@@ -286,6 +297,7 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
     [navBar.rightButton setImage:imageHigh forState:UIControlStateHighlighted];
     self.navBar = navBar;
     [self.view addSubview:navBar];
+    [navBar.rightButton addTarget:self action:@selector(_addMore) forControlEvents:UIControlEventTouchUpInside];
     
     // 创建searchBar
     MHNavSearchBar *searchBar = [[MHNavSearchBar alloc] init];
@@ -305,7 +317,28 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
     /// moreView
     MHMainFrameMoreView *moreView = [[MHMainFrameMoreView alloc] init];
     self.moreView = moreView;
+    moreView.hidden = YES;
     [self.view addSubview:moreView];
+    /// 事件回调
+    @weakify(moreView);
+    moreView.maskAction = ^{
+        @strongify(moreView);
+        @weakify(moreView);
+        [moreView hideWithCompletion:^{
+            @strongify(moreView);
+            moreView.hidden = YES;
+        }];
+    };
+    moreView.menuItemAction = ^(MHMainFrameMoreViewType type) {
+        @strongify(moreView);
+        @weakify(moreView);
+        [moreView hideWithCompletion:^{
+            @strongify(moreView);
+            moreView.hidden = YES;
+        }];
+        
+        /// 下钻...
+    };
 }
 
 #pragma mark - 布局子控件
