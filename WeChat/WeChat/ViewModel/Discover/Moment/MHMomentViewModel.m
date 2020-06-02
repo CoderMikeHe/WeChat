@@ -46,6 +46,8 @@
     
     @weakify(self);
     
+    self.title = @"朋友圈";
+    
     /// 设置tableView的样式
     self.style = UITableViewStyleGrouped;
     

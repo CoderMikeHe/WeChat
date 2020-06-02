@@ -34,6 +34,13 @@
 
 /// navBar
 @property (nonatomic, readwrite, weak) MHNavigationBar *navBar;
+
+/// 记录上一次的进度
+@property (nonatomic, readwrite, assign) CGFloat lastProgress;
+
+/// 状态栏样式
+@property (nonatomic, readwrite, assign) UIStatusBarStyle statusBarStyle;
+
 @end
 
 @implementation MHMomentViewController
@@ -68,6 +75,11 @@
     [super bindViewModel];
     /// ... 事件处理...
     @weakify(self);
+    
+    // 设置title
+    RAC(self.navBar.titleLabel, text) = RACObserve(self.viewModel, title);
+    
+    
     /// 动态更新tableHeaderView的高度. PS:单纯的设置其高度无效的
     [[[RACObserve(self.viewModel.profileViewModel, unread)
       distinctUntilChanged]
@@ -168,6 +180,12 @@
     id model = itemViewModel.dataSource[indexPath.row];
     [cell bindViewModel:model];
 }
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    NSLog(@"🔥 设置状态栏样式 xxxx");
+    return self.statusBarStyle;
+}
+
 
 #pragma mark - 辅助方法
 - (void)_commentOrReplyWithItemViewModel:(id)itemViewModel indexPath:(NSIndexPath *)indexPath{
@@ -323,80 +341,118 @@
     [MHMomentHelper hideAllPopViewWithAnimated:NO];
 }
 
-// 这里监听 滚动 实现导航栏渐变
+// 这里监听 滚动 实现导航栏背景色渐变 + 状态栏颜色变化 + 图标颜色变化
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    NSLog(@"🔥 scrollViewDidScroll 👉 %f",scrollView.contentOffset.y);
     /// 计算临界点
     CGFloat insertTop = UIApplication.sharedApplication.statusBarFrame.size.height + 44 * .5f;
+    /// 51 是用户头像突出部分的高度
     CGFloat cPoint = MH_SCREEN_WIDTH - 51 - insertTop;
     /// 计算偏差
     CGFloat delta = scrollView.contentOffset.y - cPoint;
     /// 导航栏高度
     CGFloat height = UIApplication.sharedApplication.statusBarFrame.size.height + 44;
+    /// 计算精度
     double progress = .0f;
     
     if (delta < 0) {
         progress = .0f;
+        /// 证明相等 do nothing...
+        if (self.lastProgress - progress< 0.00000001) {
+            self.lastProgress = progress;
+            return ;
+        }
     }else {
         if (delta > height) {
             progress = 1.0f;
+            if (progress - self.lastProgress < 0.00000001) {
+                self.lastProgress = progress;
+                return ;
+            }
         } else {
             progress = delta/height;
         }
     }
     
-    static NSArray<NSNumber *> *defaultBgColors;
-    static NSArray<NSNumber *> *defaultTintColors;
+    self.lastProgress = progress;
     
-    static NSMutableArray<NSNumber *> *selectedBgDeltaColors;
+    static NSArray<NSNumber *> *defaultTintColors;
     static NSMutableArray<NSNumber *> *selectedTintDeltaColors;
 
-    
-    if (selectedBgDeltaColors.count == 0) {
-        UIColor *defaultBgColor = [MHColorFromHexString(@"#ededed") colorWithAlphaComponent:0];
+    if (selectedTintDeltaColors.count == 0) {
         UIColor *defaultTintColor = [UIColor whiteColor];
-        
-        UIColor *selectedBgColor = MHColorFromHexString(@"#ededed");
         UIColor *selectedTintColor = MHColorFromHexString(@"#181818");
-        
-        defaultBgColors = [defaultBgColor rgbaArray];
-        
-        NSLog(@"xxxxxxxx %@ %@ %@ %@", defaultBgColors[0], defaultBgColors[1], defaultBgColors[2], defaultBgColors[3]);
-        
-        NSArray<NSNumber *> *selectedBgColors = [selectedBgColor rgbaArray];
         
         defaultTintColors = [defaultTintColor rgbaArray];
         NSArray<NSNumber *> *selectedTintColors = [selectedTintColor rgbaArray];
         
-        selectedBgDeltaColors = @[].mutableCopy;
         selectedTintDeltaColors = @[].mutableCopy;
         
         for (int i = 0; i < 4; i++) {
-            double bgDelta = selectedBgColors[i].doubleValue - defaultBgColors[i].doubleValue;
-            [selectedBgDeltaColors addObject:@(bgDelta)];
-            
             double tintDelta = selectedTintColors[i].doubleValue - defaultTintColors[i].doubleValue;
             [selectedTintDeltaColors addObject:@(tintDelta)];
         }
     }
     
-    NSMutableArray<NSNumber *> *bgColors = @[].mutableCopy;
     NSMutableArray<NSNumber *> *tintClors = @[].mutableCopy;
     for (int i = 0; i < 4; i++) {
-        double bg = defaultBgColors[i].doubleValue + progress * selectedBgDeltaColors[i].doubleValue;
-        [bgColors addObject:@(bg)];
-        
         double tint = defaultTintColors[i].doubleValue + progress * selectedTintDeltaColors[i].doubleValue;
         [tintClors addObject:@(tint)];
     }
-    
-//    [bgColors addObject:@1];
-//    [tintClors addObject:@1];
-    
-    NSLog(@"xxxxxxxx %@ %@ %@ %@", bgColors[0], bgColors[1], bgColors[2], bgColors[3]);
-    
     /// 设置背景色
-    self.navBar.backgroundColor = self.navBar.backgroundView.backgroundColor = [UIColor colorFromRGBAArray:bgColors];
+    /// 注意bgColor 只是从 alpha 0 -> 1 的过程 R/G/B 前后保持一致
+    self.navBar.backgroundColor = [MHColorFromHexString(@"#ededed") colorWithAlphaComponent:progress];;
+    
+    /// 设置标题颜色
+    self.navBar.titleLabel.textColor = [MHColorFromHexString(@"#181818") colorWithAlphaComponent:progress];
+    
+    /// 设置图标颜色 black25PercentColor
+    UIColor *tintColor = [UIColor colorFromRGBAArray:tintClors];
+    UIColor *tint50PercentColor = [[UIColor colorFromRGBAArray:tintClors] colorWithAlphaComponent:.5f];
+    
+    /// 设置导航栏样式
+    NSString *imageName = @"icons_filled_camera.svg";
+    if (progress > 0.35) {
+        imageName = @"icons_outlined_camera.svg";
+    }
+    
+    // 0.2 -> 0.3  alpha 1 --> 0
+    // 0.3 -> 0.4  alpha 0
+    // 0.4 -> 0.5  alpha 0 --> 1
+    /// 这个范围 alpha 0 --> 1
+    if (progress < 0.2) {
+        self.navBar.rightButton.alpha = 1.0f;
+    } else if (progress >= 0.2 && progress < 0.3) {
+        self.navBar.rightButton.alpha = 1 - (progress - 0.2) * 10;
+    } else if (progress >= 0.3 && progress < 0.4) {
+        self.navBar.rightButton.alpha = .0f;
+    } else if (progress >= 0.4 && progress < 0.5) {
+        self.navBar.rightButton.alpha = (progress - 0.4) * 10;
+    } else {
+        self.navBar.rightButton.alpha = 1.0f;
+    }
+    
+    /// <0.5 白色 否则黑色 注意样式不等才去更新
+    if (progress < .5f) {
+        if (self.statusBarStyle != UIStatusBarStyleLightContent) {
+            self.statusBarStyle = UIStatusBarStyleLightContent;
+            [self setNeedsStatusBarAppearanceUpdate];
+        }
+    } else {
+        if (self.statusBarStyle != UIStatusBarStyleDefault) {
+            self.statusBarStyle = UIStatusBarStyleDefault;
+            [self setNeedsStatusBarAppearanceUpdate];
+        }
+    }
+
+    UIImage *image = [UIImage mh_svgImageNamed:imageName targetSize:CGSizeMake(24.0, 24.0) tintColor: tintColor];
+    UIImage *imageHigh = [UIImage mh_svgImageNamed:imageName targetSize:CGSizeMake(24.0, 24.0) tintColor: tint50PercentColor];
+    [self.navBar.rightButton setImage:image forState:UIControlStateNormal];
+    [self.navBar.rightButton setImage:imageHigh forState:UIControlStateHighlighted];
+    
+    UIImage *image0 = [UIImage mh_svgImageNamed:@"icons_outlined_back.svg" targetSize:CGSizeMake(12.0, 24.0) tintColor:tintColor];
+    UIImage *imageHigh0 = [UIImage mh_svgImageNamed:@"icons_outlined_back.svg" targetSize:CGSizeMake(12.0, 24.0) tintColor:tint50PercentColor];
+    [self.navBar.leftButton setImage:image0 forState:UIControlStateNormal];
+    [self.navBar.leftButton setImage:imageHigh0 forState:UIControlStateHighlighted];
 }
 
 
@@ -407,6 +463,9 @@
     self.tableView.backgroundColor = [UIColor whiteColor];
     /// 固定高度-这样写比使用代理性能好，且使用代理会获取每次刷新数据会调用两次代理 ，苹果的bug
     self.tableView.sectionFooterHeight =  MHMomentFooterViewHeight;
+    
+    self.lastProgress = .0f;
+    self.statusBarStyle = UIStatusBarStyleLightContent;
 }
 
 #pragma mark - 初始化子控件
@@ -414,7 +473,8 @@
     
     // 自定义导航栏
     MHNavigationBar *navBar = [MHNavigationBar navigationBar];
-    navBar.backgroundView.backgroundColor = [UIColor clearColor];
+    navBar.backgroundColor = [UIColor clearColor];
+    navBar.titleLabel.textColor = [MHColorFromHexString(@"#181818") colorWithAlphaComponent:.0];;
     
     UIImage *image = [UIImage mh_svgImageNamed:@"icons_filled_camera.svg" targetSize:CGSizeMake(24.0, 24.0) tintColor:MHColorFromHexString(@"#FFFFFF")];
     UIImage *imageHigh = [UIImage mh_svgImageNamed:@"icons_filled_camera.svg" targetSize:CGSizeMake(24.0, 24.0) tintColor:[MHColorFromHexString(@"#FFFFFF") colorWithAlphaComponent:0.5]];

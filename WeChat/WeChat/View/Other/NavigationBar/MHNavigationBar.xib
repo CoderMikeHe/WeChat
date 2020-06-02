@@ -40,7 +40,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="IL7-ON-RGP" firstAttribute="centerY" secondItem="yHe-7E-iQE" secondAttribute="centerY" id="1VN-ak-5xB"/>
                         <constraint firstItem="c2y-PY-NVW" firstAttribute="top" secondItem="yHe-7E-iQE" secondAttribute="top" id="Cos-gW-Uad"/>
@@ -54,7 +54,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="yHe-7E-iQE" firstAttribute="leading" secondItem="Lyn-dQ-pT2" secondAttribute="leading" id="Ad7-nO-eAc"/>
                 <constraint firstAttribute="bottom" secondItem="yHe-7E-iQE" secondAttribute="bottom" id="Y2R-za-zHM"/>
