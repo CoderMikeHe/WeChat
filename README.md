@@ -123,3 +123,21 @@
 | ![](https://github.com/CoderMikeHe/WeChat_Resource/blob/master/snapshots/search/ios_search_page_0.png) | ![](https://github.com/CoderMikeHe/WeChat_Resource/blob/master/snapshots/search/ios_search_page_1.png) | ![](https://github.com/CoderMikeHe/WeChat_Resource/blob/master/snapshots/search/ios_search_page_2.png) | ![](https://github.com/CoderMikeHe/WeChat_Resource/blob/master/snapshots/search/ios_search_page_3.png) |
 | :----------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------: |
 | ![](https://github.com/CoderMikeHe/WeChat_Resource/blob/master/snapshots/search/ios_search_page_4.png) | ![](https://github.com/CoderMikeHe/WeChat_Resource/blob/master/snapshots/search/ios_search_page_5.png) | ![](https://github.com/CoderMikeHe/WeChat_Resource/blob/master/snapshots/search/ios_search_page_6.png) | ![](https://github.com/CoderMikeHe/WeChat_Resource/blob/master/snapshots/search/ios_search_page_7.png) |
+
+###### 发现模块
+
+| ![](https://github.com/CoderMikeHe/WeChat_Resource/blob/master/snapshots/discover/ios_discover_page_0.png) | 虚位以待 | 虚位以待 | 虚位以待 |
+| :--------------------------------------------------------------------------------------------------------: | :------: | :------: | :------: |
+
+
+###### 朋友圈模块
+
+| ![](https://github.com/CoderMikeHe/WeChat_Resource/blob/master/snapshots/moments/ios_moments_page_0.png) | ![](https://github.com/CoderMikeHe/WeChat_Resource/blob/master/snapshots/moments/ios_moments_page_1.png) | 虚位以待 | 虚位以待 |
+| :------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------: | :------: | :------: |
+
+
+###### 我模块
+
+| ![](https://github.com/CoderMikeHe/WeChat_Resource/blob/master/snapshots/profile/ios_profile_page_0.png) | 虚位以待 | 虚位以待 | 虚位以待 |
+| :------------------------------------------------------------------------------------------------------: | :------: | :------: | :------: |
+
