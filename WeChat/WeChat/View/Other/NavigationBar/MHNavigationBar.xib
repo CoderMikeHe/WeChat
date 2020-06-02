@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,14 +13,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="Lyn-dQ-pT2" customClass="MHNavigationBar">
-            <rect key="frame" x="0.0" y="0.0" width="433" height="284"/>
+            <rect key="frame" x="0.0" y="0.0" width="433" height="104"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yHe-7E-iQE" userLabel="backgroundView">
-                    <rect key="frame" x="0.0" y="240" width="433" height="44"/>
+                    <rect key="frame" x="0.0" y="60" width="433" height="44"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IL7-ON-RGP" userLabel="titleLable">
-                            <rect key="frame" x="194.5" y="11.5" width="44" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IL7-ON-RGP" userLabel="titleLable">
+                            <rect key="frame" x="216.5" y="22" width="0.0" height="0.0"/>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <color key="textColor" red="0.094117647058823528" green="0.094117647058823528" blue="0.094117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -30,14 +32,24 @@
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wJa-gj-udV" userLabel="leftButton">
+                            <rect key="frame" x="12" y="0.0" width="31" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="31" id="VRv-74-hIi"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        </button>
                     </subviews>
-                    <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="IL7-ON-RGP" firstAttribute="centerY" secondItem="yHe-7E-iQE" secondAttribute="centerY" id="1VN-ak-5xB"/>
                         <constraint firstItem="c2y-PY-NVW" firstAttribute="top" secondItem="yHe-7E-iQE" secondAttribute="top" id="Cos-gW-Uad"/>
                         <constraint firstAttribute="height" constant="44" id="FHN-2E-T2C"/>
+                        <constraint firstAttribute="bottom" secondItem="wJa-gj-udV" secondAttribute="bottom" id="QPa-I0-kko"/>
                         <constraint firstAttribute="trailing" secondItem="c2y-PY-NVW" secondAttribute="trailing" constant="12" id="SV0-p7-mk6"/>
                         <constraint firstItem="IL7-ON-RGP" firstAttribute="centerX" secondItem="yHe-7E-iQE" secondAttribute="centerX" id="T0O-pg-5Nm"/>
+                        <constraint firstItem="wJa-gj-udV" firstAttribute="leading" secondItem="yHe-7E-iQE" secondAttribute="leading" constant="12" id="THP-6M-KGl"/>
+                        <constraint firstItem="wJa-gj-udV" firstAttribute="top" secondItem="yHe-7E-iQE" secondAttribute="top" id="a3Q-UJ-Mw8"/>
                         <constraint firstAttribute="bottom" secondItem="c2y-PY-NVW" secondAttribute="bottom" id="sQs-DG-bEi"/>
                     </constraints>
                 </view>
@@ -52,10 +64,11 @@
             <viewLayoutGuide key="safeArea" id="Vox-I4-Cx6"/>
             <connections>
                 <outlet property="backgroundView" destination="yHe-7E-iQE" id="XMi-aU-WO1"/>
+                <outlet property="leftButton" destination="wJa-gj-udV" id="yGG-Vc-vL6"/>
                 <outlet property="rightButton" destination="c2y-PY-NVW" id="KXc-sb-bjQ"/>
                 <outlet property="titleLabel" destination="IL7-ON-RGP" id="btj-5G-UuS"/>
             </connections>
-            <point key="canvasLocation" x="145.6521739130435" y="101.11607142857143"/>
+            <point key="canvasLocation" x="145.6521739130435" y="161.38392857142856"/>
         </view>
     </objects>
 </document>

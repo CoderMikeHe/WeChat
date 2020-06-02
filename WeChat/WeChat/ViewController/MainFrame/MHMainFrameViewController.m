@@ -11,9 +11,44 @@
 #import "MHTestViewController.h"
 #import "MHCameraViewController.h"
 #import "MHSingleChatViewModel.h"
+#import "MHSearchViewController.h"
+
+
+#import "WPFPinYinTools.h"
+#import "WPFPinYinDataManager.h"
+
+#import "MHContactsTableViewCell.h"
+#import "MHContactsHeaderView.h"
+#import "UITableView+SCIndexView.h"
+#import "MHNavSearchBar.h"
+#import "MHMainFrameMoreView.h"
+
+/// 侧滑最大偏移量
+static CGFloat const MHSlideOffsetMaxWidth = 56;
+
 @interface MHMainFrameViewController ()
 /// viewModel
-@property (nonatomic, readwrite, strong) MHMainFrameViewModel *viewModel;
+@property (nonatomic, readonly, strong) MHMainFrameViewModel *viewModel;
+
+
+/// searchBar
+@property (nonatomic, readwrite, weak) MHNavSearchBar *searchBar;
+
+/// navBar
+@property (nonatomic, readwrite, weak) MHNavigationBar *navBar;
+
+/// searchController
+@property (nonatomic, readwrite, strong) MHSearchViewController *searchController;
+
+/// 获取截图
+@property (nonatomic, readwrite, weak) UIView *snapshotView;
+
+/// 开始拖拽的偏移量
+@property (nonatomic, readwrite, assign) CGFloat startDragOffsetY;
+/// 结束拖拽的偏移量
+@property (nonatomic, readwrite, assign) CGFloat endDragOffsetY;
+/// moreView
+@property (nonatomic, readwrite, weak) MHMainFrameMoreView *moreView;
 @end
 
 @implementation MHMainFrameViewController
@@ -30,14 +65,137 @@
     /// 设置导航栏
     [self _setupNavigationItem];
     
+    /// 设置子控件
+    [self _setupSubViews];
+    
+    /// 布局子控件
+    [self _makeSubViewsConstraints];
+    
     /// ③：注册cell
     [self.tableView mh_registerNibCell:MHMainFrameTableViewCell.class];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    // 这里也根据条件设置隐藏
+    self.tabBarController.tabBar.hidden = (self.viewModel.searchState == MHNavSearchBarStateSearch);
+}
 
-
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    // 这里也根据条件设置隐藏
+    self.tabBarController.tabBar.hidden = (self.viewModel.searchState == MHNavSearchBarStateSearch);
+    
+    // 离开此页面 隐藏
+    self.moreView.hidden = YES;
+}
 
 #pragma mark - Override
+
+- (void)bindViewModel {
+    [super bindViewModel];
+    @weakify(self);
+    // 设置title
+    RAC(self.navBar.titleLabel, text) = RACObserve(self.viewModel, title);
+    
+    [[[RACObserve(self.viewModel, searchState) skip:1] deliverOnMainThread] subscribeNext:^(NSNumber *state) {
+        @strongify(self);
+        
+        MHNavSearchBarState searchState = state.integerValue;
+        
+        self.view.userInteractionEnabled = NO;
+        
+        CGFloat navBarY = 0.0;
+        CGFloat searchViewY = 200.0;
+        if (searchState == MHNavSearchBarStateSearch) {
+            
+            navBarY = -MH_APPLICATION_TOP_BAR_HEIGHT;
+            
+            // 编辑模式场景下 从 tableViwe 身上移掉
+            [self.searchBar removeFromSuperview];
+            
+            // 清除掉tableHeaderView 会导致其 16px = 24 + 56 - 64 像素被遮住
+            self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MH_SCREEN_WIDTH, 16)];
+            // 将其添加到self.view
+            [self.view addSubview:self.searchBar];
+            self.searchBar.mh_y = MH_APPLICATION_TOP_BAR_HEIGHT;
+            
+            [self.view bringSubviewToFront:self.searchController.view];
+            searchViewY = MH_APPLICATION_STATUS_BAR_HEIGHT + 4.0 + 56.0;
+        } else {
+            if (self.snapshotView) {
+                [self.snapshotView removeFromSuperview];
+                self.snapshotView = nil;
+            }
+            self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MH_SCREEN_WIDTH, 56)];
+            [self.view sendSubviewToBack:self.searchController.view];
+        }
+        
+        [self.navBar mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.view).with.offset(navBarY);
+        }];
+        
+        [self.searchController.view mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.view).with.offset(searchViewY);
+        }];
+        
+        /// 隐藏导航栏
+        /// Fixed Bug: 这种方式可以暂时隐藏  但是如果子控制器进行push操作 那么返回来这个tabBar又会显示出来
+        self.tabBarController.tabBar.hidden = (searchState == MHNavSearchBarStateSearch);
+        /// 解决方案：在 viewWillDisappear 和 viewWillAppear 在设置一次显示隐藏逻辑即可
+        // 更新布局
+        [UIView animateWithDuration:0.25 animations:^{
+            [self.view layoutIfNeeded];
+            self.searchController.view.alpha = (searchState == MHNavSearchBarStateSearch) ? 1.0 : .0;
+            
+            // 动画
+            self.searchBar.mh_y = (searchState == MHNavSearchBarStateSearch) ? ([UIApplication sharedApplication].statusBarFrame.size.height + 4) : MH_APPLICATION_TOP_BAR_HEIGHT;
+            
+        } completion:^(BOOL finished) {
+            
+            if((searchState == MHNavSearchBarStateDefault)) {
+                // 退出编辑场景下 从 self.view 身上移掉
+                [self.searchBar removeFromSuperview];
+                // 添加到tableHeaderView
+                self.tableView.tableHeaderView = self.searchBar;
+            }else {
+                /// 获取缩略图
+                // 立即获得当前self.tableView 的屏幕快照
+                UIView *snapshotView = [self.tableView snapshotViewAfterScreenUpdates:NO];
+                snapshotView.frame = self.view.bounds;
+                self.snapshotView = snapshotView;
+                [self.view insertSubview:snapshotView belowSubview:self.searchBar];
+                snapshotView.mh_x = -MHSlideOffsetMaxWidth;
+            }
+            
+            self.view.userInteractionEnabled = true;
+        }];
+    }];
+    
+    
+    /// 监听popMoreCommand 回调
+    [self.viewModel.popCommand.executionSignals.switchToLatest subscribeNext:^(NSDictionary *dict) {
+        @strongify(self);
+        
+        if ([dict isKindOfClass:NSNumber.class]) {
+            return;
+        }
+        
+        MHSearchPopState state = [dict[@"state"] integerValue];
+        CGFloat progress = [dict[@"progress"] floatValue];
+        
+        if (state == MHSearchPopStateBegan || state == MHSearchPopStateChanged) {
+            self.snapshotView.mh_x = -MHSlideOffsetMaxWidth + progress * MHSlideOffsetMaxWidth;
+        }else if (state == MHSearchPopStateEnded) {
+            // 归位
+            [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                self.snapshotView.mh_x = -MHSlideOffsetMaxWidth + 1 * progress * MHSlideOffsetMaxWidth;
+            } completion:^(BOOL finished) {
+            }];
+        }
+    }];
+}
+
 /// 配置tableView的区域
 - (UIEdgeInsets)contentInset{
     return UIEdgeInsetsMake(MH_APPLICATION_TOP_BAR_HEIGHT, 0, MH_APPLICATION_TAB_BAR_HEIGHT, 0);
@@ -59,9 +217,65 @@
 
 #pragma mark - 事件处理
 - (void)_addMore{
-    NSLog(@"..............");
-    MHSingleChatViewModel *vm = [[MHSingleChatViewModel alloc] initWithServices:self.viewModel.services params:@{MHViewModelUtilKey: self.viewModel.services.client.currentUser}];
-    [self.viewModel.services pushViewModel:vm animated:YES];
+
+    if (self.moreView.hidden) {
+        self.moreView.hidden = NO;
+        [self.moreView show];
+    }else {
+        @weakify(self);
+        [self.moreView hideWithCompletion:^{
+            @strongify(self);
+            self.moreView.hidden = YES;
+        }];
+    }
+}
+
+/// 处理搜索框显示偏移
+- (void)_handleSearchBarOffset:(UIScrollView *)scrollView {
+    // 获取当前偏移量
+    CGFloat offsetY = scrollView.contentOffset.y;
+    CGFloat searchBarH = 56.0f;
+    /// 在这个范围内
+    if (offsetY > -scrollView.contentInset.top && offsetY < (-scrollView.contentInset.top + searchBarH)) {
+        // 判断上下拉
+        if (self.endDragOffsetY > self.startDragOffsetY) {
+            // 上拉 隐藏
+            CGPoint offset = CGPointMake(0, -scrollView.contentInset.top + searchBarH);
+            [self.tableView setContentOffset:offset animated:YES];
+        } else {
+            // 下拉 显示
+            CGPoint offset = CGPointMake(0, -scrollView.contentInset.top);
+            [self.tableView setContentOffset:offset animated:YES];
+        }
+    }
+}
+
+#pragma mark - UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return [self.viewModel.dataSource[indexPath.row] cellHeight];
+}
+#pragma mark - UIScrollViewDelegate
+/// 细节处理：
+/// 由于要弹出 搜索模块，所以要保证滚动到最顶部时，要确保搜索框完全显示或者完全隐藏，
+/// 不然会导致弹出搜索模块,然后收回搜索模块，会导致动画不流畅，影响体验，微信做法也是如此
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    /// 注意：这个方法不一定调用 当你缓慢拖动的时候是不会调用的
+    [self _handleSearchBarOffset:scrollView];
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    // 记录刚开始拖拽的值
+    self.startDragOffsetY = scrollView.contentOffset.y;
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    // 记录刚开始拖拽的值
+    self.endDragOffsetY = scrollView.contentOffset.y;
+    // decelerate: YES 说明还有速度或者说惯性，会继续滚动 停止时调用scrollViewDidEndDecelerating
+    // decelerate: NO  说明是很慢的拖拽，没有惯性，不会调用 scrollViewDidEndDecelerating
+    if (!decelerate) {
+        [self _handleSearchBarOffset:scrollView];
+    }
 }
 
 #pragma mark - 初始化
@@ -70,11 +284,83 @@
 }
 #pragma mark - 设置导航栏
 - (void)_setupNavigationItem{
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem mh_svgBarButtonItem:@"icons_outlined_add2.svg" targetSize:CGSizeMake(24.0, 24.0) tintColor:nil target:self selector:@selector(_addMore)];
 }
 
-#pragma mark - UITableViewDelegate
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [self.viewModel.dataSource[indexPath.row] cellHeight];
+#pragma mark - 设置子控件
+- (void)_setupSubViews{
+    
+    // 自定义导航栏
+    MHNavigationBar *navBar = [MHNavigationBar navigationBar];
+    UIImage *image = [UIImage mh_svgImageNamed:@"icons_outlined_add2.svg" targetSize:CGSizeMake(24.0, 24.0) tintColor:MHColorFromHexString(@"#181818")];
+    UIImage *imageHigh = [UIImage mh_svgImageNamed:@"icons_outlined_add2.svg" targetSize:CGSizeMake(24.0, 24.0) tintColor:[MHColorFromHexString(@"#181818") colorWithAlphaComponent:0.5]];
+    [navBar.rightButton setImage:image forState:UIControlStateNormal];
+    [navBar.rightButton setImage:imageHigh forState:UIControlStateHighlighted];
+    self.navBar = navBar;
+    [self.view addSubview:navBar];
+    [navBar.rightButton addTarget:self action:@selector(_addMore) forControlEvents:UIControlEventTouchUpInside];
+    
+    // 创建searchBar
+    MHNavSearchBar *searchBar = [[MHNavSearchBar alloc] init];
+    [searchBar bindViewModel:self.viewModel.searchBarViewModel];
+    self.tableView.tableHeaderView = searchBar;
+    self.tableView.tableHeaderView.mh_height = self.viewModel.searchBarViewModel.height;
+    self.searchBar = searchBar;
+    
+    /// 添加搜索View
+    MHSearchViewController *searchController = [[MHSearchViewController alloc] initWithViewModel:self.viewModel.searchViewModel];
+    searchController.view.alpha = 0.0;
+    [self.view addSubview:searchController.view];
+    [self addChildViewController:searchController];
+    [searchController didMoveToParentViewController:self];
+    self.searchController = searchController;
+    
+    /// moreView
+    MHMainFrameMoreView *moreView = [[MHMainFrameMoreView alloc] init];
+    self.moreView = moreView;
+    moreView.hidden = YES;
+    [self.view addSubview:moreView];
+    /// 事件回调
+    @weakify(moreView);
+    moreView.maskAction = ^{
+        @strongify(moreView);
+        @weakify(moreView);
+        [moreView hideWithCompletion:^{
+            @strongify(moreView);
+            moreView.hidden = YES;
+        }];
+    };
+    moreView.menuItemAction = ^(MHMainFrameMoreViewType type) {
+        @strongify(moreView);
+        @weakify(moreView);
+        [moreView hideWithCompletion:^{
+            @strongify(moreView);
+            moreView.hidden = YES;
+        }];
+        
+        /// 下钻...
+    };
 }
+
+#pragma mark - 布局子控件
+- (void)_makeSubViewsConstraints{
+    
+    [self.navBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.and.top.equalTo(self.view);
+        make.height.mas_equalTo(MH_APPLICATION_TOP_BAR_HEIGHT);
+    }];
+    
+    [self.searchController.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.and.bottom.equalTo(self.view);
+        make.top.equalTo(self.view).with.offset(200);
+    }];
+    
+    [self.moreView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.and.right.equalTo(self.view).with.offset(0);
+        make.top.equalTo(self.view).with.offset(MH_APPLICATION_TOP_BAR_HEIGHT);
+        make.bottom.equalTo(self.view).with.offset(-MH_APPLICATION_TAB_BAR_HEIGHT);
+    }];
+}
+
+
+
 @end

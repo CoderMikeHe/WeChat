@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>icons_outlined_colorful_cards</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="icons_outlined_colorful_cards" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon35" fill-rule="nonzero">
+            <g id="Group" transform="translate(3.000000, 3.333333)">
+                <path d="M18,1.02283447 C18,0.545661825 17.6221128,0.219150994 17.1559654,0.283893692 L0.844034582,2.54943964 C0.375955582,2.61445061 0,3.04998605 0,3.52283447 L1.2,3.71151879 L16.8,1.54485212 L16.8,4.8291991 L18,4.98709383 L18,1.02283447 Z" id="Combined-Shape" fill="#00C777"></path>
+                <path d="M1.2,3.91274081 L1.2,13.9920543 L17.8,16.1762649 L17.8,6.09695134 L1.2,3.91274081 Z M0,3.54630027 C0,2.99302283 0.450925395,2.60383513 0.994771168,2.67539378 L18.1590779,4.9338552 C18.6235064,4.9949642 19,5.43231003 19,5.90367846 L19,16.5427054 C19,17.0959829 18.5490746,17.4851706 18.0052288,17.4136119 L0.840922073,15.1551505 C0.376493636,15.0940415 0,14.6566956 0,14.1853272 L0,3.54630027 Z" id="Rectangle-7" fill="#1588F4"></path>
+            </g>
+        </g>
+    </g>
+</svg>

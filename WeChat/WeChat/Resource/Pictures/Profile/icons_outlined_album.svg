@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>icons_outlined_album</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="icons_outlined_album" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="common_icons_album" fill="#000000" fill-rule="nonzero">
+            <g id="Pic" transform="translate(2.000000, 3.500000)">
+                <path d="M18.8,10.9088466 L18.8,1.7 L1.2,1.7 L1.2,10.5922199 L6.19924553,6.54925865 C6.66179904,6.17518501 7.40462562,6.19332718 7.85049542,6.58508368 L12.3269229,10.5182264 L14.6091025,8.57749766 C15.0713175,8.18443756 15.8067229,8.19242258 16.2554314,8.5950837 L18.8,10.9088466 Z M18.7999996,12.4936093 L15.4261838,9.45789191 L13.2379757,11.3187086 L14.5824388,12.5 L12.8111672,12.5 L7.00605625,7.44008323 L1.2,12.1355239 L1.2,15.3 L18.8,15.3 L18.8,12.4936092 Z M0.99180311,0.5 L19.0081969,0.5 C19.5446944,0.5 20,0.981137002 20,1.57464957 L20,15.4253504 C20,16.0211518 19.5559546,16.5 19.0081969,16.5 L0.99180311,16.5 C0.455305576,16.5 0,16.018863 0,15.4253504 L0,1.57464957 C0,0.978848219 0.444045377,0.5 0.99180311,0.5 Z" id="Combined-Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

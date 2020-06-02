@@ -11,6 +11,14 @@
 @interface MHCommonItemViewModel : NSObject
 /// 图标
 @property (nonatomic, readwrite, copy) NSString *icon;
+
+/// svg 是否是svg default is NO
+@property (nonatomic, readwrite, assign, getter=isSvg) BOOL svg;
+/// svgTintColor default is nil
+@property (nonatomic, readwrite, strong) UIColor *svgTintColor;
+/// svgSize
+@property (nonatomic, readwrite, assign) CGSize svgSize;
+
 /// 标题
 @property (nonatomic, readwrite, copy) NSString *title;
 /// 子标题
@@ -36,6 +44,7 @@
 
 /// init title or icon
 + (instancetype)itemViewModelWithTitle:(NSString *)title icon:(NSString *)icon;
++ (instancetype)itemViewModelWithTitle:(NSString *)title icon:(NSString *)icon svg:(BOOL)svg;
 /// init title
 + (instancetype)itemViewModelWithTitle:(NSString *)title;
 @end

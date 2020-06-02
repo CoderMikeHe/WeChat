@@ -19,7 +19,7 @@ NSString * const MHPlugSwitchValueDidChangedNotification = @"MHPlugSwitchValueDi
 
 
 /// 全局分割线高度 .5
-CGFloat const MHGlobalBottomLineHeight = 0.5f;
+CGFloat const MHGlobalBottomLineHeight = 0.8f;
 
 /// 个性签名的最大字数为30
 NSUInteger const MHFeatureSignatureMaxWords = 30;

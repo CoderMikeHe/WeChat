@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>icons_outlined_pay</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="icons_outlined_pay" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon19" fill="#000000">
+            <path d="M7,5.19999695 L3.20001221,5.19999695 L3.20001221,9 L2,9 L2,5 C2,4.44771525 2.44771525,4 3,4 L7,4 L7,5.19999695 Z" id="Combined-Shape" fill-rule="nonzero"></path>
+            <path d="M7,16.1999969 L3.20001221,16.1999969 L3.20001221,20 L2,20 L2,16 C2,15.4477153 2.44771525,15 3,15 L7,15 L7,16.1999969 Z" id="Combined-Shape" fill-rule="nonzero" transform="translate(4.500000, 17.500000) scale(1, -1) translate(-4.500000, -17.500000) "></path>
+            <path d="M22,5.19999695 L18.2000122,5.19999695 L18.2000122,9 L17,9 L17,5 C17,4.44771525 17.4477153,4 18,4 L22,4 L22,5.19999695 Z" id="Combined-Shape" fill-rule="nonzero" transform="translate(19.500000, 6.500000) scale(-1, 1) translate(-19.500000, -6.500000) "></path>
+            <path d="M22,16.1999969 L18.2000122,16.1999969 L18.2000122,20 L17,20 L17,16 C17,15.4477153 17.4477153,15 18,15 L22,15 L22,16.1999969 Z" id="Combined-Shape" fill-rule="nonzero" transform="translate(19.500000, 17.500000) scale(-1, -1) translate(-19.500000, -17.500000) "></path>
+            <path d="M10.8284273,14.5583261 L16.6367534,8.75 L17.4852815,9.59852817 L11.5355341,15.5482756 C11.1450098,15.9387999 10.5118448,15.9387999 10.1213205,15.5482756 L7,12.4269551 L7.84852817,11.578427 L10.8284273,14.5583261 Z" id="Combined-Shape"></path>
+        </g>
+    </g>
+</svg>

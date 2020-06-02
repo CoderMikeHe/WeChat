@@ -65,6 +65,18 @@
         return [RACSignal empty];
     }];
     
+    // 赋值数据
+    RAC(self, contacts) = self.requestRemoteDataCommand.executionSignals.switchToLatest;
+    
+    // 监听数据改变
+    [[RACObserve(self, contacts) distinctUntilChanged] subscribeNext:^(NSArray * contacts) {
+        @strongify(self);
+        [self _handleContacts:contacts];
+    }];
+    
+    
+    
+    // --------------------- 搜索相关 ----------------------
     /// 弹出搜索页或者隐藏搜索页的回调  以及侧滑搜索页回调
     self.popCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         @strongify(self);
@@ -80,19 +92,6 @@
         }
         return [RACSignal return:input];
     }];
-    
-    // 赋值数据
-    RAC(self, contacts) = self.requestRemoteDataCommand.executionSignals.switchToLatest;
-    
-    // 监听数据改变
-    [[RACObserve(self, contacts) distinctUntilChanged] subscribeNext:^(NSArray * contacts) {
-        @strongify(self);
-        [self _handleContacts:contacts];
-    }];
-    
-    
-    
-    // --------------------- 搜索相关 ----------------------
  
     // 创建 searchViewModel
     self.searchViewModel = [[MHSearchViewModel alloc] initWithServices:self.services params:@{MHSearchViewPopCommandKey: self.popCommand}];

@@ -9,9 +9,6 @@
 #import "MHNavigationBar.h"
 
 @interface MHNavigationBar ()
-
-
-
 @end
 
 @implementation MHNavigationBar

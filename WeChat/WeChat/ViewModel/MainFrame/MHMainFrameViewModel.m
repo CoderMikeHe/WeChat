@@ -13,6 +13,18 @@
 @interface MHMainFrameViewModel ()
 /// 商品数组 <MHLiveRoom *>
 @property (nonatomic, readwrite, copy) NSArray *liveRooms;
+
+/// searchBarViewModel
+@property (nonatomic, readwrite, strong) MHNavSearchBarViewModel *searchBarViewModel;
+
+/// searchViewModel
+@property (nonatomic, readwrite, strong) MHSearchViewModel *searchViewModel;
+
+/// 搜索状态
+@property (nonatomic, readwrite, assign) MHNavSearchBarState searchState;
+
+/// 弹出/消失 搜索内容页 回调
+@property (nonatomic, readwrite, strong) RACCommand *popCommand;
 @end
 
 
@@ -21,10 +33,15 @@
 - (void)initialize
 {
     [super initialize];
+    
+    /// 隐藏导航栏
+    self.prefersNavigationBarHidden = YES;
+    self.prefersNavigationBarBottomLineHidden = YES;
+    
     self.title = @"微信";
     
     /// 允许下拉刷新
-    self.shouldPullDownToRefresh = YES;
+    self.shouldPullDownToRefresh = NO;
     /// 允许上拉加载
     self.shouldPullUpToLoadMore = YES;
     /// 没有数据时，隐藏底部刷新控件
@@ -50,6 +67,47 @@
         [self.services pushViewModel:viewModel animated:YES];
         return [RACSignal empty];
     }];
+    
+    
+    // --------------------- 搜索相关 ----------------------
+    /// 弹出搜索页或者隐藏搜索页的回调  以及侧滑搜索页回调
+    self.popCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        @strongify(self);
+        if ([input isKindOfClass:NSNumber.class]) {
+            NSNumber *value = (NSNumber *)input;
+            self.searchState = value.integerValue;
+        } else {
+            NSDictionary *dict = (NSDictionary *)input;
+            MHSearchPopState state = [dict[@"state"] integerValue];
+            if (state == MHSearchPopStateCompleted && self.searchState == MHNavSearchBarStateSearch) {
+                self.searchState = MHNavSearchBarStateDefault;
+            }
+        }
+        return [RACSignal return:input];
+    }];
+    
+    // 创建 searchViewModel
+    self.searchViewModel = [[MHSearchViewModel alloc] initWithServices:self.services params:@{MHSearchViewPopCommandKey: self.popCommand}];
+    
+    
+    // 配置 searchBar viewModel
+    self.searchBarViewModel = [[MHNavSearchBarViewModel alloc] init];
+    // 语音输入回调 + 文本框输入回调
+    self.searchBarViewModel.textCommand = self.searchViewModel.textCommand;
+    // 返回按钮的命令
+    self.searchBarViewModel.backCommand = self.searchViewModel.backCommand;
+    // 键盘搜索按钮的命令
+    self.searchBarViewModel.searchCommand = self.searchViewModel.searchCommand;
+    // 点击 搜索 或者 取消按钮的回调
+    self.searchBarViewModel.popCommand = self.popCommand;
+    
+    /// 赋值操作
+    RAC(self.searchBarViewModel, text) = RACObserve(self.searchViewModel, keyword);
+    RAC(self.searchBarViewModel, searchType) = RACObserve(self.searchViewModel, searchType);
+    RAC(self.searchBarViewModel, searchDefaultType) = RACObserve(self.searchViewModel, searchDefaultType);
+    
+    RAC(self.searchViewModel, searchState) = RACObserve(self, searchState);
+    RAC(self.searchBarViewModel, searchState) = RACObserve(self, searchState);
 
 }
 

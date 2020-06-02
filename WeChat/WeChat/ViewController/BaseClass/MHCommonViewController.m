@@ -30,7 +30,7 @@
 }
 
 - (UIEdgeInsets)contentInset{
-    return UIEdgeInsetsMake(MH_APPLICATION_TOP_BAR_HEIGHT+16, 0, 0, 0);
+    return UIEdgeInsetsMake(MH_APPLICATION_TOP_BAR_HEIGHT+3, 0, 0, 0);
 }
 
 - (void)configureCell:(MHCommonCell *)cell atIndexPath:(NSIndexPath *)indexPath withObject:(id)object{

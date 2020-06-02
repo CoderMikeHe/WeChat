@@ -17,6 +17,19 @@
  show svg image
  
  @param name svg name
+ @return svg image
+ */
++ (UIImage *)mh_svgImageNamed:(NSString *)name{
+    SVGKImage *svgImage = [SVGKImage imageNamed:name];
+    return svgImage.UIImage;
+}
+
+
+
+/**
+ show svg image
+ 
+ @param name svg name
  @param targetSize image size
  @return svg image
  */
