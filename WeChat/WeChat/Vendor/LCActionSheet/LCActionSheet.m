@@ -34,8 +34,8 @@
 #import "MH_MODIFY_LC.h"
 
 // USER_MODIFY_LC_BY_CODERMIKEHE
-/// 取消按钮顶部的间隙 : 系统默认：5.0f  Custom By CoderMikeHe :10.0f
-static CGFloat const LCCancelButtonTopMargin = 10.0f;
+/// 取消按钮顶部的间隙 : 系统默认：5.0f  Custom By CoderMikeHe :8.0f
+static CGFloat const LCCancelButtonTopMargin = 8.0f;
 
 
 @interface LCActionSheet () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
@@ -397,7 +397,11 @@ static CGFloat const LCCancelButtonTopMargin = 10.0f;
     
 
     UIView *lineView  = [[UIView alloc] init];
+#if USER_MODIFY_LC_BY_CODERMIKEHE
+    lineView.backgroundColor = MHColorFromHexString(@"#e5e5e5");
+#else
     lineView.backgroundColor = self.separatorColor;
+#endif
     lineView.contentMode   = UIViewContentModeBottom;
     lineView.clipsToBounds = YES;
     [bottomView addSubview:lineView];
