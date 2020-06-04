@@ -20,6 +20,7 @@
     config.buttonFont = MHRegularFont_16;
     config.unBlur = YES;
     config.darkOpacity = .6f;
+    config.buttonHeight = 56.0f;
  
     /// 设置
     config.titleEdgeInsets = UIEdgeInsetsMake(27, 22, 27, 22);
