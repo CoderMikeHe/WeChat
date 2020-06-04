@@ -33,9 +33,9 @@
 
 #import "MH_MODIFY_LC.h"
 
-
-/// 取消按钮顶部的间隙 : 系统默认：5.0f  Custom By CoderMikeHe :10.0f
-static CGFloat const LCCancelButtonTopMargin = 10.0f;
+// USER_MODIFY_LC_BY_CODERMIKEHE
+/// 取消按钮顶部的间隙 : 系统默认：5.0f  Custom By CoderMikeHe :8.0f
+static CGFloat const LCCancelButtonTopMargin = 8.0f;
 
 
 @interface LCActionSheet () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
@@ -58,6 +58,11 @@ static CGFloat const LCCancelButtonTopMargin = 10.0f;
 
 @property (nullable, nonatomic, strong) UIWindow *window;
 
+// USER_MODIFY_LC_BY_CODERMIKEHE
+/// whiteBgViewWidth
+@property (nonatomic, readwrite, assign) CGFloat whiteBgViewWidth;
+/// whiteBgViewHeight
+@property (nonatomic, readwrite, assign) CGFloat whiteBgViewHeight;
 @end
 
 @implementation LCActionSheet
@@ -312,6 +317,8 @@ static CGFloat const LCCancelButtonTopMargin = 10.0f;
     }];
     self.bottomView = bottomView;
     
+    
+    
     UIView *darkView                = [[UIView alloc] init];
     darkView.alpha                  = 0;
     darkView.userInteractionEnabled = NO;
@@ -321,11 +328,20 @@ static CGFloat const LCCancelButtonTopMargin = 10.0f;
     darkView.backgroundColor        = LC_ACTION_SHEET_COLOR(46, 49, 50);
 #endif
     
+#if USER_MODIFY_LC_BY_CODERMIKEHE
+    /// 将其插入到底部
+    [self insertSubview:darkView atIndex:0];
+#else
     [self addSubview:darkView];
+#endif
     [darkView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self);
         make.top.equalTo(self).priorityLow();
-        make.bottom.equalTo(bottomView.mas_top);
+#if USER_MODIFY_LC_BY_CODERMIKEHE
+        make.bottom.equalTo(bottomView.mas_top).with.offset(10.0f);
+#else
+        make.bottom.equalTo(bottomView.mas_top).with.offset(0.0f);
+#endif
     }];
     self.darkView = darkView;
     
@@ -381,7 +397,11 @@ static CGFloat const LCCancelButtonTopMargin = 10.0f;
     
 
     UIView *lineView  = [[UIView alloc] init];
+#if USER_MODIFY_LC_BY_CODERMIKEHE
+    lineView.backgroundColor = MHColorFromHexString(@"#e5e5e5");
+#else
     lineView.backgroundColor = self.separatorColor;
+#endif
     lineView.contentMode   = UIViewContentModeBottom;
     lineView.clipsToBounds = YES;
     [bottomView addSubview:lineView];
@@ -735,6 +755,35 @@ static CGFloat const LCCancelButtonTopMargin = 10.0f;
         make.height.equalTo(@(height));
     }];
 }
+
+/// 布局子控件
+- (void)layoutSubviews{
+    [super layoutSubviews];
+#if USER_MODIFY_LC_BY_CODERMIKEHE
+    CGFloat whiteBgViewWidth = self.whiteBgView.bounds.size.width;
+    CGFloat whiteBgViewHeight = self.whiteBgView.bounds.size.height;
+    CGFloat deltaWidth = fabs(whiteBgViewWidth - self.whiteBgViewWidth);
+    CGFloat deltaHeight = fabs(whiteBgViewHeight - self.whiteBgViewHeight);
+    if (whiteBgViewWidth > 0 && whiteBgViewHeight > 0 && (deltaWidth > 0.0000000000001 || deltaHeight > 0.0000000000001)) {
+        self.whiteBgViewWidth = whiteBgViewWidth;
+        self.whiteBgViewHeight = whiteBgViewHeight;
+    
+        // 设置圆角
+        CGSize cornerRadii = CGSizeMake(10, 10);
+        UIBezierPath *cornerPath = [UIBezierPath bezierPathWithRoundedRect:self.bottomView.bounds byRoundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight cornerRadii:cornerRadii];
+        /// 模板
+        CAShapeLayer *maskLayer = [CAShapeLayer layer];
+        maskLayer.frame = self.whiteBgView.bounds;
+        maskLayer.path = cornerPath.CGPath;
+        
+        // 设置
+        self.whiteBgView.layer.mask = maskLayer;
+        self.whiteBgView.layer.masksToBounds = YES;
+   
+    }
+#endif
+}
+
 
 #pragma mark - Show & Hide
 
