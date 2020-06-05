@@ -9,10 +9,13 @@
 #import "MHGeneralViewModel.h"
 #import "MHCommonSwitchItemViewModel.h"
 #import "MHCommonArrowItemViewModel.h"
+#import "MHCommonCenterItemViewModel.h"
 
 @interface MHGeneralViewModel ()
 /// 清除聊天记录de的命令
 @property (nonatomic, readwrite, strong) RACCommand *clearChatRecordsCommand;
+/// 清除聊天记录de的回调
+@property (nonatomic, readwrite, strong) RACSubject *clearChatRecordsSubject;
 @end
 
 
@@ -75,8 +78,19 @@
     MHCommonArrowItemViewModel * storageSpace = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"存储空间"];
     group4.itemViewModels = @[ chatRecord , storageSpace ];
     
+    /// 第六组
+    MHCommonGroupViewModel *group5 = [MHCommonGroupViewModel groupViewModel];
+    /// 清空聊天记录
+    MHCommonCenterItemViewModel *clearChatRecords = [MHCommonCenterItemViewModel itemViewModelWithTitle:@"退出登录"];
+    clearChatRecords.operation = ^{
+        @strongify(self);
+        // 回调出去
+        [self.clearChatRecordsSubject sendNext:nil];
+    };
+    group5.itemViewModels = @[ clearChatRecords ];
+    
     /// 数据源
-    self.dataSource = @[group0 , group1 , group2 , group3 , group4];
+    self.dataSource = @[group0 , group1 , group2 , group3 , group4, group5];
     
     
     self.clearChatRecordsCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
@@ -86,5 +100,7 @@
         
         return [RACSignal empty];
     }];
+    
+    self.clearChatRecordsSubject = [RACSubject subject];
 }
 @end

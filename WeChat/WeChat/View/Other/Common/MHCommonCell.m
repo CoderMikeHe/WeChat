@@ -12,6 +12,7 @@
 #import "MHCommonQRCodeItemViewModel.h"
 #import "MHCommonLabelItemViewModel.h"
 #import "MHCommonSwitchItemViewModel.h"
+#import "MHCommonCenterItemViewModel.h"
 @interface MHCommonCell ()
 /// viewModel
 @property (nonatomic, readwrite, strong) MHCommonItemViewModel *viewModel;
@@ -36,6 +37,10 @@
 @property (nonatomic, readwrite, weak) UIImageView *centerLeftView;
 /// 中间偏右 view
 @property (nonatomic, readwrite, weak) UIImageView *centerRightView;
+
+
+/// 居中显示的 centerTextLabel 比如 `退出登录`、`切换账号`等
+@property (nonatomic, readwrite, weak) UILabel *centerTextLabel;
 @end
 
 
@@ -77,8 +82,12 @@
 - (void)bindViewModel:(MHCommonItemViewModel *)viewModel{
     self.viewModel = viewModel;
     
+    self.textLabel.hidden = NO;
+    
     self.avatarView.hidden = YES;
     self.qrCodeView.hidden = YES;
+    
+    self.centerTextLabel.hidden = YES;
     
     self.selectionStyle = viewModel.selectionStyle;
     self.textLabel.text = viewModel.title;
@@ -133,6 +142,12 @@
         MHCommonSwitchItemViewModel *switchViewModel = (MHCommonSwitchItemViewModel *)viewModel;
         self.accessoryView = self.rightSwitch;
         self.rightSwitch.on = !switchViewModel.off;
+    }else if([viewModel isKindOfClass:[MHCommonCenterItemViewModel class]]){ /// 居中显示
+        
+        self.textLabel.hidden = YES;
+        self.centerTextLabel.hidden = NO;
+        self.centerTextLabel.text = viewModel.title;
+        
     }else{
         self.accessoryView = nil;
     }
@@ -167,6 +182,7 @@
     self.detailTextLabel.textColor = MHColorFromHexString(@"#888888");
     self.detailTextLabel.numberOfLines = 0;
     self.textLabel.font = MHRegularFont_17;
+    self.textLabel.textColor = MHColorFromHexString(@"#181818");
     self.detailTextLabel.font = MHRegularFont_16;
 }
 
@@ -212,14 +228,26 @@
     centerRightView.hidden = YES;
     self.centerRightView = centerRightView;
     [self.contentView addSubview:centerRightView];
+    
+    
+    /// centerTextLabel
+    UILabel *centerTextLabel = [[UILabel alloc] init];
+    centerTextLabel.textAlignment = NSTextAlignmentCenter;
+    centerTextLabel.font = MHRegularFont_16;
+    centerTextLabel.textColor = self.textLabel.textColor;
+    centerTextLabel.numberOfLines = 1;
+    centerTextLabel.text = @"";
+    [self.contentView addSubview:centerTextLabel];
+    self.centerTextLabel = centerTextLabel;
 }
 
 
 
 #pragma mark - 布局子控件
 - (void)_makeSubViewsConstraints{
-    
-    
+    [self.centerTextLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.contentView);
+    }];
 }
 
 #pragma mark - 布局
@@ -254,6 +282,7 @@
     /// 配置
     self.centerRightView.mh_right = self.detailTextLabel.mh_left - 5;
     self.centerRightView.mh_centerY = self.mh_height * .5f;
+    
 }
 
 #pragma mark - 事件处理

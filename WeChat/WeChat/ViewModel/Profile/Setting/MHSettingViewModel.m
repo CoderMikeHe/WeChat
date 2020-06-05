@@ -8,6 +8,7 @@
 
 #import "MHSettingViewModel.h"
 #import "MHCommonArrowItemViewModel.h"
+#import "MHCommonCenterItemViewModel.h"
 #import "MHPlugViewModel.h"
 #import "MHAccountSecurityViewModel.h"
 #import "MHNotificationViewModel.h"
@@ -18,6 +19,8 @@
 @interface MHSettingViewModel ()
 /// 登出的命令
 @property (nonatomic, readwrite, strong) RACCommand *logoutCommand;
+/// 登出回调
+@property (nonatomic, readwrite, strong) RACSubject *logoutSubject;
 @end
 
 @implementation MHSettingViewModel
@@ -73,7 +76,29 @@
     plug.destViewModelClass = [MHPlugViewModel class];
     group3.itemViewModels = @[ plug ];
     
-    self.dataSource = @[group0 , group1 , group2 , group3];
+    /// 第五组
+    MHCommonGroupViewModel *group4 = [MHCommonGroupViewModel groupViewModel];
+    /// 插
+    MHCommonCenterItemViewModel *changeAccount = [MHCommonCenterItemViewModel itemViewModelWithTitle:@"切换账号"];
+    group4.itemViewModels = @[ changeAccount ];
+    
+    /// 第六组
+    MHCommonGroupViewModel *group5 = [MHCommonGroupViewModel groupViewModel];
+    /// 插
+    MHCommonCenterItemViewModel *logout = [MHCommonCenterItemViewModel itemViewModelWithTitle:@"退出登录"];
+    logout.operation = ^{
+        @strongify(self);
+        // 回调出去
+        [self.logoutSubject sendNext:nil];
+    };
+    
+    group5.itemViewModels = @[ logout ];
+    
+    self.dataSource = @[group0 , group1 , group2 , group3, group4, group5];
+    
+
+    /// 退出回调
+    self.logoutSubject = [RACSubject subject];
     
     /// 退出登录的命令
     self.logoutCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {

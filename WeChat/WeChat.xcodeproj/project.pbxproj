@@ -395,6 +395,7 @@
 		84CFE0A7246D387E004C8739 /* MHSearchMusicDelHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFE0A5246D387E004C8739 /* MHSearchMusicDelHistoryCell.m */; };
 		84CFE0A8246D387E004C8739 /* MHSearchMusicDelHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84CFE0A6246D387E004C8739 /* MHSearchMusicDelHistoryCell.xib */; };
 		84CFE0AB246D450F004C8739 /* YYCache+MHUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFE0AA246D450F004C8739 /* YYCache+MHUtil.m */; };
+		84D3F6F1248A411A00C80689 /* MHCommonCenterItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D3F6F0248A411A00C80689 /* MHCommonCenterItemViewModel.m */; };
 		84ED8EE0247B51690040C46B /* MHSearchDefaultSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ED8EDE247B51690040C46B /* MHSearchDefaultSearchCell.m */; };
 		84ED8EE1247B51690040C46B /* MHSearchDefaultSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ED8EDF247B51690040C46B /* MHSearchDefaultSearchCell.xib */; };
 		84ED8EE4247B56AE0040C46B /* MHSearchDefaultSearchItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ED8EE3247B56AE0040C46B /* MHSearchDefaultSearchItemViewModel.m */; };
@@ -1223,6 +1224,8 @@
 		84CFE0A6246D387E004C8739 /* MHSearchMusicDelHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHSearchMusicDelHistoryCell.xib; sourceTree = "<group>"; };
 		84CFE0A9246D450F004C8739 /* YYCache+MHUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YYCache+MHUtil.h"; sourceTree = "<group>"; };
 		84CFE0AA246D450F004C8739 /* YYCache+MHUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "YYCache+MHUtil.m"; sourceTree = "<group>"; };
+		84D3F6EF248A411A00C80689 /* MHCommonCenterItemViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHCommonCenterItemViewModel.h; sourceTree = "<group>"; };
+		84D3F6F0248A411A00C80689 /* MHCommonCenterItemViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHCommonCenterItemViewModel.m; sourceTree = "<group>"; };
 		84ED8EDD247B51690040C46B /* MHSearchDefaultSearchCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchDefaultSearchCell.h; sourceTree = "<group>"; };
 		84ED8EDE247B51690040C46B /* MHSearchDefaultSearchCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchDefaultSearchCell.m; sourceTree = "<group>"; };
 		84ED8EDF247B51690040C46B /* MHSearchDefaultSearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHSearchDefaultSearchCell.xib; sourceTree = "<group>"; };
@@ -2346,6 +2349,8 @@
 				261E014E1FDE2A400041E989 /* MHCommonValueItemViewModel.m */,
 				261E015B1FDE2E010041E989 /* MHCommonSwitchItemViewModel.h */,
 				261E015C1FDE2E010041E989 /* MHCommonSwitchItemViewModel.m */,
+				84D3F6EF248A411A00C80689 /* MHCommonCenterItemViewModel.h */,
+				84D3F6F0248A411A00C80689 /* MHCommonCenterItemViewModel.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -4625,6 +4630,7 @@
 				26AEEE071F7CE14200A270EE /* MHZoneCodeViewController.m in Sources */,
 				2605C5C71F662FA300B1F66E /* MHProfileViewController.m in Sources */,
 				2611AC651F61992F00418FB9 /* MHNavigationController.m in Sources */,
+				84D3F6F1248A411A00C80689 /* MHCommonCenterItemViewModel.m in Sources */,
 				26225D7A1F654E410074BFC3 /* MHTabBarController.m in Sources */,
 				26FE8E831F9514D100EC8BE0 /* SDCycleScrollView.m in Sources */,
 				26225D741F654D330074BFC3 /* MHTableViewController.m in Sources */,
