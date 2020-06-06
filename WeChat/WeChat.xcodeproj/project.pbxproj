@@ -467,6 +467,8 @@
 		DE76F56F2459AD0000A7C4A6 /* MHContactsService.m in Sources */ = {isa = PBXBuildFile; fileRef = DE76F56E2459AD0000A7C4A6 /* MHContactsService.m */; };
 		DEA6F3D4245AF3E200542C6B /* MHContactsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA6F3D3245AF3E200542C6B /* MHContactsHeaderView.m */; };
 		DEA6F3D8245AF5D900542C6B /* MHContactsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA6F3D7245AF5D900542C6B /* MHContactsHeaderView.xib */; };
+		DEAA4830248B2D9700F71465 /* MHDiscoverManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEAA482F248B2D9700F71465 /* MHDiscoverManagerViewController.m */; };
+		DEAA4834248B2DD600F71465 /* MHDiscoverManagerViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DEAA4833248B2DD600F71465 /* MHDiscoverManagerViewModel.m */; };
 		DED808012465A11500AC76AD /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED808002465A11400AC76AD /* iflyMSC.framework */; };
 		DED808042465A26800AC76AD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED808032465A26800AC76AD /* AVFoundation.framework */; };
 		DED808062465A28400AC76AD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED808052465A28400AC76AD /* SystemConfiguration.framework */; };
@@ -1337,6 +1339,10 @@
 		DEA6F3D2245AF3E200542C6B /* MHContactsHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHContactsHeaderView.h; sourceTree = "<group>"; };
 		DEA6F3D3245AF3E200542C6B /* MHContactsHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHContactsHeaderView.m; sourceTree = "<group>"; };
 		DEA6F3D7245AF5D900542C6B /* MHContactsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHContactsHeaderView.xib; sourceTree = "<group>"; };
+		DEAA482E248B2D9700F71465 /* MHDiscoverManagerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHDiscoverManagerViewController.h; sourceTree = "<group>"; };
+		DEAA482F248B2D9700F71465 /* MHDiscoverManagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHDiscoverManagerViewController.m; sourceTree = "<group>"; };
+		DEAA4832248B2DD600F71465 /* MHDiscoverManagerViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHDiscoverManagerViewModel.h; sourceTree = "<group>"; };
+		DEAA4833248B2DD600F71465 /* MHDiscoverManagerViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHDiscoverManagerViewModel.m; sourceTree = "<group>"; };
 		DED808002465A11400AC76AD /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
 		DED808022465A22600AC76AD /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		DED808032465A26800AC76AD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -1579,6 +1585,7 @@
 			isa = PBXGroup;
 			children = (
 				26225D991F65589E0074BFC3 /* MHConstant.h */,
+				26225D9A1F65589E0074BFC3 /* MHConstant.m */,
 				26225D9C1F65594D0074BFC3 /* MHMacros.h */,
 				263D371B1F666CD4007267C3 /* MHConstEnum.h */,
 				2617530F1F736A9C00812E1B /* MHConstInline.h */,
@@ -1745,6 +1752,7 @@
 		26064AF91F5DB46500566B95 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				DEAA482D248B2D4A00F71465 /* DiscoverManager */,
 				2633E0211FEA08C000D0E187 /* Emotion */,
 				2601757E1FE90492000F6A25 /* General */,
 				2605E1031FE7922700F514B0 /* Privacy */,
@@ -2139,6 +2147,7 @@
 		26225D831F65506E0074BFC3 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				DEAA4831248B2DB700F71465 /* DiscoverManager */,
 				2633E00F1FEA05D300D0E187 /* Emotion */,
 				2601757F1FE904AF000F6A25 /* General */,
 				2605E1071FE7927300F514B0 /* Privacy */,
@@ -2668,7 +2677,6 @@
 		263D36CD1F666438007267C3 /* UITextField */ = {
 			isa = PBXGroup;
 			children = (
-				26225D9A1F65589E0074BFC3 /* MHConstant.m */,
 				263D36CE1F666438007267C3 /* UITextField+MHExtension.h */,
 				263D36CF1F666438007267C3 /* UITextField+MHExtension.m */,
 			);
@@ -3824,6 +3832,24 @@
 			path = Contacts;
 			sourceTree = "<group>";
 		};
+		DEAA482D248B2D4A00F71465 /* DiscoverManager */ = {
+			isa = PBXGroup;
+			children = (
+				DEAA482E248B2D9700F71465 /* MHDiscoverManagerViewController.h */,
+				DEAA482F248B2D9700F71465 /* MHDiscoverManagerViewController.m */,
+			);
+			path = DiscoverManager;
+			sourceTree = "<group>";
+		};
+		DEAA4831248B2DB700F71465 /* DiscoverManager */ = {
+			isa = PBXGroup;
+			children = (
+				DEAA4832248B2DD600F71465 /* MHDiscoverManagerViewModel.h */,
+				DEAA4833248B2DD600F71465 /* MHDiscoverManagerViewModel.m */,
+			);
+			path = DiscoverManager;
+			sourceTree = "<group>";
+		};
 		DEAEB0352462D66400F51CC5 /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -4875,6 +4901,7 @@
 				261753281F73ADFB00812E1B /* MHMoreInfoViewController.m in Sources */,
 				2624CAE41F98DF9B0083923F /* AFHTTPSessionManager+RACSupport.m in Sources */,
 				84178C2E247661E000F7EFEE /* MHGroupChatViewModel.m in Sources */,
+				DEAA4830248B2D9700F71465 /* MHDiscoverManagerViewController.m in Sources */,
 				84178C352476621500F7EFEE /* MHSingleChatViewController.m in Sources */,
 				261E01651FDE69DD0041E989 /* MHFreeInterruptionViewModel.m in Sources */,
 				261597511FEA5DD300C6FD80 /* MHMomentPhotosView.m in Sources */,
@@ -4905,6 +4932,7 @@
 				265DBFE81FE0C78F00A5FCC8 /* MHAboutUsViewController.m in Sources */,
 				263C89871F6A549800F7A0AE /* MHCommonHeaderView.m in Sources */,
 				8408C51F2468EB92008847B2 /* MHSearchTypeViewController.m in Sources */,
+				DEAA4834248B2DD600F71465 /* MHDiscoverManagerViewModel.m in Sources */,
 				2615972E1FEA5AEE00C6FD80 /* MHMomentPhotoItemViewModel.m in Sources */,
 				26003FF61F988BA1000621B0 /* MHImageView.m in Sources */,
 				263D371F1F667DF2007267C3 /* MHControllerHelper.m in Sources */,

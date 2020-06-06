@@ -14,6 +14,7 @@
     [super initialize];
     
     @weakify(self);
+    self.style = UITableViewStyleGrouped;
     /// 选中cell的命令
     /// UI Test
     self.didSelectCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSIndexPath *indexPath) {

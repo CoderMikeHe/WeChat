@@ -13,16 +13,6 @@
 /// 存储language
 NSString * const MHPreferenceSettingLanguage = @"MHPreferenceSettingLanguage";
 
-/// 存储看一看
-NSString * const MHPreferenceSettingLook = @"MHPreferenceSettingLook";
-/// 存储看一看（全新）
-NSString * const MHPreferenceSettingLookArtboard = @"MHPreferenceSettingLookArtboard";
-
-/// 存储搜一搜
-NSString * const MHPreferenceSettingSearch = @"MHPreferenceSettingSearch" ;
-/// 存储搜一搜（全新）
-NSString * const MHPreferenceSettingSearchArtboard = @"MHPreferenceSettingSearchArtboard" ;
-
 
 /// ---- 新消息通知
 /// 接收新消息通知
@@ -58,6 +48,35 @@ NSString * const MHPreferenceSettingFriendMomentsUpdateAlert = @"MHPreferenceSet
 /// 听筒模式
 NSString * const MHPreferenceSettingReceiverMode = @"MHPreferenceSettingReceiverMode";
 
+
+
+/// 存储看一看（全新）
+NSString * const MHPreferenceSettingLookArtboard = @"MHPreferenceSettingLookArtboard";
+
+/// 存储搜一搜（全新）
+NSString * const MHPreferenceSettingSearchArtboard = @"MHPreferenceSettingSearchArtboard" ;
+
+/// ---- 发现页
+/// 朋友圈
+NSString * const MHPreferenceSettingMoments = @"MHPreferenceSettingMoments" ;
+/// 视频号
+NSString * const MHPreferenceSettingFinder = @"MHPreferenceSettingFinder";
+/// 扫一扫
+NSString * const MHPreferenceSettingScan = @"MHPreferenceSettingScan";
+/// 摇一摇
+NSString * const MHPreferenceSettingShake = @"MHPreferenceSettingShake";
+/// 看一看
+NSString * const MHPreferenceSettingLook = @"MHPreferenceSettingLook";
+/// 搜一搜
+NSString * const MHPreferenceSettingSearch = @"MHPreferenceSettingSearch";
+/// 附近的人
+NSString * const MHPreferenceSettingNearby = @"MHPreferenceSettingNearby";
+/// 购物
+NSString * const MHPreferenceSettingShopping = @"MHPreferenceSettingShopping";
+/// 游戏
+NSString * const MHPreferenceSettingGame = @"MHPreferenceSettingGame";
+/// 小程序
+NSString * const MHPreferenceSettingMoreApps = @"MHPreferenceSettingMoreApps";
 
 @implementation MHPreferenceSettingHelper
 

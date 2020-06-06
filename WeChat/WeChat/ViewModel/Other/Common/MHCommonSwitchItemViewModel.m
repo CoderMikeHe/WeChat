@@ -22,4 +22,13 @@
     
     _off = [MHPreferenceSettingHelper boolForKey:key];
 }
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    return self;
+}
 @end

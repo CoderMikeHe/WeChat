@@ -178,7 +178,10 @@
 
 #pragma mark - 初始化
 - (void)_setup{
-    self.contentView.backgroundColor = [UIColor whiteColor];
+    // Fixed Bug: iOS 13.0+ 点击cell 没有高亮色
+//    self.contentView.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = [UIColor whiteColor];
+    
     self.detailTextLabel.textColor = MHColorFromHexString(@"#888888");
     self.detailTextLabel.numberOfLines = 0;
     self.textLabel.font = MHRegularFont_17;

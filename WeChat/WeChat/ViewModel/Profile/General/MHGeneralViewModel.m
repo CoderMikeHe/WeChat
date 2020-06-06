@@ -10,6 +10,7 @@
 #import "MHCommonSwitchItemViewModel.h"
 #import "MHCommonArrowItemViewModel.h"
 #import "MHCommonCenterItemViewModel.h"
+#import "MHDiscoverManagerViewModel.h"
 
 @interface MHGeneralViewModel ()
 /// 清除聊天记录de的命令
@@ -65,15 +66,18 @@
     
     /// 第四组
     MHCommonGroupViewModel *group3 = [MHCommonGroupViewModel groupViewModel];
+    /// 发现页管理
+    MHCommonArrowItemViewModel * discoverManager = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"发现页管理"];
+    discoverManager.destViewModelClass = [MHDiscoverManagerViewModel class];
     /// 功能
-    MHCommonArrowItemViewModel * func = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"功能"];
-    group3.itemViewModels = @[ func ];
+    MHCommonArrowItemViewModel * func = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"辅助功能"];
+    group3.itemViewModels = @[ discoverManager, func ];
     
     
     /// 第五组
     MHCommonGroupViewModel *group4 = [MHCommonGroupViewModel groupViewModel];
     /// chatRecord 聊天记录
-    MHCommonArrowItemViewModel * chatRecord = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"聊天记录"];
+    MHCommonArrowItemViewModel * chatRecord = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"聊天记录备份与迁移"];
     /// 存储空间
     MHCommonArrowItemViewModel * storageSpace = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"存储空间"];
     group4.itemViewModels = @[ chatRecord , storageSpace ];
@@ -81,7 +85,7 @@
     /// 第六组
     MHCommonGroupViewModel *group5 = [MHCommonGroupViewModel groupViewModel];
     /// 清空聊天记录
-    MHCommonCenterItemViewModel *clearChatRecords = [MHCommonCenterItemViewModel itemViewModelWithTitle:@"退出登录"];
+    MHCommonCenterItemViewModel *clearChatRecords = [MHCommonCenterItemViewModel itemViewModelWithTitle:@"清除聊天记录"];
     clearChatRecords.operation = ^{
         @strongify(self);
         // 回调出去

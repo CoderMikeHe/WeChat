@@ -39,7 +39,7 @@ FOUNDATION_EXTERN NSString * const MHSwitchRootViewControllerNotification;
 FOUNDATION_EXTERN NSString * const MHSwitchRootViewControllerUserInfoKey;
 
 /// 插件Switch按钮值改变
-FOUNDATION_EXTERN NSString * const MHPlugSwitchValueDidChangedNotification;
+FOUNDATION_EXTERN NSString * const MHDiscoverDidChangedNotification;
 
 
 
