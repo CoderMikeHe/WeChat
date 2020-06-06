@@ -59,6 +59,8 @@ NSString *const MHViewModelRequestKey = @"MHViewModelRequestKey";
         self.shouldResignOnTouchOutside = YES;
         self.keyboardDistanceFromTextField = 10.0f;
         
+        self.prefersNavigationBarBottomLineHidden = YES;
+        
         self.title = params[MHViewModelTitleKey];
         /// 赋值
         self.services = services;

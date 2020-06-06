@@ -28,8 +28,11 @@
     [super initialize];
     @weakify(self);
     self.title = @"设置";
+    self.prefersNavigationBarBottomLineHidden = NO;
+    
     /// 第一组
     MHCommonGroupViewModel *group0 = [MHCommonGroupViewModel groupViewModel];
+    
     ///账号与安全
     MHCommonArrowItemViewModel *accountSecurity = [MHCommonArrowItemViewModel itemViewModelWithTitle:@"账号与安全"];
     accountSecurity.destViewModelClass = [MHAccountSecurityViewModel class];

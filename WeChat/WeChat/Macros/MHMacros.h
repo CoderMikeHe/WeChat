@@ -137,7 +137,7 @@
 
 
 /// 全局细下滑线颜色 以及分割线颜色
-#define MHGlobalBottomLineColor     [UIColor colorFromHexString:@"#D9D9D9"]
+#define MHGlobalBottomLineColor     [UIColor colorFromHexString:@"#e6e6e6"]
 
 // 是否为空对象
 #define MHObjectIsNil(__object)  ((nil == __object) || [__object isKindOfClass:[NSNull class]])

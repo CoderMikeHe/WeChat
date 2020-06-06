@@ -22,7 +22,7 @@
         
         /// 添加细线,
         UIView *divider = [[UIView alloc] init];
-        divider.backgroundColor = MHColor(167.0f, 167.0f, 170.0f);
+        divider.backgroundColor = MHColorFromHexString(@"#d5d5d5");
         [self addSubview:divider];
         self.divider = divider;
     }

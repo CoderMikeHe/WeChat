@@ -36,7 +36,8 @@
     
     /// 隐藏导航栏
     self.prefersNavigationBarHidden = YES;
-    self.prefersNavigationBarBottomLineHidden = YES;
+    /// 不隐藏分割线
+    self.prefersNavigationBarBottomLineHidden = NO;
     
     self.title = @"微信";
     

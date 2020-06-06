@@ -27,6 +27,8 @@
     self.title = @"通用";
     self.style = UITableViewStyleGrouped;
     
+    self.prefersNavigationBarBottomLineHidden = NO;
+    
     /// 第一组
     MHCommonGroupViewModel *group0 = [MHCommonGroupViewModel groupViewModel];
     /// 多语言

@@ -44,7 +44,7 @@ FOUNDATION_EXTERN NSString * const MHDiscoverDidChangedNotification;
 
 
 
-/// 全局分割线高度 .5
+/// 全局分割线高度 .8
 FOUNDATION_EXTERN CGFloat const MHGlobalBottomLineHeight;
 
 /// 个性签名的最大字数为30

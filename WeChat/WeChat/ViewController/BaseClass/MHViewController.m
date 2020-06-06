@@ -12,7 +12,8 @@
 
 // viewModel
 @property (nonatomic, readwrite, strong) MHViewModel *viewModel;
-
+/// navBarDivider
+@property (nonatomic, readwrite, weak) UIView *navBarDivider;
 @end
 
 @implementation MHViewController
@@ -47,8 +48,9 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    /// 隐藏导航栏细线
-    self.viewModel.prefersNavigationBarBottomLineHidden?[(MHNavigationController *)self.navigationController hideNavigationBottomLine]:[(MHNavigationController *)self.navigationController showNavigationBottomLine];
+    /// 隐藏导航栏细线 wechat 7.0.0-
+//    self.viewModel.prefersNavigationBarBottomLineHidden?[(MHNavigationController *)self.navigationController hideNavigationBottomLine]:[(MHNavigationController *)self.navigationController showNavigationBottomLine];
+    
     /// 配置键盘
     IQKeyboardManager.sharedManager.enable = self.viewModel.keyboardEnable;
     IQKeyboardManager.sharedManager.shouldResignOnTouchOutside = self.viewModel.shouldResignOnTouchOutside;
@@ -56,6 +58,9 @@
     
     /// 这里做友盟统计
     //    [MobClick beginLogPageView:SBPageName(self)];
+    
+    //// 将自定义的分割线搞到最前面来
+    [self.view bringSubviewToFront:self.navBarDivider];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -97,9 +102,20 @@
     
     /// 先记录
 //    self.isSelectOriginalPhoto = [SBPhotoManager isSelectOriginalPhoto];
-    
     /// 后重置
 //    [SBPhotoManager configureSelectOriginalPhoto:NO];
+    
+    
+    //// 20200606 ADD: 考虑到 v7.0.0+ 版本 导航栏的分割线的显示是动态的显示隐藏的, 这里在基类里面统一处理
+    //// eg: 默认 当处于顶部是隐藏的 当你往上滚动的时候显示，向下滚动隐藏
+    CGFloat navBarDividerY = self.viewModel.prefersNavigationBarHidden ? 0.0 : (UIApplication.sharedApplication.statusBarFrame.size.height + 44.0f);
+    CGFloat navBarDividerW = MH_SCREEN_WIDTH;
+    CGFloat navBarDividerH = MHGlobalBottomLineHeight;
+    UIView *navBarDivider = [[UIView alloc] initWithFrame:CGRectMake(0, navBarDividerY, navBarDividerW, navBarDividerH)];
+    navBarDivider.backgroundColor = MHColorFromHexString(@"#d5d5d5");
+    navBarDivider.hidden = YES;
+    self.navBarDivider = navBarDivider;
+    [self.view addSubview:navBarDivider];
 }
 
 
@@ -118,11 +134,14 @@
         NSLog(@"...错误...");
     }];
     
-    /// 动态改变
+    /// 动态改变侧滑
     [[[RACObserve(self.viewModel, interactivePopDisabled) distinctUntilChanged] deliverOnMainThread] subscribeNext:^(NSNumber * x) {
         @strongify(self);
         self.fd_interactivePopDisabled = x.boolValue;
     }];
+    
+    /// 动态控制其导航栏底部分割线显示隐藏 默认都是隐藏 所以要跳过一个
+    RAC(self.navBarDivider, hidden) = [[RACObserve(self.viewModel, prefersNavigationBarBottomLineHidden) skip:1] distinctUntilChanged];
 }
 
 #pragma mark - Orientation

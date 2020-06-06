@@ -150,6 +150,8 @@
 /// setup add `_su_` avoid sub class override it
 - (void)_su_setupSubViews{
     // set up tableView
+    @weakify(self);
+    
     /// CoderMikeHe FIXED: 纯代码布局，子类如果重新布局，建议用Masonry重新设置约束
     MHTableView *tableView = [[MHTableView alloc] initWithFrame:[UIScreen mainScreen].bounds style:self.viewModel.style];
     tableView.backgroundColor = MH_MAIN_BACKGROUNDCOLOR;
@@ -182,7 +184,6 @@
     /// 添加加载和刷新控件
     if (self.viewModel.shouldPullDownToRefresh) {
         /// 下拉刷新
-        @weakify(self);
         [self.tableView mh_addHeaderRefresh:^(MJRefreshNormalHeader *header) {
             /// 加载下拉刷新的数据
             @strongify(self);
@@ -193,7 +194,6 @@
     
     if (self.viewModel.shouldPullUpToLoadMore) {
         /// 上拉加载
-        @weakify(self);
         [self.tableView mh_addFooterRefresh:^(MJRefreshAutoNormalFooter *footer) {
             /// 加载上拉刷新的数据
             @strongify(self);
@@ -226,6 +226,24 @@
         tableView.estimatedSectionHeaderHeight = 0;
         tableView.estimatedSectionFooterHeight = 0;
     }
+    
+    
+    /// 监听tableView滚动
+     [[self rac_signalForSelector:@selector(scrollViewDidScroll:) fromProtocol:@protocol(UIScrollViewDelegate)] subscribeNext:^(RACTuple *tuple) {
+         @strongify(self);
+         
+         UIScrollView *scrollView = (UIScrollView *)tuple.first;
+         
+         if (scrollView.contentOffset.y + scrollView.contentInset.top > 0) {
+             /// 上拉 显示
+             self.navBarDivider.hidden = self.viewModel.prefersNavigationBarBottomLineHidden ? YES : NO;
+         } else {
+             /// 下拉 隐藏
+             self.navBarDivider.hidden = YES;
+         }
+         
+//         NSLog(@"xxxxxx %f  %f", scrollView.contentInset.top, scrollView.contentOffset.y);
+    }];
 }
 
 #pragma mark - 上下拉刷新事件
@@ -335,5 +353,9 @@
     [self.viewModel.didSelectCommand execute:indexPath];
 }
 
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+}
 
 @end

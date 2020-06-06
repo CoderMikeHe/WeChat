@@ -55,7 +55,7 @@
     
     /// 隐藏导航栏
     self.prefersNavigationBarHidden = YES;
-    self.prefersNavigationBarBottomLineHidden = YES;
+    self.prefersNavigationBarBottomLineHidden = NO;
     self.shouldMultiSections = YES;
     @weakify(self);
     self.addFriendsCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
