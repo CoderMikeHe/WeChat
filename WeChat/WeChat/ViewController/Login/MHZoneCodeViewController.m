@@ -51,7 +51,7 @@
 
 #pragma mark - 设置导航栏
 - (void)_setupNavigationItem{
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem mh_backItemWithTitle:@"返回" imageName:@"barbuttonicon_back_15x30" target:self action:@selector(_back)];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem mh_svgBarButtonItem:@"icons_filled_back.svg" targetSize:CGSizeMake(12.0, 24.0) tintColor:nil target:self selector:@selector(_back)];
 }
 
 #pragma mark - 设置子控件

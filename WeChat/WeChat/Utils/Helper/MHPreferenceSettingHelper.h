@@ -11,14 +11,7 @@
 /// 存储language
 FOUNDATION_EXTERN NSString * const MHPreferenceSettingLanguage ;
 
-/// 存储看一看
-FOUNDATION_EXTERN NSString * const MHPreferenceSettingLook ;
-/// 存储看一看（全新）
-FOUNDATION_EXTERN NSString * const MHPreferenceSettingLookArtboard ;
-/// 存储搜一搜
-FOUNDATION_EXTERN NSString * const MHPreferenceSettingSearch ;
-/// 存储搜一搜（全新）
-FOUNDATION_EXTERN NSString * const MHPreferenceSettingSearchArtboard ;
+
 
 
 
@@ -58,6 +51,34 @@ FOUNDATION_EXTERN NSString * const MHPreferenceSettingFriendMomentsUpdateAlert ;
 /// ---- 通用
 /// 听筒模式
 FOUNDATION_EXTERN NSString * const MHPreferenceSettingReceiverMode ;
+
+/// ---- 插件
+/// 存储看一看（全新）
+FOUNDATION_EXTERN NSString * const MHPreferenceSettingLookArtboard ;
+/// 存储搜一搜（全新）
+FOUNDATION_EXTERN NSString * const MHPreferenceSettingSearchArtboard ;
+
+/// ---- 发现页
+/// 朋友圈
+FOUNDATION_EXTERN NSString * const MHPreferenceSettingMoments ;
+/// 视频号
+FOUNDATION_EXTERN NSString * const MHPreferenceSettingFinder ;
+/// 扫一扫
+FOUNDATION_EXTERN NSString * const MHPreferenceSettingScan ;
+/// 摇一摇
+FOUNDATION_EXTERN NSString * const MHPreferenceSettingShake ;
+/// 看一看
+FOUNDATION_EXTERN NSString * const MHPreferenceSettingLook ;
+/// 搜一搜
+FOUNDATION_EXTERN NSString * const MHPreferenceSettingSearch ;
+/// 附近的人
+FOUNDATION_EXTERN NSString * const MHPreferenceSettingNearby ;
+/// 购物
+FOUNDATION_EXTERN NSString * const MHPreferenceSettingShopping;
+/// 游戏
+FOUNDATION_EXTERN NSString * const MHPreferenceSettingGame ;
+/// 小程序
+FOUNDATION_EXTERN NSString * const MHPreferenceSettingMoreApps ;
 
 
 @interface MHPreferenceSettingHelper : NSObject

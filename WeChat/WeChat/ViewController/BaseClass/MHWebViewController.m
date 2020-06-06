@@ -265,14 +265,14 @@ static NSString * const MHWebViewKVOEstimatedProgress = @"estimatedProgress";
 - (UIBarButtonItem *)backItem
 {
     if (_backItem == nil) {
-        _backItem = [UIBarButtonItem mh_backItemWithTitle:@"返回" imageName:@"barbuttonicon_back_15x30" target:self action:@selector(_backItemDidClicked)];
+        _backItem = [UIBarButtonItem mh_svgBarButtonItem:@"icons_filled_back.svg" targetSize:CGSizeMake(12.0, 24.0) tintColor:nil target:self selector:@selector(_backItemDidClicked)];
     }
     return _backItem;
 }
 
 - (UIBarButtonItem *)closeItem {
     if (!_closeItem) {
-        _closeItem = [UIBarButtonItem mh_systemItemWithTitle:@"关闭" titleColor:nil imageName:nil target:self selector:@selector(_closeItemDidClicked) textType:YES];
+        _closeItem = [UIBarButtonItem mh_systemItemWithTitle:@"关闭" titleColor:MHColorFromHexString(@"#181818") imageName:nil target:self selector:@selector(_closeItemDidClicked) textType:YES];
     }
     return _closeItem;
 }

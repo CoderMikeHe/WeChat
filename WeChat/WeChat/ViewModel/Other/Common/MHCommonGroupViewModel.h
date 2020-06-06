@@ -15,7 +15,7 @@
 @property (nonatomic, readwrite, assign) CGFloat headerHeight;
 /// 组尾
 @property (nonatomic, copy) NSString *footer;
-/// footerHeight defalult is 21
+/// footerHeight defalult is 9
 @property (nonatomic, readwrite, assign) CGFloat footerHeight;
 /// 里面装着都是 MHCommonItemViewModel 以及其子类
 @property (nonatomic, strong) NSArray *itemViewModels;

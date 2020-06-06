@@ -466,6 +466,13 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
         make.left.right.and.bottom.equalTo(self.view);
         make.top.equalTo(self.view).with.offset(200);
     }];
+    
+    /// 由于是自定义导航栏 分割线 这里重新布局一下
+    [self.navBarDivider mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view).with.offset(MH_APPLICATION_TOP_BAR_HEIGHT);
+        make.left.and.right.equalTo(self.view).with.offset(0);
+        make.height.mas_equalTo(.8f);
+    }];
 }
 
 @end

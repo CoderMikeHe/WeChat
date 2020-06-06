@@ -11,4 +11,6 @@
 @interface MHGeneralViewModel : MHCommonViewModel
 /// 清除聊天记录de的命令
 @property (nonatomic, readonly, strong) RACCommand *clearChatRecordsCommand;
+/// 清除聊天记录de的回调
+@property (nonatomic, readonly, strong) RACSubject *clearChatRecordsSubject;
 @end

@@ -66,7 +66,7 @@
     }
     
     /// 发送通知
-    [MHNotificationCenter postNotificationName:MHPlugSwitchValueDidChangedNotification object:nil];
+    [MHNotificationCenter postNotificationName:MHDiscoverDidChangedNotification object:nil];
 }
 
 - (IBAction)_feedbackBtnDidClicked:(UIButton *)sender {

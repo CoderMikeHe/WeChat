@@ -14,6 +14,11 @@
     [super initialize];
     
     @weakify(self);
+    self.style = UITableViewStyleGrouped;
+    
+    // 显示分割线
+    self.prefersNavigationBarBottomLineHidden = NO;
+    
     /// 选中cell的命令
     /// UI Test
     self.didSelectCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSIndexPath *indexPath) {

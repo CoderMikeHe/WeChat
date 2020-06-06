@@ -9,7 +9,7 @@
 #import "MHViewController.h"
 #import "MHTableViewModel.h"
 #import "MHTableView.h"
-@interface MHTableViewController : MHViewController<UITableViewDelegate , UITableViewDataSource>
+@interface MHTableViewController : MHViewController<UITableViewDelegate , UITableViewDataSource, UIScrollViewDelegate>
 
 /// The table view for tableView controller.
 /// tableView

@@ -339,6 +339,7 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
         
         /// 下钻...
     };
+    
 }
 
 #pragma mark - 布局子控件
@@ -358,6 +359,13 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
         make.left.and.right.equalTo(self.view).with.offset(0);
         make.top.equalTo(self.view).with.offset(MH_APPLICATION_TOP_BAR_HEIGHT);
         make.bottom.equalTo(self.view).with.offset(-MH_APPLICATION_TAB_BAR_HEIGHT);
+    }];
+    
+    /// 由于是自定义导航栏 分割线 这里重新布局一下
+    [self.navBarDivider mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view).with.offset(MH_APPLICATION_TOP_BAR_HEIGHT);
+        make.left.and.right.equalTo(self.view).with.offset(0);
+        make.height.mas_equalTo(.8f);
     }];
 }
 

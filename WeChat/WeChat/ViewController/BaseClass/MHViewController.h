@@ -15,6 +15,9 @@
 
 /// 截图（Push/Pop Present/Dismiss 过度过程中的缩略图）
 @property (nonatomic, readwrite, strong) UIView *snapshot;
+
+/// navBarDivider
+@property (nonatomic, readonly, weak) UIView *navBarDivider;
 /**
  统一使用该方法初始化，子类中直接声明对于的'readonly' 的 'viewModel'属性，
  并在@implementation内部加上关键词 '@dynamic viewModel;'

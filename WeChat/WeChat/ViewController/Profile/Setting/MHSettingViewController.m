@@ -38,23 +38,9 @@
              [MBProgressHUD mh_hideHUD];
          }
      }];
-}
-
-#pragma mark - 设置子控件
-- (void)_setupSubViews{
-    UIButton *footerView = [UIButton buttonWithType:UIButtonTypeCustom];
-    footerView.mh_height = 44.0f;
-    [footerView setTitle:@"退出登录" forState:UIControlStateNormal];
-    [footerView setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    footerView.titleLabel.font = MHRegularFont_16;
-    [footerView setBackgroundImage:[UIImage yy_imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
-    [footerView setBackgroundImage:[UIImage yy_imageWithColor:MHColor(217, 217, 217)] forState:UIControlStateHighlighted];
-    self.tableView.tableFooterView = footerView;
     
-    /// 事件处理
-    @weakify(self);
-    [[footerView rac_signalForControlEvents:UIControlEventTouchUpInside]
-     subscribeNext:^(UIButton *sender) {
+    /// 点击退出登录回调
+    [self.viewModel.logoutSubject subscribeNext:^(id input) {
          @strongify(self);
          @weakify(self);
          LCActionSheet *sheet = [LCActionSheet sheetWithTitle:@"退出后不会删除任何历史数据，下次登录依然可以使用本账号" cancelButtonTitle:@"取消" clicked:^(LCActionSheet * _Nonnull actionSheet, NSInteger buttonIndex) {
@@ -69,6 +55,11 @@
          sheet.destructiveButtonIndexSet = indexSet;
          [sheet show];
      }];
+}
+
+#pragma mark - 设置子控件
+- (void)_setupSubViews{
+
 }
 
 @end

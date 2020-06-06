@@ -11,4 +11,7 @@
 @interface MHSettingViewModel : MHCommonViewModel
 /// 登出的命令
 @property (nonatomic, readonly, strong) RACCommand *logoutCommand;
+
+/// 登出回调
+@property (nonatomic, readonly, strong) RACSubject *logoutSubject;
 @end
