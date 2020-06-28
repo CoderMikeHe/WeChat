@@ -301,6 +301,10 @@
 		26FE8E911F9514D100EC8BE0 /* TZProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FE8E791F9514D100EC8BE0 /* TZProgressView.m */; };
 		26FE8E921F9514D100EC8BE0 /* TZVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FE8E7B1F9514D100EC8BE0 /* TZVideoPlayerController.m */; };
 		26FE8E931F9514D100EC8BE0 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FE8E7D1F9514D100EC8BE0 /* UIView+Layout.m */; };
+		8400E2E924A86DCC00125893 /* MHPulldownAppletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8400E2E824A86DCC00125893 /* MHPulldownAppletViewController.m */; };
+		8400E2ED24A870E800125893 /* MHPulldownAppletViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8400E2EC24A870E800125893 /* MHPulldownAppletViewModel.m */; };
+		8400E2F124A897B300125893 /* MHPulldownAppletCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8400E2F024A897B300125893 /* MHPulldownAppletCell.m */; };
+		8400E2F424A8982E00125893 /* MHPulldownAppletHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8400E2F324A8982E00125893 /* MHPulldownAppletHeaderView.m */; };
 		8408C51F2468EB92008847B2 /* MHSearchTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8408C51E2468EB92008847B2 /* MHSearchTypeViewController.m */; };
 		8408C5232468F134008847B2 /* MHSearchOfficialAccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8408C5222468F134008847B2 /* MHSearchOfficialAccountsViewController.m */; };
 		8408C526246940EC008847B2 /* MHSearchTypeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8408C525246940EC008847B2 /* MHSearchTypeViewModel.m */; };
@@ -1086,6 +1090,14 @@
 		5199ACCDE3914E9780CBE096 /* Pods-WeChat-WeChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChat-WeChatUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeChat-WeChatUITests/Pods-WeChat-WeChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5F007961429C86520F15C504 /* Pods_WeChat_WeChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeChat_WeChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AC95F3A9ABF83B9A3CDD57C /* Pods-WeChat-WeChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChat-WeChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeChat-WeChatTests/Pods-WeChat-WeChatTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8400E2E724A86DCC00125893 /* MHPulldownAppletViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHPulldownAppletViewController.h; sourceTree = "<group>"; };
+		8400E2E824A86DCC00125893 /* MHPulldownAppletViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHPulldownAppletViewController.m; sourceTree = "<group>"; };
+		8400E2EB24A870E800125893 /* MHPulldownAppletViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHPulldownAppletViewModel.h; sourceTree = "<group>"; };
+		8400E2EC24A870E800125893 /* MHPulldownAppletViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHPulldownAppletViewModel.m; sourceTree = "<group>"; };
+		8400E2EF24A897B300125893 /* MHPulldownAppletCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHPulldownAppletCell.h; sourceTree = "<group>"; };
+		8400E2F024A897B300125893 /* MHPulldownAppletCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHPulldownAppletCell.m; sourceTree = "<group>"; };
+		8400E2F224A8982E00125893 /* MHPulldownAppletHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHPulldownAppletHeaderView.h; sourceTree = "<group>"; };
+		8400E2F324A8982E00125893 /* MHPulldownAppletHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHPulldownAppletHeaderView.m; sourceTree = "<group>"; };
 		8408C51D2468EB92008847B2 /* MHSearchTypeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchTypeViewController.h; sourceTree = "<group>"; };
 		8408C51E2468EB92008847B2 /* MHSearchTypeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchTypeViewController.m; sourceTree = "<group>"; };
 		8408C5212468F134008847B2 /* MHSearchOfficialAccountsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchOfficialAccountsViewController.h; sourceTree = "<group>"; };
@@ -1723,6 +1735,7 @@
 		26064AF61F5DB46500566B95 /* MainFrame */ = {
 			isa = PBXGroup;
 			children = (
+				8400E2E324A84B3800125893 /* PulldownApplet */,
 				84178C2F247661F000F7EFEE /* GroupChat */,
 				84178C232476609C00F7EFEE /* SingleChat */,
 				2605C5B91F662EA300B1F66E /* MHMainFrameViewController.h */,
@@ -2114,6 +2127,7 @@
 		26225D801F65506E0074BFC3 /* MainFrame */ = {
 			isa = PBXGroup;
 			children = (
+				8400E2EA24A870C900125893 /* PulldownApplet */,
 				84178C28247661A900F7EFEE /* GroupChat */,
 				84178C27247661A300F7EFEE /* SingleChat */,
 				2654904E1F99D59D003AEED1 /* ItemViewModel */,
@@ -2437,6 +2451,7 @@
 		263C89711F6A305100F7A0AE /* MainFrame */ = {
 			isa = PBXGroup;
 			children = (
+				8400E2EE24A8970400125893 /* PulldownApplet */,
 				265490491F99AF6F003AEED1 /* MHMainFrameTableViewCell.h */,
 				2654904A1F99AF6F003AEED1 /* MHMainFrameTableViewCell.m */,
 				2654904B1F99AF6F003AEED1 /* MHMainFrameTableViewCell.xib */,
@@ -3175,6 +3190,35 @@
 				26FE8E7D1F9514D100EC8BE0 /* UIView+Layout.m */,
 			);
 			path = TZImagePickerController;
+			sourceTree = "<group>";
+		};
+		8400E2E324A84B3800125893 /* PulldownApplet */ = {
+			isa = PBXGroup;
+			children = (
+				8400E2E724A86DCC00125893 /* MHPulldownAppletViewController.h */,
+				8400E2E824A86DCC00125893 /* MHPulldownAppletViewController.m */,
+			);
+			path = PulldownApplet;
+			sourceTree = "<group>";
+		};
+		8400E2EA24A870C900125893 /* PulldownApplet */ = {
+			isa = PBXGroup;
+			children = (
+				8400E2EB24A870E800125893 /* MHPulldownAppletViewModel.h */,
+				8400E2EC24A870E800125893 /* MHPulldownAppletViewModel.m */,
+			);
+			path = PulldownApplet;
+			sourceTree = "<group>";
+		};
+		8400E2EE24A8970400125893 /* PulldownApplet */ = {
+			isa = PBXGroup;
+			children = (
+				8400E2EF24A897B300125893 /* MHPulldownAppletCell.h */,
+				8400E2F024A897B300125893 /* MHPulldownAppletCell.m */,
+				8400E2F224A8982E00125893 /* MHPulldownAppletHeaderView.h */,
+				8400E2F324A8982E00125893 /* MHPulldownAppletHeaderView.m */,
+			);
+			path = PulldownApplet;
 			sourceTree = "<group>";
 		};
 		8408C5202468F0FA008847B2 /* OfficialAccounts */ = {
@@ -4253,6 +4297,7 @@
 				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/SAMKeychain/SAMKeychain.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SGEasyButton/SGEasyButton.framework",
 				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
 				"${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
@@ -4312,6 +4357,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SAMKeychain.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SGEasyButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVGKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
@@ -4399,6 +4445,7 @@
 				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/SAMKeychain/SAMKeychain.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SGEasyButton/SGEasyButton.framework",
 				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
 				"${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
@@ -4458,6 +4505,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SAMKeychain.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SGEasyButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVGKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
@@ -4527,6 +4575,7 @@
 				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/SAMKeychain/SAMKeychain.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SGEasyButton/SGEasyButton.framework",
 				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
 				"${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
@@ -4586,6 +4635,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SAMKeychain.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SGEasyButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVGKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
@@ -4623,6 +4673,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84A545672474D96D0020FEE7 /* MHSearchDefaultSearchTypeCell.m in Sources */,
+				8400E2E924A86DCC00125893 /* MHPulldownAppletViewController.m in Sources */,
 				26FE8E861F9514D100EC8BE0 /* TZAssetCell.m in Sources */,
 				261E01691FDE6A130041E989 /* MHFreeInterruptionItemViewModel.m in Sources */,
 				2633E0271FEA095D00D0E187 /* MHUsefulEmotionViewController.m in Sources */,
@@ -4656,6 +4707,7 @@
 				26AEEE071F7CE14200A270EE /* MHZoneCodeViewController.m in Sources */,
 				2605C5C71F662FA300B1F66E /* MHProfileViewController.m in Sources */,
 				2611AC651F61992F00418FB9 /* MHNavigationController.m in Sources */,
+				8400E2F424A8982E00125893 /* MHPulldownAppletHeaderView.m in Sources */,
 				84D3F6F1248A411A00C80689 /* MHCommonCenterItemViewModel.m in Sources */,
 				26225D7A1F654E410074BFC3 /* MHTabBarController.m in Sources */,
 				26FE8E831F9514D100EC8BE0 /* SDCycleScrollView.m in Sources */,
@@ -4927,6 +4979,7 @@
 				26225D9B1F65589E0074BFC3 /* MHConstant.m in Sources */,
 				261E01621FDE69C50041E989 /* MHFreeInterruptionViewController.m in Sources */,
 				261596D91FEA512600C6FD80 /* MHMomentViewModel.m in Sources */,
+				8400E2ED24A870E800125893 /* MHPulldownAppletViewModel.m in Sources */,
 				263D371A1F66656A007267C3 /* YYWeakProxy.m in Sources */,
 				26D8180D201F306100DDB286 /* MHProfileInfoZoneCell.m in Sources */,
 				265DBFE81FE0C78F00A5FCC8 /* MHAboutUsViewController.m in Sources */,
@@ -4960,6 +5013,7 @@
 				8409B320247610CE00FF1F3D /* MHSearchDefaultMoreCell.m in Sources */,
 				84178C2224765A9400F7EFEE /* MHSearchDefaultViewModel.m in Sources */,
 				26FE655D1F92EEA100642615 /* MHLocationViewController.m in Sources */,
+				8400E2F124A897B300125893 /* MHPulldownAppletCell.m in Sources */,
 				842D242B246A2D60008E5A2C /* MHSearchOfficialAccountsDefaultCell.m in Sources */,
 				261597031FEA527400C6FD80 /* MHMoments.m in Sources */,
 				84A1BF2C246E9FB7008A807C /* MHSearchCommonSearchItemViewModel.m in Sources */,

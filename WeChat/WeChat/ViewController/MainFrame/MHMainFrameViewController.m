@@ -12,7 +12,7 @@
 #import "MHCameraViewController.h"
 #import "MHSingleChatViewModel.h"
 #import "MHSearchViewController.h"
-
+#import "MHPulldownAppletViewController.h"
 
 #import "WPFPinYinTools.h"
 #import "WPFPinYinDataManager.h"
@@ -39,6 +39,9 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
 
 /// searchController
 @property (nonatomic, readwrite, strong) MHSearchViewController *searchController;
+
+/// appletController
+@property (nonatomic, readwrite, strong) MHPulldownAppletViewController *appletController;
 
 /// 获取截图
 @property (nonatomic, readwrite, weak) UIView *snapshotView;
@@ -339,6 +342,15 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
         
         /// 下钻...
     };
+    
+    
+    /// 添加下拉小程序模块
+    MHPulldownAppletViewController *appletController = [[MHPulldownAppletViewController alloc] initWithViewModel:self.viewModel.appletViewModel];
+//    appletController.view.alpha = 0.0;
+    [self.view addSubview:appletController.view];
+    [self addChildViewController:appletController];
+    [searchController didMoveToParentViewController:self];
+    self.appletController = appletController;
     
 }
 

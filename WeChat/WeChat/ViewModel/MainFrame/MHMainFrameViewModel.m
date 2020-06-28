@@ -9,7 +9,7 @@
 #import "MHMainFrameViewModel.h"
 #import "MHHTTPService+Live.h"
 #import "MHTestViewModel.h"
-
+#import "MHPulldownAppletViewModel.h"
 @interface MHMainFrameViewModel ()
 /// 商品数组 <MHLiveRoom *>
 @property (nonatomic, readwrite, copy) NSArray *liveRooms;
@@ -19,6 +19,9 @@
 
 /// searchViewModel
 @property (nonatomic, readwrite, strong) MHSearchViewModel *searchViewModel;
+
+/// appletViewModel
+@property (nonatomic, readwrite, strong) MHPulldownAppletViewModel *appletViewModel;
 
 /// 搜索状态
 @property (nonatomic, readwrite, assign) MHNavSearchBarState searchState;
@@ -68,6 +71,8 @@
         [self.services pushViewModel:viewModel animated:YES];
         return [RACSignal empty];
     }];
+    /// --------------------- 下拉c小程序相关 ----------------------
+    self.appletViewModel = [[MHPulldownAppletViewModel alloc] initWithServices:self.services params:nil];
     
     
     // --------------------- 搜索相关 ----------------------

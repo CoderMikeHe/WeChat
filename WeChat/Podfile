@@ -180,6 +180,9 @@ pod 'SVGKit'
 # 侧滑 https://github.com/MortimerGoro/MGSwipeTableCell
 pod 'MGSwipeTableCell', '~> 1.6.11'
 
+# 一句代码搞定按钮的图片与文字布局样式 https://github.com/kingsic/SGEasyButton
+pod 'SGEasyButton', '~> 0.0.6'
+
 target 'WeChatTests' do
 end
 

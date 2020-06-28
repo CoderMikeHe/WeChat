@@ -11,6 +11,9 @@
 
 #import "MHNavSearchBarViewModel.h"
 #import "MHSearchViewModel.h"
+
+@class MHPulldownAppletViewModel;
+
 @interface MHMainFrameViewModel : MHTableViewModel
 
 /// 商品数组 <MHLiveRoom *>
@@ -24,5 +27,8 @@
 @property (nonatomic, readonly, assign) MHNavSearchBarState searchState;
 /// 弹出/消失 搜索内容页 回调
 @property (nonatomic, readonly, strong) RACCommand *popCommand;
+
+/// appletViewModel
+@property (nonatomic, readonly, strong) MHPulldownAppletViewModel *appletViewModel;
 
 @end
