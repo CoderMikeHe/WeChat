@@ -7,11 +7,15 @@
 //
 
 #import "MHPulldownAppletCell.h"
+#import "MHPulldownAppletItemView.h"
 
 @interface MHPulldownAppletCell ()
 
 /// viewModel
-@property (nonatomic, readwrite, strong) id viewModel;
+@property (nonatomic, readwrite, copy) NSArray * viewModel;
+
+/// 父容器
+@property (nonatomic, readwrite, weak) UIView *container;
 
 @end
 
@@ -25,12 +29,27 @@
     MHPulldownAppletCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (!cell) {
         cell = [[self alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return cell;
 }
 
-- (void)bindViewModel:(id)viewModel{
-//    self.viewModel = viewModel;
+- (void)bindViewModel:(NSArray *)viewModel{
+    self.viewModel = viewModel;
+    
+    NSUInteger count = self.container.subviews.count;
+    NSUInteger cnt = viewModel.count;
+    
+    for (NSInteger i = 0; i < count; i++) {
+        MHPulldownAppletItemView *itemView = self.container.subviews[i];
+        if (i < cnt) {
+            itemView.hidden = NO;
+            id vm = viewModel[i];
+            [itemView bindViewModel:vm];
+        }else{
+            itemView.hidden = YES;
+        }
+    }
 
 }
 
@@ -63,24 +82,62 @@
 #pragma mark - 初始化OrUI布局
 /// 初始化
 - (void)_setup{
-    
+   self.backgroundColor = self.contentView.backgroundColor = [UIColor clearColor];
 }
 
 /// 创建子控件
 - (void)_setupSubviews{
-    /// 搜索框容器
-    UIControl *container = [[UIControl alloc] init];
+    @weakify(self);
+    
+    /// 父容器
+    UIView *container = [[UIView alloc] init];
     self.container = container;
-    container.mh_height = 74.0f;
-    [[container rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        @strongify(self);
-        NSLog(@" searchbar did clicked... ");
-    }];
+    [self.contentView addSubview:container];
+    
+    /// 子控件
+    NSUInteger count = 4;
+    for (NSInteger i = 0; i < count; i++) {
+        MHPulldownAppletItemView *appletView = [MHPulldownAppletItemView appletItemView];
+        [container addSubview:appletView];
+        
+        UITapGestureRecognizer *tapGr = [[UITapGestureRecognizer alloc] init];
+        [appletView addGestureRecognizer:tapGr];
+        
+        [tapGr.rac_gestureSignal subscribeNext:^(id x) {
+            @strongify(self);
+            NSLog(@"Applet did clicked ...");
+        }];
+    }
 }
 
 /// 布局子控件
 - (void)_makeSubViewsConstraints{
     
+}
+
+/// 布局子控件
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    
+    /// 布局父容器
+    CGFloat margin = 36.5f;
+    CGFloat containerW = self.mh_width - margin * 2.0f;
+    
+    CGFloat containerX = margin;
+    CGFloat containerY = 0;
+    CGFloat containerH = self.mh_height;
+    self.container.frame = CGRectMake(containerX, containerY, containerW, containerH);
+    
+    /// 布局子控件
+    NSUInteger count = self.container.subviews.count;
+    CGFloat viewW = 60.0f;
+    CGFloat viewH = self.mh_height - 23.0f;
+    CGFloat innerSpace = (containerW - count * viewW) / (count-1);
+    for (NSInteger i = 0; i < count; i++) {
+        UIView *view = self.container.subviews[i];
+        CGFloat viewX = i * (viewW + innerSpace);
+        view.frame = CGRectMake(viewX, 0, viewW, viewH);
+    }
 }
 
 @end

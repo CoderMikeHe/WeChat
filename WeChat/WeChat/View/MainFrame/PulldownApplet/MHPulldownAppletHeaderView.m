@@ -10,12 +10,25 @@
 
 @implementation MHPulldownAppletHeaderView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+
+#pragma mark - Public Method
+
++ (instancetype)headerViewWithTableView:(UITableView *)tableView{
+    static NSString *ID = @"PulldownAppletHeaderView";
+    MHPulldownAppletHeaderView *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:ID];
+    if (header == nil) {
+        // 缓存池中没有, 自己创建
+        header = [self mh_viewFromXib];
+    }
+    return header;
 }
-*/
+
+
+#pragma mark - Private Method
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    self.contentView.backgroundColor = [UIColor clearColor];
+}
 
 @end

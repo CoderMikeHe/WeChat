@@ -1,5 +1,5 @@
 //
-//  MHPulldownAppletViewController.m
+//  MHPulldownAppletItemViewController.m
 //  WeChat
 //
 //  Created by admin on 2020/6/28.
@@ -7,7 +7,9 @@
 //
 
 #import "MHPulldownAppletViewController.h"
-
+#import "MHPulldownAppletHeaderView.h"
+#import "MHPulldownAppletCell.h"
+#import "MHAppletViewController.h"
 @interface MHPulldownAppletViewController ()
 
 /// viewModel
@@ -39,6 +41,58 @@
     
     /// 布局子空间
     [self _makeSubViewsConstraints];
+    
+    self.view.backgroundColor = self.tableView.backgroundColor = [UIColor black50PercentColor];
+}
+#pragma mark - Override
+- (void)bindViewModel {
+    [super bindViewModel];
+}
+
+/// 返回自定义的cell
+- (UITableViewCell *)tableView:(UITableView *)tableView dequeueReusableCellWithIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath{
+    return [MHPulldownAppletCell cellWithTableView:tableView];
+}
+
+/// 绑定数据
+- (void)configureCell:(MHPulldownAppletCell *)cell atIndexPath:(NSIndexPath *)indexPath withObject:(id)object{
+    [cell bindViewModel:object];
+}
+
+#pragma mark - UITableViewDelegate & UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = [self tableView:tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
+    
+    // fetch object
+    id object = self.viewModel.dataSource[indexPath.section];
+    
+    /// bind model
+    [self configureCell:cell atIndexPath:indexPath withObject:(id)object];
+    return cell;
+}
+
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    MHPulldownAppletHeaderView *headerView = [MHPulldownAppletHeaderView headerViewWithTableView:tableView];
+    headerView.titleLabel.text = section == 0 ? @"最近使用" : @"我的小程序";
+    return headerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 102.f;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 48.0f;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return CGFLOAT_MIN;
 }
 
 #pragma mark - 事件处理Or辅助方法
@@ -63,6 +117,7 @@
     MHNavigationBar *navBar = [MHNavigationBar navigationBar];
     navBar.titleLabel.text = @"小程序";
     navBar.titleLabel.textColor = [UIColor whiteColor];
+    navBar.backgroundColor = navBar.backgroundView.backgroundColor = [UIColor black50PercentColor];
     self.navBar = navBar;
     [self.view addSubview:navBar];
     
@@ -73,18 +128,20 @@
     [[container rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
         NSLog(@" searchbar did clicked... ");
+        MHAppletViewModel *viewModel = [[MHAppletViewModel alloc] initWithServices:self.viewModel.services params:nil];
+        [self.viewModel.services pushViewModel:viewModel animated:YES];
     }];
     
     /// 搜索框
     NSString *imageName = @"icons_outlined_search_full.svg";
-    UIColor *color = MHColorFromHexString(@"A2A1AC");
+    UIColor *color = [[UIColor whiteColor] colorWithAlphaComponent:.5];
     UIImage *image = [UIImage mh_svgImageNamed:imageName targetSize:CGSizeMake(16.0, 16.0) tintColor:color];
     
     UIButton *searchBar = [UIButton buttonWithType:UIButtonTypeCustom];
     [searchBar setImage:image forState:UIControlStateNormal];
     [searchBar setImage:image forState:UIControlStateHighlighted];
-    searchBar.backgroundColor = MHColorFromHexString(@"#46445B");
-    [searchBar setTitleColor:MHColorFromHexString(@"A2A1AC") forState:UIControlStateNormal];
+    searchBar.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:.1];
+    [searchBar setTitleColor:color forState:UIControlStateNormal];
     [searchBar setTitle:@"搜索小程序" forState:UIControlStateNormal];
     searchBar.titleLabel.font = MHRegularFont_16;
     [container addSubview:searchBar];
@@ -111,6 +168,10 @@
     
     [self.searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsMake(17.0f, 36.5f, 17.0f, 36.5f));
+    }];
+    
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsZero);
     }];
 }
 @end

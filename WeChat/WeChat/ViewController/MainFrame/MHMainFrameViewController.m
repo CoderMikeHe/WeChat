@@ -42,6 +42,8 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
 
 /// appletController
 @property (nonatomic, readwrite, strong) MHPulldownAppletViewController *appletController;
+/// 下拉容器
+@property (nonatomic, readwrite, weak) UIScrollView *scrollView;
 
 /// 获取截图
 @property (nonatomic, readwrite, weak) UIView *snapshotView;
@@ -343,15 +345,28 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
         /// 下钻...
     };
     
+    /// 下拉小程序模块
+    CGFloat height = MH_APPLICATION_TOP_BAR_HEIGHT + (102.0f + 48.0f) * 2 + 50 + 74.0f;
+    UIScrollView *scrollView = [[UIScrollView alloc] init];
+    self.scrollView = scrollView;
+    MHAdjustsScrollViewInsets_Never(scrollView);
+    [self.view addSubview:scrollView];
+    // 先设置锚点,在设置frame
+    scrollView.layer.anchorPoint = CGPointMake(0.5, 0);
+    scrollView.frame = CGRectMake(0, 0, MH_SCREEN_WIDTH, height);
+    
     
     /// 添加下拉小程序模块
     MHPulldownAppletViewController *appletController = [[MHPulldownAppletViewController alloc] initWithViewModel:self.viewModel.appletViewModel];
+    appletController.view.mh_height = height;
 //    appletController.view.alpha = 0.0;
-    [self.view addSubview:appletController.view];
+    [scrollView addSubview:appletController.view];
     [self addChildViewController:appletController];
     [searchController didMoveToParentViewController:self];
     self.appletController = appletController;
     
+    ///
+    scrollView.transform = CGAffineTransformMakeScale(0.5, 0.5);
 }
 
 #pragma mark - 布局子控件

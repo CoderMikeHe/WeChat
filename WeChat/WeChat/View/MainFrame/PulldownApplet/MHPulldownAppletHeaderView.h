@@ -11,6 +11,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MHPulldownAppletHeaderView : UITableViewHeaderFooterView
+/// 创建方法
++ (instancetype)headerViewWithTableView:(UITableView *)tableView;
+
+/// titleLabel
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end
 
