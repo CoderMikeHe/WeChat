@@ -498,6 +498,7 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
     /// 下拉三个球模块
     MHBouncyBallsView *ballsView = [[MHBouncyBallsView alloc] init];
     self.ballsView = ballsView;
+    ballsView.backgroundColor = [UIColor redColor];
     [self.view addSubview:ballsView];
 }
 
