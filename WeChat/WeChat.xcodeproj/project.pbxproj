@@ -406,6 +406,8 @@
 		84CFE0A8246D387E004C8739 /* MHSearchMusicDelHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84CFE0A6246D387E004C8739 /* MHSearchMusicDelHistoryCell.xib */; };
 		84CFE0AB246D450F004C8739 /* YYCache+MHUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFE0AA246D450F004C8739 /* YYCache+MHUtil.m */; };
 		84D3F6F1248A411A00C80689 /* MHCommonCenterItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D3F6F0248A411A00C80689 /* MHCommonCenterItemViewModel.m */; };
+		84D7469A24AD6DF6004B3CDA /* MHBouncyBallsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D7469924AD6DF6004B3CDA /* MHBouncyBallsView.m */; };
+		84D7469D24AD7200004B3CDA /* UIScrollView+MHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D7469C24AD7200004B3CDA /* UIScrollView+MHExtension.m */; };
 		84ED8EE0247B51690040C46B /* MHSearchDefaultSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ED8EDE247B51690040C46B /* MHSearchDefaultSearchCell.m */; };
 		84ED8EE1247B51690040C46B /* MHSearchDefaultSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ED8EDF247B51690040C46B /* MHSearchDefaultSearchCell.xib */; };
 		84ED8EE4247B56AE0040C46B /* MHSearchDefaultSearchItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ED8EE3247B56AE0040C46B /* MHSearchDefaultSearchItemViewModel.m */; };
@@ -1256,6 +1258,10 @@
 		84CFE0AA246D450F004C8739 /* YYCache+MHUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "YYCache+MHUtil.m"; sourceTree = "<group>"; };
 		84D3F6EF248A411A00C80689 /* MHCommonCenterItemViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHCommonCenterItemViewModel.h; sourceTree = "<group>"; };
 		84D3F6F0248A411A00C80689 /* MHCommonCenterItemViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHCommonCenterItemViewModel.m; sourceTree = "<group>"; };
+		84D7469824AD6DF6004B3CDA /* MHBouncyBallsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHBouncyBallsView.h; sourceTree = "<group>"; };
+		84D7469924AD6DF6004B3CDA /* MHBouncyBallsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHBouncyBallsView.m; sourceTree = "<group>"; };
+		84D7469B24AD7200004B3CDA /* UIScrollView+MHExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MHExtension.h"; sourceTree = "<group>"; };
+		84D7469C24AD7200004B3CDA /* UIScrollView+MHExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MHExtension.m"; sourceTree = "<group>"; };
 		84ED8EDD247B51690040C46B /* MHSearchDefaultSearchCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchDefaultSearchCell.h; sourceTree = "<group>"; };
 		84ED8EDE247B51690040C46B /* MHSearchDefaultSearchCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchDefaultSearchCell.m; sourceTree = "<group>"; };
 		84ED8EDF247B51690040C46B /* MHSearchDefaultSearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHSearchDefaultSearchCell.xib; sourceTree = "<group>"; };
@@ -2469,6 +2475,7 @@
 		263C89711F6A305100F7A0AE /* MainFrame */ = {
 			isa = PBXGroup;
 			children = (
+				84D7469724AD6D14004B3CDA /* BouncyBalls */,
 				8400E2EE24A8970400125893 /* PulldownApplet */,
 				265490491F99AF6F003AEED1 /* MHMainFrameTableViewCell.h */,
 				2654904A1F99AF6F003AEED1 /* MHMainFrameTableViewCell.m */,
@@ -2694,6 +2701,8 @@
 			children = (
 				263D36C81F666438007267C3 /* UIScrollView+MHRefresh.h */,
 				263D36C91F666438007267C3 /* UIScrollView+MHRefresh.m */,
+				84D7469B24AD7200004B3CDA /* UIScrollView+MHExtension.h */,
+				84D7469C24AD7200004B3CDA /* UIScrollView+MHExtension.m */,
 			);
 			path = UIScrollView;
 			sourceTree = "<group>";
@@ -3594,6 +3603,15 @@
 				841766632472396500B2A704 /* MHSearchStickerDefaultCell.xib */,
 			);
 			path = Sticker;
+			sourceTree = "<group>";
+		};
+		84D7469724AD6D14004B3CDA /* BouncyBalls */ = {
+			isa = PBXGroup;
+			children = (
+				84D7469824AD6DF6004B3CDA /* MHBouncyBallsView.h */,
+				84D7469924AD6DF6004B3CDA /* MHBouncyBallsView.m */,
+			);
+			path = BouncyBalls;
 			sourceTree = "<group>";
 		};
 		84ED8EE7247B6DE10040C46B /* Arrow */ = {
@@ -4735,6 +4753,7 @@
 				84178C2B247661C600F7EFEE /* MHSingleChatViewModel.m in Sources */,
 				263D37171F66656A007267C3 /* YYThreadSafeArray.m in Sources */,
 				261E015D1FDE2E010041E989 /* MHCommonSwitchItemViewModel.m in Sources */,
+				84D7469A24AD6DF6004B3CDA /* MHBouncyBallsView.m in Sources */,
 				2615972C1FEA5AEE00C6FD80 /* MHMomentContentItemViewModel.m in Sources */,
 				26B89AB72022E599006FBE20 /* MHMomentShareInfo.m in Sources */,
 				84CFE093246CE2CD004C8739 /* MHSearchMusicHotItemViewModel.m in Sources */,
@@ -4749,6 +4768,7 @@
 				262ADA491FCA741800B0F4FD /* MHDebugTouchView.m in Sources */,
 				2605C5CD1F66323800B1F66E /* MHDiscoverViewModel.m in Sources */,
 				26FE8E931F9514D100EC8BE0 /* UIView+Layout.m in Sources */,
+				84D7469D24AD7200004B3CDA /* UIScrollView+MHExtension.m in Sources */,
 				265490541F99E905003AEED1 /* MHTestViewController.m in Sources */,
 				26FE8E841F9514D100EC8BE0 /* UIView+SDExtension.m in Sources */,
 				2605C5C41F662F4B00B1F66E /* MHAccountLoginViewModel.m in Sources */,

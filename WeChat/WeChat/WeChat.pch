@@ -66,6 +66,7 @@
 #import "SAMKeychain+MHUtil.h"
 #import "YYCache+MHUtil.h"
 #import "NSDate+Extension.h"
+#import "UIScrollView+MHExtension.h"
 
 #endif /* WeChat_pch */
 

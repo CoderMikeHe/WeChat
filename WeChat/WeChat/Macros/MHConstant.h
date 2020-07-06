@@ -286,6 +286,15 @@ FOUNDATION_EXTERN CGFloat const MHMomentCommentToolViewMaxHeight ;
 FOUNDATION_EXTERN CGFloat const MHMomentCommentToolViewWithNoTextViewHeight;
 
 
+//// ---------------- 微信首页模块 ----------------
+/// 下拉显示小程序 临界点0  60.0f
+FOUNDATION_EXTERN CGFloat const MHPulldownAppletCriticalPoint0;
+/// 下拉显示小程序 临界点1  90.0f
+FOUNDATION_EXTERN CGFloat const MHPulldownAppletCriticalPoint1;
+/// 下拉显示小程序 临界点2  130.0f
+FOUNDATION_EXTERN CGFloat const MHPulldownAppletCriticalPoint2;
+/// 下拉显示小程序 临界点3  180.0f
+FOUNDATION_EXTERN CGFloat const MHPulldownAppletCriticalPoint3;
 
 //// ---------------- inline ----------------
 
