@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MHPulldownAppletViewController : MHTableViewController
-
+@property (nonatomic,assign) BOOL canScroll;
 @end
 
 NS_ASSUME_NONNULL_END

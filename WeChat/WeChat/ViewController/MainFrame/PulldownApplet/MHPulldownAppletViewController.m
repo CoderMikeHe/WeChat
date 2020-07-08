@@ -48,7 +48,7 @@
 }
 
 - (UIEdgeInsets)contentInset {
-    return UIEdgeInsetsMake(0, 0, 0, 0);
+    return UIEdgeInsetsMake(50, 0, 70, 0);
 }
 
 /// 返回自定义的cell
@@ -60,6 +60,23 @@
 - (void)configureCell:(MHPulldownAppletCell *)cell atIndexPath:(NSIndexPath *)indexPath withObject:(id)object{
     [cell bindViewModel:object];
 }
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    NSLog(@"abc,............");
+    
+    if (!self.canScroll) {
+        scrollView.contentOffset = CGPointZero;
+    }
+    if (scrollView.contentOffset.y < 0 ) {
+        self.canScroll = NO;
+        scrollView.contentOffset = CGPointZero;
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"shop_home_leaveTop" object:nil];//到顶通知父视图改变状态
+    }
+    scrollView.showsVerticalScrollIndicator = self.canScroll?YES:NO;
+    
+}
+
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

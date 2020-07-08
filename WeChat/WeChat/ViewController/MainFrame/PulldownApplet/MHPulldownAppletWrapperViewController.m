@@ -10,17 +10,20 @@
 #import "MHPulldownAppletViewController.h"
 #import "WHWeatherView.h"
 #import "WHWeatherHeader.h"
+#import "MHScrollView.h"
 
-
-@interface MHPulldownAppletWrapperViewController ()
+@interface MHPulldownAppletWrapperViewController ()<UIScrollViewDelegate>
 /// viewModel
 @property (nonatomic, readonly, strong) MHPulldownAppletWrapperViewModel *viewModel;
 /// 下拉容器
-@property (nonatomic, readwrite, weak) UIScrollView *scrollView;
+@property (nonatomic, readwrite, weak) MHScrollView *scrollView;
 /// 蒙版 darkView
 @property (nonatomic, readwrite, weak) UIView *darkView;
 
 @property (nonatomic, readwrite, strong) WHWeatherView *weatherView;
+/// canScroll
+@property (nonatomic, readwrite, assign) BOOL canScroll;
+
 /// -----------------------下拉小程序相关------------------------
 /// appletController
 @property (nonatomic, readwrite, strong) MHPulldownAppletViewController *appletController;
@@ -44,6 +47,9 @@
     
     /// 布局子空间
     [self _makeSubViewsConstraints];
+    
+    self.canScroll = YES;
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(changeStatus) name:@"shop_home_leaveTop" object:nil];
 }
 #pragma mark - Override
 - (void)bindViewModel {
@@ -58,6 +64,12 @@
         [self _handleOffset:offset state:state];
     }];
     
+}
+
+-(void)changeStatus{
+    
+    self.canScroll = YES;
+    self.appletController.canScroll = NO;
 }
 
 #pragma mark - 事件处理Or辅助方法
@@ -95,6 +107,25 @@
     }
 }
 
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    NSLog(@"abc,.hhhhhhhhhhhh..... %f",scrollView.contentOffset.y);
+    CGFloat offset = scrollView.contentOffset.y;
+    
+    CGFloat bottomCellOffset = 0;
+    if (scrollView.contentOffset.y < bottomCellOffset) {
+        scrollView.contentOffset = CGPointMake(0, bottomCellOffset);
+        if (self.canScroll) {
+            self.canScroll = NO;
+            self.appletController.canScroll = YES;
+        }
+    }else{
+        if (!self.canScroll) {//子视图没到顶部
+            scrollView.contentOffset = CGPointMake(0, bottomCellOffset);
+        }
+    }
+}
+
 
 #pragma mark - 初始化OrUI布局
 /// 初始化
@@ -119,12 +150,13 @@
     
     /// scrollView
     CGFloat height = MH_APPLICATION_TOP_BAR_HEIGHT + (102.0f + 48.0f) * 2 + 50 + 74.0f;
-    UIScrollView *scrollView = [[UIScrollView alloc] init];
+    MHScrollView *scrollView = [[MHScrollView alloc] init];
     self.scrollView = scrollView;
     MHAdjustsScrollViewInsets_Never(scrollView);
     [self.view addSubview:scrollView];
     scrollView.frame = CGRectMake(0, 0, MH_SCREEN_WIDTH, MH_SCREEN_HEIGHT);
     scrollView.backgroundColor = [UIColor clearColor];
+    scrollView.delegate = self;
     
     /// 天气
     CGRect frame = CGRectMake(0, 0, MH_SCREEN_WIDTH, MH_SCREEN_HEIGHT);

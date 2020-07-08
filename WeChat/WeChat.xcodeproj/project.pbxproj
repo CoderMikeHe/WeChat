@@ -536,6 +536,7 @@
 		DE6EF1D3246D85EF00FF1303 /* MHSearchCommonRelatedItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6EF1D2246D85EF00FF1303 /* MHSearchCommonRelatedItemViewModel.m */; };
 		DE76F56B2459A85200A7C4A6 /* contacts.json in Resources */ = {isa = PBXBuildFile; fileRef = DE76F56A2459A85200A7C4A6 /* contacts.json */; };
 		DE76F56F2459AD0000A7C4A6 /* MHContactsService.m in Sources */ = {isa = PBXBuildFile; fileRef = DE76F56E2459AD0000A7C4A6 /* MHContactsService.m */; };
+		DE86DC2B24B602A70034605C /* MHScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE86DC2A24B602A70034605C /* MHScrollView.m */; };
 		DEA6F3D4245AF3E200542C6B /* MHContactsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA6F3D3245AF3E200542C6B /* MHContactsHeaderView.m */; };
 		DEA6F3D8245AF5D900542C6B /* MHContactsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA6F3D7245AF5D900542C6B /* MHContactsHeaderView.xib */; };
 		DEAA4830248B2D9700F71465 /* MHDiscoverManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEAA482F248B2D9700F71465 /* MHDiscoverManagerViewController.m */; };
@@ -1499,6 +1500,8 @@
 		DE76F56A2459A85200A7C4A6 /* contacts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = contacts.json; sourceTree = "<group>"; };
 		DE76F56D2459AD0000A7C4A6 /* MHContactsService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHContactsService.h; sourceTree = "<group>"; };
 		DE76F56E2459AD0000A7C4A6 /* MHContactsService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHContactsService.m; sourceTree = "<group>"; };
+		DE86DC2924B602A70034605C /* MHScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHScrollView.h; sourceTree = "<group>"; };
+		DE86DC2A24B602A70034605C /* MHScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHScrollView.m; sourceTree = "<group>"; };
 		DEA6F3D2245AF3E200542C6B /* MHContactsHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHContactsHeaderView.h; sourceTree = "<group>"; };
 		DEA6F3D3245AF3E200542C6B /* MHContactsHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHContactsHeaderView.m; sourceTree = "<group>"; };
 		DEA6F3D7245AF5D900542C6B /* MHContactsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHContactsHeaderView.xib; sourceTree = "<group>"; };
@@ -2549,6 +2552,8 @@
 				26003FF51F988BA1000621B0 /* MHImageView.m */,
 				2634C7201FF0A33A00B1F639 /* MHTableView.h */,
 				2634C7211FF0A33A00B1F639 /* MHTableView.m */,
+				DE86DC2924B602A70034605C /* MHScrollView.h */,
+				DE86DC2A24B602A70034605C /* MHScrollView.m */,
 			);
 			path = BaseClass;
 			sourceTree = "<group>";
@@ -5405,6 +5410,7 @@
 				DE66C0E3246AE2A3000E9915 /* WPFPinYinDataManager.m in Sources */,
 				266E15E01F8F7F05000E31C5 /* MHCommitViewModel.m in Sources */,
 				DE54EACA24790BEE00CAA223 /* MHSearchDefaultGroupChatCell.m in Sources */,
+				DE86DC2B24B602A70034605C /* MHScrollView.m in Sources */,
 				263D36DF1F666438007267C3 /* NSDateFormatter+Extension.m in Sources */,
 				2667A3F51F7B9FB100A3D7A2 /* MHMobileLoginViewController.m in Sources */,
 				84AD506124639BFD0053A79A /* MHSearchDefaultSearchTypeItemViewModel.m in Sources */,
