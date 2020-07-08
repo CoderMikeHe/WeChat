@@ -20,8 +20,10 @@
 /// searchViewModel
 @property (nonatomic, readwrite, strong) MHSearchViewModel *searchViewModel;
 
-/// appletViewModel
-@property (nonatomic, readwrite, strong) MHPulldownAppletViewModel *appletViewModel;
+/// appletWrapperViewModel
+@property (nonatomic, readwrite, strong) MHPulldownAppletWrapperViewModel *appletWrapperViewModel;
+/// ballsViewModel
+@property (nonatomic, readwrite, strong) MHBouncyBallsViewModel *ballsViewModel;
 
 /// 搜索状态
 @property (nonatomic, readwrite, assign) MHNavSearchBarState searchState;
@@ -72,8 +74,8 @@
         return [RACSignal empty];
     }];
     /// --------------------- 下拉c小程序相关 ----------------------
-    self.appletViewModel = [[MHPulldownAppletViewModel alloc] initWithServices:self.services params:nil];
-    
+    self.appletWrapperViewModel = [[MHPulldownAppletWrapperViewModel alloc] initWithServices:self.services params:nil];
+    self.ballsViewModel = [[MHBouncyBallsViewModel alloc] init];
     
     // --------------------- 搜索相关 ----------------------
     /// 弹出搜索页或者隐藏搜索页的回调  以及侧滑搜索页回调

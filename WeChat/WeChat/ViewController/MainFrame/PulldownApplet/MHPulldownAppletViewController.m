@@ -41,12 +41,14 @@
     
     /// 布局子空间
     [self _makeSubViewsConstraints];
-    
-    self.view.backgroundColor = self.tableView.backgroundColor = [UIColor black50PercentColor];
 }
 #pragma mark - Override
 - (void)bindViewModel {
     [super bindViewModel];
+}
+
+- (UIEdgeInsets)contentInset {
+    return UIEdgeInsetsMake(0, 0, 0, 0);
 }
 
 /// 返回自定义的cell
@@ -100,7 +102,7 @@
 #pragma mark - 初始化OrUI布局
 /// 初始化
 - (void)_setup{
-    
+    self.view.backgroundColor = self.tableView.backgroundColor = [UIColor clearColor];
 }
 
 /// 设置导航栏
@@ -117,7 +119,7 @@
     MHNavigationBar *navBar = [MHNavigationBar navigationBar];
     navBar.titleLabel.text = @"小程序";
     navBar.titleLabel.textColor = [UIColor whiteColor];
-    navBar.backgroundColor = navBar.backgroundView.backgroundColor = [UIColor black50PercentColor];
+    navBar.backgroundColor = navBar.backgroundView.backgroundColor = [UIColor clearColor];
     self.navBar = navBar;
     [self.view addSubview:navBar];
     
@@ -134,7 +136,7 @@
     
     /// 搜索框
     NSString *imageName = @"icons_outlined_search_full.svg";
-    UIColor *color = [[UIColor whiteColor] colorWithAlphaComponent:.5];
+    UIColor *color = [[UIColor whiteColor] colorWithAlphaComponent:1.0f];
     UIImage *image = [UIImage mh_svgImageNamed:imageName targetSize:CGSizeMake(16.0, 16.0) tintColor:color];
     
     UIButton *searchBar = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -171,7 +173,7 @@
     }];
     
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(UIEdgeInsetsZero);
+        make.edges.mas_equalTo(UIEdgeInsetsMake(MH_APPLICATION_TOP_BAR_HEIGHT, 0, 0, 0));
     }];
 }
 @end

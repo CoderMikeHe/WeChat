@@ -11,8 +11,9 @@
 
 #import "MHNavSearchBarViewModel.h"
 #import "MHSearchViewModel.h"
+#import "MHBouncyBallsViewModel.h"
+#import "MHPulldownAppletWrapperViewModel.h"
 
-@class MHPulldownAppletViewModel;
 
 @interface MHMainFrameViewModel : MHTableViewModel
 
@@ -28,7 +29,8 @@
 /// 弹出/消失 搜索内容页 回调
 @property (nonatomic, readonly, strong) RACCommand *popCommand;
 
-/// appletViewModel
-@property (nonatomic, readonly, strong) MHPulldownAppletViewModel *appletViewModel;
-
+/// appletWrapperViewModel
+@property (nonatomic, readonly, strong) MHPulldownAppletWrapperViewModel *appletWrapperViewModel;
+/// ballsViewModel
+@property (nonatomic, readonly, strong) MHBouncyBallsViewModel *ballsViewModel;
 @end

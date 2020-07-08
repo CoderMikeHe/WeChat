@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MHBouncyBallsView : MHView
+@interface MHBouncyBallsView : MHView<MHReactiveView>
 /// generate
 + (instancetype)bouncyBallsView;
 @end
