@@ -88,7 +88,8 @@
             
             self.darkView.alpha = .6f;
         } completion:^(BOOL finished) {
-            self.scrollView.contentSize = CGSizeMake(0, 2 * MH_SCREEN_HEIGHT);
+            /// 弄高点 形成滚动条短一点的错觉
+            self.scrollView.contentSize = CGSizeMake(0, 20 * MH_SCREEN_HEIGHT);
         }];
         
     }else {
@@ -112,18 +113,10 @@
     NSLog(@"abc,.hhhhhhhhhhhh..... %f",scrollView.contentOffset.y);
     CGFloat offset = scrollView.contentOffset.y;
     
-    CGFloat bottomCellOffset = 0;
-    if (scrollView.contentOffset.y < bottomCellOffset) {
-        scrollView.contentOffset = CGPointMake(0, bottomCellOffset);
-        if (self.canScroll) {
-            self.canScroll = NO;
-            self.appletController.canScroll = YES;
-        }
-    }else{
-        if (!self.canScroll) {//子视图没到顶部
-            scrollView.contentOffset = CGPointMake(0, bottomCellOffset);
-        }
-    }
+//    if (offset < -scrollView.contentInset.top) {
+//        /// 这种场景 设置scrollView.contentOffset.y = 0 否则云层会下拉 体验不好
+//        scrollView.contentOffset = CGPointMake(0, -scrollView.contentInset.top);
+//    }
 }
 
 
@@ -148,24 +141,30 @@
     self.darkView = darkView;
     [self.view addSubview:darkView];
     
-    /// scrollView
-    CGFloat height = MH_APPLICATION_TOP_BAR_HEIGHT + (102.0f + 48.0f) * 2 + 50 + 74.0f;
+    /// 滚动
     MHScrollView *scrollView = [[MHScrollView alloc] init];
     self.scrollView = scrollView;
     MHAdjustsScrollViewInsets_Never(scrollView);
     [self.view addSubview:scrollView];
-    scrollView.frame = CGRectMake(0, 0, MH_SCREEN_WIDTH, MH_SCREEN_HEIGHT);
+    /// 高度为 屏高-导航栏高度 形成滚动条在导航栏下面
+    scrollView.frame = CGRectMake(0, MH_APPLICATION_TOP_BAR_HEIGHT, MH_SCREEN_WIDTH, MH_SCREEN_HEIGHT-MH_APPLICATION_TOP_BAR_HEIGHT);
     scrollView.backgroundColor = [UIColor clearColor];
     scrollView.delegate = self;
+    scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    scrollView.clipsToBounds = NO;
     
-    /// 天气
-    CGRect frame = CGRectMake(0, 0, MH_SCREEN_WIDTH, MH_SCREEN_HEIGHT);
+    /// 天气 注意y = - MH_APPLICATION_TOP_BAR_HEIGHT
+    CGRect frame = CGRectMake(0, -0, MH_SCREEN_WIDTH, MH_SCREEN_HEIGHT);
     self.weatherView.frame = frame;
-    [scrollView addSubview:self.weatherView];
+    [self.view addSubview:self.weatherView];
+    
     
     /// 添加下拉小程序模块
+    CGFloat height = MH_APPLICATION_TOP_BAR_HEIGHT + (102.0f + 48.0f) * 2 + 74.0f + 100.0f;
     MHPulldownAppletViewController *appletController = [[MHPulldownAppletViewController alloc] initWithViewModel:self.viewModel.appletViewModel];
-    [scrollView addSubview:appletController.view];
+    /// 小修改： 之前是添加在 scrollView , 但是 会存在手势滚动冲突 当然也是可以解决的，但是笔者懒得很，就将其添加到 self.view
+//    [scrollView addSubview:appletController.view];
+    [self.view addSubview:appletController.view];
     [self addChildViewController:appletController];
     [appletController didMoveToParentViewController:self];
     self.appletController = appletController;

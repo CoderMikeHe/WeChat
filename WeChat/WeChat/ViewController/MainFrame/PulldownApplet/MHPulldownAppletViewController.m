@@ -20,12 +20,26 @@
 @property (nonatomic, readwrite, weak) UIButton *searchBar;
 /// navBar
 @property (nonatomic, readwrite, weak) MHNavigationBar *navBar;
+/// 开始拖拽的偏移量
+@property (nonatomic, readwrite, assign) CGFloat startDragOffsetY;
+/// 结束拖拽的偏移量
+@property (nonatomic, readwrite, assign) CGFloat endDragOffsetY;
 @end
 
 @implementation MHPulldownAppletViewController
 
 @dynamic viewModel;
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    MHLogFunc;
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+    MHLogFunc;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -47,8 +61,10 @@
     [super bindViewModel];
 }
 
+// CGFloat height = MH_APPLICATION_TOP_BAR_HEIGHT + (102.0f + 48.0f) * 2 + 74.0f + 100.0f;
 - (UIEdgeInsets)contentInset {
-    return UIEdgeInsetsMake(50, 0, 70, 0);
+    /// 100 对应上面的100  57 对应搜索框 17+40
+    return UIEdgeInsetsMake(0, 0, 100.0f+57.0f, 0);
 }
 
 /// 返回自定义的cell
@@ -61,20 +77,64 @@
     [cell bindViewModel:object];
 }
 
+#pragma mark - 事件处理Or辅助方法
+/// 处理搜索框显示偏移
+- (void)_handleSearchBarOffset:(UIScrollView *)scrollView {
+    // 获取当前偏移量
+    CGFloat offsetY = scrollView.contentOffset.y;
+    CGFloat searchBarH = 57.0f;
+    /// 在这个范围内
+    if (offsetY > -scrollView.contentInset.top && offsetY < (-scrollView.contentInset.top + searchBarH)) {
+        // 判断上下拉
+        if (self.endDragOffsetY > self.startDragOffsetY) {
+            // 上拉 隐藏
+            CGPoint offset = CGPointMake(0, -scrollView.contentInset.top + searchBarH);
+            [self.tableView setContentOffset:offset animated:YES];
+        } else {
+            // 下拉 显示
+            CGPoint offset = CGPointMake(0, -scrollView.contentInset.top);
+            [self.tableView setContentOffset:offset animated:YES];
+        }
+    }else{
+        // 判断上下拉
+        if (self.endDragOffsetY > self.startDragOffsetY) {
+            // 上拉 隐藏
+            NSLog(@"上拉 隐藏");
+        } else {
+            // 下拉 显示
+            NSLog(@"下拉 显示");
+        }
+    }
+    
+    
+}
+
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    NSLog(@"abc,............");
-    
-    if (!self.canScroll) {
-        scrollView.contentOffset = CGPointZero;
+    NSLog(@"---->> %f", scrollView.contentOffset.y);
+}
+
+/// 细节处理：
+/// 由于要弹出 搜索模块，所以要保证滚动到最顶部时，要确保搜索框完全显示或者完全隐藏，
+/// 不然会导致弹出搜索模块,然后收回搜索模块，会导致动画不流畅，影响体验，微信做法也是如此
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    /// 注意：这个方法不一定调用 当你缓慢拖动的时候是不会调用的
+    [self _handleSearchBarOffset:scrollView];
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    // 记录刚开始拖拽的值
+    self.startDragOffsetY = scrollView.contentOffset.y;
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    // 记录刚开始拖拽的值
+    self.endDragOffsetY = scrollView.contentOffset.y;
+    // decelerate: YES 说明还有速度或者说惯性，会继续滚动 停止时调用scrollViewDidEndDecelerating
+    // decelerate: NO  说明是很慢的拖拽，没有惯性，不会调用 scrollViewDidEndDecelerating
+    if (!decelerate) {
+        [self _handleSearchBarOffset:scrollView];
     }
-    if (scrollView.contentOffset.y < 0 ) {
-        self.canScroll = NO;
-        scrollView.contentOffset = CGPointZero;
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"shop_home_leaveTop" object:nil];//到顶通知父视图改变状态
-    }
-    scrollView.showsVerticalScrollIndicator = self.canScroll?YES:NO;
-    
 }
 
 
@@ -114,12 +174,16 @@
     return CGFLOAT_MIN;
 }
 
-#pragma mark - 事件处理Or辅助方法
+
 
 #pragma mark - 初始化OrUI布局
 /// 初始化
 - (void)_setup{
     self.view.backgroundColor = self.tableView.backgroundColor = [UIColor clearColor];
+    
+//    self.view.backgroundColor = [UIColor redColor];
+    
+    self.tableView.showsVerticalScrollIndicator = NO;
 }
 
 /// 设置导航栏

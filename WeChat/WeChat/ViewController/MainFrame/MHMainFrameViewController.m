@@ -399,7 +399,7 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
             
             /// 传递offset
             self.viewModel.ballsViewModel.offset = MH_SCREEN_HEIGHT - 64;
-            
+            self.ballsView.alpha = .0f;
             /// 传递状态
             self.viewModel.appletWrapperViewModel.offsetInfo = @{@"offset": @(MH_SCREEN_HEIGHT - 64), @"state": @(self.state)};
             
