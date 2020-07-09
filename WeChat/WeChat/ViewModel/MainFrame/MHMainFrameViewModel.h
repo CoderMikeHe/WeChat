@@ -33,4 +33,8 @@
 @property (nonatomic, readonly, strong) MHPulldownAppletWrapperViewModel *appletWrapperViewModel;
 /// ballsViewModel
 @property (nonatomic, readonly, strong) MHBouncyBallsViewModel *ballsViewModel;
+
+
+/// offsetInfo
+@property (nonatomic, readonly, copy) NSDictionary *offsetInfo;
 @end

@@ -211,6 +211,15 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
             }];
         }
     }];
+    
+    //// 小程序回滚
+    RACSignal *signal = [[RACObserve(self.viewModel, offsetInfo) skip:1] distinctUntilChanged];
+    [signal subscribeNext:^(NSDictionary *dictionary) {
+        @strongify(self);
+        CGFloat offset = [dictionary[@"offset"] doubleValue];
+        MHRefreshState state = [dictionary[@"state"] doubleValue];
+        [self _handleOffset:offset state:state];
+    }];
 }
 
 /// 配置tableView的区域
@@ -244,6 +253,26 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
             @strongify(self);
             self.moreView.hidden = YES;
         }];
+    }
+}
+
+#pragma mark - 事件处理Or辅助方法
+- (void)_handleOffset:(CGFloat)offset state:(MHRefreshState)state {
+    if (state == MHRefreshStateRefreshing) {
+        /// 回到空闲状态
+        self.state = MHRefreshStateIdle;
+    }else {
+        /// 拖拽状态
+        CGFloat delta = MH_SCREEN_HEIGHT - MH_APPLICATION_TOP_BAR_HEIGHT + offset;
+        delta = MAX(0, delta);
+        /// 更新 navBar Y
+        [self.navBar mas_updateConstraints:^(MASConstraintMaker *make) {
+            
+            make.top.equalTo(self.view).with.offset(delta);
+        }];
+        
+        /// 更新tableView Y
+        self.tableView.mh_y = delta;
     }
 }
 
@@ -298,10 +327,13 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
 /// 这里的逻辑 完全可以参照 MJRefreshHeader
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (scrollView == self.tableView) {
-        
+        NSLog(@"xxxxxxxxxxxxx %d  %d", scrollView.isDragging, scrollView.isTracking);
         // 在刷新的refreshing状态 do nothing...
         if (self.state == MHRefreshStateRefreshing) {
+            NSLog(@"🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥");
             return;
+        }else if (self.state == MHRefreshStatePulling && !scrollView.isDragging){
+            NSLog(@"🔥🔥🔥🔥🔥🔥pppppppppp🔥🔥🔥🔥🔥🔥🔥");
         }
         // 当前的contentOffset
         CGFloat offsetY = scrollView.mh_offsetY;
@@ -381,18 +413,17 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
     if (state == MHRefreshStateIdle) {
         if (oldState != MHRefreshStateRefreshing) return;
         
+        /// 更新位置
+        [self.navBar mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.view).with.offset(0);
+        }];
+        
         // 恢复inset和offset
         [UIView animateWithDuration:.4f animations:^{
-            //            self.scrollView.mh_insetT += self.insetTDelta;
-            
-            // 自动调整透明度
-            //            if (self.isAutomaticallyChangeAlpha) self.alpha = 0.0;
+            self.tableView.mh_y = 0;
+            [self.view layoutIfNeeded];
         } completion:^(BOOL finished) {
-            //            self.pullingPercent = 0.0;
-            //
-            //            if (self.endRefreshingCompletionBlock) {
-            //                self.endRefreshingCompletionBlock();
-            //            }
+            /// 完成后 传递数据给
         }];
     } else if (state == MHRefreshStateRefreshing) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -409,7 +440,7 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
             }];
             
             /// 动画
-            [UIView animateWithDuration:.4 animations:^{
+            [UIView animateWithDuration:0.4 animations:^{
                 [self.view layoutIfNeeded];
                 self.tabBarController.tabBar.hidden = YES;
                 CGFloat top = MH_SCREEN_HEIGHT;
@@ -420,7 +451,13 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
                 
                 self.navBar.backgroundView.backgroundColor = [UIColor whiteColor];
             } completion:^(BOOL finished) {
-                
+                NSLog(@"😿😿😿😿😿😿😿😿😿😿v");
+                self.tableView.mh_y = MH_SCREEN_HEIGHT - 64;
+                CGFloat top = 64;
+                // 增加滚动区域top
+                self.tableView.mh_insetT = top;
+                // 设置滚动位置
+                [self.tableView setContentOffset:CGPointMake(0, -top) animated:NO];
             }];
         });
     }

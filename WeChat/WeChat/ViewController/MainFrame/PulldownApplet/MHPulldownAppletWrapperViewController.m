@@ -10,19 +10,21 @@
 #import "MHPulldownAppletViewController.h"
 #import "WHWeatherView.h"
 #import "WHWeatherHeader.h"
-#import "MHScrollView.h"
 
 @interface MHPulldownAppletWrapperViewController ()<UIScrollViewDelegate>
 /// viewModel
 @property (nonatomic, readonly, strong) MHPulldownAppletWrapperViewModel *viewModel;
 /// 下拉容器
-@property (nonatomic, readwrite, weak) MHScrollView *scrollView;
+@property (nonatomic, readwrite, weak) UIScrollView *scrollView;
 /// 蒙版 darkView
 @property (nonatomic, readwrite, weak) UIView *darkView;
 
 @property (nonatomic, readwrite, strong) WHWeatherView *weatherView;
 /// canScroll
 @property (nonatomic, readwrite, assign) BOOL canScroll;
+
+/// 下拉状态
+@property (nonatomic, readwrite, assign) MHRefreshState state;
 
 /// -----------------------下拉小程序相关------------------------
 /// appletController
@@ -110,20 +112,90 @@
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    NSLog(@"abc,.hhhhhhhhhhhh..... %f",scrollView.contentOffset.y);
-    CGFloat offset = scrollView.contentOffset.y;
+    NSLog(@"abc,.hhhhhhhhhhhh..... %f ======== %d",scrollView.contentOffset.y, self.scrollView.isTracking);
+    // 当前的contentOffset
+    CGFloat offsetY = scrollView.mh_offsetY;
+    if (offsetY < -scrollView.contentInset.top) {
+        /// 这种场景 设置scrollView.contentOffset.y = 0 否则滚动条下拉 让用户觉得能下拉 但是又没啥意义 体验不好
+        scrollView.contentOffset = CGPointMake(0, -scrollView.contentInset.top);
+        offsetY = 0;
+    }
     
-//    if (offset < -scrollView.contentInset.top) {
-//        /// 这种场景 设置scrollView.contentOffset.y = 0 否则云层会下拉 体验不好
-//        scrollView.contentOffset = CGPointMake(0, -scrollView.contentInset.top);
-//    }
+    /// 微信只要滚动 就立即
+    // 在刷新的refreshing状态 do nothing...
+    if (self.state == MHRefreshStateRefreshing) {
+        return;
+    }
+    
+    /// 计算偏移量 负数
+    CGFloat delta = -offsetY;
+    
+    // 如果正在拖拽
+    if (scrollView.isTracking) {
+
+        /// 更新 天气/小程序 的Y
+        self.weatherView.mh_y = self.appletController.view.mh_y = delta;
+        
+        /// 更新 self.darkView.alpha 最大也只能拖拽 屏幕高
+        self.darkView.alpha = 0.6 * MAX(MH_SCREEN_HEIGHT - offsetY, 0) / MH_SCREEN_HEIGHT;
+       
+        if (self.state == MHRefreshStateIdle) {
+            // 转为即将刷新状态
+            self.state = MHRefreshStatePulling;
+        }
+        
+        
+        
+        /// 回调数据
+        !self.viewModel.callback?:self.viewModel.callback( @{@"offset": @(delta), @"state": @(self.state)});
+        
+    } else if (self.state == MHRefreshStatePulling) {
+        self.state = MHRefreshStateRefreshing;
+    }
+    
+    NSLog(@"srrrrrrr---%ld ------- %d",self.state, scrollView.isDragging);
 }
+
+#pragma mark - Setter & Getter
+- (void)setState:(MHRefreshState)state {
+    MHRefreshState oldState = self.state;
+    if (state == oldState) return;
+    _state = state;
+    
+    // 根据状态做事情
+    if (state == MHRefreshStateIdle) {
+        if (oldState != MHRefreshStateRefreshing) return;
+        
+        // 恢复inset和offset
+        [UIView animateWithDuration:.4f animations:^{
+            /// 更新 天气/小程序 的Y
+            self.weatherView.mh_y = self.appletController.view.mh_y = -MH_SCREEN_HEIGHT;
+        
+        } completion:^(BOOL finished) {
+            self.view.alpha = .0f;
+            self.weatherView.mh_y = self.appletController.view.mh_y = 0;
+        }];
+    } else if (state == MHRefreshStateRefreshing) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            /// 传递offset
+//            /// 传递状态
+            /// 回调数据
+            !self.viewModel.callback?:self.viewModel.callback( @{@"offset": @(-MH_SCREEN_HEIGHT), @"state": @(self.state)});
+
+
+            self.state = MHRefreshStateIdle;
+        });
+    }
+}
+
 
 
 #pragma mark - 初始化OrUI布局
 /// 初始化
 - (void)_setup{
     self.view.backgroundColor = [UIColor clearColor];
+    self.state = MHRefreshStateIdle;
 }
 
 /// 设置导航栏
@@ -141,8 +213,15 @@
     self.darkView = darkView;
     [self.view addSubview:darkView];
     
+    /// 天气
+    /// 天气 注意
+    CGRect frame = CGRectMake(0, 0, MH_SCREEN_WIDTH, MH_SCREEN_HEIGHT);
+    self.weatherView.frame = frame;
+    [self.view addSubview:self.weatherView];
+    
+    
     /// 滚动
-    MHScrollView *scrollView = [[MHScrollView alloc] init];
+    UIScrollView *scrollView = [[UIScrollView alloc] init];
     self.scrollView = scrollView;
     MHAdjustsScrollViewInsets_Never(scrollView);
     [self.view addSubview:scrollView];
@@ -152,12 +231,7 @@
     scrollView.delegate = self;
     scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     scrollView.clipsToBounds = NO;
-    
-    /// 天气 注意y = - MH_APPLICATION_TOP_BAR_HEIGHT
-    CGRect frame = CGRectMake(0, -0, MH_SCREEN_WIDTH, MH_SCREEN_HEIGHT);
-    self.weatherView.frame = frame;
-    [self.view addSubview:self.weatherView];
-    
+        
     
     /// 添加下拉小程序模块
     CGFloat height = MH_APPLICATION_TOP_BAR_HEIGHT + (102.0f + 48.0f) * 2 + 74.0f + 100.0f;
