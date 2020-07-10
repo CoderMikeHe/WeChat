@@ -54,7 +54,7 @@ typedef NS_ENUM(NSInteger, WHWeatherBackViewType){
 
 - (void)configueWeather
 {
-//    [self showWeatherAnimationWithType:WHWeatherTypeSun];
+    [self showWeatherAnimationWithType:WHWeatherTypeSun];
 }
 
 #pragma mark -

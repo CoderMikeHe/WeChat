@@ -25,6 +25,8 @@
     
     self.appletViewModel = [[MHPulldownAppletViewModel alloc] initWithServices:self.services params:nil];
     
+    
+    
 }
 
 @end

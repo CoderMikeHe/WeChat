@@ -11,7 +11,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MHPulldownAppletViewController : MHTableViewController
-@property (nonatomic,assign) BOOL canScroll;
+
+/// 重置滚动条
+- (void)resetOffset;
+
+/// 分割线
+@property (nonatomic, readonly, weak) UIView *divider;
+
 @end
 
 NS_ASSUME_NONNULL_END

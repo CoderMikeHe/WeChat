@@ -90,6 +90,8 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
     
     /// ③：注册cell
     [self.tableView mh_registerNibCell:MHMainFrameTableViewCell.class];
+    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -213,7 +215,8 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
     }];
     
     //// 小程序回滚
-    RACSignal *signal = [[RACObserve(self.viewModel, offsetInfo) skip:1] distinctUntilChanged];
+    /// Fixed bug: distinctUntilChanged 不需要，否则某些场景认为没变化 实际上变化了
+    RACSignal *signal = [RACObserve(self.viewModel, offsetInfo) skip:1];
     [signal subscribeNext:^(NSDictionary *dictionary) {
         @strongify(self);
         CGFloat offset = [dictionary[@"offset"] doubleValue];
@@ -418,15 +421,21 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
             make.top.equalTo(self.view).with.offset(0);
         }];
         
+        self.ballsView.alpha = 1.0f;
+        
         // 恢复inset和offset
         [UIView animateWithDuration:.4f animations:^{
             self.tableView.mh_y = 0;
             [self.view layoutIfNeeded];
         } completion:^(BOOL finished) {
             /// 完成后 传递数据给
+            self.tableView.showsVerticalScrollIndicator = YES;
         }];
     } else if (state == MHRefreshStateRefreshing) {
         dispatch_async(dispatch_get_main_queue(), ^{
+            
+            /// 隐藏滚动条
+            self.tableView.showsVerticalScrollIndicator = NO;
             
             /// 传递offset
             self.viewModel.ballsViewModel.offset = MH_SCREEN_HEIGHT - 64;
@@ -531,7 +540,6 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
     /// 下拉小程序模块
     MHPulldownAppletWrapperViewController *appletWrapperController = [[MHPulldownAppletWrapperViewController alloc] initWithViewModel:self.viewModel.appletWrapperViewModel];
     self.appletWrapperController = appletWrapperController;
-    appletWrapperController.view.alpha = 0.0;
     [self.view addSubview:appletWrapperController.view];
     [self addChildViewController:appletWrapperController];
     [appletWrapperController didMoveToParentViewController:self];

@@ -39,17 +39,27 @@
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         </button>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FCo-gY-dTV" userLabel="divider">
+                            <rect key="frame" x="43" y="43" width="335" height="1"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.80000000000000004" id="qHq-WC-Bja"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="IL7-ON-RGP" firstAttribute="centerY" secondItem="yHe-7E-iQE" secondAttribute="centerY" id="1VN-ak-5xB"/>
                         <constraint firstItem="c2y-PY-NVW" firstAttribute="top" secondItem="yHe-7E-iQE" secondAttribute="top" id="Cos-gW-Uad"/>
                         <constraint firstAttribute="height" constant="44" id="FHN-2E-T2C"/>
+                        <constraint firstItem="FCo-gY-dTV" firstAttribute="leading" secondItem="wJa-gj-udV" secondAttribute="trailing" id="KCM-CE-egK"/>
                         <constraint firstAttribute="bottom" secondItem="wJa-gj-udV" secondAttribute="bottom" id="QPa-I0-kko"/>
                         <constraint firstAttribute="trailing" secondItem="c2y-PY-NVW" secondAttribute="trailing" constant="12" id="SV0-p7-mk6"/>
                         <constraint firstItem="IL7-ON-RGP" firstAttribute="centerX" secondItem="yHe-7E-iQE" secondAttribute="centerX" id="T0O-pg-5Nm"/>
                         <constraint firstItem="wJa-gj-udV" firstAttribute="leading" secondItem="yHe-7E-iQE" secondAttribute="leading" constant="12" id="THP-6M-KGl"/>
                         <constraint firstItem="wJa-gj-udV" firstAttribute="top" secondItem="yHe-7E-iQE" secondAttribute="top" id="a3Q-UJ-Mw8"/>
+                        <constraint firstAttribute="bottom" secondItem="FCo-gY-dTV" secondAttribute="bottom" id="lJh-Y9-P64"/>
+                        <constraint firstItem="c2y-PY-NVW" firstAttribute="leading" secondItem="FCo-gY-dTV" secondAttribute="trailing" id="lPn-0h-02x"/>
                         <constraint firstAttribute="bottom" secondItem="c2y-PY-NVW" secondAttribute="bottom" id="sQs-DG-bEi"/>
                     </constraints>
                 </view>
@@ -64,11 +74,12 @@
             <viewLayoutGuide key="safeArea" id="Vox-I4-Cx6"/>
             <connections>
                 <outlet property="backgroundView" destination="yHe-7E-iQE" id="XMi-aU-WO1"/>
+                <outlet property="divider" destination="FCo-gY-dTV" id="UrB-JM-clw"/>
                 <outlet property="leftButton" destination="wJa-gj-udV" id="yGG-Vc-vL6"/>
                 <outlet property="rightButton" destination="c2y-PY-NVW" id="KXc-sb-bjQ"/>
                 <outlet property="titleLabel" destination="IL7-ON-RGP" id="btj-5G-UuS"/>
             </connections>
-            <point key="canvasLocation" x="145.6521739130435" y="161.38392857142856"/>
+            <point key="canvasLocation" x="-5.0724637681159424" y="135.9375"/>
         </view>
     </objects>
 </document>

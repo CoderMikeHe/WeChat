@@ -20,6 +20,8 @@
 @property (nonatomic, readwrite, weak) UIButton *searchBar;
 /// navBar
 @property (nonatomic, readwrite, weak) MHNavigationBar *navBar;
+/// 分割线
+@property (nonatomic, readwrite, weak) UIView *divider;
 /// 开始拖拽的偏移量
 @property (nonatomic, readwrite, assign) CGFloat startDragOffsetY;
 /// 结束拖拽的偏移量
@@ -55,16 +57,19 @@
     
     /// 布局子空间
     [self _makeSubViewsConstraints];
+    
+    /// 设置内容滚动
+    [self resetOffset];
 }
 #pragma mark - Override
 - (void)bindViewModel {
     [super bindViewModel];
 }
 
-// CGFloat height = MH_APPLICATION_TOP_BAR_HEIGHT + (102.0f + 48.0f) * 2 + 74.0f + 100.0f;
+// CGFloat height = MH_APPLICATION_TOP_BAR_HEIGHT + (102.0f + 48.0f) * 2 + 74.0f + 50.0f;
 - (UIEdgeInsets)contentInset {
-    /// 100 对应上面的100  57 对应搜索框 17+40
-    return UIEdgeInsetsMake(0, 0, 100.0f+57.0f, 0);
+    /// 50 对应上面的50  57 对应搜索框 17+40
+    return UIEdgeInsetsMake(0, 0, 50.0f+57.0f, 0);
 }
 
 /// 返回自定义的cell
@@ -76,6 +81,12 @@
 - (void)configureCell:(MHPulldownAppletCell *)cell atIndexPath:(NSIndexPath *)indexPath withObject:(id)object{
     [cell bindViewModel:object];
 }
+
+#pragma mark - Public Method
+- (void)resetOffset {
+    self.tableView.contentOffset = CGPointMake(0, 57.0f);
+}
+
 
 #pragma mark - 事件处理Or辅助方法
 /// 处理搜索框显示偏移
@@ -106,12 +117,14 @@
         }
     }
     
-    
 }
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     NSLog(@"---->> %f", scrollView.contentOffset.y);
+    CGFloat offset = scrollView.contentOffset.y;
+    /// 不裁剪子视图
+    self.tableView.clipsToBounds = offset > 0;
 }
 
 /// 细节处理：
@@ -179,10 +192,10 @@
 #pragma mark - 初始化OrUI布局
 /// 初始化
 - (void)_setup{
+    /// toumin
     self.view.backgroundColor = self.tableView.backgroundColor = [UIColor clearColor];
-    
-//    self.view.backgroundColor = [UIColor redColor];
-    
+
+    /// 不要滚动条
     self.tableView.showsVerticalScrollIndicator = NO;
 }
 
@@ -236,9 +249,15 @@
     
     [searchBar SG_imagePositionStyle:SGImagePositionStyleDefault spacing:8.0f];
     
-    
     self.tableView.tableHeaderView = container;
     self.tableView.tableHeaderView.mh_height = container.mh_height;
+    
+    /// 设置分割线
+    UIView *divider = [[UIView alloc] init];
+    divider.backgroundColor = MHColorFromHexString(@"#1b1b2e");
+    divider.alpha = .1f;
+    [self.view addSubview:divider];
+    self.divider = divider;
 }
 
 /// 布局子控件
@@ -247,6 +266,12 @@
     [self.navBar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.and.top.equalTo(self.view);
         make.height.mas_equalTo(MH_APPLICATION_TOP_BAR_HEIGHT);
+    }];
+    
+    [self.divider mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.and.right.equalTo(self.view);
+        make.top.equalTo(self.navBar.mas_bottom);
+        make.height.mas_equalTo(MHGlobalBottomLineHeight);
     }];
     
     [self.searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
