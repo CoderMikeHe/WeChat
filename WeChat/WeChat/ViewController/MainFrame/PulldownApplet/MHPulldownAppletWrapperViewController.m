@@ -32,6 +32,10 @@
 @property (nonatomic, readwrite, assign) CGFloat lastOffsetY;
 /// appletController
 @property (nonatomic, readwrite, strong) MHPulldownAppletViewController *appletController;
+
+
+/// callBack
+@property (nonatomic, readwrite, assign) bool isCallback;
 @end
 
 @implementation MHPulldownAppletWrapperViewController
@@ -53,7 +57,7 @@
     /// 布局子空间
     [self _makeSubViewsConstraints];
     
-
+    
 }
 #pragma mark - Override
 - (void)bindViewModel {
@@ -75,7 +79,7 @@
 
 #pragma mark - 事件处理Or辅助方法
 - (void)_handleOffset:(CGFloat)offset state:(MHRefreshState)state {
- 
+    
     if (state == MHRefreshStateRefreshing) {
         /// 释放刷新状态
         [UIView animateWithDuration:.4 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
@@ -122,15 +126,36 @@
     MHLogFunc;
     /// 停止减速了 如果偏移量 仍旧>0 则滚动到顶部
     /// 获取偏移量
-//    CGFloat offsetY = scrollView.mh_offsetY;
-//    if (offsetY > 0) {
+    //    CGFloat offsetY = scrollView.mh_offsetY;
+    //    if (offsetY > 0) {
+    //        /// 手动滚动到顶部
+    //        [scrollView scrollToTop];
+    //    }
+    /// 非释放状态 需要手动 滚动到最顶部
+//    if (self.state != MHRefreshStatePulling) {
+////        [scrollView setContentOffset:CGPointMake(0, scrollView.mh_offsetY)];
+//        /// 回调数据
+//        !self.viewModel.callback?:self.viewModel.callback( @{@"offset": @(0), @"state": @(self.state), @"animate": @YES});
 //        /// 手动滚动到顶部
-//        [scrollView scrollToTop];
+//        //        [scrollView scrollToTop];
+//        [UIView animateWithDuration:1.0f animations:^{
+//            [scrollView setContentOffset:CGPointMake(0, 0)];
+//            /// 一旦进入这个  说面用户停止 drag了
+//            /// 更新 天气/小程序 的Y
+//            self.weatherView.mh_y = self.appletController.view.mh_y = 0;
+//
+//            /// 更新 self.darkView.alpha 最大也只能拖拽 屏幕高
+//            self.darkView.alpha = 0.6;
+//
+//        }];
+//
+//
 //    }
 }
 
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
     MHLogFunc;
+    NSLog(@"🔥🔥🔥ooooooooooooooooooooooo");
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
@@ -146,47 +171,61 @@
     // decelerate: YES 说明还有速度或者说惯性，会继续滚动 停止时调用scrollViewDidEndDecelerating/scrollViewDidScroll
     // decelerate: NO  说明是很慢的拖拽，没有惯性，不会调用 scrollViewDidEndDecelerating/scrollViewDidScroll
     if (!decelerate) {
-        /// 手动调用
-        [self scrollViewDidScroll:scrollView];
-        /// 手动滚动到顶部
-//        [scrollView scrollToTop];
-//        [UIView beginAnimations:nil context:nil];
-//        [UIView setAnimationDuration:3.0];
-//        [scrollView setContentOffset:CGPointMake(0, 0)];
-//        [UIView commitAnimations];
-//        [scrollView setContentOffset:CGPointMake(0, 0)];
         
-        
-        
-        [UIView animateWithDuration:3 animations:^{
-            [scrollView setContentOffset:CGPointMake(0, 0)];
-            /// 一旦进入这个  说面用户停止 drag了
-            /// 更新 天气/小程序 的Y
-            self.weatherView.mh_y = self.appletController.view.mh_y = 0;
-            
-            /// 更新 self.darkView.alpha 最大也只能拖拽 屏幕高
-            self.darkView.alpha = 0.6;
-            
-        }];
-        
-        /// 回调数据
-        !self.viewModel.callback?:self.viewModel.callback( @{@"offset": @(0), @"state": @(self.state), @"animate": @YES});
+        /// 非释放状态 需要手动 滚动到最顶部
+        if (self.state != MHRefreshStatePulling) {
+            /// 回调数据
+            !self.viewModel.callback?:self.viewModel.callback( @{@"offset": @(0), @"state": @(self.state), @"animate": @YES});
+            /// 手动滚动到顶部
+            //        [scrollView scrollToTop];
+            [UIView animateWithDuration:1.0f animations:^{
+                [scrollView setContentOffset:CGPointMake(0, 0)];
+                /// 一旦进入这个  说面用户停止 drag了
+                /// 更新 天气/小程序 的Y
+                self.weatherView.mh_y = self.appletController.view.mh_y = 0;
+                
+                /// 更新 self.darkView.alpha 最大也只能拖拽 屏幕高
+                self.darkView.alpha = 0.6;
+                
+            }];
+        }else {
+            /// 手动调用
+            [self scrollViewDidScroll:scrollView];
+        }
     }else {
-        /// 回调数据
-        !self.viewModel.callback?:self.viewModel.callback( @{@"offset": @(0), @"state": @(self.state)});
-        [UIView animateWithDuration:3 animations:^{
-            [scrollView setContentOffset:CGPointMake(0, 0)];
-        }];
+        NSLog(@"🔥xxxxxxxxoooooooooooooooooo");
+        /// 还有继续滚动的趋势
+        self.isCallback = YES;
         
-//        [scrollView scrollToTop];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.isCallback = NO;
+            if (self.scrollView.mh_offsetY > 0) {
+                /// 回调数据
+                !self.viewModel.callback?:self.viewModel.callback( @{@"offset": @(0), @"state": @(self.state), @"animate": @YES});
+                /// 手动滚动到顶部
+                //        [scrollView scrollToTop];
+                [UIView animateWithDuration:0.5f animations:^{
+                    [scrollView setContentOffset:CGPointMake(0, 0)];
+                    /// 一旦进入这个  说面用户停止 drag了
+                    /// 更新 天气/小程序 的Y
+                    self.weatherView.mh_y = self.appletController.view.mh_y = 0;
+                    
+                    /// 更新 self.darkView.alpha 最大也只能拖拽 屏幕高
+                    self.darkView.alpha = 0.6;
+                    
+                }];
+            }
+        });
     }
+    
+    
 }
 
 /// Fixed Bug：scrollView.isDragging/isTracking 手指离开屏幕 可能还是会返回 YES 巨坑
 /// 解决方案： 自己控制 dragging 状态， 方法如上
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
-    NSLog(@"-------------------------> %f   %ld", scrollView.mh_offsetY, self.state);
+    NSLog(@"-------------------------> %f   %ld  %d", scrollView.mh_offsetY, self.state, scrollView.isDecelerating);
     
     /// 获取偏移量
     CGFloat offsetY = scrollView.mh_offsetY;
@@ -196,7 +235,7 @@
         scrollView.contentOffset = CGPointMake(0, -scrollView.contentInset.top);
         offsetY = 0;
     }
-
+    
     ///  微信只要滚动 结束拖拽 就立即进入刷新状态
     // 在刷新的refreshing状态 do nothing...
     if (self.state == MHRefreshStateRefreshing) {
@@ -208,7 +247,7 @@
     
     // 如果正在拖拽
     if (self.isDragging) {
-
+        
         /// 更新 天气/小程序 的Y
         self.weatherView.mh_y = self.appletController.view.mh_y = delta;
         
@@ -222,7 +261,7 @@
         }else if (self.state == MHRefreshStatePulling && offsetY <= self.lastOffsetY){
             self.state = MHRefreshStateIdle;
         }
-
+        
         /// 回调数据
         !self.viewModel.callback?:self.viewModel.callback( @{@"offset": @(delta), @"state": @(self.state)});
         
@@ -231,6 +270,18 @@
     } else if (self.state == MHRefreshStatePulling) {
         /// 进入帅新状态
         self.state = MHRefreshStateRefreshing;
+    } else {
+        /// 回调数据
+        if (self.isCallback) {
+            /// 更新 天气/小程序 的Y
+            self.weatherView.mh_y = self.appletController.view.mh_y = delta;
+            
+            /// 更新 self.darkView.alpha 最大也只能拖拽 屏幕高
+            self.darkView.alpha = 0.6 * MAX(MH_SCREEN_HEIGHT - offsetY, 0) / MH_SCREEN_HEIGHT;
+            
+            /// 回调数据
+            !self.viewModel.callback?:self.viewModel.callback( @{@"offset": @(delta), @"state": @(self.state)});
+        }
     }
     
     
@@ -262,6 +313,7 @@
             
             /// 重新调整 天气、小程序 的 y 值
             self.weatherView.mh_y = self.appletController.view.mh_y = 0;
+            NSLog(@"+++++++= ebd +++++++++++");
             
             /// 重新将scrollView 偏移量 置为 0
             self.scrollView.contentOffset = CGPointZero;
@@ -336,19 +388,19 @@
     scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     
     /// 设置减速
-//    scrollView.decelerationRate = 0.5f;
+    //    scrollView.decelerationRate = 0.5f;
     NSLog(@"-- %f  ___ %f", UIScrollViewDecelerationRateFast, UIScrollViewDecelerationRateNormal);
     
     /// 添加下拉小程序模块
     CGFloat height = MH_APPLICATION_TOP_BAR_HEIGHT + (102.0f + 48.0f) * 2 + 74.0f + 50.0f;
     MHPulldownAppletViewController *appletController = [[MHPulldownAppletViewController alloc] initWithViewModel:self.viewModel.appletViewModel];
     /// 小修改： 之前是添加在 scrollView , 但是 会存在手势滚动冲突 当然也是可以解决的，但是笔者懒得很，就将其添加到 self.view
-//    [scrollView addSubview:appletController.view];
+    //    [scrollView addSubview:appletController.view];
     [self.view addSubview:appletController.view];
     [self addChildViewController:appletController];
     [appletController didMoveToParentViewController:self];
     self.appletController = appletController;
-
+    
     // 先设置锚点,在设置frame
     appletController.view.layer.anchorPoint = CGPointMake(0.5, 0);
     appletController.view.frame = CGRectMake(0, 0, MH_SCREEN_WIDTH, height);

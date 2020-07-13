@@ -292,7 +292,7 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
         }];
         
         if (animate) {
-            [UIView animateWithDuration:3 animations:^{
+            [UIView animateWithDuration:0.5f animations:^{
                 [self.view layoutIfNeeded];
                 /// 更新tableView Y
                 self.tableView.mh_y = delta;
