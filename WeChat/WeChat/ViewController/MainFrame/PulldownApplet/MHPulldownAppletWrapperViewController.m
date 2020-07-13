@@ -28,6 +28,8 @@
 @property (nonatomic, readwrite, assign, getter=isDragging) BOOL dragging;
 
 /// -----------------------下拉小程序相关------------------------
+/// lastOffsetY
+@property (nonatomic, readwrite, assign) CGFloat lastOffsetY;
 /// appletController
 @property (nonatomic, readwrite, strong) MHPulldownAppletViewController *appletController;
 @end
@@ -116,12 +118,29 @@
 
 
 #pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    MHLogFunc;
+    /// 停止减速了 如果偏移量 仍旧>0 则滚动到顶部
+    /// 获取偏移量
+//    CGFloat offsetY = scrollView.mh_offsetY;
+//    if (offsetY > 0) {
+//        /// 手动滚动到顶部
+//        [scrollView scrollToTop];
+//    }
+}
+
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
+    MHLogFunc;
+}
+
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     self.dragging = YES;
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-    MHLogFunc;
+    
+    NSLog(@"++++++++++++++++++++++ %d  %ld", decelerate, self.state);
+    
     /// 结束拖拽
     self.dragging = NO;
     // decelerate: YES 说明还有速度或者说惯性，会继续滚动 停止时调用scrollViewDidEndDecelerating/scrollViewDidScroll
@@ -129,12 +148,46 @@
     if (!decelerate) {
         /// 手动调用
         [self scrollViewDidScroll:scrollView];
+        /// 手动滚动到顶部
+//        [scrollView scrollToTop];
+//        [UIView beginAnimations:nil context:nil];
+//        [UIView setAnimationDuration:3.0];
+//        [scrollView setContentOffset:CGPointMake(0, 0)];
+//        [UIView commitAnimations];
+//        [scrollView setContentOffset:CGPointMake(0, 0)];
+        
+        
+        
+        [UIView animateWithDuration:3 animations:^{
+            [scrollView setContentOffset:CGPointMake(0, 0)];
+            /// 一旦进入这个  说面用户停止 drag了
+            /// 更新 天气/小程序 的Y
+            self.weatherView.mh_y = self.appletController.view.mh_y = 0;
+            
+            /// 更新 self.darkView.alpha 最大也只能拖拽 屏幕高
+            self.darkView.alpha = 0.6;
+            
+        }];
+        
+        /// 回调数据
+        !self.viewModel.callback?:self.viewModel.callback( @{@"offset": @(0), @"state": @(self.state), @"animate": @YES});
+    }else {
+        /// 回调数据
+        !self.viewModel.callback?:self.viewModel.callback( @{@"offset": @(0), @"state": @(self.state)});
+        [UIView animateWithDuration:3 animations:^{
+            [scrollView setContentOffset:CGPointMake(0, 0)];
+        }];
+        
+//        [scrollView scrollToTop];
     }
 }
 
 /// Fixed Bug：scrollView.isDragging/isTracking 手指离开屏幕 可能还是会返回 YES 巨坑
 /// 解决方案： 自己控制 dragging 状态， 方法如上
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+    NSLog(@"-------------------------> %f   %ld", scrollView.mh_offsetY, self.state);
+    
     /// 获取偏移量
     CGFloat offsetY = scrollView.mh_offsetY;
     
@@ -161,19 +214,28 @@
         
         /// 更新 self.darkView.alpha 最大也只能拖拽 屏幕高
         self.darkView.alpha = 0.6 * MAX(MH_SCREEN_HEIGHT - offsetY, 0) / MH_SCREEN_HEIGHT;
-       
-        if (self.state == MHRefreshStateIdle) {
+        
+        /// 必须是上拉
+        if (self.state == MHRefreshStateIdle && offsetY > self.lastOffsetY) {
             // 转为即将刷新状态
             self.state = MHRefreshStatePulling;
+        }else if (self.state == MHRefreshStatePulling && offsetY <= self.lastOffsetY){
+            self.state = MHRefreshStateIdle;
         }
 
         /// 回调数据
         !self.viewModel.callback?:self.viewModel.callback( @{@"offset": @(delta), @"state": @(self.state)});
         
+        
+        
     } else if (self.state == MHRefreshStatePulling) {
         /// 进入帅新状态
         self.state = MHRefreshStateRefreshing;
     }
+    
+    
+    /// 记录
+    self.lastOffsetY = offsetY;
 }
 
 #pragma mark - Setter & Getter
@@ -207,6 +269,7 @@
             
             /// 重新设置 小程序view的缩放量
             self.appletController.view.transform = CGAffineTransformMakeScale(0.6, 0.4);
+            [self.appletController resetOffset];
             
             /// 配置天气类型
             static NSInteger type = 0;
@@ -271,7 +334,10 @@
     scrollView.backgroundColor = [UIColor clearColor];
     scrollView.delegate = self;
     scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-        
+    
+    /// 设置减速
+//    scrollView.decelerationRate = 0.5f;
+    NSLog(@"-- %f  ___ %f", UIScrollViewDecelerationRateFast, UIScrollViewDecelerationRateNormal);
     
     /// 添加下拉小程序模块
     CGFloat height = MH_APPLICATION_TOP_BAR_HEIGHT + (102.0f + 48.0f) * 2 + 74.0f + 50.0f;

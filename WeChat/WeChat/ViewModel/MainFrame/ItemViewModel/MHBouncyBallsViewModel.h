@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MHBouncyBallsViewModel : NSObject
 
 /// offset
-@property (nonatomic, readwrite, assign) CGFloat offset;
+@property (nonatomic, readwrite, copy) NSDictionary  *offsetInfo;
 
 @end
 

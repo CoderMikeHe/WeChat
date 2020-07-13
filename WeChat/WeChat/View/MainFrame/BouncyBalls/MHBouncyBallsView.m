@@ -8,6 +8,8 @@
 
 #import "MHBouncyBallsView.h"
 #import "MHBouncyBallsViewModel.h"
+#import "YYTimer.h"
+
 @interface MHBouncyBallsView ()
 /// viewModel
 @property (nonatomic, readwrite, strong) MHBouncyBallsViewModel *viewModel;
@@ -18,6 +20,16 @@
 @property (nonatomic, readwrite, weak) UIView *centerBall;
 /// rightBall
 @property (nonatomic, readwrite, weak) UIView *rightBall;
+
+/// lastOffset 上一次偏移量
+@property (nonatomic, readwrite, assign) CGFloat lastOffset;
+/// stepValue
+@property (nonatomic, readwrite, assign) CGFloat stepValue;
+/// lastState
+@property (nonatomic, readwrite, assign) MHRefreshState lastState;
+
+/// Timer
+@property (nonatomic, readwrite, strong) YYTimer *timer;
 
 @end
 
@@ -32,22 +44,35 @@
     self.viewModel = viewModel;
     
     @weakify(self);
-    
-    [[[RACObserve(viewModel, offset) skip:1] distinctUntilChanged] subscribeNext:^(NSNumber *x) {
+    /// Fixed bug: distinctUntilChanged 不需要，否则某些场景认为没变化 实际上变化了
+    RACSignal *signal = [RACObserve(self.viewModel, offsetInfo) skip:1];
+    [signal subscribeNext:^(NSDictionary *dictionary) {
         @strongify(self);
-        /// 计算偏移量
-        CGFloat offset = x.doubleValue;
         
-        [self _handleOffset:offset];
-
+        CGFloat offset = [dictionary[@"offset"] doubleValue];
+        MHRefreshState state = [dictionary[@"state"] doubleValue];
+        BOOL animate = [dictionary[@"animate"] boolValue];
+        
+        if (animate) {
+            
+            if (!self.timer && !self.timer.isValid && self.lastOffset > MHPulldownAppletCriticalPoint0) {
+                NSTimeInterval interval = .05f;
+                CGFloat count = .3/interval;
+                self.stepValue = self.lastOffset/count;
+                self.timer = [YYTimer timerWithTimeInterval:interval target:self selector:@selector(_timerValueChanged:) repeats:YES];
+            }
+            
+        } else {
+            /// 记录上一次数据
+            self.lastOffset = offset;
+            ///
+            [self _handleOffset:dictionary];
+        }
     }];
     
 }
 
-
-
-- (instancetype)initWithFrame:(CGRect)frame
-{
+- (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
         // 初始化
@@ -62,7 +87,18 @@
     return self;
 }
 #pragma mark - 辅助方法
-- (void)_handleOffset:(CGFloat)offset {
+- (void)_handleOffset:(NSDictionary *)dictionary {
+    
+    CGFloat offset = [dictionary[@"offset"] doubleValue];
+    MHRefreshState state = [dictionary[@"state"] doubleValue];
+    
+    ///
+    if (state == MHRefreshStateRefreshing) {
+        self.alpha = .0f;
+    }else {
+        self.alpha = 1.0f;
+    }
+ 
     // 中间点相关
     CGFloat scale = 0.0;
     CGFloat alphaC = 0;
@@ -75,13 +111,16 @@
     CGFloat translateL = 0.0;
     CGFloat alphaL = 0;
     
-    if (offset > MHPulldownAppletCriticalPoint2) {
-        // 第四阶段 1 - 0.2
-        CGFloat step = 0.8 / (MHPulldownAppletCriticalPoint3 - MHPulldownAppletCriticalPoint2);
+    if (offset > MHPulldownAppletCriticalPoint3){
+        /// 超过这个 统一是 将自身隐藏
+        self.alpha = .0f;
+        
+    } else if (offset > MHPulldownAppletCriticalPoint2) {
+        // 第四阶段 1 - 0
+        CGFloat step = 1.0 / (MHPulldownAppletCriticalPoint3 - MHPulldownAppletCriticalPoint2);
         double alpha = 1 - step * (offset - MHPulldownAppletCriticalPoint2);
-        if (alpha < 0.2) {
-            alpha = 0.2;
-        }
+        alpha = MAX(.0f, alpha);
+        
         // 中间点阶段III: 保持scale 为1
         alphaC = alpha;
         scale = 1;
@@ -131,11 +170,23 @@
     self.rightBall.transform = CGAffineTransformMakeTranslation(translateR, 0);
 }
 
+/// 定时器为
+- (void)_timerValueChanged:(YYTimer *)timer
+{
+    self.lastOffset -= self.stepValue;
+    if (self.lastOffset <= 0) {
+        [timer invalidate];
+        self.timer = nil;
+    }
+    CGFloat offset = MAX(0, self.lastOffset);
+    [self _handleOffset: @{@"offset" : @(offset), @"state": @(MHRefreshStateIdle), @"animate": @NO}];
+}
+
 
 #pragma mark - 初始化OrUI布局
 /// 初始化
 - (void)_setup{
-    
+    self.alpha = .0f;
 }
 
 /// 创建子控件

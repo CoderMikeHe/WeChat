@@ -19,5 +19,9 @@
 }
 
 
-
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    self.backgroundView.backgroundColor = self.backgroundColor = MH_MAIN_BACKGROUNDCOLOR;
+}
 @end

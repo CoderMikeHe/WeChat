@@ -60,6 +60,8 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
 
 
 /// ---------------------- 下拉小程序相关 ----------------------
+/// lastOffsetY
+@property (nonatomic, readwrite, assign) CGFloat lastOffsetY;
 /// 下拉状态
 @property (nonatomic, readwrite, assign) MHRefreshState state;
 /// 下拉三个球
@@ -90,8 +92,6 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
     
     /// ③：注册cell
     [self.tableView mh_registerNibCell:MHMainFrameTableViewCell.class];
-    
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -219,9 +219,7 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
     RACSignal *signal = [RACObserve(self.viewModel, offsetInfo) skip:1];
     [signal subscribeNext:^(NSDictionary *dictionary) {
         @strongify(self);
-        CGFloat offset = [dictionary[@"offset"] doubleValue];
-        MHRefreshState state = [dictionary[@"state"] doubleValue];
-        [self _handleOffset:offset state:state];
+        [self _handleAppletOffset:dictionary];
     }];
 }
 
@@ -244,7 +242,7 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
     [cell bindViewModel:object];
 }
 
-#pragma mark - 事件处理
+#pragma mark - 事件处理Or辅助方法
 - (void)_addMore{
     
     if (self.moreView.hidden) {
@@ -259,8 +257,17 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
     }
 }
 
-#pragma mark - 事件处理Or辅助方法
-- (void)_handleOffset:(CGFloat)offset state:(MHRefreshState)state {
+/// 处理小程序回调的数据
+- (void)_handleAppletOffset:(NSDictionary *)dictionary {
+    
+    if (MHObjectIsNil(dictionary)) {
+        return;
+    }
+    
+    /// ⚠️ offset 为负数
+    CGFloat offset = [dictionary[@"offset"] doubleValue];
+    MHRefreshState state = [dictionary[@"state"] doubleValue];
+    BOOL animate = [dictionary[@"animate"] boolValue];
     if (state == MHRefreshStateRefreshing) {
         /// 回到空闲状态
         self.state = MHRefreshStateIdle;
@@ -268,14 +275,35 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
         /// 拖拽状态
         CGFloat delta = MH_SCREEN_HEIGHT - MH_APPLICATION_TOP_BAR_HEIGHT + offset;
         delta = MAX(0, delta);
+ 
         /// 更新 navBar Y
         [self.navBar mas_updateConstraints:^(MASConstraintMaker *make) {
-            
             make.top.equalTo(self.view).with.offset(delta);
         }];
         
-        /// 更新tableView Y
-        self.tableView.mh_y = delta;
+        
+        /// 传递offset
+        self.viewModel.ballsViewModel.offsetInfo = @{@"offset": @(delta), @"state": @(state), @"animate": @NO};
+        
+        /// 更新 ballsView 的 h
+        [self.ballsView mas_updateConstraints:^(MASConstraintMaker *make) {
+            CGFloat height = delta;
+            make.height.mas_equalTo(MAX(6.0f, height));
+        }];
+        
+        if (animate) {
+            [UIView animateWithDuration:3 animations:^{
+                [self.view layoutIfNeeded];
+                /// 更新tableView Y
+                self.tableView.mh_y = delta;
+            }];
+        }else {
+            /// 更新tableView Y
+            self.tableView.mh_y = delta;
+        }
+        
+        /// 修改导航栏颜色
+        [self _changeNavBarBackgroundColor:offset];
     }
 }
 
@@ -297,6 +325,47 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
             [self.tableView setContentOffset:offset animated:YES];
         }
     }
+}
+
+
+/// 处理拖拽时导航栏背景色变化
+/// 只处理上拉的逻辑 下拉忽略
+/// offset: 偏移量。
+- (void)_changeNavBarBackgroundColor:(CGFloat)offset{
+    
+    static NSDictionary *dict0;
+    static NSDictionary *dict1;
+    
+    /// 导航栏颜色：#ededed --> #fffff
+    if (!(dict0 && dict0.allKeys.count != 0)) {
+        UIColor *color0 = MHColorFromHexString(@"#ededed");
+        dict0 = @{@"red":@(color0.red), @"green": @(color0.green), @"blue":@(color0.blue)};
+        
+        UIColor *color1 = [UIColor whiteColor];
+        dict1 = @{@"red":@(color1.red), @"green": @(color1.green), @"blue":@(color1.blue)};
+    }
+    
+    CGFloat delta = fabs(offset);
+    
+    if (delta > MH_SCREEN_HEIGHT) {
+        delta = MH_SCREEN_HEIGHT;
+    }
+    
+    /// 进度 0 --> 1.0f
+    /// 下拉 不修改导航栏颜色
+    CGFloat progress = .0f;
+    if (delta < MHPulldownAppletCriticalPoint2) {
+        /// 上拉 0 ---> 100
+        progress = 1 - delta/MHPulldownAppletCriticalPoint2;
+    }
+    
+    
+    /// 计算差值
+    CGFloat red = ([dict0[@"red"] doubleValue] + progress * ([dict1[@"red"] doubleValue] - [dict0[@"red"] doubleValue])) * 255;
+    CGFloat green = ([dict0[@"green"] doubleValue] + progress * ([dict1[@"green"] doubleValue] - [dict0[@"green"] doubleValue])) * 255;
+    CGFloat blue = ([dict0[@"blue"] doubleValue] + progress * ([dict1[@"blue"] doubleValue] - [dict0[@"blue"] doubleValue])) * 255;
+    
+    self.navBar.backgroundView.backgroundColor = MHColor(red, green, blue);
 }
 
 #pragma mark - UITableViewDelegate
@@ -329,81 +398,85 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
 /// tableView 以滚动就会调用
 /// 这里的逻辑 完全可以参照 MJRefreshHeader
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (scrollView == self.tableView) {
-        NSLog(@"xxxxxxxxxxxxx %d  %d", scrollView.isDragging, scrollView.isTracking);
-        // 在刷新的refreshing状态 do nothing...
-        if (self.state == MHRefreshStateRefreshing) {
-            NSLog(@"🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥");
-            return;
-        }else if (self.state == MHRefreshStatePulling && !scrollView.isDragging){
-            NSLog(@"🔥🔥🔥🔥🔥🔥pppppppppp🔥🔥🔥🔥🔥🔥🔥");
-        }
-        // 当前的contentOffset
-        CGFloat offsetY = scrollView.mh_offsetY;
-        // 头部控件刚好出现的offsetY
-        CGFloat happenOffsetY = -self.contentInset.top;
-        
-        // 如果是向上滚动到看不见头部控件，直接返回
-        // >= -> >
-        if (offsetY > happenOffsetY) return;
-        
-        // 普通 和 即将刷新 的临界点
-        CGFloat normal2pullingOffsetY = - MHPulldownAppletCriticalPoint1 ;
-        
-        /// 计算偏移量 正数
-        CGFloat delta = -(offsetY - happenOffsetY);
-        
-        // 如果正在拖拽
-        if (scrollView.isDragging) {
-
-            /// 更新 navBar 的 y
-            [self.navBar mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(self.view).with.offset(delta);
-            }];
-            
-            /// 更新 ballsView 的 h
-            [self.ballsView mas_updateConstraints:^(MASConstraintMaker *make) {
-                CGFloat height = delta;
-                make.height.mas_equalTo(MAX(6.0f, height));
-            }];
-            
-            /// 传递offset
-            self.viewModel.ballsViewModel.offset = delta;
-            
-            ///
-            if (self.state == MHRefreshStateIdle && -delta < normal2pullingOffsetY) {
-                // 转为即将刷新状态
-                self.state = MHRefreshStatePulling;
-            } else if (self.state == MHRefreshStatePulling && -delta >= normal2pullingOffsetY) {
-                // 转为普通状态
-                self.state = MHRefreshStateIdle;
-            }
-            /// 传递状态
-            self.viewModel.appletWrapperViewModel.offsetInfo = @{@"offset": @(delta), @"state": @(self.state)};
-            
-        } else if (self.state == MHRefreshStatePulling) {
-            self.state = MHRefreshStateRefreshing;
-        } else {
-            /// 更新 navBar y
-            [self.navBar mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(self.view).with.offset(delta);
-            }];
-            
-            /// 更新 ballsView 的 h
-            [self.ballsView mas_updateConstraints:^(MASConstraintMaker *make) {
-                CGFloat height = delta;
-                make.height.mas_equalTo(MAX(6.0f, height));
-            }];
-            
-            /// 传递offset
-            self.viewModel.ballsViewModel.offset = delta;
-            
-            /// 传递状态
-            self.viewModel.appletWrapperViewModel.offsetInfo = @{@"offset": @(delta), @"state": @(self.state)};
-        }
-    } else {
-        
+    
+    // 在刷新的refreshing状态 do nothing...
+    if (self.state == MHRefreshStateRefreshing) {
+        NSLog(@"🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥");
+        return;
     }
+    
+    
+    // 当前的contentOffset
+    CGFloat offsetY = scrollView.mh_offsetY;
+    // 头部控件刚好出现的offsetY
+    CGFloat happenOffsetY = -self.contentInset.top;
+    
+    // 如果是向上滚动到看不见头部控件，直接返回
+    // >= -> >
+    if (offsetY > happenOffsetY) return;
+    
+    // 普通 和 即将刷新 的临界点
+    CGFloat normal2pullingOffsetY = - MHPulldownAppletCriticalPoint1 ;
+    
+    /// 计算偏移量 正数
+    CGFloat delta = -(offsetY - happenOffsetY);
+    
+    // 如果正在拖拽
+    if (scrollView.isDragging) {
+        
+        /// 更新 navBar 的 y
+        [self.navBar mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.view).with.offset(delta);
+        }];
+        
+        /// 更新 ballsView 的 h
+        [self.ballsView mas_updateConstraints:^(MASConstraintMaker *make) {
+            CGFloat height = delta;
+            make.height.mas_equalTo(MAX(6.0f, height));
+        }];
+        
+        /// 传递offset
+        self.viewModel.ballsViewModel.offsetInfo = @{@"offset": @(delta), @"state": @(self.state), @"animate": @NO};;
+        
+        /// 微信方案：不仅要下拉超过临界点 而且 保证是下拉状态：当前偏移量 > 上一次偏移量
+        if (self.state == MHRefreshStateIdle && -delta < normal2pullingOffsetY && offsetY < self.lastOffsetY) {
+            // 转为即将刷新状态
+            self.state = MHRefreshStatePulling;
+        } else if (self.state == MHRefreshStatePulling && (-delta >= normal2pullingOffsetY || offsetY >= self.lastOffsetY)) {
+            // 转为普通状态
+            self.state = MHRefreshStateIdle;
+        }
+        
+        /// 传递状态
+        self.viewModel.appletWrapperViewModel.offsetInfo = @{@"offset": @(delta), @"state": @(self.state)};
+        
+        /// 记录偏移量
+        self.lastOffsetY = offsetY;
+        
+    } else if (self.state == MHRefreshStatePulling) {
+        
+        self.lastOffsetY = .0f;
+        
+        self.state = MHRefreshStateRefreshing;
+    } else {
+        /// 更新 navBar y
+        [self.navBar mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.view).with.offset(delta);
+        }];
+        
+        /// 更新 ballsView 的 h
+        [self.ballsView mas_updateConstraints:^(MASConstraintMaker *make) {
+            CGFloat height = delta;
+            make.height.mas_equalTo(MAX(6.0f, height));
+        }];
+        
+        /// 传递offset
+        self.viewModel.ballsViewModel.offsetInfo = @{@"offset": @(delta), @"state": @(self.state), @"animate": @NO};
+        
+        /// 传递状态
+        self.viewModel.appletWrapperViewModel.offsetInfo = @{@"offset": @(delta), @"state": @(self.state)};
+    }
+    
 }
 
 #pragma mark - Setter & Getter
@@ -421,13 +494,22 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
             make.top.equalTo(self.view).with.offset(0);
         }];
         
-        self.ballsView.alpha = 1.0f;
+        /// 更新 ballsView 的 h
+        [self.ballsView mas_updateConstraints:^(MASConstraintMaker *make) {
+            CGFloat height = 0;
+            make.height.mas_equalTo(MAX(6.0f, height));
+        }];
+        
+        /// 传递offset
+        self.viewModel.ballsViewModel.offsetInfo = @{@"offset": @(0), @"state": @(state), @"animate": @YES};
         
         // 恢复inset和offset
         [UIView animateWithDuration:.4f animations:^{
             self.tableView.mh_y = 0;
             [self.view layoutIfNeeded];
+            self.navBar.backgroundView.backgroundColor = MH_MAIN_BACKGROUNDCOLOR;
         } completion:^(BOOL finished) {
+            
             /// 完成后 传递数据给
             self.tableView.showsVerticalScrollIndicator = YES;
         }];
@@ -437,9 +519,9 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
             /// 隐藏滚动条
             self.tableView.showsVerticalScrollIndicator = NO;
             
-            /// 传递offset
-            self.viewModel.ballsViewModel.offset = MH_SCREEN_HEIGHT - 64;
-            self.ballsView.alpha = .0f;
+            /// 传递offset 正向下拉
+            self.viewModel.ballsViewModel.offsetInfo = @{@"offset": @(MH_SCREEN_HEIGHT - 64), @"state": @(self.state), @"animate": @NO};
+            
             /// 传递状态
             self.viewModel.appletWrapperViewModel.offsetInfo = @{@"offset": @(MH_SCREEN_HEIGHT - 64), @"state": @(self.state)};
             
@@ -476,7 +558,6 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
 #pragma mark - 初始化
 - (void)_setup{
     /// set up ...
-    
     self.state = MHRefreshStateIdle;
 }
 #pragma mark - 设置导航栏

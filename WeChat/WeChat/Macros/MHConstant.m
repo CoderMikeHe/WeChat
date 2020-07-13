@@ -168,4 +168,4 @@ CGFloat const MHPulldownAppletCriticalPoint1 = 90.0f;
 /// 下拉显示小程序 临界点2
 CGFloat const MHPulldownAppletCriticalPoint2 = 130.0f;
 /// 下拉显示小程序 临界点3
-CGFloat const MHPulldownAppletCriticalPoint3 = 200.0f;
+CGFloat const MHPulldownAppletCriticalPoint3 = 240.0f;
