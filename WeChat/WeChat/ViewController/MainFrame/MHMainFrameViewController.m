@@ -97,13 +97,17 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     // 这里也根据条件设置隐藏
-    self.tabBarController.tabBar.hidden = (self.viewModel.searchState == MHNavSearchBarStateSearch);
+    self.tabBarController.tabBar.hidden = (self.viewModel.searchState == MHNavSearchBarStateSearch );
+    
+    self.tabBarController.tabBar.alpha = (self.state == MHRefreshStateRefreshing ? .0f : 1.0f) ;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     // 这里也根据条件设置隐藏
-    self.tabBarController.tabBar.hidden = (self.viewModel.searchState == MHNavSearchBarStateSearch);
+    self.tabBarController.tabBar.hidden = (self.viewModel.searchState == MHNavSearchBarStateSearch  || self.state == MHRefreshStateRefreshing);
+    
+    self.tabBarController.tabBar.alpha = (self.state == MHRefreshStateRefreshing ? .0f : 1.0f) ;
     
     // 离开此页面 隐藏
     self.moreView.hidden = YES;
@@ -267,7 +271,6 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
     /// ⚠️ offset 为负数
     CGFloat offset = [dictionary[@"offset"] doubleValue];
     MHRefreshState state = [dictionary[@"state"] doubleValue];
-    BOOL animate = [dictionary[@"animate"] boolValue];
     if (state == MHRefreshStateRefreshing) {
         /// 回到空闲状态
         self.state = MHRefreshStateIdle;
@@ -281,7 +284,6 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
             make.top.equalTo(self.view).with.offset(delta);
         }];
         
-        
         /// 传递offset
         self.viewModel.ballsViewModel.offsetInfo = @{@"offset": @(delta), @"state": @(state), @"animate": @NO};
         
@@ -291,16 +293,8 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
             make.height.mas_equalTo(MAX(6.0f, height));
         }];
         
-        if (animate) {
-            [UIView animateWithDuration:0.5f animations:^{
-                [self.view layoutIfNeeded];
-                /// 更新tableView Y
-                self.tableView.mh_y = delta;
-            }];
-        }else {
-            /// 更新tableView Y
-            self.tableView.mh_y = delta;
-        }
+        /// 更新tableView Y
+        self.tableView.mh_y = delta;
         
         /// 修改导航栏颜色
         [self _changeNavBarBackgroundColor:offset];
@@ -378,7 +372,7 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
 /// 不然会导致弹出搜索模块,然后收回搜索模块，会导致动画不流畅，影响体验，微信做法也是如此
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     /// 注意：这个方法不一定调用 当你缓慢拖动的时候是不会调用的
-    [self _handleSearchBarOffset:scrollView];
+//    [self _handleSearchBarOffset:scrollView];
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
@@ -392,7 +386,7 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
     // decelerate: YES 说明还有速度或者说惯性，会继续滚动 停止时调用scrollViewDidEndDecelerating
     // decelerate: NO  说明是很慢的拖拽，没有惯性，不会调用 scrollViewDidEndDecelerating
     if (!decelerate) {
-        [self _handleSearchBarOffset:scrollView];
+//        [self _handleSearchBarOffset:scrollView];
     }
 }
 /// tableView 以滚动就会调用
@@ -503,9 +497,20 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
         /// 传递offset
         self.viewModel.ballsViewModel.offsetInfo = @{@"offset": @(0), @"state": @(state), @"animate": @YES};
         
-        // 恢复inset和offset
+        // 先置位到最底下 后回到原始位置； 因为小程序 下钻到下一模块 tabBar会回到之前的位置
+        self.tabBarController.tabBar.mh_y = MH_SCREEN_HEIGHT;
+        self.tabBarController.tabBar.alpha = .0f;
+        
         [UIView animateWithDuration:.4f animations:^{
+            /// 导航栏相关 回到原来位置
+//            self.tabBarController.tabBar.hidden = NO;
+            self.tabBarController.tabBar.alpha = 1.0f;
+            self.tabBarController.tabBar.mh_y = MH_SCREEN_HEIGHT - self.tabBarController.tabBar.mh_height;
+            
+            
             self.tableView.mh_y = 0;
+            
+            
             [self.view layoutIfNeeded];
             self.navBar.backgroundView.backgroundColor = MH_MAIN_BACKGROUNDCOLOR;
         } completion:^(BOOL finished) {
@@ -520,30 +525,37 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
             self.tableView.showsVerticalScrollIndicator = NO;
             
             /// 传递offset 正向下拉
-            self.viewModel.ballsViewModel.offsetInfo = @{@"offset": @(MH_SCREEN_HEIGHT - 64), @"state": @(self.state), @"animate": @NO};
+            self.viewModel.ballsViewModel.offsetInfo = @{@"offset": @(MH_SCREEN_HEIGHT - MH_APPLICATION_TOP_BAR_HEIGHT), @"state": @(self.state), @"animate": @NO};
             
             /// 传递状态
-            self.viewModel.appletWrapperViewModel.offsetInfo = @{@"offset": @(MH_SCREEN_HEIGHT - 64), @"state": @(self.state)};
+//            self.viewModel.appletWrapperViewModel.offsetInfo = @{@"offset": @(MH_SCREEN_HEIGHT - MH_APPLICATION_TOP_BAR_HEIGHT), @"state": @(self.state)};
             
             /// 更新位置
             [self.navBar mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(self.view).with.offset(MH_SCREEN_HEIGHT - 64);
+                make.top.equalTo(self.view).with.offset(700 - MH_APPLICATION_TOP_BAR_HEIGHT);
             }];
             
             /// 动画过程中 禁止用户交互
             self.view.userInteractionEnabled = NO;
             
             /// 动画
-            [UIView animateWithDuration:0.4 animations:^{
+            [UIView animateWithDuration:2.4 animations:^{
                 [self.view layoutIfNeeded];
-                self.tabBarController.tabBar.hidden = YES;
-                CGFloat top = MH_SCREEN_HEIGHT;
+                
+                CGFloat top = 700;
                 // 增加滚动区域top
                 self.tableView.mh_insetT = top;
                 // 设置滚动位置
-                [self.tableView setContentOffset:CGPointMake(0, -top) animated:NO];
+                [self.tableView setContentOffset:CGPointMake(0, -top)];
                 
                 self.navBar.backgroundView.backgroundColor = [UIColor whiteColor];
+                
+                /// 这种方式没啥动画
+//                self.tabBarController.tabBar.hidden = YES;
+                /// 这种方式有动画
+                self.tabBarController.tabBar.alpha = .0f;
+                self.tabBarController.tabBar.mh_y = MH_SCREEN_HEIGHT;
+                
             } completion:^(BOOL finished) {
                 NSLog(@"😿😿😿😿😿😿😿😿😿😿v");
                 self.tableView.mh_y = MH_SCREEN_HEIGHT - 64;

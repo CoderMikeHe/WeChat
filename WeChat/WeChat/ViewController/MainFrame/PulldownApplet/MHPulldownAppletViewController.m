@@ -109,8 +109,8 @@
 /// 处理结束拖拽的事件 135.0f
 - (void)_handleEndDraggingAction {
     if (self.endDragOffsetY >= 135.0f) {
-        /// 回调数据 回到主页
-        !self.viewModel.callback ? : self.viewModel.callback(@YES);
+        /// 回调数据 直接回到主页
+        !self.viewModel.callback ? : self.viewModel.callback(@{@"completed":@YES,@"delay":@NO});
     }
 }
 
@@ -225,9 +225,8 @@
         MHAppletViewModel *viewModel = [[MHAppletViewModel alloc] initWithServices:self.viewModel.services params:nil];
         [self.viewModel.services pushViewModel:viewModel animated:YES];
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            !self.viewModel.callback ? : self.viewModel.callback(@YES);
-        });
+        /// 先跳转过去 在回到主页
+        !self.viewModel.callback ? : self.viewModel.callback(@{@"completed":@YES,@"delay":@YES});
     }];
     
     /// 搜索框

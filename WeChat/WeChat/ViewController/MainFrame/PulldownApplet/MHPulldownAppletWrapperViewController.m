@@ -38,8 +38,8 @@
 @property (nonatomic, readwrite, strong) MHPulldownAppletViewController *appletController;
 
 
-/// callBack
-@property (nonatomic, readwrite, assign) bool isCallback;
+/// 是否延迟回到主页
+@property (nonatomic, readwrite, assign, getter=isDelay) bool delay;
 
 /// Timer
 @property (nonatomic, readwrite, strong) YYTimer *timer;
@@ -63,14 +63,17 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    
-    NSLog(@"🔥-------------》");
+    ///
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     
-    NSLog(@"😿-------------》");
+    /// 放在这里做处理 不然还是会看到动画...
+    if (self.isDelay) {
+        self.delay = NO;
+        self.state = MHRefreshStateRefreshing;
+    }
 }
 
 
@@ -114,9 +117,9 @@
         BOOL delay = [dictionary[@"delay"] boolValue];
         
         if (completed) {
-            /// 增加延迟，方便等到跳转到xiayi
+            /// 增加延迟，方便等到跳转到下一页 再回到主页
             if (delay) {
-                
+                self.delay = delay;
             }else {
                 self.state = MHRefreshStateRefreshing;
             }
