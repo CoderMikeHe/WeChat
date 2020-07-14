@@ -10,7 +10,7 @@
 #import "MHPulldownAppletViewController.h"
 #import "WHWeatherView.h"
 #import "WHWeatherHeader.h"
-
+#import "YYTimer.h"
 @interface MHPulldownAppletWrapperViewController ()<UIScrollViewDelegate>
 /// viewModel
 @property (nonatomic, readonly, strong) MHPulldownAppletWrapperViewModel *viewModel;
@@ -30,17 +30,49 @@
 /// -----------------------下拉小程序相关------------------------
 /// lastOffsetY
 @property (nonatomic, readwrite, assign) CGFloat lastOffsetY;
+
+
+
+
 /// appletController
 @property (nonatomic, readwrite, strong) MHPulldownAppletViewController *appletController;
 
 
 /// callBack
 @property (nonatomic, readwrite, assign) bool isCallback;
+
+/// Timer
+@property (nonatomic, readwrite, strong) YYTimer *timer;
+/// stepFastValue
+@property (nonatomic, readwrite, assign) CGFloat stepFastValue;
+/// stepSlowValue
+@property (nonatomic, readwrite, assign) CGFloat stepSlowValue;
+/// timerCount 计时次数
+@property (nonatomic, readwrite, assign) NSInteger timerCount;
+/// offsetValue 开启定时器的偏移量
+@property (nonatomic, readwrite, assign) CGFloat offsetValue;
 @end
 
 @implementation MHPulldownAppletWrapperViewController
 
 @dynamic viewModel;
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    NSLog(@"🔥-------------》");
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    NSLog(@"😿-------------》");
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -56,8 +88,6 @@
     
     /// 布局子空间
     [self _makeSubViewsConstraints];
-    
-    
 }
 #pragma mark - Override
 - (void)bindViewModel {
@@ -74,6 +104,24 @@
         [self _handleOffset:offset state:state];
     }];
     
+    
+    /// 监听小程序的回调数据
+    /// completed: YES 回到主页 NO 不回到主页
+    self.viewModel.appletViewModel.callback = ^(NSDictionary *dictionary) {
+        @strongify(self);
+        
+        BOOL completed = [dictionary[@"completed"] boolValue];
+        BOOL delay = [dictionary[@"delay"] boolValue];
+        
+        if (completed) {
+            /// 增加延迟，方便等到跳转到xiayi
+            if (delay) {
+                
+            }else {
+                self.state = MHRefreshStateRefreshing;
+            }
+        }
+    };
 }
 
 
@@ -100,24 +148,100 @@
     }else {
         /// 超过这个临界点 才有机会显示
         if (offset > MHPulldownAppletCriticalPoint2) {
-            
+            /// show
             self.view.alpha = 1.0f;
             
-            /// 小程序 alpha 0 --> .3f
+            /// 小程序View alpha 0 --> .3f
             CGFloat alpha = 0;
             CGFloat step = 0.3 / (MHPulldownAppletCriticalPoint3 - MHPulldownAppletCriticalPoint2);
             alpha = 0 + step * (offset - MHPulldownAppletCriticalPoint2);
             self.appletController.view.alpha = MIN(.3f, alpha);
             
-            /// darkView alpha 0 --> .1f
+            /// 小程序View scale 0 --> .1f
+            CGFloat scale = 0;
+            CGFloat step2 = 0.1 / (MHPulldownAppletCriticalPoint3 - MHPulldownAppletCriticalPoint2);
+            scale =  0 + step2 * (offset - MHPulldownAppletCriticalPoint2);
+            scale = MIN(.1f, scale);
+            self.appletController.view.transform = CGAffineTransformMakeScale(0.6 + scale, 0.4 + scale);
+            
+            /// darkView alpha 0 --> .3f
             CGFloat alpha1 = 0;
-            CGFloat step1 = 0.1 / (MHPulldownAppletCriticalPoint3 - MHPulldownAppletCriticalPoint2);
+            CGFloat step1 = 0.3 / (MHPulldownAppletCriticalPoint3 - MHPulldownAppletCriticalPoint2);
             alpha1 = 0 + step1 * (offset - MHPulldownAppletCriticalPoint2);
-            self.darkView.alpha = MIN(.1f, alpha1);
+            self.darkView.alpha = MIN(.3f, alpha1);
         }else {
             self.view.alpha = .0f;
         }
     }
+}
+
+/// 开始定时器
+- (void)_startTimer {
+    ///
+    if (!self.timer && !self.timer.isValid && self.lastOffsetY > 0) {
+        /// 获取当前拖拽结束d偏移量
+        self.offsetValue = self.scrollView.mh_offsetY;
+        
+        /// 计时次数清零
+        self.timerCount = 0;
+        /// 模拟先快后慢 假设 快阶段：0.5s跑80%的距离 慢阶段：0.5s跑20%的距离
+        NSTimeInterval interval = .01f;
+        CGFloat count0 = 1.5 * 0.3/interval;
+        CGFloat count1 = 1.5 * 0.7/interval;
+        
+        self.stepFastValue = self.offsetValue * 0.5/count0;
+        self.stepSlowValue = self.offsetValue * 0.5/count1;
+        
+        self.timer = [YYTimer timerWithTimeInterval:interval target:self selector:@selector(_timerValueChanged:) repeats:YES];
+    }
+}
+
+/// 关闭定时器 用户一旦开始拖拽 就关闭定时器
+- (void)_stopTimer {
+    if (self.timer && self.timer.isValid) {
+        [self.timer invalidate];
+        self.timer = nil;
+    }
+}
+
+
+/// 定时器回调事件
+- (void)_timerValueChanged:(YYTimer *)timer{
+    /// 进来+1
+    self.timerCount++;
+    
+    /// 设置步进值
+    if (self.timerCount <= 1.5 * 0.3 / 0.01) {
+        /// 快阶段
+        self.offsetValue -= self.stepFastValue;
+    }else {
+        self.offsetValue -= self.stepSlowValue;
+    }
+    
+    /// 滚动结束 关闭定时器
+    if (self.offsetValue <= 0) {
+        [timer invalidate];
+        self.timer = nil;
+        /// 归零
+        self.offsetValue = .0f;
+    }
+    /// 正数
+    CGFloat offset = self.offsetValue;
+    
+    /// 设置scrollView 的偏移量
+    [self.scrollView setContentOffset:CGPointMake(0, offset)];
+    
+    CGFloat progress = MAX(MH_SCREEN_HEIGHT - offset, 0) / MH_SCREEN_HEIGHT;
+    
+    /// 更新 self.darkView.alpha 最大也只能拖拽 屏幕高
+    self.darkView.alpha = 0.6 * progress;
+    
+    /// 更新 天气/小程序 的Y 和 alpha
+    self.weatherView.mh_y = self.appletController.view.mh_y = -offset;
+    self.weatherView.alpha = self.appletController.view.alpha = 1.0f * progress;
+    
+    /// 回调数据
+    !self.viewModel.callback?:self.viewModel.callback( @{@"offset": @(-offset), @"state": @(self.state)});
 }
 
 
@@ -159,7 +283,11 @@
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    /// 开始拖拽
     self.dragging = YES;
+    
+    /// 关掉定时器
+    [self _stopTimer];
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
@@ -174,48 +302,17 @@
         
         /// 非释放状态 需要手动 滚动到最顶部
         if (self.state != MHRefreshStatePulling) {
-            /// 回调数据
-            !self.viewModel.callback?:self.viewModel.callback( @{@"offset": @(0), @"state": @(self.state), @"animate": @YES});
-            /// 手动滚动到顶部
-            //        [scrollView scrollToTop];
-            [UIView animateWithDuration:1.0f animations:^{
-                [scrollView setContentOffset:CGPointMake(0, 0)];
-                /// 一旦进入这个  说面用户停止 drag了
-                /// 更新 天气/小程序 的Y
-                self.weatherView.mh_y = self.appletController.view.mh_y = 0;
-                
-                /// 更新 self.darkView.alpha 最大也只能拖拽 屏幕高
-                self.darkView.alpha = 0.6;
-                
-            }];
+            [self _startTimer];
         }else {
             /// 手动调用
             [self scrollViewDidScroll:scrollView];
         }
     }else {
         NSLog(@"🔥xxxxxxxxoooooooooooooooooo");
-        /// 还有继续滚动的趋势
-        self.isCallback = YES;
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            self.isCallback = NO;
-            if (self.scrollView.mh_offsetY > 0) {
-                /// 回调数据
-                !self.viewModel.callback?:self.viewModel.callback( @{@"offset": @(0), @"state": @(self.state), @"animate": @YES});
-                /// 手动滚动到顶部
-                //        [scrollView scrollToTop];
-                [UIView animateWithDuration:0.5f animations:^{
-                    [scrollView setContentOffset:CGPointMake(0, 0)];
-                    /// 一旦进入这个  说面用户停止 drag了
-                    /// 更新 天气/小程序 的Y
-                    self.weatherView.mh_y = self.appletController.view.mh_y = 0;
-                    
-                    /// 更新 self.darkView.alpha 最大也只能拖拽 屏幕高
-                    self.darkView.alpha = 0.6;
-                    
-                }];
-            }
-        });
+        /// 非释放状态 需要手动 滚动到最顶部
+        if (self.state != MHRefreshStatePulling) {
+            [self _startTimer];
+        }
     }
     
     
@@ -227,6 +324,9 @@
     
     NSLog(@"-------------------------> %f   %ld  %d", scrollView.mh_offsetY, self.state, scrollView.isDecelerating);
     
+    /// 是否下拉
+    BOOL isPulldown = NO;
+    
     /// 获取偏移量
     CGFloat offsetY = scrollView.mh_offsetY;
     
@@ -234,6 +334,7 @@
     if (offsetY < -scrollView.contentInset.top) {
         scrollView.contentOffset = CGPointMake(0, -scrollView.contentInset.top);
         offsetY = 0;
+        isPulldown = YES;
     }
     
     ///  微信只要滚动 结束拖拽 就立即进入刷新状态
@@ -248,40 +349,28 @@
     // 如果正在拖拽
     if (self.isDragging) {
         
-        /// 更新 天气/小程序 的Y
-        self.weatherView.mh_y = self.appletController.view.mh_y = delta;
+        CGFloat progress = MAX(MH_SCREEN_HEIGHT - offsetY, 0) / MH_SCREEN_HEIGHT;
         
         /// 更新 self.darkView.alpha 最大也只能拖拽 屏幕高
-        self.darkView.alpha = 0.6 * MAX(MH_SCREEN_HEIGHT - offsetY, 0) / MH_SCREEN_HEIGHT;
+        self.darkView.alpha = 0.6 * progress;
+        
+        /// 更新 天气/小程序 的Y 和 alpha
+        self.weatherView.mh_y = self.appletController.view.mh_y = delta;
+        self.weatherView.alpha = self.appletController.view.alpha = 1.0f * progress;
         
         /// 必须是上拉
-        if (self.state == MHRefreshStateIdle && offsetY > self.lastOffsetY) {
+        if (self.state == MHRefreshStateIdle && (offsetY > self.lastOffsetY || isPulldown )) {
             // 转为即将刷新状态
             self.state = MHRefreshStatePulling;
-        }else if (self.state == MHRefreshStatePulling && offsetY <= self.lastOffsetY){
+        }else if (self.state == MHRefreshStatePulling && (offsetY <= self.lastOffsetY)){
             self.state = MHRefreshStateIdle;
         }
         
         /// 回调数据
         !self.viewModel.callback?:self.viewModel.callback( @{@"offset": @(delta), @"state": @(self.state)});
-        
-        
-        
     } else if (self.state == MHRefreshStatePulling) {
         /// 进入帅新状态
         self.state = MHRefreshStateRefreshing;
-    } else {
-        /// 回调数据
-        if (self.isCallback) {
-            /// 更新 天气/小程序 的Y
-            self.weatherView.mh_y = self.appletController.view.mh_y = delta;
-            
-            /// 更新 self.darkView.alpha 最大也只能拖拽 屏幕高
-            self.darkView.alpha = 0.6 * MAX(MH_SCREEN_HEIGHT - offsetY, 0) / MH_SCREEN_HEIGHT;
-            
-            /// 回调数据
-            !self.viewModel.callback?:self.viewModel.callback( @{@"offset": @(delta), @"state": @(self.state)});
-        }
     }
     
     
@@ -306,6 +395,8 @@
             
             self.darkView.alpha = .0f;
             
+            self.appletController.view.alpha = .0f;
+            
         } completion:^(BOOL finished) {
             ///  --- 动画结束后做的事情 ---
             /// 隐藏当前view
@@ -313,7 +404,6 @@
             
             /// 重新调整 天气、小程序 的 y 值
             self.weatherView.mh_y = self.appletController.view.mh_y = 0;
-            NSLog(@"+++++++= ebd +++++++++++");
             
             /// 重新将scrollView 偏移量 置为 0
             self.scrollView.contentOffset = CGPointZero;
@@ -389,8 +479,7 @@
     
     /// 设置减速
     //    scrollView.decelerationRate = 0.5f;
-    NSLog(@"-- %f  ___ %f", UIScrollViewDecelerationRateFast, UIScrollViewDecelerationRateNormal);
-    
+
     /// 添加下拉小程序模块
     CGFloat height = MH_APPLICATION_TOP_BAR_HEIGHT + (102.0f + 48.0f) * 2 + 74.0f + 50.0f;
     MHPulldownAppletViewController *appletController = [[MHPulldownAppletViewController alloc] initWithViewModel:self.viewModel.appletViewModel];

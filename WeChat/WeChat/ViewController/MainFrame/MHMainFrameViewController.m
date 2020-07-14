@@ -530,6 +530,9 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
                 make.top.equalTo(self.view).with.offset(MH_SCREEN_HEIGHT - 64);
             }];
             
+            /// 动画过程中 禁止用户交互
+            self.view.userInteractionEnabled = NO;
+            
             /// 动画
             [UIView animateWithDuration:0.4 animations:^{
                 [self.view layoutIfNeeded];
@@ -549,6 +552,9 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
                 self.tableView.mh_insetT = top;
                 // 设置滚动位置
                 [self.tableView setContentOffset:CGPointMake(0, -top) animated:NO];
+                
+                /// 动画结束 允许用户交互
+                self.view.userInteractionEnabled = YES;
             }];
         });
     }

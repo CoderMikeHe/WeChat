@@ -34,13 +34,10 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    MHLogFunc;
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    
-    MHLogFunc;
 }
 
 - (void)viewDidLoad {
@@ -106,17 +103,15 @@
             CGPoint offset = CGPointMake(0, -scrollView.contentInset.top);
             [self.tableView setContentOffset:offset animated:YES];
         }
-    }else{
-        // 判断上下拉
-        if (self.endDragOffsetY > self.startDragOffsetY) {
-            // 上拉 隐藏
-            NSLog(@"上拉 隐藏");
-        } else {
-            // 下拉 显示
-            NSLog(@"下拉 显示");
-        }
     }
-    
+}
+
+/// 处理结束拖拽的事件 135.0f
+- (void)_handleEndDraggingAction {
+    if (self.endDragOffsetY >= 135.0f) {
+        /// 回调数据 回到主页
+        !self.viewModel.callback ? : self.viewModel.callback(@YES);
+    }
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -148,6 +143,9 @@
     if (!decelerate) {
         [self _handleSearchBarOffset:scrollView];
     }
+    
+    /// 处理结束后的回调
+    [self _handleEndDraggingAction];
 }
 
 
@@ -226,6 +224,10 @@
         NSLog(@" searchbar did clicked... ");
         MHAppletViewModel *viewModel = [[MHAppletViewModel alloc] initWithServices:self.viewModel.services params:nil];
         [self.viewModel.services pushViewModel:viewModel animated:YES];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            !self.viewModel.callback ? : self.viewModel.callback(@YES);
+        });
     }];
     
     /// 搜索框
