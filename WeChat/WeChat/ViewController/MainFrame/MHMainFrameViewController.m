@@ -506,7 +506,7 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
         self.tabBarController.tabBar.mh_y = MH_SCREEN_HEIGHT;
         self.tabBarController.tabBar.alpha = .0f;
         
-        [UIView animateWithDuration:.4f animations:^{
+        [UIView animateWithDuration:.35f animations:^{
             /// 导航栏相关 回到原来位置
 //            self.tabBarController.tabBar.hidden = NO;
             self.tabBarController.tabBar.alpha = 1.0f;
@@ -548,13 +548,16 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
             
 
             /// 动画
-            [UIView animateWithDuration:.4f animations:^{
+            [UIView animateWithDuration:0.35f animations:^{
                 [self.view layoutIfNeeded];
                 
                 // 增加滚动区域top
                 self.tableView.mh_insetT = top;
+                
+                
+                // ⚠️ FBI Warning： Xcode Version 11.4.1 设置animated: NO 也不好使 总之下面这两个方法都不好使
                 // 设置滚动位置
-                [self.tableView setContentOffset:CGPointMake(0, -top) animated:NO];
+                [self.tableView setContentOffset:CGPointMake(0, -top) animated:YES];
                 /// 按照这个方式 会没有动画 tableView 会直接掉下去
 //                [self.tableView setContentOffset:CGPointMake(0, -top)];
                 

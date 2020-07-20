@@ -55,6 +55,12 @@ FOUNDATION_EXTERN NSUInteger const MHNicknameMaxWords;
 
 /// 简书首页地址
 FOUNDATION_EXTERN NSString * const MHMyBlogHomepageUrl ;
+/// 王者荣耀首页地址
+FOUNDATION_EXTERN NSString * const MHPVPHomepageUrl ;
+/// 和平精英首页地址
+FOUNDATION_EXTERN NSString * const MHGPHomepageUrl;
+/// 腾讯体育首页地址
+FOUNDATION_EXTERN NSString * const MHSportsHomepageUrl;
 
 /// 国家区号
 FOUNDATION_EXTERN NSString * const MHMobileLoginZoneCodeKey ;

@@ -9,7 +9,7 @@
 #import "MHPulldownAppletViewController.h"
 #import "MHPulldownAppletHeaderView.h"
 #import "MHPulldownAppletCell.h"
-#import "MHAppletViewController.h"
+
 @interface MHPulldownAppletViewController ()
 
 /// viewModel
@@ -220,11 +220,7 @@
     container.mh_height = 74.0f;
     [[container rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
-        MHAppletViewModel *viewModel = [[MHAppletViewModel alloc] initWithServices:self.viewModel.services params:nil];
-        [self.viewModel.services pushViewModel:viewModel animated:YES];
         
-        /// 先跳转过去 在回到主页
-        !self.viewModel.callback ? : self.viewModel.callback(@{@"completed":@YES,@"delay":@YES});
     }];
     
     /// 搜索框

@@ -8,7 +8,7 @@
 
 #import "MHPulldownAppletCell.h"
 #import "MHPulldownAppletItemView.h"
-
+#import "MHPulldownAppletItemViewModel.h"
 @interface MHPulldownAppletCell ()
 
 /// viewModel
@@ -105,7 +105,8 @@
         
         [tapGr.rac_gestureSignal subscribeNext:^(id x) {
             @strongify(self);
-            NSLog(@"Applet did clicked ...");
+            MHPulldownAppletItemViewModel *itemViewModel = self.viewModel[i];
+            [itemViewModel.didTapItemCommand execute:itemViewModel.homepage];
         }];
     }
 }

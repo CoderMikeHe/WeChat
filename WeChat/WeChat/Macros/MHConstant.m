@@ -32,6 +32,12 @@ NSUInteger const MHNicknameMaxWords = 20;
 
 /// 简书首页地址
 NSString * const MHMyBlogHomepageUrl = @"http://www.jianshu.com/u/126498da7523";
+/// 王者荣耀首页地址
+NSString * const MHPVPHomepageUrl = @"https://pvp.qq.com/";
+/// 和平精英首页地址
+NSString * const MHGPHomepageUrl = @"https://gp.qq.com/";
+/// 腾讯体育首页地址
+NSString * const MHSportsHomepageUrl = @"https://sports.qq.com/";
 
 /// 国家区号
 NSString * const MHMobileLoginZoneCodeKey = @"MHMobileLoginZoneCodeKey";
