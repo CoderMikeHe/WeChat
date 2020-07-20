@@ -116,7 +116,6 @@
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    NSLog(@"---->> %f", scrollView.contentOffset.y);
     CGFloat offset = scrollView.contentOffset.y;
     /// 不裁剪子视图
     self.tableView.clipsToBounds = offset > 0;
@@ -221,7 +220,6 @@
     container.mh_height = 74.0f;
     [[container rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
-        NSLog(@" searchbar did clicked... ");
         MHAppletViewModel *viewModel = [[MHAppletViewModel alloc] initWithServices:self.viewModel.services params:nil];
         [self.viewModel.services pushViewModel:viewModel animated:YES];
         

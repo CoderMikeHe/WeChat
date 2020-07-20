@@ -372,7 +372,7 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
 /// 不然会导致弹出搜索模块,然后收回搜索模块，会导致动画不流畅，影响体验，微信做法也是如此
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     /// 注意：这个方法不一定调用 当你缓慢拖动的时候是不会调用的
-//    [self _handleSearchBarOffset:scrollView];
+    [self _handleSearchBarOffset:scrollView];
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
@@ -386,7 +386,7 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
     // decelerate: YES 说明还有速度或者说惯性，会继续滚动 停止时调用scrollViewDidEndDecelerating
     // decelerate: NO  说明是很慢的拖拽，没有惯性，不会调用 scrollViewDidEndDecelerating
     if (!decelerate) {
-//        [self _handleSearchBarOffset:scrollView];
+        [self _handleSearchBarOffset:scrollView];
     }
 }
 /// tableView 以滚动就会调用
@@ -395,8 +395,10 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
     
     // 在刷新的refreshing状态 do nothing...
     if (self.state == MHRefreshStateRefreshing) {
-        NSLog(@"🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥");
         return;
+    }else if(self.state == MHRefreshStatePulling && !scrollView.isDragging) {
+        /// fixed bug: 这里设置最后一次的偏移量 以免回弹
+        [scrollView setContentOffset:CGPointMake(0, self.lastOffsetY)];
     }
     
     
@@ -483,6 +485,9 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
     if (state == MHRefreshStateIdle) {
         if (oldState != MHRefreshStateRefreshing) return;
         
+        /// 动画过程中 禁止用户交互
+        self.view.userInteractionEnabled = NO;
+        
         /// 更新位置
         [self.navBar mas_updateConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.view).with.offset(0);
@@ -507,9 +512,8 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
             self.tabBarController.tabBar.alpha = 1.0f;
             self.tabBarController.tabBar.mh_y = MH_SCREEN_HEIGHT - self.tabBarController.tabBar.mh_height;
             
-            
+            /// 设置tableView y
             self.tableView.mh_y = 0;
-            
             
             [self.view layoutIfNeeded];
             self.navBar.backgroundView.backgroundColor = MH_MAIN_BACKGROUNDCOLOR;
@@ -517,6 +521,8 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
             
             /// 完成后 传递数据给
             self.tableView.showsVerticalScrollIndicator = YES;
+            /// 动画结束 允许用户交互
+            self.view.userInteractionEnabled = YES;
         }];
     } else if (state == MHRefreshStateRefreshing) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -528,25 +534,29 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
             self.viewModel.ballsViewModel.offsetInfo = @{@"offset": @(MH_SCREEN_HEIGHT - MH_APPLICATION_TOP_BAR_HEIGHT), @"state": @(self.state), @"animate": @NO};
             
             /// 传递状态
-//            self.viewModel.appletWrapperViewModel.offsetInfo = @{@"offset": @(MH_SCREEN_HEIGHT - MH_APPLICATION_TOP_BAR_HEIGHT), @"state": @(self.state)};
+            self.viewModel.appletWrapperViewModel.offsetInfo = @{@"offset": @(MH_SCREEN_HEIGHT - MH_APPLICATION_TOP_BAR_HEIGHT), @"state": @(self.state)};
             
+            /// 最终停留点的位置
+            CGFloat top = MH_SCREEN_HEIGHT;
             /// 更新位置
             [self.navBar mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(self.view).with.offset(700 - MH_APPLICATION_TOP_BAR_HEIGHT);
+                make.top.equalTo(self.view).with.offset(top - MH_APPLICATION_TOP_BAR_HEIGHT);
             }];
             
             /// 动画过程中 禁止用户交互
             self.view.userInteractionEnabled = NO;
             
+
             /// 动画
-            [UIView animateWithDuration:2.4 animations:^{
+            [UIView animateWithDuration:.4f animations:^{
                 [self.view layoutIfNeeded];
                 
-                CGFloat top = 700;
                 // 增加滚动区域top
                 self.tableView.mh_insetT = top;
                 // 设置滚动位置
-                [self.tableView setContentOffset:CGPointMake(0, -top)];
+                [self.tableView setContentOffset:CGPointMake(0, -top) animated:NO];
+                /// 按照这个方式 会没有动画 tableView 会直接掉下去
+//                [self.tableView setContentOffset:CGPointMake(0, -top)];
                 
                 self.navBar.backgroundView.backgroundColor = [UIColor whiteColor];
                 
@@ -557,16 +567,18 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
                 self.tabBarController.tabBar.mh_y = MH_SCREEN_HEIGHT;
                 
             } completion:^(BOOL finished) {
-                NSLog(@"😿😿😿😿😿😿😿😿😿😿v");
-                self.tableView.mh_y = MH_SCREEN_HEIGHT - 64;
-                CGFloat top = 64;
-                // 增加滚动区域top
-                self.tableView.mh_insetT = top;
-                // 设置滚动位置
-                [self.tableView setContentOffset:CGPointMake(0, -top) animated:NO];
                 
+                /// 小tips: 这里动画完成后 将tableView 的 y 设置到 MH_SCREEN_HEIGHT - finalTop ; 以及 将contentInset 和 contentOffset 回到原来的位置
+                /// 目的：后期上拉的时候 只需要改变tableView 的 y就行了
+                CGFloat finalTop = self.contentInset.top;
+                self.tableView.mh_y = MH_SCREEN_HEIGHT - finalTop;
+                // 增加滚动区域top
+                self.tableView.mh_insetT = finalTop;
+                // 设置滚动位置
+                [self.tableView setContentOffset:CGPointMake(0, -finalTop) animated:NO];
                 /// 动画结束 允许用户交互
                 self.view.userInteractionEnabled = YES;
+
             }];
         });
     }

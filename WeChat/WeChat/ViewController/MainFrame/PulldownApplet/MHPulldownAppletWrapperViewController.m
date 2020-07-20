@@ -249,42 +249,6 @@
 
 
 #pragma mark - UIScrollViewDelegate
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    MHLogFunc;
-    /// 停止减速了 如果偏移量 仍旧>0 则滚动到顶部
-    /// 获取偏移量
-    //    CGFloat offsetY = scrollView.mh_offsetY;
-    //    if (offsetY > 0) {
-    //        /// 手动滚动到顶部
-    //        [scrollView scrollToTop];
-    //    }
-    /// 非释放状态 需要手动 滚动到最顶部
-//    if (self.state != MHRefreshStatePulling) {
-////        [scrollView setContentOffset:CGPointMake(0, scrollView.mh_offsetY)];
-//        /// 回调数据
-//        !self.viewModel.callback?:self.viewModel.callback( @{@"offset": @(0), @"state": @(self.state), @"animate": @YES});
-//        /// 手动滚动到顶部
-//        //        [scrollView scrollToTop];
-//        [UIView animateWithDuration:1.0f animations:^{
-//            [scrollView setContentOffset:CGPointMake(0, 0)];
-//            /// 一旦进入这个  说面用户停止 drag了
-//            /// 更新 天气/小程序 的Y
-//            self.weatherView.mh_y = self.appletController.view.mh_y = 0;
-//
-//            /// 更新 self.darkView.alpha 最大也只能拖拽 屏幕高
-//            self.darkView.alpha = 0.6;
-//
-//        }];
-//
-//
-//    }
-}
-
-- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
-    MHLogFunc;
-    NSLog(@"🔥🔥🔥ooooooooooooooooooooooo");
-}
-
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     /// 开始拖拽
     self.dragging = YES;
@@ -294,8 +258,6 @@
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-    
-    NSLog(@"++++++++++++++++++++++ %d  %ld", decelerate, self.state);
     
     /// 结束拖拽
     self.dragging = NO;
@@ -311,7 +273,6 @@
             [self scrollViewDidScroll:scrollView];
         }
     }else {
-        NSLog(@"🔥xxxxxxxxoooooooooooooooooo");
         /// 非释放状态 需要手动 滚动到最顶部
         if (self.state != MHRefreshStatePulling) {
             [self _startTimer];
@@ -325,8 +286,7 @@
 /// 解决方案： 自己控制 dragging 状态， 方法如上
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
-    NSLog(@"-------------------------> %f   %ld  %d", scrollView.mh_offsetY, self.state, scrollView.isDecelerating);
-    
+
     /// 是否下拉
     BOOL isPulldown = NO;
     
