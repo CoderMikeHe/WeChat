@@ -506,7 +506,7 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
         self.tabBarController.tabBar.mh_y = MH_SCREEN_HEIGHT;
         self.tabBarController.tabBar.alpha = .0f;
         
-        [UIView animateWithDuration:.35f animations:^{
+        [UIView animateWithDuration:MHPulldownAppletRefreshingDuration animations:^{
             /// 导航栏相关 回到原来位置
 //            self.tabBarController.tabBar.hidden = NO;
             self.tabBarController.tabBar.alpha = 1.0f;
@@ -548,18 +548,23 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
             
 
             /// 动画
-            [UIView animateWithDuration:0.35f animations:^{
+            [UIView animateWithDuration:MHPulldownAppletRefreshingDuration animations:^{
                 [self.view layoutIfNeeded];
                 
                 // 增加滚动区域top
                 self.tableView.mh_insetT = top;
                 
-                
-                // ⚠️ FBI Warning： Xcode Version 11.4.1 设置animated: NO 也不好使 总之下面这两个方法都不好使
-                // 设置滚动位置
+                // ⚠️ FBI Warning：
+                // Xcode Version 11.4.1 设置animated: NO 也不好使 总之下面这两个方法都不好使
+                // Xcode Version 10.2.1 设置animated: NO 却好使
+                /// 妥协处理：这里统一用 animated: Yes 来处理 然后控制动画时间 与 scrollView 的 setContentOffset:animated: 相近即可
+                // 设置滚动位置 animated:YES 然后
                 [self.tableView setContentOffset:CGPointMake(0, -top) animated:YES];
                 /// 按照这个方式 会没有动画 tableView 会直接掉下去
 //                [self.tableView setContentOffset:CGPointMake(0, -top)];
+                
+                /// - [iphone – UIScrollview setContentOffset与非线性动画？](http://www.voidcn.com/article/p-glnejqrs-bsv.html)
+                /// - [iphone – 更改setContentOffset的速度：animated：？](http://www.voidcn.com/article/p-bgupiewh-bsr.html)
                 
                 self.navBar.backgroundView.backgroundColor = [UIColor whiteColor];
                 

@@ -175,3 +175,6 @@ CGFloat const MHPulldownAppletCriticalPoint1 = 90.0f;
 CGFloat const MHPulldownAppletCriticalPoint2 = 130.0f;
 /// 下拉显示小程序 临界点3
 CGFloat const MHPulldownAppletCriticalPoint3 = 240.0f;
+
+/// 下拉显示小程序和隐藏小程序 动画时间 .35f
+NSTimeInterval const MHPulldownAppletRefreshingDuration = .35f;

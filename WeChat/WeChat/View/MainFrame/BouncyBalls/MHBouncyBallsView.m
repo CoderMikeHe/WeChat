@@ -50,14 +50,13 @@
         @strongify(self);
         
         CGFloat offset = [dictionary[@"offset"] doubleValue];
-        MHRefreshState state = [dictionary[@"state"] doubleValue];
         BOOL animate = [dictionary[@"animate"] boolValue];
         
         if (animate) {
             
             if (!self.timer && !self.timer.isValid && self.lastOffset > MHPulldownAppletCriticalPoint0) {
                 NSTimeInterval interval = .05f;
-                CGFloat count = .3/interval;
+                CGFloat count = MHPulldownAppletRefreshingDuration/interval;
                 self.stepValue = self.lastOffset/count;
                 self.timer = [YYTimer timerWithTimeInterval:interval target:self selector:@selector(_timerValueChanged:) repeats:YES];
             }

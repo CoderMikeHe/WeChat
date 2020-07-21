@@ -302,6 +302,10 @@ FOUNDATION_EXTERN CGFloat const MHPulldownAppletCriticalPoint2;
 /// 下拉显示小程序 临界点3  180.0f
 FOUNDATION_EXTERN CGFloat const MHPulldownAppletCriticalPoint3;
 
+/// 下拉显示小程序和隐藏小程序 动画时间 .35f
+FOUNDATION_EXTERN NSTimeInterval const MHPulldownAppletRefreshingDuration;
+
+
 //// ---------------- inline ----------------
 
 /// 图片的宽度 （九宫格）

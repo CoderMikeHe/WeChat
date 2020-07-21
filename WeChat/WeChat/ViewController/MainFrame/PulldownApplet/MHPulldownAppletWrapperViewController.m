@@ -133,7 +133,7 @@
     
     if (state == MHRefreshStateRefreshing) {
         /// 释放刷新状态
-        [UIView animateWithDuration:.35 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+        [UIView animateWithDuration:MHPulldownAppletRefreshingDuration delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
             /// Fixed Bug: 这里也得显示
             self.view.alpha = 1.0f;
             
