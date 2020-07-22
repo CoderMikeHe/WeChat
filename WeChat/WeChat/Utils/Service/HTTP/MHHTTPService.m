@@ -258,12 +258,12 @@ static id service_ = nil;
         __block NSURLSessionDataTask *task = nil;
         task = [self dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, NSDictionary * responseObject, NSError *error) {
             /// MLGB
-            id o = [[YYCache sharedCache] objectForKey:@"xxoo"];
-            if (MHObjectIsNil(o)) {
-                [[YYCache sharedCache] setObject:responseObject forKey:@"xxoo"];
-            }
-            responseObject = o;
-            if (0) {
+//            id o = [[YYCache sharedCache] objectForKey:@"xxoo"];
+//            if (MHObjectIsNil(o)) {
+//                [[YYCache sharedCache] setObject:responseObject forKey:@"xxoo"];
+//            }
+//            responseObject = o;
+            if (error) {
                 NSError *parseError = [self _errorFromRequestWithTask:task httpResponse:(NSHTTPURLResponse *)response responseObject:responseObject error:error];
                 [self HTTPRequestLog:task body:parameters error:parseError];
                 [subscriber sendError:parseError];
