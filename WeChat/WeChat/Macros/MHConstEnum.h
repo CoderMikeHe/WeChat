@@ -110,17 +110,13 @@ typedef NS_ENUM(NSUInteger, MHSearchPopState) {
 
 
 /** 刷新控件的状态 */
-typedef NS_ENUM(NSInteger,MHRefreshState) {
+typedef NS_ENUM(NSInteger, MHRefreshState) {
     /** 普通闲置状态 */
     MHRefreshStateIdle = 1,
     /** 松开就可以进行刷新的状态 */
     MHRefreshStatePulling,
     /** 正在刷新中的状态 */
-    MHRefreshStateRefreshing,
-    /** 即将刷新的状态 */
-    MHRefreshStateWillRefresh,
-    /** 所有数据加载完毕，没有更多的数据了 */
-    MHRefreshStateNoMoreData
+    MHRefreshStateRefreshing
 };
 
 #endif /* MHConstEnum_h */
