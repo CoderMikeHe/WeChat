@@ -471,8 +471,10 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
         
         /// 传递状态
         self.viewModel.appletWrapperViewModel.offsetInfo = @{@"offset": @(delta), @"state": @(self.state)};
+        
+        /// 记录偏移量
+        self.lastOffsetY = offsetY;
     }
-    
 }
 
 #pragma mark - Setter & Getter
@@ -546,7 +548,6 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
             /// 动画过程中 禁止用户交互
             self.view.userInteractionEnabled = NO;
             
-
             /// 动画
             [UIView animateWithDuration:MHPulldownAppletRefreshingDuration animations:^{
                 [self.view layoutIfNeeded];
