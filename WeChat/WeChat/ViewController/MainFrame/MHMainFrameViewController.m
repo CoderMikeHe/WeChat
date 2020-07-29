@@ -562,7 +562,7 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
                 // 设置滚动位置 animated:YES 然后
                 [self.tableView setContentOffset:CGPointMake(0, -top) animated:YES];
                 /// 按照这个方式 会没有动画 tableView 会直接掉下去
-//                [self.tableView setContentOffset:CGPointMake(0, -top)];
+                /// [self.tableView setContentOffset:CGPointMake(0, -top)];
                 
                 /// - [iphone – UIScrollview setContentOffset与非线性动画？](http://www.voidcn.com/article/p-glnejqrs-bsv.html)
                 /// - [iphone – 更改setContentOffset的速度：animated：？](http://www.voidcn.com/article/p-bgupiewh-bsr.html)
@@ -570,7 +570,7 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
                 self.navBar.backgroundView.backgroundColor = [UIColor whiteColor];
                 
                 /// 这种方式没啥动画
-//                self.tabBarController.tabBar.hidden = YES;
+                /// self.tabBarController.tabBar.hidden = YES;
                 /// 这种方式有动画
                 self.tabBarController.tabBar.alpha = .0f;
                 self.tabBarController.tabBar.mh_y = MH_SCREEN_HEIGHT;
@@ -589,9 +589,9 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
                 self.view.userInteractionEnabled = YES;
 
             }];
-        });
-    }
-}
+                    });
+                }
+            }
 
 
 #pragma mark - 初始化
