@@ -24,7 +24,7 @@
 #import "MHMainFrameMoreView.h"
 #import "MHBouncyBallsView.h"
 
-
+#import "MHAudioHelper.h"
 
 
 
@@ -68,6 +68,8 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
 @property (nonatomic, readwrite, weak) MHBouncyBallsView *ballsView;
 /// appletWrapperController
 @property (nonatomic, readwrite, strong) MHPulldownAppletWrapperViewController *appletWrapperController;
+/// 是否需要振动反馈
+@property (nonatomic, readwrite, assign, getter=isFeedback) BOOL feedback;
 @end
 
 @implementation MHMainFrameViewController
@@ -378,9 +380,13 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     // 记录刚开始拖拽的值
     self.startDragOffsetY = scrollView.contentOffset.y;
+    /// 需要增加振动反馈
+    self.feedback = YES;
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    
+    self.feedback = NO;
     // 记录刚开始拖拽的值
     self.endDragOffsetY = scrollView.contentOffset.y;
     // decelerate: YES 说明还有速度或者说惯性，会继续滚动 停止时调用scrollViewDidEndDecelerating
@@ -438,6 +444,16 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
         if (self.state == MHRefreshStateIdle && -delta < normal2pullingOffsetY && offsetY < self.lastOffsetY) {
             // 转为即将刷新状态
             self.state = MHRefreshStatePulling;
+            
+            /// iOS 10.0+ 下拉增加振动反馈 https://www.jianshu.com/p/ef7eadfae188
+            if (self.isFeedback) {
+                /// 只震动一次
+                self.feedback = NO;
+                /// 开启振动反馈 iOS 10.0+
+                UIImpactFeedbackGenerator *feedBackGenertor = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleLight];
+                [feedBackGenertor impactOccurred];
+            }
+            
         } else if (self.state == MHRefreshStatePulling && (-delta >= normal2pullingOffsetY || offsetY >= self.lastOffsetY)) {
             // 转为普通状态
             self.state = MHRefreshStateIdle;

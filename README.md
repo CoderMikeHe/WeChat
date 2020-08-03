@@ -1,4 +1,4 @@
-## iOS微信开发
+## iOS 微信开发
 
 <img src="https://github.com/CoderMikeHe/WeChat_Resource/blob/master/snapshots/logo.png" width="256px" height="256px" />
 
@@ -34,13 +34,15 @@
 
 ### 🚀 模块
 
-- ✅ 登陆/注册/登出 (ps: UI 尚未适配，逻辑正常) 
+- ✅ 登陆/注册/登出 (ps: UI 尚未适配，逻辑正常)
 
 - ✅ 我
+
   - ✅ 个人信息
   - ✅ 设置
 
 - ✅ 发现
+
   - ✅ 朋友圈
 
 - ✅ 通讯录
@@ -52,7 +54,7 @@
 
 ---
 
-### ❗️使用
+### ❗️ 使用
 
 - [Cocoapods 安装教程](https://www.cnblogs.com/chuancheng/p/8443677.html)
 
@@ -120,6 +122,12 @@
 ---
 
 ### 🌈 预览
+
+###### 🏳️‍🌈 微信模块
+
+| ![](https://github.com/CoderMikeHe/WeChat_Resource/blob/master/gif/mainframe/ios_mainframe_pulldown_applet_page.gif) | 虚位以待 | 虚位以待 | 虚位以待 |
+| :------------------------------------------------------------------------------------------------------------------: | :------: | :------: | :------: |
+
 
 ###### 🏳️‍🌈 通讯录模块
 

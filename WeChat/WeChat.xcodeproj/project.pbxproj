@@ -515,6 +515,7 @@
 		DE562495246C1ED0009CFF82 /* MHSearchMiniprogramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE562494246C1ED0009CFF82 /* MHSearchMiniprogramViewController.m */; };
 		DE562499246C1EF8009CFF82 /* MHSearchMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE562498246C1EF8009CFF82 /* MHSearchMusicViewController.m */; };
 		DE56249D246C1F18009CFF82 /* MHSearchStickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE56249C246C1F18009CFF82 /* MHSearchStickerViewController.m */; };
+		DE61FEDB24D65687008596C4 /* MHAudioHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DE61FEDA24D65687008596C4 /* MHAudioHelper.m */; };
 		DE66C0C4246AC5C2000E9915 /* MHSearchMomentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DE66C0C2246AC5C2000E9915 /* MHSearchMomentsCell.m */; };
 		DE66C0C5246AC5C2000E9915 /* MHSearchMomentsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE66C0C3246AC5C2000E9915 /* MHSearchMomentsCell.xib */; };
 		DE66C0C9246ACABD000E9915 /* MHSearchMomentsItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DE66C0C8246ACABD000E9915 /* MHSearchMomentsItemViewModel.m */; };
@@ -1464,6 +1465,8 @@
 		DE562498246C1EF8009CFF82 /* MHSearchMusicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchMusicViewController.m; sourceTree = "<group>"; };
 		DE56249B246C1F18009CFF82 /* MHSearchStickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchStickerViewController.h; sourceTree = "<group>"; };
 		DE56249C246C1F18009CFF82 /* MHSearchStickerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchStickerViewController.m; sourceTree = "<group>"; };
+		DE61FED924D65687008596C4 /* MHAudioHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHAudioHelper.h; sourceTree = "<group>"; };
+		DE61FEDA24D65687008596C4 /* MHAudioHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHAudioHelper.m; sourceTree = "<group>"; };
 		DE66C0C1246AC5C2000E9915 /* MHSearchMomentsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchMomentsCell.h; sourceTree = "<group>"; };
 		DE66C0C2246AC5C2000E9915 /* MHSearchMomentsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchMomentsCell.m; sourceTree = "<group>"; };
 		DE66C0C3246AC5C2000E9915 /* MHSearchMomentsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHSearchMomentsCell.xib; sourceTree = "<group>"; };
@@ -2925,6 +2928,8 @@
 		263D371C1F667D2C007267C3 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				DE61FED924D65687008596C4 /* MHAudioHelper.h */,
+				DE61FEDA24D65687008596C4 /* MHAudioHelper.m */,
 				849135E82466966E00450D94 /* ISRDataHelper.h */,
 				849135E92466966E00450D94 /* ISRDataHelper.m */,
 				2664F5361FEA6BE5005C10CF /* MHMomentHelper.h */,
@@ -5092,6 +5097,7 @@
 				84278CA824B41C9900F5C337 /* MHPulldownAppletWrapperViewController.m in Sources */,
 				26FE65721F93142400642615 /* MHPlugViewController.m in Sources */,
 				262ADA491FCA741800B0F4FD /* MHDebugTouchView.m in Sources */,
+				DE61FEDB24D65687008596C4 /* MHAudioHelper.m in Sources */,
 				2605C5CD1F66323800B1F66E /* MHDiscoverViewModel.m in Sources */,
 				26FE8E931F9514D100EC8BE0 /* UIView+Layout.m in Sources */,
 				84D7469D24AD7200004B3CDA /* UIScrollView+MHExtension.m in Sources */,

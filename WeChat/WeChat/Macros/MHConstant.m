@@ -168,11 +168,11 @@ CGFloat const MHMomentCommentToolViewWithNoTextViewHeight = 20;
 
 //// ---------------- 微信首页模块 ----------------
 /// 下拉显示小程序 临界点0
-CGFloat const MHPulldownAppletCriticalPoint0 = 60.0f;
+CGFloat const MHPulldownAppletCriticalPoint0 = 80.0f;
 /// 下拉显示小程序 临界点1
-CGFloat const MHPulldownAppletCriticalPoint1 = 90.0f;
+CGFloat const MHPulldownAppletCriticalPoint1 = 130.0f;
 /// 下拉显示小程序 临界点2
-CGFloat const MHPulldownAppletCriticalPoint2 = 130.0f;
+CGFloat const MHPulldownAppletCriticalPoint2 = 160.0f;
 /// 下拉显示小程序 临界点3
 CGFloat const MHPulldownAppletCriticalPoint3 = 240.0f;
 

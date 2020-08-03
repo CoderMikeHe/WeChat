@@ -293,13 +293,13 @@ FOUNDATION_EXTERN CGFloat const MHMomentCommentToolViewWithNoTextViewHeight;
 
 
 //// ---------------- 微信首页模块 ----------------
-/// 下拉显示小程序 临界点0  60.0f
+/// 下拉显示小程序 临界点0  80.0f
 FOUNDATION_EXTERN CGFloat const MHPulldownAppletCriticalPoint0;
-/// 下拉显示小程序 临界点1  90.0f
+/// 下拉显示小程序 临界点1  130.0f
 FOUNDATION_EXTERN CGFloat const MHPulldownAppletCriticalPoint1;
-/// 下拉显示小程序 临界点2  130.0f
+/// 下拉显示小程序 临界点2  160.0f
 FOUNDATION_EXTERN CGFloat const MHPulldownAppletCriticalPoint2;
-/// 下拉显示小程序 临界点3  180.0f
+/// 下拉显示小程序 临界点3  240.0f
 FOUNDATION_EXTERN CGFloat const MHPulldownAppletCriticalPoint3;
 
 /// 下拉显示小程序和隐藏小程序 动画时间 .35f
