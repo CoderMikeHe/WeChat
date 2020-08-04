@@ -356,6 +356,10 @@
 		842D2438246A3D12008E5A2C /* MHSearchOfficialAccountsDefaultItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D2437246A3D12008E5A2C /* MHSearchOfficialAccountsDefaultItemViewModel.m */; };
 		842D243D246AA86D008E5A2C /* MHSearchMomentsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D243C246AA86D008E5A2C /* MHSearchMomentsViewModel.m */; };
 		842D2441246AACC1008E5A2C /* MHSearchMomentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D2440246AACC1008E5A2C /* MHSearchMomentsViewController.m */; };
+		84399F4924D912CF0062087E /* MHVideoTrendsWrapperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84399F4824D912CF0062087E /* MHVideoTrendsWrapperViewController.m */; };
+		84399F4C24D913270062087E /* MHVideoTrendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84399F4B24D913270062087E /* MHVideoTrendsViewController.m */; };
+		84399F5024D914090062087E /* MHVideoTrendsWrapperViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84399F4F24D914090062087E /* MHVideoTrendsWrapperViewModel.m */; };
+		84399F5324D9142C0062087E /* MHVideoTrendsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84399F5224D9142C0062087E /* MHVideoTrendsViewModel.m */; };
 		843CA60B24AC2E8300AE5CDF /* MHPulldownAppletItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 843CA60A24AC2E8300AE5CDF /* MHPulldownAppletItemView.m */; };
 		843CA60D24AC2E9F00AE5CDF /* MHPulldownAppletItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843CA60C24AC2E9F00AE5CDF /* MHPulldownAppletItemView.xib */; };
 		8449E2AD248506D700F81CE1 /* icons_outlined_camera.svg in Resources */ = {isa = PBXBuildFile; fileRef = 8449E2AC248506D700F81CE1 /* icons_outlined_camera.svg */; };
@@ -1241,6 +1245,14 @@
 		842D243C246AA86D008E5A2C /* MHSearchMomentsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchMomentsViewModel.m; sourceTree = "<group>"; };
 		842D243F246AACC1008E5A2C /* MHSearchMomentsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchMomentsViewController.h; sourceTree = "<group>"; };
 		842D2440246AACC1008E5A2C /* MHSearchMomentsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchMomentsViewController.m; sourceTree = "<group>"; };
+		84399F4724D912CF0062087E /* MHVideoTrendsWrapperViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHVideoTrendsWrapperViewController.h; sourceTree = "<group>"; };
+		84399F4824D912CF0062087E /* MHVideoTrendsWrapperViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHVideoTrendsWrapperViewController.m; sourceTree = "<group>"; };
+		84399F4A24D913270062087E /* MHVideoTrendsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHVideoTrendsViewController.h; sourceTree = "<group>"; };
+		84399F4B24D913270062087E /* MHVideoTrendsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHVideoTrendsViewController.m; sourceTree = "<group>"; };
+		84399F4E24D914090062087E /* MHVideoTrendsWrapperViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHVideoTrendsWrapperViewModel.h; sourceTree = "<group>"; };
+		84399F4F24D914090062087E /* MHVideoTrendsWrapperViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHVideoTrendsWrapperViewModel.m; sourceTree = "<group>"; };
+		84399F5124D9142C0062087E /* MHVideoTrendsViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHVideoTrendsViewModel.h; sourceTree = "<group>"; };
+		84399F5224D9142C0062087E /* MHVideoTrendsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHVideoTrendsViewModel.m; sourceTree = "<group>"; };
 		843CA60924AC2E8300AE5CDF /* MHPulldownAppletItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHPulldownAppletItemView.h; sourceTree = "<group>"; };
 		843CA60A24AC2E8300AE5CDF /* MHPulldownAppletItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHPulldownAppletItemView.m; sourceTree = "<group>"; };
 		843CA60C24AC2E9F00AE5CDF /* MHPulldownAppletItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHPulldownAppletItemView.xib; sourceTree = "<group>"; };
@@ -1924,6 +1936,7 @@
 		26064AF91F5DB46500566B95 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				84399F4624D912260062087E /* VideoTrends */,
 				DEAA482D248B2D4A00F71465 /* DiscoverManager */,
 				2633E0211FEA08C000D0E187 /* Emotion */,
 				2601757E1FE90492000F6A25 /* General */,
@@ -2321,6 +2334,7 @@
 		26225D831F65506E0074BFC3 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				84399F4D24D9138B0062087E /* VideoTrends */,
 				DEAA4831248B2DB700F71465 /* DiscoverManager */,
 				2633E00F1FEA05D300D0E187 /* Emotion */,
 				2601757F1FE904AF000F6A25 /* General */,
@@ -3581,6 +3595,28 @@
 				842D2440246AACC1008E5A2C /* MHSearchMomentsViewController.m */,
 			);
 			path = Moments;
+			sourceTree = "<group>";
+		};
+		84399F4624D912260062087E /* VideoTrends */ = {
+			isa = PBXGroup;
+			children = (
+				84399F4724D912CF0062087E /* MHVideoTrendsWrapperViewController.h */,
+				84399F4824D912CF0062087E /* MHVideoTrendsWrapperViewController.m */,
+				84399F4A24D913270062087E /* MHVideoTrendsViewController.h */,
+				84399F4B24D913270062087E /* MHVideoTrendsViewController.m */,
+			);
+			path = VideoTrends;
+			sourceTree = "<group>";
+		};
+		84399F4D24D9138B0062087E /* VideoTrends */ = {
+			isa = PBXGroup;
+			children = (
+				84399F4E24D914090062087E /* MHVideoTrendsWrapperViewModel.h */,
+				84399F4F24D914090062087E /* MHVideoTrendsWrapperViewModel.m */,
+				84399F5124D9142C0062087E /* MHVideoTrendsViewModel.h */,
+				84399F5224D9142C0062087E /* MHVideoTrendsViewModel.m */,
+			);
+			path = VideoTrends;
 			sourceTree = "<group>";
 		};
 		8449E2AB2485069A00F81CE1 /* Moments */ = {
@@ -5075,6 +5111,7 @@
 				84A545672474D96D0020FEE7 /* MHSearchDefaultSearchTypeCell.m in Sources */,
 				8400E2E924A86DCC00125893 /* MHPulldownAppletViewController.m in Sources */,
 				8401300024AC910900D60A89 /* MHAppletViewController.m in Sources */,
+				84399F4924D912CF0062087E /* MHVideoTrendsWrapperViewController.m in Sources */,
 				26FE8E861F9514D100EC8BE0 /* TZAssetCell.m in Sources */,
 				261E01691FDE6A130041E989 /* MHFreeInterruptionItemViewModel.m in Sources */,
 				2633E0271FEA095D00D0E187 /* MHUsefulEmotionViewController.m in Sources */,
@@ -5092,6 +5129,7 @@
 				2638C5AD20450DC300C334E2 /* UIImage+ImageEffects.m in Sources */,
 				263D370E1F666569007267C3 /* LCActionSheet.m in Sources */,
 				261753141F73710000812E1B /* MHUserInfoViewController.m in Sources */,
+				84399F4C24D913270062087E /* MHVideoTrendsViewController.m in Sources */,
 				84A1BF24246E83D3008A807C /* MHSearchMusicDelHistoryItemViewModel.m in Sources */,
 				2615266B1F6AE17400400BA0 /* MHTabBar.m in Sources */,
 				84278CA824B41C9900F5C337 /* MHPulldownAppletWrapperViewController.m in Sources */,
@@ -5145,6 +5183,7 @@
 				263D37161F66656A007267C3 /* YYReachability.m in Sources */,
 				84278CAB24B45BD500F5C337 /* MHPulldownAppletWrapperViewModel.m in Sources */,
 				2664F5371FEA6BE6005C10CF /* MHMomentHelper.m in Sources */,
+				84399F5324D9142C0062087E /* MHVideoTrendsViewModel.m in Sources */,
 				84278CA524B4093700F5C337 /* MHBouncyBallsViewModel.m in Sources */,
 				2617533D1F73D03C00812E1B /* MHFeatureSignatureViewModel.m in Sources */,
 				E932C42921369FC600B32A9F /* MHCameraViewController.m in Sources */,
@@ -5238,6 +5277,7 @@
 				263D36E81F666438007267C3 /* UIBarButtonItem+MHExtension.m in Sources */,
 				84AB60A5244AFD990031DADE /* UIImage+MHSVG.m in Sources */,
 				265DBFEC1FE0C8D900A5FCC8 /* MHAboutUsHeaderView.m in Sources */,
+				84399F5024D914090062087E /* MHVideoTrendsWrapperViewModel.m in Sources */,
 				26FE8E4A1F95143D00EC8BE0 /* IDMPhotoBrowser.m in Sources */,
 				263D37111F666569007267C3 /* LCActionSheetViewController.m in Sources */,
 				841766642472396500B2A704 /* MHSearchStickerDefaultCell.m in Sources */,

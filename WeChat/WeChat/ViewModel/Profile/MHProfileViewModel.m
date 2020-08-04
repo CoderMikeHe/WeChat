@@ -23,6 +23,11 @@
 /// cameraCommand
 @property (nonatomic, readwrite, strong) RACCommand *cameraCommand;
 
+/// videoTrendsWrapperViewModel
+@property (nonatomic, readwrite, strong) MHVideoTrendsWrapperViewModel *videoTrendsWrapperViewModel;
+/// offsetInfo
+@property (nonatomic, readwrite, copy) NSDictionary *offsetInfo;
+
 @end
 
 
@@ -60,12 +65,20 @@
          [self didChangeValueForKey:@"user"];
      }];
     
-    
+    /// 点击照相机的cmd
     self.cameraCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         @strongify(self);
         NSLog(@"Click the Camera ...");
         return [RACSignal empty];
     }];
+    
+    
+    /// --------------------- 下拉视频动态相关 ----------------------
+    self.videoTrendsWrapperViewModel = [[MHVideoTrendsWrapperViewModel alloc] initWithServices:self.services params:nil];
+    self.videoTrendsWrapperViewModel.callback = ^(NSDictionary *offsetInfo) {
+        @strongify(self);
+        self.offsetInfo = offsetInfo;
+    };
     
     
     /// 配置数据
