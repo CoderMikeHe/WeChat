@@ -9,7 +9,7 @@
 #import "MHMainFrameViewModel.h"
 #import "MHHTTPService+Live.h"
 #import "MHTestViewModel.h"
-
+#import "MHPulldownAppletViewModel.h"
 @interface MHMainFrameViewModel ()
 /// 商品数组 <MHLiveRoom *>
 @property (nonatomic, readwrite, copy) NSArray *liveRooms;
@@ -20,11 +20,21 @@
 /// searchViewModel
 @property (nonatomic, readwrite, strong) MHSearchViewModel *searchViewModel;
 
+/// appletWrapperViewModel
+@property (nonatomic, readwrite, strong) MHPulldownAppletWrapperViewModel *appletWrapperViewModel;
+/// ballsViewModel
+@property (nonatomic, readwrite, strong) MHBouncyBallsViewModel *ballsViewModel;
+
 /// 搜索状态
 @property (nonatomic, readwrite, assign) MHNavSearchBarState searchState;
 
 /// 弹出/消失 搜索内容页 回调
 @property (nonatomic, readwrite, strong) RACCommand *popCommand;
+
+
+
+/// offsetInfo
+@property (nonatomic, readwrite, copy) NSDictionary *offsetInfo;
 @end
 
 
@@ -68,7 +78,13 @@
         [self.services pushViewModel:viewModel animated:YES];
         return [RACSignal empty];
     }];
-    
+    /// --------------------- 下拉c小程序相关 ----------------------
+    self.appletWrapperViewModel = [[MHPulldownAppletWrapperViewModel alloc] initWithServices:self.services params:nil];
+    self.appletWrapperViewModel.callback = ^(NSDictionary *offsetInfo) {
+        @strongify(self);
+        self.offsetInfo = offsetInfo;
+    };
+    self.ballsViewModel = [[MHBouncyBallsViewModel alloc] init];
     
     // --------------------- 搜索相关 ----------------------
     /// 弹出搜索页或者隐藏搜索页的回调  以及侧滑搜索页回调

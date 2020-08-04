@@ -119,6 +119,7 @@ PODS:
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
+  - SGEasyButton (0.0.6)
   - SocketRocket (0.5.1)
   - SSZipArchive (1.8.1)
   - SVGKit (2.1.1):
@@ -187,6 +188,7 @@ DEPENDENCIES:
   - ReactiveCocoa (from `https://github.com/zhao0/ReactiveCocoa.git`, tag `2.5.2`)
   - SAMKeychain (= 1.5.2)
   - SDWebImage (= 4.0.0)
+  - SGEasyButton (~> 0.0.6)
   - SocketRocket (= 0.5.1)
   - SSZipArchive (= 1.8.1)
   - SVGKit
@@ -245,6 +247,7 @@ SPEC REPOS:
     - pop
     - SAMKeychain
     - SDWebImage
+    - SGEasyButton
     - SocketRocket
     - SSZipArchive
     - SVGKit
@@ -319,6 +322,7 @@ SPEC CHECKSUMS:
   ReactiveCocoa: 3ff25b1bd992ac79c5c79b26b6c0c1713b715bb2
   SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  SGEasyButton: 988365a76be60c569fda5ee4b6bb225cedf659b4
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
   SSZipArchive: 04547dfa448be5ed7ecbaf7eaf8a6e9eb9b42997
   SVGKit: 652cdf7bef8bec8564d04a8511d3ab50c7595fac
@@ -341,6 +345,6 @@ SPEC CHECKSUMS:
   ZBarSDK: 4c1b5daeb7d6cc67dc9355e690af0230a661f6ec
   ZYCornerRadius: f0af817be7805b5c63d793042ca7a03f81e14069
 
-PODFILE CHECKSUM: 92cd78a0684636e230dd0f8c9f23eaabad519f64
+PODFILE CHECKSUM: d0901fafcd438a8da2d847c3c2201ae899541d27
 
 COCOAPODS: 1.9.1

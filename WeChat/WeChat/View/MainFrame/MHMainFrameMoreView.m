@@ -163,7 +163,7 @@
     
     /// 菜单
     UIView *menuView = [[UIView alloc] init];
-    menuView.cornerRadius = 10.0f;
+    menuView.cornerRadius = 4.0f;
     menuView.masksToBounds = YES;
     self.menuView = menuView;
     [containerView addSubview:menuView];

@@ -12,7 +12,7 @@
 #import "MHCameraViewController.h"
 #import "MHSingleChatViewModel.h"
 #import "MHSearchViewController.h"
-
+#import "MHPulldownAppletWrapperViewController.h"
 
 #import "WPFPinYinTools.h"
 #import "WPFPinYinDataManager.h"
@@ -22,6 +22,12 @@
 #import "UITableView+SCIndexView.h"
 #import "MHNavSearchBar.h"
 #import "MHMainFrameMoreView.h"
+#import "MHBouncyBallsView.h"
+
+#import "MHAudioHelper.h"
+
+
+
 
 /// 侧滑最大偏移量
 static CGFloat const MHSlideOffsetMaxWidth = 56;
@@ -40,6 +46,8 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
 /// searchController
 @property (nonatomic, readwrite, strong) MHSearchViewController *searchController;
 
+
+
 /// 获取截图
 @property (nonatomic, readwrite, weak) UIView *snapshotView;
 
@@ -49,6 +57,19 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
 @property (nonatomic, readwrite, assign) CGFloat endDragOffsetY;
 /// moreView
 @property (nonatomic, readwrite, weak) MHMainFrameMoreView *moreView;
+
+
+/// ---------------------- 下拉小程序相关 ----------------------
+/// lastOffsetY
+@property (nonatomic, readwrite, assign) CGFloat lastOffsetY;
+/// 下拉状态
+@property (nonatomic, readwrite, assign) MHRefreshState state;
+/// 下拉三个球
+@property (nonatomic, readwrite, weak) MHBouncyBallsView *ballsView;
+/// appletWrapperController
+@property (nonatomic, readwrite, strong) MHPulldownAppletWrapperViewController *appletWrapperController;
+/// 是否需要振动反馈
+@property (nonatomic, readwrite, assign, getter=isFeedback) BOOL feedback;
 @end
 
 @implementation MHMainFrameViewController
@@ -78,13 +99,17 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     // 这里也根据条件设置隐藏
-    self.tabBarController.tabBar.hidden = (self.viewModel.searchState == MHNavSearchBarStateSearch);
+    self.tabBarController.tabBar.hidden = (self.viewModel.searchState == MHNavSearchBarStateSearch );
+    
+    self.tabBarController.tabBar.alpha = (self.state == MHRefreshStateRefreshing ? .0f : 1.0f) ;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     // 这里也根据条件设置隐藏
-    self.tabBarController.tabBar.hidden = (self.viewModel.searchState == MHNavSearchBarStateSearch);
+    self.tabBarController.tabBar.hidden = (self.viewModel.searchState == MHNavSearchBarStateSearch  || self.state == MHRefreshStateRefreshing);
+    
+    self.tabBarController.tabBar.alpha = (self.state == MHRefreshStateRefreshing ? .0f : 1.0f) ;
     
     // 离开此页面 隐藏
     self.moreView.hidden = YES;
@@ -194,6 +219,14 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
             }];
         }
     }];
+    
+    //// 小程序回滚
+    /// Fixed bug: distinctUntilChanged 不需要，否则某些场景认为没变化 实际上变化了
+    RACSignal *signal = [RACObserve(self.viewModel, offsetInfo) skip:1];
+    [signal subscribeNext:^(NSDictionary *dictionary) {
+        @strongify(self);
+        [self _handleAppletOffset:dictionary];
+    }];
 }
 
 /// 配置tableView的区域
@@ -215,9 +248,9 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
     [cell bindViewModel:object];
 }
 
-#pragma mark - 事件处理
+#pragma mark - 事件处理Or辅助方法
 - (void)_addMore{
-
+    
     if (self.moreView.hidden) {
         self.moreView.hidden = NO;
         [self.moreView show];
@@ -227,6 +260,46 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
             @strongify(self);
             self.moreView.hidden = YES;
         }];
+    }
+}
+
+/// 处理小程序回调的数据
+- (void)_handleAppletOffset:(NSDictionary *)dictionary {
+    
+    if (MHObjectIsNil(dictionary)) {
+        return;
+    }
+    
+    /// ⚠️ offset 为负数
+    CGFloat offset = [dictionary[@"offset"] doubleValue];
+    MHRefreshState state = [dictionary[@"state"] doubleValue];
+    if (state == MHRefreshStateRefreshing) {
+        /// 回到空闲状态
+        self.state = MHRefreshStateIdle;
+    }else {
+        /// 拖拽状态
+        CGFloat delta = MH_SCREEN_HEIGHT - MH_APPLICATION_TOP_BAR_HEIGHT + offset;
+        delta = MAX(0, delta);
+ 
+        /// 更新 navBar Y
+        [self.navBar mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.view).with.offset(delta);
+        }];
+        
+        /// 传递offset
+        self.viewModel.ballsViewModel.offsetInfo = @{@"offset": @(delta), @"state": @(state), @"animate": @NO};
+        
+        /// 更新 ballsView 的 h
+        [self.ballsView mas_updateConstraints:^(MASConstraintMaker *make) {
+            CGFloat height = delta;
+            make.height.mas_equalTo(MAX(6.0f, height));
+        }];
+        
+        /// 更新tableView Y
+        self.tableView.mh_y = delta;
+        
+        /// 修改导航栏颜色
+        [self _changeNavBarBackgroundColor:offset];
     }
 }
 
@@ -250,6 +323,47 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
     }
 }
 
+
+/// 处理拖拽时导航栏背景色变化
+/// 只处理上拉的逻辑 下拉忽略
+/// offset: 偏移量。
+- (void)_changeNavBarBackgroundColor:(CGFloat)offset{
+    
+    static NSDictionary *dict0;
+    static NSDictionary *dict1;
+    
+    /// 导航栏颜色：#ededed --> #fffff
+    if (!(dict0 && dict0.allKeys.count != 0)) {
+        UIColor *color0 = MHColorFromHexString(@"#ededed");
+        dict0 = @{@"red":@(color0.red), @"green": @(color0.green), @"blue":@(color0.blue)};
+        
+        UIColor *color1 = [UIColor whiteColor];
+        dict1 = @{@"red":@(color1.red), @"green": @(color1.green), @"blue":@(color1.blue)};
+    }
+    
+    CGFloat delta = fabs(offset);
+    
+    if (delta > MH_SCREEN_HEIGHT) {
+        delta = MH_SCREEN_HEIGHT;
+    }
+    
+    /// 进度 0 --> 1.0f
+    /// 下拉 不修改导航栏颜色
+    CGFloat progress = .0f;
+    if (delta < MHPulldownAppletCriticalPoint2) {
+        /// 上拉 0 ---> 100
+        progress = 1 - delta/MHPulldownAppletCriticalPoint2;
+    }
+    
+    
+    /// 计算差值
+    CGFloat red = ([dict0[@"red"] doubleValue] + progress * ([dict1[@"red"] doubleValue] - [dict0[@"red"] doubleValue])) * 255;
+    CGFloat green = ([dict0[@"green"] doubleValue] + progress * ([dict1[@"green"] doubleValue] - [dict0[@"green"] doubleValue])) * 255;
+    CGFloat blue = ([dict0[@"blue"] doubleValue] + progress * ([dict1[@"blue"] doubleValue] - [dict0[@"blue"] doubleValue])) * 255;
+    
+    self.navBar.backgroundView.backgroundColor = MHColor(red, green, blue);
+}
+
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return [self.viewModel.dataSource[indexPath.row] cellHeight];
@@ -266,9 +380,13 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     // 记录刚开始拖拽的值
     self.startDragOffsetY = scrollView.contentOffset.y;
+    /// 需要增加振动反馈
+    self.feedback = YES;
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    
+    self.feedback = NO;
     // 记录刚开始拖拽的值
     self.endDragOffsetY = scrollView.contentOffset.y;
     // decelerate: YES 说明还有速度或者说惯性，会继续滚动 停止时调用scrollViewDidEndDecelerating
@@ -277,10 +395,225 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
         [self _handleSearchBarOffset:scrollView];
     }
 }
+/// tableView 以滚动就会调用
+/// 这里的逻辑 完全可以参照 MJRefreshHeader
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    // 在刷新的refreshing状态 do nothing...
+    if (self.state == MHRefreshStateRefreshing) {
+        return;
+    }else if(self.state == MHRefreshStatePulling && !scrollView.isDragging) {
+        /// fixed bug: 这里设置最后一次的偏移量 以免回弹
+        [scrollView setContentOffset:CGPointMake(0, self.lastOffsetY)];
+    }
+    
+    
+    // 当前的contentOffset
+    CGFloat offsetY = scrollView.mh_offsetY;
+    // 头部控件刚好出现的offsetY
+    CGFloat happenOffsetY = -self.contentInset.top;
+    
+    // 如果是向上滚动到看不见头部控件，直接返回
+    // >= -> >
+    if (offsetY > happenOffsetY) return;
+    
+    // 普通 和 即将刷新 的临界点
+    CGFloat normal2pullingOffsetY = - MHPulldownAppletCriticalPoint1 ;
+    
+    /// 计算偏移量 正数
+    CGFloat delta = -(offsetY - happenOffsetY);
+    
+    // 如果正在拖拽
+    if (scrollView.isDragging) {
+        
+        /// 更新 navBar 的 y
+        [self.navBar mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.view).with.offset(delta);
+        }];
+        
+        /// 更新 ballsView 的 h
+        [self.ballsView mas_updateConstraints:^(MASConstraintMaker *make) {
+            CGFloat height = delta;
+            make.height.mas_equalTo(MAX(6.0f, height));
+        }];
+        
+        /// 传递offset
+        self.viewModel.ballsViewModel.offsetInfo = @{@"offset": @(delta), @"state": @(self.state), @"animate": @NO};;
+        
+        /// 微信方案：不仅要下拉超过临界点 而且 保证是下拉状态：当前偏移量 > 上一次偏移量
+        if (self.state == MHRefreshStateIdle && -delta < normal2pullingOffsetY && offsetY < self.lastOffsetY) {
+            // 转为即将刷新状态
+            self.state = MHRefreshStatePulling;
+            
+            /// iOS 10.0+ 下拉增加振动反馈 https://www.jianshu.com/p/ef7eadfae188
+            if (self.isFeedback) {
+                /// 只震动一次
+                self.feedback = NO;
+                /// 开启振动反馈 iOS 10.0+
+                UIImpactFeedbackGenerator *feedBackGenertor = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleLight];
+                [feedBackGenertor impactOccurred];
+            }
+            
+        } else if (self.state == MHRefreshStatePulling && (-delta >= normal2pullingOffsetY || offsetY >= self.lastOffsetY)) {
+            // 转为普通状态
+            self.state = MHRefreshStateIdle;
+        }
+        
+        /// 传递状态
+        self.viewModel.appletWrapperViewModel.offsetInfo = @{@"offset": @(delta), @"state": @(self.state)};
+        
+        /// 记录偏移量
+        self.lastOffsetY = offsetY;
+        
+    } else if (self.state == MHRefreshStatePulling) {
+        
+        self.lastOffsetY = .0f;
+        
+        self.state = MHRefreshStateRefreshing;
+    } else {
+        /// 更新 navBar y
+        [self.navBar mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.view).with.offset(delta);
+        }];
+        
+        /// 更新 ballsView 的 h
+        [self.ballsView mas_updateConstraints:^(MASConstraintMaker *make) {
+            CGFloat height = delta;
+            make.height.mas_equalTo(MAX(6.0f, height));
+        }];
+        
+        /// 传递offset
+        self.viewModel.ballsViewModel.offsetInfo = @{@"offset": @(delta), @"state": @(self.state), @"animate": @NO};
+        
+        /// 传递状态
+        self.viewModel.appletWrapperViewModel.offsetInfo = @{@"offset": @(delta), @"state": @(self.state)};
+        
+        /// 记录偏移量
+        self.lastOffsetY = offsetY;
+    }
+}
+
+#pragma mark - Setter & Getter
+- (void)setState:(MHRefreshState)state {
+    MHRefreshState oldState = self.state;
+    if (state == oldState) return;
+    _state = state;
+    
+    // 根据状态做事情
+    if (state == MHRefreshStateIdle) {
+        if (oldState != MHRefreshStateRefreshing) return;
+        
+        /// 动画过程中 禁止用户交互
+        self.view.userInteractionEnabled = NO;
+        
+        /// 更新位置
+        [self.navBar mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.view).with.offset(0);
+        }];
+        
+        /// 更新 ballsView 的 h
+        [self.ballsView mas_updateConstraints:^(MASConstraintMaker *make) {
+            CGFloat height = 0;
+            make.height.mas_equalTo(MAX(6.0f, height));
+        }];
+        
+        /// 传递offset
+        self.viewModel.ballsViewModel.offsetInfo = @{@"offset": @(0), @"state": @(state), @"animate": @YES};
+        
+        // 先置位到最底下 后回到原始位置； 因为小程序 下钻到下一模块 tabBar会回到之前的位置
+        self.tabBarController.tabBar.mh_y = MH_SCREEN_HEIGHT;
+        self.tabBarController.tabBar.alpha = .0f;
+        
+        [UIView animateWithDuration:MHPulldownAppletRefreshingDuration animations:^{
+            /// 导航栏相关 回到原来位置
+//            self.tabBarController.tabBar.hidden = NO;
+            self.tabBarController.tabBar.alpha = 1.0f;
+            self.tabBarController.tabBar.mh_y = MH_SCREEN_HEIGHT - self.tabBarController.tabBar.mh_height;
+            
+            /// 设置tableView y
+            self.tableView.mh_y = 0;
+            
+            [self.view layoutIfNeeded];
+            self.navBar.backgroundView.backgroundColor = MH_MAIN_BACKGROUNDCOLOR;
+        } completion:^(BOOL finished) {
+            
+            /// 完成后 传递数据给
+            self.tableView.showsVerticalScrollIndicator = YES;
+            /// 动画结束 允许用户交互
+            self.view.userInteractionEnabled = YES;
+        }];
+    } else if (state == MHRefreshStateRefreshing) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            /// 隐藏滚动条
+            self.tableView.showsVerticalScrollIndicator = NO;
+            
+            /// 传递offset 正向下拉
+            self.viewModel.ballsViewModel.offsetInfo = @{@"offset": @(MH_SCREEN_HEIGHT - MH_APPLICATION_TOP_BAR_HEIGHT), @"state": @(self.state), @"animate": @NO};
+            
+            /// 传递状态
+            self.viewModel.appletWrapperViewModel.offsetInfo = @{@"offset": @(MH_SCREEN_HEIGHT - MH_APPLICATION_TOP_BAR_HEIGHT), @"state": @(self.state)};
+            
+            /// 最终停留点的位置
+            CGFloat top = MH_SCREEN_HEIGHT;
+            /// 更新位置
+            [self.navBar mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.view).with.offset(top - MH_APPLICATION_TOP_BAR_HEIGHT);
+            }];
+            
+            /// 动画过程中 禁止用户交互
+            self.view.userInteractionEnabled = NO;
+            
+            /// 动画
+            [UIView animateWithDuration:MHPulldownAppletRefreshingDuration animations:^{
+                [self.view layoutIfNeeded];
+                
+                // 增加滚动区域top
+                self.tableView.mh_insetT = top;
+                
+                // ⚠️ FBI Warning：
+                // Xcode Version 11.4.1 设置animated: NO 也不好使 总之下面这两个方法都不好使
+                // Xcode Version 10.2.1 设置animated: NO 却好使
+                /// 妥协处理：这里统一用 animated: Yes 来处理 然后控制动画时间 与 scrollView 的 setContentOffset:animated: 相近即可
+                // 设置滚动位置 animated:YES 然后
+                [self.tableView setContentOffset:CGPointMake(0, -top) animated:YES];
+                /// 按照这个方式 会没有动画 tableView 会直接掉下去
+                /// [self.tableView setContentOffset:CGPointMake(0, -top)];
+                
+                /// - [iphone – UIScrollview setContentOffset与非线性动画？](http://www.voidcn.com/article/p-glnejqrs-bsv.html)
+                /// - [iphone – 更改setContentOffset的速度：animated：？](http://www.voidcn.com/article/p-bgupiewh-bsr.html)
+                
+                self.navBar.backgroundView.backgroundColor = [UIColor whiteColor];
+                
+                /// 这种方式没啥动画
+                /// self.tabBarController.tabBar.hidden = YES;
+                /// 这种方式有动画
+                self.tabBarController.tabBar.alpha = .0f;
+                self.tabBarController.tabBar.mh_y = MH_SCREEN_HEIGHT;
+                
+            } completion:^(BOOL finished) {
+                
+                /// 小tips: 这里动画完成后 将tableView 的 y 设置到 MH_SCREEN_HEIGHT - finalTop ; 以及 将contentInset 和 contentOffset 回到原来的位置
+                /// 目的：后期上拉的时候 只需要改变tableView 的 y就行了
+                CGFloat finalTop = self.contentInset.top;
+                self.tableView.mh_y = MH_SCREEN_HEIGHT - finalTop;
+                // 增加滚动区域top
+                self.tableView.mh_insetT = finalTop;
+                // 设置滚动位置
+                [self.tableView setContentOffset:CGPointMake(0, -finalTop) animated:NO];
+                /// 动画结束 允许用户交互
+                self.view.userInteractionEnabled = YES;
+
+            }];
+                    });
+                }
+            }
+
 
 #pragma mark - 初始化
 - (void)_setup{
     /// set up ...
+    self.state = MHRefreshStateIdle;
 }
 #pragma mark - 设置导航栏
 - (void)_setupNavigationItem{
@@ -340,6 +673,20 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
         /// 下钻...
     };
     
+    /// 下拉小程序模块
+    MHPulldownAppletWrapperViewController *appletWrapperController = [[MHPulldownAppletWrapperViewController alloc] initWithViewModel:self.viewModel.appletWrapperViewModel];
+    self.appletWrapperController = appletWrapperController;
+    [self.view addSubview:appletWrapperController.view];
+    [self addChildViewController:appletWrapperController];
+    [appletWrapperController didMoveToParentViewController:self];
+    
+    
+    /// 下拉三个球模块
+    MHBouncyBallsView *ballsView = [[MHBouncyBallsView alloc] init];
+    self.ballsView = ballsView;
+    [ballsView bindViewModel:self.viewModel.ballsViewModel];
+    ballsView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:ballsView];
 }
 
 #pragma mark - 布局子控件
@@ -363,9 +710,20 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
     
     /// 由于是自定义导航栏 分割线 这里重新布局一下
     [self.navBarDivider mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view).with.offset(MH_APPLICATION_TOP_BAR_HEIGHT);
+        make.top.equalTo(self.navBar.mas_bottom).with.offset(0);
         make.left.and.right.equalTo(self.view).with.offset(0);
         make.height.mas_equalTo(.8f);
+    }];
+    
+    /// 布局三个球
+    [self.ballsView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.and.top.equalTo(self.view).with.offset(0);
+        make.height.mas_equalTo(6.0f);
+    }];
+    
+    /// 布局小程序容器
+    [self.appletWrapperController.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsZero);
     }];
 }
 

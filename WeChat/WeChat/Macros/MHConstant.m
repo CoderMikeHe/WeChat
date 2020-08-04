@@ -32,6 +32,12 @@ NSUInteger const MHNicknameMaxWords = 20;
 
 /// 简书首页地址
 NSString * const MHMyBlogHomepageUrl = @"http://www.jianshu.com/u/126498da7523";
+/// 王者荣耀首页地址
+NSString * const MHPVPHomepageUrl = @"https://pvp.qq.com/";
+/// 和平精英首页地址
+NSString * const MHGPHomepageUrl = @"https://gp.qq.com/";
+/// 腾讯体育首页地址
+NSString * const MHSportsHomepageUrl = @"https://sports.qq.com/";
 
 /// 国家区号
 NSString * const MHMobileLoginZoneCodeKey = @"MHMobileLoginZoneCodeKey";
@@ -160,3 +166,15 @@ CGFloat const MHMomentCommentToolViewMaxHeight = 130;
 CGFloat const MHMomentCommentToolViewWithNoTextViewHeight = 20;
 
 
+//// ---------------- 微信首页模块 ----------------
+/// 下拉显示小程序 临界点0
+CGFloat const MHPulldownAppletCriticalPoint0 = 80.0f;
+/// 下拉显示小程序 临界点1
+CGFloat const MHPulldownAppletCriticalPoint1 = 130.0f;
+/// 下拉显示小程序 临界点2
+CGFloat const MHPulldownAppletCriticalPoint2 = 160.0f;
+/// 下拉显示小程序 临界点3
+CGFloat const MHPulldownAppletCriticalPoint3 = 240.0f;
+
+/// 下拉显示小程序和隐藏小程序 动画时间 .35f
+NSTimeInterval const MHPulldownAppletRefreshingDuration = .35f;

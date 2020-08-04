@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// leftButton
 @property (weak, nonatomic) IBOutlet UIButton *leftButton;
 
+/// 分割线
+@property (weak, nonatomic) IBOutlet UIView *divider;
 
 // 初始化
 + (instancetype)navigationBar;

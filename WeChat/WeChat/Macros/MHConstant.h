@@ -55,6 +55,12 @@ FOUNDATION_EXTERN NSUInteger const MHNicknameMaxWords;
 
 /// 简书首页地址
 FOUNDATION_EXTERN NSString * const MHMyBlogHomepageUrl ;
+/// 王者荣耀首页地址
+FOUNDATION_EXTERN NSString * const MHPVPHomepageUrl ;
+/// 和平精英首页地址
+FOUNDATION_EXTERN NSString * const MHGPHomepageUrl;
+/// 腾讯体育首页地址
+FOUNDATION_EXTERN NSString * const MHSportsHomepageUrl;
 
 /// 国家区号
 FOUNDATION_EXTERN NSString * const MHMobileLoginZoneCodeKey ;
@@ -285,6 +291,19 @@ FOUNDATION_EXTERN CGFloat const MHMomentCommentToolViewMaxHeight ;
 /** 弹出评论框View的除了编辑框的高度 */
 FOUNDATION_EXTERN CGFloat const MHMomentCommentToolViewWithNoTextViewHeight;
 
+
+//// ---------------- 微信首页模块 ----------------
+/// 下拉显示小程序 临界点0  80.0f
+FOUNDATION_EXTERN CGFloat const MHPulldownAppletCriticalPoint0;
+/// 下拉显示小程序 临界点1  130.0f
+FOUNDATION_EXTERN CGFloat const MHPulldownAppletCriticalPoint1;
+/// 下拉显示小程序 临界点2  160.0f
+FOUNDATION_EXTERN CGFloat const MHPulldownAppletCriticalPoint2;
+/// 下拉显示小程序 临界点3  240.0f
+FOUNDATION_EXTERN CGFloat const MHPulldownAppletCriticalPoint3;
+
+/// 下拉显示小程序和隐藏小程序 动画时间 .35f
+FOUNDATION_EXTERN NSTimeInterval const MHPulldownAppletRefreshingDuration;
 
 
 //// ---------------- inline ----------------

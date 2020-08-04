@@ -27,7 +27,7 @@
     @weakify(self);
     self.officialAccountTapCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSNumber *input) {
         @strongify(self);
-        NSString *urlStr = input.integerValue == 0 ? @"https://pvp.qq.com/" : MHMyBlogHomepageUrl;
+        NSString *urlStr = input.integerValue == 0 ? MHPVPHomepageUrl : MHMyBlogHomepageUrl;
         
         NSURL *url = [NSURL URLWithString:urlStr];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
