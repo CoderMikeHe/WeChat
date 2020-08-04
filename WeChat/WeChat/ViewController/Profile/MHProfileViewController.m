@@ -119,17 +119,20 @@
     // 头部控件刚好出现的offsetY
     CGFloat happenOffsetY = -self.contentInset.top;
     
-    NSLog(@"👉  %f %f", offsetY, happenOffsetY);
+    
     
     // 如果是向上滚动到看不见头部控件，直接返回
     // >= -> >
     if (offsetY > happenOffsetY) return;
     
     // 普通 和 即将刷新 的临界点
-    CGFloat normal2pullingOffsetY = - MHPulldownAppletCriticalPoint1 ;
+    CGFloat normal2pullingOffsetY = - MHPulldownVideoTrendsCriticalPoint0 ;
     
     /// 计算偏移量 正数
     CGFloat delta = -(offsetY - happenOffsetY);
+    
+    
+    NSLog(@"👉  %f %f  %f", offsetY, happenOffsetY, delta);
     
     // 如果正在拖拽
     if (scrollView.isDragging) {

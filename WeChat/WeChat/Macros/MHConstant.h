@@ -306,6 +306,11 @@ FOUNDATION_EXTERN CGFloat const MHPulldownAppletCriticalPoint3;
 FOUNDATION_EXTERN NSTimeInterval const MHPulldownAppletRefreshingDuration;
 
 
+//// ---------------- 我模块 ----------------
+/// 下拉显示视频动态 临界点0 这个是在 我 模块下拉临界点
+FOUNDATION_EXTERN CGFloat const MHPulldownVideoTrendsCriticalPoint0;
+
+
 //// ---------------- inline ----------------
 
 /// 图片的宽度 （九宫格）
