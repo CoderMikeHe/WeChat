@@ -8,6 +8,19 @@
 
 #import "MHVideoTrendsWrapperViewModel.h"
 
-@implementation MHVideoTrendsWrapperViewModel
+@interface MHVideoTrendsWrapperViewModel ()
 
+/// cameraCommand
+@property (nonatomic, readwrite, strong) RACCommand *cameraCommand;
+
+@end
+
+
+@implementation MHVideoTrendsWrapperViewModel
+- (instancetype)initWithServices:(id<MHViewModelServices>)services params:(NSDictionary *)params {
+    if (self = [super initWithServices:services params:params]) {
+        self.cameraCommand = params[MHViewModelUtilKey];
+    }
+    return self;
+}
 @end

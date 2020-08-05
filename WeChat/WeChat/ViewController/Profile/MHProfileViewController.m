@@ -50,6 +50,8 @@
     /// 布局子控件
     [self _makeSubViewsConstraints];
 }
+
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
@@ -62,11 +64,64 @@
     self.tabBarController.tabBar.alpha = (self.state == MHRefreshStateRefreshing ? .0f : 1.0f) ;
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    MHLogFunc;
+}
+
+#pragma mark - 辅助方法/事件
+/// 处理小程序回调的数据
+- (void)_handleAppletOffset:(NSDictionary *)dictionary {
+    
+    if (MHObjectIsNil(dictionary)) {
+        return;
+    }
+    
+    /// ⚠️ offset 为负数
+    CGFloat offset = [dictionary[@"offset"] doubleValue];
+    MHRefreshState state = [dictionary[@"state"] doubleValue];
+    if (state == MHRefreshStateRefreshing) {
+        /// 回到空闲状态
+        self.state = MHRefreshStateIdle;
+    }else {
+        /// 拖拽状态
+        CGFloat delta = MH_SCREEN_HEIGHT - MH_APPLICATION_TOP_BAR_HEIGHT + offset;
+        delta = MAX(0, delta);
+        
+        /// 更新 navBar Y
+//        [self.navBar mas_updateConstraints:^(MASConstraintMaker *make) {
+//            make.top.equalTo(self.view).with.offset(delta);
+//        }];
+//
+//        /// 传递offset
+//        self.viewModel.ballsViewModel.offsetInfo = @{@"offset": @(delta), @"state": @(state), @"animate": @NO};
+//
+//        /// 更新 ballsView 的 h
+//        [self.ballsView mas_updateConstraints:^(MASConstraintMaker *make) {
+//            CGFloat height = delta;
+//            make.height.mas_equalTo(MAX(6.0f, height));
+//        }];
+        
+        /// 更新tableView Y
+        self.tableView.mh_y = delta;
+        
+        /// 修改导航栏颜色
+        //        [self _changeNavBarBackgroundColor:offset];
+    }
+}
+
+
+
+
 #pragma mark - Override
 - (void)bindViewModel {
     [super bindViewModel];
-    RAC(self.videoDynamicView, hidden) = [RACObserve(self.viewModel, dataSource) map:^id(NSArray * value) {
-        return @(value.count == 0);
+    @weakify(self);
+    //// 小程序回滚
+    /// Fixed bug: distinctUntilChanged 不需要，否则某些场景认为没变化 实际上变化了
+    RACSignal *signal = [RACObserve(self.viewModel, offsetInfo) skip:1];
+    [signal subscribeNext:^(NSDictionary *dictionary) {
+        @strongify(self);
+        [self _handleAppletOffset:dictionary];
     }];
 }
 
@@ -160,9 +215,9 @@
         self.viewModel.videoTrendsWrapperViewModel.offsetInfo = @{@"offset": @(delta), @"state": @(self.state)};
         
         /// 修改容器top
-        [self.videoTrendsWrapperController.view mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.view).with.offset(-(MH_SCREEN_HEIGHT + happenOffsetY - delta));
-        }];
+//        [self.videoTrendsWrapperController.view mas_updateConstraints:^(MASConstraintMaker *make) {
+//            make.top.equalTo(self.view).with.offset(-(MH_SCREEN_HEIGHT + happenOffsetY - delta));
+//        }];
         
         /// 记录偏移量
         self.lastOffsetY = offsetY;
@@ -178,14 +233,15 @@
         self.viewModel.videoTrendsWrapperViewModel.offsetInfo = @{@"offset": @(delta), @"state": @(self.state)};
         
         /// 修改容器top
-        [self.videoTrendsWrapperController.view mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.view).with.offset(-(MH_SCREEN_HEIGHT + happenOffsetY - delta));
-        }];
+//        [self.videoTrendsWrapperController.view mas_updateConstraints:^(MASConstraintMaker *make) {
+//            make.top.equalTo(self.view).with.offset(-(MH_SCREEN_HEIGHT + happenOffsetY - delta));
+//        }];
         
         /// 记录偏移量
         self.lastOffsetY = offsetY;
     }
 }
+
 
 #pragma mark - Setter & Getter
 - (void)setState:(MHRefreshState)state {
@@ -204,6 +260,7 @@
         self.tabBarController.tabBar.mh_y = MH_SCREEN_HEIGHT;
         self.tabBarController.tabBar.alpha = .0f;
         
+        /// 动画
         [UIView animateWithDuration:MHPulldownAppletRefreshingDuration animations:^{
             /// 导航栏相关 回到原来位置
             //            self.tabBarController.tabBar.hidden = NO;
@@ -213,6 +270,10 @@
             /// 设置tableView y
             self.tableView.mh_y = 0;
             
+            /// 显示拍照按钮
+            self.cameraBtn.alpha = 1.0f;
+            
+            /// 动画
             [self.view layoutIfNeeded];
         } completion:^(BOOL finished) {
 
@@ -228,9 +289,9 @@
             CGFloat top = MH_SCREEN_HEIGHT;
             
             /// 修改容器top
-            [self.videoTrendsWrapperController.view mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(self.view).with.offset(0);
-            }];
+//            [self.videoTrendsWrapperController.view mas_updateConstraints:^(MASConstraintMaker *make) {
+//                make.top.equalTo(self.view).with.offset(0);
+//            }];
   
             
             /// 动画过程中 禁止用户交互
@@ -238,7 +299,11 @@
             
             /// 动画
             [UIView animateWithDuration:MHPulldownAppletRefreshingDuration animations:^{
+                /// 刷新页面
                 [self.view layoutIfNeeded];
+                
+                /// 隐藏拍照按钮
+                self.cameraBtn.alpha = .0f;
                 
                 // 增加滚动区域top
                 self.tableView.mh_insetT = top;
@@ -319,10 +384,11 @@
 - (void)_makeSubViewsConstraints{
     
     [self.videoTrendsWrapperController.view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view).with.offset(0);
-        make.right.equalTo(self.view).with.offset(0);
-        make.height.mas_equalTo(MH_SCREEN_HEIGHT);
-        make.top.equalTo(self.view).with.offset(-(MH_SCREEN_HEIGHT - self.contentInset.top));
+//        make.left.equalTo(self.view).with.offset(0);
+//        make.right.equalTo(self.view).with.offset(0);
+//        make.height.mas_equalTo(MH_SCREEN_HEIGHT);
+//        make.top.equalTo(self.view).with.offset(-(MH_SCREEN_HEIGHT - self.contentInset.top));
+        make.edges.mas_equalTo(UIEdgeInsetsZero);
     }];
     
     [self.cameraBtn mas_makeConstraints:^(MASConstraintMaker *make) {

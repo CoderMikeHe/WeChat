@@ -74,7 +74,7 @@
     
     
     /// --------------------- 下拉视频动态相关 ----------------------
-    self.videoTrendsWrapperViewModel = [[MHVideoTrendsWrapperViewModel alloc] initWithServices:self.services params:nil];
+    self.videoTrendsWrapperViewModel = [[MHVideoTrendsWrapperViewModel alloc] initWithServices:self.services params:@{MHViewModelUtilKey: self.cameraCommand}];
     self.videoTrendsWrapperViewModel.callback = ^(NSDictionary *offsetInfo) {
         @strongify(self);
         self.offsetInfo = offsetInfo;
