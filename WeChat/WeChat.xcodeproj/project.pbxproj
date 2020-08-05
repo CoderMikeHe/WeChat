@@ -503,6 +503,9 @@
 		DE4A9D63245C25DD0094E21A /* SCIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4A9D5E245C25DC0094E21A /* SCIndexView.m */; };
 		DE4A9D64245C25DD0094E21A /* UITableView+SCIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4A9D60245C25DC0094E21A /* UITableView+SCIndexView.m */; };
 		DE4B8F8B246F72CF0096CFFB /* MHSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4B8F8A246F72CF0096CFFB /* MHSearch.m */; };
+		DE54DB1424DAEC78008B3FED /* MHVideoTrendsBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE54DB1324DAEC78008B3FED /* MHVideoTrendsBubbleView.m */; };
+		DE54DB1724DAEE06008B3FED /* MHVideoTrendsBubbleItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE54DB1624DAEE06008B3FED /* MHVideoTrendsBubbleItemView.m */; };
+		DE54DB1924DAF003008B3FED /* icons_story_chatroom_entry.svg in Resources */ = {isa = PBXBuildFile; fileRef = DE54DB1824DAF003008B3FED /* icons_story_chatroom_entry.svg */; };
 		DE54EABE2478D39200CAA223 /* MHGroupAvatarsView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE54EABD2478D39200CAA223 /* MHGroupAvatarsView.m */; };
 		DE54EAC22478D3C300CAA223 /* MHGroupAvatarsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DE54EAC12478D3C300CAA223 /* MHGroupAvatarsViewModel.m */; };
 		DE54EAC62478D3E500CAA223 /* MHGroupAvatarsItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DE54EAC52478D3E500CAA223 /* MHGroupAvatarsItemViewModel.m */; };
@@ -1447,6 +1450,11 @@
 		DE4A9D61245C25DC0094E21A /* SCIndexView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCIndexView.h; sourceTree = "<group>"; };
 		DE4B8F89246F72CF0096CFFB /* MHSearch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearch.h; sourceTree = "<group>"; };
 		DE4B8F8A246F72CF0096CFFB /* MHSearch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearch.m; sourceTree = "<group>"; };
+		DE54DB1224DAEC78008B3FED /* MHVideoTrendsBubbleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHVideoTrendsBubbleView.h; sourceTree = "<group>"; };
+		DE54DB1324DAEC78008B3FED /* MHVideoTrendsBubbleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHVideoTrendsBubbleView.m; sourceTree = "<group>"; };
+		DE54DB1524DAEE06008B3FED /* MHVideoTrendsBubbleItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHVideoTrendsBubbleItemView.h; sourceTree = "<group>"; };
+		DE54DB1624DAEE06008B3FED /* MHVideoTrendsBubbleItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHVideoTrendsBubbleItemView.m; sourceTree = "<group>"; };
+		DE54DB1824DAF003008B3FED /* icons_story_chatroom_entry.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_story_chatroom_entry.svg; sourceTree = "<group>"; };
 		DE54EABC2478D39200CAA223 /* MHGroupAvatarsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHGroupAvatarsView.h; sourceTree = "<group>"; };
 		DE54EABD2478D39200CAA223 /* MHGroupAvatarsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHGroupAvatarsView.m; sourceTree = "<group>"; };
 		DE54EAC02478D3C300CAA223 /* MHGroupAvatarsViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHGroupAvatarsViewModel.h; sourceTree = "<group>"; };
@@ -2681,6 +2689,7 @@
 		263C89751F6A305100F7A0AE /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				DE54DB1124DAEC0D008B3FED /* VideoTrends */,
 				265DBFE91FE0C8BF00A5FCC8 /* AboutUs */,
 				261753371F73C58B00812E1B /* FeatureSignature */,
 				264D36D41F70AEBD003BB8CE /* MHProfileHeaderCell.h */,
@@ -3472,6 +3481,7 @@
 		840C5D78248107F7002E88F0 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				DE54DB1824DAF003008B3FED /* icons_story_chatroom_entry.svg */,
 				84AC0768248235C7008D32F6 /* icons_filled_camera.svg */,
 				84AC07662482065E008D32F6 /* icons_outlined_qr_code.svg */,
 				840C5D85248110A5002E88F0 /* icons_outlined_album.svg */,
@@ -4056,6 +4066,17 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		DE54DB1124DAEC0D008B3FED /* VideoTrends */ = {
+			isa = PBXGroup;
+			children = (
+				DE54DB1224DAEC78008B3FED /* MHVideoTrendsBubbleView.h */,
+				DE54DB1324DAEC78008B3FED /* MHVideoTrendsBubbleView.m */,
+				DE54DB1524DAEE06008B3FED /* MHVideoTrendsBubbleItemView.h */,
+				DE54DB1624DAEE06008B3FED /* MHVideoTrendsBubbleItemView.m */,
+			);
+			path = VideoTrends;
+			sourceTree = "<group>";
+		};
 		DE54EABB2478D35300CAA223 /* GroupAvatars */ = {
 			isa = PBXGroup;
 			children = (
@@ -4595,6 +4616,7 @@
 				840C5D712480F2C9002E88F0 /* icons_outlined_bottle.svg in Resources */,
 				84E8D5B524B5712D002289CA /* ele_white_cloud_5.png in Resources */,
 				84CFE098246D33C6004C8739 /* icons_outlined_close.svg in Resources */,
+				DE54DB1924DAF003008B3FED /* icons_story_chatroom_entry.svg in Resources */,
 				DE56247D246C0B43009CFF82 /* MHSearchCommonHeaderView.xib in Resources */,
 				84E8D5AB24B5712D002289CA /* ele_sunnyNightMeteor2.png in Resources */,
 				84E8D5B224B5712D002289CA /* ele_rainLine1.png in Resources */,
@@ -5242,6 +5264,7 @@
 				DE66C0E4246AE2A3000E9915 /* PinyinHelper.m in Sources */,
 				DE4B8F8B246F72CF0096CFFB /* MHSearch.m in Sources */,
 				26FE8E481F95143D00EC8BE0 /* IDMPhoto.m in Sources */,
+				DE54DB1724DAEE06008B3FED /* MHVideoTrendsBubbleItemView.m in Sources */,
 				26FE8E8C1F9514D100EC8BE0 /* TZImagePickerController.m in Sources */,
 				261753201F739DDC00812E1B /* MHCommonQRCodeItemViewModel.m in Sources */,
 				263C898A1F6A54AE00F7A0AE /* MHCommonFooterView.m in Sources */,
@@ -5353,6 +5376,7 @@
 				2605C5B81F66249F00B1F66E /* MHHomePageViewModel.m in Sources */,
 				DE54EAC62478D3E500CAA223 /* MHGroupAvatarsItemViewModel.m in Sources */,
 				26CCB9D120244F690090DBC5 /* MHMomentVideo.m in Sources */,
+				DE54DB1424DAEC78008B3FED /* MHVideoTrendsBubbleView.m in Sources */,
 				264F2D161F94A80F00B244AD /* MHPlugDetailViewController.m in Sources */,
 				261597491FEA5DD300C6FD80 /* MHMomentAttitudesCell.m in Sources */,
 				263D36E21F666438007267C3 /* NSObject+MHExtension.m in Sources */,

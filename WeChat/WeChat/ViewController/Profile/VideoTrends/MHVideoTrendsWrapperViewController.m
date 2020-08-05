@@ -301,8 +301,14 @@
     /// 默认隐藏
     cameraBtn.alpha = .0f;
     
-    ///
-    cameraBtn.rac_command = self.viewModel.cameraCommand;
+    [[cameraBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
+        /// 直接回调
+        self.state = MHRefreshStateRefreshing;
+        [self.viewModel.cameraCommand execute:nil];
+    }];
+
+//    cameraBtn.rac_command = self.viewModel.cameraCommand;
     
     UIView *v = [[UIView alloc] init];
     v.backgroundColor = [UIColor redColor];
