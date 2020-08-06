@@ -11,9 +11,11 @@
 /// 存储language
 FOUNDATION_EXTERN NSString * const MHPreferenceSettingLanguage ;
 
-
-
-
+/// ---- 我-视频动态
+/// 视频动态 下拉
+FOUNDATION_EXTERN NSString * const MHPreferenceSettingPulldownVideoTrends ;
+/// 视频动态 点击右上角的camera
+FOUNDATION_EXTERN NSString * const MHPreferenceSettingCameraVideoTrends ;
 
 
 /// ---- 新消息通知

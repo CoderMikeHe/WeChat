@@ -143,8 +143,11 @@
 }
 
 - (UIEdgeInsets)contentInset{
+    
+    CGFloat top = [MHPreferenceSettingHelper boolForKey:MHPreferenceSettingPulldownVideoTrends] ? 124.0f : 164.0f;
+    
     // 200 - 76
-    return UIEdgeInsetsMake(124.0f, 0, MH_APPLICATION_TAB_BAR_HEIGHT, 0);
+    return UIEdgeInsetsMake(top, 0, MH_APPLICATION_TAB_BAR_HEIGHT, 0);
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -214,11 +217,6 @@
         /// 传递状态
         self.viewModel.videoTrendsWrapperViewModel.offsetInfo = @{@"offset": @(delta), @"state": @(self.state)};
         
-        /// 修改容器top
-//        [self.videoTrendsWrapperController.view mas_updateConstraints:^(MASConstraintMaker *make) {
-//            make.top.equalTo(self.view).with.offset(-(MH_SCREEN_HEIGHT + happenOffsetY - delta));
-//        }];
-        
         /// 记录偏移量
         self.lastOffsetY = offsetY;
         
@@ -231,11 +229,6 @@
 
         /// 传递状态
         self.viewModel.videoTrendsWrapperViewModel.offsetInfo = @{@"offset": @(delta), @"state": @(self.state)};
-        
-        /// 修改容器top
-//        [self.videoTrendsWrapperController.view mas_updateConstraints:^(MASConstraintMaker *make) {
-//            make.top.equalTo(self.view).with.offset(-(MH_SCREEN_HEIGHT + happenOffsetY - delta));
-//        }];
         
         /// 记录偏移量
         self.lastOffsetY = offsetY;

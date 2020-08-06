@@ -9,6 +9,7 @@
 #import "MHVideoTrendsWrapperViewController.h"
 #import "WHWeatherView.h"
 #import "WHWeatherHeader.h"
+#import "MHVideoTrendsBubbleView.h"
 @interface MHVideoTrendsWrapperViewController ()<UIScrollViewDelegate>
 /// viewModel
 @property (nonatomic, readonly, strong) MHVideoTrendsWrapperViewModel *viewModel;
@@ -28,6 +29,13 @@
 
 /// cameraBtn
 @property (nonatomic, readwrite, weak) UIButton *cameraBtn;
+/// 提示按钮
+@property (nonatomic, readwrite, weak) UIButton *tipsBtn;
+
+
+/// bubbleView
+@property (nonatomic, readwrite, weak) MHVideoTrendsBubbleView *bubbleView;
+
 @end
 
 @implementation MHVideoTrendsWrapperViewController
@@ -53,8 +61,9 @@
 
 //// 这个跟 MHProfileViewController保持一致
 - (UIEdgeInsets)contentInset{
+    CGFloat top = [MHPreferenceSettingHelper boolForKey:MHPreferenceSettingPulldownVideoTrends] ? 124.0f : 164.0f;
     // 200 - 76
-    return UIEdgeInsetsMake(124.0f, 0, MH_APPLICATION_TAB_BAR_HEIGHT, 0);
+    return UIEdgeInsetsMake(top, 0, MH_APPLICATION_TAB_BAR_HEIGHT, 0);
 }
 
 
@@ -89,6 +98,10 @@
             [self.scrollView setContentOffset:CGPointZero animated:NO];
             /// 按钮显示
             self.cameraBtn.alpha = 1.0f;
+            
+            /// 提示按钮隐藏
+            self.tipsBtn.alpha = .0f;
+            
         } completion:^(BOOL finished) {
         }];
     }else {
@@ -118,8 +131,12 @@
 //        }else {
 //            self.view.alpha = .0f;
 //        }
+        
+        /// 细节处理 ： 这里需要对偏移量除以一个阻尼系数(>1)，保证外面的偏移量 大于 内部的偏移量
+        CGFloat delta = offset / 1.8;
+        
         /// 设置偏移量
-        self.scrollView.contentOffset = CGPointMake(0, MH_SCREEN_HEIGHT - self.contentInset.top - offset);
+        self.scrollView.contentOffset = CGPointMake(0, MH_SCREEN_HEIGHT - self.contentInset.top - delta - 140);
     }
 }
 
@@ -158,9 +175,6 @@
     // 如果正在拖拽
     if (scrollView.isDragging) {
         
-        CGFloat progress = MAX(MH_SCREEN_HEIGHT - offsetY, 0) / MH_SCREEN_HEIGHT;
-        
-
         /// 必须是上拉
         if (self.state == MHRefreshStateIdle && (offsetY > self.lastOffsetY || isPulldown )) {
             // 转为即将刷新状态
@@ -168,9 +182,8 @@
         }else if (self.state == MHRefreshStatePulling && (offsetY <= self.lastOffsetY)){
             self.state = MHRefreshStateIdle;
         }
-        
-        /// 回调数据
-        !self.viewModel.callback?:self.viewModel.callback( @{@"offset": @(delta), @"state": @(self.state)});
+        /// 回调数据 这里也得回传一个 比当前大偏移量 大的值 delta * 1.8
+        !self.viewModel.callback?:self.viewModel.callback( @{@"offset": @(delta * 1.8), @"state": @(self.state)});
     } else if (self.state == MHRefreshStatePulling) {
         /// 进入帅新状态
         self.state = MHRefreshStateRefreshing;
@@ -205,7 +218,7 @@
             
         }];
         
-        /// Fixed Bug: 隐藏 拍照按钮 放在这里跟外界动画保持一致 否则放在上面的动画中，导致 外面会看到有残影
+        /// Fixed Bug: 隐藏 拍照按钮 放在这里跟外界动画保持一致 否则放在上面的动画中，导致 外面会看到有残影 细节拉满
         [UIView animateWithDuration:MHPulldownAppletRefreshingDuration animations:^{
             /// 隐藏拍照按钮
             self.cameraBtn.alpha = .0f;
@@ -251,16 +264,23 @@
 //    [weatherView showWeatherAnimationWithType:WHWeatherTypeClound];
     
     /// 滚动
+    CGRect frame = CGRectMake(0, 0, MH_SCREEN_WIDTH, MH_SCREEN_HEIGHT);
     UIScrollView *scrollView = [[UIScrollView alloc] init];
     self.scrollView = scrollView;
     MHAdjustsScrollViewInsets_Never(scrollView);
     [self.view addSubview:scrollView];
     /// 高度为 屏高-导航栏高度 形成滚动条在导航栏下面
-    scrollView.frame = CGRectMake(0, 0, MH_SCREEN_WIDTH, MH_SCREEN_HEIGHT);
+    scrollView.frame = frame;
     scrollView.backgroundColor = [UIColor clearColor];
     scrollView.delegate = self;
     scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     scrollView.alwaysBounceVertical = YES;
+    
+    /// 气泡模块
+    MHVideoTrendsBubbleView *bubbleView = [MHVideoTrendsBubbleView bubbleView];
+    self.bubbleView = bubbleView;
+    [scrollView addSubview:bubbleView];
+    bubbleView.frame = frame;
     
     /// 增加点击事件回调
     UITapGestureRecognizer *tapGr = [[UITapGestureRecognizer alloc] init];
@@ -273,10 +293,10 @@
     
     
     /// 默认场景下 设置 contentOffset 在最顶部
-    scrollView.contentOffset = CGPointMake(0, MH_SCREEN_HEIGHT - self.contentInset.top);
+    scrollView.contentOffset = CGPointMake(0, MH_SCREEN_HEIGHT - self.contentInset.top - 140.0);
     
     
-    /// cameraBtn
+    /// cameraBtnf
     UIColor *color = MHColorFromHexString(@"#4699e0");
     UIImage *image = [UIImage mh_svgImageNamed:@"icons_filled_camera.svg" targetSize:CGSizeMake(24.0, 24.0) tintColor:color];
     UIButton *cameraBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -290,7 +310,7 @@
     UIImage *highlightBg = [UIImage yy_imageWithColor:MH_MAIN_BACKGROUNDCOLOR];
     
     [cameraBtn setBackgroundImage:highlightBg forState:UIControlStateHighlighted];
-    cameraBtn.titleLabel.font = MHMediumFont(16.0f);
+    cameraBtn.titleLabel.font = MHMediumFont(17.0f);
     cameraBtn.layer.cornerRadius = 10.0f;
     cameraBtn.masksToBounds = YES;
     [cameraBtn SG_imagePositionStyle:SGImagePositionStyleDefault spacing:8.0f];
@@ -310,13 +330,24 @@
 
 //    cameraBtn.rac_command = self.viewModel.cameraCommand;
     
-    UIView *v = [[UIView alloc] init];
-    v.backgroundColor = [UIColor redColor];
-    v.frame = CGRectMake(0, MH_SCREEN_HEIGHT - 10, MH_SCREEN_WIDTH, 10);
-    [scrollView addSubview:v];
-    
-    
+    /// 这个提示按钮按钮
+    UIImage *image1 = [UIImage mh_svgImageNamed:@"icons_filled_download2.svg" targetSize:CGSizeMake(24.0, 24.0) tintColor:color];
+    UIButton *tipsBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [tipsBtn setImage:image1 forState:UIControlStateNormal];
+    [tipsBtn setImage:image1 forState:UIControlStateHighlighted];
+    [tipsBtn setTitle:@"下拉拍一个视频动态" forState:UIControlStateNormal];
+    [tipsBtn setTitle:@"下拉拍一个视频动态" forState:UIControlStateHighlighted];
+    [tipsBtn setTitleColor:color forState:UIControlStateNormal];
+    [tipsBtn setTitleColor:color forState:UIControlStateHighlighted];
 
+    tipsBtn.titleLabel.font = MHRegularFont_17;
+//    [tipsBtn SG_imagePositionStyle:SGImagePositionStyleDefault spacing:8.0f];
+    [scrollView addSubview:tipsBtn];
+    
+    self.tipsBtn = tipsBtn;
+    
+    /// 默认隐藏
+    tipsBtn.alpha = 1.0f;
     
 }
 
@@ -325,9 +356,16 @@
 
     CGFloat cameraBtnW = 180.0f;
     CGFloat cameraBtnH = 44.0f;
-    CGFloat cameraBtnY = MH_SCREEN_HEIGHT - cameraBtnH - MH_APPLICATION_TAB_BAR_HEIGHT - 89.0f;
+    CGFloat cameraBtnY = MH_SCREEN_HEIGHT - cameraBtnH - 128.0f;
     CGFloat cameraBtnX = (MH_SCREEN_WIDTH - cameraBtnW) *.5f;
     self.cameraBtn.frame = CGRectMake(cameraBtnX, cameraBtnY, cameraBtnW, cameraBtnH);
+    
+    
+    CGFloat tipsBtnW = 180.0f;
+    CGFloat tipsBtnH = 44.0f;
+    CGFloat tipsBtnY = MH_SCREEN_HEIGHT - 260.0f;
+    CGFloat tipsBtnX = (MH_SCREEN_WIDTH - tipsBtnW) *.5f;
+    self.tipsBtn.frame = CGRectMake(tipsBtnX, tipsBtnY, tipsBtnW, tipsBtnH);
 }
 
 

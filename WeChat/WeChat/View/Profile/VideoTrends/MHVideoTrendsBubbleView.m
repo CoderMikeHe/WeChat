@@ -10,12 +10,14 @@
 
 @implementation MHVideoTrendsBubbleView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
++ (instancetype)bubbleView {
+    return [self mh_viewFromXib];
 }
-*/
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    self.backgroundColor = MH_MAIN_BACKGROUNDCOLOR;
+}
 
 @end
