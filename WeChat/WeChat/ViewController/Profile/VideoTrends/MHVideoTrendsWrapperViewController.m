@@ -102,6 +102,8 @@
             /// 提示按钮隐藏
             self.tipsBtn.alpha = .0f;
             
+            self.bubbleView.alpha = 1.0f;
+            
         } completion:^(BOOL finished) {
         }];
     }else {
@@ -135,6 +137,13 @@
         /// 细节处理 ： 这里需要对偏移量除以一个阻尼系数(>1)，保证外面的偏移量 大于 内部的偏移量
         CGFloat delta = offset / 1.8;
         
+        NSLog(@"xxxxxxxxxxxx   --- %f", delta)
+        
+        CGFloat alpha = 0;
+        CGFloat step = 1.0 / 100;
+        alpha = 0 + step * delta;
+        self.bubbleView.alpha = MIN(1.0f, alpha);
+        
         /// 设置偏移量
         self.scrollView.contentOffset = CGPointMake(0, MH_SCREEN_HEIGHT - self.contentInset.top - delta - 140);
     }
@@ -151,7 +160,7 @@
     /// 获取偏移量
     CGFloat offsetY = scrollView.mh_offsetY;
     
-    NSLog(@"🔥 %f  %d", offsetY, scrollView.isDragging);
+//    NSLog(@"🔥 %f  %d", offsetY, scrollView.isDragging);
     
     /// 这种场景 设置scrollView.contentOffset.y = 0 否则滚动条下拉 让用户觉得能下拉 但是又没啥意义 体验不好
     if (offsetY < -scrollView.contentInset.top) {
@@ -205,7 +214,6 @@
         if (oldState != MHRefreshStateRefreshing) return;
         
         /// 细节：外面要比里面的要快，外面动画时间 .35f 内部s动画时间 .5f
-        
         // 恢复inset和offset
         [UIView animateWithDuration:.5f animations:^{
           
@@ -222,6 +230,8 @@
         [UIView animateWithDuration:MHPulldownAppletRefreshingDuration animations:^{
             /// 隐藏拍照按钮
             self.cameraBtn.alpha = .0f;
+            /// 隐藏气泡
+            self.bubbleView.alpha = .0f;
         }];
         
     } else if (state == MHRefreshStateRefreshing) {
@@ -307,7 +317,7 @@
     [cameraBtn setTitleColor:color forState:UIControlStateNormal];
     [cameraBtn setTitleColor:color forState:UIControlStateHighlighted];
     
-    UIImage *highlightBg = [UIImage yy_imageWithColor:MH_MAIN_BACKGROUNDCOLOR];
+    UIImage *highlightBg = [UIImage yy_imageWithColor:MHColorFromHexString(@"#d5d5d5")];
     
     [cameraBtn setBackgroundImage:highlightBg forState:UIControlStateHighlighted];
     cameraBtn.titleLabel.font = MHMediumFont(17.0f);
@@ -354,15 +364,15 @@
 /// 布局子控件
 - (void)_makeSubViewsConstraints{
 
-    CGFloat cameraBtnW = 180.0f;
-    CGFloat cameraBtnH = 44.0f;
+    CGFloat cameraBtnW = 194.0f;
+    CGFloat cameraBtnH = 48.0f;
     CGFloat cameraBtnY = MH_SCREEN_HEIGHT - cameraBtnH - 128.0f;
     CGFloat cameraBtnX = (MH_SCREEN_WIDTH - cameraBtnW) *.5f;
     self.cameraBtn.frame = CGRectMake(cameraBtnX, cameraBtnY, cameraBtnW, cameraBtnH);
     
     
-    CGFloat tipsBtnW = 180.0f;
-    CGFloat tipsBtnH = 44.0f;
+    CGFloat tipsBtnW = 194.0f;
+    CGFloat tipsBtnH = 48.0f;
     CGFloat tipsBtnY = MH_SCREEN_HEIGHT - 260.0f;
     CGFloat tipsBtnX = (MH_SCREEN_WIDTH - tipsBtnW) *.5f;
     self.tipsBtn.frame = CGRectMake(tipsBtnX, tipsBtnY, tipsBtnW, tipsBtnH);
