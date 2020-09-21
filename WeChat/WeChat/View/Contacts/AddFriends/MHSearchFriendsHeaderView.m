@@ -37,6 +37,7 @@
 - (IBAction)_qrCodeBtnDidClicked:(UIButton *)sender {
     /// 点击二维码
     NSLog(@"二维码点击");
+    NSLog(@"添加点击");
 }
 
 - (IBAction)_searchBtnDidClicked:(UIButton *)sender {
