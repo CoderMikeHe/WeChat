@@ -36,7 +36,7 @@
 #pragma mark - 事件处理
 - (IBAction)_qrCodeBtnDidClicked:(UIButton *)sender {
     /// 点击二维码
-    
+    NSLog(@"二维码点击");
 }
 
 - (IBAction)_searchBtnDidClicked:(UIButton *)sender {
