@@ -39,8 +39,11 @@
 #pragma mark - Private Method
 - (void)awakeFromNib {
     [super awakeFromNib];
+    NSLog(@"awakefromnib");
     
 }
+
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
