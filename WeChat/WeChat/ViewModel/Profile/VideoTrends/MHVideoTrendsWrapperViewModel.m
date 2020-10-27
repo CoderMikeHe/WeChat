@@ -8,6 +8,7 @@
 
 #import "MHVideoTrendsWrapperViewModel.h"
 
+
 @interface MHVideoTrendsWrapperViewModel ()
 
 /// cameraCommand
@@ -22,5 +23,10 @@
         self.cameraCommand = params[MHViewModelUtilKey];
     }
     return self;
+}
+
+- (void)initialize {
+    [super initialize];
+    
 }
 @end

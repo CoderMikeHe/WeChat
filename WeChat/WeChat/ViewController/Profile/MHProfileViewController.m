@@ -17,7 +17,8 @@
 @property (nonatomic, readonly, strong) MHProfileViewModel *viewModel;
 /// cameraBtn
 @property (nonatomic, readwrite, weak) UIButton *cameraBtn;
-
+/// coverBtn : 用于点击显示视频动态 <PS: 其实更好的做法是去 设置MHProfileHeaderCell 的高度，但是笔者为了省事，就在头部加个蒙版>
+@property (nonatomic, readwrite, weak) UIButton *coverBtn;
 
 /// ---------------------- 下拉视频动态相关 ----------------------
 /// lastOffsetY
@@ -70,7 +71,7 @@
 
 #pragma mark - 辅助方法/事件
 /// 处理小程序回调的数据
-- (void)_handleAppletOffset:(NSDictionary *)dictionary {
+- (void)_handleVideoTrendsOffset:(NSDictionary *)dictionary {
     
     if (MHObjectIsNil(dictionary)) {
         return;
@@ -86,30 +87,10 @@
         /// 拖拽状态
         CGFloat delta = MH_SCREEN_HEIGHT - MH_APPLICATION_TOP_BAR_HEIGHT + offset;
         delta = MAX(0, delta);
-        
-        /// 更新 navBar Y
-//        [self.navBar mas_updateConstraints:^(MASConstraintMaker *make) {
-//            make.top.equalTo(self.view).with.offset(delta);
-//        }];
-//
-//        /// 传递offset
-//        self.viewModel.ballsViewModel.offsetInfo = @{@"offset": @(delta), @"state": @(state), @"animate": @NO};
-//
-//        /// 更新 ballsView 的 h
-//        [self.ballsView mas_updateConstraints:^(MASConstraintMaker *make) {
-//            CGFloat height = delta;
-//            make.height.mas_equalTo(MAX(6.0f, height));
-//        }];
-        
         /// 更新tableView Y
         self.tableView.mh_y = delta;
-        
-        /// 修改导航栏颜色
-        //        [self _changeNavBarBackgroundColor:offset];
     }
 }
-
-
 
 
 #pragma mark - Override
@@ -121,7 +102,7 @@
     RACSignal *signal = [RACObserve(self.viewModel, offsetInfo) skip:1];
     [signal subscribeNext:^(NSDictionary *dictionary) {
         @strongify(self);
-        [self _handleAppletOffset:dictionary];
+        [self _handleVideoTrendsOffset:dictionary];
     }];
 }
 
@@ -143,9 +124,7 @@
 }
 
 - (UIEdgeInsets)contentInset{
-    
-    CGFloat top = [MHPreferenceSettingHelper boolForKey:MHPreferenceSettingPulldownVideoTrends] ? 124.0f : 164.0f;
-    
+    CGFloat top = self.isPulled ? 124.0f : 164.0f;
     // 200 - 76
     return UIEdgeInsetsMake(top, 0, MH_APPLICATION_TAB_BAR_HEIGHT, 0);
 }
@@ -180,7 +159,6 @@
     
     
     // 如果是向上滚动到看不见头部控件，直接返回
-    // >= -> >
     if (offsetY > happenOffsetY) return;
     
     // 普通 和 即将刷新 的临界点
@@ -190,7 +168,7 @@
     CGFloat delta = -(offsetY - happenOffsetY);
     
     
-    NSLog(@"👉  %f %f  %f", offsetY, happenOffsetY, delta);
+    NSLog(@"👉 xxxxxx--=== %f %f  %f", offsetY, happenOffsetY, delta);
     
     // 如果正在拖拽
     if (scrollView.isDragging) {
@@ -253,6 +231,11 @@
         self.tabBarController.tabBar.mh_y = MH_SCREEN_HEIGHT;
         self.tabBarController.tabBar.alpha = .0f;
         
+        // 修改 coverBtn 的高度
+        [self.coverBtn mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(self.contentInset.top);
+        }];
+        
         /// 动画
         [UIView animateWithDuration:MHPulldownAppletRefreshingDuration animations:^{
             /// 导航栏相关 回到原来位置
@@ -272,23 +255,21 @@
 
             /// 动画结束 允许用户交互
             self.view.userInteractionEnabled = YES;
+            self.coverBtn.hidden = NO;
         }];
     } else if (state == MHRefreshStateRefreshing) {
         dispatch_async(dispatch_get_main_queue(), ^{
             
+            self.coverBtn.hidden = YES;
             
-        
             /// 最终停留点的位置
             CGFloat top = MH_SCREEN_HEIGHT;
             
-            /// 修改容器top
-//            [self.videoTrendsWrapperController.view mas_updateConstraints:^(MASConstraintMaker *make) {
-//                make.top.equalTo(self.view).with.offset(0);
-//            }];
-  
-            
             /// 动画过程中 禁止用户交互
             self.view.userInteractionEnabled = NO;
+            
+            /// 传递状态
+            self.viewModel.videoTrendsWrapperViewModel.offsetInfo = @{@"offset": @(MH_SCREEN_HEIGHT), @"state": @(self.state)};
             
             /// 动画
             [UIView animateWithDuration:MHPulldownAppletRefreshingDuration animations:^{
@@ -318,10 +299,10 @@
                 /// 这种方式有动画
                 self.tabBarController.tabBar.alpha = .0f;
                 self.tabBarController.tabBar.mh_y = MH_SCREEN_HEIGHT;
-                
-                
-                
             } completion:^(BOOL finished) {
+                
+                // 到了这里 一般证明就是下拉过了 设置为YES
+                [MHPreferenceSettingHelper setBool:YES forKey:MHPreferenceSettingPulldownVideoTrends];
                 
                 /// 小tips: 这里动画完成后 将tableView 的 y 设置到 MH_SCREEN_HEIGHT - finalTop ; 以及 将contentInset 和 contentOffset 回到原来的位置
                 /// 目的：后期上拉的时候 只需要改变tableView 的 y就行了
@@ -339,7 +320,10 @@
     }
 }
 
-
+// 是否下拉显示过 视频模块
+- (BOOL)isPulled {
+    return [MHPreferenceSettingHelper boolForKey:MHPreferenceSettingPulldownVideoTrends];
+}
 
 #pragma mark - 初始化
 - (void)_setup{
@@ -355,12 +339,25 @@
 
 #pragma mark - 设置子控件
 - (void)_setupSubViews{
+    @weakify(self);
+    
     /// 下拉视频模块
     MHVideoTrendsWrapperViewController *videoTrendsWrapperController = [[MHVideoTrendsWrapperViewController alloc] initWithViewModel:self.viewModel.videoTrendsWrapperViewModel];
     self.videoTrendsWrapperController = videoTrendsWrapperController;
     [self.view insertSubview:videoTrendsWrapperController.view belowSubview:self.tableView];
     [self addChildViewController:videoTrendsWrapperController];
     [videoTrendsWrapperController didMoveToParentViewController:self];
+    
+    /// 蒙版
+    UIButton *coverBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.view addSubview:coverBtn];
+    self.coverBtn = coverBtn;
+    coverBtn.backgroundColor = [UIColor clearColor];
+    [[coverBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
+        self.lastOffsetY = .0f;
+        self.state = MHRefreshStateRefreshing;
+    }];
     
     /// cameraBtn
     UIImage *image = [UIImage mh_svgImageNamed:@"icons_filled_camera.svg" targetSize:CGSizeMake(24.0, 24.0) tintColor:MHColorFromHexString(@"#1A1A1A")];
@@ -377,10 +374,6 @@
 - (void)_makeSubViewsConstraints{
     
     [self.videoTrendsWrapperController.view mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self.view).with.offset(0);
-//        make.right.equalTo(self.view).with.offset(0);
-//        make.height.mas_equalTo(MH_SCREEN_HEIGHT);
-//        make.top.equalTo(self.view).with.offset(-(MH_SCREEN_HEIGHT - self.contentInset.top));
         make.edges.mas_equalTo(UIEdgeInsetsZero);
     }];
     
@@ -388,6 +381,11 @@
         make.right.equalTo(self.view).with.offset(-22.0);
         make.top.equalTo(self.view).with.offset(34.0);
         make.size.mas_equalTo(CGSizeMake(24.0f, 24.0f));
+    }];
+    
+    [self.coverBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.and.right.equalTo(self.view).with.offset(0);
+        make.height.mas_equalTo(self.contentInset.top);
     }];
 }
 

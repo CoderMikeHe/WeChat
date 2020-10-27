@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MHVideoTrendsViewModel : MHViewModel
 
+
+
+
 @end
 
 NS_ASSUME_NONNULL_END

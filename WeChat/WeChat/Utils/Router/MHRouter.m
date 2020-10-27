@@ -90,7 +90,8 @@ static MHRouter *sharedInstance_ = nil;
              @"MHSingleChatViewModel":@"MHSingleChatViewController",
              @"MHGroupChatViewModel":@"MHGroupChatViewController",
              @"MHDiscoverManagerViewModel": @"MHDiscoverManagerViewController",
-             @"MHAppletViewModel":@"MHAppletViewController"
+             @"MHAppletViewModel":@"MHAppletViewController",
+             @"MHVideoTrendsViewModel":@"MHVideoTrendsViewController"
              };
 }
 

@@ -7,16 +7,12 @@
 //
 
 #import "MHVideoTrendsWrapperViewController.h"
-#import "WHWeatherView.h"
-#import "WHWeatherHeader.h"
 #import "MHVideoTrendsBubbleView.h"
 @interface MHVideoTrendsWrapperViewController ()<UIScrollViewDelegate>
 /// viewModel
 @property (nonatomic, readonly, strong) MHVideoTrendsWrapperViewModel *viewModel;
 /// 上拉容器
 @property (nonatomic, readwrite, weak) UIScrollView *scrollView;
-/// 天气View
-@property (nonatomic, readwrite, weak) WHWeatherView *weatherView;
 /// 下拉状态
 @property (nonatomic, readwrite, assign) MHRefreshState state;
 
@@ -36,12 +32,29 @@
 /// bubbleView
 @property (nonatomic, readwrite, weak) MHVideoTrendsBubbleView *bubbleView;
 
+/// 记录页面消失时此时的偏移量
+@property (nonatomic, readwrite, assign) CGFloat currentOffsetY;
+
+// tempView
+@property (nonatomic, readwrite, weak) UIView *tempView;
+
 @end
 
 @implementation MHVideoTrendsWrapperViewController
 
 @dynamic viewModel;
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    /// Fixed Bug: 由于切换页签 或 下钻二级页面 导致 scrollView 的offsetY 为零 导致y用户第一次进来 操作上述步骤 出现 bubbleView 和 tipsBtn 滚动到最底部的Bug
+    self.scrollView.contentOffset = CGPointMake(0, self.currentOffsetY);
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    NSLog(@"+++ viewWillDisappear +++ %f", self.scrollView.mh_offsetY);
+    self.currentOffsetY = self.scrollView.mh_offsetY;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -57,13 +70,6 @@
     
     /// 布局子空间
     [self _makeSubViewsConstraints];
-}
-
-//// 这个跟 MHProfileViewController保持一致
-- (UIEdgeInsets)contentInset{
-    CGFloat top = [MHPreferenceSettingHelper boolForKey:MHPreferenceSettingPulldownVideoTrends] ? 124.0f : 164.0f;
-    // 200 - 76
-    return UIEdgeInsetsMake(top, 0, MH_APPLICATION_TAB_BAR_HEIGHT, 0);
 }
 
 
@@ -88,6 +94,8 @@
         return;
     }
     
+    NSLog(@"_handleAppletOffset ===== %@", dictionary);
+    
     CGFloat offset = [dictionary[@"offset"] doubleValue];
     MHRefreshState state = [dictionary[@"state"] doubleValue];
     
@@ -102,50 +110,32 @@
             /// 提示按钮隐藏
             self.tipsBtn.alpha = .0f;
             
+            /// 气泡view 显示
             self.bubbleView.alpha = 1.0f;
             
+            self.tempView.alpha = .0f;
+            
         } completion:^(BOOL finished) {
+            
         }];
     }else {
-//        /// 超过这个临界点 才有机会显示
-//        if (offset > MHPulldownAppletCriticalPoint2) {
-//            /// show
-//            self.view.alpha = 1.0f;
-//
-//            /// 小程序View alpha 0 --> .3f
-//            CGFloat alpha = 0;
-//            CGFloat step = 0.3 / (MHPulldownAppletCriticalPoint3 - MHPulldownAppletCriticalPoint2);
-//            alpha = 0 + step * (offset - MHPulldownAppletCriticalPoint2);
-//            self.appletController.view.alpha = MIN(.3f, alpha);
-//
-//            /// 小程序View scale 0 --> .1f
-//            CGFloat scale = 0;
-//            CGFloat step2 = 0.1 / (MHPulldownAppletCriticalPoint3 - MHPulldownAppletCriticalPoint2);
-//            scale =  0 + step2 * (offset - MHPulldownAppletCriticalPoint2);
-//            scale = MIN(.1f, scale);
-//            self.appletController.view.transform = CGAffineTransformMakeScale(0.6 + scale, 0.4 + scale);
-//
-//            /// darkView alpha 0 --> .3f
-//            CGFloat alpha1 = 0;
-//            CGFloat step1 = 0.3 / (MHPulldownAppletCriticalPoint3 - MHPulldownAppletCriticalPoint2);
-//            alpha1 = 0 + step1 * (offset - MHPulldownAppletCriticalPoint2);
-//            self.darkView.alpha = MIN(.3f, alpha1);
-//        }else {
-//            self.view.alpha = .0f;
-//        }
-        
         /// 细节处理 ： 这里需要对偏移量除以一个阻尼系数(>1)，保证外面的偏移量 大于 内部的偏移量
         CGFloat delta = offset / 1.8;
-        
-        NSLog(@"xxxxxxxxxxxx   --- %f", delta)
-        
         CGFloat alpha = 0;
         CGFloat step = 1.0 / 100;
         alpha = 0 + step * delta;
+        
+        /// Fixed Bug: 首次进入 bubbleView.alpha 恒为 1.0f
+        if (!self.isPulled) {
+            alpha = 1.0f;
+        }
         self.bubbleView.alpha = MIN(1.0f, alpha);
         
+        self.tempView.alpha = 1 - MIN(1.0f, alpha);
+        
         /// 设置偏移量
-        self.scrollView.contentOffset = CGPointMake(0, MH_SCREEN_HEIGHT - self.contentInset.top - delta - 140);
+        CGFloat top = [MHPreferenceSettingHelper boolForKey:MHPreferenceSettingPulldownVideoTrends] ? 124.0f : 164.0f;
+        self.scrollView.contentOffset = CGPointMake(0, MH_SCREEN_HEIGHT - top - delta - 140);
     }
 }
 
@@ -160,7 +150,7 @@
     /// 获取偏移量
     CGFloat offsetY = scrollView.mh_offsetY;
     
-//    NSLog(@"🔥 %f  %d", offsetY, scrollView.isDragging);
+    NSLog(@"🔥 /////// %f  %d", offsetY, scrollView.isDragging);
     
     /// 这种场景 设置scrollView.contentOffset.y = 0 否则滚动条下拉 让用户觉得能下拉 但是又没啥意义 体验不好
     if (offsetY < -scrollView.contentInset.top) {
@@ -217,7 +207,7 @@
         // 恢复inset和offset
         [UIView animateWithDuration:.5f animations:^{
           
-            CGFloat top = MH_SCREEN_HEIGHT - 124.0f;
+            CGFloat top = MH_SCREEN_HEIGHT - 124.0f - 140.0f;
             // 设置滚动位置 animated:YES 然后
             [self.scrollView setContentOffset:CGPointMake(0, top) animated:NO];
             
@@ -232,10 +222,13 @@
             self.cameraBtn.alpha = .0f;
             /// 隐藏气泡
             self.bubbleView.alpha = .0f;
+            
+            self.tempView.alpha = 1.0f;
         }];
         
     } else if (state == MHRefreshStateRefreshing) {
         dispatch_async(dispatch_get_main_queue(), ^{
+            
             /// 传递状态
             /// 回调数据 offset info
             !self.viewModel.callback?:self.viewModel.callback( @{@"offset": @(-MH_SCREEN_HEIGHT), @"state": @(self.state)});
@@ -244,6 +237,10 @@
             self.state = MHRefreshStateIdle;
         });
     }
+}
+
+- (BOOL)isPulled {
+    return [MHPreferenceSettingHelper boolForKey:MHPreferenceSettingPulldownVideoTrends];
 }
 
 
@@ -263,15 +260,13 @@
 - (void)_setupSubviews{
     @weakify(self);
     
-    /// 天气
-//    CGRect frame = CGRectMake(0, 0, MH_SCREEN_WIDTH, MH_SCREEN_HEIGHT);
-//    WHWeatherView *weatherView = [[WHWeatherView alloc] init];
-//    weatherView.frame = frame;
-//    [self.view addSubview:weatherView];
-//    self.weatherView = weatherView;
-//    weatherView.alpha = 1.0f;
-//    /// 天气动画;
-//    [weatherView showWeatherAnimationWithType:WHWeatherTypeClound];
+    BOOL isPulled = self.isPulled;
+    CGFloat top = isPulled ? 124.0f : 164.0f;
+    
+    UIView *tempView = [[UIView alloc] init];
+    self.tempView = tempView;
+    tempView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:tempView];
     
     /// 滚动
     CGRect frame = CGRectMake(0, 0, MH_SCREEN_WIDTH, MH_SCREEN_HEIGHT);
@@ -303,7 +298,7 @@
     
     
     /// 默认场景下 设置 contentOffset 在最顶部
-    scrollView.contentOffset = CGPointMake(0, MH_SCREEN_HEIGHT - self.contentInset.top - 140.0);
+    scrollView.contentOffset = CGPointMake(0, MH_SCREEN_HEIGHT - top - 140.0);
     
     
     /// cameraBtnf
@@ -337,8 +332,6 @@
         self.state = MHRefreshStateRefreshing;
         [self.viewModel.cameraCommand execute:nil];
     }];
-
-//    cameraBtn.rac_command = self.viewModel.cameraCommand;
     
     /// 这个提示按钮按钮
     UIImage *image1 = [UIImage mh_svgImageNamed:@"icons_filled_download2.svg" targetSize:CGSizeMake(24.0, 24.0) tintColor:color];
@@ -351,14 +344,16 @@
     [tipsBtn setTitleColor:color forState:UIControlStateHighlighted];
 
     tipsBtn.titleLabel.font = MHRegularFont_17;
-//    [tipsBtn SG_imagePositionStyle:SGImagePositionStyleDefault spacing:8.0f];
     [scrollView addSubview:tipsBtn];
     
     self.tipsBtn = tipsBtn;
     
-    /// 默认隐藏
-    tipsBtn.alpha = 1.0f;
+    /// 默认显示、隐藏
+    tipsBtn.alpha = isPulled ? .0f : 1.0f;
+    bubbleView.alpha = isPulled ? .0f : 1.0f;
     
+    /// 记录初始状态下的偏移量
+    self.currentOffsetY = scrollView.mh_offsetY;
 }
 
 /// 布局子控件
@@ -376,6 +371,11 @@
     CGFloat tipsBtnY = MH_SCREEN_HEIGHT - 260.0f;
     CGFloat tipsBtnX = (MH_SCREEN_WIDTH - tipsBtnW) *.5f;
     self.tipsBtn.frame = CGRectMake(tipsBtnX, tipsBtnY, tipsBtnW, tipsBtnH);
+    
+    [self.tempView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.and.right.equalTo(self.view).with.offset(0);
+        make.height.mas_equalTo(MH_SCREEN_HEIGHT * 0.5);
+    }];
 }
 
 

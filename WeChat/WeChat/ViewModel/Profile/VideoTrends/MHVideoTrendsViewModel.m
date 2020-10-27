@@ -10,4 +10,10 @@
 
 @implementation MHVideoTrendsViewModel
 
+- (void)initialize {
+    [super initialize];
+    
+    self.title = @"视频动态";
+}
+
 @end
