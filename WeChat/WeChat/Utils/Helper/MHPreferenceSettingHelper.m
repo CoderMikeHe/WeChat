@@ -13,6 +13,11 @@
 /// 存储language
 NSString * const MHPreferenceSettingLanguage = @"MHPreferenceSettingLanguage";
 
+/// ---- 我-视频动态
+/// 视频动态
+NSString * const MHPreferenceSettingPulldownVideoTrends = @"MHPreferenceSettingPulldownVideoTrends";
+/// 视频动态 点击右上角的camera
+NSString * const MHPreferenceSettingCameraVideoTrends = @"MHPreferenceSettingCameraVideoTrends";
 
 /// ---- 新消息通知
 /// 接收新消息通知

@@ -10,6 +10,7 @@
 #import "MHUserInfoViewModel.h"
 #import "MHSettingViewModel.h"
 #import "MHEmotionViewModel.h"
+#import "MHVideoTrendsViewModel.h"
 
 #if defined(DEBUG)||defined(_DEBUG)
 /// PS：调试模式，这里在ViewModel中引用了UIKite的东西， 但是release模式下无效，这里只是用作测试而已
@@ -22,6 +23,11 @@
 
 /// cameraCommand
 @property (nonatomic, readwrite, strong) RACCommand *cameraCommand;
+
+/// videoTrendsWrapperViewModel
+@property (nonatomic, readwrite, strong) MHVideoTrendsWrapperViewModel *videoTrendsWrapperViewModel;
+/// offsetInfo
+@property (nonatomic, readwrite, copy) NSDictionary *offsetInfo;
 
 @end
 
@@ -60,12 +66,21 @@
          [self didChangeValueForKey:@"user"];
      }];
     
-    
+    /// 点击照相机的cmd
     self.cameraCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         @strongify(self);
-        NSLog(@"Click the Camera ...");
+        MHViewModel *viewModel = [[MHVideoTrendsViewModel alloc] initWithServices:self.services params:nil];
+        [self.services presentViewModel:viewModel animated:YES completion:NULL];
         return [RACSignal empty];
     }];
+    
+    
+    /// --------------------- 下拉视频动态相关 ----------------------
+    self.videoTrendsWrapperViewModel = [[MHVideoTrendsWrapperViewModel alloc] initWithServices:self.services params:@{MHViewModelUtilKey: self.cameraCommand}];
+    self.videoTrendsWrapperViewModel.callback = ^(NSDictionary *offsetInfo) {
+        @strongify(self);
+        self.offsetInfo = offsetInfo;
+    };
     
     
     /// 配置数据

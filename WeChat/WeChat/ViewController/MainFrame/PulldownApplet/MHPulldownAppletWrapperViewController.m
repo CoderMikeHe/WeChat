@@ -337,8 +337,7 @@
     /// 记录
     self.lastOffsetY = offsetY;
 }
-/**
- */
+
 #pragma mark - Setter & Getter
 - (void)setState:(MHRefreshState)state {
     MHRefreshState oldState = self.state;

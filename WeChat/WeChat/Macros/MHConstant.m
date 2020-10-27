@@ -178,3 +178,8 @@ CGFloat const MHPulldownAppletCriticalPoint3 = 240.0f;
 
 /// 下拉显示小程序和隐藏小程序 动画时间 .35f
 NSTimeInterval const MHPulldownAppletRefreshingDuration = .35f;
+
+
+//// ---------------- 我模块 ----------------
+/// 下拉显示视频动态 临界点0 这个是在 我 模块下拉临界点
+CGFloat const MHPulldownVideoTrendsCriticalPoint0 = 70.0f;

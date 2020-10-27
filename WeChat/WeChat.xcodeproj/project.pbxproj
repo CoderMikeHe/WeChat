@@ -356,6 +356,10 @@
 		842D2438246A3D12008E5A2C /* MHSearchOfficialAccountsDefaultItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D2437246A3D12008E5A2C /* MHSearchOfficialAccountsDefaultItemViewModel.m */; };
 		842D243D246AA86D008E5A2C /* MHSearchMomentsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D243C246AA86D008E5A2C /* MHSearchMomentsViewModel.m */; };
 		842D2441246AACC1008E5A2C /* MHSearchMomentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D2440246AACC1008E5A2C /* MHSearchMomentsViewController.m */; };
+		84399F4924D912CF0062087E /* MHVideoTrendsWrapperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84399F4824D912CF0062087E /* MHVideoTrendsWrapperViewController.m */; };
+		84399F4C24D913270062087E /* MHVideoTrendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84399F4B24D913270062087E /* MHVideoTrendsViewController.m */; };
+		84399F5024D914090062087E /* MHVideoTrendsWrapperViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84399F4F24D914090062087E /* MHVideoTrendsWrapperViewModel.m */; };
+		84399F5324D9142C0062087E /* MHVideoTrendsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84399F5224D9142C0062087E /* MHVideoTrendsViewModel.m */; };
 		843CA60B24AC2E8300AE5CDF /* MHPulldownAppletItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 843CA60A24AC2E8300AE5CDF /* MHPulldownAppletItemView.m */; };
 		843CA60D24AC2E9F00AE5CDF /* MHPulldownAppletItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843CA60C24AC2E9F00AE5CDF /* MHPulldownAppletItemView.xib */; };
 		8449E2AD248506D700F81CE1 /* icons_outlined_camera.svg in Resources */ = {isa = PBXBuildFile; fileRef = 8449E2AC248506D700F81CE1 /* icons_outlined_camera.svg */; };
@@ -390,6 +394,8 @@
 		84B0F636247774B10075D576 /* MHSearchDefaultNoResultItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0F635247774B10075D576 /* MHSearchDefaultNoResultItemViewModel.m */; };
 		84B0F63F24777C310075D576 /* MHSearchDefaultNoResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0F63D24777C310075D576 /* MHSearchDefaultNoResultCell.m */; };
 		84B0F64024777C310075D576 /* MHSearchDefaultNoResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B0F63E24777C310075D576 /* MHSearchDefaultNoResultCell.xib */; };
+		84BBE69124DBB3E5008340E3 /* icons_filled_download2.svg in Resources */ = {isa = PBXBuildFile; fileRef = 84BBE69024DBB3E5008340E3 /* icons_filled_download2.svg */; };
+		84BBE69324DBEB19008340E3 /* MHVideoTrendsBubbleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BBE69224DBEB19008340E3 /* MHVideoTrendsBubbleView.xib */; };
 		84C29D1C2464F5D700C0F729 /* MHSearchOfficialAccountsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C29D1B2464F5D700C0F729 /* MHSearchOfficialAccountsViewModel.m */; };
 		84C29D1F246534A600C0F729 /* MHSearchVoiceInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C29D1E246534A600C0F729 /* MHSearchVoiceInputView.m */; };
 		84CBFE2F245AA6E300054D07 /* MHContactsItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CBFE2E245AA6E300054D07 /* MHContactsItemViewModel.m */; };
@@ -499,6 +505,9 @@
 		DE4A9D63245C25DD0094E21A /* SCIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4A9D5E245C25DC0094E21A /* SCIndexView.m */; };
 		DE4A9D64245C25DD0094E21A /* UITableView+SCIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4A9D60245C25DC0094E21A /* UITableView+SCIndexView.m */; };
 		DE4B8F8B246F72CF0096CFFB /* MHSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4B8F8A246F72CF0096CFFB /* MHSearch.m */; };
+		DE54DB1424DAEC78008B3FED /* MHVideoTrendsBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE54DB1324DAEC78008B3FED /* MHVideoTrendsBubbleView.m */; };
+		DE54DB1724DAEE06008B3FED /* MHVideoTrendsBubbleItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE54DB1624DAEE06008B3FED /* MHVideoTrendsBubbleItemView.m */; };
+		DE54DB1924DAF003008B3FED /* icons_story_chatroom_entry.svg in Resources */ = {isa = PBXBuildFile; fileRef = DE54DB1824DAF003008B3FED /* icons_story_chatroom_entry.svg */; };
 		DE54EABE2478D39200CAA223 /* MHGroupAvatarsView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE54EABD2478D39200CAA223 /* MHGroupAvatarsView.m */; };
 		DE54EAC22478D3C300CAA223 /* MHGroupAvatarsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DE54EAC12478D3C300CAA223 /* MHGroupAvatarsViewModel.m */; };
 		DE54EAC62478D3E500CAA223 /* MHGroupAvatarsItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DE54EAC52478D3E500CAA223 /* MHGroupAvatarsItemViewModel.m */; };
@@ -1241,6 +1250,14 @@
 		842D243C246AA86D008E5A2C /* MHSearchMomentsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchMomentsViewModel.m; sourceTree = "<group>"; };
 		842D243F246AACC1008E5A2C /* MHSearchMomentsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchMomentsViewController.h; sourceTree = "<group>"; };
 		842D2440246AACC1008E5A2C /* MHSearchMomentsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchMomentsViewController.m; sourceTree = "<group>"; };
+		84399F4724D912CF0062087E /* MHVideoTrendsWrapperViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHVideoTrendsWrapperViewController.h; sourceTree = "<group>"; };
+		84399F4824D912CF0062087E /* MHVideoTrendsWrapperViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHVideoTrendsWrapperViewController.m; sourceTree = "<group>"; };
+		84399F4A24D913270062087E /* MHVideoTrendsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHVideoTrendsViewController.h; sourceTree = "<group>"; };
+		84399F4B24D913270062087E /* MHVideoTrendsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHVideoTrendsViewController.m; sourceTree = "<group>"; };
+		84399F4E24D914090062087E /* MHVideoTrendsWrapperViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHVideoTrendsWrapperViewModel.h; sourceTree = "<group>"; };
+		84399F4F24D914090062087E /* MHVideoTrendsWrapperViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHVideoTrendsWrapperViewModel.m; sourceTree = "<group>"; };
+		84399F5124D9142C0062087E /* MHVideoTrendsViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHVideoTrendsViewModel.h; sourceTree = "<group>"; };
+		84399F5224D9142C0062087E /* MHVideoTrendsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHVideoTrendsViewModel.m; sourceTree = "<group>"; };
 		843CA60924AC2E8300AE5CDF /* MHPulldownAppletItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHPulldownAppletItemView.h; sourceTree = "<group>"; };
 		843CA60A24AC2E8300AE5CDF /* MHPulldownAppletItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHPulldownAppletItemView.m; sourceTree = "<group>"; };
 		843CA60C24AC2E9F00AE5CDF /* MHPulldownAppletItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHPulldownAppletItemView.xib; sourceTree = "<group>"; };
@@ -1293,6 +1310,8 @@
 		84B0F63C24777C310075D576 /* MHSearchDefaultNoResultCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchDefaultNoResultCell.h; sourceTree = "<group>"; };
 		84B0F63D24777C310075D576 /* MHSearchDefaultNoResultCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchDefaultNoResultCell.m; sourceTree = "<group>"; };
 		84B0F63E24777C310075D576 /* MHSearchDefaultNoResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHSearchDefaultNoResultCell.xib; sourceTree = "<group>"; };
+		84BBE69024DBB3E5008340E3 /* icons_filled_download2.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_filled_download2.svg; sourceTree = "<group>"; };
+		84BBE69224DBEB19008340E3 /* MHVideoTrendsBubbleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHVideoTrendsBubbleView.xib; sourceTree = "<group>"; };
 		84C29D1A2464F5D700C0F729 /* MHSearchOfficialAccountsViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchOfficialAccountsViewModel.h; sourceTree = "<group>"; };
 		84C29D1B2464F5D700C0F729 /* MHSearchOfficialAccountsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearchOfficialAccountsViewModel.m; sourceTree = "<group>"; };
 		84C29D1D246534A600C0F729 /* MHSearchVoiceInputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearchVoiceInputView.h; sourceTree = "<group>"; };
@@ -1435,6 +1454,11 @@
 		DE4A9D61245C25DC0094E21A /* SCIndexView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCIndexView.h; sourceTree = "<group>"; };
 		DE4B8F89246F72CF0096CFFB /* MHSearch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHSearch.h; sourceTree = "<group>"; };
 		DE4B8F8A246F72CF0096CFFB /* MHSearch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHSearch.m; sourceTree = "<group>"; };
+		DE54DB1224DAEC78008B3FED /* MHVideoTrendsBubbleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHVideoTrendsBubbleView.h; sourceTree = "<group>"; };
+		DE54DB1324DAEC78008B3FED /* MHVideoTrendsBubbleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHVideoTrendsBubbleView.m; sourceTree = "<group>"; };
+		DE54DB1524DAEE06008B3FED /* MHVideoTrendsBubbleItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHVideoTrendsBubbleItemView.h; sourceTree = "<group>"; };
+		DE54DB1624DAEE06008B3FED /* MHVideoTrendsBubbleItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHVideoTrendsBubbleItemView.m; sourceTree = "<group>"; };
+		DE54DB1824DAF003008B3FED /* icons_story_chatroom_entry.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_story_chatroom_entry.svg; sourceTree = "<group>"; };
 		DE54EABC2478D39200CAA223 /* MHGroupAvatarsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHGroupAvatarsView.h; sourceTree = "<group>"; };
 		DE54EABD2478D39200CAA223 /* MHGroupAvatarsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHGroupAvatarsView.m; sourceTree = "<group>"; };
 		DE54EAC02478D3C300CAA223 /* MHGroupAvatarsViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHGroupAvatarsViewModel.h; sourceTree = "<group>"; };
@@ -1924,6 +1948,7 @@
 		26064AF91F5DB46500566B95 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				84399F4624D912260062087E /* VideoTrends */,
 				DEAA482D248B2D4A00F71465 /* DiscoverManager */,
 				2633E0211FEA08C000D0E187 /* Emotion */,
 				2601757E1FE90492000F6A25 /* General */,
@@ -2321,6 +2346,7 @@
 		26225D831F65506E0074BFC3 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				84399F4D24D9138B0062087E /* VideoTrends */,
 				DEAA4831248B2DB700F71465 /* DiscoverManager */,
 				2633E00F1FEA05D300D0E187 /* Emotion */,
 				2601757F1FE904AF000F6A25 /* General */,
@@ -2667,6 +2693,7 @@
 		263C89751F6A305100F7A0AE /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				DE54DB1124DAEC0D008B3FED /* VideoTrends */,
 				265DBFE91FE0C8BF00A5FCC8 /* AboutUs */,
 				261753371F73C58B00812E1B /* FeatureSignature */,
 				264D36D41F70AEBD003BB8CE /* MHProfileHeaderCell.h */,
@@ -3458,12 +3485,14 @@
 		840C5D78248107F7002E88F0 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				DE54DB1824DAF003008B3FED /* icons_story_chatroom_entry.svg */,
 				84AC0768248235C7008D32F6 /* icons_filled_camera.svg */,
 				84AC07662482065E008D32F6 /* icons_outlined_qr_code.svg */,
 				840C5D85248110A5002E88F0 /* icons_outlined_album.svg */,
 				840C5D8224811093002E88F0 /* icons_outlined_colorful_cards_dark.svg */,
 				840C5D8124811093002E88F0 /* icons_outlined_colorful_cards.svg */,
 				840C5D7F2481100F002E88F0 /* icons_outlined_setting.svg */,
+				84BBE69024DBB3E5008340E3 /* icons_filled_download2.svg */,
 				840C5D7B2481094B002E88F0 /* icons_outlined_colorful_favorites_dark.svg */,
 				840C5D7C2481094B002E88F0 /* icons_outlined_colorful_favorites.svg */,
 				840C5D79248108D5002E88F0 /* icons_outlined_wechatpay.svg */,
@@ -3581,6 +3610,28 @@
 				842D2440246AACC1008E5A2C /* MHSearchMomentsViewController.m */,
 			);
 			path = Moments;
+			sourceTree = "<group>";
+		};
+		84399F4624D912260062087E /* VideoTrends */ = {
+			isa = PBXGroup;
+			children = (
+				84399F4724D912CF0062087E /* MHVideoTrendsWrapperViewController.h */,
+				84399F4824D912CF0062087E /* MHVideoTrendsWrapperViewController.m */,
+				84399F4A24D913270062087E /* MHVideoTrendsViewController.h */,
+				84399F4B24D913270062087E /* MHVideoTrendsViewController.m */,
+			);
+			path = VideoTrends;
+			sourceTree = "<group>";
+		};
+		84399F4D24D9138B0062087E /* VideoTrends */ = {
+			isa = PBXGroup;
+			children = (
+				84399F4E24D914090062087E /* MHVideoTrendsWrapperViewModel.h */,
+				84399F4F24D914090062087E /* MHVideoTrendsWrapperViewModel.m */,
+				84399F5124D9142C0062087E /* MHVideoTrendsViewModel.h */,
+				84399F5224D9142C0062087E /* MHVideoTrendsViewModel.m */,
+			);
+			path = VideoTrends;
 			sourceTree = "<group>";
 		};
 		8449E2AB2485069A00F81CE1 /* Moments */ = {
@@ -4018,6 +4069,18 @@
 				DE4B8F8A246F72CF0096CFFB /* MHSearch.m */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		DE54DB1124DAEC0D008B3FED /* VideoTrends */ = {
+			isa = PBXGroup;
+			children = (
+				DE54DB1224DAEC78008B3FED /* MHVideoTrendsBubbleView.h */,
+				DE54DB1324DAEC78008B3FED /* MHVideoTrendsBubbleView.m */,
+				84BBE69224DBEB19008340E3 /* MHVideoTrendsBubbleView.xib */,
+				DE54DB1524DAEE06008B3FED /* MHVideoTrendsBubbleItemView.h */,
+				DE54DB1624DAEE06008B3FED /* MHVideoTrendsBubbleItemView.m */,
+			);
+			path = VideoTrends;
 			sourceTree = "<group>";
 		};
 		DE54EABB2478D35300CAA223 /* GroupAvatars */ = {
@@ -4483,6 +4546,7 @@
 				26D81809201F2A7600DDB286 /* MHProfileInfoMoreCell.xib in Resources */,
 				84E8D5AF24B5712D002289CA /* ele_sunnyNightFirefly.png in Resources */,
 				2667A3F61F7B9FB100A3D7A2 /* MHMobileLoginViewController.xib in Resources */,
+				84BBE69324DBEB19008340E3 /* MHVideoTrendsBubbleView.xib in Resources */,
 				26064AC31F5D9A1400566B95 /* Assets.xcassets in Resources */,
 				26452BEF201200060042B2FE /* WeChat_Moments_1.json in Resources */,
 				84A545622474D3E70020FEE7 /* MHSearchCommonFooterView.xib in Resources */,
@@ -4549,6 +4613,7 @@
 				DEA6F3D8245AF5D900542C6B /* MHContactsHeaderView.xib in Resources */,
 				26D8180E201F306100DDB286 /* MHProfileInfoZoneCell.xib in Resources */,
 				84CFE0A8246D387E004C8739 /* MHSearchMusicDelHistoryCell.xib in Resources */,
+				84BBE69124DBB3E5008340E3 /* icons_filled_download2.svg in Resources */,
 				84ED8EE9247B6DF00040C46B /* icons_outlined_arrow.svg in Resources */,
 				84E8D5A624B5712D002289CA /* ele_night_back_sky.png in Resources */,
 				DE442179244C55E000206161 /* icons_outlined_add-friends.svg in Resources */,
@@ -4559,6 +4624,7 @@
 				840C5D712480F2C9002E88F0 /* icons_outlined_bottle.svg in Resources */,
 				84E8D5B524B5712D002289CA /* ele_white_cloud_5.png in Resources */,
 				84CFE098246D33C6004C8739 /* icons_outlined_close.svg in Resources */,
+				DE54DB1924DAF003008B3FED /* icons_story_chatroom_entry.svg in Resources */,
 				DE56247D246C0B43009CFF82 /* MHSearchCommonHeaderView.xib in Resources */,
 				84E8D5AB24B5712D002289CA /* ele_sunnyNightMeteor2.png in Resources */,
 				84E8D5B224B5712D002289CA /* ele_rainLine1.png in Resources */,
@@ -5075,6 +5141,7 @@
 				84A545672474D96D0020FEE7 /* MHSearchDefaultSearchTypeCell.m in Sources */,
 				8400E2E924A86DCC00125893 /* MHPulldownAppletViewController.m in Sources */,
 				8401300024AC910900D60A89 /* MHAppletViewController.m in Sources */,
+				84399F4924D912CF0062087E /* MHVideoTrendsWrapperViewController.m in Sources */,
 				26FE8E861F9514D100EC8BE0 /* TZAssetCell.m in Sources */,
 				261E01691FDE6A130041E989 /* MHFreeInterruptionItemViewModel.m in Sources */,
 				2633E0271FEA095D00D0E187 /* MHUsefulEmotionViewController.m in Sources */,
@@ -5092,6 +5159,7 @@
 				2638C5AD20450DC300C334E2 /* UIImage+ImageEffects.m in Sources */,
 				263D370E1F666569007267C3 /* LCActionSheet.m in Sources */,
 				261753141F73710000812E1B /* MHUserInfoViewController.m in Sources */,
+				84399F4C24D913270062087E /* MHVideoTrendsViewController.m in Sources */,
 				84A1BF24246E83D3008A807C /* MHSearchMusicDelHistoryItemViewModel.m in Sources */,
 				2615266B1F6AE17400400BA0 /* MHTabBar.m in Sources */,
 				84278CA824B41C9900F5C337 /* MHPulldownAppletWrapperViewController.m in Sources */,
@@ -5145,6 +5213,7 @@
 				263D37161F66656A007267C3 /* YYReachability.m in Sources */,
 				84278CAB24B45BD500F5C337 /* MHPulldownAppletWrapperViewModel.m in Sources */,
 				2664F5371FEA6BE6005C10CF /* MHMomentHelper.m in Sources */,
+				84399F5324D9142C0062087E /* MHVideoTrendsViewModel.m in Sources */,
 				84278CA524B4093700F5C337 /* MHBouncyBallsViewModel.m in Sources */,
 				2617533D1F73D03C00812E1B /* MHFeatureSignatureViewModel.m in Sources */,
 				E932C42921369FC600B32A9F /* MHCameraViewController.m in Sources */,
@@ -5203,6 +5272,7 @@
 				DE66C0E4246AE2A3000E9915 /* PinyinHelper.m in Sources */,
 				DE4B8F8B246F72CF0096CFFB /* MHSearch.m in Sources */,
 				26FE8E481F95143D00EC8BE0 /* IDMPhoto.m in Sources */,
+				DE54DB1724DAEE06008B3FED /* MHVideoTrendsBubbleItemView.m in Sources */,
 				26FE8E8C1F9514D100EC8BE0 /* TZImagePickerController.m in Sources */,
 				261753201F739DDC00812E1B /* MHCommonQRCodeItemViewModel.m in Sources */,
 				263C898A1F6A54AE00F7A0AE /* MHCommonFooterView.m in Sources */,
@@ -5238,6 +5308,7 @@
 				263D36E81F666438007267C3 /* UIBarButtonItem+MHExtension.m in Sources */,
 				84AB60A5244AFD990031DADE /* UIImage+MHSVG.m in Sources */,
 				265DBFEC1FE0C8D900A5FCC8 /* MHAboutUsHeaderView.m in Sources */,
+				84399F5024D914090062087E /* MHVideoTrendsWrapperViewModel.m in Sources */,
 				26FE8E4A1F95143D00EC8BE0 /* IDMPhotoBrowser.m in Sources */,
 				263D37111F666569007267C3 /* LCActionSheetViewController.m in Sources */,
 				841766642472396500B2A704 /* MHSearchStickerDefaultCell.m in Sources */,
@@ -5313,6 +5384,7 @@
 				2605C5B81F66249F00B1F66E /* MHHomePageViewModel.m in Sources */,
 				DE54EAC62478D3E500CAA223 /* MHGroupAvatarsItemViewModel.m in Sources */,
 				26CCB9D120244F690090DBC5 /* MHMomentVideo.m in Sources */,
+				DE54DB1424DAEC78008B3FED /* MHVideoTrendsBubbleView.m in Sources */,
 				264F2D161F94A80F00B244AD /* MHPlugDetailViewController.m in Sources */,
 				261597491FEA5DD300C6FD80 /* MHMomentAttitudesCell.m in Sources */,
 				263D36E21F666438007267C3 /* NSObject+MHExtension.m in Sources */,
