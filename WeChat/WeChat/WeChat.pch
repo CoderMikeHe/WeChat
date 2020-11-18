@@ -29,7 +29,7 @@
 #import <YYWebImage/YYWebImage.h>
 #import <IQKeyboardManager/IQKeyboardManager.h>
 #import <ZYCornerRadius/UIImageView+CornerRadius.h>
-#import <SGEasyButton/SGEasyButton.h>
+#import "SGEasyButton.h"
 
 /// User Custom File
 #import "MHMacros.h"
