@@ -3,6 +3,7 @@
 <img src="https://github.com/CoderMikeHe/WeChat_Resource/blob/master/snapshots/logo.png" width="256px" height="256px" />
 
 ### 👏 更新
+
 - 202010：增加 `我下拉视频动态` 模块。
 - 202007：增加 `微信下拉小程序` 模块。
 - 202006：增加 `微信/通讯录搜索` 模块。
@@ -12,7 +13,7 @@
 
 ### 🚄 下载
 
-- 若`pod install`很漫长或有问题，请戳百度网盘链接:https://pan.baidu.com/s/1U5SbgRCTXY8NdIDTT44HsA 密码:m9rk <PS：不定期更新！！！>
+- 若`pod install`很漫长或有问题，请戳百度网盘链接:链接:https://pan.baidu.com/s/1EoWYduzjS29Sqr5LiF6_Vg 密码:qmrr<PS：不定期更新！！！>
 
 ---
 
@@ -63,7 +64,7 @@
   ![Usage.png](https://github.com/CoderMikeHe/WeChat/blob/master/WeChat/SnapShot/CocopodsUsage.png)
 
   ```
-  1. pod repo update : 更新本地仓库
+  1. pod repo update 或 pod repo update --verbose : 更新本地仓库
   2. pod install : 下载新的库
   ```
 

@@ -551,6 +551,9 @@
 		DEA6F3D8245AF5D900542C6B /* MHContactsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA6F3D7245AF5D900542C6B /* MHContactsHeaderView.xib */; };
 		DEAA4830248B2D9700F71465 /* MHDiscoverManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEAA482F248B2D9700F71465 /* MHDiscoverManagerViewController.m */; };
 		DEAA4834248B2DD600F71465 /* MHDiscoverManagerViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DEAA4833248B2DD600F71465 /* MHDiscoverManagerViewModel.m */; };
+		DED6BAB52565652C0094333B /* UIButton+SGCountdown.m in Sources */ = {isa = PBXBuildFile; fileRef = DED6BAAE2565652B0094333B /* UIButton+SGCountdown.m */; };
+		DED6BAB62565652C0094333B /* UIButton+SGImagePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = DED6BAB02565652B0094333B /* UIButton+SGImagePosition.m */; };
+		DED6BAB72565652C0094333B /* UIButton+SGEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = DED6BAB12565652B0094333B /* UIButton+SGEvent.m */; };
 		DED808012465A11500AC76AD /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED808002465A11400AC76AD /* iflyMSC.framework */; };
 		DED808042465A26800AC76AD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED808032465A26800AC76AD /* AVFoundation.framework */; };
 		DED808062465A28400AC76AD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED808052465A28400AC76AD /* SystemConfiguration.framework */; };
@@ -1536,6 +1539,13 @@
 		DEAA482F248B2D9700F71465 /* MHDiscoverManagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHDiscoverManagerViewController.m; sourceTree = "<group>"; };
 		DEAA4832248B2DD600F71465 /* MHDiscoverManagerViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHDiscoverManagerViewModel.h; sourceTree = "<group>"; };
 		DEAA4833248B2DD600F71465 /* MHDiscoverManagerViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHDiscoverManagerViewModel.m; sourceTree = "<group>"; };
+		DED6BAAE2565652B0094333B /* UIButton+SGCountdown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+SGCountdown.m"; sourceTree = "<group>"; };
+		DED6BAAF2565652B0094333B /* UIButton+SGEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+SGEvent.h"; sourceTree = "<group>"; };
+		DED6BAB02565652B0094333B /* UIButton+SGImagePosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+SGImagePosition.m"; sourceTree = "<group>"; };
+		DED6BAB12565652B0094333B /* UIButton+SGEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+SGEvent.m"; sourceTree = "<group>"; };
+		DED6BAB22565652B0094333B /* UIButton+SGCountdown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+SGCountdown.h"; sourceTree = "<group>"; };
+		DED6BAB32565652B0094333B /* UIButton+SGImagePosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+SGImagePosition.h"; sourceTree = "<group>"; };
+		DED6BAB42565652B0094333B /* SGEasyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGEasyButton.h; sourceTree = "<group>"; };
 		DED808002465A11400AC76AD /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
 		DED808022465A22600AC76AD /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		DED808032465A26800AC76AD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -1815,6 +1825,7 @@
 		26064AF01F5DA21000566B95 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				DED6BAAD2565652B0094333B /* SGEasyButton */,
 				84E8D54224B5712C002289CA /* WHWeatherAnimation */,
 				DE66C0CA246AE2A3000E9915 /* HighlightedSearch */,
 				DE4A9D5B245C25DC0094E21A /* SCIndexView */,
@@ -4321,6 +4332,20 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		DED6BAAD2565652B0094333B /* SGEasyButton */ = {
+			isa = PBXGroup;
+			children = (
+				DED6BAAE2565652B0094333B /* UIButton+SGCountdown.m */,
+				DED6BAAF2565652B0094333B /* UIButton+SGEvent.h */,
+				DED6BAB02565652B0094333B /* UIButton+SGImagePosition.m */,
+				DED6BAB12565652B0094333B /* UIButton+SGEvent.m */,
+				DED6BAB22565652B0094333B /* UIButton+SGCountdown.h */,
+				DED6BAB32565652B0094333B /* UIButton+SGImagePosition.h */,
+				DED6BAB42565652B0094333B /* SGEasyButton.h */,
+			);
+			path = SGEasyButton;
+			sourceTree = "<group>";
+		};
 		E368DFC08996A6D47EB35CDB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -4763,7 +4788,6 @@
 				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/SAMKeychain/SAMKeychain.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SGEasyButton/SGEasyButton.framework",
 				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
 				"${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
@@ -4823,7 +4847,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SAMKeychain.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SGEasyButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVGKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
@@ -4911,7 +4934,6 @@
 				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/SAMKeychain/SAMKeychain.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SGEasyButton/SGEasyButton.framework",
 				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
 				"${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
@@ -4971,7 +4993,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SAMKeychain.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SGEasyButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVGKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
@@ -5041,7 +5062,6 @@
 				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/SAMKeychain/SAMKeychain.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SGEasyButton/SGEasyButton.framework",
 				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
 				"${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
@@ -5101,7 +5121,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SAMKeychain.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SGEasyButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVGKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
@@ -5193,6 +5212,7 @@
 				84CBFE36245AC7FD00054D07 /* MHTableViewCell.m in Sources */,
 				DE191DB3245E41010022E1A9 /* MHNavSearchBar.m in Sources */,
 				26363AC920134258000061EF /* MHEmoticonManager.m in Sources */,
+				DED6BAB52565652C0094333B /* UIButton+SGCountdown.m in Sources */,
 				260A609A1F77A53300F05120 /* MHSearchFriendsViewController.m in Sources */,
 				2615974C1FEA5DD300C6FD80 /* MHMomentFooterView.m in Sources */,
 				26BE2B522010C02C00F28AA0 /* MHMomentBackgroundView.m in Sources */,
@@ -5261,6 +5281,7 @@
 				84A545602474D3D30020FEE7 /* MHSearchCommonFooterView.m in Sources */,
 				84CBFE37245AC7FD00054D07 /* MHCollectionViewCell.m in Sources */,
 				261596DD1FEA515000C6FD80 /* MHMomentViewController.m in Sources */,
+				DED6BAB62565652C0094333B /* UIButton+SGImagePosition.m in Sources */,
 				263D37181F66656A007267C3 /* YYThreadSafeDictionary.m in Sources */,
 				2605C5D91F6633DE00B1F66E /* MHNewFeatureViewModel.m in Sources */,
 				26FE65691F930A9400642615 /* MHGenderItemViewModel.m in Sources */,
@@ -5327,6 +5348,7 @@
 				263D37101F666569007267C3 /* LCActionSheetConfig.m in Sources */,
 				265490571F99E921003AEED1 /* MHTestViewModel.m in Sources */,
 				2633E0201FEA089E00D0E187 /* MHEmotionViewModel.m in Sources */,
+				DED6BAB72565652C0094333B /* UIButton+SGEvent.m in Sources */,
 				26FE8E4C1F95143D00EC8BE0 /* IDMTapDetectingView.m in Sources */,
 				DEA6F3D4245AF3E200542C6B /* MHContactsHeaderView.m in Sources */,
 				26C7BEE51F8CBED800525126 /* SAMKeychain+MHUtil.m in Sources */,
