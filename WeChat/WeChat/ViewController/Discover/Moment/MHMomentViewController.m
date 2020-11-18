@@ -474,6 +474,10 @@
     // 自定义导航栏
     MHNavigationBar *navBar = [MHNavigationBar navigationBar];
     navBar.backgroundColor = [UIColor clearColor];
+    
+    // fixed bug: 默认backgroundView.backgroundColor = [UIColor clearColor];
+    navBar.backgroundView.backgroundColor = [UIColor clearColor];
+    
     navBar.titleLabel.textColor = [MHColorFromHexString(@"#181818") colorWithAlphaComponent:.0];;
     
     UIImage *image = [UIImage mh_svgImageNamed:@"icons_filled_camera.svg" targetSize:CGSizeMake(24.0, 24.0) tintColor:MHColorFromHexString(@"#FFFFFF")];
