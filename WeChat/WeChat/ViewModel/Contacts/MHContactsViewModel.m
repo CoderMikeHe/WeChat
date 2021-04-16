@@ -7,6 +7,7 @@
 //
 
 #import "MHContactsViewModel.h"
+#import "MHContactInfoViewModel.h"
 #import "MHAddFriendsViewModel.h"
 #import "MHContactsService.h"
 #import "WPFPinYinTools.h"
@@ -65,6 +66,20 @@
         return [RACSignal empty];
     }];
     
+    /// 选中cell 跳转的命令
+    self.didSelectCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSIndexPath * indexPath) {
+        // 非联系人暂时不处理
+        if (indexPath.section == 0) {
+            return [RACSignal empty];
+        }
+
+        // 点击联系人跳转到联系人详情页面
+        @strongify(self);
+        MHContactInfoViewModel *viewModel = [[MHContactInfoViewModel alloc] initWithServices:self.services params:@{MHViewModelUtilKey: ((MHContactsItemViewModel *)self.dataSource[indexPath.section][indexPath.row]).contact}];
+        [self.services pushViewModel:viewModel animated:YES];
+        return [RACSignal empty];
+    }];
+
     // 赋值数据
     RAC(self, contacts) = self.requestRemoteDataCommand.executionSignals.switchToLatest;
     

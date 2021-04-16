@@ -61,6 +61,7 @@ static MHRouter *sharedInstance_ = nil;
              @"MHMoreInfoViewModel":@"MHMoreInfoViewController",
              @"MHFeatureSignatureViewModel":@"MHFeatureSignatureViewController",
              @"MHAddFriendsViewModel":@"MHAddFriendsViewController",
+             @"MHContactInfoViewModel":@"MHContactInfoViewController",
              @"MHSearchFriendsViewModel":@"MHSearchFriendsViewController",
              @"MHAccountLoginViewModel":@"MHAccountLoginViewController",
              @"MHBootLoginViewModel":@"MHBootLoginViewController",

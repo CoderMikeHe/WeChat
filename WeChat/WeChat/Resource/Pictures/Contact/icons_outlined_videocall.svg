@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>icons_outlined_videocall</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="icons_outlined_videocall" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M3,6.1 C2.7790861,6.1 2.6,6.2790861 2.6,6.5 L2.6,17.5 C2.6,17.7209139 2.7790861,17.9 3,17.9 L16,17.9 C16.2209139,17.9 16.4,17.7209139 16.4,17.5 L16.4,6.5 C16.4,6.2790861 16.2209139,6.1 16,6.1 L3,6.1 Z M18.6,10.2883749 L18.6,13.7116251 L21.750122,16.2317227 C21.8210472,16.2884629 21.9091714,16.3193752 22,16.3193752 C22.2209139,16.3193752 22.4,16.1402891 22.4,15.9193752 L22.4,8.08062485 C22.4,7.98979625 22.3690877,7.90167205 22.3123475,7.83074683 C22.1743437,7.65824205 21.9226268,7.6302735 21.750122,7.76827732 L18.6,10.2883749 Z" id="Combined-Shape" stroke="#000000" stroke-width="1.2"></path>
+    </g>
+</svg>
