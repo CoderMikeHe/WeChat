@@ -405,6 +405,15 @@ static CGFloat const MHSlideOffsetMaxWidth = 56;
     UIImage *imageHigh = [UIImage mh_svgImageNamed:@"icons_outlined_add-friends.svg" targetSize:CGSizeMake(24.0, 24.0) tintColor:[MHColorFromHexString(@"#181818") colorWithAlphaComponent:0.5]];
     [navBar.rightButton setImage:image forState:UIControlStateNormal];
     [navBar.rightButton setImage:imageHigh forState:UIControlStateHighlighted];
+
+    navBar.rightButton.rac_command = self.viewModel.addFriendsCommand;
+    @weakify(navBar);
+    [[navBar.rightButton rac_signalForControlEvents:UIControlEventTouchUpInside]
+    subscribeNext:^(UIButton *sender) {
+        @strongify(navBar);
+        [navBar.rightButton.rac_command execute:nil];
+    }];
+
     self.navBar = navBar;
     [self.view addSubview:navBar];
     
