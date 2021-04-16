@@ -301,6 +301,16 @@
 		26FE8E911F9514D100EC8BE0 /* TZProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FE8E791F9514D100EC8BE0 /* TZProgressView.m */; };
 		26FE8E921F9514D100EC8BE0 /* TZVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FE8E7B1F9514D100EC8BE0 /* TZVideoPlayerController.m */; };
 		26FE8E931F9514D100EC8BE0 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FE8E7D1F9514D100EC8BE0 /* UIView+Layout.m */; };
+		41F874A62626CED100FCBBF0 /* MHContactInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F874A52626CED100FCBBF0 /* MHContactInfoViewController.m */; };
+		41F874AA2626CF5600FCBBF0 /* MHContactInfoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F874A92626CF5600FCBBF0 /* MHContactInfoViewModel.m */; };
+		41F874AF2627E71200FCBBF0 /* MHContactInfoHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F874AD2627E71200FCBBF0 /* MHContactInfoHeaderCell.m */; };
+		41F874B02627E71200FCBBF0 /* MHContactInfoHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41F874AE2627E71200FCBBF0 /* MHContactInfoHeaderCell.xib */; };
+		41F874B32627EEB100FCBBF0 /* MHContactInfoHeaderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F874B22627EEB100FCBBF0 /* MHContactInfoHeaderViewModel.m */; };
+		41F874B62629192700FCBBF0 /* MHContactInfoContactItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F874B52629192700FCBBF0 /* MHContactInfoContactItemViewModel.m */; };
+		41F874BA26291A9A00FCBBF0 /* icons_outlined_chats.svg in Resources */ = {isa = PBXBuildFile; fileRef = 41F874B826291A9A00FCBBF0 /* icons_outlined_chats.svg */; };
+		41F874BB26291A9A00FCBBF0 /* icons_outlined_videocall.svg in Resources */ = {isa = PBXBuildFile; fileRef = 41F874B926291A9A00FCBBF0 /* icons_outlined_videocall.svg */; };
+		41F874BF26291D3800FCBBF0 /* MHContactInfoContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F874BD26291D3700FCBBF0 /* MHContactInfoContactCell.m */; };
+		41F874C026291D3800FCBBF0 /* MHContactInfoContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41F874BE26291D3700FCBBF0 /* MHContactInfoContactCell.xib */; };
 		8400E2E924A86DCC00125893 /* MHPulldownAppletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8400E2E824A86DCC00125893 /* MHPulldownAppletViewController.m */; };
 		8400E2ED24A870E800125893 /* MHPulldownAppletViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8400E2EC24A870E800125893 /* MHPulldownAppletViewModel.m */; };
 		8400E2F124A897B300125893 /* MHPulldownAppletCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8400E2F024A897B300125893 /* MHPulldownAppletCell.m */; };
@@ -1168,6 +1178,22 @@
 		26FE8E7B1F9514D100EC8BE0 /* TZVideoPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZVideoPlayerController.m; sourceTree = "<group>"; };
 		26FE8E7C1F9514D100EC8BE0 /* UIView+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
 		26FE8E7D1F9514D100EC8BE0 /* UIView+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
+		41F874A42626CED100FCBBF0 /* MHContactInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHContactInfoViewController.h; sourceTree = "<group>"; };
+		41F874A52626CED100FCBBF0 /* MHContactInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHContactInfoViewController.m; sourceTree = "<group>"; };
+		41F874A82626CF5600FCBBF0 /* MHContactInfoViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHContactInfoViewModel.h; sourceTree = "<group>"; };
+		41F874A92626CF5600FCBBF0 /* MHContactInfoViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHContactInfoViewModel.m; sourceTree = "<group>"; };
+		41F874AC2627E71200FCBBF0 /* MHContactInfoHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHContactInfoHeaderCell.h; sourceTree = "<group>"; };
+		41F874AD2627E71200FCBBF0 /* MHContactInfoHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHContactInfoHeaderCell.m; sourceTree = "<group>"; };
+		41F874AE2627E71200FCBBF0 /* MHContactInfoHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHContactInfoHeaderCell.xib; sourceTree = "<group>"; };
+		41F874B12627EEB100FCBBF0 /* MHContactInfoHeaderViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHContactInfoHeaderViewModel.h; sourceTree = "<group>"; };
+		41F874B22627EEB100FCBBF0 /* MHContactInfoHeaderViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHContactInfoHeaderViewModel.m; sourceTree = "<group>"; };
+		41F874B42629192700FCBBF0 /* MHContactInfoContactItemViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHContactInfoContactItemViewModel.h; sourceTree = "<group>"; };
+		41F874B52629192700FCBBF0 /* MHContactInfoContactItemViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHContactInfoContactItemViewModel.m; sourceTree = "<group>"; };
+		41F874B826291A9A00FCBBF0 /* icons_outlined_chats.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_outlined_chats.svg; sourceTree = "<group>"; };
+		41F874B926291A9A00FCBBF0 /* icons_outlined_videocall.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_outlined_videocall.svg; sourceTree = "<group>"; };
+		41F874BC26291D3700FCBBF0 /* MHContactInfoContactCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHContactInfoContactCell.h; sourceTree = "<group>"; };
+		41F874BD26291D3700FCBBF0 /* MHContactInfoContactCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHContactInfoContactCell.m; sourceTree = "<group>"; };
+		41F874BE26291D3700FCBBF0 /* MHContactInfoContactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHContactInfoContactCell.xib; sourceTree = "<group>"; };
 		5199ACCDE3914E9780CBE096 /* Pods-WeChat-WeChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChat-WeChatUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeChat-WeChatUITests/Pods-WeChat-WeChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5F007961429C86520F15C504 /* Pods_WeChat_WeChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeChat_WeChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AC95F3A9ABF83B9A3CDD57C /* Pods-WeChat-WeChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeChat-WeChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeChat-WeChatTests/Pods-WeChat-WeChatTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1868,6 +1894,7 @@
 		26064AF21F5DB46500566B95 /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
+				41F874A32626CA4100FCBBF0 /* ContactInfo */,
 				2658C68B1F74FC3600C70840 /* AddFriends */,
 				2605C5D11F6632AA00B1F66E /* MHContactsViewController.h */,
 				2605C5D21F6632AA00B1F66E /* MHContactsViewController.m */,
@@ -2265,6 +2292,7 @@
 		26225D7C1F65506E0074BFC3 /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
+				41F874A72626CF1E00FCBBF0 /* ContactInfo */,
 				84CBFE2C245AA69D00054D07 /* ItemViewModel */,
 				2658C68F1F74FFC400C70840 /* AddFriends */,
 				2605C5D41F6633AC00B1F66E /* MHContactsViewModel.h */,
@@ -2601,6 +2629,7 @@
 		263C896D1F6A305100F7A0AE /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
+				41F874AB2627E6B800FCBBF0 /* ContactInfo */,
 				263004D01F751F7000247F3D /* AddFriends */,
 				DEA6F3D2245AF3E200542C6B /* MHContactsHeaderView.h */,
 				DEA6F3D3245AF3E200542C6B /* MHContactsHeaderView.m */,
@@ -3084,6 +3113,7 @@
 		2667A3EF1F7B987600A3D7A2 /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
+				41F874B726291A5500FCBBF0 /* Contact */,
 				8449E2AB2485069A00F81CE1 /* Moments */,
 				840C5D78248107F7002E88F0 /* Profile */,
 				840C5D4F2480F27B002E88F0 /* Discover */,
@@ -3397,6 +3427,50 @@
 				26FE8E7D1F9514D100EC8BE0 /* UIView+Layout.m */,
 			);
 			path = TZImagePickerController;
+			sourceTree = "<group>";
+		};
+		41F874A32626CA4100FCBBF0 /* ContactInfo */ = {
+			isa = PBXGroup;
+			children = (
+				41F874A42626CED100FCBBF0 /* MHContactInfoViewController.h */,
+				41F874A52626CED100FCBBF0 /* MHContactInfoViewController.m */,
+			);
+			path = ContactInfo;
+			sourceTree = "<group>";
+		};
+		41F874A72626CF1E00FCBBF0 /* ContactInfo */ = {
+			isa = PBXGroup;
+			children = (
+				41F874A82626CF5600FCBBF0 /* MHContactInfoViewModel.h */,
+				41F874A92626CF5600FCBBF0 /* MHContactInfoViewModel.m */,
+				41F874B12627EEB100FCBBF0 /* MHContactInfoHeaderViewModel.h */,
+				41F874B22627EEB100FCBBF0 /* MHContactInfoHeaderViewModel.m */,
+				41F874B42629192700FCBBF0 /* MHContactInfoContactItemViewModel.h */,
+				41F874B52629192700FCBBF0 /* MHContactInfoContactItemViewModel.m */,
+			);
+			path = ContactInfo;
+			sourceTree = "<group>";
+		};
+		41F874AB2627E6B800FCBBF0 /* ContactInfo */ = {
+			isa = PBXGroup;
+			children = (
+				41F874AC2627E71200FCBBF0 /* MHContactInfoHeaderCell.h */,
+				41F874AD2627E71200FCBBF0 /* MHContactInfoHeaderCell.m */,
+				41F874AE2627E71200FCBBF0 /* MHContactInfoHeaderCell.xib */,
+				41F874BC26291D3700FCBBF0 /* MHContactInfoContactCell.h */,
+				41F874BD26291D3700FCBBF0 /* MHContactInfoContactCell.m */,
+				41F874BE26291D3700FCBBF0 /* MHContactInfoContactCell.xib */,
+			);
+			path = ContactInfo;
+			sourceTree = "<group>";
+		};
+		41F874B726291A5500FCBBF0 /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				41F874B826291A9A00FCBBF0 /* icons_outlined_chats.svg */,
+				41F874B926291A9A00FCBBF0 /* icons_outlined_videocall.svg */,
+			);
+			path = Contact;
 			sourceTree = "<group>";
 		};
 		8400E2E324A84B3800125893 /* PulldownApplet */ = {
@@ -4560,6 +4634,7 @@
 				84E8D5A124B5712D002289CA /* ele_sunnyBird2.png in Resources */,
 				84E8D5A724B5712D002289CA /* ele_night_sky_top.png in Resources */,
 				26A7E7421F79FE550015CA71 /* MHBootLoginViewController.xib in Resources */,
+				41F874B02627E71200FCBBF0 /* MHContactInfoHeaderCell.xib in Resources */,
 				263004D51F751FB800247F3D /* MHSearchFriendsHeaderView.xib in Resources */,
 				84B0F64024777C310075D576 /* MHSearchDefaultNoResultCell.xib in Resources */,
 				842D242C246A2D60008E5A2C /* MHSearchOfficialAccountsDefaultCell.xib in Resources */,
@@ -4587,6 +4662,7 @@
 				84CBFE40245ACDF900054D07 /* MHContactsTableViewCell.xib in Resources */,
 				26D81813201F308A00DDB286 /* MHProfileInfoAlbumCell.xib in Resources */,
 				840C5D8424811093002E88F0 /* icons_outlined_colorful_cards_dark.svg in Resources */,
+				41F874BA26291A9A00FCBBF0 /* icons_outlined_chats.svg in Resources */,
 				266E15DA1F8F7E7E000E31C5 /* MHCommitViewController.xib in Resources */,
 				264F2D171F94A80F00B244AD /* MHPlugDetailViewController.xib in Resources */,
 				84CFE09A246D33E2004C8739 /* icons_outlined_delete.svg in Resources */,
@@ -4668,6 +4744,7 @@
 				84E8D5BB24B5712D002289CA /* ele_white_cloud_9.png in Resources */,
 				2618AFE01F91BDA300F82A46 /* MHModifyNicknameViewController.xib in Resources */,
 				84A5457624752CBF0020FEE7 /* MHSearchDefaultContactCell.xib in Resources */,
+				41F874C026291D3800FCBBF0 /* MHContactInfoContactCell.xib in Resources */,
 				8495D09224653FD3005B98B2 /* icons_filled_voiceinput_white.svg in Resources */,
 				DE442177244C547400206161 /* icons_outlined_add2.svg in Resources */,
 				84E8D5AC24B5712D002289CA /* ele_sunnyNightStar2.png in Resources */,
@@ -4690,6 +4767,7 @@
 				84E8D59924B5712D002289CA /* ele_sunnyBird4.png in Resources */,
 				8417666C24726C4200B2A704 /* icons_add_expression.svg in Resources */,
 				84E8D5C024B5712D002289CA /* ele_sunnyBirdInvertedImage8.png in Resources */,
+				41F874BB26291A9A00FCBBF0 /* icons_outlined_videocall.svg in Resources */,
 				2667A3EA1F7B7B0A00A3D7A2 /* MHMobileLoginView.xib in Resources */,
 				84012FFC24AC6F6200D60A89 /* MHPulldownAppletHeaderView.xib in Resources */,
 			);
@@ -5178,6 +5256,7 @@
 				2638C5AD20450DC300C334E2 /* UIImage+ImageEffects.m in Sources */,
 				263D370E1F666569007267C3 /* LCActionSheet.m in Sources */,
 				261753141F73710000812E1B /* MHUserInfoViewController.m in Sources */,
+				41F874B32627EEB100FCBBF0 /* MHContactInfoHeaderViewModel.m in Sources */,
 				84399F4C24D913270062087E /* MHVideoTrendsViewController.m in Sources */,
 				84A1BF24246E83D3008A807C /* MHSearchMusicDelHistoryItemViewModel.m in Sources */,
 				2615266B1F6AE17400400BA0 /* MHTabBar.m in Sources */,
@@ -5259,6 +5338,7 @@
 				2633E01D1FEA07E300D0E187 /* MHSegmentedControlViewModel.m in Sources */,
 				2633E0301FEA0A9800D0E187 /* MHMoreEmotionViewModel.m in Sources */,
 				263D37141F666569007267C3 /* YYGestureRecognizer.m in Sources */,
+				41F874A62626CED100FCBBF0 /* MHContactInfoViewController.m in Sources */,
 				26A7E7451F79FEB00015CA71 /* MHBootLoginViewModel.m in Sources */,
 				2615974D1FEA5DD300C6FD80 /* MHMomentHeaderView.m in Sources */,
 				849393232462A49300CC591B /* MHSearchViewModel.m in Sources */,
@@ -5341,6 +5421,7 @@
 				263D37131F666569007267C3 /* YYFileHash.m in Sources */,
 				263C897E1F6A324700F7A0AE /* MHCommonCell.m in Sources */,
 				26FE65651F92F90600642615 /* MHGenderViewModel.m in Sources */,
+				41F874B62629192700FCBBF0 /* MHContactInfoContactItemViewModel.m in Sources */,
 				2615974E1FEA5DD300C6FD80 /* MHMomentMessageTipsView.m in Sources */,
 				260175821FE904BE000F6A25 /* MHGeneralViewModel.m in Sources */,
 				263D36E11F666438007267C3 /* NSObject+MHAlert.m in Sources */,
@@ -5388,6 +5469,7 @@
 				263C89781F6A30E600F7A0AE /* MHCommonItemViewModel.m in Sources */,
 				26064AFC1F5DB52900566B95 /* MHNavigationControllerStack.m in Sources */,
 				2605E1061FE7924900F514B0 /* MHPrivacyViewController.m in Sources */,
+				41F874BF26291D3800FCBBF0 /* MHContactInfoContactCell.m in Sources */,
 				84CBFE38245AC7FD00054D07 /* MHView.m in Sources */,
 				2615975B1FEA5F5700C6FD80 /* MHControl.m in Sources */,
 				26363ACF201346E6000061EF /* MHEmoticonGroup.m in Sources */,
@@ -5439,6 +5521,7 @@
 				2633E02A1FEA097A00D0E187 /* MHMoreEmotionViewController.m in Sources */,
 				263D36DB1F666438007267C3 /* LCActionSheet+MHExtension.m in Sources */,
 				2605C5BE1F662EE400B1F66E /* MHMainFrameViewModel.m in Sources */,
+				41F874AF2627E71200FCBBF0 /* MHContactInfoHeaderCell.m in Sources */,
 				84C29D1F246534A600C0F729 /* MHSearchVoiceInputView.m in Sources */,
 				265B4EC61F8DEF54004AEE5F /* MHSettingViewController.m in Sources */,
 				DE6EF1D3246D85EF00FF1303 /* MHSearchCommonRelatedItemViewModel.m in Sources */,
@@ -5515,6 +5598,7 @@
 				2667A3F51F7B9FB100A3D7A2 /* MHMobileLoginViewController.m in Sources */,
 				84AD506124639BFD0053A79A /* MHSearchDefaultSearchTypeItemViewModel.m in Sources */,
 				263D36E71F666438007267C3 /* UIAlertController+MHColor.m in Sources */,
+				41F874AA2626CF5600FCBBF0 /* MHContactInfoViewModel.m in Sources */,
 				2624CAED1F98DFC80083923F /* MHHTTPRequest.m in Sources */,
 				84E8D58C24B5712D002289CA /* WHWeatherSunView.m in Sources */,
 				26C7BEEE1F8CCA2C00525126 /* MHHTTPService.m in Sources */,
@@ -5625,6 +5709,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"-Xclang",
+					"-fcompatibility-qualified-id-block-type-checking",
+				);
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -5674,6 +5762,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CFLAGS = (
+					"-Xclang",
+					"-fcompatibility-qualified-id-block-type-checking",
+				);
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

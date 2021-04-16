@@ -133,7 +133,7 @@
 
 ###### 🏳️‍🌈 通讯录模块
 
-| ![](https://github.com/CoderMikeHe/WeChat_Resource/blob/master/snapshots/contacts/ios_contacts_page_0.png) | ![](https://github.com/CoderMikeHe/WeChat_Resource/blob/master/snapshots/contacts/ios_contacts_page_1.png) | 虚位以待 | 虚位以待 |
+| ![](https://github.com/CoderMikeHe/WeChat_Resource/blob/master/snapshots/contacts/ios_contacts_page_0.png) | ![](https://github.com/CoderMikeHe/WeChat_Resource/blob/master/snapshots/contacts/ios_contacts_page_1.png) | ![](./WeChat/SnapShot/contactInfo.png) | 虚位以待 |
 | :--------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------: | :------: | :------: |
 
 
